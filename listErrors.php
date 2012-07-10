@@ -31,7 +31,7 @@ $known_errors= Array(
         Array("key" => "EMPTY_BODY", "dsc" => "Empty body declaration", "msg" => "if statement has empty body", "nb" => 0),
         Array("key" => "EXPECTED_SEMILON", "dsc" => "No support of nested C function", "msg" => "error: expected ';' at end of declaration", "nb" => 0),
         Array("key" => "CONFIGURE_FAILED", "dsc" => "Configure failed", "msg" => Array("compiler cannot create executables", "does not preserve whitespace with or without -traditional","fatal error: 'ac_nonexistent.h' file not found"), "nb" => 0),
-        Array("key" => "FILE_NOT_FOUND", "dsc" => "Some files could not be found", "msg" => "file not found", "nb" => 0),
+        Array("key" => "FILE_NOT_FOUND", "dsc" => "Some headers could not be found", "msg" => "file not found", "nb" => 0),
         Array("key" => "SYMBOL_ERROR", "dsc" => "Symbol errors", "msg" => Array("could not read symbols: Bad value","could not read symbols: Invalid operation"), "nb" => 0),
         Array("key" => "SEG_FAULT", "dsc" => "Segmentation fault", "msg" => "Segmentation fault", "nb" => 0),
         Array("key" => "OLD_GNU_FIELD_DESIGNATOR", "dsc" => "Use of old GNU field designator", "msg" => "use of GNU old-style field designator extension", "nb" => 0),
@@ -77,10 +77,13 @@ $known_errors= Array(
 
         Array("key" => "REF_MUST_BE_CALLED", "dsc" => "Reference to non-static member function must be called", "msg" => Array("reference to non-static member function must be called"), "nb" => 0),
         Array("key" => "EXPLICIT_SPECIALIZATION", "dsc" => "Explicit Specialization after instantiation", "msg" => Array("error: explicit specialization of"), "nb" => 0),
+        Array("key" => "ELAB_TYPE_REFER_TO_TYPEDEF", "dsc" => "Elaborated type refers to a typedef", "msg" => Array("elaborated type refers to a typedef"), "nb" => 0),
 
 
 
         Array("key" => "PARAMETER_WITHOUT_TYPE", "dsc" => "Parameter list without types not allowed", "msg" => Array("parameter list without types is only allowed in a function definition"), "nb" => 0),
+
+        Array("key" => "NO_SUCH_FILE", "dsc" => "Some files are gone in the process", "msg" => Array(": No such file or directory","no such file or directory"), "nb" => 0),
 
         Array("key" => "UNUSED_ARG", "dsc" => "Argument unused caused failure", "msg" => Array("argument unused during compilation: '--param ssp-buffer-size=4'","argument unused during compilation: "), "nb" => 0),
 
