@@ -1,0 +1,981 @@
+DC-Build-Header: asmon 0.71-4 / Fri Jan 13 04:25:32 +0100 2012
+sbuild (Debian sbuild) 0.62.2 (05 Apr 2011) on stremi-34.reims.grid5000.fr
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ asmon 0.71-4 (amd64)                                       13 Jan 2012 04:25 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: asmon
+Version: 0.71-4
+Source Version: 0.71-4
+Distribution: lsid64b
+Architecture: amd64
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost sid InRelease
+Get:1 http://localhost sid Release.gpg [836 B]
+Get:2 http://localhost sid Release [188 kB]
+Ign http://localhost sid/main Sources/DiffIndex
+Ign http://localhost sid/main amd64 Packages/DiffIndex
+Ign http://localhost sid/main TranslationIndex
+Get:3 http://localhost sid/main Sources [7544 kB]
+Get:4 http://localhost sid/main amd64 Packages [10.4 MB]
+Ign http://localhost sid/main Translation-en
+Fetched 18.2 MB in 21s (851 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages have been kept back:
+  clang cpp-4.6 g++-4.6 gcc-4.6 gcc-4.6-base libgcc1 libgomp1 libquadmath0
+  libstdc++6 libstdc++6-4.6-dev
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'asmon' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/git/users/eevans/asmon
+Need to get 53.0 kB of source archives.
+Get:1 http://localhost/debian/ sid/main asmon 0.71-4 (dsc) [1082 B]
+Get:2 http://localhost/debian/ sid/main asmon 0.71-4 (tar) [48.4 kB]
+Get:3 http://localhost/debian/ sid/main asmon 0.71-4 (diff) [3534 B]
+Fetched 53.0 kB in 0s (174 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/build/asmon-SOmhqD/resolver-HX7MLB/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 0 B/704 B of archives.
+After this operation, 0 B of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  sbuild-build-depends-core-dummy
+Authentication warning overridden.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Cannot open /var/lib/schroot/mount/lsid64b-b9778219-77eb-4b7e-be5c-f953d458f806/etc/lsb-release: No such file or directory
+Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, libxext-dev
+Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, libxext-dev
+dpkg-deb: building package `sbuild-build-depends-asmon-dummy' in `/build/asmon-SOmhqD/resolver-P7RMsU/apt_archive/sbuild-build-depends-asmon-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install asmon build dependencies (apt-based resolver)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libpipeline1
+  libpthread-stubs0 libpthread-stubs0-dev libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxml2 libxpm-dev libxpm4 man-db po-debconf
+  x11proto-core-dev x11proto-input-dev x11proto-kb-dev x11proto-xext-dev
+  xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff www-browser
+  libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info libx11-doc
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libpipeline1
+  libpthread-stubs0 libpthread-stubs0-dev libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxml2 libxpm-dev libxpm4 man-db po-debconf
+  sbuild-build-depends-asmon-dummy x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev
+0 upgraded, 39 newly installed, 0 to remove and 10 not upgraded.
+Need to get 13.1 MB/13.1 MB of archives.
+After this operation, 37.7 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libpipeline1 libpcre3 libglib2.0-0 libxml2 libcroco3 libunistring0 libxau6
+  libxdmcp6 libxcb1 libx11-data libx11-6 libxext6 libxpm4 bsdmainutils
+  groff-base man-db libmagic1 file gettext-base html2text gettext
+  intltool-debian po-debconf debhelper libpthread-stubs0 libpthread-stubs0-dev
+  xorg-sgml-doctools x11proto-core-dev libxau-dev libxdmcp-dev
+  x11proto-input-dev x11proto-kb-dev xtrans-dev libxcb1-dev libx11-dev
+  x11proto-xext-dev libxext-dev libxpm-dev sbuild-build-depends-asmon-dummy
+Authentication warning overridden.
+Get:1 http://localhost/debian/ sid/main libpipeline1 amd64 1.2.0-5 [38.2 kB]
+Get:2 http://localhost/debian/ sid/main libpcre3 amd64 8.12-4 [225 kB]
+Get:3 http://localhost/debian/ sid/main libglib2.0-0 amd64 2.30.2-4 [1844 kB]
+Get:4 http://localhost/debian/ sid/main libxml2 amd64 2.7.8.dfsg-5.1 [891 kB]
+Get:5 http://localhost/debian/ sid/main libcroco3 amd64 0.6.2-2 [122 kB]
+Get:6 http://localhost/debian/ sid/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:7 http://localhost/debian/ sid/main libxau6 amd64 1:1.0.6-4 [17.1 kB]
+Get:8 http://localhost/debian/ sid/main libxdmcp6 amd64 1:1.1.0-4 [22.9 kB]
+Get:9 http://localhost/debian/ sid/main libxcb1 amd64 1.7-4 [43.7 kB]
+Get:10 http://localhost/debian/ sid/main libx11-data all 2:1.4.4-4 [187 kB]
+Get:11 http://localhost/debian/ sid/main libx11-6 amd64 2:1.4.4-4 [889 kB]
+Get:12 http://localhost/debian/ sid/main libxext6 amd64 2:1.3.0-3 [52.3 kB]
+Get:13 http://localhost/debian/ sid/main libxpm4 amd64 1:3.5.9-4 [48.1 kB]
+Get:14 http://localhost/debian/ sid/main bsdmainutils amd64 8.2.3 [208 kB]
+Get:15 http://localhost/debian/ sid/main groff-base amd64 1.21-6 [1150 kB]
+Get:16 http://localhost/debian/ sid/main man-db amd64 2.6.0.2-3 [1015 kB]
+Get:17 http://localhost/debian/ sid/main libmagic1 amd64 5.09-2 [246 kB]
+Get:18 http://localhost/debian/ sid/main file amd64 5.09-2 [52.0 kB]
+Get:19 http://localhost/debian/ sid/main gettext-base amd64 0.18.1.1-5 [154 kB]
+Get:20 http://localhost/debian/ sid/main html2text amd64 1.3.2a-15 [103 kB]
+Get:21 http://localhost/debian/ sid/main gettext amd64 0.18.1.1-5 [2080 kB]
+Get:22 http://localhost/debian/ sid/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:23 http://localhost/debian/ sid/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:24 http://localhost/debian/ sid/main debhelper all 8.9.14 [693 kB]
+Get:25 http://localhost/debian/ sid/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:26 http://localhost/debian/ sid/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:27 http://localhost/debian/ sid/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:28 http://localhost/debian/ sid/main x11proto-core-dev all 7.0.22-1 [323 kB]
+Get:29 http://localhost/debian/ sid/main libxau-dev amd64 1:1.0.6-4 [20.6 kB]
+Get:30 http://localhost/debian/ sid/main libxdmcp-dev amd64 1:1.1.0-4 [39.3 kB]
+Get:31 http://localhost/debian/ sid/main x11proto-input-dev all 2.1-1 [145 kB]
+Get:32 http://localhost/debian/ sid/main x11proto-kb-dev all 1.0.5-2 [27.5 kB]
+Get:33 http://localhost/debian/ sid/main xtrans-dev all 1.2.6-2 [101 kB]
+Get:34 http://localhost/debian/ sid/main libxcb1-dev amd64 1.7-4 [82.7 kB]
+Get:35 http://localhost/debian/ sid/main libx11-dev amd64 2:1.4.4-4 [1027 kB]
+Get:36 http://localhost/debian/ sid/main x11proto-xext-dev all 7.2.0-3 [255 kB]
+Get:37 http://localhost/debian/ sid/main libxext-dev amd64 2:1.3.0-3 [167 kB]
+Get:38 http://localhost/debian/ sid/main libxpm-dev amd64 1:3.5.9-4 [107 kB]
+Extracting templates from packages: 76%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Fetched 13.1 MB in 0s (41.5 MB/s)
+Selecting previously unselected package libpipeline1.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package libpcre3.
+Unpacking libpcre3 (from .../libpcre3_8.12-4_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_amd64.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_amd64.deb) ...
+Selecting previously unselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-2_amd64.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libxau6.
+Unpacking libxau6 (from .../libxau6_1%3a1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libxdmcp6.
+Unpacking libxdmcp6 (from .../libxdmcp6_1%3a1.1.0-4_amd64.deb) ...
+Selecting previously unselected package libxcb1.
+Unpacking libxcb1 (from .../libxcb1_1.7-4_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.4.4-4_all.deb) ...
+Selecting previously unselected package libx11-6.
+Unpacking libx11-6 (from .../libx11-6_2%3a1.4.4-4_amd64.deb) ...
+Selecting previously unselected package libxext6.
+Unpacking libxext6 (from .../libxext6_2%3a1.3.0-3_amd64.deb) ...
+Selecting previously unselected package libxpm4.
+Unpacking libxpm4 (from .../libxpm4_1%3a3.5.9-4_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.0.2-3_amd64.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.09-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.09-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Selecting previously unselected package libpthread-stubs0.
+Unpacking libpthread-stubs0 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev.
+Unpacking libpthread-stubs0-dev (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.22-1_all.deb) ...
+Selecting previously unselected package libxau-dev.
+Unpacking libxau-dev (from .../libxau-dev_1%3a1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev.
+Unpacking libxdmcp-dev (from .../libxdmcp-dev_1%3a1.1.0-4_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.1-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.5-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.6-2_all.deb) ...
+Selecting previously unselected package libxcb1-dev.
+Unpacking libxcb1-dev (from .../libxcb1-dev_1.7-4_amd64.deb) ...
+Selecting previously unselected package libx11-dev.
+Unpacking libx11-dev (from .../libx11-dev_2%3a1.4.4-4_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.0-3_all.deb) ...
+Selecting previously unselected package libxext-dev.
+Unpacking libxext-dev (from .../libxext-dev_2%3a1.3.0-3_amd64.deb) ...
+Selecting previously unselected package libxpm-dev.
+Unpacking libxpm-dev (from .../libxpm-dev_1%3a3.5.9-4_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-asmon-dummy.
+Unpacking sbuild-build-depends-asmon-dummy (from .../sbuild-build-depends-asmon-dummy.deb) ...
+Processing triggers for install-info ...
+Setting up libpipeline1 (1.2.0-5) ...
+Setting up libpcre3 (8.12-4) ...
+Setting up libglib2.0-0 (2.30.2-4) ...
+No schema files found: doing nothing.
+Setting up libxml2 (2.7.8.dfsg-5.1) ...
+Setting up libcroco3 (0.6.2-2) ...
+Setting up libunistring0 (0.9.3-5) ...
+Setting up libxau6 (1:1.0.6-4) ...
+Setting up libxdmcp6 (1:1.1.0-4) ...
+Setting up libxcb1 (1.7-4) ...
+Setting up libx11-data (2:1.4.4-4) ...
+Setting up libx11-6 (2:1.4.4-4) ...
+Setting up libxext6 (2:1.3.0-3) ...
+Setting up libxpm4 (1:3.5.9-4) ...
+Setting up bsdmainutils (8.2.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
+Setting up groff-base (1.21-6) ...
+Setting up man-db (2.6.0.2-3) ...
+Building database of manual pages ...
+Setting up libmagic1 (5.09-2) ...
+Setting up file (5.09-2) ...
+Setting up gettext-base (0.18.1.1-5) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up gettext (0.18.1.1-5) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (8.9.14) ...
+Setting up libpthread-stubs0 (0.3-3) ...
+Setting up libpthread-stubs0-dev (0.3-3) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.22-1) ...
+Setting up libxau-dev (1:1.0.6-4) ...
+Setting up libxdmcp-dev (1:1.1.0-4) ...
+Setting up x11proto-input-dev (2.1-1) ...
+Setting up x11proto-kb-dev (1.0.5-2) ...
+Setting up xtrans-dev (1.2.6-2) ...
+Setting up libxcb1-dev (1.7-4) ...
+Setting up libx11-dev (2:1.4.4-4) ...
+Setting up x11proto-xext-dev (7.2.0-3) ...
+Setting up libxext-dev (2:1.3.0-3) ...
+Setting up libxpm-dev (1:3.5.9-4) ...
+Setting up sbuild-build-depends-asmon-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-4 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-9 gcc-4.6_4.6.2-9 libc6-dev_2.13-24 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 linux-libc-dev_3.1.8-2
+Package versions: apt_0.8.15.9 apt-utils_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-4 bsdmainutils_8.2.3 bsdutils_1:2.20.1-1.1 build-essential_11.5 bzip2_1.0.6-1 clang_3.0-5 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-9 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-9 gcc_4:4.6.2-4 gcc-4.6_4.6.2-9 gcc-4.6-base_4.6.2-9 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.09 html2text_1.3.2a-15 initscripts_2.88dsf-18 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 less_444-1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclang-common-dev_3.0-5 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-9 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgomp1_4.6.2-9 libllvm3.0_3.0-5 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.20.1-1.1 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libquadmath0_4.6.2-9 libreadline6_6.2-8 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libslang2_2.2.4-5 libss2_1.42-1 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libx11-6_2:1.4.4-4 libx11-data_2:1.4.4-4 libx11-dev_2:1.4.4-4 libxau-dev_1:1.0.6-4 libxau6_1:1.0.6-4 libxcb1_1.7-4 libxcb1-dev_1.7-4 libxdmcp-dev_1:1.1.0-4 libxdmcp6_1:1.1.0-4 libxext-dev_2:1.3.0-3 libxext6_2:1.3.0-3 libxml2_2.7.8.dfsg-5.1 libxpm-dev_1:3.5.9-4 libxpm4_1:3.5.9-4 linux-libc-dev_3.1.8-2 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4 nvi_1.81.6-8.2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 po-debconf_1.0.16+nmu2 readline-common_6.2-8 sbuild-build-depends-asmon-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-9 sensible-utils_0.0.6 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 x11proto-core-dev_7.0.22-1 x11proto-input-dev_2.1-1 x11proto-kb-dev_1.0.5-2 x11proto-xext-dev_7.2.0-3 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.6-2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/var/lib/sbuild/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Apr 13 02:28:19 2008 CEST using DSA key ID F2833C93
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./asmon_0.71-4.dsc
+dpkg-source: info: extracting asmon in asmon-0.71
+dpkg-source: info: unpacking asmon_0.71.orig.tar.gz
+dpkg-source: info: applying asmon_0.71-4.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ asmon-0.71/asmon/Makefile
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package asmon
+dpkg-buildpackage: source version 0.71-4
+ dpkg-source --before-build asmon-0.71
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+/usr/bin/make -C asmon clean
+make[1]: Entering directory `/build/asmon-SOmhqD/asmon-0.71/asmon'
+for i in asmon.o  ../wmgeneral/wmgeneral.o ../wmgeneral/misc.o ../wmgeneral/list.o ; do \
+		rm -f $i;\
+	done
+rm -f asmon
+make[1]: Leaving directory `/build/asmon-SOmhqD/asmon-0.71/asmon'
+dh_clean
+ dpkg-source -b asmon-0.71
+dpkg-source: warning: no source format specified in debian/source/format, see dpkg-source(1)
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building asmon using existing asmon_0.71.orig.tar.gz
+dpkg-source: info: building asmon in asmon_0.71-4.diff.gz
+dpkg-source: warning: ignoring deletion of file asmon/asmon
+dpkg-source: warning: ignoring deletion of file asmon/asmon.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/list.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/misc.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/wmgeneral.o
+dpkg-source: warning: the diff modifies the following upstream files: 
+ asmon/Makefile
+dpkg-source: info: use the '3.0 (quilt)' format to have separate and documented changes to upstream files, see dpkg-source(1)
+dpkg-source: info: building asmon in asmon_0.71-4.dsc
+ debian/rules build
+dh_testdir
+/usr/bin/make -C asmon
+make[1]: Entering directory `/build/asmon-SOmhqD/asmon-0.71/asmon'
+gcc -c -Wall  asmon.c -o asmon.o
+gcc -c -Wall  ../wmgeneral/wmgeneral.c -o ../wmgeneral/wmgeneral.o
+gcc -c -Wall  ../wmgeneral/misc.c -o ../wmgeneral/misc.o
+gcc -c -Wall  ../wmgeneral/list.c -o ../wmgeneral/list.o
+gcc -o asmon asmon.o  ../wmgeneral/wmgeneral.o ../wmgeneral/misc.o ../wmgeneral/list.o -L/usr/X11R6/lib -lXpm -lXext -lX11 
+../wmgeneral/misc.o: In function `parse_command':
+../wmgeneral/misc.c:(.text+0x25c): undefined reference to `list_cons'
+../wmgeneral/misc.c:(.text+0x295): undefined reference to `list_length'
+../wmgeneral/misc.c:(.text+0x2ea): undefined reference to `list_remove_head'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [asmon] Error 1
+make[1]: Leaving directory `/build/asmon-SOmhqD/asmon-0.71/asmon'
+make: *** [build] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20120113-0426
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/lsid64b-b9778219-77eb-4b7e-be5c-f953d458f806/build/asmon-SOmhqD
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 212
+Build-Time: 1
+Distribution: lsid64b
+Fail-Stage: build
+Install-Time: 8
+Job: asmon_0.71-4
+Package: asmon
+Package-Time: 39
+Source-Version: 0.71-4
+Space: 212
+Status: attempted
+Version: 0.71-4
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20120113-0426
+Build needed 00:00:39, 212k disc space
+DC-Message: Failed, but took only 40.998262. Retrying, you never know.
+Requested exclusive mode, but other builds running.
+sbuild (Debian sbuild) 0.62.2 (05 Apr 2011) on stremi-34.reims.grid5000.fr
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ asmon 0.71-4 (amd64)                                       13 Jan 2012 04:26 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: asmon
+Version: 0.71-4
+Source Version: 0.71-4
+Distribution: lsid64b
+Architecture: amd64
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost sid InRelease
+Get:1 http://localhost sid Release.gpg [836 B]
+Get:2 http://localhost sid Release [188 kB]
+Ign http://localhost sid/main Sources/DiffIndex
+Ign http://localhost sid/main amd64 Packages/DiffIndex
+Ign http://localhost sid/main TranslationIndex
+Get:3 http://localhost sid/main Sources [7544 kB]
+Get:4 http://localhost sid/main amd64 Packages [10.4 MB]
+Ign http://localhost sid/main Translation-en
+Fetched 18.2 MB in 5s (3151 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages have been kept back:
+  clang cpp-4.6 g++-4.6 gcc-4.6 gcc-4.6-base libgcc1 libgomp1 libquadmath0
+  libstdc++6 libstdc++6-4.6-dev
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'asmon' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/git/users/eevans/asmon
+Need to get 53.0 kB of source archives.
+Get:1 http://localhost/debian/ sid/main asmon 0.71-4 (dsc) [1082 B]
+Get:2 http://localhost/debian/ sid/main asmon 0.71-4 (tar) [48.4 kB]
+Get:3 http://localhost/debian/ sid/main asmon 0.71-4 (diff) [3534 B]
+Fetched 53.0 kB in 0s (4658 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/build/asmon-Q3dqrm/resolver-4UmRym/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 0 B/704 B of archives.
+After this operation, 0 B of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  sbuild-build-depends-core-dummy
+Authentication warning overridden.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Cannot open /var/lib/schroot/mount/lsid64b-549a8926-cbac-4903-b4dc-1d1e1754fb67/etc/lsb-release: No such file or directory
+Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, libxext-dev
+Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, libxext-dev
+dpkg-deb: building package `sbuild-build-depends-asmon-dummy' in `/build/asmon-Q3dqrm/resolver-1V4EeH/apt_archive/sbuild-build-depends-asmon-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install asmon build dependencies (apt-based resolver)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libpipeline1
+  libpthread-stubs0 libpthread-stubs0-dev libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxml2 libxpm-dev libxpm4 man-db po-debconf
+  x11proto-core-dev x11proto-input-dev x11proto-kb-dev x11proto-xext-dev
+  xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff www-browser
+  libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info libx11-doc
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libcroco3 libglib2.0-0 libmagic1 libpcre3 libpipeline1
+  libpthread-stubs0 libpthread-stubs0-dev libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxml2 libxpm-dev libxpm4 man-db po-debconf
+  sbuild-build-depends-asmon-dummy x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev
+0 upgraded, 39 newly installed, 0 to remove and 10 not upgraded.
+Need to get 13.1 MB/13.1 MB of archives.
+After this operation, 37.7 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libpipeline1 libpcre3 libglib2.0-0 libxml2 libcroco3 libunistring0 libxau6
+  libxdmcp6 libxcb1 libx11-data libx11-6 libxext6 libxpm4 bsdmainutils
+  groff-base man-db libmagic1 file gettext-base html2text gettext
+  intltool-debian po-debconf debhelper libpthread-stubs0 libpthread-stubs0-dev
+  xorg-sgml-doctools x11proto-core-dev libxau-dev libxdmcp-dev
+  x11proto-input-dev x11proto-kb-dev xtrans-dev libxcb1-dev libx11-dev
+  x11proto-xext-dev libxext-dev libxpm-dev sbuild-build-depends-asmon-dummy
+Authentication warning overridden.
+Get:1 http://localhost/debian/ sid/main libpipeline1 amd64 1.2.0-5 [38.2 kB]
+Get:2 http://localhost/debian/ sid/main libpcre3 amd64 8.12-4 [225 kB]
+Get:3 http://localhost/debian/ sid/main libglib2.0-0 amd64 2.30.2-4 [1844 kB]
+Get:4 http://localhost/debian/ sid/main libxml2 amd64 2.7.8.dfsg-5.1 [891 kB]
+Get:5 http://localhost/debian/ sid/main libcroco3 amd64 0.6.2-2 [122 kB]
+Get:6 http://localhost/debian/ sid/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:7 http://localhost/debian/ sid/main libxau6 amd64 1:1.0.6-4 [17.1 kB]
+Get:8 http://localhost/debian/ sid/main libxdmcp6 amd64 1:1.1.0-4 [22.9 kB]
+Get:9 http://localhost/debian/ sid/main libxcb1 amd64 1.7-4 [43.7 kB]
+Get:10 http://localhost/debian/ sid/main libx11-data all 2:1.4.4-4 [187 kB]
+Get:11 http://localhost/debian/ sid/main libx11-6 amd64 2:1.4.4-4 [889 kB]
+Get:12 http://localhost/debian/ sid/main libxext6 amd64 2:1.3.0-3 [52.3 kB]
+Get:13 http://localhost/debian/ sid/main libxpm4 amd64 1:3.5.9-4 [48.1 kB]
+Get:14 http://localhost/debian/ sid/main bsdmainutils amd64 8.2.3 [208 kB]
+Get:15 http://localhost/debian/ sid/main groff-base amd64 1.21-6 [1150 kB]
+Get:16 http://localhost/debian/ sid/main man-db amd64 2.6.0.2-3 [1015 kB]
+Get:17 http://localhost/debian/ sid/main libmagic1 amd64 5.09-2 [246 kB]
+Get:18 http://localhost/debian/ sid/main file amd64 5.09-2 [52.0 kB]
+Get:19 http://localhost/debian/ sid/main gettext-base amd64 0.18.1.1-5 [154 kB]
+Get:20 http://localhost/debian/ sid/main html2text amd64 1.3.2a-15 [103 kB]
+Get:21 http://localhost/debian/ sid/main gettext amd64 0.18.1.1-5 [2080 kB]
+Get:22 http://localhost/debian/ sid/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:23 http://localhost/debian/ sid/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:24 http://localhost/debian/ sid/main debhelper all 8.9.14 [693 kB]
+Get:25 http://localhost/debian/ sid/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:26 http://localhost/debian/ sid/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:27 http://localhost/debian/ sid/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:28 http://localhost/debian/ sid/main x11proto-core-dev all 7.0.22-1 [323 kB]
+Get:29 http://localhost/debian/ sid/main libxau-dev amd64 1:1.0.6-4 [20.6 kB]
+Get:30 http://localhost/debian/ sid/main libxdmcp-dev amd64 1:1.1.0-4 [39.3 kB]
+Get:31 http://localhost/debian/ sid/main x11proto-input-dev all 2.1-1 [145 kB]
+Get:32 http://localhost/debian/ sid/main x11proto-kb-dev all 1.0.5-2 [27.5 kB]
+Get:33 http://localhost/debian/ sid/main xtrans-dev all 1.2.6-2 [101 kB]
+Get:34 http://localhost/debian/ sid/main libxcb1-dev amd64 1.7-4 [82.7 kB]
+Get:35 http://localhost/debian/ sid/main libx11-dev amd64 2:1.4.4-4 [1027 kB]
+Get:36 http://localhost/debian/ sid/main x11proto-xext-dev all 7.2.0-3 [255 kB]
+Get:37 http://localhost/debian/ sid/main libxext-dev amd64 2:1.3.0-3 [167 kB]
+Get:38 http://localhost/debian/ sid/main libxpm-dev amd64 1:3.5.9-4 [107 kB]
+Extracting templates from packages: 76%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Fetched 13.1 MB in 0s (41.8 MB/s)
+Selecting previously unselected package libpipeline1.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package libpcre3.
+Unpacking libpcre3 (from .../libpcre3_8.12-4_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_amd64.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_amd64.deb) ...
+Selecting previously unselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-2_amd64.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libxau6.
+Unpacking libxau6 (from .../libxau6_1%3a1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libxdmcp6.
+Unpacking libxdmcp6 (from .../libxdmcp6_1%3a1.1.0-4_amd64.deb) ...
+Selecting previously unselected package libxcb1.
+Unpacking libxcb1 (from .../libxcb1_1.7-4_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.4.4-4_all.deb) ...
+Selecting previously unselected package libx11-6.
+Unpacking libx11-6 (from .../libx11-6_2%3a1.4.4-4_amd64.deb) ...
+Selecting previously unselected package libxext6.
+Unpacking libxext6 (from .../libxext6_2%3a1.3.0-3_amd64.deb) ...
+Selecting previously unselected package libxpm4.
+Unpacking libxpm4 (from .../libxpm4_1%3a3.5.9-4_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.0.2-3_amd64.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.09-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.09-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Selecting previously unselected package libpthread-stubs0.
+Unpacking libpthread-stubs0 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev.
+Unpacking libpthread-stubs0-dev (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.22-1_all.deb) ...
+Selecting previously unselected package libxau-dev.
+Unpacking libxau-dev (from .../libxau-dev_1%3a1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev.
+Unpacking libxdmcp-dev (from .../libxdmcp-dev_1%3a1.1.0-4_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.1-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.5-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.6-2_all.deb) ...
+Selecting previously unselected package libxcb1-dev.
+Unpacking libxcb1-dev (from .../libxcb1-dev_1.7-4_amd64.deb) ...
+Selecting previously unselected package libx11-dev.
+Unpacking libx11-dev (from .../libx11-dev_2%3a1.4.4-4_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.0-3_all.deb) ...
+Selecting previously unselected package libxext-dev.
+Unpacking libxext-dev (from .../libxext-dev_2%3a1.3.0-3_amd64.deb) ...
+Selecting previously unselected package libxpm-dev.
+Unpacking libxpm-dev (from .../libxpm-dev_1%3a3.5.9-4_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-asmon-dummy.
+Unpacking sbuild-build-depends-asmon-dummy (from .../sbuild-build-depends-asmon-dummy.deb) ...
+Processing triggers for install-info ...
+Setting up libpipeline1 (1.2.0-5) ...
+Setting up libpcre3 (8.12-4) ...
+Setting up libglib2.0-0 (2.30.2-4) ...
+No schema files found: doing nothing.
+Setting up libxml2 (2.7.8.dfsg-5.1) ...
+Setting up libcroco3 (0.6.2-2) ...
+Setting up libunistring0 (0.9.3-5) ...
+Setting up libxau6 (1:1.0.6-4) ...
+Setting up libxdmcp6 (1:1.1.0-4) ...
+Setting up libxcb1 (1.7-4) ...
+Setting up libx11-data (2:1.4.4-4) ...
+Setting up libx11-6 (2:1.4.4-4) ...
+Setting up libxext6 (2:1.3.0-3) ...
+Setting up libxpm4 (1:3.5.9-4) ...
+Setting up bsdmainutils (8.2.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
+Setting up groff-base (1.21-6) ...
+Setting up man-db (2.6.0.2-3) ...
+Building database of manual pages ...
+Setting up libmagic1 (5.09-2) ...
+Setting up file (5.09-2) ...
+Setting up gettext-base (0.18.1.1-5) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up gettext (0.18.1.1-5) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (8.9.14) ...
+Setting up libpthread-stubs0 (0.3-3) ...
+Setting up libpthread-stubs0-dev (0.3-3) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.22-1) ...
+Setting up libxau-dev (1:1.0.6-4) ...
+Setting up libxdmcp-dev (1:1.1.0-4) ...
+Setting up x11proto-input-dev (2.1-1) ...
+Setting up x11proto-kb-dev (1.0.5-2) ...
+Setting up xtrans-dev (1.2.6-2) ...
+Setting up libxcb1-dev (1.7-4) ...
+Setting up libx11-dev (2:1.4.4-4) ...
+Setting up x11proto-xext-dev (7.2.0-3) ...
+Setting up libxext-dev (2:1.3.0-3) ...
+Setting up libxpm-dev (1:3.5.9-4) ...
+Setting up sbuild-build-depends-asmon-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-4 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-9 gcc-4.6_4.6.2-9 libc6-dev_2.13-24 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 linux-libc-dev_3.1.8-2
+Package versions: apt_0.8.15.9 apt-utils_0.8.15.9 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-4 bsdmainutils_8.2.3 bsdutils_1:2.20.1-1.1 build-essential_11.5 bzip2_1.0.6-1 clang_3.0-5 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-9 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffutils_1:3.2-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-9 gcc_4:4.6.2-4 gcc-4.6_4.6.2-9 gcc-4.6-base_4.6.2-9 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.09 html2text_1.3.2a-15 initscripts_2.88dsf-18 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 less_444-1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclang-common-dev_3.0-5 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-9 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgomp1_4.6.2-9 libllvm3.0_3.0-5 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.20.1-1.1 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncursesw5_5.9-4 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libquadmath0_4.6.2-9 libreadline6_6.2-8 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libslang2_2.2.4-5 libss2_1.42-1 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 libswitch-perl_2.16-2 libtimedate-perl_1.2000-1 libtinfo5_5.9-4 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libx11-6_2:1.4.4-4 libx11-data_2:1.4.4-4 libx11-dev_2:1.4.4-4 libxau-dev_1:1.0.6-4 libxau6_1:1.0.6-4 libxcb1_1.7-4 libxcb1-dev_1.7-4 libxdmcp-dev_1:1.1.0-4 libxdmcp6_1:1.1.0-4 libxext-dev_2:1.3.0-3 libxext6_2:1.3.0-3 libxml2_2.7.8.dfsg-5.1 libxpm-dev_1:3.5.9-4 libxpm4_1:3.5.9-4 linux-libc-dev_3.1.8-2 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4 nvi_1.81.6-8.2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 po-debconf_1.0.16+nmu2 readline-common_6.2-8 sbuild-build-depends-asmon-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-9 sensible-utils_0.0.6 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 x11proto-core-dev_7.0.22-1 x11proto-input-dev_2.1-1 x11proto-kb-dev_1.0.5-2 x11proto-xext-dev_7.2.0-3 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.6-2 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/var/lib/sbuild/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Apr 13 02:28:19 2008 CEST using DSA key ID F2833C93
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./asmon_0.71-4.dsc
+dpkg-source: info: extracting asmon in asmon-0.71
+dpkg-source: info: unpacking asmon_0.71.orig.tar.gz
+dpkg-source: info: applying asmon_0.71-4.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ asmon-0.71/asmon/Makefile
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package asmon
+dpkg-buildpackage: source version 0.71-4
+ dpkg-source --before-build asmon-0.71
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+/usr/bin/make -C asmon clean
+make[1]: Entering directory `/build/asmon-Q3dqrm/asmon-0.71/asmon'
+for i in asmon.o  ../wmgeneral/wmgeneral.o ../wmgeneral/misc.o ../wmgeneral/list.o ; do \
+		rm -f $i;\
+	done
+rm -f asmon
+make[1]: Leaving directory `/build/asmon-Q3dqrm/asmon-0.71/asmon'
+dh_clean
+ dpkg-source -b asmon-0.71
+dpkg-source: warning: no source format specified in debian/source/format, see dpkg-source(1)
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building asmon using existing asmon_0.71.orig.tar.gz
+dpkg-source: info: building asmon in asmon_0.71-4.diff.gz
+dpkg-source: warning: ignoring deletion of file asmon/asmon
+dpkg-source: warning: ignoring deletion of file asmon/asmon.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/list.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/misc.o
+dpkg-source: warning: ignoring deletion of file wmgeneral/wmgeneral.o
+dpkg-source: warning: the diff modifies the following upstream files: 
+ asmon/Makefile
+dpkg-source: info: use the '3.0 (quilt)' format to have separate and documented changes to upstream files, see dpkg-source(1)
+dpkg-source: info: building asmon in asmon_0.71-4.dsc
+ debian/rules build
+dh_testdir
+/usr/bin/make -C asmon
+make[1]: Entering directory `/build/asmon-Q3dqrm/asmon-0.71/asmon'
+gcc -c -Wall  asmon.c -o asmon.o
+gcc -c -Wall  ../wmgeneral/wmgeneral.c -o ../wmgeneral/wmgeneral.o
+gcc -c -Wall  ../wmgeneral/misc.c -o ../wmgeneral/misc.o
+gcc -c -Wall  ../wmgeneral/list.c -o ../wmgeneral/list.o
+gcc -o asmon asmon.o  ../wmgeneral/wmgeneral.o ../wmgeneral/misc.o ../wmgeneral/list.o -L/usr/X11R6/lib -lXpm -lXext -lX11 
+../wmgeneral/misc.o: In function `parse_command':
+../wmgeneral/misc.c:(.text+0x25c): undefined reference to `list_cons'
+../wmgeneral/misc.c:(.text+0x295): undefined reference to `list_length'
+../wmgeneral/misc.c:(.text+0x2ea): undefined reference to `list_remove_head'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [asmon] Error 1
+make[1]: Leaving directory `/build/asmon-Q3dqrm/asmon-0.71/asmon'
+make: *** [build] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20120113-0427
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/lsid64b-549a8926-cbac-4903-b4dc-1d1e1754fb67/build/asmon-Q3dqrm
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 212
+Build-Time: 2
+Distribution: lsid64b
+Fail-Stage: build
+Install-Time: 7
+Job: asmon_0.71-4
+Package: asmon
+Package-Time: 23
+Source-Version: 0.71-4
+Space: 212
+Status: attempted
+Version: 0.71-4
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20120113-0427
+Build needed 00:00:23, 212k disc space
+DC-Build-Status: Failed 95.443958s
+### Content of /var/log/daemon.log ###
+Jan 12 21:03:09 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:02 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:19 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:30 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:41 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:52 stremi-34 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 12 21:05:00 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:05:26 stremi-34 approx: Concurrent download of debian/dists/sid/main/binary-amd64/Packages.xz is taking too long
+Jan 12 21:05:27 stremi-34 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 12 21:05:54 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en.bz2 is taking too long
+Jan 12 21:06:28 stremi-34 approx: Concurrent download of debian/dists/sid/main/source/Sources.xz is taking too long
+Jan 13 03:28:59 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en.gz is taking too long
+Jan 13 03:43:51 stremi-34 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 13 03:43:59 stremi-34 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 13 03:54:04 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en is taking too long
+Jan 13 04:06:00 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en is taking too long
+Jan 13 04:08:08 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en.bz2 is taking too long
+Jan 13 04:11:03 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Index is taking too long
+Jan 13 04:11:44 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en.bz2 is taking too long
+Jan 13 04:23:53 stremi-34 approx: Concurrent download of debian/dists/sid/main/i18n/Translation-en.gz is taking too long
+### End of content of /var/log/daemon.log ###
+DC-Time-Estimation: 95.443958 versus expected 15 (r/m: 5.36293053333333 ; m: 15.0)
+DC-Build-Network: USED. See /tmp/rulesafter.Tg2omr !
+************************************************************
+# Generated by iptables-save v1.4.8 on Fri Jan 13 04:27:08 2012
+*filter
+:INPUT ACCEPT [7838189:63453761333]
+:FORWARD ACCEPT [0:0]
+:OUTPUT DROP [0:0]
+:LD - [0:0]
+[4630333:58761282076] -A OUTPUT -o lo -j ACCEPT 
+[0:0] -A OUTPUT -d 129.88.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 10.0.0.0/8 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.133.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.159.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.160.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 10.69.0.0/17 -j ACCEPT 
+[0:0] -A OUTPUT -d 172.28.52.0/22 -j ACCEPT 
+[0:0] -A OUTPUT -d 172.24.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 131.254.202.0/23 -j ACCEPT 
+[0:0] -A OUTPUT -d 138.96.20.0/22 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.22.0/24 -j ACCEPT 
+[671350:206235804] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.67.0/24 -j ACCEPT 
+[52968:7027716] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
+[63:3768] -A OUTPUT -j LD 
+[63:3768] -A LD -j LOG 
+[63:3768] -A LD -j REJECT --reject-with icmp-port-unreachable 
+COMMIT
+# Completed on Fri Jan 13 04:27:08 2012
+************************************************************
+--- /tmp/rulesbefore.r0COzJ	2012-01-13 04:25:32.929478982 +0100
++++ /tmp/rulesafter.Tg2omr	2012-01-13 04:27:08.382318568 +0100
+@@ -1,10 +1,10 @@
+-# Generated by iptables-save v1.4.8 on Fri Jan 13 04:25:32 2012
++# Generated by iptables-save v1.4.8 on Fri Jan 13 04:27:08 2012
+ *filter
+-:INPUT ACCEPT [7803451:63160342829]
++:INPUT ACCEPT [7838189:63453761333]
+ :FORWARD ACCEPT [0:0]
+ :OUTPUT DROP [0:0]
+ :LD - [0:0]
+-[4608257:58470283277] -A OUTPUT -o lo -j ACCEPT 
++[4630333:58761282076] -A OUTPUT -o lo -j ACCEPT 
+ [0:0] -A OUTPUT -d 129.88.0.0/16 -j ACCEPT 
+ [0:0] -A OUTPUT -d 10.0.0.0/8 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.133.0/24 -j ACCEPT 
+@@ -16,11 +16,11 @@
+ [0:0] -A OUTPUT -d 131.254.202.0/23 -j ACCEPT 
+ [0:0] -A OUTPUT -d 138.96.20.0/22 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.22.0/24 -j ACCEPT 
+-[668611:205460167] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
++[671350:206235804] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.67.0/24 -j ACCEPT 
+-[52783:7003656] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
++[52968:7027716] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
+ [63:3768] -A OUTPUT -j LD 
+ [63:3768] -A LD -j LOG 
+ [63:3768] -A LD -j REJECT --reject-with icmp-port-unreachable 
+ COMMIT
+-# Completed on Fri Jan 13 04:25:32 2012
++# Completed on Fri Jan 13 04:27:08 2012
+************************************************************
+[17413.245535] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.64 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=15587 DF PROTO=TCP SPT=44968 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17413.262479] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.65 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=25650 DF PROTO=TCP SPT=44087 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17416.277617] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.65 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=25651 DF PROTO=TCP SPT=44087 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17416.294556] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.66 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=9469 DF PROTO=TCP SPT=51405 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17419.309781] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.66 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=9470 DF PROTO=TCP SPT=51405 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17419.333643] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.67 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=18420 DF PROTO=TCP SPT=41777 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17422.349609] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.67 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=18421 DF PROTO=TCP SPT=41777 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17422.366545] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.68 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=13755 DF PROTO=TCP SPT=44268 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17425.381699] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.68 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=13756 DF PROTO=TCP SPT=44268 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17425.398669] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.69 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=18378 DF PROTO=TCP SPT=54782 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17428.413534] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.69 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=18379 DF PROTO=TCP SPT=54782 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17428.430493] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.70 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=15762 DF PROTO=TCP SPT=50198 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17431.445620] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.70 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=15763 DF PROTO=TCP SPT=50198 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17431.462589] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.71 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=36384 DF PROTO=TCP SPT=42103 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17434.477530] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.71 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=36385 DF PROTO=TCP SPT=42103 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17434.494462] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.72 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=39658 DF PROTO=TCP SPT=43844 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17437.509703] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.72 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=39659 DF PROTO=TCP SPT=43844 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17437.526683] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.73 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=64986 DF PROTO=TCP SPT=55429 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17440.541525] IN= OUT=eth0 SRC=172.16.160.34 DST=74.125.230.73 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=64987 DF PROTO=TCP SPT=55429 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[17444.670622] bug-overflow[14639]: segfault at 800960 ip 0000000000400558 sp 00007fff5ad4ded0 error 6 in bug-overflow[400000+1000]
+[17444.719438] bug-div0[14677] trap divide error ip:4005af sp:7fff4d37c260 error:0 in bug-div0[400000+1000]
+[18450.044343] blender[30521]: segfault at ffff ip 00002b2be5ffa038 sp 00007fff0ecad130 error 4 in libc-2.13.so[2b2be5fb6000+17a000]
+[18581.622488] IN= OUT=eth0 SRC=172.16.160.34 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=5627 DF PROTO=TCP SPT=56301 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[18584.640110] IN= OUT=eth0 SRC=172.16.160.34 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=5628 DF PROTO=TCP SPT=56301 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[22217.399903] IN= OUT=eth0 SRC=172.16.160.34 DST=217.196.43.134 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=59180 DF PROTO=TCP SPT=53404 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[22220.420030] IN= OUT=eth0 SRC=172.16.160.34 DST=217.196.43.134 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=59181 DF PROTO=TCP SPT=53404 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[24212.700658] IN= OUT=eth0 SRC=172.16.160.34 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=30000 DF PROTO=TCP SPT=38445 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[24215.716273] IN= OUT=eth0 SRC=172.16.160.34 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=30001 DF PROTO=TCP SPT=38445 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[25003.756926] IN= OUT=eth0 SRC=172.16.160.34 DST=255.255.255.255 LEN=43 TOS=0x00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=33706 DPT=3289 LEN=23 
+[25004.774405] IN= OUT=eth0 SRC=172.16.160.34 DST=255.255.255.255 LEN=65 TOS=0x00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=45970 DPT=1124 LEN=45 
+[26096.849221] perl[9067]: segfault at 9f8 ip 00002b492d3c755c sp 00007fffda6b0720 error 4 in libperl.so.5.14.2[2b492d36e000+176000]
+[26096.953600] perl[9099]: segfault at 9f8 ip 00002adcb277155c sp 00007fffb928b3b0 error 4 in libperl.so.5.14.2[2adcb2718000+176000]
+[26097.029540] perl[9117]: segfault at 9f8 ip 00002ae7546f355c sp 00007fff3b308b50 error 4 in libperl.so.5.14.2[2ae75469a000+176000]
+[26097.087433] perl[9152]: segfault at 9f8 ip 00002b8dff5b755c sp 00007ffffd6c86a0 error 4 in libperl.so.5.14.2[2b8dff55e000+176000]
+[26097.314589] perl[9351]: segfault at 9f8 ip 00002b35bc05b55c sp 00007fff3fc85800 error 4 in libperl.so.5.14.2[2b35bc002000+176000]
+[26097.373230] perl[9392]: segfault at 9f8 ip 00002ad60242a55c sp 00007fffb708dc70 error 4 in libperl.so.5.14.2[2ad6023d1000+176000]
+[26097.479625] perl[9464]: segfault at 9f8 ip 00002b0f3423e55c sp 00007fffe18cabd0 error 4 in libperl.so.5.14.2[2b0f341e5000+176000]
+[26097.558862] perl[9499]: segfault at 9f8 ip 00002b1fc06da55c sp 00007fff4a9c9410 error 4 in libperl.so.5.14.2[2b1fc0681000+176000]
+[26097.649941] perl[9547]: segfault at 9f8 ip 00002b6c46a5d55c sp 00007fff592ff6f0 error 4 in libperl.so.5.14.2[2b6c46a04000+176000]
+[26155.013880] __ratelimit: 17 callbacks suppressed
+[26155.019118] perl[23960]: segfault at 9f8 ip 00002b2a8364355c sp 00007fff7562e960 error 4 in libperl.so.5.14.2[2b2a835ea000+176000]
+[26155.118460] perl[23962]: segfault at 9f8 ip 00002afff19bf55c sp 00007ffff4452f30 error 4 in libperl.so.5.14.2[2afff1966000+176000]
+[26155.191223] perl[23963]: segfault at 9f8 ip 00002abfa763c55c sp 00007fff8c2c4370 error 4 in libperl.so.5.14.2[2abfa75e3000+176000]
+[26155.245899] perl[23964]: segfault at 9f8 ip 00002ba60660b55c sp 00007fffe2861e20 error 4 in libperl.so.5.14.2[2ba6065b2000+176000]
+[26155.460842] perl[23969]: segfault at 9f8 ip 00002b8d5c98055c sp 00007fff804d4a10 error 4 in libperl.so.5.14.2[2b8d5c927000+176000]
+[26155.516168] perl[23970]: segfault at 9f8 ip 00002af7dbb5655c sp 00007fff21eabc50 error 4 in libperl.so.5.14.2[2af7dbafd000+176000]
+[26155.615886] perl[23972]: segfault at 9f8 ip 00002baa8692855c sp 00007fff8319c820 error 4 in libperl.so.5.14.2[2baa868cf000+176000]
+[26155.689922] perl[23973]: segfault at 9f8 ip 00002b7524a2b55c sp 00007fffee3d1270 error 4 in libperl.so.5.14.2[2b75249d2000+176000]
+[26155.775252] perl[23975]: segfault at 9f8 ip 00002b3db56fc55c sp 00007fff362382b0 error 4 in libperl.so.5.14.2[2b3db56a3000+176000]
+[26155.850043] perl[23976]: segfault at 9f8 ip 00002b18214bb55c sp 00007fff53aad310 error 4 in libperl.so.5.14.2[2b1821462000+176000]
+************************************************************

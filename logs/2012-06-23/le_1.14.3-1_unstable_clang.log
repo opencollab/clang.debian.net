@@ -1,0 +1,734 @@
+DC-Build-Header: le 1.14.3-1 / Mon Jul 02 18:43:12 +0000 2012
+DC-Task: logfile:/tmp/le_1.14.3-1_unstable_clang.log version:1.14.3-1 modes:clang chroot:unstable source:le esttime: architecture:any
+DC-Sbuild-call: su user -c 'sbuild -n -A -s --force-orig-source --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang le_1.14.3-1'
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-29-171-7.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ le 1.14.3-1 (amd64)                                        02 Jul 2012 18:43 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: le
+Version: 1.14.3-1
+Source Version: 1.14.3-1
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/le-JzryfK/le-1.14.3' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/le-JzryfK' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-e7ee3e74-c09c-4d03-88ae-0c33db4cd147' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost unstable/main Sources/DiffIndex
+Hit http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 574 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main le 1.14.3-1 (dsc) [1014 B]
+Get:2 http://localhost/debian/ unstable/main le 1.14.3-1 (tar) [566 kB]
+Get:3 http://localhost/debian/ unstable/main le 1.14.3-1 (diff) [7073 B]
+Fetched 574 kB in 0s (2312 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ apt-get update
+Ign http://localhost unstable InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost unstable/main Sources/DiffIndex
+Hit http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost unstable/main Sources/DiffIndex
+Hit http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t unstable
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libclang-common-dev libffi5 libllvm3.1
+Recommended packages:
+  llvm-3.1-dev python
+The following NEW packages will be installed:
+  clang libclang-common-dev libffi5 libllvm3.1
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 13.1 MB of archives.
+After this operation, 35.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:2 http://localhost/debian/ unstable/main libllvm3.1 amd64 3.1-2 [7275 kB]
+Get:3 http://localhost/debian/ unstable/main libclang-common-dev amd64 3.1-8 [84.3 kB]
+Get:4 http://localhost/debian/ unstable/main clang amd64 3.1-8 [5755 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 13.1 MB in 0s (30.2 MB/s)
+Selecting previously unselected package libffi5:amd64.
+(Reading database ... 11725 files and directories currently installed.)
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Selecting previously unselected package libllvm3.1:amd64.
+Unpacking libllvm3.1:amd64 (from .../libllvm3.1_3.1-2_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.1-8_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../archives/clang_3.1-8_amd64.deb) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libllvm3.1:amd64 (3.1-2) ...
+Setting up libclang-common-dev (3.1-8) ...
+Setting up clang (3.1-8) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSION=4.7
++ cd /usr/bin
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ dpkg --set-selections
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ grep clang
++ gcc --version
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-9gdAG1/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/708 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 11805 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 6.0.0), autotools-dev, libncursesw5-dev, quilt, cdbs
+Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 6.0.0), autotools-dev, libncursesw5-dev, quilt, cdbs
+dpkg-deb: building package `sbuild-build-depends-le-dummy' in `/«BUILDDIR»/resolver-OK6jmk/apt_archive/sbuild-build-depends-le-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install le build dependencies (apt-based resolver)                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autotools-dev bsdmainutils cdbs debhelper diffstat file gettext gettext-base
+  groff-base html2text intltool-debian libasprintf0c2 libcroco3 libgettextpo0
+  libglib2.0-0 libmagic1 libncursesw5 libncursesw5-dev libpcre3 libpipeline1
+  libtinfo-dev libunistring0 libxml2 man-db po-debconf quilt
+Suggested packages:
+  wamerican wordlist whois vacation devscripts dh-make gettext-doc groff
+  ncurses-doc less www-browser libmail-box-perl procmail graphviz default-mta
+  mail-transport-agent
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info libgpm2
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autotools-dev bsdmainutils cdbs debhelper diffstat file gettext gettext-base
+  groff-base html2text intltool-debian libasprintf0c2 libcroco3 libgettextpo0
+  libglib2.0-0 libmagic1 libncursesw5 libncursesw5-dev libpcre3 libpipeline1
+  libtinfo-dev libunistring0 libxml2 man-db po-debconf quilt
+  sbuild-build-depends-le-dummy
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 10.9 MB/10.9 MB of archives.
+After this operation, 28.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.1-1 [39.2 kB]
+Get:3 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-9 [26.8 kB]
+Get:4 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:5 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.30-5 [242 kB]
+Get:6 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-4 [903 kB]
+Get:7 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.32.3-1 [2081 kB]
+Get:8 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.5-1 [151 kB]
+Get:9 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:10 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-9 [145 kB]
+Get:11 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.3 [209 kB]
+Get:12 http://localhost/debian/ unstable/main groff-base amd64 1.21-9 [1153 kB]
+Get:13 http://localhost/debian/ unstable/main man-db amd64 2.6.2-1 [1061 kB]
+Get:14 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:15 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-9 [154 kB]
+Get:16 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:17 http://localhost/debian/ unstable/main cdbs all 0.4.115 [80.2 kB]
+Get:18 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:19 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-9 [1975 kB]
+Get:20 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:21 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:22 http://localhost/debian/ unstable/main debhelper all 9.20120608 [700 kB]
+Get:23 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:24 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:25 http://localhost/debian/ unstable/main libncursesw5-dev amd64 5.9-10 [257 kB]
+Get:26 http://localhost/debian/ unstable/main quilt all 0.60-2 [377 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 10.9 MB in 0s (13.2 MB/s)
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 11805 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpipeline1:amd64.
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.1-1_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-9_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.30-5_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-4_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.32.3-1_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.5-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-9_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.3_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-9_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.2-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-9_amd64.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.115_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-9_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120608_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncursesw5-dev.
+Unpacking libncursesw5-dev (from .../libncursesw5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-2_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-le-dummy.
+Unpacking sbuild-build-depends-le-dummy (from .../sbuild-build-depends-le-dummy.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
+Setting up libpipeline1:amd64 (1.2.1-1) ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-9) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.30-5) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-4) ...
+Setting up libglib2.0-0:amd64 (2.32.3-1) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.5-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-9) ...
+Setting up bsdmainutils (9.0.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up groff-base (1.21-9) ...
+Setting up man-db (2.6.2-1) ...
+Building database of manual pages ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-9) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up cdbs (0.4.115) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up gettext (0.18.1.1-9) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120608) ...
+Setting up diffstat (1.55-3) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncursesw5-dev (5.9-10) ...
+Setting up quilt (0.60-2) ...
+Setting up sbuild-build-depends-le-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-6.1 dpkg-dev_1.16.6 g++-4.6_4.6.3-8 g++-4.7_4.7.1-2 gcc-4.6_4.6.3-8 gcc-4.7_4.7.1-2 libc6-dev_2.13-34 libstdc++6_4.7.1-2 libstdc++6-4.6-dev_4.6.3-8 libstdc++6-4.7-dev_4.7.1-2 linux-libc-dev_3.2.21-3
+Package versions: apt_0.9.7.1 autotools-dev_20120608.1 base-files_6.11 base-passwd_3.5.26 bash_4.2-3 binutils_2.22-6.1 bsdmainutils_9.0.3 bsdutils_1:2.20.1-5.1 build-essential_11.5 bzip2_1.0.6-3 cdbs_0.4.115 clang_3.1-8 coreutils_8.13-3.2 cpp_4:4.7.1-1 cpp-4.6_4.6.3-8 cpp-4.7_4.7.1-2 dash_0.5.7-3 debconf_1.5.44 debconf-i18n_1.5.44 debfoster_2.7-1.1 debhelper_9.20120608 debian-archive-keyring_2012.4 debianutils_4.3.2 diffstat_1.55-3 diffutils_1:3.2-6 dpkg_1.16.6 dpkg-dev_1.16.6 e2fslibs_1.42.4-3 e2fsprogs_1.42.4-3 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-4 g++_4:4.7.1-1 g++-4.6_4.6.3-8 g++-4.7_4.7.1-2 gcc_4:4.7.1-1 gcc-4.4-base_4.4.7-1 gcc-4.5-base_4.5.3-12 gcc-4.6_4.6.3-8 gcc-4.6-base_4.6.3-8 gcc-4.7_4.7.1-2 gcc-4.7-base_4.7.1-2 gettext_0.18.1.1-9 gettext-base_0.18.1.1-9 gnupg_1.4.12-4+b1 gpgv_1.4.12-4+b1 grep_2.12-2 groff-base_1.21-9 gzip_1.5-1.1 hostname_3.11 html2text_1.3.2a-15 initscripts_2.88dsf-28 insserv_1.14.0-3 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.1 libasprintf0c2_0.18.1.1-9 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.1 libbz2-1.0_1.0.6-3 libc-bin_2.13-34 libc-dev-bin_2.13-34 libc6_2.13-34 libc6-dev_2.13-34 libclang-common-dev_3.1-8 libclass-isa-perl_0.36-3 libcomerr2_1.42.4-3 libcroco3_0.6.5-1 libdb5.1_5.1.29-5 libdpkg-perl_1.16.6 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-8 libgcc1_1:4.7.1-2 libgdbm3_1.8.3-11 libgettextpo0_0.18.1.1-9 libglib2.0-0_2.32.3-1 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.1-2 libitm1_4.7.1-2 libllvm3.1_3.1-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-1 libmagic1_5.11-2 libmount1_2.20.1-5.1 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libncursesw5-dev_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.30-5 libpipeline1_1.2.1-1 libquadmath0_4.7.1-2 libreadline6_6.2-8 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libss2_1.42.4-3 libstdc++6_4.7.1-2 libstdc++6-4.6-dev_4.6.3-8 libstdc++6-4.7-dev_4.7.1-2 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.1 libxml2_2.8.0+dfsg1-4 linux-libc-dev_3.2.21-3 login_1:4.1.5.1-1 lsb-base_4.1+Debian7 make_3.81-8.2 man-db_2.6.2-1 mawk_1.3.3-17 mount_2.20.1-5.1 multiarch-support_2.13-34 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-12 perl-base_5.14.2-12 perl-modules_5.14.2-12 po-debconf_1.0.16+nmu2 quilt_0.60-2 readline-common_6.2-8 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-le-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sysv-rc_2.88dsf-28 sysvinit_2.88dsf-28 sysvinit-utils_2.88dsf-28 tar_1.26-4 tzdata_2012c-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.1 xz-utils_5.1.1alpha+20120614-1 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Dec 29 03:28:58 2009 UTC using DSA key ID 46D9CE5A
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./le_1.14.3-1.dsc
+dpkg-source: info: extracting le in le-1.14.3
+dpkg-source: info: unpacking le_1.14.3.orig.tar.gz
+dpkg-source: info: applying le_1.14.3-1.diff.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=root
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=0
+SCHROOT_GROUP=root
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-e7ee3e74-c09c-4d03-88ae-0c33db4cd147
+SCHROOT_UID=0
+SCHROOT_USER=root
+SHELL=/bin/sh
+USER=root
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: warning: using a gain-root-command while being root
+dpkg-buildpackage: source package le
+dpkg-buildpackage: source version 1.14.3-1
+dpkg-buildpackage: source changed by Raphael Geissert <geissert@debian.org>
+ dpkg-source --before-build le-1.14.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C .  -k distclean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make[1]: *** No rule to make target `distclean'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: [makefile-clean] Error 2 (ignored)
+rm -f debian/stamp-autotools
+rmdir --ignore-fail-on-non-empty .
+rmdir: failed to remove `.': Invalid argument
+make: [makefile-clean] Error 1 (ignored)
+for i in ./build-aux/config.guess ./build-aux/config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+rm -f debian/stamp-autotools-files
+dh_clean 
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+for i in ./build-aux/config.guess ./build-aux/config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+if [ -d "." ]; then \
+	  cd . && QUILT_PATCHES=/«PKGBUILDDIR»/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	fi
+No patch removed
+rm -rf ./.pc
+rm -f debian/stamp-patch*
+ dpkg-source -b le-1.14.3
+dpkg-source: warning: no source format specified in debian/source/format, see dpkg-source(1)
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building le using existing le_1.14.3.orig.tar.gz
+dpkg-source: info: building le in le_1.14.3-1.diff.gz
+dpkg-source: info: building le in le_1.14.3-1.dsc
+ debian/rules build
+test -x debian/rules
+mkdir -p "."
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+for i in ./build-aux/config.guess ./build-aux/config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+cd . && QUILT_PATCHES=/«PKGBUILDDIR»/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch debian-changelog-dist-allow-dash.patch
+patching file misc/syntax
+
+Applying patch fix-html-in-php-syntax-delimiter.patch
+patching file misc/syntax
+
+Applying patch extend-sql-syntax.patch
+patching file misc/syntax.d/sql
+
+Now at patch extend-sql-syntax.patch
+touch debian/stamp-patched
+/usr/bin/make -f debian/rules update-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+if test -e /usr/share/misc/config.guess ; then \
+		for i in ./build-aux/config.guess ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.guess $i ; \
+			fi ; \
+		done ; \
+	fi
+if test -e /usr/share/misc/config.sub ; then \
+		for i in ./build-aux/config.sub ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.sub $i ; \
+			fi ; \
+		done ; \
+	fi
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+if test -e /usr/share/misc/config.guess ; then \
+		for i in ./build-aux/config.guess ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.guess $i ; \
+			fi ; \
+		done ; \
+	fi
+if test -e /usr/share/misc/config.sub ; then \
+		for i in ./build-aux/config.sub ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.sub $i ; \
+			fi ; \
+		done ; \
+	fi
+touch debian/stamp-autotools-files
+chmod a+x /«PKGBUILDDIR»/./configure
+mkdir -p .
+cd . &&   CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CXXFLAGS="" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro" /«PKGBUILDDIR»/./configure --build=x86_64-linux-gnu  --prefix=/usr --includedir="\${prefix}/include" --mandir="\${prefix}/share/man" --infodir="\${prefix}/share/info" --sysconfdir=/etc --localstatedir=/var --libexecdir="\${prefix}/lib/le" --srcdir=. --disable-maintainer-mode --disable-dependency-tracking --disable-silent-rules    
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... none
+checking for ranlib... ranlib
+checking whether gcc and cc understand -c and -o together... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... none
+checking if c++ compiler can handle dynamic initializers... yes
+checking whether ln -s works... yes
+checking for ranlib... (cached) ranlib
+checking how to link simple c++ programs... using gcc
+checking if gcc supports -fno-exceptions -fno-rtti... yes
+checking if -fno-implement-inlines implements virtual functions... no
+checking for working alloca.h... yes
+checking for alloca... yes
+checking whether the preprocessor supports include_next... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/filio.h usability... no
+checking sys/filio.h presence... no
+checking for sys/filio.h... no
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdint.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for complete errno.h... yes
+checking for mbstate_t... yes
+checking for btowc... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for mempcpy... yes
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for isascii... yes
+checking for mprotect... yes
+checking for iswcntrl... yes
+checking for wcwidth... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether optreset is declared... no
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... yes
+checking whether getenv is declared... yes
+checking for nl_langinfo and CODESET... yes
+checking for working fcntl.h... yes
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking for a traditional japanese locale... none
+checking for a transitional chinese locale... none
+checking for a french Unicode locale... none
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking for memchr... yes
+checking whether memchr works... yes
+checking for inline... inline
+checking whether <sys/socket.h> is self-contained... yes
+checking for shutdown... yes
+checking whether <sys/socket.h> defines the SHUT_* macros... yes
+checking for struct sockaddr_storage... yes
+checking for sa_family_t... yes
+checking whether <sys/select.h> is self-contained... yes
+checking for library containing setsockopt... none needed
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for wchar_t... yes
+checking for long long int... yes
+checking for unsigned long long int... yes
+checking for working strerror function... yes
+checking for C/C++ restrict keyword... __restrict
+checking for struct timeval... yes
+checking for wint_t... yes
+checking for alloca as a compiler built-in... yes
+checking for working POSIX fnmatch... yes
+checking whether mbrtowc handles incomplete characters... guessing yes
+checking whether mbrtowc works as well as mbtowc... guessing yes
+checking whether mbrtowc handles a NULL string argument... guessing yes
+checking whether mbrtowc has a correct return value... guessing yes
+checking whether mbrtowc returns 0 when parsing a NUL character... guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbsrtowcs works... guessing yes
+checking whether mbswidth is declared in <wchar.h>... no
+checking for mbstate_t... (cached) yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking for poll... yes
+checking whether select supports a 0 argument... yes
+checking for library containing setsockopt... (cached) none needed
+checking whether NULL can be used in arbitrary expressions... yes
+checking whether stdint.h conforms to C99... yes
+checking whether <sys/select.h> is self-contained... (cached) yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking whether <sys/socket.h> is self-contained... (cached) yes
+checking for shutdown... (cached) yes
+checking whether <sys/socket.h> defines the SHUT_* macros... (cached) yes
+checking for struct sockaddr_storage... (cached) yes
+checking for sa_family_t... (cached) yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking whether <wchar.h> is standalone... yes
+checking whether iswcntrl works... yes
+checking whether wcwidth is declared... yes
+checking whether wcwidth works reasonably in UTF-8 locales... yes
+checking for exp in -lm... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/ioctl.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking sys/poll.h usability... yes
+checking sys/poll.h presence... yes
+checking for sys/poll.h... yes
+checking for sys/mman.h... (cached) yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking for wchar.h... (cached) yes
+checking for wctype.h... (cached) yes
+checking sys/syslimits.h usability... no
+checking sys/syslimits.h presence... no
+checking for sys/syslimits.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for Curses... Ncurses, libraries , headers /usr/include/ncursesw
+configure: error: cannot make curses work
+make: *** [debian/stamp-autotools] Error 1
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+checking whether mytinfo is required... ────────────────────────────────────────────────────────────────────────────────
+Build finished at 20120702-1844
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 3388
+Build-Time: 21
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 8
+Job: le_1.14.3-1
+Package: le
+Package-Time: 49
+Source-Version: 1.14.3-1
+Space: 3388
+Status: attempted
+Version: 1.14.3-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20120702-1844
+Build needed 00:00:49, 3388k disc space
+DC-Status: Failed 50.027771s
+DC-Time-Estimation: 50.027771 versus expected 1 (r/m: 49.027771 ; m: 1.0)

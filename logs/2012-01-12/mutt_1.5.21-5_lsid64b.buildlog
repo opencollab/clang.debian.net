@@ -1,0 +1,2978 @@
+DC-Build-Header: mutt 1.5.21-5 / Thu Jan 12 23:41:36 +0100 2012
+sbuild (Debian sbuild) 0.62.2 (05 Apr 2011) on stremi-12.reims.grid5000.fr
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ mutt 1.5.21-5 (amd64)                                      12 Jan 2012 23:41 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: mutt
+Version: 1.5.21-5
+Source Version: 1.5.21-5
+Distribution: lsid64b
+Architecture: amd64
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost sid InRelease
+Get:1 http://localhost sid Release.gpg [836 B]
+Get:2 http://localhost sid Release [188 kB]
+Ign http://localhost sid/main Sources/DiffIndex
+Ign http://localhost sid/main amd64 Packages/DiffIndex
+Ign http://localhost sid/main TranslationIndex
+Get:3 http://localhost sid/main Sources [7544 kB]
+Get:4 http://localhost sid/main amd64 Packages [10.4 MB]
+Ign http://localhost sid/main Translation-en
+Fetched 18.2 MB in 3s (5412 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages have been kept back:
+  clang cpp-4.6 g++-4.6 gcc-4.6 gcc-4.6-base libgcc1 libgomp1 libquadmath0
+  libstdc++6 libstdc++6-4.6-dev
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'mutt' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/git/pkg-mutt/mutt.git
+Need to get 3883 kB of source archives.
+Get:1 http://localhost/debian/ sid/main mutt 1.5.21-5 (dsc) [1404 B]
+Get:2 http://localhost/debian/ sid/main mutt 1.5.21-5 (tar) [3717 kB]
+Get:3 http://localhost/debian/ sid/main mutt 1.5.21-5 (diff) [165 kB]
+Fetched 3883 kB in 0s (20.5 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/build/mutt-iY5TUh/resolver-z2laNx/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 0 B/702 B of archives.
+After this operation, 0 B of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  sbuild-build-depends-core-dummy
+Authentication warning overridden.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Cannot open /var/lib/schroot/mount/lsid64b-5a9bd33a-9d07-473a-ad61-123f15125dce/etc/lsb-release: No such file or directory
+Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake, debhelper (>> 7), docbook-xml, docbook-xsl, w3m, gawk, gettext, libgnutls-dev, libgpgme11-dev, libidn11-dev, libkrb5-dev, libncurses5-dev, libncursesw5-dev, libsasl2-dev, pkg-config, quilt, xsltproc, zlib1g-dev, libtokyocabinet-dev
+Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake, debhelper (>> 7), docbook-xml, docbook-xsl, w3m, gawk, gettext, libgnutls-dev, libgpgme11-dev, libidn11-dev, libkrb5-dev, libncurses5-dev, libncursesw5-dev, libsasl2-dev, pkg-config, quilt, xsltproc, zlib1g-dev, libtokyocabinet-dev
+dpkg-deb: building package `sbuild-build-depends-mutt-dummy' in `/build/mutt-iY5TUh/resolver-HKuFZo/apt_archive/sbuild-build-depends-mutt-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install mutt build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autoconf automake autotools-dev bsdmainutils comerr-dev debhelper diffstat
+  docbook-xml docbook-xsl file gawk gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libbsd0 libcroco3 libgcrypt11 libgcrypt11-dev
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgpgme11 libgpgme11-dev libgpm2
+  libgssapi-krb5-2 libgssrpc4 libidn11 libidn11-dev libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libmagic1 libncurses5-dev libncursesw5-dev
+  libp11-kit-dev libp11-kit0 libpcre3 libpipeline1 libpopt0 libpth-dev
+  libpth20 libsasl2-2 libsasl2-dev libsasl2-modules libsigsegv2 libssl1.0.0
+  libtasn1-3 libtasn1-3-dev libtinfo-dev libtokyocabinet-dev libtokyocabinet8
+  libunistring0 libxml2 libxslt1.1 m4 man-db pkg-config po-debconf quilt
+  sgml-base sgml-data w3m xml-core xsltproc zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool wamerican
+  wordlist whois vacation doc-base dh-make docbook docbook-dsssl
+  docbook-defguide docbook-xsl-doc-html docbook-xsl-doc-pdf
+  docbook-xsl-doc-text docbook-xsl-doc libsaxon-java libxalan2-java
+  libxslthl-java docbook-xsl-saxon fop xalan dbtoepub gettext-doc groff
+  krb5-doc rng-tools libgcrypt11-doc gnutls-doc gpgsm gnupg2 gpm krb5-user
+  ncurses-doc libsasl2-modules-otp libsasl2-modules-ldap libsasl2-modules-sql
+  libsasl2-modules-gssapi-mit libsasl2-modules-gssapi-heimdal www-browser
+  libmail-box-perl procmail graphviz default-mta mail-transport-agent
+  sgml-base-doc perlsgml doc-html-w3 opensp libxml2-utils w3m-img mime-support
+  menu w3m-el migemo
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info krb5-locales
+  libmail-sendmail-perl ca-certificates
+The following NEW packages will be installed:
+  autoconf automake autotools-dev bsdmainutils comerr-dev debhelper diffstat
+  docbook-xml docbook-xsl file gawk gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libbsd0 libcroco3 libgcrypt11 libgcrypt11-dev
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgpgme11 libgpgme11-dev libgpm2
+  libgssapi-krb5-2 libgssrpc4 libidn11 libidn11-dev libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libmagic1 libncurses5-dev libncursesw5-dev
+  libp11-kit-dev libp11-kit0 libpcre3 libpipeline1 libpopt0 libpth-dev
+  libpth20 libsasl2-2 libsasl2-dev libsasl2-modules libsigsegv2 libssl1.0.0
+  libtasn1-3 libtasn1-3-dev libtinfo-dev libtokyocabinet-dev libtokyocabinet8
+  libunistring0 libxml2 libxslt1.1 m4 man-db pkg-config po-debconf quilt
+  sbuild-build-depends-mutt-dummy sgml-base sgml-data w3m xml-core xsltproc
+  zlib1g-dev
+0 upgraded, 78 newly installed, 0 to remove and 10 not upgraded.
+Need to get 26.6 MB/26.6 MB of archives.
+After this operation, 79.4 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libpipeline1 libpopt0 libssl1.0.0 libgpg-error0 libgcrypt11 libp11-kit0
+  libtasn1-3 libgnutls26 libgnutls-openssl27 libgpm2 libkeyutils1
+  libkrb5support0 libk5crypto3 libkrb5-3 libgssapi-krb5-2 libgssrpc4 libidn11
+  libkadm5clnt-mit8 libkdb5-6 libkadm5srv-mit8 libpcre3 libsasl2-2 sgml-base
+  xml-core sgml-data docbook-xml libsigsegv2 gawk libglib2.0-0 libxml2
+  libcroco3 libunistring0 libgnutlsxx27 bsdmainutils groff-base man-db
+  libmagic1 file gettext-base libtokyocabinet8 m4 libbsd0 w3m autoconf
+  autotools-dev automake html2text gettext intltool-debian po-debconf
+  debhelper diffstat docbook-xsl comerr-dev krb5-multidev libgpg-error-dev
+  libgcrypt11-dev zlib1g-dev libtasn1-3-dev libp11-kit-dev libgnutls-dev
+  libpth20 libgpgme11 libpth-dev libgpgme11-dev pkg-config libidn11-dev
+  libtinfo-dev libncurses5-dev libncursesw5-dev libsasl2-modules libsasl2-dev
+  libxslt1.1 quilt xsltproc libkrb5-dev libtokyocabinet-dev
+  sbuild-build-depends-mutt-dummy
+Authentication warning overridden.
+Get:1 http://localhost/debian/ sid/main libpipeline1 amd64 1.2.0-5 [38.2 kB]
+Get:2 http://localhost/debian/ sid/main libpopt0 amd64 1.16-3 [55.2 kB]
+Get:3 http://localhost/debian/ sid/main libssl1.0.0 amd64 1.0.0e-3 [1143 kB]
+Get:4 http://localhost/debian/ sid/main libgpg-error0 amd64 1.10-2 [66.8 kB]
+Get:5 http://localhost/debian/ sid/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:6 http://localhost/debian/ sid/main libp11-kit0 amd64 0.10-1 [51.4 kB]
+Get:7 http://localhost/debian/ sid/main libtasn1-3 amd64 2.11-1 [65.9 kB]
+Get:8 http://localhost/debian/ sid/main libgnutls26 amd64 2.12.16-1 [614 kB]
+Get:9 http://localhost/debian/ sid/main libgnutls-openssl27 amd64 2.12.16-1 [219 kB]
+Get:10 http://localhost/debian/ sid/main libgpm2 amd64 1.20.4-4 [35.6 kB]
+Get:11 http://localhost/debian/ sid/main libkeyutils1 amd64 1.5.2-2 [8860 B]
+Get:12 http://localhost/debian/ sid/main libkrb5support0 amd64 1.10+dfsg~alpha2-1 [48.5 kB]
+Get:13 http://localhost/debian/ sid/main libk5crypto3 amd64 1.10+dfsg~alpha2-1 [108 kB]
+Get:14 http://localhost/debian/ sid/main libkrb5-3 amd64 1.10+dfsg~alpha2-1 [388 kB]
+Get:15 http://localhost/debian/ sid/main libgssapi-krb5-2 amd64 1.10+dfsg~alpha2-1 [147 kB]
+Get:16 http://localhost/debian/ sid/main libgssrpc4 amd64 1.10+dfsg~alpha2-1 [86.6 kB]
+Get:17 http://localhost/debian/ sid/main libidn11 amd64 1.23-2 [170 kB]
+Get:18 http://localhost/debian/ sid/main libkadm5clnt-mit8 amd64 1.10+dfsg~alpha2-1 [66.5 kB]
+Get:19 http://localhost/debian/ sid/main libkdb5-6 amd64 1.10+dfsg~alpha2-1 [65.3 kB]
+Get:20 http://localhost/debian/ sid/main libkadm5srv-mit8 amd64 1.10+dfsg~alpha2-1 [83.3 kB]
+Get:21 http://localhost/debian/ sid/main libpcre3 amd64 8.12-4 [225 kB]
+Get:22 http://localhost/debian/ sid/main libsasl2-2 amd64 2.1.25.dfsg1-2 [120 kB]
+Get:23 http://localhost/debian/ sid/main sgml-base all 1.26+nmu1 [11.9 kB]
+Get:24 http://localhost/debian/ sid/main xml-core all 0.13 [23.4 kB]
+Get:25 http://localhost/debian/ sid/main sgml-data all 2.0.6 [284 kB]
+Get:26 http://localhost/debian/ sid/main docbook-xml all 4.5-7 [345 kB]
+Get:27 http://localhost/debian/ sid/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:28 http://localhost/debian/ sid/main gawk amd64 1:3.1.8+dfsg-0.1 [735 kB]
+Get:29 http://localhost/debian/ sid/main libglib2.0-0 amd64 2.30.2-4 [1844 kB]
+Get:30 http://localhost/debian/ sid/main libxml2 amd64 2.7.8.dfsg-5.1 [891 kB]
+Get:31 http://localhost/debian/ sid/main libcroco3 amd64 0.6.2-2 [122 kB]
+Get:32 http://localhost/debian/ sid/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:33 http://localhost/debian/ sid/main libgnutlsxx27 amd64 2.12.16-1 [221 kB]
+Get:34 http://localhost/debian/ sid/main bsdmainutils amd64 8.2.3 [208 kB]
+Get:35 http://localhost/debian/ sid/main groff-base amd64 1.21-6 [1150 kB]
+Get:36 http://localhost/debian/ sid/main man-db amd64 2.6.0.2-3 [1015 kB]
+Get:37 http://localhost/debian/ sid/main libmagic1 amd64 5.09-2 [246 kB]
+Get:38 http://localhost/debian/ sid/main file amd64 5.09-2 [52.0 kB]
+Get:39 http://localhost/debian/ sid/main gettext-base amd64 0.18.1.1-5 [154 kB]
+Get:40 http://localhost/debian/ sid/main libtokyocabinet8 amd64 1.4.37-6.1 [287 kB]
+Get:41 http://localhost/debian/ sid/main m4 amd64 1.4.16-2 [259 kB]
+Get:42 http://localhost/debian/ sid/main libbsd0 amd64 0.3.0-1 [52.2 kB]
+Get:43 http://localhost/debian/ sid/main w3m amd64 0.5.3-5 [1220 kB]
+Get:44 http://localhost/debian/ sid/main autoconf all 2.68-1 [804 kB]
+Get:45 http://localhost/debian/ sid/main autotools-dev all 20110511.1 [73.8 kB]
+Get:46 http://localhost/debian/ sid/main automake all 1:1.11.1-1 [611 kB]
+Get:47 http://localhost/debian/ sid/main html2text amd64 1.3.2a-15 [103 kB]
+Get:48 http://localhost/debian/ sid/main gettext amd64 0.18.1.1-5 [2080 kB]
+Get:49 http://localhost/debian/ sid/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:50 http://localhost/debian/ sid/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:51 http://localhost/debian/ sid/main debhelper all 8.9.14 [693 kB]
+Get:52 http://localhost/debian/ sid/main diffstat amd64 1.55-2 [29.9 kB]
+Get:53 http://localhost/debian/ sid/main docbook-xsl all 1.76.1+dfsg-1 [1643 kB]
+Get:54 http://localhost/debian/ sid/main comerr-dev amd64 2.1-1.42-1 [42.7 kB]
+Get:55 http://localhost/debian/ sid/main krb5-multidev amd64 1.10+dfsg~alpha2-1 [153 kB]
+Get:56 http://localhost/debian/ sid/main libgpg-error-dev amd64 1.10-2 [43.0 kB]
+Get:57 http://localhost/debian/ sid/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:58 http://localhost/debian/ sid/main zlib1g-dev amd64 1:1.2.3.4.dfsg-3 [192 kB]
+Get:59 http://localhost/debian/ sid/main libtasn1-3-dev amd64 2.11-1 [387 kB]
+Get:60 http://localhost/debian/ sid/main libp11-kit-dev amd64 0.10-1 [65.0 kB]
+Get:61 http://localhost/debian/ sid/main libgnutls-dev amd64 2.12.16-1 [742 kB]
+Get:62 http://localhost/debian/ sid/main libpth20 amd64 2.0.7-16 [83.3 kB]
+Get:63 http://localhost/debian/ sid/main libgpgme11 amd64 1.2.0-1.4 [349 kB]
+Get:64 http://localhost/debian/ sid/main libpth-dev amd64 2.0.7-16 [143 kB]
+Get:65 http://localhost/debian/ sid/main libgpgme11-dev amd64 1.2.0-1.4 [588 kB]
+Get:66 http://localhost/debian/ sid/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:67 http://localhost/debian/ sid/main libidn11-dev amd64 1.23-2 [735 kB]
+Get:68 http://localhost/debian/ sid/main libtinfo-dev amd64 5.9-4 [103 kB]
+Get:69 http://localhost/debian/ sid/main libncurses5-dev amd64 5.9-4 [406 kB]
+Get:70 http://localhost/debian/ sid/main libncursesw5-dev amd64 5.9-4 [438 kB]
+Get:71 http://localhost/debian/ sid/main libsasl2-modules amd64 2.1.25.dfsg1-2 [114 kB]
+Get:72 http://localhost/debian/ sid/main libsasl2-dev amd64 2.1.25.dfsg1-2 [360 kB]
+Get:73 http://localhost/debian/ sid/main libxslt1.1 amd64 1.1.26-8 [250 kB]
+Get:74 http://localhost/debian/ sid/main quilt all 0.50-2 [381 kB]
+Get:75 http://localhost/debian/ sid/main xsltproc amd64 1.1.26-8 [115 kB]
+Get:76 http://localhost/debian/ sid/main libkrb5-dev amd64 1.10+dfsg~alpha2-1 [39.0 kB]
+Get:77 http://localhost/debian/ sid/main libtokyocabinet-dev amd64 1.4.37-6.1 [437 kB]
+Extracting templates from packages: 38%Extracting templates from packages: 76%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Fetched 26.6 MB in 0s (40.4 MB/s)
+Selecting previously unselected package libpipeline1.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package libpopt0.
+Unpacking libpopt0 (from .../libpopt0_1.16-3_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0.
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0e-3_amd64.deb) ...
+Selecting previously unselected package libgpg-error0.
+Unpacking libgpg-error0 (from .../libgpg-error0_1.10-2_amd64.deb) ...
+Selecting previously unselected package libgcrypt11.
+Unpacking libgcrypt11 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0.
+Unpacking libp11-kit0 (from .../libp11-kit0_0.10-1_amd64.deb) ...
+Selecting previously unselected package libtasn1-3.
+Unpacking libtasn1-3 (from .../libtasn1-3_2.11-1_amd64.deb) ...
+Selecting previously unselected package libgnutls26.
+Unpacking libgnutls26 (from .../libgnutls26_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27.
+Unpacking libgnutls-openssl27 (from .../libgnutls-openssl27_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libgpm2.
+Unpacking libgpm2 (from .../libgpm2_1.20.4-4_amd64.deb) ...
+Selecting previously unselected package libkeyutils1.
+Unpacking libkeyutils1 (from .../libkeyutils1_1.5.2-2_amd64.deb) ...
+Selecting previously unselected package libkrb5support0.
+Unpacking libkrb5support0 (from .../libkrb5support0_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libk5crypto3.
+Unpacking libk5crypto3 (from .../libk5crypto3_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkrb5-3.
+Unpacking libkrb5-3 (from .../libkrb5-3_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2.
+Unpacking libgssapi-krb5-2 (from .../libgssapi-krb5-2_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgssrpc4.
+Unpacking libgssrpc4 (from .../libgssrpc4_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libidn11.
+Unpacking libidn11 (from .../libidn11_1.23-2_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8.
+Unpacking libkadm5clnt-mit8 (from .../libkadm5clnt-mit8_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkdb5-6.
+Unpacking libkdb5-6 (from .../libkdb5-6_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8.
+Unpacking libkadm5srv-mit8 (from .../libkadm5srv-mit8_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libpcre3.
+Unpacking libpcre3 (from .../libpcre3_8.12-4_amd64.deb) ...
+Selecting previously unselected package libsasl2-2.
+Unpacking libsasl2-2 (from .../libsasl2-2_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package sgml-base.
+Unpacking sgml-base (from .../sgml-base_1.26+nmu1_all.deb) ...
+Selecting previously unselected package xml-core.
+Unpacking xml-core (from .../archives/xml-core_0.13_all.deb) ...
+Selecting previously unselected package sgml-data.
+Unpacking sgml-data (from .../sgml-data_2.0.6_all.deb) ...
+Setting up sgml-base (1.26+nmu1) ...
+Setting up xml-core (0.13) ...
+Selecting previously unselected package docbook-xml.
+(Reading database ... 11313 files and directories currently installed.)
+Unpacking docbook-xml (from .../docbook-xml_4.5-7_all.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Setting up libsigsegv2 (2.9-4) ...
+Selecting previously unselected package gawk.
+(Reading database ... 11478 files and directories currently installed.)
+Unpacking gawk (from .../gawk_1%3a3.1.8+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_amd64.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_amd64.deb) ...
+Selecting previously unselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-2_amd64.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27.
+Unpacking libgnutlsxx27 (from .../libgnutlsxx27_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.0.2-3_amd64.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.09-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.09-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package libtokyocabinet8.
+Unpacking libtokyocabinet8 (from .../libtokyocabinet8_1.4.37-6.1_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-2_amd64.deb) ...
+Selecting previously unselected package libbsd0.
+Unpacking libbsd0 (from .../libbsd0_0.3.0-1_amd64.deb) ...
+Selecting previously unselected package w3m.
+Unpacking w3m (from .../archives/w3m_0.5.3-5_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.68-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20110511.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.1-1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-2_amd64.deb) ...
+Selecting previously unselected package docbook-xsl.
+Unpacking docbook-xsl (from .../docbook-xsl_1.76.1+dfsg-1_all.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-2_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev.
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.11-1_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.10-1_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libpth20.
+Unpacking libpth20 (from .../libpth20_2.0.7-16_amd64.deb) ...
+Selecting previously unselected package libgpgme11.
+Unpacking libgpgme11 (from .../libgpgme11_1.2.0-1.4_amd64.deb) ...
+Selecting previously unselected package libpth-dev.
+Unpacking libpth-dev (from .../libpth-dev_2.0.7-16_amd64.deb) ...
+Selecting previously unselected package libgpgme11-dev.
+Unpacking libgpgme11-dev (from .../libgpgme11-dev_1.2.0-1.4_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libidn11-dev.
+Unpacking libidn11-dev (from .../libidn11-dev_1.23-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev.
+Unpacking libtinfo-dev (from .../libtinfo-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libncursesw5-dev.
+Unpacking libncursesw5-dev (from .../libncursesw5-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libsasl2-modules.
+Unpacking libsasl2-modules (from .../libsasl2-modules_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package libsasl2-dev.
+Unpacking libsasl2-dev (from .../libsasl2-dev_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1.
+Unpacking libxslt1.1 (from .../libxslt1.1_1.1.26-8_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
+Selecting previously unselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.26-8_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libtokyocabinet-dev.
+Unpacking libtokyocabinet-dev (from .../libtokyocabinet-dev_1.4.37-6.1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-mutt-dummy.
+Unpacking sbuild-build-depends-mutt-dummy (from .../sbuild-build-depends-mutt-dummy.deb) ...
+Processing triggers for install-info ...
+Setting up libpipeline1 (1.2.0-5) ...
+Setting up libpopt0 (1.16-3) ...
+Setting up libssl1.0.0 (1.0.0e-3) ...
+Setting up libgpg-error0 (1.10-2) ...
+Setting up libgcrypt11 (1.5.0-3) ...
+Setting up libp11-kit0 (0.10-1) ...
+Setting up libtasn1-3 (2.11-1) ...
+Setting up libgnutls26 (2.12.16-1) ...
+Setting up libgnutls-openssl27 (2.12.16-1) ...
+Setting up libgpm2 (1.20.4-4) ...
+Setting up libkeyutils1 (1.5.2-2) ...
+Setting up libkrb5support0 (1.10+dfsg~alpha2-1) ...
+Setting up libk5crypto3 (1.10+dfsg~alpha2-1) ...
+Setting up libkrb5-3 (1.10+dfsg~alpha2-1) ...
+Setting up libgssapi-krb5-2 (1.10+dfsg~alpha2-1) ...
+Setting up libgssrpc4 (1.10+dfsg~alpha2-1) ...
+Setting up libidn11 (1.23-2) ...
+Setting up libkadm5clnt-mit8 (1.10+dfsg~alpha2-1) ...
+Setting up libkdb5-6 (1.10+dfsg~alpha2-1) ...
+Setting up libkadm5srv-mit8 (1.10+dfsg~alpha2-1) ...
+Setting up libpcre3 (8.12-4) ...
+Setting up libsasl2-2 (2.1.25.dfsg1-2) ...
+Setting up sgml-data (2.0.6) ...
+Setting up docbook-xml (4.5-7) ...
+Setting up gawk (1:3.1.8+dfsg-0.1) ...
+Setting up libglib2.0-0 (2.30.2-4) ...
+No schema files found: doing nothing.
+Setting up libxml2 (2.7.8.dfsg-5.1) ...
+Setting up libcroco3 (0.6.2-2) ...
+Setting up libunistring0 (0.9.3-5) ...
+Setting up libgnutlsxx27 (2.12.16-1) ...
+Setting up bsdmainutils (8.2.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
+Setting up groff-base (1.21-6) ...
+Setting up man-db (2.6.0.2-3) ...
+Building database of manual pages ...
+Setting up libmagic1 (5.09-2) ...
+Setting up file (5.09-2) ...
+Setting up gettext-base (0.18.1.1-5) ...
+Setting up libtokyocabinet8 (1.4.37-6.1) ...
+Setting up m4 (1.4.16-2) ...
+Setting up libbsd0 (0.3.0-1) ...
+Setting up w3m (0.5.3-5) ...
+Setting up autoconf (2.68-1) ...
+Setting up autotools-dev (20110511.1) ...
+Setting up automake (1:1.11.1-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode.
+Setting up html2text (1.3.2a-15) ...
+Setting up gettext (0.18.1.1-5) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (8.9.14) ...
+Setting up diffstat (1.55-2) ...
+Setting up docbook-xsl (1.76.1+dfsg-1) ...
+Setting up comerr-dev (2.1-1.42-1) ...
+Setting up krb5-multidev (1.10+dfsg~alpha2-1) ...
+Setting up libgpg-error-dev (1.10-2) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
+Setting up libtasn1-3-dev (2.11-1) ...
+Setting up libp11-kit-dev (0.10-1) ...
+Setting up libgnutls-dev (2.12.16-1) ...
+Setting up libpth20 (2.0.7-16) ...
+Setting up libgpgme11 (1.2.0-1.4) ...
+Setting up libpth-dev (2.0.7-16) ...
+Setting up libgpgme11-dev (1.2.0-1.4) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libidn11-dev (1.23-2) ...
+Setting up libtinfo-dev (5.9-4) ...
+Setting up libncurses5-dev (5.9-4) ...
+Setting up libncursesw5-dev (5.9-4) ...
+Setting up libsasl2-modules (2.1.25.dfsg1-2) ...
+Setting up libsasl2-dev (2.1.25.dfsg1-2) ...
+Setting up libxslt1.1 (1.1.26-8) ...
+Setting up quilt (0.50-2) ...
+Setting up xsltproc (1.1.26-8) ...
+Setting up libkrb5-dev (1.10+dfsg~alpha2-1) ...
+Setting up libtokyocabinet-dev (1.4.37-6.1) ...
+Setting up sbuild-build-depends-mutt-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-4 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-9 gcc-4.6_4.6.2-9 libc6-dev_2.13-24 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 linux-libc-dev_3.1.8-2
+Package versions: apt_0.8.15.9 apt-utils_0.8.15.9 autoconf_2.68-1 automake_1:1.11.1-1 autotools-dev_20110511.1 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-4 bsdmainutils_8.2.3 bsdutils_1:2.20.1-1.1 build-essential_11.5 bzip2_1.0.6-1 clang_3.0-5 comerr-dev_2.1-1.42-1 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-9 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffstat_1.55-2 diffutils_1:3.2-1 docbook-xml_4.5-7 docbook-xsl_1.76.1+dfsg-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-9 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.2-4 gcc-4.6_4.6.2-9 gcc-4.6-base_4.6.2-9 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.09 html2text_1.3.2a-15 initscripts_2.88dsf-18 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10+dfsg~alpha2-1 less_444-1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbsd0_0.3.0-1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclang-common-dev_3.0-5 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-9 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgnutls-dev_2.12.16-1 libgnutls-openssl27_2.12.16-1 libgnutls26_2.12.16-1 libgnutlsxx27_2.12.16-1 libgomp1_4.6.2-9 libgpg-error-dev_1.10-2 libgpg-error0_1.10-2 libgpgme11_1.2.0-1.4 libgpgme11-dev_1.2.0-1.4 libgpm2_1.20.4-4 libgssapi-krb5-2_1.10+dfsg~alpha2-1 libgssrpc4_1.10+dfsg~alpha2-1 libidn11_1.23-2 libidn11-dev_1.23-2 libk5crypto3_1.10+dfsg~alpha2-1 libkadm5clnt-mit8_1.10+dfsg~alpha2-1 libkadm5srv-mit8_1.10+dfsg~alpha2-1 libkdb5-6_1.10+dfsg~alpha2-1 libkeyutils1_1.5.2-2 libkrb5-3_1.10+dfsg~alpha2-1 libkrb5-dev_1.10+dfsg~alpha2-1 libkrb5support0_1.10+dfsg~alpha2-1 libllvm3.0_3.0-5 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.20.1-1.1 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncurses5-dev_5.9-4 libncursesw5_5.9-4 libncursesw5-dev_5.9-4 libp11-kit-dev_0.10-1 libp11-kit0_0.10-1 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libpopt0_1.16-3 libpth-dev_2.0.7-16 libpth20_2.0.7-16 libquadmath0_4.6.2-9 libreadline6_6.2-8 libsasl2-2_2.1.25.dfsg1-2 libsasl2-dev_2.1.25.dfsg1-2 libsasl2-modules_2.1.25.dfsg1-2 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libsigsegv2_2.9-4 libslang2_2.2.4-5 libss2_1.42-1 libssl1.0.0_1.0.0e-3 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 libswitch-perl_2.16-2 libtasn1-3_2.11-1 libtasn1-3-dev_2.11-1 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-4 libtinfo5_5.9-4 libtokyocabinet-dev_1.4.37-6.1 libtokyocabinet8_1.4.37-6.1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libxml2_2.7.8.dfsg-5.1 libxslt1.1_1.1.26-8 linux-libc-dev_3.1.8-2 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 m4_1.4.16-2 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4 nvi_1.81.6-8.2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 quilt_0.50-2 readline-common_6.2-8 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-mutt-dummy_0.invalid.0 sed_4.2.1-9 sensible-utils_0.0.6 sgml-base_1.26+nmu1 sgml-data_2.0.6 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 w3m_0.5.3-5 xml-core_0.13 xsltproc_1.1.26-8 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/var/lib/sbuild/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun May  8 09:46:22 2011 CEST using DSA key ID A7BE5AB0
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./mutt_1.5.21-5.dsc
+dpkg-source: info: extracting mutt in mutt-1.5.21
+dpkg-source: info: unpacking mutt_1.5.21.orig.tar.gz
+dpkg-source: info: applying mutt_1.5.21-5.diff.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package mutt
+dpkg-buildpackage: source version 1.5.21-5
+ dpkg-source --before-build mutt-1.5.21
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null pop -a -R || test $? = 2
+No patch removed
+rm -rf .pc debian/stamp-patched
+###################### clean ######################
+dh_testdir
+dh_testroot
+# please dpkg-source
+rm -f po/*.gmo
+echo -n > PATCHES
+# remove build trees
+rm -rf /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched
+# remove autotool-generated files so they don't show up in the diff.gz
+rm -f configure config.h.in
+rm -f Makefile.in contrib/Makefile.in imap/Makefile.in doc/Makefile.in m4/Makefile.in
+dh_clean
+ dpkg-source -b mutt-1.5.21
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building mutt using existing mutt_1.5.21.orig.tar.gz
+dpkg-source: info: building mutt in mutt_1.5.21-5.diff.gz
+dpkg-source: warning: ignoring deletion of file configure
+dpkg-source: warning: ignoring deletion of file config.h.in
+dpkg-source: warning: ignoring deletion of file Makefile.in
+dpkg-source: warning: ignoring deletion of file aclocal.m4
+dpkg-source: warning: ignoring deletion of file imap/Makefile.in
+dpkg-source: warning: ignoring deletion of file contrib/Makefile.in
+dpkg-source: warning: ignoring deletion of file doc/Makefile.in
+dpkg-source: warning: ignoring deletion of file po/ga.gmo
+dpkg-source: warning: ignoring deletion of file po/bg.gmo
+dpkg-source: warning: ignoring deletion of file po/ca.gmo
+dpkg-source: warning: ignoring deletion of file po/et.gmo
+dpkg-source: warning: ignoring deletion of file po/hu.gmo
+dpkg-source: warning: ignoring deletion of file po/ja.gmo
+dpkg-source: warning: ignoring deletion of file po/tr.gmo
+dpkg-source: warning: ignoring deletion of file po/lt.gmo
+dpkg-source: warning: ignoring deletion of file po/da.gmo
+dpkg-source: warning: ignoring deletion of file po/sv.gmo
+dpkg-source: warning: ignoring deletion of file po/gl.gmo
+dpkg-source: warning: ignoring deletion of file po/eo.gmo
+dpkg-source: warning: ignoring deletion of file po/pt_BR.gmo
+dpkg-source: warning: ignoring deletion of file po/zh_CN.gmo
+dpkg-source: warning: ignoring deletion of file po/zh_TW.gmo
+dpkg-source: warning: ignoring deletion of file po/el.gmo
+dpkg-source: warning: ignoring deletion of file po/ko.gmo
+dpkg-source: warning: ignoring deletion of file po/sk.gmo
+dpkg-source: warning: ignoring deletion of file po/id.gmo
+dpkg-source: warning: ignoring deletion of file po/cs.gmo
+dpkg-source: warning: ignoring deletion of file po/nl.gmo
+dpkg-source: warning: ignoring deletion of file po/pl.gmo
+dpkg-source: warning: ignoring deletion of file po/fr.gmo
+dpkg-source: warning: ignoring deletion of file po/uk.gmo
+dpkg-source: warning: ignoring deletion of file po/es.gmo
+dpkg-source: warning: ignoring deletion of file po/it.gmo
+dpkg-source: warning: ignoring deletion of file po/ru.gmo
+dpkg-source: warning: ignoring deletion of file po/eu.gmo
+dpkg-source: warning: ignoring deletion of file po/de.gmo
+dpkg-source: warning: ignoring deletion of file m4/Makefile.in
+dpkg-source: info: building mutt in mutt_1.5.21-5.dsc
+ debian/rules build
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch misc/am-maintainer-mode
+patching file configure.ac
+
+Applying patch features/ifdef
+patching file init.c
+patching file init.h
+patching file doc/manual.xml.head
+
+Applying patch features/xtitles
+patching file curs_main.c
+patching file globals.h
+patching file init.c
+patching file init.h
+patching file mutt.h
+patching file pager.c
+patching file status.c
+patching file mutt_menu.h
+
+Applying patch features/trash-folder
+patching file commands.c
+patching file flags.c
+patching file globals.h
+patching file imap/message.c
+patching file init.h
+patching file mutt.h
+patching file muttlib.c
+patching file mx.c
+patching file postpone.c
+
+Applying patch features/purge-message
+patching file OPS
+patching file curs_main.c
+patching file flags.c
+patching file functions.h
+patching file mutt.h
+patching file mx.c
+patching file pager.c
+patching file pattern.c
+
+Applying patch features/imap_fast_trash
+patching file imap/imap.c
+patching file imap/imap.h
+patching file mx.c
+
+Applying patch features/sensible_browser_position
+patching file menu.c
+patching file browser.c
+patching file mutt_menu.h
+
+Applying patch features-old/patch-1.5.4.vk.pgp_verbose_mime
+patching file globals.h
+patching file init.h
+patching file pgp.c
+
+Applying patch features/compressed-folders
+patching file compress.c
+patching file compress.h
+patching file configure.ac
+patching file curs_main.c
+patching file doc/manual.xml.head
+patching file doc/muttrc.man.head
+patching file hook.c
+patching file init.h
+patching file main.c
+patching file Makefile.am
+patching file mbox.c
+patching file mutt.h
+patching file mx.c
+patching file mx.h
+patching file po/POTFILES.in
+patching file status.c
+patching file po/de.po
+
+Applying patch features/compressed-folders.debian
+patching file config-debian.h
+
+Applying patch debian-specific/Muttrc
+patching file doc/Muttrc.head
+
+Applying patch debian-specific/Md.etc_mailname_gethostbyname.diff
+patching file init.c
+
+Applying patch debian-specific/use_usr_bin_editor.diff
+patching file init.c
+patching file init.h
+
+Applying patch debian-specific/correct_docdir_in_man_page.diff
+patching file doc/mutt.man
+
+Applying patch debian-specific/dont_document_not_present_features.diff
+patching file init.h
+patching file functions.h
+
+Applying patch debian-specific/document_debian_defaults
+patching file init.h
+
+Applying patch debian-specific/assumed_charset-compat
+patching file init.h
+
+Applying patch debian-specific/467432-write_bcc.patch
+patching file headers.c
+patching file init.h
+patching file protos.h
+patching file send.c
+patching file sendlib.c
+
+Applying patch debian-specific/566076-build_doc_adjustments.patch
+patching file doc/Makefile.am
+
+Applying patch misc/define-pgp_getkeys_command.diff
+patching file contrib/gpg.rc
+
+Applying patch misc/gpg.rc-paths
+patching file contrib/gpg.rc
+
+Applying patch misc/smime.rc
+patching file contrib/smime.rc
+
+Applying patch upstream/531430-imapuser.patch
+patching file account.c
+
+Applying patch upstream/537818-emptycharset.patch
+patching file init.c
+
+Applying patch upstream/543467-thread-segfault.patch
+patching file flags.c
+
+Applying patch upstream/542817-smimekeys-tmpdir.patch
+patching file smime_keys.pl
+
+Applying patch upstream/548577-gpgme-1.2.patch
+patching file init.c
+
+Applying patch upstream/553321-ansi-escape-segfault.patch
+patching file pager.c
+
+Applying patch upstream/568295-references.patch
+patching file headers.c
+
+Applying patch upstream/547980-smime_keys-chaining.patch
+patching file smime_keys.pl
+
+Applying patch upstream/528233-readonly-open.patch
+patching file attach.c
+
+Applying patch upstream/228671-pipe-mime.patch
+patching file imap/message.c
+
+Applying patch upstream/383769-score-match.patch
+patching file score.c
+
+Applying patch upstream/578087-header-strchr.patch
+patching file sendlib.c
+
+Applying patch upstream/603288-split-fetches.patch
+patching file imap/message.c
+
+Applying patch upstream/537061-dont-recode-saved-attachments.patch
+patching file attach.c
+
+Applying patch upstream/608706-fix-spelling-errors.patch
+patching file copy.c
+patching file edit.c
+patching file enter.c
+patching file crypt.c
+patching file init.c
+patching file po/mutt.pot
+patching file recvattach.c
+patching file po/bg.po
+patching file po/ca.po
+patching file po/cs.po
+patching file po/da.po
+patching file po/de.po
+patching file po/el.po
+patching file po/eo.po
+patching file po/es.po
+patching file po/et.po
+patching file po/eu.po
+patching file po/fr.po
+patching file po/ga.po
+patching file po/gl.po
+patching file po/hu.po
+patching file po/id.po
+patching file po/it.po
+patching file po/ja.po
+patching file po/ko.po
+patching file po/lt.po
+patching file po/nl.po
+patching file po/pl.po
+patching file po/pt_BR.po
+patching file po/ru.po
+patching file po/sk.po
+patching file po/sv.po
+patching file po/tr.po
+patching file po/uk.po
+patching file po/zh_CN.po
+patching file po/zh_TW.po
+
+Applying patch upstream/620854-pop3-segfault.patch
+patching file muttlib.c
+
+Applying patch upstream/611412-bts-regexp.patch
+patching file doc/manual.xml.head
+
+Applying patch upstream/624058-gnutls-deprecated-set-priority.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/624085-gnutls-deprecated-verify-peers.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/584138-mx_update_context-segfault.patch
+patching file imap/message.c
+
+Applying patch upstream/619216-gnutls-CN-validation.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/611410-no-implicit_autoview-for-text-html.patch
+patching file init.h
+patching file muttlib.c
+
+Applying patch upstream/path_max
+patching file mutt.h
+
+Applying patch mutt.org
+patching file .mutt.org
+
+Applying patch mutt-patched/sidebar
+patching file Makefile.am
+patching file OPS
+patching file buffy.c
+patching file buffy.h
+patching file color.c
+patching file compose.c
+patching file curs_main.c
+patching file flags.c
+patching file functions.h
+patching file globals.h
+patching file imap/command.c
+patching file imap/imap.c
+patching file init.h
+Hunk #1 succeeded at 1967 (offset 2 lines).
+patching file mailbox.h
+patching file mbox.c
+patching file menu.c
+patching file mh.c
+patching file mutt.h
+patching file mutt_curses.h
+patching file muttlib.c
+Hunk #1 succeeded at 1289 (offset 3 lines).
+Hunk #2 succeeded at 1334 (offset 3 lines).
+patching file mx.c
+patching file mx.h
+patching file pager.c
+patching file sidebar.c
+patching file sidebar.h
+
+Applying patch mutt-patched/sidebar-dotted
+patching file sidebar.c
+Hunk #1 succeeded at 258 (offset 3 lines).
+patching file init.h
+Hunk #1 succeeded at 1983 (offset 2 lines).
+patching file mutt.h
+
+Applying patch mutt-patched/sidebar-sorted
+patching file sidebar.c
+patching file init.h
+Hunk #1 succeeded at 1988 (offset 2 lines).
+patching file mutt.h
+
+Applying patch mutt-patched/sidebar-utf8
+patching file sidebar.c
+
+Applying patch mutt-patched/multiple-fcc
+patching file protos.h
+patching file send.c
+patching file sendlib.c
+
+Now at patch mutt-patched/multiple-fcc
+touch debian/stamp-patched
+dh_testdir
+dh_clean
+mkdir /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched
+###################### building mutt-patched ######################
+QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null applied > PATCHES
+autoreconf --install --include=m4
+cd /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched && \
+	env CFLAGS="-Wall -g -O2" CPPFLAGS="-I/usr/include/qdbm" \
+	../configure --prefix=/usr --sysconfdir=/etc --mandir=/usr/share/man --with-sharedir=/usr/share/mutt --with-docdir=/usr/share/doc --with-mailpath=/var/mail --disable-dependency-tracking --enable-compressed --enable-debug --enable-fcntl --enable-hcache --enable-gpgme --enable-imap --enable-smtp --enable-inodesort --enable-pop --with-curses --with-gnutls --with-gss --with-idn --with-mixmaster --with-sasl --without-gdbm --without-bdb --without-qdbm --build x86_64-linux-gnu
+configure: WARNING: unrecognized options: --with-sharedir, --enable-inodesort
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... none
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for prefix... /usr
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) none
+checking for library containing strerror... none required
+checking for function prototypes... yes
+checking for string.h... (cached) yes
+checking how to run the C preprocessor... gcc -E
+checking whether make sets $(MAKE)... (cached) yes
+checking for ranlib... ranlib
+checking for ar... ar
+checking for inline... inline
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking size of off_t... 8
+checking for dbx... no
+checking for gdb... no
+checking for sdb... no
+checking for inttypes.h... (cached) yes
+checking for uint32_t... yes
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking for long long int... yes
+checking for sendmail... /usr/sbin/sendmail
+checking whether to build with GPGME support... yes
+checking for gpgme-config... /usr/bin/gpgme-config
+checking for GPGME - version >= 1.0.0... yes
+checking for GPGME - version >= 1.1.1... yes
+checking for GPGME - version >= 1.0.0... yes
+checking for ispell... no
+checking for initscr... no
+checking for waddnwstr in -lncurses... no
+checking for waddnwstr in -lncursesw... yes
+checking for initscr in -lncursesw... yes
+checking ncursesw/ncurses.h usability... yes
+checking ncursesw/ncurses.h presence... yes
+checking for ncursesw/ncurses.h... yes
+checking for start_color declaration... yes
+checking for typeahead declaration... yes
+checking for bkgdset declaration... yes
+checking for curs_set declaration... yes
+checking for meta declaration... yes
+checking for use_default_colors declaration... yes
+checking for resizeterm declaration... yes
+checking for ANSI C header files... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking ioctl.h usability... no
+checking ioctl.h presence... no
+checking for ioctl.h... no
+checking sysexits.h usability... yes
+checking sysexits.h presence... yes
+checking for sysexits.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking unix.h usability... no
+checking unix.h presence... no
+checking for unix.h... no
+checking for setrlimit... yes
+checking for getsid... yes
+checking return type of signal handlers... void
+checking for sig_atomic_t in signal.h... yes, non volatile
+checking whether sys_siglist is declared... yes
+checking for pid_t... yes
+checking for ssize_t... yes
+checking for fgetpos... yes
+checking for memmove... yes
+checking for setegid... yes
+checking for srand48... yes
+checking for strerror... yes
+checking for setenv... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strsep... yes
+checking for strtok_r... yes
+checking for wcscasecmp... yes
+checking for strcasestr... yes
+checking for mkdtemp... yes
+checking for getopt... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking whether your system's snprintf is C99 compliant... yes
+checking whether your system's vsnprintf is C99 compliant... yes
+checking for va_copy... va_copy
+checking for ftruncate... yes
+checking for strftime... yes
+checking for fchdir... yes
+checking for regcomp... yes
+checking whether your system's regexp library is completely broken... no
+checking if /var/mail is world writable... no
+checking if /var/mail is group writable... yes
+checking where to put the documentation... /usr/share/doc
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for socklen_t... yes
+checking for gethostent... yes
+checking for setsockopt... yes
+checking for getaddrinfo... yes
+checking for krb5-config... /usr/bin/krb5-config
+checking GSSAPI implementation... MIT
+checking for gnutls_check_version in -lgnutls... yes
+checking whether GNUTLS_VERIFY_DISABLE_TIME_CHECKS is declared... yes
+checking for library containing sasl_encode64... -lsasl2
+checking whether struct dirent defines d_ino... yes
+checking tcbdb.h usability... yes
+checking tcbdb.h presence... yes
+checking for tcbdb.h... yes
+checking for tcbdbopen in -ltokyocabinet... yes
+checking for off_t... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... yes
+checking nl_types.h presence... yes
+checking for nl_types.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for feof_unlocked... yes
+checking for fgets_unlocked... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... (cached) yes
+checking for setlocale... yes
+checking for stpcpy... yes
+checking for strchr... yes
+checking for strcasecmp... (cached) yes
+checking for strdup... (cached) yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking for GNU gettext in libc... yes
+checking for dcgettext... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for bison... no
+checking for catalogs to be installed...  de eu ru it es uk fr pl nl cs id sk ko el zh_TW zh_CN pt_BR eo gl sv da lt tr ja hu et ca bg ga
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking whether iconv.h defines iconv_t... yes
+checking whether this iconv is good enough... yes
+checking whether iconv is non-transcribing... no
+checking for bind_textdomain_codeset... yes
+checking for library containing stringprep_check_version... -lidn
+checking for idna_to_unicode_utf8_from_utf8... no
+checking for idna_to_unicode_8z8z... yes
+checking for idna_to_ascii_from_utf8... no
+checking for idna_to_ascii_8z... yes
+checking for idna_to_ascii_lz... yes
+checking for idna_to_ascii_from_locale... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking for iswalnum... yes
+checking for iswalpha... yes
+checking for iswblank... yes
+checking for iswcntrl... yes
+checking for iswdigit... yes
+checking for iswgraph... yes
+checking for iswlower... yes
+checking for iswprint... yes
+checking for iswpunct... yes
+checking for iswspace... yes
+checking for iswupper... yes
+checking for iswxdigit... yes
+checking for towupper... yes
+checking for towlower... yes
+checking for mbstate_t... yes
+checking for wchar_t functions... yes
+checking for nl_langinfo and CODESET... yes
+checking for nl_langinfo and YESEXPR... yes
+checking for ospcat... none
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating contrib/Makefile
+config.status: creating doc/Makefile
+config.status: creating imap/Makefile
+config.status: creating intl/Makefile
+config.status: creating m4/Makefile
+config.status: creating po/Makefile.in
+config.status: creating hcachever.sh
+config.status: creating muttbug.sh
+config.status: creating doc/instdoc.sh
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: WARNING: unrecognized options: --with-sharedir, --enable-inodesort
+echo '#include "config-debian.h"' >> /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/config.h
+# we should just "make mutt" here, but that doesn't work yet
+cd /build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched && /usr/bin/make CFLAGS="-Wall -g -O2"
+make[1]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+../gen_defs ../OPS ../OPS.MIX ../OPS.PGP ../OPS.SMIME ../OPS.CRYPT  > keymap_defs.h
+../patchlist.sh < ../PATCHES > patchlist.c
+echo 'const char *ReleaseDate = "'`head -n 1 ../ChangeLog | LC_ALL=C cut -d ' ' -f 1`'";' > reldate.h.tmp; \
+	cmp -s reldate.h.tmp reldate.h || cp reldate.h.tmp reldate.h; \
+	rm reldate.h.tmp
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl -DMD5UTIL -Wall -g -O2 -c -o mutt_md5-md5.o `test -f 'md5.c' || echo '../'`md5.c
+gcc -DMD5UTIL -Wall -g -O2   -o mutt_md5 mutt_md5-md5.o  -lidn 
+( echo '#include "config.h"'; echo '#include "mutt.h"'; ) \
+	| gcc -E -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl - | sh ./hcachever.sh hcversion.h
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+Making all in m4
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/m4'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/m4'
+Making all in po
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/po'
+file=`echo de | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/de.po
+1111 translated messages, 10 fuzzy translations, 4 untranslated messages.
+file=`echo eu | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/eu.po
+1063 translated messages, 39 fuzzy translations, 18 untranslated messages.
+file=`echo ru | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ru.po
+1104 translated messages, 12 fuzzy translations, 4 untranslated messages.
+file=`echo it | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/it.po
+855 translated messages, 152 fuzzy translations, 113 untranslated messages.
+file=`echo es | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/es.po
+739 translated messages, 226 fuzzy translations, 155 untranslated messages.
+file=`echo uk | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/uk.po
+761 translated messages, 191 fuzzy translations, 168 untranslated messages.
+file=`echo fr | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/fr.po
+1120 translated messages.
+file=`echo pl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/pl.po
+1062 translated messages, 42 fuzzy translations, 16 untranslated messages.
+file=`echo nl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/nl.po
+1092 translated messages, 18 fuzzy translations, 10 untranslated messages.
+file=`echo cs | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/cs.po
+1119 translated messages, 1 fuzzy translation.
+file=`echo id | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/id.po
+1054 translated messages, 41 fuzzy translations, 25 untranslated messages.
+file=`echo sk | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/sk.po
+540 translated messages, 330 fuzzy translations, 250 untranslated messages.
+file=`echo ko | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ko.po
+852 translated messages, 149 fuzzy translations, 119 untranslated messages.
+file=`echo el | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/el.po
+871 translated messages, 143 fuzzy translations, 106 untranslated messages.
+file=`echo zh_TW | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/zh_TW.po
+747 translated messages, 223 fuzzy translations, 150 untranslated messages.
+file=`echo zh_CN | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/zh_CN.po
+1104 translated messages, 13 fuzzy translations, 3 untranslated messages.
+file=`echo pt_BR | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/pt_BR.po
+653 translated messages, 289 fuzzy translations, 178 untranslated messages.
+file=`echo eo | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/eo.po
+1059 translated messages, 43 fuzzy translations, 18 untranslated messages.
+file=`echo gl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/gl.po
+725 translated messages, 237 fuzzy translations, 158 untranslated messages.
+file=`echo sv | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/sv.po
+1063 translated messages, 42 fuzzy translations, 15 untranslated messages.
+file=`echo da | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/da.po
+876 translated messages, 137 fuzzy translations, 107 untranslated messages.
+file=`echo lt | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/lt.po
+714 translated messages, 243 fuzzy translations, 163 untranslated messages.
+file=`echo tr | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/tr.po
+1009 translated messages, 76 fuzzy translations, 35 untranslated messages.
+file=`echo ja | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ja.po
+1080 translated messages, 27 fuzzy translations, 13 untranslated messages.
+file=`echo hu | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/hu.po
+846 translated messages, 154 fuzzy translations, 120 untranslated messages.
+file=`echo et | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/et.po
+827 translated messages, 161 fuzzy translations, 132 untranslated messages.
+file=`echo ca | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ca.po
+1104 translated messages, 12 fuzzy translations, 4 untranslated messages.
+file=`echo bg | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/bg.po
+846 translated messages, 158 fuzzy translations, 116 untranslated messages.
+file=`echo ga | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ga.po
+1019 translated messages, 69 fuzzy translations, 32 untranslated messages.
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/po'
+Making all in intl
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/intl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/intl'
+Making all in doc
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/doc'
+gcc -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I. -I../../doc -I..  -I. -I.. -I/usr/include -I../.. -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../doc/makedoc.c
+gcc  -Wall -g -O2   -o makedoc makedoc.o  -lidn 
+sed -e 's,@sysconfdir\@,/etc,g' -e 's,@bindir\@,/usr/bin,g' -e 's,@docdir\@,/usr/share/doc,g' ../../doc/mutt.man > mutt.1
+sed -e 's,@sysconfdir\@,/etc,g' -e 's,@bindir\@,/usr/bin,g' -e 's,@docdir\@,/usr/share/doc,g' ../../doc/smime_keys.man > smime_keys.1
+gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../init.h | ./makedoc -m | 	    \
+		cat ../../doc/muttrc.man.head - ../../doc/muttrc.man.tail\
+		> muttrc.man
+( date=`head -n 1 ../../ChangeLog | LC_ALL=C cut -d ' ' -f 1` && \
+	  sed -e "s/@VERSION\@/`cat ../../VERSION` ($date)/" ../../doc/manual.xml.head && \
+	  gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../init.h | ./makedoc -s && \
+	  gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../functions.h | \
+	    perl ../../doc/gen-map-doc ../../doc/manual.xml.tail ../../OPS* \
+	) > manual.xml
+touch stamp-doc-xml
+xsltproc --nonet -o manual.html ../../doc/html.xsl manual.xml
+rm -f Muttrc stamp-doc-rc
+sed -e 's,[@]docdir[@],/usr/share/doc,' ../../doc/Muttrc.head > Muttrc
+gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C \
+	  ../../init.h | ./makedoc -c >> Muttrc
+touch stamp-doc-rc
+xsltproc --nonet ../../doc/chunk.xsl manual.xml
+Writing intro.html for chapter(intro)
+Writing gettingstarted.html for chapter(gettingstarted)
+Writing configuration.html for chapter(configuration)
+Writing advancedusage.html for chapter(advancedusage)
+Writing mimesupport.html for chapter(mimesupport)
+Writing optionalfeatures.html for chapter(optionalfeatures)
+Writing security.html for chapter(security)
+Writing tuning.html for chapter(tuning)
+Writing reference.html for chapter(reference)
+Writing miscellany.html for chapter(miscellany)
+Writing index.html for book
+touch stamp-doc-chunked
+LC_ALL=C w3m -dump -O UTF-8 manual.html > manual.txt
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/doc'
+Making all in contrib
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/contrib'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/contrib'
+Making all in imap
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/imap'
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_login.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/browse.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/command.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/imap.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/message.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/utf7.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/util.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_sasl.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_gss.c
+rm -f libimap.a
+ar cru libimap.a auth.o auth_login.o browse.o command.o imap.o message.o utf7.o util.o auth_sasl.o auth_gss.o 
+ranlib libimap.a
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/imap'
+make[3]: Entering directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../addrbook.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../alias.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../attach.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../base64.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../browser.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../buffy.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../color.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../crypt.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../cryptglue.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../compress.c
+../compress.c:282:5: warning: implicit declaration of function 'remove_file' is invalid in C99 [-Wimplicit-function-declaration]
+    remove_file (ctx);
+    ^
+../compress.c:283:5: warning: implicit declaration of function 'restore_path' is invalid in C99 [-Wimplicit-function-declaration]
+    restore_path (ctx);
+    ^
+../compress.c:297:6: error: conflicting types for 'restore_path'
+void restore_path (CONTEXT* ctx)
+     ^
+../compress.c:283:5: note: previous implicit declaration is here
+    restore_path (ctx);
+    ^
+../compress.c:304:6: error: conflicting types for 'remove_file'
+void remove_file (CONTEXT* ctx)
+     ^
+../compress.c:282:5: note: previous implicit declaration is here
+    remove_file (ctx);
+    ^
+2 warnings and 2 errors generated.
+make[3]: *** [compress.o] Error 1
+make[3]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make: *** [/build/mutt-iY5TUh/mutt-1.5.21/obj-x86_64-linux-gnu-patched/build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20120112-2342
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/lsid64b-5a9bd33a-9d07-473a-ad61-123f15125dce/build/mutt-iY5TUh
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 33112
+Build-Time: 53
+Distribution: lsid64b
+Fail-Stage: build
+Install-Time: 13
+Job: mutt_1.5.21-5
+Package: mutt
+Package-Time: 79
+Source-Version: 1.5.21-5
+Space: 33112
+Status: attempted
+Version: 1.5.21-5
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20120112-2342
+Build needed 00:01:19, 33112k disc space
+DC-Message: Failed, but took only 81.22467. Retrying, you never know.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+Requested exclusive mode, but other builds running.
+sbuild (Debian sbuild) 0.62.2 (05 Apr 2011) on stremi-12.reims.grid5000.fr
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ mutt 1.5.21-5 (amd64)                                      12 Jan 2012 23:52 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: mutt
+Version: 1.5.21-5
+Source Version: 1.5.21-5
+Distribution: lsid64b
+Architecture: amd64
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost sid InRelease
+Get:1 http://localhost sid Release.gpg [836 B]
+Get:2 http://localhost sid Release [188 kB]
+Ign http://localhost sid/main Sources/DiffIndex
+Ign http://localhost sid/main amd64 Packages/DiffIndex
+Ign http://localhost sid/main TranslationIndex
+Get:3 http://localhost sid/main Sources [7544 kB]
+Get:4 http://localhost sid/main amd64 Packages [10.4 MB]
+Ign http://localhost sid/main Translation-en
+Fetched 18.2 MB in 4s (4183 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages have been kept back:
+  clang cpp-4.6 g++-4.6 gcc-4.6 gcc-4.6-base libgcc1 libgomp1 libquadmath0
+  libstdc++6 libstdc++6-4.6-dev
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'mutt' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/git/pkg-mutt/mutt.git
+Need to get 3883 kB of source archives.
+Get:1 http://localhost/debian/ sid/main mutt 1.5.21-5 (dsc) [1404 B]
+Get:2 http://localhost/debian/ sid/main mutt 1.5.21-5 (tar) [3717 kB]
+Get:3 http://localhost/debian/ sid/main mutt 1.5.21-5 (diff) [165 kB]
+Fetched 3883 kB in 0s (39.4 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/build/mutt-ji8kGm/resolver-bS1mK4/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 0 B/702 B of archives.
+After this operation, 0 B of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  sbuild-build-depends-core-dummy
+Authentication warning overridden.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Cannot open /var/lib/schroot/mount/lsid64b-a1bb29f0-5c57-474a-8831-2ecc61c02674/etc/lsb-release: No such file or directory
+Merged Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake, debhelper (>> 7), docbook-xml, docbook-xsl, w3m, gawk, gettext, libgnutls-dev, libgpgme11-dev, libidn11-dev, libkrb5-dev, libncurses5-dev, libncursesw5-dev, libsasl2-dev, pkg-config, quilt, xsltproc, zlib1g-dev, libtokyocabinet-dev
+Filtered Build-Depends: base-files, base-passwd, bash, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, ncurses-base, ncurses-bin, perl-base, sed, login, sysvinit-utils, sysvinit, tar, bsdutils, mount, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake, debhelper (>> 7), docbook-xml, docbook-xsl, w3m, gawk, gettext, libgnutls-dev, libgpgme11-dev, libidn11-dev, libkrb5-dev, libncurses5-dev, libncursesw5-dev, libsasl2-dev, pkg-config, quilt, xsltproc, zlib1g-dev, libtokyocabinet-dev
+dpkg-deb: building package `sbuild-build-depends-mutt-dummy' in `/build/mutt-ji8kGm/resolver-lu_ybO/apt_archive/sbuild-build-depends-mutt-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install mutt build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autoconf automake autotools-dev bsdmainutils comerr-dev debhelper diffstat
+  docbook-xml docbook-xsl file gawk gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libbsd0 libcroco3 libgcrypt11 libgcrypt11-dev
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgpgme11 libgpgme11-dev libgpm2
+  libgssapi-krb5-2 libgssrpc4 libidn11 libidn11-dev libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libmagic1 libncurses5-dev libncursesw5-dev
+  libp11-kit-dev libp11-kit0 libpcre3 libpipeline1 libpopt0 libpth-dev
+  libpth20 libsasl2-2 libsasl2-dev libsasl2-modules libsigsegv2 libssl1.0.0
+  libtasn1-3 libtasn1-3-dev libtinfo-dev libtokyocabinet-dev libtokyocabinet8
+  libunistring0 libxml2 libxslt1.1 m4 man-db pkg-config po-debconf quilt
+  sgml-base sgml-data w3m xml-core xsltproc zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool wamerican
+  wordlist whois vacation doc-base dh-make docbook docbook-dsssl
+  docbook-defguide docbook-xsl-doc-html docbook-xsl-doc-pdf
+  docbook-xsl-doc-text docbook-xsl-doc libsaxon-java libxalan2-java
+  libxslthl-java docbook-xsl-saxon fop xalan dbtoepub gettext-doc groff
+  krb5-doc rng-tools libgcrypt11-doc gnutls-doc gpgsm gnupg2 gpm krb5-user
+  ncurses-doc libsasl2-modules-otp libsasl2-modules-ldap libsasl2-modules-sql
+  libsasl2-modules-gssapi-mit libsasl2-modules-gssapi-heimdal www-browser
+  libmail-box-perl procmail graphviz default-mta mail-transport-agent
+  sgml-base-doc perlsgml doc-html-w3 opensp libxml2-utils w3m-img mime-support
+  menu w3m-el migemo
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info krb5-locales
+  libmail-sendmail-perl ca-certificates
+The following NEW packages will be installed:
+  autoconf automake autotools-dev bsdmainutils comerr-dev debhelper diffstat
+  docbook-xml docbook-xsl file gawk gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libbsd0 libcroco3 libgcrypt11 libgcrypt11-dev
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgpgme11 libgpgme11-dev libgpm2
+  libgssapi-krb5-2 libgssrpc4 libidn11 libidn11-dev libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libmagic1 libncurses5-dev libncursesw5-dev
+  libp11-kit-dev libp11-kit0 libpcre3 libpipeline1 libpopt0 libpth-dev
+  libpth20 libsasl2-2 libsasl2-dev libsasl2-modules libsigsegv2 libssl1.0.0
+  libtasn1-3 libtasn1-3-dev libtinfo-dev libtokyocabinet-dev libtokyocabinet8
+  libunistring0 libxml2 libxslt1.1 m4 man-db pkg-config po-debconf quilt
+  sbuild-build-depends-mutt-dummy sgml-base sgml-data w3m xml-core xsltproc
+  zlib1g-dev
+0 upgraded, 78 newly installed, 0 to remove and 10 not upgraded.
+Need to get 26.6 MB/26.6 MB of archives.
+After this operation, 79.4 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libpipeline1 libpopt0 libssl1.0.0 libgpg-error0 libgcrypt11 libp11-kit0
+  libtasn1-3 libgnutls26 libgnutls-openssl27 libgpm2 libkeyutils1
+  libkrb5support0 libk5crypto3 libkrb5-3 libgssapi-krb5-2 libgssrpc4 libidn11
+  libkadm5clnt-mit8 libkdb5-6 libkadm5srv-mit8 libpcre3 libsasl2-2 sgml-base
+  xml-core sgml-data docbook-xml libsigsegv2 gawk libglib2.0-0 libxml2
+  libcroco3 libunistring0 libgnutlsxx27 bsdmainutils groff-base man-db
+  libmagic1 file gettext-base libtokyocabinet8 m4 libbsd0 w3m autoconf
+  autotools-dev automake html2text gettext intltool-debian po-debconf
+  debhelper diffstat docbook-xsl comerr-dev krb5-multidev libgpg-error-dev
+  libgcrypt11-dev zlib1g-dev libtasn1-3-dev libp11-kit-dev libgnutls-dev
+  libpth20 libgpgme11 libpth-dev libgpgme11-dev pkg-config libidn11-dev
+  libtinfo-dev libncurses5-dev libncursesw5-dev libsasl2-modules libsasl2-dev
+  libxslt1.1 quilt xsltproc libkrb5-dev libtokyocabinet-dev
+  sbuild-build-depends-mutt-dummy
+Authentication warning overridden.
+Get:1 http://localhost/debian/ sid/main libpipeline1 amd64 1.2.0-5 [38.2 kB]
+Get:2 http://localhost/debian/ sid/main libpopt0 amd64 1.16-3 [55.2 kB]
+Get:3 http://localhost/debian/ sid/main libssl1.0.0 amd64 1.0.0e-3 [1143 kB]
+Get:4 http://localhost/debian/ sid/main libgpg-error0 amd64 1.10-2 [66.8 kB]
+Get:5 http://localhost/debian/ sid/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:6 http://localhost/debian/ sid/main libp11-kit0 amd64 0.10-1 [51.4 kB]
+Get:7 http://localhost/debian/ sid/main libtasn1-3 amd64 2.11-1 [65.9 kB]
+Get:8 http://localhost/debian/ sid/main libgnutls26 amd64 2.12.16-1 [614 kB]
+Get:9 http://localhost/debian/ sid/main libgnutls-openssl27 amd64 2.12.16-1 [219 kB]
+Get:10 http://localhost/debian/ sid/main libgpm2 amd64 1.20.4-4 [35.6 kB]
+Get:11 http://localhost/debian/ sid/main libkeyutils1 amd64 1.5.2-2 [8860 B]
+Get:12 http://localhost/debian/ sid/main libkrb5support0 amd64 1.10+dfsg~alpha2-1 [48.5 kB]
+Get:13 http://localhost/debian/ sid/main libk5crypto3 amd64 1.10+dfsg~alpha2-1 [108 kB]
+Get:14 http://localhost/debian/ sid/main libkrb5-3 amd64 1.10+dfsg~alpha2-1 [388 kB]
+Get:15 http://localhost/debian/ sid/main libgssapi-krb5-2 amd64 1.10+dfsg~alpha2-1 [147 kB]
+Get:16 http://localhost/debian/ sid/main libgssrpc4 amd64 1.10+dfsg~alpha2-1 [86.6 kB]
+Get:17 http://localhost/debian/ sid/main libidn11 amd64 1.23-2 [170 kB]
+Get:18 http://localhost/debian/ sid/main libkadm5clnt-mit8 amd64 1.10+dfsg~alpha2-1 [66.5 kB]
+Get:19 http://localhost/debian/ sid/main libkdb5-6 amd64 1.10+dfsg~alpha2-1 [65.3 kB]
+Get:20 http://localhost/debian/ sid/main libkadm5srv-mit8 amd64 1.10+dfsg~alpha2-1 [83.3 kB]
+Get:21 http://localhost/debian/ sid/main libpcre3 amd64 8.12-4 [225 kB]
+Get:22 http://localhost/debian/ sid/main libsasl2-2 amd64 2.1.25.dfsg1-2 [120 kB]
+Get:23 http://localhost/debian/ sid/main sgml-base all 1.26+nmu1 [11.9 kB]
+Get:24 http://localhost/debian/ sid/main xml-core all 0.13 [23.4 kB]
+Get:25 http://localhost/debian/ sid/main sgml-data all 2.0.6 [284 kB]
+Get:26 http://localhost/debian/ sid/main docbook-xml all 4.5-7 [345 kB]
+Get:27 http://localhost/debian/ sid/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:28 http://localhost/debian/ sid/main gawk amd64 1:3.1.8+dfsg-0.1 [735 kB]
+Get:29 http://localhost/debian/ sid/main libglib2.0-0 amd64 2.30.2-4 [1844 kB]
+Get:30 http://localhost/debian/ sid/main libxml2 amd64 2.7.8.dfsg-5.1 [891 kB]
+Get:31 http://localhost/debian/ sid/main libcroco3 amd64 0.6.2-2 [122 kB]
+Get:32 http://localhost/debian/ sid/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:33 http://localhost/debian/ sid/main libgnutlsxx27 amd64 2.12.16-1 [221 kB]
+Get:34 http://localhost/debian/ sid/main bsdmainutils amd64 8.2.3 [208 kB]
+Get:35 http://localhost/debian/ sid/main groff-base amd64 1.21-6 [1150 kB]
+Get:36 http://localhost/debian/ sid/main man-db amd64 2.6.0.2-3 [1015 kB]
+Get:37 http://localhost/debian/ sid/main libmagic1 amd64 5.09-2 [246 kB]
+Get:38 http://localhost/debian/ sid/main file amd64 5.09-2 [52.0 kB]
+Get:39 http://localhost/debian/ sid/main gettext-base amd64 0.18.1.1-5 [154 kB]
+Get:40 http://localhost/debian/ sid/main libtokyocabinet8 amd64 1.4.37-6.1 [287 kB]
+Get:41 http://localhost/debian/ sid/main m4 amd64 1.4.16-2 [259 kB]
+Get:42 http://localhost/debian/ sid/main libbsd0 amd64 0.3.0-1 [52.2 kB]
+Get:43 http://localhost/debian/ sid/main w3m amd64 0.5.3-5 [1220 kB]
+Get:44 http://localhost/debian/ sid/main autoconf all 2.68-1 [804 kB]
+Get:45 http://localhost/debian/ sid/main autotools-dev all 20110511.1 [73.8 kB]
+Get:46 http://localhost/debian/ sid/main automake all 1:1.11.1-1 [611 kB]
+Get:47 http://localhost/debian/ sid/main html2text amd64 1.3.2a-15 [103 kB]
+Get:48 http://localhost/debian/ sid/main gettext amd64 0.18.1.1-5 [2080 kB]
+Get:49 http://localhost/debian/ sid/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:50 http://localhost/debian/ sid/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:51 http://localhost/debian/ sid/main debhelper all 8.9.14 [693 kB]
+Get:52 http://localhost/debian/ sid/main diffstat amd64 1.55-2 [29.9 kB]
+Get:53 http://localhost/debian/ sid/main docbook-xsl all 1.76.1+dfsg-1 [1643 kB]
+Get:54 http://localhost/debian/ sid/main comerr-dev amd64 2.1-1.42-1 [42.7 kB]
+Get:55 http://localhost/debian/ sid/main krb5-multidev amd64 1.10+dfsg~alpha2-1 [153 kB]
+Get:56 http://localhost/debian/ sid/main libgpg-error-dev amd64 1.10-2 [43.0 kB]
+Get:57 http://localhost/debian/ sid/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:58 http://localhost/debian/ sid/main zlib1g-dev amd64 1:1.2.3.4.dfsg-3 [192 kB]
+Get:59 http://localhost/debian/ sid/main libtasn1-3-dev amd64 2.11-1 [387 kB]
+Get:60 http://localhost/debian/ sid/main libp11-kit-dev amd64 0.10-1 [65.0 kB]
+Get:61 http://localhost/debian/ sid/main libgnutls-dev amd64 2.12.16-1 [742 kB]
+Get:62 http://localhost/debian/ sid/main libpth20 amd64 2.0.7-16 [83.3 kB]
+Get:63 http://localhost/debian/ sid/main libgpgme11 amd64 1.2.0-1.4 [349 kB]
+Get:64 http://localhost/debian/ sid/main libpth-dev amd64 2.0.7-16 [143 kB]
+Get:65 http://localhost/debian/ sid/main libgpgme11-dev amd64 1.2.0-1.4 [588 kB]
+Get:66 http://localhost/debian/ sid/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:67 http://localhost/debian/ sid/main libidn11-dev amd64 1.23-2 [735 kB]
+Get:68 http://localhost/debian/ sid/main libtinfo-dev amd64 5.9-4 [103 kB]
+Get:69 http://localhost/debian/ sid/main libncurses5-dev amd64 5.9-4 [406 kB]
+Get:70 http://localhost/debian/ sid/main libncursesw5-dev amd64 5.9-4 [438 kB]
+Get:71 http://localhost/debian/ sid/main libsasl2-modules amd64 2.1.25.dfsg1-2 [114 kB]
+Get:72 http://localhost/debian/ sid/main libsasl2-dev amd64 2.1.25.dfsg1-2 [360 kB]
+Get:73 http://localhost/debian/ sid/main libxslt1.1 amd64 1.1.26-8 [250 kB]
+Get:74 http://localhost/debian/ sid/main quilt all 0.50-2 [381 kB]
+Get:75 http://localhost/debian/ sid/main xsltproc amd64 1.1.26-8 [115 kB]
+Get:76 http://localhost/debian/ sid/main libkrb5-dev amd64 1.10+dfsg~alpha2-1 [39.0 kB]
+Get:77 http://localhost/debian/ sid/main libtokyocabinet-dev amd64 1.4.37-6.1 [437 kB]
+Extracting templates from packages: 38%Extracting templates from packages: 76%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Fetched 26.6 MB in 0s (42.4 MB/s)
+Selecting previously unselected package libpipeline1.
+(Reading database ... 10821 files and directories currently installed.)
+Unpacking libpipeline1 (from .../libpipeline1_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package libpopt0.
+Unpacking libpopt0 (from .../libpopt0_1.16-3_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0.
+Unpacking libssl1.0.0 (from .../libssl1.0.0_1.0.0e-3_amd64.deb) ...
+Selecting previously unselected package libgpg-error0.
+Unpacking libgpg-error0 (from .../libgpg-error0_1.10-2_amd64.deb) ...
+Selecting previously unselected package libgcrypt11.
+Unpacking libgcrypt11 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0.
+Unpacking libp11-kit0 (from .../libp11-kit0_0.10-1_amd64.deb) ...
+Selecting previously unselected package libtasn1-3.
+Unpacking libtasn1-3 (from .../libtasn1-3_2.11-1_amd64.deb) ...
+Selecting previously unselected package libgnutls26.
+Unpacking libgnutls26 (from .../libgnutls26_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27.
+Unpacking libgnutls-openssl27 (from .../libgnutls-openssl27_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libgpm2.
+Unpacking libgpm2 (from .../libgpm2_1.20.4-4_amd64.deb) ...
+Selecting previously unselected package libkeyutils1.
+Unpacking libkeyutils1 (from .../libkeyutils1_1.5.2-2_amd64.deb) ...
+Selecting previously unselected package libkrb5support0.
+Unpacking libkrb5support0 (from .../libkrb5support0_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libk5crypto3.
+Unpacking libk5crypto3 (from .../libk5crypto3_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkrb5-3.
+Unpacking libkrb5-3 (from .../libkrb5-3_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2.
+Unpacking libgssapi-krb5-2 (from .../libgssapi-krb5-2_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgssrpc4.
+Unpacking libgssrpc4 (from .../libgssrpc4_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libidn11.
+Unpacking libidn11 (from .../libidn11_1.23-2_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8.
+Unpacking libkadm5clnt-mit8 (from .../libkadm5clnt-mit8_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkdb5-6.
+Unpacking libkdb5-6 (from .../libkdb5-6_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8.
+Unpacking libkadm5srv-mit8 (from .../libkadm5srv-mit8_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libpcre3.
+Unpacking libpcre3 (from .../libpcre3_8.12-4_amd64.deb) ...
+Selecting previously unselected package libsasl2-2.
+Unpacking libsasl2-2 (from .../libsasl2-2_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package sgml-base.
+Unpacking sgml-base (from .../sgml-base_1.26+nmu1_all.deb) ...
+Selecting previously unselected package xml-core.
+Unpacking xml-core (from .../archives/xml-core_0.13_all.deb) ...
+Selecting previously unselected package sgml-data.
+Unpacking sgml-data (from .../sgml-data_2.0.6_all.deb) ...
+Setting up sgml-base (1.26+nmu1) ...
+Setting up xml-core (0.13) ...
+Selecting previously unselected package docbook-xml.
+(Reading database ... 11313 files and directories currently installed.)
+Unpacking docbook-xml (from .../docbook-xml_4.5-7_all.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Setting up libsigsegv2 (2.9-4) ...
+Selecting previously unselected package gawk.
+(Reading database ... 11478 files and directories currently installed.)
+Unpacking gawk (from .../gawk_1%3a3.1.8+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.30.2-4_amd64.deb) ...
+Selecting previously unselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.7.8.dfsg-5.1_amd64.deb) ...
+Selecting previously unselected package libcroco3.
+Unpacking libcroco3 (from .../libcroco3_0.6.2-2_amd64.deb) ...
+Selecting previously unselected package libunistring0.
+Unpacking libunistring0 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27.
+Unpacking libgnutlsxx27 (from .../libgnutlsxx27_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_8.2.3_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.21-6_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.0.2-3_amd64.deb) ...
+Selecting previously unselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_5.09-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.09-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package libtokyocabinet8.
+Unpacking libtokyocabinet8 (from .../libtokyocabinet8_1.4.37-6.1_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-2_amd64.deb) ...
+Selecting previously unselected package libbsd0.
+Unpacking libbsd0 (from .../libbsd0_0.3.0-1_amd64.deb) ...
+Selecting previously unselected package w3m.
+Unpacking w3m (from .../archives/w3m_0.5.3-5_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.68-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20110511.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.1-1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-5_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_8.9.14_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-2_amd64.deb) ...
+Selecting previously unselected package docbook-xsl.
+Unpacking docbook-xsl (from .../docbook-xsl_1.76.1+dfsg-1_all.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-2_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev.
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.11-1_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.10-1_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.16-1_amd64.deb) ...
+Selecting previously unselected package libpth20.
+Unpacking libpth20 (from .../libpth20_2.0.7-16_amd64.deb) ...
+Selecting previously unselected package libgpgme11.
+Unpacking libgpgme11 (from .../libgpgme11_1.2.0-1.4_amd64.deb) ...
+Selecting previously unselected package libpth-dev.
+Unpacking libpth-dev (from .../libpth-dev_2.0.7-16_amd64.deb) ...
+Selecting previously unselected package libgpgme11-dev.
+Unpacking libgpgme11-dev (from .../libgpgme11-dev_1.2.0-1.4_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libidn11-dev.
+Unpacking libidn11-dev (from .../libidn11-dev_1.23-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev.
+Unpacking libtinfo-dev (from .../libtinfo-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libncursesw5-dev.
+Unpacking libncursesw5-dev (from .../libncursesw5-dev_5.9-4_amd64.deb) ...
+Selecting previously unselected package libsasl2-modules.
+Unpacking libsasl2-modules (from .../libsasl2-modules_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package libsasl2-dev.
+Unpacking libsasl2-dev (from .../libsasl2-dev_2.1.25.dfsg1-2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1.
+Unpacking libxslt1.1 (from .../libxslt1.1_1.1.26-8_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.50-2_all.deb) ...
+Selecting previously unselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.26-8_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10+dfsg~alpha2-1_amd64.deb) ...
+Selecting previously unselected package libtokyocabinet-dev.
+Unpacking libtokyocabinet-dev (from .../libtokyocabinet-dev_1.4.37-6.1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-mutt-dummy.
+Unpacking sbuild-build-depends-mutt-dummy (from .../sbuild-build-depends-mutt-dummy.deb) ...
+Processing triggers for install-info ...
+Setting up libpipeline1 (1.2.0-5) ...
+Setting up libpopt0 (1.16-3) ...
+Setting up libssl1.0.0 (1.0.0e-3) ...
+Setting up libgpg-error0 (1.10-2) ...
+Setting up libgcrypt11 (1.5.0-3) ...
+Setting up libp11-kit0 (0.10-1) ...
+Setting up libtasn1-3 (2.11-1) ...
+Setting up libgnutls26 (2.12.16-1) ...
+Setting up libgnutls-openssl27 (2.12.16-1) ...
+Setting up libgpm2 (1.20.4-4) ...
+Setting up libkeyutils1 (1.5.2-2) ...
+Setting up libkrb5support0 (1.10+dfsg~alpha2-1) ...
+Setting up libk5crypto3 (1.10+dfsg~alpha2-1) ...
+Setting up libkrb5-3 (1.10+dfsg~alpha2-1) ...
+Setting up libgssapi-krb5-2 (1.10+dfsg~alpha2-1) ...
+Setting up libgssrpc4 (1.10+dfsg~alpha2-1) ...
+Setting up libidn11 (1.23-2) ...
+Setting up libkadm5clnt-mit8 (1.10+dfsg~alpha2-1) ...
+Setting up libkdb5-6 (1.10+dfsg~alpha2-1) ...
+Setting up libkadm5srv-mit8 (1.10+dfsg~alpha2-1) ...
+Setting up libpcre3 (8.12-4) ...
+Setting up libsasl2-2 (2.1.25.dfsg1-2) ...
+Setting up sgml-data (2.0.6) ...
+Setting up docbook-xml (4.5-7) ...
+Setting up gawk (1:3.1.8+dfsg-0.1) ...
+Setting up libglib2.0-0 (2.30.2-4) ...
+No schema files found: doing nothing.
+Setting up libxml2 (2.7.8.dfsg-5.1) ...
+Setting up libcroco3 (0.6.2-2) ...
+Setting up libunistring0 (0.9.3-5) ...
+Setting up libgnutlsxx27 (2.12.16-1) ...
+Setting up bsdmainutils (8.2.3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode.
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode.
+Setting up groff-base (1.21-6) ...
+Setting up man-db (2.6.0.2-3) ...
+Building database of manual pages ...
+Setting up libmagic1 (5.09-2) ...
+Setting up file (5.09-2) ...
+Setting up gettext-base (0.18.1.1-5) ...
+Setting up libtokyocabinet8 (1.4.37-6.1) ...
+Setting up m4 (1.4.16-2) ...
+Setting up libbsd0 (0.3.0-1) ...
+Setting up w3m (0.5.3-5) ...
+Setting up autoconf (2.68-1) ...
+Setting up autotools-dev (20110511.1) ...
+Setting up automake (1:1.11.1-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode.
+Setting up html2text (1.3.2a-15) ...
+Setting up gettext (0.18.1.1-5) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (8.9.14) ...
+Setting up diffstat (1.55-2) ...
+Setting up docbook-xsl (1.76.1+dfsg-1) ...
+Setting up comerr-dev (2.1-1.42-1) ...
+Setting up krb5-multidev (1.10+dfsg~alpha2-1) ...
+Setting up libgpg-error-dev (1.10-2) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up zlib1g-dev (1:1.2.3.4.dfsg-3) ...
+Setting up libtasn1-3-dev (2.11-1) ...
+Setting up libp11-kit-dev (0.10-1) ...
+Setting up libgnutls-dev (2.12.16-1) ...
+Setting up libpth20 (2.0.7-16) ...
+Setting up libgpgme11 (1.2.0-1.4) ...
+Setting up libpth-dev (2.0.7-16) ...
+Setting up libgpgme11-dev (1.2.0-1.4) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libidn11-dev (1.23-2) ...
+Setting up libtinfo-dev (5.9-4) ...
+Setting up libncurses5-dev (5.9-4) ...
+Setting up libncursesw5-dev (5.9-4) ...
+Setting up libsasl2-modules (2.1.25.dfsg1-2) ...
+Setting up libsasl2-dev (2.1.25.dfsg1-2) ...
+Setting up libxslt1.1 (1.1.26-8) ...
+Setting up quilt (0.50-2) ...
+Setting up xsltproc (1.1.26-8) ...
+Setting up libkrb5-dev (1.10+dfsg~alpha2-1) ...
+Setting up libtokyocabinet-dev (1.4.37-6.1) ...
+Setting up sbuild-build-depends-mutt-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-4 dpkg-dev_1.16.1.2 g++-4.6_4.6.2-9 gcc-4.6_4.6.2-9 libc6-dev_2.13-24 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 linux-libc-dev_3.1.8-2
+Package versions: apt_0.8.15.9 apt-utils_0.8.15.9 autoconf_2.68-1 automake_1:1.11.1-1 autotools-dev_20110511.1 base-files_6.5 base-passwd_3.5.24 bash_4.2-1 binutils_2.22-4 bsdmainutils_8.2.3 bsdutils_1:2.20.1-1.1 build-essential_11.5 bzip2_1.0.6-1 clang_3.0-5 comerr-dev_2.1-1.42-1 coreutils_8.13-3 cpp_4:4.6.2-4 cpp-4.6_4.6.2-9 dash_0.5.7-2 debconf_1.5.41 debfoster_2.7-1.1 debhelper_8.9.14 debian-archive-keyring_2010.08.28 debianutils_4.1 diffstat_1.55-2 diffutils_1:3.2-1 docbook-xml_4.5-7 docbook-xsl_1.76.1+dfsg-1 dpkg_1.16.1.2 dpkg-dev_1.16.1.2 e2fslibs_1.42-1 e2fsprogs_1.42-1 fakeroot_1.18.2-1 file_5.09-2 findutils_4.4.2-4 g++_4:4.6.2-4 g++-4.6_4.6.2-9 gawk_1:3.1.8+dfsg-0.1 gcc_4:4.6.2-4 gcc-4.6_4.6.2-9 gcc-4.6-base_4.6.2-9 gettext_0.18.1.1-5 gettext-base_0.18.1.1-5 gnupg_1.4.11-3 gpgv_1.4.11-3 grep_2.10-1 groff-base_1.21-6 gzip_1.4-2 hostname_3.09 html2text_1.3.2a-15 initscripts_2.88dsf-18 insserv_1.14.0-2.1 install-info_4.13a.dfsg.1-8 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10+dfsg~alpha2-1 less_444-1 libacl1_2.2.51-5 libattr1_1:2.4.46-5 libblkid1_2.20.1-1.1 libbsd0_0.3.0-1 libbz2-1.0_1.0.6-1 libc-bin_2.13-24 libc-dev-bin_2.13-24 libc6_2.13-24 libc6-dev_2.13-24 libclang-common-dev_3.0-5 libclass-isa-perl_0.36-3 libcomerr2_1.42-1 libcroco3_0.6.2-2 libdb5.1_5.1.29-1 libdpkg-perl_1.16.1.2 libffi5_3.0.10-3 libgc1c2_1:7.1-8 libgcc1_1:4.6.2-9 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-10 libglib2.0-0_2.30.2-4 libgmp10_2:5.0.2+dfsg-2 libgnutls-dev_2.12.16-1 libgnutls-openssl27_2.12.16-1 libgnutls26_2.12.16-1 libgnutlsxx27_2.12.16-1 libgomp1_4.6.2-9 libgpg-error-dev_1.10-2 libgpg-error0_1.10-2 libgpgme11_1.2.0-1.4 libgpgme11-dev_1.2.0-1.4 libgpm2_1.20.4-4 libgssapi-krb5-2_1.10+dfsg~alpha2-1 libgssrpc4_1.10+dfsg~alpha2-1 libidn11_1.23-2 libidn11-dev_1.23-2 libk5crypto3_1.10+dfsg~alpha2-1 libkadm5clnt-mit8_1.10+dfsg~alpha2-1 libkadm5srv-mit8_1.10+dfsg~alpha2-1 libkdb5-6_1.10+dfsg~alpha2-1 libkeyutils1_1.5.2-2 libkrb5-3_1.10+dfsg~alpha2-1 libkrb5-dev_1.10+dfsg~alpha2-1 libkrb5support0_1.10+dfsg~alpha2-1 libllvm3.0_3.0-5 liblzma2_5.1.1alpha+20110809-2 liblzma5_5.1.1alpha+20110809-3 libmagic1_5.09-2 libmount1_2.20.1-1.1 libmpc2_0.9-4 libmpfr4_3.1.0-3 libncurses5_5.9-4 libncurses5-dev_5.9-4 libncursesw5_5.9-4 libncursesw5-dev_5.9-4 libp11-kit-dev_0.10-1 libp11-kit0_0.10-1 libpam-modules_1.1.3-6 libpam-modules-bin_1.1.3-6 libpam-runtime_1.1.3-6 libpam0g_1.1.3-6 libpcre3_8.12-4 libpipeline1_1.2.0-5 libpopt0_1.16-3 libpth-dev_2.0.7-16 libpth20_2.0.7-16 libquadmath0_4.6.2-9 libreadline6_6.2-8 libsasl2-2_2.1.25.dfsg1-2 libsasl2-dev_2.1.25.dfsg1-2 libsasl2-modules_2.1.25.dfsg1-2 libselinux1_2.1.0-4 libsepol1_2.1.0-1.2 libsigsegv2_2.9-4 libslang2_2.2.4-5 libss2_1.42-1 libssl1.0.0_1.0.0e-3 libstdc++6_4.6.2-9 libstdc++6-4.6-dev_4.6.2-9 libswitch-perl_2.16-2 libtasn1-3_2.11-1 libtasn1-3-dev_2.11-1 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-4 libtinfo5_5.9-4 libtokyocabinet-dev_1.4.37-6.1 libtokyocabinet8_1.4.37-6.1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-20 libuuid1_2.20.1-1.1 libxml2_2.7.8.dfsg-5.1 libxslt1.1_1.1.26-8 linux-libc-dev_3.1.8-2 login_1:4.1.4.2+svn3283-3 lsb-base_3.2-28 m4_1.4.16-2 make_3.81-8.1 man-db_2.6.0.2-3 mawk_1.3.3-16 mount_2.20.1-1.1 multiarch-support_2.13-24 ncurses-base_5.9-4 ncurses-bin_5.9-4 nvi_1.81.6-8.2 passwd_1:4.1.4.2+svn3283-3 patch_2.6.1-2 perl_5.14.2-6 perl-base_5.14.2-6 perl-modules_5.14.2-6 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 quilt_0.50-2 readline-common_6.2-8 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-mutt-dummy_0.invalid.0 sed_4.2.1-9 sensible-utils_0.0.6 sgml-base_1.26+nmu1 sgml-data_2.0.6 sysv-rc_2.88dsf-18 sysvinit_2.88dsf-18 sysvinit-utils_2.88dsf-18 tar_1.26-4 tzdata_2011n-2 util-linux_2.20.1-1.1 w3m_0.5.3-5 xml-core_0.13 xsltproc_1.1.26-8 xz-utils_5.1.1alpha+20110809-3 zlib1g_1:1.2.3.4.dfsg-3 zlib1g-dev_1:1.2.3.4.dfsg-3
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/var/lib/sbuild/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun May  8 09:46:22 2011 CEST using DSA key ID A7BE5AB0
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./mutt_1.5.21-5.dsc
+dpkg-source: info: extracting mutt in mutt-1.5.21
+dpkg-source: info: unpacking mutt_1.5.21.orig.tar.gz
+dpkg-source: info: applying mutt_1.5.21-5.diff.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package mutt
+dpkg-buildpackage: source version 1.5.21-5
+ dpkg-source --before-build mutt-1.5.21
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null pop -a -R || test $? = 2
+No patch removed
+rm -rf .pc debian/stamp-patched
+###################### clean ######################
+dh_testdir
+dh_testroot
+# please dpkg-source
+rm -f po/*.gmo
+echo -n > PATCHES
+# remove build trees
+rm -rf /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched
+# remove autotool-generated files so they don't show up in the diff.gz
+rm -f configure config.h.in
+rm -f Makefile.in contrib/Makefile.in imap/Makefile.in doc/Makefile.in m4/Makefile.in
+dh_clean
+ dpkg-source -b mutt-1.5.21
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building mutt using existing mutt_1.5.21.orig.tar.gz
+dpkg-source: info: building mutt in mutt_1.5.21-5.diff.gz
+dpkg-source: warning: ignoring deletion of file configure
+dpkg-source: warning: ignoring deletion of file config.h.in
+dpkg-source: warning: ignoring deletion of file Makefile.in
+dpkg-source: warning: ignoring deletion of file aclocal.m4
+dpkg-source: warning: ignoring deletion of file imap/Makefile.in
+dpkg-source: warning: ignoring deletion of file contrib/Makefile.in
+dpkg-source: warning: ignoring deletion of file doc/Makefile.in
+dpkg-source: warning: ignoring deletion of file po/ga.gmo
+dpkg-source: warning: ignoring deletion of file po/bg.gmo
+dpkg-source: warning: ignoring deletion of file po/ca.gmo
+dpkg-source: warning: ignoring deletion of file po/et.gmo
+dpkg-source: warning: ignoring deletion of file po/hu.gmo
+dpkg-source: warning: ignoring deletion of file po/ja.gmo
+dpkg-source: warning: ignoring deletion of file po/tr.gmo
+dpkg-source: warning: ignoring deletion of file po/lt.gmo
+dpkg-source: warning: ignoring deletion of file po/da.gmo
+dpkg-source: warning: ignoring deletion of file po/sv.gmo
+dpkg-source: warning: ignoring deletion of file po/gl.gmo
+dpkg-source: warning: ignoring deletion of file po/eo.gmo
+dpkg-source: warning: ignoring deletion of file po/pt_BR.gmo
+dpkg-source: warning: ignoring deletion of file po/zh_CN.gmo
+dpkg-source: warning: ignoring deletion of file po/zh_TW.gmo
+dpkg-source: warning: ignoring deletion of file po/el.gmo
+dpkg-source: warning: ignoring deletion of file po/ko.gmo
+dpkg-source: warning: ignoring deletion of file po/sk.gmo
+dpkg-source: warning: ignoring deletion of file po/id.gmo
+dpkg-source: warning: ignoring deletion of file po/cs.gmo
+dpkg-source: warning: ignoring deletion of file po/nl.gmo
+dpkg-source: warning: ignoring deletion of file po/pl.gmo
+dpkg-source: warning: ignoring deletion of file po/fr.gmo
+dpkg-source: warning: ignoring deletion of file po/uk.gmo
+dpkg-source: warning: ignoring deletion of file po/es.gmo
+dpkg-source: warning: ignoring deletion of file po/it.gmo
+dpkg-source: warning: ignoring deletion of file po/ru.gmo
+dpkg-source: warning: ignoring deletion of file po/eu.gmo
+dpkg-source: warning: ignoring deletion of file po/de.gmo
+dpkg-source: warning: ignoring deletion of file m4/Makefile.in
+dpkg-source: info: building mutt in mutt_1.5.21-5.dsc
+ debian/rules build
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch misc/am-maintainer-mode
+patching file configure.ac
+
+Applying patch features/ifdef
+patching file init.c
+patching file init.h
+patching file doc/manual.xml.head
+
+Applying patch features/xtitles
+patching file curs_main.c
+patching file globals.h
+patching file init.c
+patching file init.h
+patching file mutt.h
+patching file pager.c
+patching file status.c
+patching file mutt_menu.h
+
+Applying patch features/trash-folder
+patching file commands.c
+patching file flags.c
+patching file globals.h
+patching file imap/message.c
+patching file init.h
+patching file mutt.h
+patching file muttlib.c
+patching file mx.c
+patching file postpone.c
+
+Applying patch features/purge-message
+patching file OPS
+patching file curs_main.c
+patching file flags.c
+patching file functions.h
+patching file mutt.h
+patching file mx.c
+patching file pager.c
+patching file pattern.c
+
+Applying patch features/imap_fast_trash
+patching file imap/imap.c
+patching file imap/imap.h
+patching file mx.c
+
+Applying patch features/sensible_browser_position
+patching file menu.c
+patching file browser.c
+patching file mutt_menu.h
+
+Applying patch features-old/patch-1.5.4.vk.pgp_verbose_mime
+patching file globals.h
+patching file init.h
+patching file pgp.c
+
+Applying patch features/compressed-folders
+patching file compress.c
+patching file compress.h
+patching file configure.ac
+patching file curs_main.c
+patching file doc/manual.xml.head
+patching file doc/muttrc.man.head
+patching file hook.c
+patching file init.h
+patching file main.c
+patching file Makefile.am
+patching file mbox.c
+patching file mutt.h
+patching file mx.c
+patching file mx.h
+patching file po/POTFILES.in
+patching file status.c
+patching file po/de.po
+
+Applying patch features/compressed-folders.debian
+patching file config-debian.h
+
+Applying patch debian-specific/Muttrc
+patching file doc/Muttrc.head
+
+Applying patch debian-specific/Md.etc_mailname_gethostbyname.diff
+patching file init.c
+
+Applying patch debian-specific/use_usr_bin_editor.diff
+patching file init.c
+patching file init.h
+
+Applying patch debian-specific/correct_docdir_in_man_page.diff
+patching file doc/mutt.man
+
+Applying patch debian-specific/dont_document_not_present_features.diff
+patching file init.h
+patching file functions.h
+
+Applying patch debian-specific/document_debian_defaults
+patching file init.h
+
+Applying patch debian-specific/assumed_charset-compat
+patching file init.h
+
+Applying patch debian-specific/467432-write_bcc.patch
+patching file headers.c
+patching file init.h
+patching file protos.h
+patching file send.c
+patching file sendlib.c
+
+Applying patch debian-specific/566076-build_doc_adjustments.patch
+patching file doc/Makefile.am
+
+Applying patch misc/define-pgp_getkeys_command.diff
+patching file contrib/gpg.rc
+
+Applying patch misc/gpg.rc-paths
+patching file contrib/gpg.rc
+
+Applying patch misc/smime.rc
+patching file contrib/smime.rc
+
+Applying patch upstream/531430-imapuser.patch
+patching file account.c
+
+Applying patch upstream/537818-emptycharset.patch
+patching file init.c
+
+Applying patch upstream/543467-thread-segfault.patch
+patching file flags.c
+
+Applying patch upstream/542817-smimekeys-tmpdir.patch
+patching file smime_keys.pl
+
+Applying patch upstream/548577-gpgme-1.2.patch
+patching file init.c
+
+Applying patch upstream/553321-ansi-escape-segfault.patch
+patching file pager.c
+
+Applying patch upstream/568295-references.patch
+patching file headers.c
+
+Applying patch upstream/547980-smime_keys-chaining.patch
+patching file smime_keys.pl
+
+Applying patch upstream/528233-readonly-open.patch
+patching file attach.c
+
+Applying patch upstream/228671-pipe-mime.patch
+patching file imap/message.c
+
+Applying patch upstream/383769-score-match.patch
+patching file score.c
+
+Applying patch upstream/578087-header-strchr.patch
+patching file sendlib.c
+
+Applying patch upstream/603288-split-fetches.patch
+patching file imap/message.c
+
+Applying patch upstream/537061-dont-recode-saved-attachments.patch
+patching file attach.c
+
+Applying patch upstream/608706-fix-spelling-errors.patch
+patching file copy.c
+patching file edit.c
+patching file enter.c
+patching file crypt.c
+patching file init.c
+patching file po/mutt.pot
+patching file recvattach.c
+patching file po/bg.po
+patching file po/ca.po
+patching file po/cs.po
+patching file po/da.po
+patching file po/de.po
+patching file po/el.po
+patching file po/eo.po
+patching file po/es.po
+patching file po/et.po
+patching file po/eu.po
+patching file po/fr.po
+patching file po/ga.po
+patching file po/gl.po
+patching file po/hu.po
+patching file po/id.po
+patching file po/it.po
+patching file po/ja.po
+patching file po/ko.po
+patching file po/lt.po
+patching file po/nl.po
+patching file po/pl.po
+patching file po/pt_BR.po
+patching file po/ru.po
+patching file po/sk.po
+patching file po/sv.po
+patching file po/tr.po
+patching file po/uk.po
+patching file po/zh_CN.po
+patching file po/zh_TW.po
+
+Applying patch upstream/620854-pop3-segfault.patch
+patching file muttlib.c
+
+Applying patch upstream/611412-bts-regexp.patch
+patching file doc/manual.xml.head
+
+Applying patch upstream/624058-gnutls-deprecated-set-priority.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/624085-gnutls-deprecated-verify-peers.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/584138-mx_update_context-segfault.patch
+patching file imap/message.c
+
+Applying patch upstream/619216-gnutls-CN-validation.patch
+patching file mutt_ssl_gnutls.c
+
+Applying patch upstream/611410-no-implicit_autoview-for-text-html.patch
+patching file init.h
+patching file muttlib.c
+
+Applying patch upstream/path_max
+patching file mutt.h
+
+Applying patch mutt.org
+patching file .mutt.org
+
+Applying patch mutt-patched/sidebar
+patching file Makefile.am
+patching file OPS
+patching file buffy.c
+patching file buffy.h
+patching file color.c
+patching file compose.c
+patching file curs_main.c
+patching file flags.c
+patching file functions.h
+patching file globals.h
+patching file imap/command.c
+patching file imap/imap.c
+patching file init.h
+Hunk #1 succeeded at 1967 (offset 2 lines).
+patching file mailbox.h
+patching file mbox.c
+patching file menu.c
+patching file mh.c
+patching file mutt.h
+patching file mutt_curses.h
+patching file muttlib.c
+Hunk #1 succeeded at 1289 (offset 3 lines).
+Hunk #2 succeeded at 1334 (offset 3 lines).
+patching file mx.c
+patching file mx.h
+patching file pager.c
+patching file sidebar.c
+patching file sidebar.h
+
+Applying patch mutt-patched/sidebar-dotted
+patching file sidebar.c
+Hunk #1 succeeded at 258 (offset 3 lines).
+patching file init.h
+Hunk #1 succeeded at 1983 (offset 2 lines).
+patching file mutt.h
+
+Applying patch mutt-patched/sidebar-sorted
+patching file sidebar.c
+patching file init.h
+Hunk #1 succeeded at 1988 (offset 2 lines).
+patching file mutt.h
+
+Applying patch mutt-patched/sidebar-utf8
+patching file sidebar.c
+
+Applying patch mutt-patched/multiple-fcc
+patching file protos.h
+patching file send.c
+patching file sendlib.c
+
+Now at patch mutt-patched/multiple-fcc
+touch debian/stamp-patched
+dh_testdir
+dh_clean
+mkdir /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched
+###################### building mutt-patched ######################
+QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null applied > PATCHES
+autoreconf --install --include=m4
+cd /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched && \
+	env CFLAGS="-Wall -g -O2" CPPFLAGS="-I/usr/include/qdbm" \
+	../configure --prefix=/usr --sysconfdir=/etc --mandir=/usr/share/man --with-sharedir=/usr/share/mutt --with-docdir=/usr/share/doc --with-mailpath=/var/mail --disable-dependency-tracking --enable-compressed --enable-debug --enable-fcntl --enable-hcache --enable-gpgme --enable-imap --enable-smtp --enable-inodesort --enable-pop --with-curses --with-gnutls --with-gss --with-idn --with-mixmaster --with-sasl --without-gdbm --without-bdb --without-qdbm --build x86_64-linux-gnu
+configure: WARNING: unrecognized options: --with-sharedir, --enable-inodesort
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... none
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for prefix... /usr
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) none
+checking for library containing strerror... none required
+checking for function prototypes... yes
+checking for string.h... (cached) yes
+checking how to run the C preprocessor... gcc -E
+checking whether make sets $(MAKE)... (cached) yes
+checking for ranlib... ranlib
+checking for ar... ar
+checking for inline... inline
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking size of off_t... 8
+checking for dbx... no
+checking for gdb... no
+checking for sdb... no
+checking for inttypes.h... (cached) yes
+checking for uint32_t... yes
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking for long long int... yes
+checking for sendmail... /usr/sbin/sendmail
+checking whether to build with GPGME support... yes
+checking for gpgme-config... /usr/bin/gpgme-config
+checking for GPGME - version >= 1.0.0... yes
+checking for GPGME - version >= 1.1.1... yes
+checking for GPGME - version >= 1.0.0... yes
+checking for ispell... no
+checking for initscr... no
+checking for waddnwstr in -lncurses... no
+checking for waddnwstr in -lncursesw... yes
+checking for initscr in -lncursesw... yes
+checking ncursesw/ncurses.h usability... yes
+checking ncursesw/ncurses.h presence... yes
+checking for ncursesw/ncurses.h... yes
+checking for start_color declaration... yes
+checking for typeahead declaration... yes
+checking for bkgdset declaration... yes
+checking for curs_set declaration... yes
+checking for meta declaration... yes
+checking for use_default_colors declaration... yes
+checking for resizeterm declaration... yes
+checking for ANSI C header files... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking ioctl.h usability... no
+checking ioctl.h presence... no
+checking for ioctl.h... no
+checking sysexits.h usability... yes
+checking sysexits.h presence... yes
+checking for sysexits.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking unix.h usability... no
+checking unix.h presence... no
+checking for unix.h... no
+checking for setrlimit... yes
+checking for getsid... yes
+checking return type of signal handlers... void
+checking for sig_atomic_t in signal.h... yes, non volatile
+checking whether sys_siglist is declared... yes
+checking for pid_t... yes
+checking for ssize_t... yes
+checking for fgetpos... yes
+checking for memmove... yes
+checking for setegid... yes
+checking for srand48... yes
+checking for strerror... yes
+checking for setenv... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strsep... yes
+checking for strtok_r... yes
+checking for wcscasecmp... yes
+checking for strcasestr... yes
+checking for mkdtemp... yes
+checking for getopt... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking whether your system's snprintf is C99 compliant... yes
+checking whether your system's vsnprintf is C99 compliant... yes
+checking for va_copy... va_copy
+checking for ftruncate... yes
+checking for strftime... yes
+checking for fchdir... yes
+checking for regcomp... yes
+checking whether your system's regexp library is completely broken... no
+checking if /var/mail is world writable... no
+checking if /var/mail is group writable... yes
+checking where to put the documentation... /usr/share/doc
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for socklen_t... yes
+checking for gethostent... yes
+checking for setsockopt... yes
+checking for getaddrinfo... yes
+checking for krb5-config... /usr/bin/krb5-config
+checking GSSAPI implementation... MIT
+checking for gnutls_check_version in -lgnutls... yes
+checking whether GNUTLS_VERIFY_DISABLE_TIME_CHECKS is declared... yes
+checking for library containing sasl_encode64... -lsasl2
+checking whether struct dirent defines d_ino... yes
+checking tcbdb.h usability... yes
+checking tcbdb.h presence... yes
+checking for tcbdb.h... yes
+checking for tcbdbopen in -ltokyocabinet... yes
+checking for off_t... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... yes
+checking nl_types.h presence... yes
+checking for nl_types.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for feof_unlocked... yes
+checking for fgets_unlocked... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... (cached) yes
+checking for setlocale... yes
+checking for stpcpy... yes
+checking for strchr... yes
+checking for strcasecmp... (cached) yes
+checking for strdup... (cached) yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking for GNU gettext in libc... yes
+checking for dcgettext... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for bison... no
+checking for catalogs to be installed...  de eu ru it es uk fr pl nl cs id sk ko el zh_TW zh_CN pt_BR eo gl sv da lt tr ja hu et ca bg ga
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking whether iconv.h defines iconv_t... yes
+checking whether this iconv is good enough... yes
+checking whether iconv is non-transcribing... no
+checking for bind_textdomain_codeset... yes
+checking for library containing stringprep_check_version... -lidn
+checking for idna_to_unicode_utf8_from_utf8... no
+checking for idna_to_unicode_8z8z... yes
+checking for idna_to_ascii_from_utf8... no
+checking for idna_to_ascii_8z... yes
+checking for idna_to_ascii_lz... yes
+checking for idna_to_ascii_from_locale... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking for iswalnum... yes
+checking for iswalpha... yes
+checking for iswblank... yes
+checking for iswcntrl... yes
+checking for iswdigit... yes
+checking for iswgraph... yes
+checking for iswlower... yes
+checking for iswprint... yes
+checking for iswpunct... yes
+checking for iswspace... yes
+checking for iswupper... yes
+checking for iswxdigit... yes
+checking for towupper... yes
+checking for towlower... yes
+checking for mbstate_t... yes
+checking for wchar_t functions... yes
+checking for nl_langinfo and CODESET... yes
+checking for nl_langinfo and YESEXPR... yes
+checking for ospcat... none
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating contrib/Makefile
+config.status: creating doc/Makefile
+config.status: creating imap/Makefile
+config.status: creating intl/Makefile
+config.status: creating m4/Makefile
+config.status: creating po/Makefile.in
+config.status: creating hcachever.sh
+config.status: creating muttbug.sh
+config.status: creating doc/instdoc.sh
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: WARNING: unrecognized options: --with-sharedir, --enable-inodesort
+echo '#include "config-debian.h"' >> /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/config.h
+# we should just "make mutt" here, but that doesn't work yet
+cd /build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched && /usr/bin/make CFLAGS="-Wall -g -O2"
+make[1]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+../gen_defs ../OPS ../OPS.MIX ../OPS.PGP ../OPS.SMIME ../OPS.CRYPT  > keymap_defs.h
+../patchlist.sh < ../PATCHES > patchlist.c
+echo 'const char *ReleaseDate = "'`head -n 1 ../ChangeLog | LC_ALL=C cut -d ' ' -f 1`'";' > reldate.h.tmp; \
+	cmp -s reldate.h.tmp reldate.h || cp reldate.h.tmp reldate.h; \
+	rm reldate.h.tmp
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl -DMD5UTIL -Wall -g -O2 -c -o mutt_md5-md5.o `test -f 'md5.c' || echo '../'`md5.c
+gcc -DMD5UTIL -Wall -g -O2   -o mutt_md5 mutt_md5-md5.o  -lidn 
+( echo '#include "config.h"'; echo '#include "mutt.h"'; ) \
+	| gcc -E -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl - | sh ./hcachever.sh hcversion.h
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+Making all in m4
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/m4'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/m4'
+Making all in po
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/po'
+file=`echo de | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/de.po
+1111 translated messages, 10 fuzzy translations, 4 untranslated messages.
+file=`echo eu | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/eu.po
+1063 translated messages, 39 fuzzy translations, 18 untranslated messages.
+file=`echo ru | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ru.po
+1104 translated messages, 12 fuzzy translations, 4 untranslated messages.
+file=`echo it | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/it.po
+855 translated messages, 152 fuzzy translations, 113 untranslated messages.
+file=`echo es | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/es.po
+739 translated messages, 226 fuzzy translations, 155 untranslated messages.
+file=`echo uk | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/uk.po
+761 translated messages, 191 fuzzy translations, 168 untranslated messages.
+file=`echo fr | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/fr.po
+1120 translated messages.
+file=`echo pl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/pl.po
+1062 translated messages, 42 fuzzy translations, 16 untranslated messages.
+file=`echo nl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/nl.po
+1092 translated messages, 18 fuzzy translations, 10 untranslated messages.
+file=`echo cs | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/cs.po
+1119 translated messages, 1 fuzzy translation.
+file=`echo id | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/id.po
+1054 translated messages, 41 fuzzy translations, 25 untranslated messages.
+file=`echo sk | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/sk.po
+540 translated messages, 330 fuzzy translations, 250 untranslated messages.
+file=`echo ko | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ko.po
+852 translated messages, 149 fuzzy translations, 119 untranslated messages.
+file=`echo el | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/el.po
+871 translated messages, 143 fuzzy translations, 106 untranslated messages.
+file=`echo zh_TW | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/zh_TW.po
+747 translated messages, 223 fuzzy translations, 150 untranslated messages.
+file=`echo zh_CN | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/zh_CN.po
+1104 translated messages, 13 fuzzy translations, 3 untranslated messages.
+file=`echo pt_BR | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/pt_BR.po
+653 translated messages, 289 fuzzy translations, 178 untranslated messages.
+file=`echo eo | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/eo.po
+1059 translated messages, 43 fuzzy translations, 18 untranslated messages.
+file=`echo gl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/gl.po
+725 translated messages, 237 fuzzy translations, 158 untranslated messages.
+file=`echo sv | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/sv.po
+1063 translated messages, 42 fuzzy translations, 15 untranslated messages.
+file=`echo da | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/da.po
+876 translated messages, 137 fuzzy translations, 107 untranslated messages.
+file=`echo lt | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/lt.po
+714 translated messages, 243 fuzzy translations, 163 untranslated messages.
+file=`echo tr | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/tr.po
+1009 translated messages, 76 fuzzy translations, 35 untranslated messages.
+file=`echo ja | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ja.po
+1080 translated messages, 27 fuzzy translations, 13 untranslated messages.
+file=`echo hu | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/hu.po
+846 translated messages, 154 fuzzy translations, 120 untranslated messages.
+file=`echo et | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/et.po
+827 translated messages, 161 fuzzy translations, 132 untranslated messages.
+file=`echo ca | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ca.po
+1104 translated messages, 12 fuzzy translations, 4 untranslated messages.
+file=`echo bg | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/bg.po
+846 translated messages, 158 fuzzy translations, 116 untranslated messages.
+file=`echo ga | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ../../po/ga.po
+1019 translated messages, 69 fuzzy translations, 32 untranslated messages.
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/po'
+Making all in intl
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/intl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/intl'
+Making all in doc
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/doc'
+gcc -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I. -I../../doc -I..  -I. -I.. -I/usr/include -I../.. -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../doc/makedoc.c
+gcc  -Wall -g -O2   -o makedoc makedoc.o  -lidn 
+sed -e 's,@sysconfdir\@,/etc,g' -e 's,@bindir\@,/usr/bin,g' -e 's,@docdir\@,/usr/share/doc,g' ../../doc/mutt.man > mutt.1
+sed -e 's,@sysconfdir\@,/etc,g' -e 's,@bindir\@,/usr/bin,g' -e 's,@docdir\@,/usr/share/doc,g' ../../doc/smime_keys.man > smime_keys.1
+gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../init.h | ./makedoc -m | 	    \
+		cat ../../doc/muttrc.man.head - ../../doc/muttrc.man.tail\
+		> muttrc.man
+( date=`head -n 1 ../../ChangeLog | LC_ALL=C cut -d ' ' -f 1` && \
+	  sed -e "s/@VERSION\@/`cat ../../VERSION` ($date)/" ../../doc/manual.xml.head && \
+	  gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../init.h | ./makedoc -s && \
+	  gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C ../../functions.h | \
+	    perl ../../doc/gen-map-doc ../../doc/manual.xml.tail ../../OPS* \
+	) > manual.xml
+touch stamp-doc-xml
+xsltproc --nonet -o manual.html ../../doc/html.xsl manual.xml
+rm -f Muttrc stamp-doc-rc
+sed -e 's,[@]docdir[@],/usr/share/doc,' ../../doc/Muttrc.head > Muttrc
+gcc -E -I. -I.. -I/usr/include -I../.. -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DHAVE_CONFIG_H=1 -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl -D_MAKEDOC -C \
+	  ../../init.h | ./makedoc -c >> Muttrc
+touch stamp-doc-rc
+xsltproc --nonet ../../doc/chunk.xsl manual.xml
+Writing intro.html for chapter(intro)
+Writing gettingstarted.html for chapter(gettingstarted)
+Writing configuration.html for chapter(configuration)
+Writing advancedusage.html for chapter(advancedusage)
+Writing mimesupport.html for chapter(mimesupport)
+Writing optionalfeatures.html for chapter(optionalfeatures)
+Writing security.html for chapter(security)
+Writing tuning.html for chapter(tuning)
+Writing reference.html for chapter(reference)
+Writing miscellany.html for chapter(miscellany)
+Writing index.html for book
+touch stamp-doc-chunked
+LC_ALL=C w3m -dump -O UTF-8 manual.html > manual.txt
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/doc'
+Making all in contrib
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/contrib'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/contrib'
+Making all in imap
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/imap'
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_login.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/browse.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/command.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/imap.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/message.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/utf7.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/util.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_sasl.c
+gcc -DHAVE_CONFIG_H -I. -I../../imap -I..  -I../.. -I../intl -I/usr/include/qdbm -I/usr/include/qdbm  -I../../intl  -Wall -g -O2 -c ../../imap/auth_gss.c
+rm -f libimap.a
+ar cru libimap.a auth.o auth_login.o browse.o command.o imap.o message.o utf7.o util.o auth_sasl.o auth_gss.o 
+ranlib libimap.a
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/imap'
+make[3]: Entering directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../addrbook.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../alias.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../attach.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../base64.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../browser.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../buffy.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../color.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../crypt.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../cryptglue.c
+gcc -DPKGDATADIR=\"/usr/share/mutt\" -DSYSCONFDIR=\"/etc\" -DBINDIR=\"/usr/bin\" -DMUTTLOCALEDIR=\"/usr/share/locale\" -DHAVE_CONFIG_H=1 -I. -I..  -I. -I.. -I../imap  -Iintl -I/usr/include/qdbm -I/usr/include/qdbm  -I../intl  -Wall -g -O2 -c ../compress.c
+../compress.c:282:5: warning: implicit declaration of function 'remove_file' is invalid in C99 [-Wimplicit-function-declaration]
+    remove_file (ctx);
+    ^
+../compress.c:283:5: warning: implicit declaration of function 'restore_path' is invalid in C99 [-Wimplicit-function-declaration]
+    restore_path (ctx);
+    ^
+../compress.c:297:6: error: conflicting types for 'restore_path'
+void restore_path (CONTEXT* ctx)
+     ^
+../compress.c:283:5: note: previous implicit declaration is here
+    restore_path (ctx);
+    ^
+../compress.c:304:6: error: conflicting types for 'remove_file'
+void remove_file (CONTEXT* ctx)
+     ^
+../compress.c:282:5: note: previous implicit declaration is here
+    remove_file (ctx);
+    ^
+2 warnings and 2 errors generated.
+make[3]: *** [compress.o] Error 1
+make[3]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched'
+make: *** [/build/mutt-ji8kGm/mutt-1.5.21/obj-x86_64-linux-gnu-patched/build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20120112-2354
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /var/lib/schroot/mount/lsid64b-a1bb29f0-5c57-474a-8831-2ecc61c02674/build/mutt-ji8kGm
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 33112
+Build-Time: 51
+Distribution: lsid64b
+Fail-Stage: build
+Install-Time: 13
+Job: mutt_1.5.21-5
+Package: mutt
+Package-Time: 78
+Source-Version: 1.5.21-5
+Space: 33112
+Status: attempted
+Version: 1.5.21-5
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20120112-2354
+Build needed 00:01:18, 33112k disc space
+DC-Build-Status: Failed 761.520568s
+### Content of /var/log/daemon.log ###
+Jan 12 21:03:13 stremi-12 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:03:30 stremi-12 approx: Concurrent download of debian/dists/sid/main/binary-amd64/Packages.xz is taking too long
+Jan 12 21:04:04 stremi-12 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:15 stremi-12 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:28 stremi-12 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:39 stremi-12 approx: Concurrent download of debian/dists/sid/Release.gpg is taking too long
+Jan 12 21:04:59 stremi-12 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 12 21:05:20 stremi-12 approx: Concurrent download of debian/dists/sid/main/i18n/Index is taking too long
+Jan 12 21:05:20 stremi-12 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 12 21:05:31 stremi-12 approx: Concurrent download of debian/dists/sid/Release is taking too long
+Jan 12 21:05:56 stremi-12 approx: Concurrent download of debian/dists/sid/main/i18n/Index is taking too long
+Jan 12 21:06:01 stremi-12 approx: Concurrent download of debian/dists/sid/main/binary-amd64/Packages.xz is taking too long
+Jan 12 21:06:11 stremi-12 approx: Concurrent download of debian/dists/sid/main/i18n/Index is taking too long
+Jan 12 21:06:26 stremi-12 approx: Concurrent download of debian/dists/sid/main/binary-amd64/Packages.xz is taking too long
+### End of content of /var/log/daemon.log ###
+DC-Time-Estimation: 761.520568 versus expected 180 (r/m: 3.23066982222222 ; m: 180.0)
+DC-Build-Network: USED. See /tmp/rulesafter.fPwfBj !
+************************************************************
+# Generated by iptables-save v1.4.8 on Thu Jan 12 23:54:18 2012
+*filter
+:INPUT ACCEPT [2159348:13214386071]
+:FORWARD ACCEPT [0:0]
+:OUTPUT DROP [0:0]
+:LD - [0:0]
+[894798:10317901168] -A OUTPUT -o lo -j ACCEPT 
+[0:0] -A OUTPUT -d 129.88.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 10.0.0.0/8 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.133.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.159.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.160.0/24 -j ACCEPT 
+[0:0] -A OUTPUT -d 10.69.0.0/17 -j ACCEPT 
+[0:0] -A OUTPUT -d 172.28.52.0/22 -j ACCEPT 
+[0:0] -A OUTPUT -d 172.24.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 131.254.202.0/23 -j ACCEPT 
+[0:0] -A OUTPUT -d 138.96.20.0/22 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.22.0/24 -j ACCEPT 
+[262451:63198880] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
+[0:0] -A OUTPUT -d 192.168.67.0/24 -j ACCEPT 
+[20971:2800356] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
+[24:1440] -A OUTPUT -j LD 
+[24:1440] -A LD -j LOG 
+[24:1440] -A LD -j REJECT --reject-with icmp-port-unreachable 
+COMMIT
+# Completed on Thu Jan 12 23:54:18 2012
+************************************************************
+--- /tmp/rulesbefore.osiVvi	2012-01-12 23:41:36.630392583 +0100
++++ /tmp/rulesafter.fPwfBj	2012-01-12 23:54:18.157719996 +0100
+@@ -1,10 +1,10 @@
+-# Generated by iptables-save v1.4.8 on Thu Jan 12 23:41:36 2012
++# Generated by iptables-save v1.4.8 on Thu Jan 12 23:54:18 2012
+ *filter
+-:INPUT ACCEPT [1904079:10908117634]
++:INPUT ACCEPT [2159348:13214386071]
+ :FORWARD ACCEPT [0:0]
+ :OUTPUT DROP [0:0]
+ :LD - [0:0]
+-[755597:8716586658] -A OUTPUT -o lo -j ACCEPT 
++[894798:10317901168] -A OUTPUT -o lo -j ACCEPT 
+ [0:0] -A OUTPUT -d 129.88.0.0/16 -j ACCEPT 
+ [0:0] -A OUTPUT -d 10.0.0.0/8 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.133.0/24 -j ACCEPT 
+@@ -16,11 +16,11 @@
+ [0:0] -A OUTPUT -d 131.254.202.0/23 -j ACCEPT 
+ [0:0] -A OUTPUT -d 138.96.20.0/22 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.22.0/24 -j ACCEPT 
+-[218792:56341861] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
++[262451:63198880] -A OUTPUT -d 172.16.0.0/16 -j ACCEPT 
+ [0:0] -A OUTPUT -d 192.168.67.0/24 -j ACCEPT 
+-[19559:2613872] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
++[20971:2800356] -A OUTPUT -d 224.0.0.0/4 -p udp -j ACCEPT 
+ [24:1440] -A OUTPUT -j LD 
+ [24:1440] -A LD -j LOG 
+ [24:1440] -A LD -j REJECT --reject-with icmp-port-unreachable 
+ COMMIT
+-# Completed on Thu Jan 12 23:41:36 2012
++# Completed on Thu Jan 12 23:54:18 2012
+************************************************************
+[    8.285454] usb usb7: Manufacturer: Linux 2.6.32-5-amd64 ohci_hcd
+[    8.292358] usb usb7: SerialNumber: 0000:00:14.5
+[    8.297715] usb usb7: configuration #1 chosen from 1 choice
+[    8.304084] hub 7-0:1.0: USB hub found
+[    8.308377] hub 7-0:1.0: 2 ports detected
+[   10.096264] Adding 3911788k swap on /dev/sda1.  Priority:-1 extents:1 across:3911788k 
+[   10.122137] EXT3 FS on sda3, internal journal
+[   10.403504] kjournald starting.  Commit interval 5 seconds
+[   10.421481] EXT3 FS on sda5, internal journal
+[   10.426530] EXT3-fs: mounted filesystem with ordered data mode.
+[   10.793285] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   13.028538] igb: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[   13.039474] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   15.081438] fuse init (API version 7.13)
+[   23.928062] eth0: no IPv6 routers present
+[  215.646916] RPC: Registered udp transport module.
+[  215.652308] RPC: Registered tcp transport module.
+[  215.657673] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[  215.699068] Slow work thread pool: Starting up
+[  215.704248] Slow work thread pool: Ready
+[  215.708802] FS-Cache: Loaded
+[  215.735995] FS-Cache: Netfs 'nfs' registered for caching
+[  215.840385] svc: failed to register lockdv1 RPC service (errno 97).
+[  298.304071] Adding 228556712k swap on /dev/sda5.  Priority:-2 extents:1 across:228556712k 
+[  347.548474] ip_tables: (C) 2000-2006 Netfilter Core Team
+[ 4708.499464] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=36546 DF PROTO=TCP SPT=46466 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 4711.516030] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=36547 DF PROTO=TCP SPT=46466 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 5256.238813] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=16073 DF PROTO=TCP SPT=37006 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 7333.610366] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=7077 DF PROTO=TCP SPT=44391 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 7333.627099] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=14554 DF PROTO=TCP SPT=44392 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 7336.624047] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=7078 DF PROTO=TCP SPT=44391 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 7336.640777] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=14555 DF PROTO=TCP SPT=44392 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 8673.345585] graphmolMolOpsT[21877]: segfault at 0 ip 00002b1f92bf8701 sp 00007fff5be2f2b8 error 4 in libc-2.13.so[2b1f92b7c000+17a000]
+[ 9761.942225] IN= OUT=eth0 SRC=172.16.160.12 DST=188.40.172.6 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=40198 DF PROTO=TCP SPT=51236 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9794.843113] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=14338 DF PROTO=TCP SPT=34086 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9816.757136] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=46120 DF PROTO=TCP SPT=47217 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9826.527705] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=28961 DF PROTO=TCP SPT=40747 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9841.411563] IN= OUT=eth0 SRC=172.16.160.12 DST=192.9.162.55 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=39204 DF PROTO=TCP SPT=57882 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9946.357933] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=33800 DF PROTO=TCP SPT=45593 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9949.376106] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=33801 DF PROTO=TCP SPT=45593 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9953.833385] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=6018 DF PROTO=TCP SPT=45613 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9956.715250] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=58243 DF PROTO=TCP SPT=45614 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9956.848697] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=6019 DF PROTO=TCP SPT=45613 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9959.732539] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=58244 DF PROTO=TCP SPT=45614 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9960.925762] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=48701 DF PROTO=TCP SPT=45615 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9963.945112] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=48702 DF PROTO=TCP SPT=45615 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9964.159867] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=49419 DF PROTO=TCP SPT=45616 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9967.176045] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=49420 DF PROTO=TCP SPT=45616 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9971.240822] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=55158 DF PROTO=TCP SPT=45617 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+[ 9974.256115] IN= OUT=eth0 SRC=172.16.160.12 DST=66.151.234.53 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=55159 DF PROTO=TCP SPT=45617 DPT=80 WINDOW=5840 RES=0x00 SYN URGP=0 
+************************************************************
