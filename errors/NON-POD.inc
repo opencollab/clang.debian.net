@@ -4,6 +4,6 @@ The following code is <a href="http://clang.llvm.org/compatibility.html#vla">not
 
 void foo() {
     int N=2;
-    std::vector<int> best[2][N];
+    std::vector&lt;int&gt; best[2][N];
 }
 </pre>
