@@ -65,5 +65,9 @@ if ($handle) {
     }
     fclose($handle);
 }
+$query="delete from errors where clang_version=3.1  and trim(detected_error)='\n'";
+mysql_query($query);
+$query="delete from errors where clang_version=3.1  and trim(detected_error) like '%Dependencies installation failed%'";
+mysql_query($query);
 echo "$i lines processed\n";
 ?>
