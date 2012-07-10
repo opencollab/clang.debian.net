@@ -1,0 +1,1 @@
+Many options were not supported in clang 2.9 (like, -traditional, -MG, etc), version 3.0 implemented most of them.

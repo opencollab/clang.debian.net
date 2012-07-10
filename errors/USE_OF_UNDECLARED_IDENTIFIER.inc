@@ -1,7 +1,8 @@
 This problem is that g++ accepts code which should be refused. g++ is doing an unqualified lookup into dependent bases of class templates. See the <a href="http://clang.llvm.org/compatibility.html#dep_lookup_bases">official website</a>.
-The attached code clearly shows the issue and the fix.
+<br />
+The attached code clearly shows the issue and the fix:
 <pre class="failure">
-#include <vector>
+#include &lt;vector&gt;
 
 template<class T> class A: public std::vector<T> {
 public:
@@ -14,7 +15,7 @@ public:
 };
 
 void foo() {
-	A<int> B;
+    A<int> B;
     B.del();	
 }
 </pre>
