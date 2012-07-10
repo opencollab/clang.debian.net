@@ -41,13 +41,13 @@ The detailed list of errors:<br />
 <br />
 Errors can be caused by several reasons:<br />
 <ul>
-<li>Refused declarations. See <a href="/status.php?version=3.0&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=3.0&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
-<li>Different warnings options list in <i>-Wall</i> or <i>-Wextra</i> (which will fail with -Werror). See <a href="/status.php?version=3.0&key=TAUTOLOGICAL-COMPARE">example 1</a>, <a href="status.php?version=3.0&key=LINE_POSITIVE">example 2</a>, etc.</li>
-<li>g++ accepts codes which should be rejected by the compiler. See <a href="/status.php?version=3.0&key=ACCESS_PRIVATE_MEMBER">example 1</a>, <a href="/status.php?version=3.0&key=USE_OF_UNDECLARED_IDENTIFIER">Example 2</a> or <a href="/status.php?version=3.0&key=CANNOT_FIND_FUNCTION">Example 3</a></li>
-<li>Some different in the C++ standard appreciation. See <a href="/status.php?version=3.0&key=ACCESS_PROTECTED_MEMBER">example 1</a></li>
-<li>Unsupported features by clang. See <a href="/status.php?version=3.0&key=NON-POD">example 1</a>, <a href="/status.php?version=3.0&key=VARIABLE_LENGTH_ARRAY">example 2</a></li>
-<li>Different default C standard (C99 for clang & C89 for gcc). See <a href="/status.php?version=3.0&key=UNDEF_REF">example 1</a>.
-<li>Mangling issues. See <a href="/status.php?version=3.0&key=CHANGE_SYM_LIB">example 1</a>, etc.</li>
+<li>Refused declarations. See <a href="/status.php?version=<?=$currentVersion?>&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
+<li>Different warnings options list in <i>-Wall</i> or <i>-Wextra</i> (which will fail with -Werror). See <a href="/status.php?version=<?=$currentVersion?>&key=TAUTOLOGICAL-COMPARE">example 1</a>, <a href="status.php?version=<?=$currentVersion?>&key=LINE_POSITIVE">example 2</a>, etc.</li>
+<li>g++ accepts codes which should be rejected by the compiler. See <a href="/status.php?version=<?=$currentVersion?>&key=ACCESS_PRIVATE_MEMBER">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=USE_OF_UNDECLARED_IDENTIFIER">example 2</a> or <a href="/status.php?version=<?=$currentVersion?>&key=CANNOT_FIND_FUNCTION">example 3</a></li>
+<li>Some different in the C++ standard appreciation. See <a href="/status.php?version=<?=$currentVersion?>&key=ACCESS_PROTECTED_MEMBER">example 1</a></li>
+<li>Unsupported features by clang. See <a href="/status.php?version=<?=$currentVersion?>&key=NON-POD">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=VARIABLE_LENGTH_ARRAY">example 2</a></li>
+<li>Different default C standard (C99 for clang & C89 for gcc). See <a href="/status.php?version=<?=$currentVersion?>&key=UNDEF_REF">example 1</a>.
+<li>Mangling issues. See <a href="/status.php?version=<?=$currentVersion?>&key=CHANGE_SYM_LIB">example 1</a>, etc.</li>
 
 <li>...</li>
 </ul>
@@ -62,10 +62,12 @@ The full list of all the results with logs are available at the following URL:<b
 <li>
 <a href="/status.php?version=2.9">clang 2.9</a> (September 2011)</li>
 <li>
-<a href="/status.php">clang 3.0</a> (January 2012)</li>
+<a href="/status.php?version=3.0">clang 3.0</a> (January 2012)</li>
+<li>
+<a href="/status.php?version=3.1">clang 3.1</a> (June 2012)</li>
 </ul>
 <br />
-Many issues listed in the 2.9 have been fixed with the version 3.0.
+    Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
 <br />
 <h1>Build time, binary size or performances</h1>
 For now, none of this aspect have been checked in this analyze.
@@ -98,7 +100,7 @@ I wrote an other GSoC subject called <a href="http://wiki.debian.org/SummerOfCod
 <h1>Conclusions</h1>
 When I had the idea to rebuild Debian with a new compiler, I was expecting many issues and bugs caused by clang but I have been surprised to notice that most of the issues are either difference in C standard supported, difference of interpretation or corner cases.<br /> 
 My personal opinion is that clang is now stable and good enough to rebuild most of the packages in the Debian archive, even if many of them will need minor tweaks to compile properly.<br />
-In the next few years, coupled with better static analysis tools, clang might replace gcc/g++ as the C/C++ compiler used by default in Linux and BSD distributions.<br />The clang developers are progressing very fast: 14.5% of the packages were failing with version 2.9 against 8.8% with version 3.0.<br />
+In the next few years, coupled with better static analysis tools, clang might replace gcc/g++ as the C/C++ compiler used by default in Linux and BSD distributions.<br />The clang developers are progressing very fast: 14.5% of the packages were failing with version 2.9 against 8.8% with version 3.0 and 12.1% with 3.1.<br />
 Several major steps in the clang adoptions have been made like chromium/chrome being built by default with clang, Xcode providing clang by default, FreeBSD working on the gcc => clang switch, etc.<br />
 However, from Debian's point of view, one important step would be to make sure that clang manages correctly all Debian kernels and release architectures (11 official, 6 unofficial)
 <br />

@@ -98,15 +98,16 @@ if ($versionGET=="3.1") {
     $ext="log";
 }
 
-$req="SELECT * FROM errors WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}' order by SOUNDEX(reverse(detected_error))"; //package";
+$req="SELECT * FROM errors WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}' order by package";
+// order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
 while ($row = mysql_fetch_object($result)) {
 $dateLog=explode(" ",$row->date_build);
 ?>
 
-<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td><td><?=metaphone($row->detected_error)?></tr>
-
+<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td></tr>
+     <? // metaphone($row->detected_error)  ?>
         <? } ?>
 </table>
 <div align="right"><a href="status.php">Return to the list</a></div>
