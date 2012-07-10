@@ -108,7 +108,8 @@ However, from Debian's point of view, one important step would be to make sure t
 <br />
 <h1>Annexes</h1>
 <h2>Rebuild</h2>
-    The rebuild itself has been done on a cluster called Grid 5000.<br />
+    The 2.9 and 3.0 rebuild itself have been done on a cluster called Grid 5000.<br />
+    3.1 rebuild has been done on EC2, the Amazon cloud, sponsoring Debian.<br />
 <br />
 Each packages in the Debian archive has been rebuild with the chroot described further. <br />
      For each packages failing to build from the source with clang, the package has been rebuild with a "normal" Debian sid chroot. If working, we considered that it was due to a clang bug. Otherwise, the package is not listed in this list.<br />
@@ -116,7 +117,7 @@ Each packages in the Debian archive has been rebuild with the chroot described f
 
 <a name="configuration_chroot"></a>
 <h2>Configuration of the chroot</h2>
-The procedure has been the following:<br />
+The procedure for 2.9 & 3.0 was the following:<br />
 <ul>
 <li>a chroot has been created with a minimal build environment</li>
 <li>gcc and g++ have been put on hold to make sure then are not changed during the installation of the dependencies<br />
@@ -138,6 +139,37 @@ cd -
 <br />
 All packages of the archive (15658 sources packages) have been rebuild this chroot (even the one without any C or C++ code). Build dependencies used are the same as Debian. For example, that means that the libxml2 used to build a package will be the one from Debian, not the one built with clang. <br />
  <br />
+
+From clang 3.1, with the EC2 Amazon cloud, an <i>chroot-setup-commands</i> is used for each sbuild to setup the environnement.<br />
+The init code is the following:
+<pre class="failure">
+apt-get update
+
+echo "Install of clang"
+apt-get update
+apt-get install --yes --no-install-recommends clang -t unstable
+
+echo "Replace gcc, g++ & cpp by clang"
+VERSION=4.7
+cd /usr/bin
+rm g++-$VERSION gcc-$VERSION cpp-$VERSION
+ln -s clang++ g++-$VERSION
+ln -s clang gcc-$VERSION
+ln -s clang cpp-$VERSION
+cd -
+
+echo "Block the installation of new gcc version"
+echo "gcc-4.6 hold"|dpkg --set-selections
+echo "cpp-4.6 hold"|dpkg --set-selections
+echo "g++-4.6 hold"|dpkg --set-selections
+echo "gcc-4.7 hold"|dpkg --set-selections
+echo "cpp-4.7 hold"|dpkg --set-selections
+echo "g++-4.7 hold"|dpkg --set-selections
+
+echo "Check if gcc, g++ & cpp are actually clang"
+gcc --version|grep clang > /dev/null || exit 1
+
+</pre>
 
 <h2>Acknowledgments</h2>
 Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience (especially since I did a few screw up :p).<br />
