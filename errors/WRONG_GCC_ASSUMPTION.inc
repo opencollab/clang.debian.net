@@ -1,0 +1,1 @@
+Program checks the output of clang and consider the version to be the gcc/g++ one.

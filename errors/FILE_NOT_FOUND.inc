@@ -1,0 +1,18 @@
+In some cases, the <i>-MM</i> option will change the include directory list.
+For example, the code
+<pre class="failure">
+#include &lt;libxml/parser.h&gt;
+</pre>
+will fail with clang but success with gcc.
+<pre class="failure">
+$ gcc -MM  foo.c
+foo.o: foo.c
+
+$ clang -MM  foo.c
+foo.c:1:10: fatal error: 'libxml/parser.h' file not found
+#include &lt;libxml/parser.h&gt;
+         ^
+foo.o: foo.c
+1 error generated.
+</pre>
+Note all these problems are caused by <i>-MM</i>.

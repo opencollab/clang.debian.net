@@ -1,0 +1,2 @@
+With some old libtool version (1.5.6 and older), pic_flag will be set to only <i>-DPIC</i>. The missing option -fPIC (Position independent code) will make the link fail.
+<i>libtoolize</i> or passing <i>-fPIC</i> to the flags will fix the issue.

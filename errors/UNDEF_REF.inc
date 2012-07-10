@@ -1,0 +1,1 @@
+This error can be caused by various issues like name mangling or libstdc++ not explicitly linked.
