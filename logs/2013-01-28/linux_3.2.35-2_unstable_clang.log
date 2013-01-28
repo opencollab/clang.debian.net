@@ -1,0 +1,2014 @@
+DC-Build-Header: linux 3.2.35-2 / Mon Jan 28 04:00:28 +0000 2013
+DC-Task: logfile:/tmp/linux_3.2.35-2_unstable_clang.log version:3.2.35-2 chroot:unstable modes:binary-only:clang source:linux architecture:any esttime:
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang linux_3.2.35-2'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-4-103.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ linux 3.2.35-2 (amd64)                                     28 Jan 2013 04:00 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: linux
+Version: 3.2.35-2
+Source Version: 3.2.35-2
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/linux-eINW8n/linux-3.2.35' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/linux-eINW8n' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-5faecf62-685f-4ad6-bad2-a687c28aa64d' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8234 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Fetched 16.8 MB in 4s (3739 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'linux' packaging is maintained in the 'Svn' version control system at:
+svn://svn.debian.org/svn/kernel/dists/trunk/linux/
+Need to get 68.4 MB of source archives.
+Get:1 http://localhost/debian/ unstable/main linux 3.2.35-2 (dsc) [99.8 kB]
+Get:2 http://localhost/debian/ unstable/main linux 3.2.35-2 (tar) [65.8 MB]
+Get:3 http://localhost/debian/ unstable/main linux 3.2.35-2 (diff) [2484 kB]
+Fetched 68.4 MB in 2s (24.6 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1264 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 2s (3862 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (30.4 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130123-1) ...
+Setting up libitm1:amd64 (4.8-20130123-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130123-1) ...
+Setting up libquadmath0:amd64 (4.8-20130123-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-iSxDfg/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7), cpio, kmod | module-init-tools, python (>= 2.6.6-3~), kernel-wedge (>= 2.84), quilt, patchutils, gcc-4.6
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7), cpio, kmod, python (>= 2.6.6-3~), kernel-wedge (>= 2.84), quilt, patchutils, gcc-4.6
+dpkg-deb: building package `sbuild-build-depends-linux-dummy' in `/«BUILDDIR»/resolver-bl6L1v/apt_archive/sbuild-build-depends-linux-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install linux build dependencies (apt-based resolver)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils cpio debhelper diffstat file gettext gettext-base groff-base
+  html2text intltool-debian kernel-wedge kmod libasprintf-dev libasprintf0c2
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libkmod2 libmagic1
+  libpcre3 libpipeline1 libunistring0 libxml2 man-db patchutils po-debconf
+  quilt
+Suggested packages:
+  wamerican wordlist whois vacation libarchive1 dh-make gettext-doc groff less
+  www-browser libmail-box-perl procmail graphviz default-mta
+  mail-transport-agent
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils cpio debhelper diffstat file gettext gettext-base groff-base
+  html2text intltool-debian kernel-wedge kmod libasprintf-dev libasprintf0c2
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libkmod2 libmagic1
+  libpcre3 libpipeline1 libunistring0 libxml2 man-db patchutils po-debconf
+  quilt sbuild-build-depends-linux-dummy
+0 upgraded, 29 newly installed, 0 to remove and 0 not upgraded.
+Need to get 10.1 MB/10.1 MB of archives.
+After this operation, 28.3 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libkmod2 amd64 9-2 [46.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:8 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:9 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:10 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:11 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:12 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:13 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:14 http://localhost/debian/ unstable/main cpio amd64 2.11+dfsg-0.1 [267 kB]
+Get:15 http://localhost/debian/ unstable/main kmod amd64 9-2 [60.8 kB]
+Get:16 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:17 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:18 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:19 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:20 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:21 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:22 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:23 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:24 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:25 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:26 http://localhost/debian/ unstable/main kernel-wedge all 2.85 [44.6 kB]
+Get:27 http://localhost/debian/ unstable/main patchutils amd64 0.3.2-1.1 [110 kB]
+Get:28 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 10.1 MB in 1s (6140 kB/s)
+Selecting previously unselected package libkmod2:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libkmod2:amd64 (from .../libkmod2_9-2_amd64.deb) ...
+Selecting previously unselected package libpipeline1:amd64.
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package cpio.
+Unpacking cpio (from .../cpio_2.11+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package kmod.
+Unpacking kmod (from .../archives/kmod_9-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package kernel-wedge.
+Unpacking kernel-wedge (from .../kernel-wedge_2.85_all.deb) ...
+Selecting previously unselected package patchutils.
+Unpacking patchutils (from .../patchutils_0.3.2-1.1_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-linux-dummy.
+Unpacking sbuild-build-depends-linux-dummy (from .../sbuild-build-depends-linux-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libkmod2:amd64 (9-2) ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up cpio (2.11+dfsg-0.1) ...
+update-alternatives: using /bin/mt-gnu to provide /bin/mt (mt) in auto mode
+Setting up kmod (9-2) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up kernel-wedge (2.85) ...
+Setting up patchutils (0.3.2-1.1) ...
+Setting up quilt (0.60-7) ...
+Setting up sbuild-build-depends-linux-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpio_2.11+dfsg-0.1 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130123-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 kernel-wedge_2.85 kmod_9-2 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130123-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130123-1 libgpm2_1.20.4-6 libitm1_4.8-20130123-1 libkmod2_9-2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130123-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130123-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 patchutils_0.3.2-1.1 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-linux-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Dec 19 11:26:23 2012 UTC using RSA key ID 95861109
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./linux_3.2.35-2.dsc
+dpkg-source: info: extracting linux in linux-3.2.35
+dpkg-source: info: unpacking linux_3.2.35.orig.tar.xz
+dpkg-source: info: unpacking linux_3.2.35-2.debian.tar.xz
+dpkg-source: info: applying debian/version.patch
+dpkg-source: info: applying debian/kernelvariables.patch
+dpkg-source: info: applying debian/doc-build-parallel.patch
+dpkg-source: info: applying features/all/drivers-media-dvb-usb-af9005-request_firmware.patch
+dpkg-source: info: applying features/all/sound-pci-cs46xx-request_firmware.patch
+dpkg-source: info: applying features/all/aufs3/aufs3-base.patch
+dpkg-source: info: applying features/all/aufs3/aufs3-standalone.patch
+dpkg-source: info: applying features/all/aufs3/aufs3-kbuild.patch
+dpkg-source: info: applying features/all/aufs3/aufs3-add.patch
+dpkg-source: info: applying features/all/aufs3/mark-as-staging.patch
+dpkg-source: info: applying features/all/aufs3/aufs3-fix-export-__devcgroup_inode_permission.patch
+dpkg-source: info: applying bugfix/ia64/hardcode-arch-script-output.patch
+dpkg-source: info: applying bugfix/mips/disable-advansys.patch
+dpkg-source: info: applying debian/mips-disable-werror.patch
+dpkg-source: info: applying bugfix/powerpc/lpar-console.patch
+dpkg-source: info: applying debian/sysrq-mask.patch
+dpkg-source: info: applying debian/arch-sh4-fix-uimage-build.patch
+dpkg-source: info: applying debian/af_802154-Disable-auto-loading-as-mitigation-against.patch
+dpkg-source: info: applying debian/rds-Disable-auto-loading-as-mitigation-against-local.patch
+dpkg-source: info: applying debian/decnet-Disable-auto-loading-as-mitigation-against-lo.patch
+dpkg-source: info: applying bugfix/all/dm-Deal-with-merge_bvec_fn-in-component-devices-bett.patch
+dpkg-source: info: applying features/all/Kbuild-kconfig-Verbose-version-of-listnewconfig.patch
+dpkg-source: info: applying debian/sched-autogroup-disabled.patch
+dpkg-source: info: applying features/all/cgroups-Allow-memory-cgroup-support-to-be-included-b.patch
+dpkg-source: info: applying debian/cgroups-Document-the-Debian-memory-resource-controll.patch
+dpkg-source: info: applying bugfix/ia64/nouveau-ACPI-support-is-dependent-on-X86.patch
+dpkg-source: info: applying features/x86/x86-Add-amilo-rfkill-driver-for-some-Fujitsu-Siemens.patch
+dpkg-source: info: applying bugfix/arm/ixp4xx_iobe.patch
+dpkg-source: info: applying debian/bcma-Do-not-claim-PCI-device-IDs-also-claimed-by-brc.patch
+dpkg-source: info: applying bugfix/all/0004-media-staging-lirc_serial-Fix-bogus-error-codes.patch
+dpkg-source: info: applying debian/x86-memtest-WARN-if-bad-RAM-found.patch
+dpkg-source: info: applying bugfix/all/snapshot-Implement-compat_ioctl.patch
+dpkg-source: info: applying debian/ARM-Remove-use-of-possibly-undefined-BUILD_BUG_ON-in.patch
+dpkg-source: info: applying bugfix/arm/ARM-topdown-mmap.patch
+dpkg-source: info: applying bugfix/alpha/alpha-add-io-read-write-16-32-be-functions.patch
+dpkg-source: info: applying features/arm/ARM-kirkwood-6282A1.patch
+dpkg-source: info: applying features/all/Input-ALPS-move-protocol-information-to-Documentatio.patch
+dpkg-source: info: applying features/all/Input-ALPS-add-protocol-version-field-in-alps_model_.patch
+dpkg-source: info: applying features/all/Input-ALPS-remove-assumptions-about-packet-size.patch
+dpkg-source: info: applying features/all/Input-ALPS-add-support-for-protocol-versions-3-and-4.patch
+dpkg-source: info: applying features/all/Input-ALPS-add-semi-MT-support-for-v3-protocol.patch
+dpkg-source: info: applying bugfix/x86/KVM-nVMX-Add-KVM_REQ_IMMEDIATE_EXIT.patch
+dpkg-source: info: applying bugfix/x86/KVM-nVMX-Fix-warning-causing-idt-vectoring-info-beha.patch
+dpkg-source: info: applying features/all/hwmon-it87-Add-IT8728F-support.patch
+dpkg-source: info: applying features/all/fs-add-link-restrictions.patch
+dpkg-source: info: applying features/all/fs-add-link-restriction-audit-reporting.patch
+dpkg-source: info: applying features/all/fs-handle-failed-audit_log_start-properly.patch
+dpkg-source: info: applying features/all/fs-prevent-use-after-free-in-auditing-when-symlink-f.patch
+dpkg-source: info: applying features/x86/hyperv/0001-NLS-improve-UTF8-UTF16-string-conversion-routine.patch
+dpkg-source: info: applying features/x86/hyperv/0002-HID-Move-the-hid-hyperv-driver-out-of-staging.patch
+dpkg-source: info: applying features/x86/hyperv/0003-Staging-hv-storvsc-Use-mempools-to-allocate-struct-s.patch
+dpkg-source: info: applying features/x86/hyperv/0004-Staging-hv-storvsc-Cleanup-error-handling-in-the-pro.patch
+dpkg-source: info: applying features/x86/hyperv/0005-Staging-hv-storvsc-Fixup-the-error-when-processing-S.patch
+dpkg-source: info: applying features/x86/hyperv/0006-Staging-hv-storvsc-Fix-error-handling-storvsc_host_r.patch
+dpkg-source: info: applying features/x86/hyperv/0007-Staging-hv-storvsc-Use-the-accessor-function-shost_p.patch
+dpkg-source: info: applying features/x86/hyperv/0008-Staging-hv-storvsc-Use-the-unlocked-version-queuecom.patch
+dpkg-source: info: applying features/x86/hyperv/0009-Staging-hv-storvsc-use-the-macro-KBUILD_MODNAME.patch
+dpkg-source: info: applying features/x86/hyperv/0010-Staging-hv-storvsc-Get-rid-of-an-unnecessary-forward.patch
+dpkg-source: info: applying features/x86/hyperv/0011-Staging-hv-storvsc-Upgrade-the-vmstor-protocol-versi.patch
+dpkg-source: info: applying features/x86/hyperv/0012-Staging-hv-storvsc-Support-hot-add-of-scsi-disks.patch
+dpkg-source: info: applying features/x86/hyperv/0013-Staging-hv-storvsc-Support-hot-removing-of-scsi-devi.patch
+dpkg-source: info: applying features/x86/hyperv/0014-staging-hv-Use-kmemdup-rather-than-duplicating-its-i.patch
+dpkg-source: info: applying features/x86/hyperv/0015-Staging-hv-vmbus-Support-building-the-vmbus-driver-a.patch
+dpkg-source: info: applying features/x86/hyperv/0016-hv-Add-Kconfig-menu-entry.patch
+dpkg-source: info: applying features/x86/hyperv/0017-Staging-hv-mousevsc-Remove-the-mouse-driver-from-the.patch
+dpkg-source: info: applying features/x86/hyperv/0018-staging-hv-move-hv_netvsc-out-of-staging-area.patch
+dpkg-source: info: applying features/x86/hyperv/0019-net-hyperv-Fix-long-lines-in-netvsc.c.patch
+dpkg-source: info: applying features/x86/hyperv/0020-net-hyperv-Add-support-for-promiscuous-mode-setting.patch
+dpkg-source: info: applying features/x86/hyperv/0021-Staging-hv-storvsc-Disable-clustering.patch
+dpkg-source: info: applying features/x86/hyperv/0022-Staging-hv-storvsc-Cleanup-storvsc_device_alloc.patch
+dpkg-source: info: applying features/x86/hyperv/0023-Staging-hv-storvsc-Fix-a-bug-in-storvsc_command_comp.patch
+dpkg-source: info: applying features/x86/hyperv/0024-Staging-hv-storvsc-Fix-a-bug-in-copy_from_bounce_buf.patch
+dpkg-source: info: applying features/x86/hyperv/0025-Staging-hv-storvsc-Implement-per-device-memory-pools.patch
+dpkg-source: info: applying features/x86/hyperv/0026-Staging-hv-update-TODO-file.patch
+dpkg-source: info: applying features/x86/hyperv/0027-HID-hv_mouse-Properly-add-the-hid-device.patch
+dpkg-source: info: applying features/x86/hyperv/0028-Staging-hv-storvsc-Fix-a-bug-in-create_bounce_buffer.patch
+dpkg-source: info: applying features/x86/hyperv/0029-net-hyperv-Fix-the-stop-wake-queue-mechanism.patch
+dpkg-source: info: applying features/x86/hyperv/0030-Drivers-hv-Fix-a-memory-leak.patch
+dpkg-source: info: applying features/x86/hyperv/0031-Drivers-hv-Make-the-vmbus-driver-unloadable.patch
+dpkg-source: info: applying features/x86/hyperv/0032-Drivers-hv-Get-rid-of-an-unnecessary-check-in-hv.c.patch
+dpkg-source: info: applying features/x86/hyperv/0033-net-hyperv-Remove-unnecessary-kmap_atomic-in-netvsc-.patch
+dpkg-source: info: applying features/x86/hyperv/0034-net-hyperv-Add-NETVSP-protocol-version-negotiation.patch
+dpkg-source: info: applying features/x86/hyperv/0035-net-hyperv-Add-support-for-jumbo-frame-up-to-64KB.patch
+dpkg-source: info: applying features/x86/hyperv/0036-net-hyperv-fix-possible-memory-leak-in-do_set_multic.patch
+dpkg-source: info: applying features/x86/hyperv/0037-drivers-hv-Get-rid-of-some-unnecessary-code.patch
+dpkg-source: info: applying features/x86/hyperv/0038-net-hyperv-rx_bytes-should-account-the-ether-header-.patch
+dpkg-source: info: applying features/x86/hyperv/0039-HID-hyperv-Properly-disconnect-the-input-device.patch
+dpkg-source: info: applying features/x86/hyperv/0040-net-hyperv-fix-the-issue-that-large-packets-be-dropp.patch
+dpkg-source: info: applying features/x86/hyperv/0041-net-hyperv-Use-netif_tx_disable-instead-of-netif_sto.patch
+dpkg-source: info: applying features/x86/hyperv/0042-net-hyperv-Fix-the-page-buffer-when-an-RNDIS-message.patch
+dpkg-source: info: applying features/x86/hyperv/0043-drivers-hv-kvp-Add-cleanup-connector-defines.patch
+dpkg-source: info: applying features/x86/hyperv/0044-drivers-hv-kvp-Move-the-contents-of-hv_kvp.h-to-hype.patch
+dpkg-source: info: applying features/x86/hyperv/0045-net-hyperv-Convert-camel-cased-variables-in-rndis_fi.patch
+dpkg-source: info: applying features/x86/hyperv/0046-net-hyperv-Correct-the-assignment-in-netvsc_recv_cal.patch
+dpkg-source: info: applying features/x86/hyperv/0047-net-hyperv-Remove-the-unnecessary-memset-in-rndis_fi.patch
+dpkg-source: info: applying features/x86/hyperv/0048-Staging-hv-storvsc-Cleanup-some-comments.patch
+dpkg-source: info: applying features/x86/hyperv/0049-Staging-hv-storvsc-Cleanup-storvsc_probe.patch
+dpkg-source: info: applying features/x86/hyperv/0050-Staging-hv-storvsc-Cleanup-storvsc_queuecommand.patch
+dpkg-source: info: applying features/x86/hyperv/0051-Staging-hv-storvsc-Introduce-defines-for-srb-status-.patch
+dpkg-source: info: applying features/x86/hyperv/0052-Staging-hv-storvsc-Cleanup-storvsc_host_reset_handle.patch
+dpkg-source: info: applying features/x86/hyperv/0053-Staging-hv-storvsc-Move-and-cleanup-storvsc_remove.patch
+dpkg-source: info: applying features/x86/hyperv/0054-Staging-hv-storvsc-Add-a-comment-to-explain-life-cyc.patch
+dpkg-source: info: applying features/x86/hyperv/0055-Staging-hv-storvsc-Get-rid-of-the-on_io_completion-i.patch
+dpkg-source: info: applying features/x86/hyperv/0056-Staging-hv-storvsc-Rename-the-context-field-in-hv_st.patch
+dpkg-source: info: applying features/x86/hyperv/0057-Staging-hv-storvsc-Miscellaneous-cleanup-of-storvsc-.patch
+dpkg-source: info: applying features/x86/hyperv/0058-Staging-hv-storvsc-Cleanup-the-code-for-generating-p.patch
+dpkg-source: info: applying features/x86/hyperv/0059-Staging-hv-storvsc-Cleanup-some-protocol-related-con.patch
+dpkg-source: info: applying features/x86/hyperv/0060-Staging-hv-storvsc-Get-rid-of-some-unused-defines.patch
+dpkg-source: info: applying features/x86/hyperv/0061-Staging-hv-storvsc-Consolidate-the-request-structure.patch
+dpkg-source: info: applying features/x86/hyperv/0062-Staging-hv-storvsc-Consolidate-all-the-wire-protocol.patch
+dpkg-source: info: applying features/x86/hyperv/0063-drivers-hv-Cleanup-the-kvp-related-state-in-hyperv.h.patch
+dpkg-source: info: applying features/x86/hyperv/0064-tools-hv-Use-hyperv.h-to-get-the-KVP-definitions.patch
+dpkg-source: info: applying features/x86/hyperv/0065-drivers-hv-kvp-Cleanup-the-kernel-user-protocol.patch
+dpkg-source: info: applying features/x86/hyperv/0066-drivers-hv-Increase-the-number-of-VCPUs-supported-in.patch
+dpkg-source: info: applying features/x86/hyperv/0067-Staging-hv-storvsc-Move-the-storage-driver-out-of-th.patch
+dpkg-source: info: applying features/x86/hyperv/0068-net-hyperv-Use-the-built-in-macro-KBUILD_MODNAME-for.patch
+dpkg-source: info: applying features/x86/hyperv/0069-net-hyperv-Fix-data-corruption-in-rndis_filter_recei.patch
+dpkg-source: info: applying features/x86/hyperv/0070-net-hyperv-Add-support-for-vlan-trunking-from-guests.patch
+dpkg-source: info: applying features/x86/hyperv/0071-Drivers-hv-Add-new-message-types-to-enhance-KVP.patch
+dpkg-source: info: applying features/x86/hyperv/0072-net-hyperv-fix-erroneous-NETDEV_TX_BUSY-use.patch
+dpkg-source: info: applying features/x86/hyperv/0073-Drivers-hv-Support-the-newly-introduced-KVP-messages.patch
+dpkg-source: info: applying features/x86/hyperv/0074-Tools-hv-Fully-support-the-new-KVP-verbs-in-the-user.patch
+dpkg-source: info: applying features/x86/hyperv/0075-Tools-hv-Support-enumeration-from-all-the-pools.patch
+dpkg-source: info: applying features/x86/hyperv/0076-net-hyperv-Fix-the-code-handling-tx-busy.patch
+dpkg-source: info: applying features/x86/hyperv/0077-hv-remove-the-second-argument-of-k-un-map_atomic.patch
+dpkg-source: info: applying features/x86/hyperv/0078-libata-add-a-host-flag-to-ignore-detected-ATA-device.patch
+dpkg-source: info: applying features/x86/hyperv/0079-ata_piix-defer-disks-to-the-Hyper-V-drivers-by-defau.patch
+dpkg-source: info: applying features/x86/efi-stub/0001-x86-Add-missing-bzImage-fields-to-struct-setup_heade.patch
+dpkg-source: info: applying features/x86/efi-stub/0002-x86-Don-t-use-magic-strings-for-EFI-loader-signature.patch
+dpkg-source: info: applying features/x86/efi-stub/0003-efi.h-Add-struct-definition-for-boot-time-services.patch
+dpkg-source: info: applying features/x86/efi-stub/0004-efi.h-Add-efi_image_loaded_t.patch
+dpkg-source: info: applying features/x86/efi-stub/0005-efi.h-Add-allocation-types-for-boottime-allocate_pag.patch
+dpkg-source: info: applying features/x86/efi-stub/0006-efi.h-Add-graphics-protocol-guids.patch
+dpkg-source: info: applying features/x86/efi-stub/0007-efi.h-Add-boottime-locate_handle-search-types.patch
+dpkg-source: info: applying features/x86/efi-stub/0008-efi-Add-EFI-file-I-O-data-types.patch
+dpkg-source: info: applying features/x86/efi-stub/0009-x86-efi-EFI-boot-stub-support.patch
+dpkg-source: info: applying features/x86/efi-stub/0010-x86-efi-Break-up-large-initrd-reads.patch
+dpkg-source: info: applying features/x86/efi-stub/0011-x86-efi-Fix-pointer-math-issue-in-handle_ramdisks.patch
+dpkg-source: info: applying features/x86/efi-stub/0012-tools-include-Add-byteshift-headers-for-endian-acces.patch
+dpkg-source: info: applying features/x86/efi-stub/0013-x86-mkpiggy-Don-t-open-code-put_unaligned_le32.patch
+dpkg-source: info: applying features/x86/efi-stub/0014-x86-boot-Restrict-CFLAGS-for-hostprogs.patch
+dpkg-source: info: applying features/x86/efi-stub/0015-x86-efi-Fix-endian-issues-and-unaligned-accesses.patch
+dpkg-source: info: applying features/x86/efi-stub/0016-x86-boot-Correct-CFLAGS-for-hostprogs.patch
+dpkg-source: info: applying features/x86/efi-stub/0017-x86-efi-Add-dedicated-EFI-stub-entry-point.patch
+dpkg-source: info: applying features/x86/efi-stub/0018-efi-Build-EFI-stub-with-EFI-appropriate-options.patch
+dpkg-source: info: applying features/all/wacom/0001-Input-wacom-cleanup-feature-report-for-bamboos.patch
+dpkg-source: info: applying features/all/wacom/0002-Input-wacom-remove-unused-bamboo-HID-parsing.patch
+dpkg-source: info: applying features/all/wacom/0003-Input-wacom-add-some-comments-to-wacom_parse_hid.patch
+dpkg-source: info: applying features/all/wacom/0005-Input-wacom-read-3rd-gen-Bamboo-Touch-HID-data.patch
+dpkg-source: info: applying features/all/wacom/0006-Input-wacom-3rd-gen-Bamboo-P-Touch-packet-support.patch
+dpkg-source: info: applying features/all/wacom/0007-Input-wacom-ignore-unwanted-bamboo-packets.patch
+dpkg-source: info: applying features/all/wacom/0008-Input-wacom-add-support-for-Cintiq-24HD.patch
+dpkg-source: info: applying features/all/wacom/0009-Input-wacom-add-LED-support-for-Cintiq-24HD.patch
+dpkg-source: info: applying features/all/wacom/0010-Input-wacom-use-BTN_TOOL_FINGER-to-indicate-touch-de.patch
+dpkg-source: info: applying features/all/wacom/0011-Input-wacom-use-switch-statement-for-wacom_tpc_irq.patch
+dpkg-source: info: applying features/all/wacom/0012-Input-wacom-add-missing-LEDS_CLASS-to-Kconfig.patch
+dpkg-source: info: applying features/all/wacom/0013-Input-wacom-fix-3rd-gen-Bamboo-MT-when-4-fingers-are.patch
+dpkg-source: info: applying features/all/wacom/0014-Input-wacom-fix-physical-size-calculation-for-3rd-ge.patch
+dpkg-source: info: applying features/all/wacom/0015-Input-wacom-isolate-input-registration.patch
+dpkg-source: info: applying features/all/wacom/0016-Input-wacom-check-for-allocation-failure-in-probe.patch
+dpkg-source: info: applying features/all/wacom/0017-Input-wacom-wireless-monitor-framework.patch
+dpkg-source: info: applying features/all/wacom/0018-Input-wacom-create-inputs-when-wireless-connect.patch
+dpkg-source: info: applying features/all/wacom/0019-Input-wacom-wireless-battery-status.patch
+dpkg-source: info: applying features/all/wacom/0020-Input-wacom-add-basic-Intuos5-support.patch
+dpkg-source: info: applying features/all/wacom/0021-Input-wacom-add-Intuos5-Touch-Ring-ExpressKey-suppor.patch
+dpkg-source: info: applying features/all/wacom/0022-Input-wacom-add-Intuos5-Touch-Ring-LED-support.patch
+dpkg-source: info: applying features/all/wacom/0023-Input-wacom-add-Intuos5-multitouch-sensor-support.patch
+dpkg-source: info: applying features/all/wacom/0024-Input-wacom-retrieve-maximum-number-of-touch-points.patch
+dpkg-source: info: applying features/all/wacom/0025-Input-wacom-add-0xE5-MT-device-support.patch
+dpkg-source: info: applying features/all/wacom/0026-Input-wacom-return-proper-error-if-usb_get_extra_des.patch
+dpkg-source: info: applying features/all/wacom/0027-wacom-do-not-crash-when-retrieving-touch_max.patch
+dpkg-source: info: applying features/all/wacom/0028-wacom-leave-touch_max-as-is-if-predefined.patch
+dpkg-source: info: applying features/all/wacom/0029-wacom-do-not-request-tablet-data-on-MT-Tablet-PC-pen.patch
+dpkg-source: info: applying features/all/wacom/0030-wacom-ignore-new-style-Wacom-multi-touch-packets-on-.patch
+dpkg-source: info: applying features/all/rt2x00-add-debug-message-for-new-chipset.patch
+dpkg-source: info: applying features/all/rt2x00-add-rt5372-chipset-support.patch
+dpkg-source: info: applying features/all/be2net/0001-sweep-the-floors-and-convert-some-.get_drvinfo-routi.patch
+dpkg-source: info: applying features/all/be2net/0002-be2net-init-vf-_if_handle-vf_pmac_id-to-handle-failu.patch
+dpkg-source: info: applying features/all/be2net/0003-be2net-stop-checking-the-UE-registers-after-an-EEH-e.patch
+dpkg-source: info: applying features/all/be2net/0004-be2net-don-t-log-more-than-one-error-on-detecting-EE.patch
+dpkg-source: info: applying features/all/be2net/0005-be2net-stop-issuing-FW-cmds-if-any-cmd-times-out.patch
+dpkg-source: info: applying features/all/be2net/0006-be2net-Fix-TX-queue-create-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0007-be2net-add-register-dump-feature-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0008-be2net-Add-EEPROM-dump-feature-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0009-be2net-Fix-VLAN-promiscous-mode-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0010-be2net-Use-V1-query-link-status-command-for-lancer.patch
+dpkg-source: info: applying features/all/be2net/0011-be2net-Move-to-new-SR-IOV-implementation-in-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0012-be2net-Fix-error-recovery-paths.patch
+dpkg-source: info: applying features/all/be2net/0013-be2net-Add-error-handling-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0014-be2net-Use-new-hash-key.patch
+dpkg-source: info: applying features/all/be2net/0015-be2net-Fix-non-utilization-of-RX-queues.patch
+dpkg-source: info: applying features/all/be2net/0016-be2net-netpoll-support.patch
+dpkg-source: info: applying features/all/be2net/0017-be2net-update-some-counters-to-display-via-ethtool.patch
+dpkg-source: info: applying features/all/be2net/0018-be2net-workaround-to-fix-a-bug-in-BE.patch
+dpkg-source: info: applying features/all/be2net/0019-be2net-fix-ethtool-ringparam-reporting.patch
+dpkg-source: info: applying features/all/be2net/0020-be2net-refactor-cleanup-vf-configuration-code.patch
+dpkg-source: info: applying features/all/be2net/0021-be2net-Add-support-for-Skyhawk-cards.patch
+dpkg-source: info: applying features/all/be2net/0022-be2net-Fix-INTx-processing-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0023-be2net-fix-be_vlan_add-rem_vid.patch
+dpkg-source: info: applying features/all/be2net/0024-be2net-fix-range-check-for-set_qos-for-a-VF.patch
+dpkg-source: info: applying features/all/be2net/0025-be2net-query-link-status-in-be_open.patch
+dpkg-source: info: applying features/all/be2net/0026-netdev-make-net_device_ops-const.patch
+dpkg-source: info: applying features/all/be2net/0027-be2net-create-RSS-rings-even-in-multi-channel-config.patch
+dpkg-source: info: applying features/all/be2net/0028-be2net-allocate-more-headroom-in-incoming-skbs.patch
+dpkg-source: info: applying features/all/be2net/0029-be2net-add-descriptions-for-stat-counters-reported-v.patch
+dpkg-source: info: applying features/all/be2net/0030-be2net-Fix-link-status-query-command.patch
+dpkg-source: info: applying features/all/be2net/0031-be2net-Use-new-implementation-of-get-mac-list-comman.patch
+dpkg-source: info: applying features/all/be2net/0032-be2net-event-queue-re-design.patch
+dpkg-source: info: applying features/all/be2net/0033-be2net-cancel-be_worker-during-EEH-recovery.patch
+dpkg-source: info: applying features/all/be2net/0034-be2net-fix-tx-completion-cleanup.patch
+dpkg-source: info: applying features/all/be2net/0035-be2net-reset-queue-address-after-freeing.patch
+dpkg-source: info: applying features/all/be2net/0036-be2net-enable-RSS-for-ipv6-pkts.patch
+dpkg-source: info: applying features/all/be2net/0037-be2net-update-driver-version.patch
+dpkg-source: info: applying features/all/be2net/0038-be2net-Remove-unused-OFFSET_IN_PAGE-macro.patch
+dpkg-source: info: applying features/all/be2net/0039-be2net-enable-WOL-by-default-if-h-w-supports-it.patch
+dpkg-source: info: applying features/all/be2net/0040-be2net-Program-secondary-UC-MAC-address-into-MAC-fil.patch
+dpkg-source: info: applying features/all/be2net/0041-be2net-Fix-number-of-vlan-slots-in-flex-mode.patch
+dpkg-source: info: applying features/all/be2net/0042-be2net-fix-programming-of-VLAN-tags-for-VF.patch
+dpkg-source: info: applying features/all/be2net/0043-be2net-fix-ethtool-get-settings.patch
+dpkg-source: info: applying features/all/be2net/0044-be2net-Fix-VLAN-multicast-packet-reception.patch
+dpkg-source: info: applying features/all/be2net/0045-be2net-Fix-FW-download-in-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0046-be2net-Fix-ethtool-self-test-for-Lancer.patch
+dpkg-source: info: applying features/all/be2net/0047-be2net-Fix-traffic-stall-INTx-mode.patch
+dpkg-source: info: applying features/all/be2net/0048-be2net-Fix-Lancer-statistics.patch
+dpkg-source: info: applying features/all/be2net/0049-be2net-Fix-wrong-status-getting-returned-for-MCC-com.patch
+dpkg-source: info: applying features/all/be2net/0050-be2net-Fix-FW-download-for-BE.patch
+dpkg-source: info: applying features/all/be2net/0051-be2net-Ignore-status-of-some-ioctls-during-driver-lo.patch
+dpkg-source: info: applying features/all/be2net/0052-be2net-fix-speed-displayed-by-ethtool-on-certain-SKU.patch
+dpkg-source: info: applying features/all/be2net/0053-be2net-update-the-driver-version.patch
+dpkg-source: info: applying features/all/be2net/0054-be2net-Fix-to-not-set-link-speed-for-disabled-functi.patch
+dpkg-source: info: applying features/all/be2net/0055-be2net-Fix-to-apply-duplex-value-as-unknown-when-lin.patch
+dpkg-source: info: applying features/all/be2net/0056-be2net-Record-receive-queue-index-in-skb-to-aid-RPS.patch
+dpkg-source: info: applying features/all/be2net/0057-be2net-Fix-EEH-error-reset-before-a-flash-dump-compl.patch
+dpkg-source: info: applying features/all/be2net/0058-be2net-avoid-disabling-sriov-while-VFs-are-assigned.patch
+dpkg-source: info: applying features/all/net-introduce-skb_flow_dissect.patch
+dpkg-source: info: applying features/all/flow_dissector-use-a-64bit-load-store.patch
+dpkg-source: info: applying features/all/net-flow_dissector.c-missing-include-linux-export.h.patch
+dpkg-source: info: applying features/all/codel/0001-codel-Controlled-Delay-AQM.patch
+dpkg-source: info: applying features/all/codel/0002-codel-use-Newton-method-instead-of-sqrt-and-divides.patch
+dpkg-source: info: applying features/all/codel/0003-fq_codel-Fair-Queue-Codel-AQM.patch
+dpkg-source: info: applying features/all/codel/0004-net-codel-Add-missing-include-linux-prefetch.h.patch
+dpkg-source: info: applying features/all/codel/0005-net-codel-fix-build-errors.patch
+dpkg-source: info: applying features/all/codel/0006-codel-use-u16-field-instead-of-31bits-for-rec_inv_sq.patch
+dpkg-source: info: applying features/all/codel/0007-fq_codel-should-use-qdisc-backlog-as-threshold.patch
+dpkg-source: info: applying features/all/codel/0008-codel-refine-one-condition-to-avoid-a-nul-rec_inv_sq.patch
+dpkg-source: info: applying features/all/AppArmor-compatibility-patch-for-v5-interface.patch
+dpkg-source: info: applying bugfix/all/apparmor-remove-advertising-the-support-of-network-r.patch
+dpkg-source: info: applying features/all/hidepid/0001-procfs-parse-mount-options.patch
+dpkg-source: info: applying features/all/hidepid/0002-procfs-add-hidepid-and-gid-mount-options.patch
+dpkg-source: info: applying features/all/hidepid/0003-proc-fix-null-pointer-deref-in-proc_pid_permission.patch
+dpkg-source: info: applying features/all/hidepid/0004-proc-fix-mount-t-proc-o-AAA.patch
+dpkg-source: info: applying features/all/cpu-devices/driver-core-implement-sysdev-functionality-for-regul.patch
+dpkg-source: info: applying features/all/cpu-devices/cpu-convert-cpu-and-machinecheck-sysdev_class-to-a-r.patch
+dpkg-source: info: applying features/all/cpu-devices/topology-Provide-CPU-topology-in-sysfs-in-SMP-configura.patch
+dpkg-source: info: applying features/all/cpu-devices/cpu-Do-not-return-errors-from-cpu_dev_init-which-wil.patch
+dpkg-source: info: applying features/all/cpu-devices/cpu-Register-a-generic-CPU-device-on-architectures-t.patch
+dpkg-source: info: applying features/all/cpu-devices/x86-mce-Fix-CPU-hotplug-and-suspend-regression-relat.patch
+dpkg-source: info: applying features/all/cpu-devices/mce-fix-warning-messages-about-static-struct-mce_dev.patch
+dpkg-source: info: applying features/all/cpu-devices/x86-mce-Convert-static-array-of-pointers-to-per-cpu-.patch
+dpkg-source: info: applying features/all/cpu-devices/Add-driver-auto-probing-for-x86-features-v4.patch
+dpkg-source: info: applying features/all/cpu-devices/CPU-Introduce-ARCH_HAS_CPU_AUTOPROBE-and-X86-parts.patch
+dpkg-source: info: applying features/all/cpu-devices/driver-core-cpu-remove-kernel-warning-when-removing-.patch
+dpkg-source: info: applying features/all/cpu-devices/driver-core-cpu-fix-kobject-warning-when-hotplugging.patch
+dpkg-source: info: applying features/all/cpu-devices/crypto-Add-support-for-x86-cpuid-auto-loading-for-x8.patch
+dpkg-source: info: applying features/all/cpu-devices/intel-idle-convert-to-x86_cpu_id-auto-probing.patch
+dpkg-source: info: applying features/all/cpu-devices/ACPI-Load-acpi-cpufreq-from-processor-driver-automat.patch
+dpkg-source: info: applying features/all/cpu-devices/HWMON-Convert-via-cputemp-to-x86-cpuid-autoprobing.patch
+dpkg-source: info: applying features/all/cpu-devices/HWMON-Convert-coretemp-to-x86-cpuid-autoprobing.patch
+dpkg-source: info: applying features/all/cpu-devices/X86-Introduce-HW-Pstate-scattered-cpuid-feature.patch
+dpkg-source: info: applying features/all/cpu-devices/cpufreq-Add-support-for-x86-cpuinfo-auto-loading-v4.patch
+dpkg-source: info: applying features/all/cpu-devices/x86-cpu-Fix-overrun-check-in-arch_print_cpu_modalias.patch
+dpkg-source: info: applying features/all/cpu-devices/x86-cpu-Clean-up-modalias-feature-matching.patch
+dpkg-source: info: applying features/all/cpu-devices/intel_idle-Fix-ID-for-Nehalem-EX-Xeon-in-device-ID-t.patch
+dpkg-source: info: applying features/all/cpu-devices/powernow-k7-Fix-CPU-family-number.patch
+dpkg-source: info: applying features/all/cpu-devices/powernow-k6-Really-enable-auto-loading.patch
+dpkg-source: info: applying features/all/cpu-devices/intel_idle-Revert-change-of-auto_demotion_disable_fl.patch
+dpkg-source: info: applying features/all/cpu-devices/Partially-revert-cpufreq-Add-support-for-x86-cpuinfo.patch
+dpkg-source: info: applying features/all/cpu-devices/cpufreq-gx-Fix-the-compile-error.patch
+dpkg-source: info: applying features/all/cpu-devices/tracing-mm-Move-include-of-trace-events-kmem.h-out-o.patch
+dpkg-source: info: applying features/all/cpu-devices/driver-core-remove-__must_check-from-device_create_f.patch
+dpkg-source: info: applying features/all/cpu-devices/sh-Fix-up-store-queue-code-for-subsys_interface-chan.patch
+dpkg-source: info: applying features/all/cpu-devices/x86-cpufeature-Rename-X86_FEATURE_DTS-to-X86_FEATURE.patch
+dpkg-source: info: applying features/arm/kirkwood-add-dreamplug-fdt-support.patch
+dpkg-source: info: applying features/arm/kirkwood-fdt-convert-uart0-to-devicetree.patch
+dpkg-source: info: applying features/arm/kirkwood-fdt-use-mrvl-ticker-symbol.patch
+dpkg-source: info: applying features/arm/kirkwood-fdt-absorb-kirkwood_init.patch
+dpkg-source: info: applying features/arm/kirkwood-fdt-facilitate-new-boards-during-fdt-migration.patch
+dpkg-source: info: applying features/arm/kirkwood-fdt-define-uart01-as-disabled.patch
+dpkg-source: info: applying features/arm/kirkwood-rtc-mv-devicetree-bindings.patch
+dpkg-source: info: applying features/arm/kirkwood-use-devicetree-for-rtc-mv.patch
+dpkg-source: info: applying features/arm/kirkwood_add_missing_kexec_h.patch
+dpkg-source: info: applying features/arm/kirkwood-fix-orion_gpio_set_blink.patch
+dpkg-source: info: applying features/arm/kirkwood-create-a-generic-function-for-gpio-led-blinking.patch
+dpkg-source: info: applying features/arm/kirkwood-add-configuration-for-mpp12-as-gpio.patch
+dpkg-source: info: applying features/arm/kirkwood-add-iconnect-support.patch
+dpkg-source: info: applying features/all/Input-add-Synaptics-USB-device-driver.patch
+dpkg-source: info: applying features/arm/ARM-7259-3-net-JIT-compiler-for-packet-filters.patch
+dpkg-source: info: applying features/arm/ARM-fix-Kconfig-warning-for-HAVE_BPF_JIT.patch
+dpkg-source: info: applying features/arm/net-drop-NET-dependency-from-HAVE_BPF_JIT.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-ttm-always-do-buffer-moves-on-kernel-cha.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-remove-subchannel-names-from-places-wher.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-move-fence-sequence-check-to-start-of-lo.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nvc0-disp-reimplement-flip-completion-method-as-.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-remove-m2mf-creation-on-userspace-channe.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-inform-userspace-of-relaxed-kernel-subch.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-oops-increase-channel-dispc_vma-to-4.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nvd0-disp-ignore-clock-set-if-no-pclk.patch
+dpkg-source: info: applying features/all/fermi-accel/drm-nouveau-bump-version-to-1.0.0.patch
+dpkg-source: info: applying bugfix/all/net-e100-ucode-is-optional-in-some-cases.patch
+dpkg-source: info: applying features/all/debugfs-add-mode-uid-and-gid-options.patch
+dpkg-source: info: applying debian/debugfs-set-default-mode-to-700.patch
+dpkg-source: info: applying features/all/bql/net-new-counter-for-tx_timeout-errors-in-sysfs.patch
+dpkg-source: info: applying features/all/bql/dql-dynamic-queue-limits.patch
+dpkg-source: info: applying features/all/bql/net-add-queue-state-xoff-flag-for-stack.patch
+dpkg-source: info: applying features/all/bql/net-add-netdev-interfaces-for-recording-sends-comp.patch
+dpkg-source: info: applying features/all/bql/xps-add-xps_queue_release-function.patch
+dpkg-source: info: applying features/all/bql/bql-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/bql-fix-config_xps-n-build.patch
+dpkg-source: info: applying features/all/bql/bql-fix-inconsistency-between-file-mode-and-attr-method.patch
+dpkg-source: info: applying features/all/bql/dql-fix-undefined-jiffies.patch
+dpkg-source: info: applying features/all/bql/bql-fix-posdiff-to-integer-overflow-aware.patch
+dpkg-source: info: applying features/all/bql/bql-avoid-unneeded-limit-decrement.patch
+dpkg-source: info: applying features/all/bql/bql-avoid-possible-inconsistent-calculation.patch
+dpkg-source: info: applying features/all/bql/e1000e-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/e1000e-Change-wthresh-to-1-to-avoid-possible-Tx-stal.patch
+dpkg-source: info: applying features/all/bql/forcedeth-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/forcedeath-fix-bql-support-for-forcedeath.patch
+dpkg-source: info: applying features/all/bql/tg3-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/tg3-fix-to-use-multi-queue-bql-interfaces.patch
+dpkg-source: info: applying features/all/bql/bnx2x-remove-unused-variable.patch
+dpkg-source: info: applying features/all/bql/bnx2x-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/bnx2x-fix-crash-while-ethtool-t.patch
+dpkg-source: info: applying features/all/bql/sfc-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/sfc-fix-race-in-efx_enqueue_skb_tso.patch
+dpkg-source: info: applying features/all/bql/sky2-add-bql-support.patch
+dpkg-source: info: applying features/all/bql/bnx2-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/igb-add-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/igb-fix-ethtool-offline-test.patch
+dpkg-source: info: applying features/all/bql/net-fix-issue-with-netdev_tx_reset_queue-not-resetting-queue-from.patch
+dpkg-source: info: applying features/all/bql/ixgbe-add-support-for-byte-queue-limits.patch
+dpkg-source: info: applying features/all/bql/igb-ixgbe-netdev_tx_reset_queue-incorrectly-called-from-tx-init.patch
+dpkg-source: info: applying features/all/bql/skge-add-byte-queue-limit-support.patch
+dpkg-source: info: applying bugfix/all/PCI-PM-Runtime-make-PCI-traces-quieter.patch
+dpkg-source: info: applying features/all/USB-add-USB_VENDOR_AND_INTERFACE_INFO-macro.patch
+dpkg-source: info: applying bugfix/all/usb-Add-quirk-detection-based-on-interface-informati.patch
+dpkg-source: info: applying bugfix/all/usb-Add-USB_QUIRK_RESET_RESUME-for-all-Logitech-UVC-.patch
+dpkg-source: info: applying bugfix/alpha/alpha-use-large-data-model.diff
+dpkg-source: info: applying bugfix/x86/drm-i915-i8xx-interrupt-handler.patch
+dpkg-source: info: applying features/arm/ahci-Add-JMicron-362-device-IDs.patch
+dpkg-source: info: applying bugfix/all/speakup-lower-default-software-speech-rate.patch
+dpkg-source: info: applying debian/perf-hide-abi-change-in-3.2.30.patch
+dpkg-source: info: applying debian/iwlwifi-do-not-request-unreleased-firmware.patch
+dpkg-source: info: applying debian/hid-avoid-ABI-change-in-3.2.31.patch
+dpkg-source: info: applying debian/xfrm-avoid-ABI-change-in-3.2.31.patch
+dpkg-source: info: applying bugfix/all/use-clamp_t-in-UNAME26-fix.patch
+dpkg-source: info: applying debian/fs-writeback-avoid-ABI-change-in-3.2.32.patch
+dpkg-source: info: applying bugfix/x86/asus-laptop-Do-not-call-HWRS-on-init.patch
+dpkg-source: info: applying bugfix/x86/drm-i915-Only-kick-out-vesafb-if-we-takeover-the-fbc.patch
+dpkg-source: info: applying features/all/xen/microcode.patch
+dpkg-source: info: applying debian/radeon-no-modeset-without-firmware.patch
+dpkg-source: info: applying debian/ALSA-avoid-ABI-change-in-3.2.34.patch
+dpkg-source: info: applying debian/rtnetlink-avoid-ABI-change-in-3.2.34.patch
+dpkg-source: info: applying debian/mm-avoid-ABI-change-in-3.2.33.patch
+dpkg-source: info: applying features/all/ipv6-Treat-ND-option-31-as-userland-DNSSL-support.patch
+dpkg-source: info: applying features/all/wireless-rt2x00-rt2800pci-add-more-RT539x-ids.patch
+dpkg-source: info: applying features/all/rt2x00-Add-RT539b-chipset-support.patch
+dpkg-source: info: applying features/all/xen/microcode-amd-fam15plus.patch
+dpkg-source: info: applying features/all/xen/microcode-typo.patch
+dpkg-source: info: applying bugfix/all/firmware_class-log-every-success-and-failure.patch
+dpkg-source: info: applying bugfix/all/firmware-remove-redundant-log-messages-from-drivers.patch
+dpkg-source: info: applying bugfix/x86/ACPI-video-ignore-BIOS-initial-backlight-value-for-H.patch
+dpkg-source: info: applying bugfix/x86/KVM-x86-invalid-opcode-oops-on-SET_SREGS-with-OSXSAV.patch
+dpkg-source: info: applying bugfix/all/usermodehelper-introduce-umh_complete.patch
+dpkg-source: info: applying bugfix/all/usermodehelper-implement-UMH_KILLABLE.patch
+dpkg-source: info: applying bugfix/all/usermodehelper-____call_usermodehelper-doesnt-need-do_exit.patch
+dpkg-source: info: applying bugfix/all/kmod-introduce-call_modprobe-helper.patch
+dpkg-source: info: applying bugfix/all/kmod-make-__request_module-killable.patch
+dpkg-source: info: applying bugfix/all/exec-do-not-leave-bprm-interp-on-stack.patch
+dpkg-source: info: applying bugfix/all/exec-use-ELOOP-for-max-recursion-depth.patch
+dpkg-source: info: applying bugfix/all/megaraid_sas-fix-memory-leak-if-SGL-has-zero-length-entries.patch
+dpkg-source: info: applying debian/audit-increase-AUDIT_NAMES.patch
+dpkg-source: info: applying features/all/asix-Adds-support-for-Lenovo-10-100-USB-dongle.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-5faecf62-685f-4ad6-bad2-a687c28aa64d
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package linux
+dpkg-buildpackage: source version 3.2.35-2
+dpkg-buildpackage: source changed by Ben Hutchings <ben@decadent.org.uk>
+ dpkg-source --before-build linux-3.2.35
+dpkg-buildpackage: host architecture amd64
+dpkg-source: info: using options from linux-3.2.35/debian/source/options: --compression=xz
+ fakeroot debian/rules clean
+dh_testdir
+rm -rf debian/build debian/stamps debian/lib/python/debian_linux/*.pyc debian/linux-headers-* debian/linux-image-* debian/linux-support-* debian/linux-source-* debian/linux-doc-* debian/linux-manual-* debian/xen-linux-system-* debian/*-modules-*-di*
+dh_clean
+ debian/rules build-arch
+dh_testdir
+/usr/bin/make -f debian/rules.gen source
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real source-featureset ABINAME='3.2.0-4' ABINAME_PART='-4' FEATURESET='none' SOURCEVERSION='3.2.35-2' UPSTREAMVERSION='3.2' VERSION='3.2'
+make[2]: Entering directory `/«PKGBUILDDIR»'
+test -d .pc
+set +e; QUILT_PC=.pc quilt unapplied --quiltrc - >/dev/null && echo 'Patch series not fully applied'; test $? -eq 1
+File series fully applied, ends at patch features/all/asix-Adds-support-for-Lenovo-10-100-USB-dongle.patch
+mkdir -p 'debian/build'
+rm -f 'debian/build/source_none'
+ln -s '/«PKGBUILDDIR»' 'debian/build/source_none'
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real source-featureset ABINAME='3.2.0-4' ABINAME_PART='-4' FEATURESET='rt' SOURCEVERSION='3.2.35-2' UPSTREAMVERSION='3.2' VERSION='3.2'
+make[2]: Entering directory `/«PKGBUILDDIR»'
+mkdir -p 'debian/build'
+rm -rf 'debian/build/source_rt'
+mkdir -p 'debian/build/source_rt'
+cp -al COPYING CREDITS Documentation Kbuild Kconfig MAINTAINERS Makefile README REPORTING-BUGS arch block crypto drivers fs include init ipc kernel lib mm net samples scripts security sound tools usr virt .gitignore .mailmap 'debian/build/source_rt'
+cd 'debian/build/source_rt' && QUILT_PATCHES='/«PKGBUILDDIR»/debian/patches' QUILT_SERIES=series-rt QUILT_PC=.pc quilt push --quiltrc - -a -q --fuzz=0
+Applying patch features/all/rt/0001-Revert-workqueue-skip-nr_running-sanity-check-in-wor.patch
+Applying patch features/all/rt/0002-x86-Call-idle-notifier-after-irq_enter.patch
+Applying patch features/all/rt/0003-slab-lockdep-Annotate-all-slab-caches.patch
+Applying patch features/all/rt/0004-x86-kprobes-Remove-remove-bogus-preempt_enable.patch
+Applying patch features/all/rt/0005-x86-hpet-Disable-MSI-on-Lenovo-W510.patch
+Applying patch features/all/rt/0006-block-Shorten-interrupt-disabled-regions.patch
+Applying patch features/all/rt/0007-sched-Distangle-worker-accounting-from-rq-3Elock.patch
+Applying patch features/all/rt/0008-mips-enable-interrupts-in-signal.patch.patch
+Applying patch features/all/rt/0009-arm-enable-interrupts-in-signal-code.patch.patch
+Applying patch features/all/rt/0010-powerpc-85xx-Mark-cascade-irq-IRQF_NO_THREAD.patch
+Applying patch features/all/rt/0011-powerpc-wsp-Mark-opb-cascade-handler-IRQF_NO_THREAD.patch
+Applying patch features/all/rt/0012-powerpc-Mark-IPI-interrupts-IRQF_NO_THREAD.patch
+Applying patch features/all/rt/0013-powerpc-Allow-irq-threading.patch
+Applying patch features/all/rt/0014-sched-Keep-period-timer-ticking-when-throttling-acti.patch
+Applying patch features/all/rt/0015-sched-Do-not-throttle-due-to-PI-boosting.patch
+Applying patch features/all/rt/0016-time-Remove-bogus-comments.patch
+Applying patch features/all/rt/0017-x86-vdso-Remove-bogus-locking-in-update_vsyscall_tz.patch
+Applying patch features/all/rt/0018-x86-vdso-Use-seqcount-instead-of-seqlock.patch
+Applying patch features/all/rt/0019-ia64-vsyscall-Use-seqcount-instead-of-seqlock.patch
+Applying patch features/all/rt/0020-seqlock-Remove-unused-functions.patch
+Applying patch features/all/rt/0021-seqlock-Use-seqcount.patch
+Applying patch features/all/rt/0022-vfs-fs_struct-Move-code-out-of-seqcount-write-sectio.patch
+Applying patch features/all/rt/0023-timekeeping-Split-xtime_lock.patch
+Applying patch features/all/rt/0024-intel_idle-Convert-i7300_idle_lock-to-raw-spinlock.patch
+Applying patch features/all/rt/0025-mm-memcg-shorten-preempt-disabled-section-around-eve.patch
+Applying patch features/all/rt/0026-tracing-Account-for-preempt-off-in-preempt_schedule.patch
+Applying patch features/all/rt/0027-signal-revert-ptrace-preempt-magic.patch.patch
+Applying patch features/all/rt/0028-arm-Mark-pmu-interupt-IRQF_NO_THREAD.patch
+Applying patch features/all/rt/0029-arm-Allow-forced-irq-threading.patch
+Applying patch features/all/rt/0030-preempt-rt-Convert-arm-boot_lock-to-raw.patch
+Applying patch features/all/rt/0031-sched-Create-schedule_preempt_disabled.patch
+Applying patch features/all/rt/0032-sched-Use-schedule_preempt_disabled.patch
+Applying patch features/all/rt/0033-signals-Do-not-wakeup-self.patch
+Applying patch features/all/rt/0034-posix-timers-Prevent-broadcast-signals.patch
+Applying patch features/all/rt/0035-signals-Allow-rt-tasks-to-cache-one-sigqueue-struct.patch
+Applying patch features/all/rt/0036-signal-x86-Delay-calling-signals-in-atomic.patch
+Applying patch features/all/rt/0037-generic-Use-raw-local-irq-variant-for-generic-cmpxch.patch
+Applying patch features/all/rt/0038-drivers-random-Reduce-preempt-disabled-region.patch
+Applying patch features/all/rt/0039-ARM-AT91-PIT-Remove-irq-handler-when-clock-event-is-.patch
+Applying patch features/all/rt/0040-clocksource-TCLIB-Allow-higher-clock-rates-for-clock.patch
+Applying patch features/all/rt/0041-drivers-net-tulip_remove_one-needs-to-call-pci_disab.patch
+Applying patch features/all/rt/0042-drivers-net-Use-disable_irq_nosync-in-8139too.patch
+Applying patch features/all/rt/0043-drivers-net-ehea-Make-rx-irq-handler-non-threaded-IR.patch
+Applying patch features/all/rt/0044-drivers-net-at91_ether-Make-mdio-protection-rt-safe.patch
+Applying patch features/all/rt/0045-preempt-mark-legitimated-no-resched-sites.patch.patch
+Applying patch features/all/rt/0046-mm-Prepare-decoupling-the-page-fault-disabling-logic.patch
+Applying patch features/all/rt/0047-mm-Fixup-all-fault-handlers-to-check-current-pagefau.patch
+Applying patch features/all/rt/0048-mm-pagefault_disabled.patch
+Applying patch features/all/rt/0049-mm-raw_pagefault_disable.patch
+Applying patch features/all/rt/0050-filemap-fix-up.patch.patch
+Applying patch features/all/rt/0051-mm-Remove-preempt-count-from-pagefault-disable-enabl.patch
+Applying patch features/all/rt/0052-x86-highmem-Replace-BUG_ON-by-WARN_ON.patch
+Applying patch features/all/rt/0053-suspend-Prevent-might-sleep-splats.patch
+Applying patch features/all/rt/0054-OF-Fixup-resursive-locking-code-paths.patch
+Applying patch features/all/rt/0055-of-convert-devtree-lock.patch.patch
+Applying patch features/all/rt/0056-list-add-list-last-entry.patch.patch
+Applying patch features/all/rt/0057-mm-page-alloc-use-list-last-entry.patch.patch
+Applying patch features/all/rt/0058-mm-slab-move-debug-out.patch.patch
+Applying patch features/all/rt/0059-rwsem-inlcude-fix.patch.patch
+Applying patch features/all/rt/0060-sysctl-include-fix.patch.patch
+Applying patch features/all/rt/0061-net-flip-lock-dep-thingy.patch.patch
+Applying patch features/all/rt/0062-softirq-thread-do-softirq.patch.patch
+Applying patch features/all/rt/0063-softirq-split-out-code.patch.patch
+Applying patch features/all/rt/0064-x86-Do-not-unmask-io_apic-when-interrupt-is-in-progr.patch
+Applying patch features/all/rt/0065-x86-32-fix-signal-crap.patch.patch
+Applying patch features/all/rt/0066-x86-Do-not-disable-preemption-in-int3-on-32bit.patch
+Applying patch features/all/rt/0067-rcu-Reduce-lock-section.patch
+Applying patch features/all/rt/0068-locking-various-init-fixes.patch.patch
+Applying patch features/all/rt/0069-wait-Provide-__wake_up_all_locked.patch
+Applying patch features/all/rt/0070-pci-Use-__wake_up_all_locked-pci_unblock_user_cfg_ac.patch
+Applying patch features/all/rt/0071-latency-hist.patch.patch
+Applying patch features/all/rt/0072-hwlatdetect.patch.patch
+Applying patch features/all/rt/0073-localversion.patch.patch
+Applying patch features/all/rt/0074-early-printk-consolidate.patch.patch
+Applying patch features/all/rt/0075-printk-kill.patch.patch
+Applying patch features/all/rt/0076-printk-force_early_printk-boot-param-to-help-with-de.patch
+Applying patch features/all/rt/0077-rt-preempt-base-config.patch.patch
+Applying patch features/all/rt/0078-bug-BUG_ON-WARN_ON-variants-dependend-on-RT-RT.patch
+Applying patch features/all/rt/0079-rt-local_irq_-variants-depending-on-RT-RT.patch
+Applying patch features/all/rt/0080-preempt-Provide-preempt_-_-no-rt-variants.patch
+Applying patch features/all/rt/0081-ata-Do-not-disable-interrupts-in-ide-code-for-preemp.patch
+Applying patch features/all/rt/0082-ide-Do-not-disable-interrupts-for-PREEMPT-RT.patch
+Applying patch features/all/rt/0083-infiniband-Mellanox-IB-driver-patch-use-_nort-primit.patch
+Applying patch features/all/rt/0084-input-gameport-Do-not-disable-interrupts-on-PREEMPT_.patch
+Applying patch features/all/rt/0085-acpi-Do-not-disable-interrupts-on-PREEMPT_RT.patch
+Applying patch features/all/rt/0086-core-Do-not-disable-interrupts-on-RT-in-kernel-users.patch
+Applying patch features/all/rt/0087-core-Do-not-disable-interrupts-on-RT-in-res_counter..patch
+Applying patch features/all/rt/0088-usb-Use-local_irq_-_nort-variants.patch
+Applying patch features/all/rt/0089-tty-Do-not-disable-interrupts-in-put_ldisc-on-rt.patch
+Applying patch features/all/rt/0090-mm-scatterlist-dont-disable-irqs-on-RT.patch
+Applying patch features/all/rt/0091-signal-fix-up-rcu-wreckage.patch.patch
+Applying patch features/all/rt/0092-net-wireless-warn-nort.patch.patch
+Applying patch features/all/rt/0093-mm-Replace-cgroup_page-bit-spinlock.patch
+Applying patch features/all/rt/0094-buffer_head-Replace-bh_uptodate_lock-for-rt.patch
+Applying patch features/all/rt/0095-fs-jbd-jbd2-Make-state-lock-and-journal-head-lock-rt.patch
+Applying patch features/all/rt/0096-genirq-Disable-DEBUG_SHIRQ-for-rt.patch
+Applying patch features/all/rt/0097-genirq-Disable-random-call-on-preempt-rt.patch
+Applying patch features/all/rt/0098-genirq-disable-irqpoll-on-rt.patch
+Applying patch features/all/rt/0099-genirq-force-threading.patch.patch
+Applying patch features/all/rt/0100-drivers-net-fix-livelock-issues.patch
+Applying patch features/all/rt/0101-drivers-net-vortex-fix-locking-issues.patch
+Applying patch features/all/rt/0102-drivers-net-gianfar-Make-RT-aware.patch
+Applying patch features/all/rt/0103-USB-Fix-the-mouse-problem-when-copying-large-amounts.patch
+Applying patch features/all/rt/0104-local-var.patch.patch
+Applying patch features/all/rt/0105-rt-local-irq-lock.patch.patch
+Applying patch features/all/rt/0106-cpu-rt-variants.patch.patch
+Applying patch features/all/rt/0107-mm-slab-wrap-functions.patch.patch
+Applying patch features/all/rt/0108-slab-Fix-__do_drain-to-use-the-right-array-cache.patch
+Applying patch features/all/rt/0109-mm-More-lock-breaks-in-slab.c.patch
+Applying patch features/all/rt/0110-mm-page_alloc-rt-friendly-per-cpu-pages.patch
+Applying patch features/all/rt/0111-mm-page_alloc-reduce-lock-sections-further.patch
+Applying patch features/all/rt/0112-mm-page-alloc-fix.patch.patch
+Applying patch features/all/rt/0113-mm-convert-swap-to-percpu-locked.patch
+Applying patch features/all/rt/0114-mm-vmstat-fix-the-irq-lock-asymetry.patch.patch
+Applying patch features/all/rt/0115-mm-make-vmstat-rt-aware.patch
+Applying patch features/all/rt/0116-mm-shrink-the-page-frame-to-rt-size.patch
+Applying patch features/all/rt/0117-ARM-Initialize-ptl-lock-for-vector-page.patch
+Applying patch features/all/rt/0118-mm-Allow-only-slab-on-RT.patch
+Applying patch features/all/rt/0119-radix-tree-rt-aware.patch.patch
+Applying patch features/all/rt/0120-panic-disable-random-on-rt.patch
+Applying patch features/all/rt/0121-ipc-Make-the-ipc-code-rt-aware.patch
+Applying patch features/all/rt/0122-ipc-mqueue-Add-a-critical-section-to-avoid-a-deadloc.patch
+Applying patch features/all/rt/0123-relay-fix-timer-madness.patch
+Applying patch features/all/rt/0124-net-ipv4-route-use-locks-on-up-rt.patch.patch
+Applying patch features/all/rt/0125-workqueue-avoid-the-lock-in-cpu-dying.patch.patch
+Applying patch features/all/rt/0126-timers-prepare-for-full-preemption.patch
+Applying patch features/all/rt/0127-timers-preempt-rt-support.patch
+Applying patch features/all/rt/0128-timers-fix-timer-hotplug-on-rt.patch
+Applying patch features/all/rt/0129-timers-mov-printk_tick-to-soft-interrupt.patch
+Applying patch features/all/rt/0130-timer-delay-waking-softirqs-from-the-jiffy-tick.patch
+Applying patch features/all/rt/0131-timers-Avoid-the-switch-timers-base-set-to-NULL-tric.patch
+Applying patch features/all/rt/0132-printk-Don-t-call-printk_tick-in-printk_needs_cpu-on.patch
+Applying patch features/all/rt/0133-hrtimers-prepare-full-preemption.patch
+Applying patch features/all/rt/0134-hrtimer-fixup-hrtimer-callback-changes-for-preempt-r.patch
+Applying patch features/all/rt/0135-hrtimer-Don-t-call-the-timer-handler-from-hrtimer_st.patch
+Applying patch features/all/rt/0136-hrtimer-Add-missing-debug_activate-aid-Was-Re-ANNOUN.patch
+Applying patch features/all/rt/0137-hrtimer-fix-reprogram-madness.patch.patch
+Applying patch features/all/rt/0138-timer-fd-Prevent-live-lock.patch
+Applying patch features/all/rt/0139-posix-timers-thread-posix-cpu-timers-on-rt.patch
+Applying patch features/all/rt/0140-posix-timers-Shorten-posix_cpu_timers-CPU-kernel-thr.patch
+Applying patch features/all/rt/0141-posix-timers-Avoid-wakeups-when-no-timers-are-active.patch
+Applying patch features/all/rt/0142-sched-delay-put-task.patch.patch
+Applying patch features/all/rt/0143-sched-limit-nr-migrate.patch.patch
+Applying patch features/all/rt/0144-sched-mmdrop-delayed.patch.patch
+Applying patch features/all/rt/0145-sched-rt-mutex-wakeup.patch.patch
+Applying patch features/all/rt/0146-sched-prevent-idle-boost.patch.patch
+Applying patch features/all/rt/0147-sched-might-sleep-do-not-account-rcu-depth.patch.patch
+Applying patch features/all/rt/0148-sched-Break-out-from-load_balancing-on-rq_lock-conte.patch
+Applying patch features/all/rt/0149-sched-cond-resched.patch.patch
+Applying patch features/all/rt/0150-cond-resched-softirq-fix.patch.patch
+Applying patch features/all/rt/0151-sched-no-work-when-pi-blocked.patch.patch
+Applying patch features/all/rt/0152-cond-resched-lock-rt-tweak.patch.patch
+Applying patch features/all/rt/0153-sched-disable-ttwu-queue.patch.patch
+Applying patch features/all/rt/0154-sched-Disable-CONFIG_RT_GROUP_SCHED-on-RT.patch
+Applying patch features/all/rt/0155-sched-ttwu-Return-success-when-only-changing-the-sav.patch
+Applying patch features/all/rt/0156-stop_machine-convert-stop_machine_run-to-PREEMPT_RT.patch
+Applying patch features/all/rt/0157-stomp-machine-mark-stomper-thread.patch.patch
+Applying patch features/all/rt/0158-stomp-machine-raw-lock.patch.patch
+Applying patch features/all/rt/0159-hotplug-Lightweight-get-online-cpus.patch
+Applying patch features/all/rt/0160-hotplug-sync_unplug-No.patch
+Applying patch features/all/rt/0161-hotplug-Reread-hotplug_pcp-on-pin_current_cpu-retry.patch
+Applying patch features/all/rt/0162-sched-migrate-disable.patch.patch
+Applying patch features/all/rt/0163-hotplug-use-migrate-disable.patch.patch
+Applying patch features/all/rt/0164-hotplug-Call-cpu_unplug_begin-before-DOWN_PREPARE.patch
+Applying patch features/all/rt/0165-ftrace-migrate-disable-tracing.patch.patch
+Applying patch features/all/rt/0166-tracing-Show-padding-as-unsigned-short.patch
+Applying patch features/all/rt/0167-migrate-disable-rt-variant.patch.patch
+Applying patch features/all/rt/0168-sched-Optimize-migrate_disable.patch
+Applying patch features/all/rt/0169-sched-Generic-migrate_disable.patch
+Applying patch features/all/rt/0170-sched-rt-Fix-migrate_enable-thinko.patch
+Applying patch features/all/rt/0171-sched-teach-migrate_disable-about-atomic-contexts.patch
+Applying patch features/all/rt/0172-sched-Postpone-actual-migration-disalbe-to-schedule.patch
+Applying patch features/all/rt/0173-sched-Do-not-compare-cpu-masks-in-scheduler.patch
+Applying patch features/all/rt/0174-sched-Have-migrate_disable-ignore-bounded-threads.patch
+Applying patch features/all/rt/0175-sched-clear-pf-thread-bound-on-fallback-rq.patch.patch
+Applying patch features/all/rt/0176-ftrace-crap.patch.patch
+Applying patch features/all/rt/0177-ring-buffer-Convert-reader_lock-from-raw_spin_lock-i.patch
+Applying patch features/all/rt/0178-net-netif_rx_ni-migrate-disable.patch.patch
+Applying patch features/all/rt/0179-softirq-Sanitize-softirq-pending-for-NOHZ-RT.patch
+Applying patch features/all/rt/0180-lockdep-rt.patch.patch
+Applying patch features/all/rt/0181-mutex-no-spin-on-rt.patch.patch
+Applying patch features/all/rt/0182-softirq-local-lock.patch.patch
+Applying patch features/all/rt/0183-softirq-Export-in_serving_softirq.patch
+Applying patch features/all/rt/0184-hardirq.h-Define-softirq_count-as-OUL-to-kill-build-.patch
+Applying patch features/all/rt/0185-softirq-Fix-unplug-deadlock.patch
+Applying patch features/all/rt/0186-softirq-disable-softirq-stacks-for-rt.patch.patch
+Applying patch features/all/rt/0187-softirq-make-fifo.patch.patch
+Applying patch features/all/rt/0188-tasklet-Prevent-tasklets-from-going-into-infinite-sp.patch
+Applying patch features/all/rt/0189-genirq-Allow-disabling-of-softirq-processing-in-irq-.patch
+Applying patch features/all/rt/0190-local-vars-migrate-disable.patch.patch
+Applying patch features/all/rt/0191-md-raid5-Make-raid5_percpu-handling-RT-aware.patch
+Applying patch features/all/rt/0192-rtmutex-lock-killable.patch.patch
+Applying patch features/all/rt/0193-rtmutex-futex-prepare-rt.patch.patch
+Applying patch features/all/rt/0194-futex-Fix-bug-on-when-a-requeued-RT-task-times-out.patch
+Applying patch features/all/rt/0195-rt-mutex-add-sleeping-spinlocks-support.patch.patch
+Applying patch features/all/rt/0196-spinlock-types-separate-raw.patch.patch
+Applying patch features/all/rt/0197-rtmutex-avoid-include-hell.patch.patch
+Applying patch features/all/rt/0198-rt-add-rt-spinlocks.patch.patch
+Applying patch features/all/rt/0199-rt-add-rt-to-mutex-headers.patch.patch
+Applying patch features/all/rt/0200-rwsem-add-rt-variant.patch.patch
+Applying patch features/all/rt/0201-rt-Add-the-preempt-rt-lock-replacement-APIs.patch
+Applying patch features/all/rt/0202-rwlocks-Fix-section-mismatch.patch
+Applying patch features/all/rt/0203-timer-handle-idle-trylock-in-get-next-timer-irq.patc.patch
+Applying patch features/all/rt/0204-RCU-Force-PREEMPT_RCU-for-PREEMPT-RT.patch
+Applying patch features/all/rt/0205-rcu-Frob-softirq-test.patch
+Applying patch features/all/rt/0206-rcu-Merge-RCU-bh-into-RCU-preempt.patch
+Applying patch features/all/rt/0207-rcu-Fix-macro-substitution-for-synchronize_rcu_bh-on.patch
+Applying patch features/all/rt/0208-rcu-more-fallout.patch.patch
+Applying patch features/all/rt/0209-rcu-Make-ksoftirqd-do-RCU-quiescent-states.patch
+Applying patch features/all/rt/0210-rt-rcutree-Move-misplaced-prototype.patch
+Applying patch features/all/rt/0211-lglocks-rt.patch.patch
+Applying patch features/all/rt/0212-serial-8250-Clean-up-the-locking-for-rt.patch
+Applying patch features/all/rt/0213-serial-8250-Call-flush_to_ldisc-when-the-irq-is-thre.patch
+Applying patch features/all/rt/0214-drivers-tty-fix-omap-lock-crap.patch.patch
+Applying patch features/all/rt/0215-rt-Improve-the-serial-console-PASS_LIMIT.patch
+Applying patch features/all/rt/0216-fs-namespace-preemption-fix.patch
+Applying patch features/all/rt/0217-mm-protect-activate-switch-mm.patch.patch
+Applying patch features/all/rt/0218-fs-block-rt-support.patch.patch
+Applying patch features/all/rt/0219-fs-ntfs-disable-interrupt-only-on-RT.patch
+Applying patch features/all/rt/0220-x86-Convert-mce-timer-to-hrtimer.patch
+Applying patch features/all/rt/0221-x86-stackprotector-Avoid-random-pool-on-rt.patch
+Applying patch features/all/rt/0222-x86-Use-generic-rwsem_spinlocks-on-rt.patch
+Applying patch features/all/rt/0223-x86-Disable-IST-stacks-for-debug-int-3-stack-fault-f.patch
+Applying patch features/all/rt/0224-workqueue-use-get-cpu-light.patch.patch
+Applying patch features/all/rt/0225-epoll.patch.patch
+Applying patch features/all/rt/0226-mm-vmalloc.patch.patch
+Applying patch features/all/rt/0227-debugobjects-rt.patch.patch
+Applying patch features/all/rt/0228-jump-label-rt.patch.patch
+Applying patch features/all/rt/0229-skbufhead-raw-lock.patch.patch
+Applying patch features/all/rt/0230-x86-no-perf-irq-work-rt.patch.patch
+Applying patch features/all/rt/0231-console-make-rt-friendly.patch.patch
+Applying patch features/all/rt/0232-printk-Disable-migration-instead-of-preemption.patch
+Applying patch features/all/rt/0233-power-use-generic-rwsem-on-rt.patch
+Applying patch features/all/rt/0234-power-disable-highmem-on-rt.patch.patch
+Applying patch features/all/rt/0235-arm-disable-highmem-on-rt.patch.patch
+Applying patch features/all/rt/0236-ARM-at91-tclib-Default-to-tclib-timer-for-RT.patch
+Applying patch features/all/rt/0237-mips-disable-highmem-on-rt.patch.patch
+Applying patch features/all/rt/0238-net-Avoid-livelock-in-net_tx_action-on-RT.patch
+Applying patch features/all/rt/0239-ping-sysrq.patch.patch
+Applying patch features/all/rt/0240-kgdb-serial-Short-term-workaround.patch
+Applying patch features/all/rt/0241-add-sys-kernel-realtime-entry.patch
+Applying patch features/all/rt/0242-mm-rt-kmap_atomic-scheduling.patch
+Applying patch features/all/rt/0243-ipc-sem-Rework-semaphore-wakeups.patch
+Applying patch features/all/rt/0244-sysrq-Allow-immediate-Magic-SysRq-output-for-PREEMPT.patch
+Applying patch features/all/rt/0245-x86-kvm-require-const-tsc-for-rt.patch.patch
+Applying patch features/all/rt/0246-scsi-fcoe-rt-aware.patch.patch
+Applying patch features/all/rt/0247-x86-crypto-Reduce-preempt-disabled-regions.patch
+Applying patch features/all/rt/0248-dm-Make-rt-aware.patch
+Applying patch features/all/rt/0249-cpumask-Disable-CONFIG_CPUMASK_OFFSTACK-for-RT.patch
+Applying patch features/all/rt/0250-seqlock-Prevent-rt-starvation.patch
+Applying patch features/all/rt/0251-timer-Fix-hotplug-for-rt.patch
+Applying patch features/all/rt/0252-futex-rt-Fix-possible-lockup-when-taking-pi_lock-in-.patch
+Applying patch features/all/rt/0253-ring-buffer-rt-Check-for-irqs-disabled-before-grabbi.patch
+Applying patch features/all/rt/0254-sched-rt-Fix-wait_task_interactive-to-test-rt_spin_l.patch
+Applying patch features/all/rt/0255-lglock-rt-Use-non-rt-for_each_cpu-in-rt-code.patch
+Applying patch features/all/rt/0256-cpu-Make-hotplug.lock-a-sleeping-spinlock-on-RT.patch
+Applying patch features/all/rt/0257-softirq-Check-preemption-after-reenabling-interrupts.patch
+Applying patch features/all/rt/0258-rt-Introduce-cpu_chill.patch
+Applying patch features/all/rt/0259-fs-dcache-Use-cpu_chill-in-trylock-loops.patch
+Applying patch features/all/rt/0260-net-Use-cpu_chill-instead-of-cpu_relax.patch
+Applying patch features/all/rt/0261-kconfig-disable-a-few-options-rt.patch.patch
+Applying patch features/all/rt/0262-kconfig-preempt-rt-full.patch.patch
+Applying patch features/all/rt/0263-rt-Make-migrate_disable-enable-and-__rt_mutex_init-n.patch
+Applying patch features/all/rt/0264-scsi-qla2xxx-Use-local_irq_save_nort-in-qla2x00_poll.patch
+Applying patch features/all/rt/0265-net-RT-REmove-preemption-disabling-in-netif_rx.patch
+Applying patch features/all/rt/0266-mips-remove-smp-reserve-lock.patch.patch
+Applying patch features/all/rt/0267-Latency-histogramms-Cope-with-backwards-running-loca.patch
+Applying patch features/all/rt/0268-Latency-histograms-Adjust-timer-if-already-elapsed-w.patch
+Applying patch features/all/rt/0269-Disable-RT_GROUP_SCHED-in-PREEMPT_RT_FULL.patch
+Applying patch features/all/rt/0270-Latency-histograms-Detect-another-yet-overlooked-sha.patch
+Applying patch features/all/rt/0271-slab-Prevent-local-lock-deadlock.patch
+Applying patch features/all/rt/0272-fs-jbd-pull-your-plug-when-waiting-for-space.patch
+Applying patch features/all/rt/0273-perf-Make-swevent-hrtimer-run-in-irq-instead-of-soft.patch
+Applying patch features/all/rt/0274-cpu-rt-Rework-cpu-down-for-PREEMPT_RT.patch
+Applying patch features/all/rt/0275-cpu-rt-Fix-cpu_hotplug-variable-initialization.patch
+Applying patch features/all/rt/0276-time-rt-Fix-up-leap-second-backport-for-RT-changes.patch
+Applying patch features/all/rt/0277-fix-printk-flush-of-messages.patch
+Applying patch features/all/rt/0278-fix-printk-flush-of-messages.patch
+Applying patch features/all/rt/0279-random-Make-it-work-on-rt.patch
+Applying patch features/all/rt/0280-softirq-Init-softirq-local-lock-after-per-cpu-sectio.patch
+Applying patch features/all/rt/0281-mm-slab-Fix-potential-deadlock.patch
+Applying patch features/all/rt/0282-mm-page_alloc-Use-local_lock_on-instead-of-plain-spi.patch
+Applying patch features/all/rt/0283-rt-rwsem-rwlock-lockdep-annotations.patch
+Applying patch features/all/rt/0284-sched-Better-debug-output-for-might-sleep.patch
+Applying patch features/all/rt/0285-stomp_machine-Use-mutex_trylock-when-called-from-ina.patch
+Applying patch features/all/rt/0286-slab-Fix-up-stable-merge-of-slab-init_lock_keys.patch
+Applying patch features/all/rt/0287-hrtimer-Raise-softirq-if-hrtimer-irq-stalled.patch
+Applying patch features/all/rt/0288-rcu-Disable-RCU_FAST_NO_HZ-on-RT.patch
+Applying patch features/all/rt/0289-net-netfilter-Serialize-xt_write_recseq-sections-on-.patch
+Applying patch features/all/rt/0290-Linux-3.2.35-rt52-REBASE.patch
+Now at patch features/all/rt/0290-Linux-3.2.35-rt52-REBASE.patch
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_testdir
+/usr/bin/make -f debian/rules.gen setup_amd64
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real setup-flavour ABINAME='3.2.0-4' ABINAME_PART='-4' ARCH='amd64' COMPILER='gcc-4.6' DEBUG='True' FEATURESET='none' FLAVOUR='amd64' KCONFIG='debian/config/config debian/config/kernelarch-x86/config debian/config/kernelarch-x86/config-arch-64' KCONFIG_OPTIONS='-o DEBUG_INFO=y' KERNEL_ARCH='x86' LOCALVERSION='-amd64' LOCALVERSION_HEADERS='' LOCALVERSION_IMAGE='-amd64' MODULES='True' SOURCEVERSION='3.2.35-2' TYPE='plain' UPSTREAMVERSION='3.2' VERSION='3.2'
+dpkg-architecture: warning: specified GNU system type x86_64-linux-gnu does not match gcc system type x86_64-pc-linux-gnu, try setting a correct CC environment variable
+make[2]: Entering directory `/«PKGBUILDDIR»'
+python debian/bin/kconfig.py 'debian/build/config.amd64_none_amd64' debian/config/config debian/config/kernelarch-x86/config debian/config/kernelarch-x86/config-arch-64 -o DEBUG_INFO=y
+rm -rf 'debian/build/build_amd64_none_amd64'
+mkdir 'debian/build/build_amd64_none_amd64'
+cp 'debian/build/config.amd64_none_amd64' 'debian/build/build_amd64_none_amd64/.config'
+echo 'override ARCH = x86' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'override KERNELRELEASE = 3.2.0-4-amd64' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'CCACHE = ccache' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'CC = $(if $(DEBIAN_KERNEL_USE_CCACHE),$(CCACHE)) $(CROSS_COMPILE)gcc-4.6' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'ifneq ($(DEB_BUILD_ARCH),$(DEB_HOST_ARCH))' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'override CROSS_COMPILE = $(DEB_HOST_GNU_TYPE)-' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+echo 'endif' >> 'debian/build/build_amd64_none_amd64/.kernelvariables'
+env -u ABINAME -u ABINAME_PART -u ARCH -u FEATURESET -u FLAVOUR -u VERSION -u LOCALVERSION DISTRIBUTION_OFFICIAL_BUILD=1 DISTRIBUTOR="Debian" DISTRIBUTION_VERSION="3.2.35-2" KBUILD_BUILD_TIMESTAMP="Debian 3.2.35-2" KBUILD_BUILD_USER="debian-kernel" KBUILD_BUILD_HOST="lists.debian.org" /usr/bin/make -C 'debian/build/source_none' O='/«PKGBUILDDIR»/debian/build/build_amd64_none_amd64' V=1 listnewconfig
+make[3]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -C /«PKGBUILDDIR»/debian/build/build_amd64_none_amd64 \
+	KBUILD_SRC=/«PKGBUILDDIR» \
+	KBUILD_EXTMOD="" -f /«PKGBUILDDIR»/Makefile \
+	listnewconfig
+/usr/bin/make -f /«PKGBUILDDIR»/scripts/Makefile.build obj=scripts/basic
+  gcc -Wp,-MD,scripts/basic/.fixdep.d -Iscripts/basic -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o scripts/basic/fixdep /«PKGBUILDDIR»/scripts/basic/fixdep.c  
+rm -f .tmp_quiet_recordmcount
+ln -fsn /«PKGBUILDDIR» source
+/bin/bash /«PKGBUILDDIR»/scripts/mkmakefile \
+	    /«PKGBUILDDIR» /«PKGBUILDDIR»/debian/build/build_amd64_none_amd64 3 2
+  GEN     /«PKGBUILDDIR»/debian/build/build_amd64_none_amd64/Makefile
+mkdir -p include/linux include/config
+/usr/bin/make -f /«PKGBUILDDIR»/scripts/Makefile.build obj=scripts/kconfig listnewconfig
+  gcc -Wp,-MD,scripts/kconfig/.conf.o.d -Iscripts/kconfig -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -DCURSES_LOC="<curses.h>" -DLOCALE -c -o scripts/kconfig/conf.o /«PKGBUILDDIR»/scripts/kconfig/conf.c
+  cat /«PKGBUILDDIR»/scripts/kconfig/zconf.tab.c_shipped > scripts/kconfig/zconf.tab.c
+  cat /«PKGBUILDDIR»/scripts/kconfig/zconf.lex.c_shipped > scripts/kconfig/zconf.lex.c
+  cat /«PKGBUILDDIR»/scripts/kconfig/zconf.hash.c_shipped > scripts/kconfig/zconf.hash.c
+  gcc -Wp,-MD,scripts/kconfig/.zconf.tab.o.d -Iscripts/kconfig -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -DCURSES_LOC="<curses.h>" -DLOCALE  -I/«PKGBUILDDIR»/scripts/kconfig -Iscripts/kconfig -c -o scripts/kconfig/zconf.tab.o scripts/kconfig/zconf.tab.c
+  gcc  -o scripts/kconfig/conf scripts/kconfig/conf.o scripts/kconfig/zconf.tab.o  
+scripts/kconfig/conf --listnewconfig Kconfig
+
+#
+# Changes:
+#
+CONFIG_CROSS_COMPILE=""
+CONFIG_DEFAULT_HOSTNAME="(none)"
+# CONFIG_CFS_BANDWIDTH is not set
+# CONFIG_EXPERT is not set
+# CONFIG_BLK_DEV_THROTTLING is not set
+# CONFIG_CLEANCACHE is not set
+CONFIG_PHYSICAL_START=0x1000000
+# CONFIG_PCI_PRI is not set
+# CONFIG_PCI_PASID is not set
+# CONFIG_PN544_NFC is not set
+# CONFIG_MTD_PCMCIA_ANONYMOUS is not set
+# CONFIG_MTD_DOCG3 is not set
+CONFIG_BLK_DEV_LOOP_MIN_COUNT=8
+# CONFIG_EEPROM_93XX46 is not set
+# CONFIG_IWMC3200TOP_DEBUG is not set
+# CONFIG_IWMC3200TOP_DEBUGFS is not set
+# CONFIG_ALTERA_STAPL is not set
+# CONFIG_SCSI_MVSAS_TASKLET is not set
+# CONFIG_PATA_CS5536 is not set
+# CONFIG_DM_DEBUG_BLOCK_STACK_TRACING is not set
+# CONFIG_DM_DEBUG_SPACE_MAPS is not set
+CONFIG_NET_VENDOR_DEC=y
+CONFIG_NET_VENDOR_I825XX=y
+# CONFIG_ZNET is not set
+CONFIG_NET_VENDOR_SEEQ=y
+# CONFIG_SEEQ8005 is not set
+# CONFIG_ATH6KL is not set
+# CONFIG_TOUCHSCREEN_TSC_SERIO is not set
+# CONFIG_INPUT_BMA150 is not set
+# CONFIG_I2C_DESIGNWARE_PCI is not set
+# CONFIG_PPS_CLIENT_GPIO is not set
+# CONFIG_W1_SLAVE_DS2423 is not set
+CONFIG_BATTERY_BQ27X00_I2C=y
+CONFIG_BATTERY_BQ27X00_PLATFORM=y
+# CONFIG_SENSORS_AD7314 is not set
+# CONFIG_WATCHDOG_CORE is not set
+# CONFIG_MFD_SM501_GPIO is not set
+# CONFIG_MFD_TIMBERDALE is not set
+# CONFIG_MFD_JANZ_CMODIO is not set
+# CONFIG_REGULATOR_DUMMY is not set
+# CONFIG_REGULATOR_GPIO is not set
+# CONFIG_REGULATOR_MAX8952 is not set
+# CONFIG_REGULATOR_LP3972 is not set
+# CONFIG_REGULATOR_ISL6271A is not set
+# CONFIG_REGULATOR_AD5398 is not set
+# CONFIG_REGULATOR_TPS6524X is not set
+# CONFIG_VIDEO_V4L2_SUBDEV_API is not set
+# CONFIG_VIDEO_TIMBERDALE is not set
+# CONFIG_MEDIA_ALTERA_CI is not set
+# CONFIG_SOC_CAMERA_OV5642 is not set
+CONFIG_FB_CYBER2000_DDC=y
+# CONFIG_FB_SMSCUFX is not set
+# CONFIG_BACKLIGHT_ADP8860 is not set
+# CONFIG_BACKLIGHT_ADP8870 is not set
+# CONFIG_BACKLIGHT_PCF50633 is not set
+CONFIG_SND_HDA_PREALLOC_SIZE=64
+CONFIG_SND_HDA_ENABLE_REALTEK_QUIRKS=y
+CONFIG_SND_HDA_CODEC_CA0132=y
+# CONFIG_HOLTEK_FF is not set
+# CONFIG_USB_SL811_HCD_ISO is not set
+# CONFIG_USB_RENESAS_USBHS is not set
+CONFIG_REALTEK_AUTOPM=y
+# CONFIG_USB_UAS is not set
+# CONFIG_USB_GADGET_DEBUG is not set
+# CONFIG_USB_GADGET_DEBUG_FILES is not set
+# CONFIG_USB_GADGET_DEBUG_FS is not set
+CONFIG_USB_GADGET_VBUS_DRAW=2
+CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS=2
+# CONFIG_USB_GPIO_VBUS is not set
+# CONFIG_MMC_CLKGATE is not set
+# CONFIG_LEDS_LM3530 is not set
+# CONFIG_LEDS_PCA9532_GPIO is not set
+# CONFIG_LEDS_LP5521 is not set
+# CONFIG_LEDS_LP5523 is not set
+# CONFIG_LEDS_TRIGGER_GPIO is not set
+# CONFIG_EDAC_MCE_INJ is not set
+# CONFIG_EDAC_SBRIDGE is not set
+# CONFIG_RTC_DRV_DS3232 is not set
+# CONFIG_RTC_DRV_ISL12022 is not set
+# CONFIG_RTC_DRV_EM3027 is not set
+# CONFIG_RTC_DRV_RV3029C2 is not set
+# CONFIG_RTC_DRV_M41T93 is not set
+# CONFIG_INTEL_MID_DMAC is not set
+# CONFIG_TIMB_DMA is not set
+# CONFIG_VIRTIO_MMIO is not set
+# CONFIG_XEN_BALLOON_MEMORY_HOTPLUG is not set
+CONFIG_XEN_PCIDEV_BACKEND=m
+# CONFIG_COMEDI_SKEL is not set
+# CONFIG_COMEDI_ADL_PCI7230 is not set
+# CONFIG_COMEDI_DYNA_PCI10XX is not set
+# CONFIG_COMEDI_USBDUXSIGMA is not set
+# CONFIG_RTS_PSTOR_DEBUG is not set
+# CONFIG_DX_SEP is not set
+# CONFIG_ZRAM_DEBUG is not set
+# CONFIG_CXT1E1 is not set
+# CONFIG_FB_XGI is not set
+# CONFIG_ACPI_QUICKSTART is not set
+# CONFIG_SBE_2T3E3 is not set
+# CONFIG_USB_ENESTORAGE is not set
+# CONFIG_BCM_WIMAX is not set
+# CONFIG_FT1000 is not set
+# CONFIG_SPEAKUP_SYNTH_DECPC is not set
+# CONFIG_TOUCHSCREEN_CLEARPAD_TM1217 is not set
+# CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4 is not set
+# CONFIG_DRM_PSB_MRST is not set
+# CONFIG_DRM_PSB_MFLD is not set
+# CONFIG_DRM_PSB_CDV is not set
+# CONFIG_DVB_AS102 is not set
+# CONFIG_DVB_CXD2099 is not set
+# CONFIG_VIDEO_DT3155 is not set
+# CONFIG_EASYCAP_DEBUG is not set
+# CONFIG_SOLO6X10 is not set
+# CONFIG_LIRC_PARALLEL is not set
+# CONFIG_IBM_RTL is not set
+# CONFIG_XO15_EBOOK is not set
+# CONFIG_SAMSUNG_Q10 is not set
+CONFIG_IOMMU_SUPPORT=y
+# CONFIG_VIRT_DRIVERS is not set
+# CONFIG_PM_DEVFREQ is not set
+# CONFIG_DMI_SYSFS is not set
+# CONFIG_SIGMA is not set
+CONFIG_SQUASHFS_ZLIB=y
+# CONFIG_SQUASHFS_4K_DEVBLK_SIZE is not set
+# CONFIG_AUFS_PROC_MAP is not set
+CONFIG_AUFS_BR_HFSPLUS=y
+# CONFIG_DEBUG_ATOMIC_SLEEP is not set
+CONFIG_RCU_CPU_STALL_TIMEOUT=60
+CONFIG_EVENT_POWER_TRACING_DEPRECATED=y
+# CONFIG_TRUSTED_KEYS is not set
+# CONFIG_ENCRYPTED_KEYS is not set
+# CONFIG_SECURITY_DMESG_RESTRICT is not set
+CONFIG_SECURITY_TOMOYO_MAX_ACCEPT_ENTRY=2048
+CONFIG_SECURITY_TOMOYO_MAX_AUDIT_LOG=1024
+# CONFIG_SECURITY_TOMOYO_OMIT_USERSPACE_LOADER is not set
+CONFIG_SECURITY_TOMOYO_POLICY_LOADER="/sbin/tomoyo-init"
+CONFIG_SECURITY_TOMOYO_ACTIVATION_TRIGGER="/sbin/init"
+# CONFIG_EVM is not set
+# CONFIG_CRYPTO_USER is not set
+# CONFIG_KVM_MMU_AUDIT is not set
+CONFIG_CRC8=m
+CONFIG_CORDIC=m
+make[3]: Leaving directory `/«PKGBUILDDIR»'
+yes "" | env -u ABINAME -u ABINAME_PART -u ARCH -u FEATURESET -u FLAVOUR -u VERSION -u LOCALVERSION DISTRIBUTION_OFFICIAL_BUILD=1 DISTRIBUTOR="Debian" DISTRIBUTION_VERSION="3.2.35-2" KBUILD_BUILD_TIMESTAMP="Debian 3.2.35-2" KBUILD_BUILD_USER="debian-kernel" KBUILD_BUILD_HOST="lists.debian.org" /usr/bin/make -C 'debian/build/source_none' O='/«PKGBUILDDIR»/debian/build/build_amd64_none_amd64' oldconfig >/dev/null
+env -u ABINAME -u ABINAME_PART -u ARCH -u FEATURESET -u FLAVOUR -u VERSION -u LOCALVERSION DISTRIBUTION_OFFICIAL_BUILD=1 DISTRIBUTOR="Debian" DISTRIBUTION_VERSION="3.2.35-2" KBUILD_BUILD_TIMESTAMP="Debian 3.2.35-2" KBUILD_BUILD_USER="debian-kernel" KBUILD_BUILD_HOST="lists.debian.org" /usr/bin/make -C 'debian/build/source_none' O='/«PKGBUILDDIR»/debian/build/build_amd64_none_amd64' prepare
+make[3]: Entering directory `/«PKGBUILDDIR»'
+  GEN     /«PKGBUILDDIR»/debian/build/build_amd64_none_amd64/Makefile
+scripts/kconfig/conf --silentoldconfig Kconfig
+  HOSTCC  arch/x86/tools/relocs
+  Using /«PKGBUILDDIR» as source for kernel
+  GEN     /«PKGBUILDDIR»/debian/build/build_amd64_none_amd64/Makefile
+  CHK     include/linux/version.h
+  UPD     include/linux/version.h
+  CHK     include/generated/utsrelease.h
+  UPD     include/generated/utsrelease.h
+  CHK     include/generated/package.h
+  UPD     include/generated/package.h
+  CC      kernel/bounds.s
+clang: warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-variable'?
+clang: warning: argument unused during compilation: '-fno-delete-null-pointer-checks'
+clang: warning: argument unused during compilation: '-maccumulate-outgoing-args'
+clang: warning: argument unused during compilation: '-fconserve-stack'
+warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-variable'? [-Wunknown-warning-option]
+1 warning generated.
+  GEN     include/generated/bounds.h
+  CC      arch/x86/kernel/asm-offsets.s
+clang: warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-variable'?
+clang: warning: argument unused during compilation: '-fno-delete-null-pointer-checks'
+clang: warning: argument unused during compilation: '-maccumulate-outgoing-args'
+clang: warning: argument unused during compilation: '-fconserve-stack'
+warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-variable'? [-Wunknown-warning-option]
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:72:
+In file included from /«PKGBUILDDIR»/include/linux/sem.h:81:
+/«PKGBUILDDIR»/include/linux/rcupdate.h:808:2: error: array size is negative
+        BUILD_BUG_ON(!__builtin_constant_p(offset));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/kernel.h:715:22: note: expanded from macro 'BUILD_BUG_ON'
+                ((void)sizeof(char[1 - 2*!!(condition)]));      \
+                                   ^~~~~~~~~~~~~~~~~~~
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:81:11: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+                return (set->sig[3] | set->sig[2] |
+                        ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:81:25: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+                return (set->sig[3] | set->sig[2] |
+                                      ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:82:4: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+                        set->sig[1] | set->sig[0]) == 0;
+                        ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:84:11: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+                return (set->sig[1] | set->sig[0]) == 0;
+                        ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:8: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:24: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:8: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:24: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:108:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[3] = op(a3, b3);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:109:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[2] = op(a2, b2);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:8: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:24: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:123:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigorsets, _sig_or)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:112:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[1] = op(a1, b1);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:8: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:24: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:8: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:24: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:108:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[3] = op(a3, b3);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:109:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[2] = op(a2, b2);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:8: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:24: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:126:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandsets, _sig_and)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:112:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[1] = op(a1, b1);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:8: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:106:24: note: expanded from macro '_SIG_SET_BINOP'
+                a3 = a->sig[3]; a2 = a->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:8: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:107:24: note: expanded from macro '_SIG_SET_BINOP'
+                b3 = b->sig[3]; b2 = b->sig[2];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:108:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[3] = op(a3, b3);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:109:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[2] = op(a2, b2);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:8: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:111:24: note: expanded from macro '_SIG_SET_BINOP'
+                a1 = a->sig[1]; b1 = b->sig[1];                         \
+                                     ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:129:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_BINOP(sigandnsets, _sig_andn)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:112:3: note: expanded from macro '_SIG_SET_BINOP'
+                r->sig[1] = op(a1, b1);                                 \
+                ^      ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:142:31: note: expanded from macro '_SIG_SET_OP'
+            case 4: set->sig[3] = op(set->sig[3]);                      \
+                                     ^        ~
+/«PKGBUILDDIR»/include/linux/signal.h:152:24: note: expanded from macro '_sig_not'
+#define _sig_not(x)     (~(x))
+                           ^
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:142:14: note: expanded from macro '_SIG_SET_OP'
+            case 4: set->sig[3] = op(set->sig[3]);                      \
+                    ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:143:24: note: expanded from macro '_SIG_SET_OP'
+                    set->sig[2] = op(set->sig[2]);                      \
+                                     ^        ~
+/«PKGBUILDDIR»/include/linux/signal.h:152:24: note: expanded from macro '_sig_not'
+#define _sig_not(x)     (~(x))
+                           ^
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:143:7: note: expanded from macro '_SIG_SET_OP'
+                    set->sig[2] = op(set->sig[2]);                      \
+                    ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:144:31: note: expanded from macro '_SIG_SET_OP'
+            case 2: set->sig[1] = op(set->sig[1]);                      \
+                                     ^        ~
+/«PKGBUILDDIR»/include/linux/signal.h:152:24: note: expanded from macro '_sig_not'
+#define _sig_not(x)     (~(x))
+                           ^
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:153:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+_SIG_SET_OP(signotset, _sig_not)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/include/linux/signal.h:144:14: note: expanded from macro '_SIG_SET_OP'
+            case 2: set->sig[1] = op(set->sig[1]);                      \
+                    ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:164:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+        case 2: set->sig[1] = 0;
+                ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:176:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+        case 2: set->sig[1] = -1;
+                ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:206:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+        case 2: set->sig[1] = 0;
+                ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+In file included from /«PKGBUILDDIR»/arch/x86/kernel/asm-offsets.c:9:
+In file included from /«PKGBUILDDIR»/include/linux/sched.h:73:
+/«PKGBUILDDIR»/include/linux/signal.h:218:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+        case 2: set->sig[1] = -1;
+                ^        ~
+/«PKGBUILDDIR»/arch/x86/include/asm/signal.h:31:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+42 warnings and 1 error generated.
+make[5]: *** [arch/x86/kernel/asm-offsets.s] Error 1
+make[4]: *** [prepare0] Error 2
+make[3]: *** [sub-make] Error 2
+make[2]: *** [debian/stamps/setup_amd64_none_amd64] Error 2
+make[3]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: *** [setup_amd64_none_amd64_real] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [debian/stamps/setup-base] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0401
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 613904
+Build-Time: 22
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 10
+Job: linux_3.2.35-2
+Package: linux
+Package-Time: 84
+Source-Version: 3.2.35-2
+Space: 613904
+Status: attempted
+Version: 3.2.35-2
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0401
+Build needed 00:01:24, 613904k disc space
+DC-Status: Failed 85.709503s
+DC-Time-Estimation: 85.709503 versus expected 1 (r/m: 84.709503 ; m: 1.0)

@@ -1,0 +1,1266 @@
+DC-Build-Header: hardening-wrapper 2.3 / Mon Jan 28 05:16:03 +0000 2013
+DC-Task: logfile:/tmp/hardening-wrapper_2.3_unstable_clang.log version:2.3 chroot:unstable modes:binary-only:clang source:hardening-wrapper architecture:any esttime:80
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang hardening-wrapper_2.3'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-144-143.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ hardening-wrapper 2.3 (amd64)                              28 Jan 2013 05:16 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: hardening-wrapper
+Version: 2.3
+Source Version: 2.3
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/hardening-wrapper-OHVVeR/hardening-wrapper-2.3' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/hardening-wrapper-OHVVeR' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-502c801b-76d3-400e-8c16-4315ade87171' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (5165 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'hardening-wrapper' packaging is maintained in the 'Bzr' version control system at:
+http://anonscm.debian.org/bzr/hardening/master
+Please use:
+bzr branch http://anonscm.debian.org/bzr/hardening/master
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 22.4 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main hardening-wrapper 2.3 (dsc) [1860 B]
+Get:2 http://localhost/debian/ unstable/main hardening-wrapper 2.3 (tar) [20.5 kB]
+Fetched 22.4 kB in 0s (136 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1405 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (4107 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (40.5 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-2xRocV/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), perl-base (>= 5.10)
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), perl-base (>= 5.10)
+dpkg-deb: building package `sbuild-build-depends-hardening-wrapper-dummy' in `/«BUILDDIR»/resolver-41ETFF/apt_archive/sbuild-build-depends-hardening-wrapper-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install hardening-wrapper build dependencies (apt-based resolver)            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libmagic1 libpcre3 libpipeline1 libunistring0
+  libxml2 man-db po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libmagic1 libpcre3 libpipeline1 libunistring0
+  libxml2 man-db po-debconf sbuild-build-depends-hardening-wrapper-dummy
+0 upgraded, 22 newly installed, 0 to remove and 0 not upgraded.
+Need to get 9115 kB/9116 kB of archives.
+After this operation, 25.9 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:14 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:15 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:16 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:17 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:18 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:19 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:20 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:21 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 9115 kB in 0s (39.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-hardening-wrapper-dummy.
+Unpacking sbuild-build-depends-hardening-wrapper-dummy (from .../sbuild-build-depends-hardening-wrapper-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up sbuild-build-depends-hardening-wrapper-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libitm1_4.8-20130127-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130127-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-hardening-wrapper-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Dec 17 00:20:36 2012 UTC using RSA key ID DC6DC026
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./hardening-wrapper_2.3.dsc
+dpkg-source: info: extracting hardening-wrapper in hardening-wrapper-2.3
+dpkg-source: info: unpacking hardening-wrapper_2.3.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-502c801b-76d3-400e-8c16-4315ade87171
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package hardening-wrapper
+dpkg-buildpackage: source version 2.3
+dpkg-buildpackage: source changed by Kees Cook <kees@debian.org>
+ dpkg-source --before-build hardening-wrapper-2.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_testdir
+   dh_auto_clean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+rm -rf build-tree
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_testdir -a
+   dh_auto_configure -a
+   dh_auto_build -a
+make[1]: Entering directory `/«PKGBUILDDIR»'
+if [ -z "amd64" ]; then echo No DEB_HOST_ARCH; exit 1; fi
+if [ -z "linux" ]; then echo No DEB_HOST_ARCH_OS; exit 1; fi
+mkdir -p build-tree
+# Construct wrappers.
+install hardened-cc hardened-ld build-tree/
+# Set defaults, based on OS and ARCH.
+perl -pi -e 's/ #OS#/ '"linux"'/; s/ #ARCH#/ '"amd64"'/;' build-tree/hardened-cc build-tree/hardened-ld
+perl -pi -e "s/default{'DEB_BUILD_HARDENING_PIE'}=1;/default{'DEB_BUILD_HARDENING_PIE'}=1;/;" build-tree/hardened-cc build-tree/hardened-ld
+perl -pi -e "s/default{'DEB_BUILD_HARDENING_STACKPROTECTOR'}=1;/default{'DEB_BUILD_HARDENING_STACKPROTECTOR'}=1;/;" build-tree/hardened-cc build-tree/hardened-ld
+# Duplicate cc wrapper to c++.
+install build-tree/hardened-cc build-tree/hardened-c++
+perl -pi -e 's/hardened-cc/hardened-c++/g; s|/usr/bin/cc|/usr/bin/c++|g;' build-tree/hardened-c++
+# Construct tools.
+install hardening.make hardening-check build-tree/
+# Do not use "shell" here because it eats newlines. We want those.
+perl -pi -e "s/^my %libc;/my %libc = (\n$(perl hardening-check --find-libc-functions /bin/ls)\n);/;" build-tree/hardening-check
+# Construct man pages.
+install hardened-cc.1 hardened-ld.1 build-tree/
+pod2man hardening-check > build-tree/hardening-check.1
+# Duplicate cc man page to c++.
+install build-tree/hardened-cc.1 build-tree/hardened-c++.1
+perl -pi -e 's/hardened-cc/hardened-c++/g; s/gcc/g++/g;' build-tree/hardened-c++.1
+touch build-tree/stamp-build
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_auto_test -a
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make -C tests check
+make[2]: Entering directory `/«PKGBUILDDIR»/tests'
+# Check the stack protector and PIE options directly, just to have
+# a historical record in the build logs.
+cc -Wall -fstack-protector hello.c -o ../build-tree/cc-test || true
+../build-tree/cc-test || true
+../build-tree/cc-test: ok (0x4005e0)
+cc -Wall -fPIE -pie hello.c -o ../build-tree/cc-test || true
+../build-tree/cc-test || true
+../build-tree/cc-test: ok (0x2af426efd8e0)
+../build-tree/cc-test || true
+../build-tree/cc-test: ok (0x2b928cc688e0)
+make -f Makefile.wrapper check
+make[3]: Entering directory `/«PKGBUILDDIR»/tests'
+# Test basic perl syntax
+for script in ../build-tree/hardened-cc ../build-tree/hardened-ld ../build-tree/hardened-c++; do perl -c $script; done
+../build-tree/hardened-cc syntax OK
+../build-tree/hardened-ld syntax OK
+../build-tree/hardened-c++ syntax OK
+touch syntax.stamp
+# Compiler and linker options disabled.
+DEB_BUILD_HARDENING=0 ../build-tree/hardened-cc -B ../build-tree/ -o ../build-tree/wrapper-test-stock hello.c
+/usr/bin/clang -B ../build-tree/ -o ../build-tree/wrapper-test-stock hello.c
+readelf -ldrsW ../build-tree/wrapper-test-stock
+
+Elf file type is EXEC (Executable file)
+Entry point 0x400480
+There are 8 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000400040 0x0000000000400040 0x0001c0 0x0001c0 R E 0x8
+  INTERP         0x000200 0x0000000000400200 0x0000000000400200 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000400000 0x0000000000400000 0x0007d4 0x0007d4 R E 0x200000
+  LOAD           0x0007d8 0x00000000006007d8 0x00000000006007d8 0x000248 0x000250 RW  0x200000
+  DYNAMIC        0x0007f0 0x00000000006007f0 0x00000000006007f0 0x0001e0 0x0001e0 RW  0x8
+  NOTE           0x00021c 0x000000000040021c 0x000000000040021c 0x000044 0x000044 R   0x4
+  GNU_EH_FRAME   0x0006d4 0x00000000004006d4 0x00000000004006d4 0x000034 0x000034 R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+
+Dynamic section at offset 0x7f0 contains 25 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x400408
+ 0x000000000000000d (FINI)               0x4006b4
+ 0x0000000000000019 (INIT_ARRAY)         0x6007d8
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x6007e0
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x0000000000000004 (HASH)               0x400260
+ 0x000000006ffffef5 (GNU_HASH)           0x400288
+ 0x0000000000000005 (STRTAB)             0x400320
+ 0x0000000000000006 (SYMTAB)             0x4002a8
+ 0x000000000000000a (STRSZ)              65 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x6009d8
+ 0x0000000000000002 (PLTRELSZ)           96 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x4003a8
+ 0x0000000000000007 (RELA)               0x400390
+ 0x0000000000000008 (RELASZ)             24 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x400370
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x400362
+ 0x0000000000000000 (NULL)               0x0
+
+Relocation section '.rela.dyn' at offset 0x390 contains 1 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+00000000006009d0  0000000400000006 R_X86_64_GLOB_DAT      0000000000000000 __gmon_start__ + 0
+
+Relocation section '.rela.plt' at offset 0x3a8 contains 4 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+00000000006009f0  0000000100000007 R_X86_64_JUMP_SLOT     0000000000000000 printf + 0
+00000000006009f8  0000000200000007 R_X86_64_JUMP_SLOT     0000000000000000 snprintf + 0
+0000000000600a00  0000000300000007 R_X86_64_JUMP_SLOT     0000000000000000 __libc_start_main + 0
+0000000000600a08  0000000400000007 R_X86_64_JUMP_SLOT     0000000000000000 __gmon_start__ + 0
+
+Symbol table '.dynsym' contains 5 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND printf@GLIBC_2.2.5 (2)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND snprintf@GLIBC_2.2.5 (2)
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.2.5 (2)
+     4: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+
+Symbol table '.symtab' contains 67 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000400200     0 SECTION LOCAL  DEFAULT    1 
+     2: 000000000040021c     0 SECTION LOCAL  DEFAULT    2 
+     3: 000000000040023c     0 SECTION LOCAL  DEFAULT    3 
+     4: 0000000000400260     0 SECTION LOCAL  DEFAULT    4 
+     5: 0000000000400288     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000004002a8     0 SECTION LOCAL  DEFAULT    6 
+     7: 0000000000400320     0 SECTION LOCAL  DEFAULT    7 
+     8: 0000000000400362     0 SECTION LOCAL  DEFAULT    8 
+     9: 0000000000400370     0 SECTION LOCAL  DEFAULT    9 
+    10: 0000000000400390     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000004003a8     0 SECTION LOCAL  DEFAULT   11 
+    12: 0000000000400408     0 SECTION LOCAL  DEFAULT   12 
+    13: 0000000000400430     0 SECTION LOCAL  DEFAULT   13 
+    14: 0000000000400480     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000004006b4     0 SECTION LOCAL  DEFAULT   15 
+    16: 00000000004006c0     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000004006d4     0 SECTION LOCAL  DEFAULT   17 
+    18: 0000000000400708     0 SECTION LOCAL  DEFAULT   18 
+    19: 00000000006007d8     0 SECTION LOCAL  DEFAULT   19 
+    20: 00000000006007e0     0 SECTION LOCAL  DEFAULT   20 
+    21: 00000000006007e8     0 SECTION LOCAL  DEFAULT   21 
+    22: 00000000006007f0     0 SECTION LOCAL  DEFAULT   22 
+    23: 00000000006009d0     0 SECTION LOCAL  DEFAULT   23 
+    24: 00000000006009d8     0 SECTION LOCAL  DEFAULT   24 
+    25: 0000000000600a10     0 SECTION LOCAL  DEFAULT   25 
+    26: 0000000000600a20     0 SECTION LOCAL  DEFAULT   26 
+    27: 0000000000000000     0 SECTION LOCAL  DEFAULT   27 
+    28: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    29: 00000000006007e8     0 OBJECT  LOCAL  DEFAULT   21 __JCR_LIST__
+    30: 00000000004004b0     0 FUNC    LOCAL  DEFAULT   14 deregister_tm_clones
+    31: 00000000004004e0     0 FUNC    LOCAL  DEFAULT   14 register_tm_clones
+    32: 0000000000400520     0 FUNC    LOCAL  DEFAULT   14 __do_global_dtors_aux
+    33: 0000000000600a20     1 OBJECT  LOCAL  DEFAULT   26 completed.6133
+    34: 00000000006007e0     0 OBJECT  LOCAL  DEFAULT   20 __do_global_dtors_aux_fini_array_entry
+    35: 0000000000400540     0 FUNC    LOCAL  DEFAULT   14 frame_dummy
+    36: 00000000006007d8     0 OBJECT  LOCAL  DEFAULT   19 __frame_dummy_init_array_entry
+    37: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hello.c
+    38: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    39: 00000000004007d0     0 OBJECT  LOCAL  DEFAULT   18 __FRAME_END__
+    40: 00000000006007e8     0 OBJECT  LOCAL  DEFAULT   21 __JCR_END__
+    41: 00000000006007e0     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_end
+    42: 00000000006007f0     0 OBJECT  LOCAL  DEFAULT   22 _DYNAMIC
+    43: 00000000006007d8     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_start
+    44: 00000000006009d8     0 OBJECT  LOCAL  DEFAULT   24 _GLOBAL_OFFSET_TABLE_
+    45: 00000000004006b0     2 FUNC    GLOBAL DEFAULT   14 __libc_csu_fini
+    46: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    47: 0000000000600a10     0 NOTYPE  WEAK   DEFAULT   25 data_start
+    48: 0000000000600a20     0 NOTYPE  GLOBAL DEFAULT  ABS _edata
+    49: 00000000004006b4     0 FUNC    GLOBAL DEFAULT   15 _fini
+    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND printf@@GLIBC_2.2.5
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND snprintf@@GLIBC_2.2.5
+    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@@GLIBC_2.2.5
+    53: 0000000000600a10     0 NOTYPE  GLOBAL DEFAULT   25 __data_start
+    54: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    55: 0000000000600a18     0 OBJECT  GLOBAL HIDDEN    25 __dso_handle
+    56: 0000000000400570    99 FUNC    GLOBAL DEFAULT   14 announcement
+    57: 00000000004006c0     4 OBJECT  GLOBAL DEFAULT   16 _IO_stdin_used
+    58: 0000000000400620   137 FUNC    GLOBAL DEFAULT   14 __libc_csu_init
+    59: 0000000000600a28     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+    60: 0000000000400480     0 FUNC    GLOBAL DEFAULT   14 _start
+    61: 0000000000600a20     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start
+    62: 00000000004005e0    57 FUNC    GLOBAL DEFAULT   14 main
+    63: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    64: 0000000000600a20     0 OBJECT  GLOBAL HIDDEN    25 __TMC_END__
+    65: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    66: 0000000000400408     0 FUNC    GLOBAL DEFAULT   12 _init
+../build-tree/wrapper-test-stock
+../build-tree/wrapper-test-stock: ok (0x400570)
+# Compiler options enabled. (linker is not wrapper)
+../build-tree/hardened-cc -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-compiled hello.c
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -fPIE -pie -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-compiled hello.c
+readelf -ldrsW ../build-tree/wrapper-test-compiled
+
+Elf file type is DYN (Shared object file)
+Entry point 0x8b0
+There are 9 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0001f8 0x0001f8 R E 0x8
+  INTERP         0x000238 0x0000000000000238 0x0000000000000238 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000c94 0x000c94 R E 0x200000
+  LOAD           0x000da8 0x0000000000200da8 0x0000000000200da8 0x000298 0x0002a0 RW  0x200000
+  DYNAMIC        0x000dc0 0x0000000000200dc0 0x0000000000200dc0 0x0001e0 0x0001e0 RW  0x8
+  NOTE           0x000254 0x0000000000000254 0x0000000000000254 0x000044 0x000044 R   0x4
+  GNU_EH_FRAME   0x000b94 0x0000000000000b94 0x0000000000000b94 0x000034 0x000034 R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
+  GNU_RELRO      0x000da8 0x0000000000200da8 0x0000000000200da8 0x000258 0x000258 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+Dynamic section at offset 0xdc0 contains 26 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x818
+ 0x000000000000000d (FINI)               0xb74
+ 0x0000000000000019 (INIT_ARRAY)         0x200da8
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x200db0
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x0000000000000004 (HASH)               0x298
+ 0x000000006ffffef5 (GNU_HASH)           0x2f8
+ 0x0000000000000005 (STRTAB)             0x4e8
+ 0x0000000000000006 (SYMTAB)             0x338
+ 0x000000000000000a (STRSZ)              281 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x200fe8
+ 0x0000000000000002 (PLTRELSZ)           144 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x788
+ 0x0000000000000007 (RELA)               0x668
+ 0x0000000000000008 (RELASZ)             288 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x628
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x602
+ 0x000000006ffffff9 (RELACOUNT)          7
+ 0x0000000000000000 (NULL)               0x0
+
+Relocation section '.rela.dyn' at offset 0x668 contains 12 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000200da8  0000000000000008 R_X86_64_RELATIVE                               0000000000000990
+0000000000200db0  0000000000000008 R_X86_64_RELATIVE                               0000000000000950
+0000000000200fa0  0000000000000008 R_X86_64_RELATIVE                               0000000000000b70
+0000000000200fb8  0000000000000008 R_X86_64_RELATIVE                               00000000000009c0
+0000000000200fc0  0000000000000008 R_X86_64_RELATIVE                               0000000000000ae0
+0000000000200fc8  0000000000000008 R_X86_64_RELATIVE                               0000000000000a50
+0000000000201038  0000000000000008 R_X86_64_RELATIVE                               0000000000201038
+0000000000200fa8  0000000300000006 R_X86_64_GLOB_DAT      0000000000000000 _ITM_deregisterTMCloneTable + 0
+0000000000200fb0  0000000600000006 R_X86_64_GLOB_DAT      0000000000000000 __gmon_start__ + 0
+0000000000200fd0  0000000800000006 R_X86_64_GLOB_DAT      0000000000000000 _Jv_RegisterClasses + 0
+0000000000200fd8  0000000900000006 R_X86_64_GLOB_DAT      0000000000000000 _ITM_registerTMCloneTable + 0
+0000000000200fe0  0000000a00000006 R_X86_64_GLOB_DAT      0000000000000000 __cxa_finalize + 0
+
+Relocation section '.rela.plt' at offset 0x788 contains 6 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000201000  0000000200000007 R_X86_64_JUMP_SLOT     0000000000000000 __snprintf_chk + 0
+0000000000201008  0000000400000007 R_X86_64_JUMP_SLOT     0000000000000000 __stack_chk_fail + 0
+0000000000201010  0000000500000007 R_X86_64_JUMP_SLOT     0000000000000000 __libc_start_main + 0
+0000000000201018  0000000600000007 R_X86_64_JUMP_SLOT     0000000000000000 __gmon_start__ + 0
+0000000000201020  0000000700000007 R_X86_64_JUMP_SLOT     0000000000000000 __printf_chk + 0
+0000000000201028  0000000a00000007 R_X86_64_JUMP_SLOT     0000000000000000 __cxa_finalize + 0
+
+Symbol table '.dynsym' contains 18 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000238     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4 (2)
+     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3)
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.2.5 (4)
+     6: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.3.4 (2)
+     8: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+     9: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    10: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (4)
+    11: 0000000000201040     0 NOTYPE  GLOBAL DEFAULT  ABS _edata
+    12: 00000000000009c0   129 FUNC    GLOBAL DEFAULT   14 announcement
+    13: 0000000000201048     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+    14: 0000000000000ae0   137 FUNC    GLOBAL DEFAULT   14 __libc_csu_init
+    15: 0000000000201040     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start
+    16: 0000000000000a50   134 FUNC    GLOBAL DEFAULT   14 main
+    17: 0000000000000b70     2 FUNC    GLOBAL DEFAULT   14 __libc_csu_fini
+
+Symbol table '.symtab' contains 74 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000238     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000000000000254     0 SECTION LOCAL  DEFAULT    2 
+     3: 0000000000000274     0 SECTION LOCAL  DEFAULT    3 
+     4: 0000000000000298     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000000002f8     0 SECTION LOCAL  DEFAULT    5 
+     6: 0000000000000338     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000000004e8     0 SECTION LOCAL  DEFAULT    7 
+     8: 0000000000000602     0 SECTION LOCAL  DEFAULT    8 
+     9: 0000000000000628     0 SECTION LOCAL  DEFAULT    9 
+    10: 0000000000000668     0 SECTION LOCAL  DEFAULT   10 
+    11: 0000000000000788     0 SECTION LOCAL  DEFAULT   11 
+    12: 0000000000000818     0 SECTION LOCAL  DEFAULT   12 
+    13: 0000000000000840     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000000008b0     0 SECTION LOCAL  DEFAULT   14 
+    15: 0000000000000b74     0 SECTION LOCAL  DEFAULT   15 
+    16: 0000000000000b80     0 SECTION LOCAL  DEFAULT   16 
+    17: 0000000000000b94     0 SECTION LOCAL  DEFAULT   17 
+    18: 0000000000000bc8     0 SECTION LOCAL  DEFAULT   18 
+    19: 0000000000200da8     0 SECTION LOCAL  DEFAULT   19 
+    20: 0000000000200db0     0 SECTION LOCAL  DEFAULT   20 
+    21: 0000000000200db8     0 SECTION LOCAL  DEFAULT   21 
+    22: 0000000000200dc0     0 SECTION LOCAL  DEFAULT   22 
+    23: 0000000000200fa0     0 SECTION LOCAL  DEFAULT   23 
+    24: 0000000000200fe8     0 SECTION LOCAL  DEFAULT   24 
+    25: 0000000000201030     0 SECTION LOCAL  DEFAULT   25 
+    26: 0000000000201040     0 SECTION LOCAL  DEFAULT   26 
+    27: 0000000000000000     0 SECTION LOCAL  DEFAULT   27 
+    28: 0000000000000000     0 SECTION LOCAL  DEFAULT   28 
+    29: 0000000000000000     0 SECTION LOCAL  DEFAULT   29 
+    30: 0000000000000000     0 SECTION LOCAL  DEFAULT   30 
+    31: 0000000000000000     0 SECTION LOCAL  DEFAULT   31 
+    32: 0000000000000000     0 SECTION LOCAL  DEFAULT   32 
+    33: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    34: 0000000000200db8     0 OBJECT  LOCAL  DEFAULT   21 __JCR_LIST__
+    35: 00000000000008e0     0 FUNC    LOCAL  DEFAULT   14 deregister_tm_clones
+    36: 0000000000000910     0 FUNC    LOCAL  DEFAULT   14 register_tm_clones
+    37: 0000000000000950     0 FUNC    LOCAL  DEFAULT   14 __do_global_dtors_aux
+    38: 0000000000201040     1 OBJECT  LOCAL  DEFAULT   26 completed.6133
+    39: 0000000000200db0     0 OBJECT  LOCAL  DEFAULT   20 __do_global_dtors_aux_fini_array_entry
+    40: 0000000000000990     0 FUNC    LOCAL  DEFAULT   14 frame_dummy
+    41: 0000000000200da8     0 OBJECT  LOCAL  DEFAULT   19 __frame_dummy_init_array_entry
+    42: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hello.c
+    43: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    44: 0000000000000c90     0 OBJECT  LOCAL  DEFAULT   18 __FRAME_END__
+    45: 0000000000200db8     0 OBJECT  LOCAL  DEFAULT   21 __JCR_END__
+    46: 0000000000200db0     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_end
+    47: 0000000000200dc0     0 OBJECT  LOCAL  DEFAULT  ABS _DYNAMIC
+    48: 0000000000200da8     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_start
+    49: 0000000000200fe8     0 OBJECT  LOCAL  DEFAULT  ABS _GLOBAL_OFFSET_TABLE_
+    50: 0000000000000b70     2 FUNC    GLOBAL DEFAULT   14 __libc_csu_fini
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@@GLIBC_2.3.4
+    52: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    53: 0000000000201030     0 NOTYPE  WEAK   DEFAULT   25 data_start
+    54: 0000000000201040     0 NOTYPE  GLOBAL DEFAULT  ABS _edata
+    55: 0000000000000b74     0 FUNC    GLOBAL DEFAULT   15 _fini
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2.4
+    57: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@@GLIBC_2.2.5
+    58: 0000000000201030     0 NOTYPE  GLOBAL DEFAULT   25 __data_start
+    59: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    60: 0000000000201038     0 OBJECT  GLOBAL HIDDEN    25 __dso_handle
+    61: 00000000000009c0   129 FUNC    GLOBAL DEFAULT   14 announcement
+    62: 0000000000000b80     4 OBJECT  GLOBAL DEFAULT   16 _IO_stdin_used
+    63: 0000000000000ae0   137 FUNC    GLOBAL DEFAULT   14 __libc_csu_init
+    64: 0000000000201048     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+    65: 00000000000008b0     0 FUNC    GLOBAL DEFAULT   14 _start
+    66: 0000000000201040     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start
+    67: 0000000000000a50   134 FUNC    GLOBAL DEFAULT   14 main
+    68: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@@GLIBC_2.3.4
+    69: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    70: 0000000000201040     0 OBJECT  GLOBAL HIDDEN    25 __TMC_END__
+    71: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    72: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@@GLIBC_2.2.5
+    73: 0000000000000818     0 FUNC    GLOBAL DEFAULT   12 _init
+# Run twice to show off PIE, if available in kernel
+../build-tree/wrapper-test-compiled
+../build-tree/wrapper-test-compiled: ok (0x2ba1b86499c0)
+../build-tree/wrapper-test-compiled
+../build-tree/wrapper-test-compiled: ok (0x2af271d009c0)
+# Enable symlink for ld to trick gcc into doing wrapped linking
+(cd ../build-tree && ln -s hardened-ld ld)
+(cd ../build-tree && ln -s hardened-ld ld.gold)
+# Compiler and linker options enabled.
+../build-tree/hardened-cc -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-linked hello.c
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -fPIE -pie -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-linked hello.c
+/usr/bin/ld.bfd -z now -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o ../build-tree/wrapper-test-linked /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/Scrt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -L/usr/lib -z relro /tmp/hello-JeXGe7.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+readelf -ldrsW ../build-tree/wrapper-test-linked
+
+Elf file type is DYN (Shared object file)
+Entry point 0x8b0
+There are 9 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0001f8 0x0001f8 R E 0x8
+  INTERP         0x000238 0x0000000000000238 0x0000000000000238 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000c94 0x000c94 R E 0x200000
+  LOAD           0x000d58 0x0000000000200d58 0x0000000000200d58 0x0002b8 0x0002c0 RW  0x200000
+  DYNAMIC        0x000d70 0x0000000000200d70 0x0000000000200d70 0x000200 0x000200 RW  0x8
+  NOTE           0x000254 0x0000000000000254 0x0000000000000254 0x000044 0x000044 R   0x4
+  GNU_EH_FRAME   0x000b94 0x0000000000000b94 0x0000000000000b94 0x000034 0x000034 R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
+  GNU_RELRO      0x000d58 0x0000000000200d58 0x0000000000200d58 0x0002a8 0x0002a8 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+Dynamic section at offset 0xd70 contains 28 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x818
+ 0x000000000000000d (FINI)               0xb74
+ 0x0000000000000019 (INIT_ARRAY)         0x200d58
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x200d60
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x0000000000000004 (HASH)               0x298
+ 0x000000006ffffef5 (GNU_HASH)           0x2f8
+ 0x0000000000000005 (STRTAB)             0x4e8
+ 0x0000000000000006 (SYMTAB)             0x338
+ 0x000000000000000a (STRSZ)              281 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x200f70
+ 0x0000000000000002 (PLTRELSZ)           144 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x788
+ 0x0000000000000007 (RELA)               0x668
+ 0x0000000000000008 (RELASZ)             288 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x0000000000000018 (BIND_NOW)           
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW
+ 0x000000006ffffffe (VERNEED)            0x628
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x602
+ 0x000000006ffffff9 (RELACOUNT)          7
+ 0x0000000000000000 (NULL)               0x0
+
+Relocation section '.rela.dyn' at offset 0x668 contains 12 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000200d58  0000000000000008 R_X86_64_RELATIVE                               0000000000000990
+0000000000200d60  0000000000000008 R_X86_64_RELATIVE                               0000000000000950
+0000000000200fb8  0000000000000008 R_X86_64_RELATIVE                               0000000000000b70
+0000000000200fd0  0000000000000008 R_X86_64_RELATIVE                               00000000000009c0
+0000000000200fd8  0000000000000008 R_X86_64_RELATIVE                               0000000000000ae0
+0000000000200fe0  0000000000000008 R_X86_64_RELATIVE                               0000000000000a50
+0000000000201008  0000000000000008 R_X86_64_RELATIVE                               0000000000201008
+0000000000200fc0  0000000300000006 R_X86_64_GLOB_DAT      0000000000000000 _ITM_deregisterTMCloneTable + 0
+0000000000200fc8  0000000600000006 R_X86_64_GLOB_DAT      0000000000000000 __gmon_start__ + 0
+0000000000200fe8  0000000800000006 R_X86_64_GLOB_DAT      0000000000000000 _Jv_RegisterClasses + 0
+0000000000200ff0  0000000900000006 R_X86_64_GLOB_DAT      0000000000000000 _ITM_registerTMCloneTable + 0
+0000000000200ff8  0000000a00000006 R_X86_64_GLOB_DAT      0000000000000000 __cxa_finalize + 0
+
+Relocation section '.rela.plt' at offset 0x788 contains 6 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000200f88  0000000200000007 R_X86_64_JUMP_SLOT     0000000000000000 __snprintf_chk + 0
+0000000000200f90  0000000400000007 R_X86_64_JUMP_SLOT     0000000000000000 __stack_chk_fail + 0
+0000000000200f98  0000000500000007 R_X86_64_JUMP_SLOT     0000000000000000 __libc_start_main + 0
+0000000000200fa0  0000000600000007 R_X86_64_JUMP_SLOT     0000000000000000 __gmon_start__ + 0
+0000000000200fa8  0000000700000007 R_X86_64_JUMP_SLOT     0000000000000000 __printf_chk + 0
+0000000000200fb0  0000000a00000007 R_X86_64_JUMP_SLOT     0000000000000000 __cxa_finalize + 0
+
+Symbol table '.dynsym' contains 18 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000238     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4 (2)
+     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3)
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.2.5 (4)
+     6: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.3.4 (2)
+     8: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+     9: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    10: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (4)
+    11: 0000000000201010     0 NOTYPE  GLOBAL DEFAULT  ABS _edata
+    12: 00000000000009c0   129 FUNC    GLOBAL DEFAULT   14 announcement
+    13: 0000000000201018     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+    14: 0000000000000ae0   137 FUNC    GLOBAL DEFAULT   14 __libc_csu_init
+    15: 0000000000201010     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start
+    16: 0000000000000a50   134 FUNC    GLOBAL DEFAULT   14 main
+    17: 0000000000000b70     2 FUNC    GLOBAL DEFAULT   14 __libc_csu_fini
+
+Symbol table '.symtab' contains 73 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000238     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000000000000254     0 SECTION LOCAL  DEFAULT    2 
+     3: 0000000000000274     0 SECTION LOCAL  DEFAULT    3 
+     4: 0000000000000298     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000000002f8     0 SECTION LOCAL  DEFAULT    5 
+     6: 0000000000000338     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000000004e8     0 SECTION LOCAL  DEFAULT    7 
+     8: 0000000000000602     0 SECTION LOCAL  DEFAULT    8 
+     9: 0000000000000628     0 SECTION LOCAL  DEFAULT    9 
+    10: 0000000000000668     0 SECTION LOCAL  DEFAULT   10 
+    11: 0000000000000788     0 SECTION LOCAL  DEFAULT   11 
+    12: 0000000000000818     0 SECTION LOCAL  DEFAULT   12 
+    13: 0000000000000840     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000000008b0     0 SECTION LOCAL  DEFAULT   14 
+    15: 0000000000000b74     0 SECTION LOCAL  DEFAULT   15 
+    16: 0000000000000b80     0 SECTION LOCAL  DEFAULT   16 
+    17: 0000000000000b94     0 SECTION LOCAL  DEFAULT   17 
+    18: 0000000000000bc8     0 SECTION LOCAL  DEFAULT   18 
+    19: 0000000000200d58     0 SECTION LOCAL  DEFAULT   19 
+    20: 0000000000200d60     0 SECTION LOCAL  DEFAULT   20 
+    21: 0000000000200d68     0 SECTION LOCAL  DEFAULT   21 
+    22: 0000000000200d70     0 SECTION LOCAL  DEFAULT   22 
+    23: 0000000000200f70     0 SECTION LOCAL  DEFAULT   23 
+    24: 0000000000201000     0 SECTION LOCAL  DEFAULT   24 
+    25: 0000000000201010     0 SECTION LOCAL  DEFAULT   25 
+    26: 0000000000000000     0 SECTION LOCAL  DEFAULT   26 
+    27: 0000000000000000     0 SECTION LOCAL  DEFAULT   27 
+    28: 0000000000000000     0 SECTION LOCAL  DEFAULT   28 
+    29: 0000000000000000     0 SECTION LOCAL  DEFAULT   29 
+    30: 0000000000000000     0 SECTION LOCAL  DEFAULT   30 
+    31: 0000000000000000     0 SECTION LOCAL  DEFAULT   31 
+    32: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    33: 0000000000200d68     0 OBJECT  LOCAL  DEFAULT   21 __JCR_LIST__
+    34: 00000000000008e0     0 FUNC    LOCAL  DEFAULT   14 deregister_tm_clones
+    35: 0000000000000910     0 FUNC    LOCAL  DEFAULT   14 register_tm_clones
+    36: 0000000000000950     0 FUNC    LOCAL  DEFAULT   14 __do_global_dtors_aux
+    37: 0000000000201010     1 OBJECT  LOCAL  DEFAULT   25 completed.6133
+    38: 0000000000200d60     0 OBJECT  LOCAL  DEFAULT   20 __do_global_dtors_aux_fini_array_entry
+    39: 0000000000000990     0 FUNC    LOCAL  DEFAULT   14 frame_dummy
+    40: 0000000000200d58     0 OBJECT  LOCAL  DEFAULT   19 __frame_dummy_init_array_entry
+    41: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hello.c
+    42: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    43: 0000000000000c90     0 OBJECT  LOCAL  DEFAULT   18 __FRAME_END__
+    44: 0000000000200d68     0 OBJECT  LOCAL  DEFAULT   21 __JCR_END__
+    45: 0000000000200d60     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_end
+    46: 0000000000200d70     0 OBJECT  LOCAL  DEFAULT  ABS _DYNAMIC
+    47: 0000000000200d58     0 NOTYPE  LOCAL  DEFAULT   19 __init_array_start
+    48: 0000000000200f70     0 OBJECT  LOCAL  DEFAULT  ABS _GLOBAL_OFFSET_TABLE_
+    49: 0000000000000b70     2 FUNC    GLOBAL DEFAULT   14 __libc_csu_fini
+    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@@GLIBC_2.3.4
+    51: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    52: 0000000000201000     0 NOTYPE  WEAK   DEFAULT   24 data_start
+    53: 0000000000201010     0 NOTYPE  GLOBAL DEFAULT  ABS _edata
+    54: 0000000000000b74     0 FUNC    GLOBAL DEFAULT   15 _fini
+    55: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2.4
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@@GLIBC_2.2.5
+    57: 0000000000201000     0 NOTYPE  GLOBAL DEFAULT   24 __data_start
+    58: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    59: 0000000000201008     0 OBJECT  GLOBAL HIDDEN    24 __dso_handle
+    60: 00000000000009c0   129 FUNC    GLOBAL DEFAULT   14 announcement
+    61: 0000000000000b80     4 OBJECT  GLOBAL DEFAULT   16 _IO_stdin_used
+    62: 0000000000000ae0   137 FUNC    GLOBAL DEFAULT   14 __libc_csu_init
+    63: 0000000000201018     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+    64: 00000000000008b0     0 FUNC    GLOBAL DEFAULT   14 _start
+    65: 0000000000201010     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_start
+    66: 0000000000000a50   134 FUNC    GLOBAL DEFAULT   14 main
+    67: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@@GLIBC_2.3.4
+    68: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    69: 0000000000201010     0 OBJECT  GLOBAL HIDDEN    24 __TMC_END__
+    70: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    71: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@@GLIBC_2.2.5
+    72: 0000000000000818     0 FUNC    GLOBAL DEFAULT   12 _init
+# Run twice to show off PIE, if available in kernel
+../build-tree/wrapper-test-linked
+../build-tree/wrapper-test-linked: ok (0x2aede1dea9c0)
+../build-tree/wrapper-test-linked
+../build-tree/wrapper-test-linked: ok (0x2ab1024dc9c0)
+# Check state of hardening features via check script
+perl ../build-tree/hardening-check  ../build-tree/wrapper-test-linked
+../build-tree/wrapper-test-linked:
+ Position Independent Executable: yes
+ Stack protected: yes
+ Fortify Source functions: yes
+ Read-only relocations: yes
+ Immediate binding: yes
+# Manually check state of hardening features
+# Test PIE
+readelf -lW ../build-tree/wrapper-test-linked | grep '^Elf file type is DYN'
+Elf file type is DYN (Shared object file)
+# Test Stack Protector
+nm ../build-tree/wrapper-test-linked | egrep '__stack_chk_fail($|@@GLIBC)'
+                 U __stack_chk_fail@@GLIBC_2.4
+# Test Fortify
+nm ../build-tree/wrapper-test-linked | egrep '__(sn)?printf_chk($|@@GLIBC)'
+                 U __printf_chk@@GLIBC_2.3.4
+                 U __snprintf_chk@@GLIBC_2.3.4
+# Test Format (no-op currently)
+# Test for RELRO
+readelf -lW ../build-tree/wrapper-test-linked | grep GNU_RELRO
+  GNU_RELRO      0x000d58 0x0000000000200d58 0x0000000000200d58 0x0002a8 0x0002a8 R   0x1
+# Test for BIND_NOW
+readelf -dW ../build-tree/wrapper-test-linked | grep BIND_NOW
+ 0x0000000000000018 (BIND_NOW)           
+# Build directly with -fPIC already defined
+../build-tree/hardened-cc -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC-direct hello.c
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -pie -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC-direct hello.c
+/usr/bin/ld.bfd -z now -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o ../build-tree/wrapper-test-fPIC-direct /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/Scrt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -L/usr/lib -z relro /tmp/hello-8ZxBHm.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+../build-tree/wrapper-test-fPIC-direct
+../build-tree/wrapper-test-fPIC-direct: ok (0x2ab175cac9c0)
+# Build .o with -fPIC already defined
+../build-tree/hardened-cc -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC.o -c hello.c
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC.o -c hello.c
+clang: warning: -Wl,-z,relro: 'linker' input unused
+# Link .o with -fPIC already defined
+../build-tree/hardened-cc -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC ../build-tree/wrapper-test-fPIC.o
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -pie -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-fPIC ../build-tree/wrapper-test-fPIC.o
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+/usr/bin/ld.bfd -z now -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o ../build-tree/wrapper-test-fPIC /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/Scrt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -L/usr/lib -z relro ../build-tree/wrapper-test-fPIC.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+../build-tree/wrapper-test-fPIC
+../build-tree/wrapper-test-fPIC: ok (0x2b29b295d9c0)
+# Make sure build fails due to -Werror=format-security
+! ../build-tree/hardened-cc -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-format-security format.c
+/usr/bin/clang -fstack-protector --param=ssp-buffer-size=4 -fPIE -pie -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security -B ../build-tree/ -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -O2 -Wl,-z,relro -o ../build-tree/wrapper-test-format-security format.c
+/usr/bin/ld.bfd -z now -pie --hash-style=both --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o ../build-tree/wrapper-test-format-security /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/Scrt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -L/usr/lib -z relro /tmp/format-bra6BD.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+make[3]: *** [../build-tree/wrapper-test-format-security] Error 1
+make[2]: *** [check] Error 2
+make[3]: Leaving directory `/«PKGBUILDDIR»/tests'
+make[2]: Leaving directory `/«PKGBUILDDIR»/tests'
+make[1]: *** [check] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_auto_test: make -j1 check returned exit code 2
+make: *** [build-arch] Error 29
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0516
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 336
+Build-Time: 2
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 7
+Job: hardening-wrapper_2.3
+Package: hardening-wrapper
+Package-Time: 38
+Source-Version: 2.3
+Space: 336
+Status: attempted
+Version: 2.3
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0516
+Build needed 00:00:38, 336k disc space
+DC-Status: Failed 39.023522s
+DC-Time-Estimation: 39.023522 versus expected 80 (r/m: 1.05004561095229 ; m: 39.023522)

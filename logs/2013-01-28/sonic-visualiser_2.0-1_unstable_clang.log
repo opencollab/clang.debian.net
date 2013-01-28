@@ -1,0 +1,1968 @@
+DC-Build-Header: sonic-visualiser 2.0-1 / Mon Jan 28 03:59:29 +0000 2013
+DC-Task: logfile:/tmp/sonic-visualiser_2.0-1_unstable_clang.log version:2.0-1 chroot:unstable modes:binary-only:clang source:sonic-visualiser architecture:any esttime:
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang sonic-visualiser_2.0-1'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-29-139-29.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ sonic-visualiser 2.0-1 (amd64)                             28 Jan 2013 03:59 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: sonic-visualiser
+Version: 2.0-1
+Source Version: 2.0-1
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/sonic-visualiser-OaPiqp/sonic-visualiser-2.0' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/sonic-visualiser-OaPiqp' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-10226592-3b6d-48e0-9e9d-cc78e5b7a006' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8234 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Fetched 16.8 MB in 3s (4880 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'sonic-visualiser' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/pkg-multimedia/sonic-visualiser.git
+Need to get 1933 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main sonic-visualiser 2.0-1 (dsc) [2416 B]
+Get:2 http://localhost/debian/ unstable/main sonic-visualiser 2.0-1 (tar) [1926 kB]
+Get:3 http://localhost/debian/ unstable/main sonic-visualiser 2.0-1 (diff) [4507 B]
+Fetched 1933 kB in 0s (4409 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1349 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (3992 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (34.9 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130123-1) ...
+Setting up libitm1:amd64 (4.8-20130123-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130123-1) ...
+Setting up libquadmath0:amd64 (4.8-20130123-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-db6C_u/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), libbz2-dev, libdataquay-dev, libfftw3-dev, libfishsound1-dev, libid3tag0-dev, libjack-dev, liblo-dev, liblrdf0-dev, libmad0-dev, liboggz2-dev, libpulse-dev, libqt4-dev, librdf0-dev, librubberband-dev, libsamplerate0-dev, libsm-dev, libsndfile1-dev, libx11-dev, portaudio19-dev, vamp-plugin-sdk
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), libbz2-dev, libdataquay-dev, libfftw3-dev, libfishsound1-dev, libid3tag0-dev, libjack-dev, liblo-dev, liblrdf0-dev, libmad0-dev, liboggz2-dev, libpulse-dev, libqt4-dev, librdf0-dev, librubberband-dev, libsamplerate0-dev, libsm-dev, libsndfile1-dev, libx11-dev, portaudio19-dev, vamp-plugin-sdk
+dpkg-deb: building package `sbuild-build-depends-sonic-visualiser-dummy' in `/«BUILDDIR»/resolver-pRKyqs/apt_archive/sbuild-build-depends-sonic-visualiser-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install sonic-visualiser build dependencies (apt-based resolver)             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils comerr-dev debhelper file fontconfig fontconfig-config gettext
+  gettext-base groff-base html2text intltool-debian krb5-multidev ladspa-sdk
+  libasound2 libasound2-dev libasprintf-dev libasprintf0c2 libasyncns0
+  libaudio2 libavahi-client-dev libavahi-client3 libavahi-common-data
+  libavahi-common-dev libavahi-common3 libbz2-dev libcap2 libcroco3
+  libcurl3-gnutls libcurl4-gnutls-dev libdataquay-dev libdataquay0 libdb-dev
+  libdb5.1-dev libdbus-1-3 libdbus-1-dev libelf1 libfftw3-3 libfftw3-bin
+  libfftw3-dev libfishsound1 libfishsound1-dev libflac-dev libflac8
+  libfontconfig1 libfreetype6 libgcrypt11 libgcrypt11-dev libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libglib2.0-bin libglib2.0-data libglib2.0-dev
+  libgmp-dev libgmpxx4ldbl libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4
+  libice-dev libice6 libid3tag0 libid3tag0-dev libidn11 libidn11-dev
+  libjack-dev libjack0 libjbig0 libjpeg8 libjson0 libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 liblcms1 libldap-2.4-2 libldap2-dev liblo-dev
+  liblo7 liblrdf0 liblrdf0-dev libltdl7 libmad0 libmad0-dev libmagic1
+  libmhash2 libmng1 libmysqlclient-dev libmysqlclient18 libogg-dev libogg0
+  liboggz2 liboggz2-dev libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev
+  libpcrecpp0 libpipeline1 libpng12-0 libpopt0 libportaudio2 libportaudiocpp0
+  libpq-dev libpq5 libpthread-stubs0 libpthread-stubs0-dev libpulse-dev
+  libpulse-mainloop-glib0 libpulse0 libqt4-dbus libqt4-declarative
+  libqt4-designer libqt4-dev libqt4-dev-bin libqt4-help libqt4-network
+  libqt4-qt3support libqt4-script libqt4-scripttools libqt4-sql libqt4-svg
+  libqt4-test libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4
+  libraptor1 libraptor1-dev libraptor2-0 libraptor2-dev librasqal3
+  librasqal3-dev librdf0 librdf0-dev librtmp-dev librtmp0 librubberband-dev
+  librubberband2 libsamplerate0 libsamplerate0-dev libsasl2-2 libsm-dev libsm6
+  libsndfile1 libsndfile1-dev libspeex-dev libspeex1 libsqlite3-dev libssh2-1
+  libssh2-1-dev libssl-dev libtasn1-3 libtasn1-3-dev libtiff4 libunistring0
+  libvamp-hostsdk3 libvamp-sdk2 libvorbis-dev libvorbis0a libvorbisenc2
+  libvorbisfile3 libwrap0 libx11-6 libx11-data libx11-dev libx11-xcb1
+  libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6 libxext6
+  libxi6 libxml2 libxml2-dev libxrender1 libxslt1-dev libxslt1.1 libxt6
+  libxtst6 libyajl-dev libyajl2 man-db mysql-common pkg-config po-debconf
+  portaudio19-dev qdbus qt4-linguist-tools qt4-qmake ttf-dejavu-core
+  vamp-plugin-sdk x11-common x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev xorg-sgml-doctools xtrans-dev zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation doc-base dh-make gettext-doc groff
+  krb5-doc libasound2-plugins libasound2-doc nas libcurl3-dbg db5.1-doc
+  rng-tools libgcrypt11-doc libglib2.0-doc libgmp10-doc libmpfr-dev
+  gnutls26-doc krb5-user libice-doc jackd1 liblcms-utils postgresql-doc-9.1
+  pulseaudio libqt4-declarative-folderlistmodel libqt4-declarative-gestures
+  libqt4-declarative-particles libqt4-declarative-shaders qt4-qmlviewer
+  firebird-dev libsqlite0-dev qt4-dev-tools qt4-doc unixodbc-dev libthai0
+  libicu48 qt4-qtconfig raptor-utils libraptor1-doc raptor2-utils
+  libraptor2-doc rasqal-utils librasqal3-doc librdf-storage-postgresql
+  librdf-storage-mysql librdf-storage-sqlite redland-utils librdf-perl
+  python-librdf librdf-ruby libsm-doc speex sqlite3-doc libxcb-doc less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint ca-certificates dbus shared-mime-info
+  krb5-locales libqt4-opengl-dev libqtwebkit-dev libqt4-sql-mysql
+  libqt4-sql-odbc libqt4-sql-psql libqt4-sql-sqlite libqt4-sql-sqlite2
+  libqt4-sql-ibase libcups2 libsasl2-modules libssl-doc tcpd libx11-doc
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils comerr-dev debhelper file fontconfig fontconfig-config gettext
+  gettext-base groff-base html2text intltool-debian krb5-multidev ladspa-sdk
+  libasound2 libasound2-dev libasprintf-dev libasprintf0c2 libasyncns0
+  libaudio2 libavahi-client-dev libavahi-client3 libavahi-common-data
+  libavahi-common-dev libavahi-common3 libbz2-dev libcap2 libcroco3
+  libcurl3-gnutls libcurl4-gnutls-dev libdataquay-dev libdataquay0 libdb-dev
+  libdb5.1-dev libdbus-1-3 libdbus-1-dev libelf1 libfftw3-3 libfftw3-bin
+  libfftw3-dev libfishsound1 libfishsound1-dev libflac-dev libflac8
+  libfontconfig1 libfreetype6 libgcrypt11 libgcrypt11-dev libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libglib2.0-bin libglib2.0-data libglib2.0-dev
+  libgmp-dev libgmpxx4ldbl libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4
+  libice-dev libice6 libid3tag0 libid3tag0-dev libidn11 libidn11-dev
+  libjack-dev libjack0 libjbig0 libjpeg8 libjson0 libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 liblcms1 libldap-2.4-2 libldap2-dev liblo-dev
+  liblo7 liblrdf0 liblrdf0-dev libltdl7 libmad0 libmad0-dev libmagic1
+  libmhash2 libmng1 libmysqlclient-dev libmysqlclient18 libogg-dev libogg0
+  liboggz2 liboggz2-dev libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev
+  libpcrecpp0 libpipeline1 libpng12-0 libpopt0 libportaudio2 libportaudiocpp0
+  libpq-dev libpq5 libpthread-stubs0 libpthread-stubs0-dev libpulse-dev
+  libpulse-mainloop-glib0 libpulse0 libqt4-dbus libqt4-declarative
+  libqt4-designer libqt4-dev libqt4-dev-bin libqt4-help libqt4-network
+  libqt4-qt3support libqt4-script libqt4-scripttools libqt4-sql libqt4-svg
+  libqt4-test libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4
+  libraptor1 libraptor1-dev libraptor2-0 libraptor2-dev librasqal3
+  librasqal3-dev librdf0 librdf0-dev librtmp-dev librtmp0 librubberband-dev
+  librubberband2 libsamplerate0 libsamplerate0-dev libsasl2-2 libsm-dev libsm6
+  libsndfile1 libsndfile1-dev libspeex-dev libspeex1 libsqlite3-dev libssh2-1
+  libssh2-1-dev libssl-dev libtasn1-3 libtasn1-3-dev libtiff4 libunistring0
+  libvamp-hostsdk3 libvamp-sdk2 libvorbis-dev libvorbis0a libvorbisenc2
+  libvorbisfile3 libwrap0 libx11-6 libx11-data libx11-dev libx11-xcb1
+  libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6 libxext6
+  libxi6 libxml2 libxml2-dev libxrender1 libxslt1-dev libxslt1.1 libxt6
+  libxtst6 libyajl-dev libyajl2 man-db mysql-common pkg-config po-debconf
+  portaudio19-dev qdbus qt4-linguist-tools qt4-qmake
+  sbuild-build-depends-sonic-visualiser-dummy ttf-dejavu-core vamp-plugin-sdk
+  x11-common x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  xorg-sgml-doctools xtrans-dev zlib1g-dev
+0 upgraded, 211 newly installed, 0 to remove and 0 not upgraded.
+Need to get 75.0 MB/75.0 MB of archives.
+After this operation, 248 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:8 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:9 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:10 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:11 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:13 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:14 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:15 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:16 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:17 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:18 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:19 http://localhost/debian/ unstable/main libgssrpc4 amd64 1.10.1+dfsg-3 [87.5 kB]
+Get:20 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:21 http://localhost/debian/ unstable/main libkadm5clnt-mit8 amd64 1.10.1+dfsg-3 [67.6 kB]
+Get:22 http://localhost/debian/ unstable/main libkdb5-6 amd64 1.10.1+dfsg-3 [66.5 kB]
+Get:23 http://localhost/debian/ unstable/main libkadm5srv-mit8 amd64 1.10.1+dfsg-3 [84.6 kB]
+Get:24 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:25 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:26 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:27 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:28 http://localhost/debian/ unstable/main libwrap0 amd64 7.6.q-24 [62.4 kB]
+Get:29 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:30 http://localhost/debian/ unstable/main libasound2 amd64 1.0.25-4 [461 kB]
+Get:31 http://localhost/debian/ unstable/main libasyncns0 amd64 0.8-4 [13.6 kB]
+Get:32 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:33 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:34 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:35 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:36 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:37 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:38 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:39 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:40 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:41 http://localhost/debian/ unstable/main libaudio2 amd64 1.9.3-5 [86.4 kB]
+Get:42 http://localhost/debian/ unstable/main libavahi-common-data amd64 0.6.31-1 [134 kB]
+Get:43 http://localhost/debian/ unstable/main libavahi-common3 amd64 0.6.31-1 [54.3 kB]
+Get:44 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:45 http://localhost/debian/ unstable/main libavahi-client3 amd64 0.6.31-1 [59.1 kB]
+Get:46 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:47 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:48 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:49 http://localhost/debian/ unstable/main libssh2-1 amd64 1.4.2-1.1 [133 kB]
+Get:50 http://localhost/debian/ unstable/main libcurl3-gnutls amd64 7.28.0-3 [322 kB]
+Get:51 http://localhost/debian/ unstable/main libqtcore4 amd64 4:4.8.2+dfsg-10 [2108 kB]
+Get:52 http://localhost/debian/ unstable/main libltdl7 amd64 2.4.2-1.2 [352 kB]
+Get:53 http://localhost/debian/ unstable/main libxslt1.1 amd64 1.1.26-14 [253 kB]
+Get:54 http://localhost/debian/ unstable/main libyajl2 amd64 2.0.4-2 [24.8 kB]
+Get:55 http://localhost/debian/ unstable/main libraptor2-0 amd64 2.0.8-2 [201 kB]
+Get:56 http://localhost/debian/ unstable/main libmhash2 amd64 0.9.9.9-1.1 [106 kB]
+Get:57 http://localhost/debian/ unstable/main librasqal3 amd64 0.9.29-1 [245 kB]
+Get:58 http://localhost/debian/ unstable/main librdf0 amd64 1.0.16-1 [128 kB]
+Get:59 http://localhost/debian/ unstable/main libdataquay0 amd64 0.9-1 [230 kB]
+Get:60 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:61 http://localhost/debian/ unstable/main libfftw3-3 amd64 3.3.2-3.1 [1665 kB]
+Get:62 http://localhost/debian/ unstable/main libogg0 amd64 1.3.0-4 [20.6 kB]
+Get:63 http://localhost/debian/ unstable/main libflac8 amd64 1.2.1-6 [154 kB]
+Get:64 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:65 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:66 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:67 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:68 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:69 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:70 http://localhost/debian/ unstable/main libglib2.0-data all 2.33.12+really2.32.4-5 [1607 kB]
+Get:71 http://localhost/debian/ unstable/main libglib2.0-bin amd64 2.33.12+really2.32.4-5 [868 kB]
+Get:72 http://localhost/debian/ unstable/main libgmpxx4ldbl amd64 2:5.0.5+dfsg-2 [21.6 kB]
+Get:73 http://localhost/debian/ unstable/main libjack0 amd64 1:0.121.3+20120418git75e3e20b-2.1 [56.2 kB]
+Get:74 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:75 http://localhost/debian/ unstable/main liblcms1 amd64 1.19.dfsg-1.2 [113 kB]
+Get:76 http://localhost/debian/ unstable/main libmng1 amd64 1.0.10-3 [235 kB]
+Get:77 http://localhost/debian/ unstable/main mysql-common all 5.5.29+dfsg-1 [109 kB]
+Get:78 http://localhost/debian/ unstable/main libmysqlclient18 amd64 5.5.29+dfsg-1 [708 kB]
+Get:79 http://localhost/debian/ unstable/main liboggz2 amd64 1.1.1-2 [40.4 kB]
+Get:80 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:81 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:82 http://localhost/debian/ unstable/main libportaudio2 amd64 19+svn20111121-1 [76.1 kB]
+Get:83 http://localhost/debian/ unstable/main libportaudiocpp0 amd64 19+svn20111121-1 [23.8 kB]
+Get:84 http://localhost/debian/ unstable/main libjson0 amd64 0.10-1.2 [24.2 kB]
+Get:85 http://localhost/debian/ unstable/main libvorbis0a amd64 1.3.2-1.3 [109 kB]
+Get:86 http://localhost/debian/ unstable/main libvorbisenc2 amd64 1.3.2-1.3 [143 kB]
+Get:87 http://localhost/debian/ unstable/main libsndfile1 amd64 1.0.25-5 [240 kB]
+Get:88 http://localhost/debian/ unstable/main libx11-xcb1 amd64 2:1.5.0-1 [139 kB]
+Get:89 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:90 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:91 http://localhost/debian/ unstable/main libxtst6 amd64 2:1.2.1-1 [26.6 kB]
+Get:92 http://localhost/debian/ unstable/main libpulse0 amd64 2.0-6 [231 kB]
+Get:93 http://localhost/debian/ unstable/main libpulse-mainloop-glib0 amd64 2.0-6 [23.6 kB]
+Get:94 http://localhost/debian/ unstable/main libqt4-xml amd64 4:4.8.2+dfsg-10 [131 kB]
+Get:95 http://localhost/debian/ unstable/main libqtdbus4 amd64 4:4.8.2+dfsg-10 [219 kB]
+Get:96 http://localhost/debian/ unstable/main libqt4-network amd64 4:4.8.2+dfsg-10 [569 kB]
+Get:97 http://localhost/debian/ unstable/main libqt4-script amd64 4:4.8.2+dfsg-10 [814 kB]
+Get:98 http://localhost/debian/ unstable/main libqt4-sql amd64 4:4.8.2+dfsg-10 [137 kB]
+Get:99 http://localhost/debian/ unstable/main libqt4-xmlpatterns amd64 4:4.8.2+dfsg-10 [1049 kB]
+Get:100 http://localhost/debian/ unstable/main fontconfig amd64 2.9.0-7.1 [348 kB]
+Get:101 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:102 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:103 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:104 http://localhost/debian/ unstable/main libqtgui4 amd64 4:4.8.2+dfsg-10 [4050 kB]
+Get:105 http://localhost/debian/ unstable/main libqt4-declarative amd64 4:4.8.2+dfsg-10 [1105 kB]
+Get:106 http://localhost/debian/ unstable/main libqt4-designer amd64 4:4.8.2+dfsg-10 [3648 kB]
+Get:107 http://localhost/debian/ unstable/main libqt4-help amd64 4:4.8.2+dfsg-10 [238 kB]
+Get:108 http://localhost/debian/ unstable/main libqt4-qt3support amd64 4:4.8.2+dfsg-10 [1071 kB]
+Get:109 http://localhost/debian/ unstable/main libqt4-scripttools amd64 4:4.8.2+dfsg-10 [257 kB]
+Get:110 http://localhost/debian/ unstable/main libqt4-svg amd64 4:4.8.2+dfsg-10 [176 kB]
+Get:111 http://localhost/debian/ unstable/main libqt4-test amd64 4:4.8.2+dfsg-10 [100 kB]
+Get:112 http://localhost/debian/ unstable/main libsamplerate0 amd64 0.1.8-5 [1352 kB]
+Get:113 http://localhost/debian/ unstable/main libspeex1 amd64 1.2~rc1-7 [60.9 kB]
+Get:114 http://localhost/debian/ unstable/main libvorbisfile3 amd64 1.3.2-1.3 [24.9 kB]
+Get:115 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:116 http://localhost/debian/ unstable/main librubberband2 amd64 1.8.1-1 [98.7 kB]
+Get:117 http://localhost/debian/ unstable/main libvamp-hostsdk3 amd64 2.4-1 [107 kB]
+Get:118 http://localhost/debian/ unstable/main libvamp-sdk2 amd64 2.4-1 [47.3 kB]
+Get:119 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:120 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:121 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:122 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:123 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:124 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:125 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:126 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:127 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:128 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:129 http://localhost/debian/ unstable/main krb5-multidev amd64 1.10.1+dfsg-3 [153 kB]
+Get:130 http://localhost/debian/ unstable/main ladspa-sdk amd64 1.13-1 [41.5 kB]
+Get:131 http://localhost/debian/ unstable/main libasound2-dev amd64 1.0.25-4 [70.3 kB]
+Get:132 http://localhost/debian/ unstable/main libavahi-common-dev amd64 0.6.31-1 [72.0 kB]
+Get:133 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:134 http://localhost/debian/ unstable/main libdbus-1-dev amd64 1.6.8-1 [246 kB]
+Get:135 http://localhost/debian/ unstable/main libavahi-client-dev amd64 0.6.31-1 [66.3 kB]
+Get:136 http://localhost/debian/ unstable/main libbz2-dev amd64 1.0.6-4 [32.8 kB]
+Get:137 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:138 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:139 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:140 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:141 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:142 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:143 http://localhost/debian/ unstable/main libidn11-dev amd64 1.25-2 [664 kB]
+Get:144 http://localhost/debian/ unstable/main libkrb5-dev amd64 1.10.1+dfsg-3 [39.6 kB]
+Get:145 http://localhost/debian/ unstable/main libldap2-dev amd64 2.4.31-1 [563 kB]
+Get:146 http://localhost/debian/ unstable/main librtmp-dev amd64 2.4+20111222.git4e06e21-1 [72.8 kB]
+Get:147 http://localhost/debian/ unstable/main libssh2-1-dev amd64 1.4.2-1.1 [311 kB]
+Get:148 http://localhost/debian/ unstable/main libcurl4-gnutls-dev amd64 7.28.0-3 [1269 kB]
+Get:149 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:150 http://localhost/debian/ unstable/main libxslt1-dev amd64 1.1.26-14 [651 kB]
+Get:151 http://localhost/debian/ unstable/main libyajl-dev amd64 2.0.4-2 [34.6 kB]
+Get:152 http://localhost/debian/ unstable/main libraptor2-dev amd64 2.0.8-2 [265 kB]
+Get:153 http://localhost/debian/ unstable/main libgmp-dev amd64 2:5.0.5+dfsg-2 [610 kB]
+Get:154 http://localhost/debian/ unstable/main librasqal3-dev amd64 0.9.29-1 [315 kB]
+Get:155 http://localhost/debian/ unstable/main libdb5.1-dev amd64 5.1.29-5 [882 kB]
+Get:156 http://localhost/debian/ unstable/main libdb-dev amd64 5.1.6 [2240 B]
+Get:157 http://localhost/debian/ unstable/main libmysqlclient-dev amd64 5.5.29+dfsg-1 [974 kB]
+Get:158 http://localhost/debian/ unstable/main libsqlite3-dev amd64 3.7.15.2-1 [589 kB]
+Get:159 http://localhost/debian/ unstable/main libpq5 amd64 9.1.7-1 [516 kB]
+Get:160 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:161 http://localhost/debian/ unstable/main libpq-dev amd64 9.1.7-1 [570 kB]
+Get:162 http://localhost/debian/ unstable/main librdf0-dev amd64 1.0.16-1 [373 kB]
+Get:163 http://localhost/debian/ unstable/main libdataquay-dev amd64 0.9-1 [36.3 kB]
+Get:164 http://localhost/debian/ unstable/main libfftw3-bin amd64 3.3.2-3.1 [202 kB]
+Get:165 http://localhost/debian/ unstable/main libfftw3-dev amd64 3.3.2-3.1 [1767 kB]
+Get:166 http://localhost/debian/ unstable/main libfishsound1 amd64 1.0.0-1.1 [23.2 kB]
+Get:167 http://localhost/debian/ unstable/main libspeex-dev amd64 1.2~rc1-7 [82.0 kB]
+Get:168 http://localhost/debian/ unstable/main libogg-dev amd64 1.3.0-4 [94.4 kB]
+Get:169 http://localhost/debian/ unstable/main libvorbis-dev amd64 1.3.2-1.3 [476 kB]
+Get:170 http://localhost/debian/ unstable/main libfishsound1-dev amd64 1.0.0-1.1 [43.0 kB]
+Get:171 http://localhost/debian/ unstable/main libflac-dev amd64 1.2.1-6 [227 kB]
+Get:172 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:173 http://localhost/debian/ unstable/main libglib2.0-dev amd64 2.33.12+really2.32.4-5 [2051 kB]
+Get:174 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:175 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:176 http://localhost/debian/ unstable/main libice-dev amd64 2:1.0.8-2 [74.1 kB]
+Get:177 http://localhost/debian/ unstable/main libid3tag0 amd64 0.15.1b-10 [40.4 kB]
+Get:178 http://localhost/debian/ unstable/main libid3tag0-dev amd64 0.15.1b-10 [47.0 kB]
+Get:179 http://localhost/debian/ unstable/main libjack-dev amd64 1:0.121.3+20120418git75e3e20b-2.1 [364 kB]
+Get:180 http://localhost/debian/ unstable/main liblo7 amd64 0.26~repack-7 [44.6 kB]
+Get:181 http://localhost/debian/ unstable/main liblo-dev amd64 0.26~repack-7 [121 kB]
+Get:182 http://localhost/debian/ unstable/main libraptor1 amd64 1.4.21-7.1 [226 kB]
+Get:183 http://localhost/debian/ unstable/main liblrdf0 amd64 0.4.0-5 [24.5 kB]
+Get:184 http://localhost/debian/ unstable/main libraptor1-dev amd64 1.4.21-7.1 [302 kB]
+Get:185 http://localhost/debian/ unstable/main liblrdf0-dev amd64 0.4.0-5 [25.7 kB]
+Get:186 http://localhost/debian/ unstable/main libmad0 amd64 0.15.1b-7 [78.5 kB]
+Get:187 http://localhost/debian/ unstable/main libmad0-dev amd64 0.15.1b-7 [91.1 kB]
+Get:188 http://localhost/debian/ unstable/main liboggz2-dev amd64 1.1.1-2 [65.2 kB]
+Get:189 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:190 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:191 http://localhost/debian/ unstable/main libpulse-dev amd64 2.0-6 [78.5 kB]
+Get:192 http://localhost/debian/ unstable/main qdbus amd64 4:4.8.2+dfsg-10 [68.8 kB]
+Get:193 http://localhost/debian/ unstable/main libqt4-dbus amd64 4:4.8.2+dfsg-10 [46.1 kB]
+Get:194 http://localhost/debian/ unstable/main libqt4-dev-bin amd64 4:4.8.2+dfsg-10 [1630 kB]
+Get:195 http://localhost/debian/ unstable/main qt4-linguist-tools amd64 4:4.8.2+dfsg-10 [852 kB]
+Get:196 http://localhost/debian/ unstable/main qt4-qmake amd64 4:4.8.2+dfsg-10 [1267 kB]
+Get:197 http://localhost/debian/ unstable/main libqt4-dev amd64 4:4.8.2+dfsg-10 [918 kB]
+Get:198 http://localhost/debian/ unstable/main libsamplerate0-dev amd64 0.1.8-5 [1413 kB]
+Get:199 http://localhost/debian/ unstable/main libsm-dev amd64 2:1.2.1-2 [37.0 kB]
+Get:200 http://localhost/debian/ unstable/main libsndfile1-dev amd64 1.0.25-5 [385 kB]
+Get:201 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:202 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:203 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:204 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:205 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:206 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:207 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:208 http://localhost/debian/ unstable/main portaudio19-dev amd64 19+svn20111121-1 [137 kB]
+Get:209 http://localhost/debian/ unstable/main librubberband-dev amd64 1.8.1-1 [133 kB]
+Get:210 http://localhost/debian/ unstable/main vamp-plugin-sdk amd64 2.4-1 [52.6 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 75.0 MB in 6s (11.6 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Unpacking libgssrpc4:amd64 (from .../libgssrpc4_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8:amd64.
+Unpacking libkadm5clnt-mit8:amd64 (from .../libkadm5clnt-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkdb5-6:amd64.
+Unpacking libkdb5-6:amd64 (from .../libkdb5-6_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8:amd64.
+Unpacking libkadm5srv-mit8:amd64 (from .../libkadm5srv-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libwrap0:amd64.
+Unpacking libwrap0:amd64 (from .../libwrap0_7.6.q-24_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libasound2:amd64.
+Unpacking libasound2:amd64 (from .../libasound2_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libasyncns0:amd64.
+Unpacking libasyncns0:amd64 (from .../libasyncns0_0.8-4_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libaudio2:amd64.
+Unpacking libaudio2:amd64 (from .../libaudio2_1.9.3-5_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Unpacking libavahi-common-data:amd64 (from .../libavahi-common-data_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Unpacking libavahi-common3:amd64 (from .../libavahi-common3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Unpacking libavahi-client3:amd64 (from .../libavahi-client3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1:amd64.
+Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Unpacking libcurl3-gnutls:amd64 (from .../libcurl3-gnutls_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libqtcore4:amd64.
+Unpacking libqtcore4:amd64 (from .../libqtcore4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libltdl7:amd64.
+Unpacking libltdl7:amd64 (from .../libltdl7_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Unpacking libxslt1.1:amd64 (from .../libxslt1.1_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package libyajl2.
+Unpacking libyajl2 (from .../libyajl2_2.0.4-2_amd64.deb) ...
+Selecting previously unselected package libraptor2-0.
+Unpacking libraptor2-0 (from .../libraptor2-0_2.0.8-2_amd64.deb) ...
+Selecting previously unselected package libmhash2.
+Unpacking libmhash2 (from .../libmhash2_0.9.9.9-1.1_amd64.deb) ...
+Selecting previously unselected package librasqal3.
+Unpacking librasqal3 (from .../librasqal3_0.9.29-1_amd64.deb) ...
+Selecting previously unselected package librdf0.
+Unpacking librdf0 (from .../librdf0_1.0.16-1_amd64.deb) ...
+Selecting previously unselected package libdataquay0:amd64.
+Unpacking libdataquay0:amd64 (from .../libdataquay0_0.9-1_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libfftw3-3:amd64.
+Unpacking libfftw3-3:amd64 (from .../libfftw3-3_3.3.2-3.1_amd64.deb) ...
+Selecting previously unselected package libogg0:amd64.
+Unpacking libogg0:amd64 (from .../libogg0_1.3.0-4_amd64.deb) ...
+Selecting previously unselected package libflac8:amd64.
+Unpacking libflac8:amd64 (from .../libflac8_1.2.1-6_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglib2.0-data.
+Unpacking libglib2.0-data (from .../libglib2.0-data_2.33.12+really2.32.4-5_all.deb) ...
+Selecting previously unselected package libglib2.0-bin.
+Unpacking libglib2.0-bin (from .../libglib2.0-bin_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+Unpacking libgmpxx4ldbl:amd64 (from .../libgmpxx4ldbl_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libjack0:amd64.
+Unpacking libjack0:amd64 (from .../libjack0_1%3a0.121.3+20120418git75e3e20b-2.1_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package liblcms1:amd64.
+Unpacking liblcms1:amd64 (from .../liblcms1_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package libmng1:amd64.
+Unpacking libmng1:amd64 (from .../libmng1_1.0.10-3_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.29+dfsg-1_all.deb) ...
+Selecting previously unselected package libmysqlclient18:amd64.
+Unpacking libmysqlclient18:amd64 (from .../libmysqlclient18_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package liboggz2.
+Unpacking liboggz2 (from .../liboggz2_1.1.1-2_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libportaudio2:amd64.
+Unpacking libportaudio2:amd64 (from .../libportaudio2_19+svn20111121-1_amd64.deb) ...
+Selecting previously unselected package libportaudiocpp0:amd64.
+Unpacking libportaudiocpp0:amd64 (from .../libportaudiocpp0_19+svn20111121-1_amd64.deb) ...
+Selecting previously unselected package libjson0:amd64.
+Unpacking libjson0:amd64 (from .../libjson0_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package libvorbis0a:amd64.
+Unpacking libvorbis0a:amd64 (from .../libvorbis0a_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libvorbisenc2:amd64.
+Unpacking libvorbisenc2:amd64 (from .../libvorbisenc2_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libsndfile1:amd64.
+Unpacking libsndfile1:amd64 (from .../libsndfile1_1.0.25-5_amd64.deb) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Unpacking libx11-xcb1:amd64 (from .../libx11-xcb1_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package libxtst6:amd64.
+Unpacking libxtst6:amd64 (from .../libxtst6_2%3a1.2.1-1_amd64.deb) ...
+Selecting previously unselected package libpulse0:amd64.
+Unpacking libpulse0:amd64 (from .../libpulse0_2.0-6_amd64.deb) ...
+Selecting previously unselected package libpulse-mainloop-glib0:amd64.
+Unpacking libpulse-mainloop-glib0:amd64 (from .../libpulse-mainloop-glib0_2.0-6_amd64.deb) ...
+Selecting previously unselected package libqt4-xml:amd64.
+Unpacking libqt4-xml:amd64 (from .../libqt4-xml_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqtdbus4:amd64.
+Unpacking libqtdbus4:amd64 (from .../libqtdbus4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-network:amd64.
+Unpacking libqt4-network:amd64 (from .../libqt4-network_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-script:amd64.
+Unpacking libqt4-script:amd64 (from .../libqt4-script_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-sql:amd64.
+Unpacking libqt4-sql:amd64 (from .../libqt4-sql_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-xmlpatterns:amd64.
+Unpacking libqt4-xmlpatterns:amd64 (from .../libqt4-xmlpatterns_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libqtgui4:amd64.
+Unpacking libqtgui4:amd64 (from .../libqtgui4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-declarative:amd64.
+Unpacking libqt4-declarative:amd64 (from .../libqt4-declarative_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-designer:amd64.
+Unpacking libqt4-designer:amd64 (from .../libqt4-designer_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-help:amd64.
+Unpacking libqt4-help:amd64 (from .../libqt4-help_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-qt3support:amd64.
+Unpacking libqt4-qt3support:amd64 (from .../libqt4-qt3support_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-scripttools:amd64.
+Unpacking libqt4-scripttools:amd64 (from .../libqt4-scripttools_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-svg:amd64.
+Unpacking libqt4-svg:amd64 (from .../libqt4-svg_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-test:amd64.
+Unpacking libqt4-test:amd64 (from .../libqt4-test_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libsamplerate0:amd64.
+Unpacking libsamplerate0:amd64 (from .../libsamplerate0_0.1.8-5_amd64.deb) ...
+Selecting previously unselected package libspeex1:amd64.
+Unpacking libspeex1:amd64 (from .../libspeex1_1.2~rc1-7_amd64.deb) ...
+Selecting previously unselected package libvorbisfile3:amd64.
+Unpacking libvorbisfile3:amd64 (from .../libvorbisfile3_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package librubberband2:amd64.
+Unpacking librubberband2:amd64 (from .../librubberband2_1.8.1-1_amd64.deb) ...
+Selecting previously unselected package libvamp-hostsdk3:amd64.
+Unpacking libvamp-hostsdk3:amd64 (from .../libvamp-hostsdk3_2.4-1_amd64.deb) ...
+Selecting previously unselected package libvamp-sdk2:amd64.
+Unpacking libvamp-sdk2:amd64 (from .../libvamp-sdk2_2.4-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package ladspa-sdk.
+Unpacking ladspa-sdk (from .../ladspa-sdk_1.13-1_amd64.deb) ...
+Selecting previously unselected package libasound2-dev:amd64.
+Unpacking libasound2-dev:amd64 (from .../libasound2-dev_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libavahi-common-dev.
+Unpacking libavahi-common-dev (from .../libavahi-common-dev_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-dev.
+Unpacking libdbus-1-dev (from .../libdbus-1-dev_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client-dev.
+Unpacking libavahi-client-dev (from .../libavahi-client-dev_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libbz2-dev:amd64.
+Unpacking libbz2-dev:amd64 (from .../libbz2-dev_1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libidn11-dev.
+Unpacking libidn11-dev (from .../libidn11-dev_1.25-2_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libldap2-dev:amd64.
+Unpacking libldap2-dev:amd64 (from .../libldap2-dev_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package librtmp-dev.
+Unpacking librtmp-dev (from .../librtmp-dev_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1-dev.
+Unpacking libssh2-1-dev (from .../libssh2-1-dev_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl4-gnutls-dev.
+Unpacking libcurl4-gnutls-dev (from .../libcurl4-gnutls-dev_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libxslt1-dev.
+Unpacking libxslt1-dev (from .../libxslt1-dev_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package libyajl-dev.
+Unpacking libyajl-dev (from .../libyajl-dev_2.0.4-2_amd64.deb) ...
+Selecting previously unselected package libraptor2-dev.
+Unpacking libraptor2-dev (from .../libraptor2-dev_2.0.8-2_amd64.deb) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Unpacking libgmp-dev:amd64 (from .../libgmp-dev_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package librasqal3-dev.
+Unpacking librasqal3-dev (from .../librasqal3-dev_0.9.29-1_amd64.deb) ...
+Selecting previously unselected package libdb5.1-dev.
+Unpacking libdb5.1-dev (from .../libdb5.1-dev_5.1.29-5_amd64.deb) ...
+Selecting previously unselected package libdb-dev:amd64.
+Unpacking libdb-dev:amd64 (from .../libdb-dev_5.1.6_amd64.deb) ...
+Selecting previously unselected package libmysqlclient-dev.
+Unpacking libmysqlclient-dev (from .../libmysqlclient-dev_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libsqlite3-dev.
+Unpacking libsqlite3-dev (from .../libsqlite3-dev_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libpq5.
+Unpacking libpq5 (from .../libpq5_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libpq-dev.
+Unpacking libpq-dev (from .../libpq-dev_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package librdf0-dev.
+Unpacking librdf0-dev (from .../librdf0-dev_1.0.16-1_amd64.deb) ...
+Selecting previously unselected package libdataquay-dev:amd64.
+Unpacking libdataquay-dev:amd64 (from .../libdataquay-dev_0.9-1_amd64.deb) ...
+Selecting previously unselected package libfftw3-bin.
+Unpacking libfftw3-bin (from .../libfftw3-bin_3.3.2-3.1_amd64.deb) ...
+Selecting previously unselected package libfftw3-dev:amd64.
+Unpacking libfftw3-dev:amd64 (from .../libfftw3-dev_3.3.2-3.1_amd64.deb) ...
+Selecting previously unselected package libfishsound1.
+Unpacking libfishsound1 (from .../libfishsound1_1.0.0-1.1_amd64.deb) ...
+Selecting previously unselected package libspeex-dev:amd64.
+Unpacking libspeex-dev:amd64 (from .../libspeex-dev_1.2~rc1-7_amd64.deb) ...
+Selecting previously unselected package libogg-dev:amd64.
+Unpacking libogg-dev:amd64 (from .../libogg-dev_1.3.0-4_amd64.deb) ...
+Selecting previously unselected package libvorbis-dev:amd64.
+Unpacking libvorbis-dev:amd64 (from .../libvorbis-dev_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libfishsound1-dev.
+Unpacking libfishsound1-dev (from .../libfishsound1-dev_1.0.0-1.1_amd64.deb) ...
+Selecting previously unselected package libflac-dev:amd64.
+Unpacking libflac-dev:amd64 (from .../libflac-dev_1.2.1-6_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-dev.
+Unpacking libglib2.0-dev (from .../libglib2.0-dev_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libice-dev:amd64.
+Unpacking libice-dev:amd64 (from .../libice-dev_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libid3tag0.
+Unpacking libid3tag0 (from .../libid3tag0_0.15.1b-10_amd64.deb) ...
+Selecting previously unselected package libid3tag0-dev.
+Unpacking libid3tag0-dev (from .../libid3tag0-dev_0.15.1b-10_amd64.deb) ...
+Selecting previously unselected package libjack-dev.
+Unpacking libjack-dev (from .../libjack-dev_1%3a0.121.3+20120418git75e3e20b-2.1_amd64.deb) ...
+Selecting previously unselected package liblo7.
+Unpacking liblo7 (from .../liblo7_0.26~repack-7_amd64.deb) ...
+Selecting previously unselected package liblo-dev.
+Unpacking liblo-dev (from .../liblo-dev_0.26~repack-7_amd64.deb) ...
+Selecting previously unselected package libraptor1.
+Unpacking libraptor1 (from .../libraptor1_1.4.21-7.1_amd64.deb) ...
+Selecting previously unselected package liblrdf0.
+Unpacking liblrdf0 (from .../liblrdf0_0.4.0-5_amd64.deb) ...
+Selecting previously unselected package libraptor1-dev.
+Unpacking libraptor1-dev (from .../libraptor1-dev_1.4.21-7.1_amd64.deb) ...
+Selecting previously unselected package liblrdf0-dev.
+Unpacking liblrdf0-dev (from .../liblrdf0-dev_0.4.0-5_amd64.deb) ...
+Selecting previously unselected package libmad0.
+Unpacking libmad0 (from .../libmad0_0.15.1b-7_amd64.deb) ...
+Selecting previously unselected package libmad0-dev.
+Unpacking libmad0-dev (from .../libmad0-dev_0.15.1b-7_amd64.deb) ...
+Selecting previously unselected package liboggz2-dev.
+Unpacking liboggz2-dev (from .../liboggz2-dev_1.1.1-2_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpulse-dev:amd64.
+Unpacking libpulse-dev:amd64 (from .../libpulse-dev_2.0-6_amd64.deb) ...
+Selecting previously unselected package qdbus.
+Unpacking qdbus (from .../qdbus_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dbus:amd64.
+Unpacking libqt4-dbus:amd64 (from .../libqt4-dbus_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dev-bin.
+Unpacking libqt4-dev-bin (from .../libqt4-dev-bin_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package qt4-linguist-tools.
+Unpacking qt4-linguist-tools (from .../qt4-linguist-tools_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package qt4-qmake.
+Unpacking qt4-qmake (from .../qt4-qmake_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dev.
+Unpacking libqt4-dev (from .../libqt4-dev_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libsamplerate0-dev:amd64.
+Unpacking libsamplerate0-dev:amd64 (from .../libsamplerate0-dev_0.1.8-5_amd64.deb) ...
+Selecting previously unselected package libsm-dev:amd64.
+Unpacking libsm-dev:amd64 (from .../libsm-dev_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libsndfile1-dev.
+Unpacking libsndfile1-dev (from .../libsndfile1-dev_1.0.25-5_amd64.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package portaudio19-dev.
+Unpacking portaudio19-dev (from .../portaudio19-dev_19+svn20111121-1_amd64.deb) ...
+Selecting previously unselected package librubberband-dev:amd64.
+Unpacking librubberband-dev:amd64 (from .../librubberband-dev_1.8.1-1_amd64.deb) ...
+Selecting previously unselected package vamp-plugin-sdk:amd64.
+Unpacking vamp-plugin-sdk:amd64 (from .../vamp-plugin-sdk_2.4-1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-sonic-visualiser-dummy.
+Unpacking sbuild-build-depends-sonic-visualiser-dummy (from .../sbuild-build-depends-sonic-visualiser-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssrpc4:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libkadm5clnt-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libkdb5-6:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5srv-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libwrap0:amd64 (7.6.q-24) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libasound2:amd64 (1.0.25-4) ...
+Setting up libasyncns0:amd64 (0.8-4) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libaudio2:amd64 (1.9.3-5) ...
+Setting up libavahi-common-data:amd64 (0.6.31-1) ...
+Setting up libavahi-common3:amd64 (0.6.31-1) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libavahi-client3:amd64 (0.6.31-1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1:amd64 (1.4.2-1.1) ...
+Setting up libcurl3-gnutls:amd64 (7.28.0-3) ...
+Setting up libqtcore4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libltdl7:amd64 (2.4.2-1.2) ...
+Setting up libxslt1.1:amd64 (1.1.26-14) ...
+Setting up libyajl2 (2.0.4-2) ...
+Setting up libraptor2-0 (2.0.8-2) ...
+Setting up libmhash2 (0.9.9.9-1.1) ...
+Setting up librasqal3 (0.9.29-1) ...
+Setting up librdf0 (1.0.16-1) ...
+Setting up libdataquay0:amd64 (0.9-1) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libfftw3-3:amd64 (3.3.2-3.1) ...
+Setting up libogg0:amd64 (1.3.0-4) ...
+Setting up libflac8:amd64 (1.2.1-6) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglib2.0-data (2.33.12+really2.32.4-5) ...
+Setting up libglib2.0-bin (2.33.12+really2.32.4-5) ...
+Setting up libgmpxx4ldbl:amd64 (2:5.0.5+dfsg-2) ...
+Setting up libjack0:amd64 (1:0.121.3+20120418git75e3e20b-2.1) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up liblcms1:amd64 (1.19.dfsg-1.2) ...
+Setting up libmng1:amd64 (1.0.10-3) ...
+Setting up mysql-common (5.5.29+dfsg-1) ...
+Setting up libmysqlclient18:amd64 (5.5.29+dfsg-1) ...
+Setting up liboggz2 (1.1.1-2) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libportaudio2:amd64 (19+svn20111121-1) ...
+Setting up libportaudiocpp0:amd64 (19+svn20111121-1) ...
+Setting up libjson0:amd64 (0.10-1.2) ...
+Setting up libvorbis0a:amd64 (1.3.2-1.3) ...
+Setting up libvorbisenc2:amd64 (1.3.2-1.3) ...
+Setting up libsndfile1:amd64 (1.0.25-5) ...
+Setting up libx11-xcb1:amd64 (2:1.5.0-1) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up libxtst6:amd64 (2:1.2.1-1) ...
+Setting up libpulse0:amd64 (2.0-6) ...
+Setting up libpulse-mainloop-glib0:amd64 (2.0-6) ...
+Setting up libqt4-xml:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqtdbus4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-network:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-script:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-sql:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-xmlpatterns:amd64 (4:4.8.2+dfsg-10) ...
+Setting up fontconfig (2.9.0-7.1) ...
+Regenerating fonts cache... done.
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libqtgui4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-declarative:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-designer:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-help:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-qt3support:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-scripttools:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-svg:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-test:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libsamplerate0:amd64 (0.1.8-5) ...
+Setting up libspeex1:amd64 (1.2~rc1-7) ...
+Setting up libvorbisfile3:amd64 (1.3.2-1.3) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up librubberband2:amd64 (1.8.1-1) ...
+Setting up libvamp-hostsdk3:amd64 (2.4-1) ...
+Setting up libvamp-sdk2:amd64 (2.4-1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up krb5-multidev (1.10.1+dfsg-3) ...
+Setting up ladspa-sdk (1.13-1) ...
+Setting up libasound2-dev:amd64 (1.0.25-4) ...
+Setting up libavahi-common-dev (0.6.31-1) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libdbus-1-dev (1.6.8-1) ...
+Setting up libavahi-client-dev (0.6.31-1) ...
+Setting up libbz2-dev:amd64 (1.0.6-4) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up libidn11-dev (1.25-2) ...
+Setting up libkrb5-dev (1.10.1+dfsg-3) ...
+Setting up libldap2-dev:amd64 (2.4.31-1) ...
+Setting up librtmp-dev (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1-dev (1.4.2-1.1) ...
+Setting up libcurl4-gnutls-dev (7.28.0-3) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up libxslt1-dev (1.1.26-14) ...
+Setting up libyajl-dev (2.0.4-2) ...
+Setting up libraptor2-dev (2.0.8-2) ...
+Setting up libgmp-dev:amd64 (2:5.0.5+dfsg-2) ...
+Setting up librasqal3-dev (0.9.29-1) ...
+Setting up libdb5.1-dev (5.1.29-5) ...
+Setting up libdb-dev:amd64 (5.1.6) ...
+Setting up libmysqlclient-dev (5.5.29+dfsg-1) ...
+Setting up libsqlite3-dev (3.7.15.2-1) ...
+Setting up libpq5 (9.1.7-1) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libpq-dev (9.1.7-1) ...
+Setting up librdf0-dev (1.0.16-1) ...
+Setting up libdataquay-dev:amd64 (0.9-1) ...
+Setting up libfftw3-bin (3.3.2-3.1) ...
+Setting up libfftw3-dev:amd64 (3.3.2-3.1) ...
+Setting up libfishsound1 (1.0.0-1.1) ...
+Setting up libspeex-dev:amd64 (1.2~rc1-7) ...
+Setting up libogg-dev:amd64 (1.3.0-4) ...
+Setting up libvorbis-dev:amd64 (1.3.2-1.3) ...
+Setting up libfishsound1-dev (1.0.0-1.1) ...
+Setting up libflac-dev:amd64 (1.2.1-6) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up libglib2.0-dev (2.33.12+really2.32.4-5) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libice-dev:amd64 (2:1.0.8-2) ...
+Setting up libid3tag0 (0.15.1b-10) ...
+Setting up libid3tag0-dev (0.15.1b-10) ...
+Setting up libjack-dev (1:0.121.3+20120418git75e3e20b-2.1) ...
+Setting up liblo7 (0.26~repack-7) ...
+Setting up liblo-dev (0.26~repack-7) ...
+Setting up libraptor1 (1.4.21-7.1) ...
+Setting up liblrdf0 (0.4.0-5) ...
+Setting up libraptor1-dev (1.4.21-7.1) ...
+Setting up liblrdf0-dev (0.4.0-5) ...
+Setting up libmad0 (0.15.1b-7) ...
+Setting up libmad0-dev (0.15.1b-7) ...
+Setting up liboggz2-dev (1.1.1-2) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libpulse-dev:amd64 (2.0-6) ...
+Setting up qdbus (4:4.8.2+dfsg-10) ...
+Setting up libqt4-dbus:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-dev-bin (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/moc-qt4 to provide /usr/bin/moc (moc) in auto mode
+update-alternatives: using /usr/bin/uic-qt4 to provide /usr/bin/uic (uic) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/uic.1.gz because associated file /usr/share/man/man1/uic-qt4.1.gz (of link group uic) doesn't exist
+Setting up qt4-linguist-tools (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/lupdate-qt4 to provide /usr/bin/lupdate (lupdate) in auto mode
+update-alternatives: using /usr/bin/lrelease-qt4 to provide /usr/bin/lrelease (lrelease) in auto mode
+Setting up qt4-qmake (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/qmake-qt4 to provide /usr/bin/qmake (qmake) in auto mode
+Setting up libqt4-dev (4:4.8.2+dfsg-10) ...
+Setting up libsamplerate0-dev:amd64 (0.1.8-5) ...
+Setting up libsm-dev:amd64 (2:1.2.1-2) ...
+Setting up libsndfile1-dev (1.0.25-5) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up portaudio19-dev (19+svn20111121-1) ...
+Setting up librubberband-dev:amd64 (1.8.1-1) ...
+Setting up vamp-plugin-sdk:amd64 (2.4-1) ...
+Setting up sbuild-build-depends-sonic-visualiser-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig_2.9.0-7.1 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130123-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10.1+dfsg-3 ladspa-sdk_1.13-1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasound2_1.0.25-4 libasound2-dev_1.0.25-4 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libasyncns0_0.8-4 libattr1_1:2.4.46-8 libaudio2_1.9.3-5 libavahi-client-dev_0.6.31-1 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common-dev_0.6.31-1 libavahi-common3_0.6.31-1 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libbz2-dev_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libcap2_1:2.22-1.2 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcurl3-gnutls_7.28.0-3 libcurl4-gnutls-dev_7.28.0-3 libdataquay-dev_0.9-1 libdataquay0_0.9-1 libdb-dev_5.1.6 libdb5.1_5.1.29-5 libdb5.1-dev_5.1.29-5 libdbus-1-3_1.6.8-1 libdbus-1-dev_1.6.8-1 libdpkg-perl_1.16.9 libelf1_0.153-2 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfftw3-3_3.3.2-3.1 libfftw3-bin_3.3.2-3.1 libfftw3-dev_3.3.2-3.1 libfile-fcntllock-perl_0.14-2 libfishsound1_1.0.0-1.1 libfishsound1-dev_1.0.0-1.1 libflac-dev_1.2.1-6 libflac8_1.2.1-6 libfontconfig1_2.9.0-7.1 libfreetype6_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130123-1 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libglib2.0-bin_2.33.12+really2.32.4-5 libglib2.0-data_2.33.12+really2.32.4-5 libglib2.0-dev_2.33.12+really2.32.4-5 libgmp-dev_2:5.0.5+dfsg-2 libgmp10_2:5.0.5+dfsg-2 libgmpxx4ldbl_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.8-20130123-1 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgssrpc4_1.10.1+dfsg-3 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libid3tag0_0.15.1b-10 libid3tag0-dev_0.15.1b-10 libidn11_1.25-2 libidn11-dev_1.25-2 libitm1_4.8-20130123-1 libjack-dev_1:0.121.3+20120418git75e3e20b-2.1 libjack0_1:0.121.3+20120418git75e3e20b-2.1 libjbig0_2.0-2 libjpeg8_8d-1 libjson0_0.10-1.2 libk5crypto3_1.10.1+dfsg-3 libkadm5clnt-mit8_1.10.1+dfsg-3 libkadm5srv-mit8_1.10.1+dfsg-3 libkdb5-6_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5-dev_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 liblcms1_1.19.dfsg-1.2 libldap-2.4-2_2.4.31-1 libldap2-dev_2.4.31-1 libllvm3.2_3.2-2 liblo-dev_0.26~repack-7 liblo7_0.26~repack-7 liblocale-gettext-perl_1.05-7+b1 liblrdf0_0.4.0-5 liblrdf0-dev_0.4.0-5 libltdl7_2.4.2-1.2 liblzma5_5.1.1alpha+20120614-2 libmad0_0.15.1b-7 libmad0-dev_0.15.1b-7 libmagic1_5.11-2 libmhash2_0.9.9.9-1.1 libmng1_1.0.10-3 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmysqlclient-dev_5.5.29+dfsg-1 libmysqlclient18_5.5.29+dfsg-1 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130123-1 libogg-dev_1.3.0-4 libogg0_1.3.0-4 liboggz2_1.1.1-2 liboggz2-dev_1.1.1-2 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpng12-0_1.2.49-3 libpopt0_1.16-7 libportaudio2_19+svn20111121-1 libportaudiocpp0_19+svn20111121-1 libpq-dev_9.1.7-1 libpq5_9.1.7-1 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpulse-dev_2.0-6 libpulse-mainloop-glib0_2.0-6 libpulse0_2.0-6 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libqt4-dbus_4:4.8.2+dfsg-10 libqt4-declarative_4:4.8.2+dfsg-10 libqt4-designer_4:4.8.2+dfsg-10 libqt4-dev_4:4.8.2+dfsg-10 libqt4-dev-bin_4:4.8.2+dfsg-10 libqt4-help_4:4.8.2+dfsg-10 libqt4-network_4:4.8.2+dfsg-10 libqt4-qt3support_4:4.8.2+dfsg-10 libqt4-script_4:4.8.2+dfsg-10 libqt4-scripttools_4:4.8.2+dfsg-10 libqt4-sql_4:4.8.2+dfsg-10 libqt4-svg_4:4.8.2+dfsg-10 libqt4-test_4:4.8.2+dfsg-10 libqt4-xml_4:4.8.2+dfsg-10 libqt4-xmlpatterns_4:4.8.2+dfsg-10 libqtcore4_4:4.8.2+dfsg-10 libqtdbus4_4:4.8.2+dfsg-10 libqtgui4_4:4.8.2+dfsg-10 libquadmath0_4.8-20130123-1 libraptor1_1.4.21-7.1 libraptor1-dev_1.4.21-7.1 libraptor2-0_2.0.8-2 libraptor2-dev_2.0.8-2 librasqal3_0.9.29-1 librasqal3-dev_0.9.29-1 librdf0_1.0.16-1 librdf0-dev_1.0.16-1 libreadline6_6.2+dfsg-0.1 librtmp-dev_2.4+20111222.git4e06e21-1 librtmp0_2.4+20111222.git4e06e21-1 librubberband-dev_1.8.1-1 librubberband2_1.8.1-1 libsamplerate0_0.1.8-5 libsamplerate0-dev_0.1.8-5 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsndfile1_1.0.25-5 libsndfile1-dev_1.0.25-5 libspeex-dev_1.2~rc1-7 libspeex1_1.2~rc1-7 libsqlite3-0_3.7.15.2-1 libsqlite3-dev_3.7.15.2-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssh2-1-dev_1.4.2-1.1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtiff4_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libvamp-hostsdk3_2.4-1 libvamp-sdk2_2.4-1 libvorbis-dev_1.3.2-1.3 libvorbis0a_1.3.2-1.3 libvorbisenc2_1.3.2-1.3 libvorbisfile3_1.3.2-1.3 libwrap0_7.6.q-24 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext6_2:1.3.1-2 libxi6_2:1.6.1-1 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxrender1_1:0.9.7-1 libxslt1-dev_1.1.26-14 libxslt1.1_1.1.26-14 libxt6_1:1.1.3-1 libxtst6_2:1.2.1-1 libyajl-dev_2.0.4-2 libyajl2_2.0.4-2 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 mysql-common_5.5.29+dfsg-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 portaudio19-dev_19+svn20111121-1 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 qdbus_4:4.8.2+dfsg-10 qt4-linguist-tools_4:4.8.2+dfsg-10 qt4-qmake_4:4.8.2+dfsg-10 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-sonic-visualiser-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vamp-plugin-sdk_2.4-1 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Dec  4 12:33:41 2012 UTC using RSA key ID 311D765A
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./sonic-visualiser_2.0-1.dsc
+dpkg-source: info: extracting sonic-visualiser in sonic-visualiser-2.0
+dpkg-source: info: unpacking sonic-visualiser_2.0.orig.tar.gz
+dpkg-source: info: unpacking sonic-visualiser_2.0-1.debian.tar.gz
+dpkg-source: info: applying 01-desktop_file.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-10226592-3b6d-48e0-9e9d-cc78e5b7a006
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package sonic-visualiser
+dpkg-buildpackage: source version 2.0-1
+dpkg-buildpackage: source changed by Jaromír Mikeš <mira.mikes@seznam.cz>
+ dpkg-source --before-build sonic-visualiser-2.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_testdir -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«PKGBUILDDIR»'
+dh_auto_configure
+
+ *** Preparing to configure in: svcore svgui svapp sonic-visualiser
+
+ *** Configuring in: svcore
+
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking how to run the C++ preprocessor... g++ -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for qmake-qt4... no
+checking for qmake... no
+checking for qmake.exe... no
+checking for qmake-qt4... qmake-qt4
+configure: The CXXFLAGS environment variable is set to "-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2".
+configure: Overriding default compiler flags with the above user setting.
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... no
+checking for string.h... no
+checking for memory.h... no
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... no
+checking for bz2... no
+configure: Failed to find required module bz2 using pkg-config, trying again by old-fashioned means
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for BZ2_bzReadOpen in -lbz2... yes
+checking for fftw3... yes
+checking for fftw3f... yes
+checking for sndfile... yes
+checking for samplerate... yes
+checking for vamp... yes
+checking for vamphostsdk... yes
+checking for rubberband... yes
+checking for dataquay... yes
+checking for liblo... yes
+checking for portaudio_2_0... yes
+checking for JACK... yes
+checking for libpulse... yes
+checking for lrdf... yes
+checking for oggz... yes
+checking for fishsound... yes
+checking for mad... yes
+checking for id3tag... yes
+configure: creating ./config.status
+config.status: creating config.pri
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+WARNING: /«PKGBUILDDIR»/svcore/config.pri:18: Unescaped backslashes are deprecated.
+configure:
+
+Configuration complete.
+Please check the above messages for any warnings that you
+might care about, and then run "make".
+
+The file config.pri contains the configuration settings for
+qmake.  If you want to adjust these by hand, edit config.pri
+and run "qmake -r" again to regenerate the Makefile.
+
+
+ *** Configuring in: svgui
+
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking how to run the C++ preprocessor... g++ -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for qmake-qt4... no
+checking for qmake... no
+checking for qmake.exe... no
+checking for qmake-qt4... qmake-qt4
+configure: The CXXFLAGS environment variable is set to "-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2".
+configure: Overriding default compiler flags with the above user setting.
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... no
+checking for string.h... no
+checking for memory.h... no
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... no
+checking for bz2... no
+configure: Failed to find required module bz2 using pkg-config, trying again by old-fashioned means
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for BZ2_bzReadOpen in -lbz2... yes
+checking for fftw3... yes
+checking for fftw3f... yes
+checking for sndfile... yes
+checking for samplerate... yes
+checking for vamp... yes
+checking for vamphostsdk... yes
+checking for rubberband... yes
+checking for liblo... yes
+checking for portaudio_2_0... yes
+checking for JACK... yes
+checking for libpulse... yes
+checking for lrdf... yes
+checking for oggz... yes
+checking for fishsound... yes
+checking for mad... yes
+checking for id3tag... yes
+configure: creating ./config.status
+config.status: creating config.pri
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+WARNING: /«PKGBUILDDIR»/svgui/config.pri:18: Unescaped backslashes are deprecated.
+configure:
+
+Configuration complete.
+Please check the above messages for any warnings that you
+might care about, and then run "make".
+
+The file config.pri contains the configuration settings for
+qmake.  If you want to adjust these by hand, edit config.pri
+and run "qmake -r" again to regenerate the Makefile.
+
+
+ *** Configuring in: svapp
+
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking how to run the C++ preprocessor... g++ -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for qmake-qt4... no
+checking for qmake... no
+checking for qmake.exe... no
+checking for qmake-qt4... qmake-qt4
+configure: The CXXFLAGS environment variable is set to "-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2".
+configure: Overriding default compiler flags with the above user setting.
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... no
+checking for string.h... no
+checking for memory.h... no
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... no
+checking for bz2... no
+configure: Failed to find required module bz2 using pkg-config, trying again by old-fashioned means
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for BZ2_bzReadOpen in -lbz2... yes
+checking for fftw3... yes
+checking for fftw3f... yes
+checking for sndfile... yes
+checking for samplerate... yes
+checking for vamp... yes
+checking for vamphostsdk... yes
+checking for rubberband... yes
+checking for liblo... yes
+checking for portaudio_2_0... yes
+checking for JACK... yes
+checking for libpulse... yes
+checking for lrdf... yes
+checking for oggz... yes
+checking for fishsound... yes
+checking for mad... yes
+checking for id3tag... yes
+configure: creating ./config.status
+config.status: creating config.pri
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+WARNING: /«PKGBUILDDIR»/svapp/config.pri:18: Unescaped backslashes are deprecated.
+configure:
+
+Configuration complete.
+Please check the above messages for any warnings that you
+might care about, and then run "make".
+
+The file config.pri contains the configuration settings for
+qmake.  If you want to adjust these by hand, edit config.pri
+and run "qmake -r" again to regenerate the Makefile.
+
+
+ *** Configuring in: sonic-visualiser
+
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking how to run the C++ preprocessor... g++ -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for qmake-qt4... no
+checking for qmake... no
+checking for qmake.exe... no
+checking for qmake-qt4... qmake-qt4
+configure: The CXXFLAGS environment variable is set to "-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2".
+configure: Overriding default compiler flags with the above user setting.
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... no
+checking for string.h... no
+checking for memory.h... no
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... no
+checking for bz2... no
+configure: Failed to find required module bz2 using pkg-config, trying again by old-fashioned means
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for BZ2_bzReadOpen in -lbz2... yes
+checking for fftw3... yes
+checking for fftw3f... yes
+checking for sndfile... yes
+checking for samplerate... yes
+checking for vamp... yes
+checking for vamphostsdk... yes
+checking for rubberband... yes
+checking for dataquay... yes
+checking for liblo... yes
+checking for portaudio_2_0... yes
+checking for JACK... yes
+checking for libpulse... yes
+checking for lrdf... yes
+checking for oggz... yes
+checking for fishsound... yes
+checking for mad... yes
+checking for id3tag... yes
+checking for X11... yes
+configure: creating ./config.status
+config.status: creating config.pri
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+configure: creating ./config.status
+config.status: creating config.pri
+config.status: creating version.h
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+WARNING: /«PKGBUILDDIR»/sonic-visualiser/config.pri:18: Unescaped backslashes are deprecated.
+configure:
+
+Configuration complete.
+Please check the above messages for any warnings that you
+might care about, and then run "make".
+
+The file config.pri contains the configuration settings for
+qmake.  If you want to adjust these by hand, edit config.pri
+and run "qmake -r" again to regenerate the Makefile.
+
+
+ *** Generated Makefile
+perl -i -pe 's,-I/usr/include/FLAC,,' sonic-visualiser/Makefile
+perl -i -pe 's,-I/usr/include/FLAC,,' svapp/Makefile
+perl -i -pe 's,-I/usr/include/FLAC,,' svcore/Makefile
+perl -i -pe 's,-I/usr/include/FLAC,,' svgui/Makefile
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -C svcore
+make[2]: Entering directory `/«PKGBUILDDIR»/svcore'
+g++ -c -m64 -pipe -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -DNDEBUG -DBUILD_RELEASE -DNO_TIMING -pthread -D_REENTRANT  -O2 -Wall -W -D_REENTRANT -fPIC -DHAVE_BZ2 -DHAVE_FFTW3 -DHAVE_FFTW3F -DHAVE_SNDFILE -DHAVE_SAMPLERATE -DHAVE_VAMP -DHAVE_VAMPHOSTSDK -DHAVE_RUBBERBAND -DHAVE_DATAQUAY -DHAVE_LIBLO -DHAVE_PORTAUDIO_2_0 -DHAVE_JACK -DHAVE_LIBPULSE -DHAVE_LRDF -DHAVE_OGGZ -DHAVE_FISHSOUND -DHAVE_MAD -DHAVE_ID3TAG -D__LINUX_ALSASEQ__ -DQT_NO_DEBUG -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Idata -Iplugin -Iplugin/api/alsa -Io -o o/AudioLevel.o base/AudioLevel.cpp
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:38:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:38:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:67:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:67:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:99:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:99:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:128:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:128:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:151:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:151:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:167:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:167:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:190:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:190:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:221:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:221:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:245:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+In file included from base/AudioLevel.cpp:23:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ostream:39:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/ios:38:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/iosfwd:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/postypes.h:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/cwchar:45:
+In file included from /usr/include/wchar.h:884:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:245:20: error: expected unqualified-id
+__fortify_function wchar_t *
+                   ^
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:262:1: error: unknown type name '__extern_always_inline'
+__fortify_function wchar_t *
+^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:143:28: note: expanded from macro '__fortify_function'
+#define __fortify_function __extern_always_inline __attribute_artificial__
+                           ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make[2]: *** [o/AudioLevel.o] Error 1
+make[2]: Leaving directory `/«PKGBUILDDIR»/svcore'
+make[1]: *** [override_dh_auto_build] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0400
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 9840
+Build-Time: 12
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 26
+Job: sonic-visualiser_2.0-1
+Package: sonic-visualiser
+Package-Time: 67
+Source-Version: 2.0-1
+Space: 9840
+Status: attempted
+Version: 2.0-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0400
+Build needed 00:01:07, 9840k disc space
+DC-Status: Failed 68.154764s
+DC-Time-Estimation: 68.154764 versus expected 1 (r/m: 67.154764 ; m: 1.0)

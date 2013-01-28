@@ -1,0 +1,2020 @@
+DC-Build-Header: pretzel 2.0n-2-0.3 / Mon Jan 28 06:00:03 +0000 2013
+DC-Task: logfile:/tmp/pretzel_2.0n-2-0.3_unstable_clang.log version:2.0n-2-0.3 chroot:unstable modes:binary-only:clang source:pretzel architecture:any esttime:33
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang pretzel_2.0n-2-0.3'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-142.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ pretzel 2.0n-2-0.3 (amd64)                                 28 Jan 2013 06:00 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: pretzel
+Version: 2.0n-2-0.3
+Source Version: 2.0n-2-0.3
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/pretzel-lcS3_4/pretzel-2.0n-2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/pretzel-lcS3_4' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-cb90c56a-1790-47a8-b8e8-655b66444456' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (4813 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 807 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main pretzel 2.0n-2-0.3 (dsc) [529 B]
+Get:2 http://localhost/debian/ unstable/main pretzel 2.0n-2-0.3 (tar) [807 kB]
+Fetched 807 kB in 0s (4062 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1332 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (3993 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (33.9 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-NDhRKQ/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison (>= 1.19), debhelper, flex (>= 2.4.6), nowebm
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison (>= 1.19), debhelper, flex (>= 2.4.6), nowebm
+dpkg-deb: building package `sbuild-build-depends-pretzel-dummy' in `/«BUILDDIR»/resolver-j_cR1p/apt_archive/sbuild-build-depends-pretzel-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install pretzel build dependencies (apt-based resolver)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bison bsdmainutils debhelper file flex gawk gettext gettext-base groff-base
+  html2text iconx intltool-debian libasprintf-dev libasprintf0c2 libbison-dev
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1 libpcre3
+  libpipeline1 libsigsegv2 libunistring0 libx11-6 libx11-data libxau6 libxcb1
+  libxdmcp6 libxml2 m4 man-db noweb nowebm po-debconf
+Suggested packages:
+  bison-doc wamerican wordlist whois vacation dh-make gawk-doc gettext-doc
+  groff less www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bison bsdmainutils debhelper file flex gawk gettext gettext-base groff-base
+  html2text iconx intltool-debian libasprintf-dev libasprintf0c2 libbison-dev
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1 libpcre3
+  libpipeline1 libsigsegv2 libunistring0 libx11-6 libx11-data libxau6 libxcb1
+  libxdmcp6 libxml2 m4 man-db noweb nowebm po-debconf
+  sbuild-build-depends-pretzel-dummy
+0 upgraded, 36 newly installed, 0 to remove and 0 not upgraded.
+Need to get 13.6 MB/13.6 MB of archives.
+After this operation, 37.3 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:10 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:11 http://localhost/debian/ unstable/main flex amd64 2.5.35-10.1 [332 kB]
+Get:12 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:13 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:14 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:15 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:16 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:17 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:18 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:19 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:20 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:21 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:22 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:23 http://localhost/debian/ unstable/main libbison-dev amd64 2:2.5.dfsg-3 [289 kB]
+Get:24 http://localhost/debian/ unstable/main bison amd64 2:2.5.dfsg-3 [688 kB]
+Get:25 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:26 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:27 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:28 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:29 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:30 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:31 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:32 http://localhost/debian/ unstable/main gawk amd64 1:4.0.1+dfsg-2 [972 kB]
+Get:33 http://localhost/debian/ unstable/main iconx amd64 9.4.3-4 [202 kB]
+Get:34 http://localhost/debian/ unstable/main noweb amd64 2.11b-7 [555 kB]
+Get:35 http://localhost/debian/ unstable/main nowebm all 2.11b-7 [5676 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 13.6 MB in 0s (16.0 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package flex.
+Unpacking flex (from .../flex_2.5.35-10.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libbison-dev:amd64.
+Unpacking libbison-dev:amd64 (from .../libbison-dev_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package bison.
+Unpacking bison (from .../bison_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package gawk.
+Unpacking gawk (from .../gawk_1%3a4.0.1+dfsg-2_amd64.deb) ...
+Selecting previously unselected package iconx.
+Unpacking iconx (from .../iconx_9.4.3-4_amd64.deb) ...
+Selecting previously unselected package noweb.
+Unpacking noweb (from .../noweb_2.11b-7_amd64.deb) ...
+Selecting previously unselected package nowebm.
+Unpacking nowebm (from .../nowebm_2.11b-7_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-pretzel-dummy.
+Unpacking sbuild-build-depends-pretzel-dummy (from .../sbuild-build-depends-pretzel-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up flex (2.5.35-10.1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libbison-dev:amd64 (2:2.5.dfsg-3) ...
+Setting up bison (2:2.5.dfsg-3) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up gawk (1:4.0.1+dfsg-2) ...
+Setting up iconx (9.4.3-4) ...
+Setting up noweb (2.11b-7) ...
+Setting up nowebm (2.11b-7) ...
+Setting up sbuild-build-depends-pretzel-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bison_2:2.5.dfsg-3 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 flex_2.5.35-10.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gawk_1:4.0.1+dfsg-2 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 iconx_9.4.3-4 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libbison-dev_2:2.5.dfsg-3 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libitm1_4.8-20130127-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130127-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libxau6_1:1.0.7-1 libxcb1_1.8.1-2 libxdmcp6_1:1.1.1-1 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 noweb_2.11b-7 nowebm_2.11b-7 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-pretzel-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Mar  9 18:34:58 2008 UTC using DSA key ID 9B7C328D
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./pretzel_2.0n-2-0.3.dsc
+dpkg-source: info: extracting pretzel in pretzel-2.0n-2
+dpkg-source: info: unpacking pretzel_2.0n-2-0.3.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-cb90c56a-1790-47a8-b8e8-655b66444456
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package pretzel
+dpkg-buildpackage: source version 2.0n-2-0.3
+dpkg-buildpackage: source changed by Luk Claes <luk@debian.org>
+ dpkg-source --before-build pretzel-2.0n-2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+# Add here commands to clean up after the build process.
+/usr/bin/make clobber
+make[1]: Entering directory `/«PKGBUILDDIR»'
+(cd attr; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/attr'
+rm -f attrtest.o attr.o attrtest.c attr.c attr.h attr.aux attr.idx attr.log attr.scn attr.tex attr.toc attrtest.aux attrtest.idx attrtest.log attrtest.scn attrtest.tex attrtest.toc attr.dvi test.output attrtest.dvi
+make[2]: Leaving directory `/«PKGBUILDDIR»/attr'
+(cd output; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/output'
+rm -f outtest.o output.o asciioutput.o outtest.c output.c asciioutput.c output.h asciioutput.h dvidriv.prt output.aux output.idx output.log output.scn output.tex output.toc outtest.aux outtest.idx outtest.log outtest.scn outtest.tex outtest.toc outtest.dvi output.dvi test.output asciioutput.aux asciioutput.idx asciioutput.log asciioutput.scn asciioutput.tex asciioutput.toc
+make[2]: Leaving directory `/«PKGBUILDDIR»/output'
+(cd ftokens; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/ftokens'
+rm -f ftokens.o ftparse.o ftscan.o ftokens.c ftparse.c ftscan.c ftparse.h ftscan.h ftokdefs.h Pscan.h Ppscan.h ftparse.aux ftparse.dvi ftparse.idx ftparse.log ftparse.scn ftparse.tex	ftparse.toc ftscan.aux ftscan.dvi ftscan.idx ftscan.log ftscan.scn ftscan.tex ftscan.toc ftscan.l ftparse.y pscan.dvi pscan.idx pscan.log pscan.scn pscan.tex pscan.toc Pscan.h Ppscan.h ftokens.aux ftokens.dvi ftokens.idx ftokens.log ftokens.scn ftokens.tex test.output
+make[2]: Leaving directory `/«PKGBUILDDIR»/ftokens'
+(cd fgrammar; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/fgrammar'
+rm -f fgscan.o fgparse.o fgrammar.o fgscan.c fgparse.c fgrammar.c fgscan.h fgparse.h fgramdefs.h Pparse.h Ppparse.h fgparse.aux fgparse.dvi fgparse.idx fgparse.log fgparse.scn fgparse.tex fgparse.toc fgscan.aux fgscan.dvi fgscan.idx fgscan.log fgscan.scn fgscan.tex fgscan.toc fgscan.l fgparse.y pparse.dvi pparse.idx pparse.log pparse.scn pparse.tex pparse.toc Pparse.h Ppparse.h fgrammar.aux fgrammar.dvi fgrammar.idx fgrammar.log fgrammar.scn fgrammar.tex test.output
+make[2]: Leaving directory `/«PKGBUILDDIR»/fgrammar'
+(cd main; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/main'
+rm -f pretzel.o plainpp.o plaindpp.o pretzel.c  pretzel.tex pretzel.aux pretzel.idx pretzel.log pretzel.scn pretzel.toc pretzel.dvi pascal.l pascal.y
+make[2]: Leaving directory `/«PKGBUILDDIR»/main'
+(cd contrib/noweb/general; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/contrib/noweb/general'
+rm -f *.tex *.log *.dvi *.o *.toc *.aux
+make[2]: Leaving directory `/«PKGBUILDDIR»/contrib/noweb/general'
+(cd languages/pascal; make clean)
+make[2]: Entering directory `/«PKGBUILDDIR»/languages/pascal'
+rm -f ptokdefs.h pascal.lex.o pascal.tab.o pascal.lex.c pascal.tab.c pascal.l pascal.y
+make[2]: Leaving directory `/«PKGBUILDDIR»/languages/pascal'
+(cd attr; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/attr'
+rm -f attrtest.o attr.o attrtest.c attr.c attr.h attr.aux attr.idx attr.log attr.scn attr.tex attr.toc attrtest.aux attrtest.idx attrtest.log attrtest.scn attrtest.tex attrtest.toc attr.dvi test.output attrtest.dvi
+rm -f attrtest
+make[2]: Leaving directory `/«PKGBUILDDIR»/attr'
+(cd output; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/output'
+rm -f outtest.o output.o asciioutput.o outtest.c output.c asciioutput.c output.h asciioutput.h dvidriv.prt output.aux output.idx output.log output.scn output.tex output.toc outtest.aux outtest.idx outtest.log outtest.scn outtest.tex outtest.toc outtest.dvi output.dvi test.output asciioutput.aux asciioutput.idx asciioutput.log asciioutput.scn asciioutput.tex asciioutput.toc
+rm -f outtest
+make[2]: Leaving directory `/«PKGBUILDDIR»/output'
+(cd ftokens; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/ftokens'
+rm -f ftokens.o ftparse.o ftscan.o ftokens.c ftparse.c ftscan.c ftparse.h ftscan.h ftokdefs.h Pscan.h Ppscan.h ftparse.aux ftparse.dvi ftparse.idx ftparse.log ftparse.scn ftparse.tex	ftparse.toc ftscan.aux ftscan.dvi ftscan.idx ftscan.log ftscan.scn ftscan.tex ftscan.toc ftscan.l ftparse.y pscan.dvi pscan.idx pscan.log pscan.scn pscan.tex pscan.toc Pscan.h Ppscan.h ftokens.aux ftokens.dvi ftokens.idx ftokens.log ftokens.scn ftokens.tex test.output
+rm -f ftokens
+make[2]: Leaving directory `/«PKGBUILDDIR»/ftokens'
+(cd fgrammar; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/fgrammar'
+rm -f fgscan.o fgparse.o fgrammar.o fgscan.c fgparse.c fgrammar.c fgscan.h fgparse.h fgramdefs.h Pparse.h Ppparse.h fgparse.aux fgparse.dvi fgparse.idx fgparse.log fgparse.scn fgparse.tex fgparse.toc fgscan.aux fgscan.dvi fgscan.idx fgscan.log fgscan.scn fgscan.tex fgscan.toc fgscan.l fgparse.y pparse.dvi pparse.idx pparse.log pparse.scn pparse.tex pparse.toc Pparse.h Ppparse.h fgrammar.aux fgrammar.dvi fgrammar.idx fgrammar.log fgrammar.scn fgrammar.tex test.output
+rm -f fgrammar
+make[2]: Leaving directory `/«PKGBUILDDIR»/fgrammar'
+(cd main; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/main'
+rm -f pretzel.o plainpp.o plaindpp.o pretzel.c  pretzel.tex pretzel.aux pretzel.idx pretzel.log pretzel.scn pretzel.toc pretzel.dvi pascal.l pascal.y
+rm -f pretzel
+rm -f .tar
+make[2]: Leaving directory `/«PKGBUILDDIR»/main'
+(cd contrib/noweb/general; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/contrib/noweb/general'
+rm -f *.tex *.log *.dvi *.o *.toc *.aux
+rm -f pretty.h errors.h getline.h match.h strsave.h columns.h pretty.c errors.c getline.c match.c strsave.c columns.c nowebpretzelpp.c
+rm -f prettytest ptokdefs.h test.l test.y		\
+		test.lex.c test.tab.c
+make[2]: Leaving directory `/«PKGBUILDDIR»/contrib/noweb/general'
+(cd contrib/noweb/java.latex; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/contrib/noweb/java.latex'
+rm -f Hanoi.aux Hanoi.toc Hanoi.log Hanoi.tex 	\
+		javafx.lex.* javafx.tab.* javafx.y javafx.l ptokdefs.h
+rm -f prettyjava Hanoi.dvi
+make[2]: Leaving directory `/«PKGBUILDDIR»/contrib/noweb/java.latex'
+(cd languages/pascal; make clobber)
+make[2]: Entering directory `/«PKGBUILDDIR»/languages/pascal'
+rm -f ptokdefs.h pascal.lex.o pascal.tab.o pascal.lex.c pascal.tab.c pascal.l pascal.y
+rm -f pascalpp
+make[2]: Leaving directory `/«PKGBUILDDIR»/languages/pascal'
+rm -f libpretzel.a plainpp.o plaindpp.o nowebpretzelpp.o alloca.o
+rm -f include/*
+rm -f bin/*
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -rf tmpcee tmppascal
+rm -f contrib/noweb/general/testpp
+dh_clean
+dh_clean: No compatibility level specified in debian/compat
+dh_clean: This package will soon FTBFS; time to fix it!
+dh_clean: Compatibility levels before 5 are deprecated (level 1 in use)
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make CFLAGS="-O2 -g -Wall -W -I`pwd`/include -L`pwd` -lpretzel"
+make[1]: Entering directory `/«PKGBUILDDIR»'
+gcc -c alloca.c
+alloca.c:52:8: warning: extra tokens at end of #endif directive [-Wextra-tokens]
+#endif emacs
+       ^
+       //
+alloca.c:153:1: warning: incompatible redeclaration of library function 'alloca'
+alloca (size)                   /* returns pointer to storage */
+^
+alloca.c:153:1: note: 'alloca' is a builtin with type 'void *(unsigned long)'
+alloca.c:171:25: warning: '&&' within '||' [-Wlogical-op-parentheses]
+      if (STACK_DIR > 0 && hp->h.deep > depth
+          ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+alloca.c:171:25: note: place parentheses around the '&&' expression to silence this warning
+      if (STACK_DIR > 0 && hp->h.deep > depth
+          ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+alloca.c:172:21: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          || STACK_DIR < 0 && hp->h.deep < depth)
+          ~~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+alloca.c:172:21: note: place parentheses around the '&&' expression to silence this warning
+          || STACK_DIR < 0 && hp->h.deep < depth)
+             ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+4 warnings generated.
+ar vrus libpretzel.a alloca.o
+ar: creating libpretzel.a
+a - alloca.o
+(cd output; make release)
+make[2]: Entering directory `/«PKGBUILDDIR»/output'
+notangle -L -Rheader output.nw > output.h
+notangle -L -Rheader asciioutput.nw > asciioutput.h
+notangle -L -Rimplementation output.nw > output.c
+notangle -L -Rimplementation outtest.nw > outtest.c
+notangle -L -Rimplementation asciioutput.nw > asciioutput.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c output.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from output.nw:109:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+output.nw:271:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "null",
+    ^
+output.nw:272:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "indent",
+    ^
+output.nw:273:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "outdent",
+    ^
+output.nw:274:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt0",
+    ^
+output.nw:275:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt1",
+    ^
+output.nw:276:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt2",
+    ^
+output.nw:277:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt3",
+    ^
+output.nw:278:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt4",
+    ^
+output.nw:279:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt5",
+    ^
+output.nw:280:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt6",
+    ^
+output.nw:281:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt7",
+    ^
+output.nw:282:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt8",
+    ^
+output.nw:283:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "opt9",
+    ^
+output.nw:284:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "backup",
+    ^
+output.nw:285:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "break_space",
+    ^
+output.nw:286:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "force",
+    ^
+output.nw:287:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "big_force",
+    ^
+output.nw:288:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "no_indent",
+    ^
+output.nw:289:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    "cancel"
+    ^
+21 warnings generated.
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c asciioutput.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from asciioutput.nw:75:
+In file included from asciioutput.nw:61:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+2 warnings generated.
+cp output.h asciioutput.h ../include
+ar vrus ../libpretzel.a output.o asciioutput.o
+a - output.o
+a - asciioutput.o
+make[2]: Leaving directory `/«PKGBUILDDIR»/output'
+(cd attr; make release)
+make[2]: Entering directory `/«PKGBUILDDIR»/attr'
+notangle -L -Rheader attr.nw > attr.h
+notangle -L -Rimplementation attr.nw > attr.c
+notangle -L -Rimplementation attrtest.nw > attrtest.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c attr.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from attr.nw:63:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+2 warnings generated.
+cp attr.h ../include
+ar vrus ../libpretzel.a attr.o
+a - attr.o
+make[2]: Leaving directory `/«PKGBUILDDIR»/attr'
+(cd ftokens; make regression release)
+make[2]: Entering directory `/«PKGBUILDDIR»/ftokens'
+notangle -Rflex-implementation ftscan.nw > ftscan.l
+notangle -Rbison-implementation ftparse.nw > ftparse.y
+notangle -L -Rimplementation ftokens.nw > ftokens.c
+notangle -L -Rheader ftparse.nw > ftparse.h
+notangle -L -Rheader ftscan.nw > ftscan.h
+bison -d ftparse.y
+mv ftparse.tab.h ftokdefs.h
+notangle -R"header file for abstract base class of [[Pscan]]" ftparse.nw >Pscan.h
+notangle -R"header file for prettyprinting scanner" ftparse.nw >Ppscan.h
+bison -pPretzel_ft ftparse.y
+mv ftparse.tab.c ftparse.c
+flex -t -L -PPretzel_ft ftscan.l > ftscan.c
+g++ -c ftokens.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from ftokens.nw:54:
+In file included from ftparse.nw:203:
+In file included from ftscan.nw:136:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+ftokens.nw:60:10: warning: unused parameter 'argc' [-Wunused-parameter]
+main(int argc, char** argv)
+         ^
+3 warnings generated.
+g++ -c ftparse.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from ftparse.y:3:
+In file included from ftparse.nw:203:
+In file included from ftscan.nw:136:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+ftparse.y:31:30: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+static char* error_message = "syntax error";
+                             ^
+ftparse.y:40:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/************************************************\n",
+        ^
+ftparse.y:41:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * This is a flex file generated by pretzel     *\n",
+        ^
+ftparse.y:42:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *                                              *\n",
+        ^
+ftparse.y:43:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " ************************************************/\n\n",
+        ^
+ftparse.y:44:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%{                                                     \n\n",
+          ^
+ftparse.y:45:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* some needed headers: */                            \n",
+          ^
+ftparse.y:46:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include<iostream>                                     \n",
+          ^
+ftparse.y:47:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include\"attr.h\"                                     \n\n",
+          ^
+ftparse.y:48:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* we'll define yywrap() which is needed for the scanner\n",
+          ^
+ftparse.y:49:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * here, so we won't have to bother about it if we're \n",
+          ^
+ftparse.y:50:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * doing the standard case. You can define your own version\n",
+          ^
+ftparse.y:51:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * by #undef'ing PSCAN_YYWRAP and supplying your own definition\n",
+          ^
+ftparse.y:52:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * in the definitions section.                        \n",
+          ^
+ftparse.y:53:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  */                                                   \n",
+          ^
+ftparse.y:54:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define PSCAN_YYWRAP                                   \n\n",
+          ^
+ftparse.y:55:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* input will come from this istream */               \n",
+          ^
+ftparse.y:56:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static istream * yyin_stream;                          \n\n",
+          ^
+ftparse.y:57:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* redefine YYINPUT to read from input streams */     \n",
+          ^
+ftparse.y:58:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#undef YY_INPUT                                        \n",
+          ^
+ftparse.y:59:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YY_INPUT(buf, result, max_size) {         \\\n",
+          ^
+ftparse.y:60:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  if (yyin_stream->eof()) result=YY_NULL;         \\\n",
+          ^
+ftparse.y:61:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  else {                                          \\\n",
+          ^
+ftparse.y:62:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "    yyin_stream->read(buf, max_size);             \\\n",
+          ^
+ftparse.y:63:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "    result=yyin_stream->gcount();                 \\\n",
+          ^
+ftparse.y:64:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  }                                               \\\n",
+          ^
+ftparse.y:65:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "}                                                      \n\n",
+          ^
+ftparse.y:66:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%}                                                     \n\n",
+          ^
+ftparse.y:67:3: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  "\n"
+  ^
+ftparse.y:71:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/************************************************\n",
+        ^
+ftparse.y:72:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * some pretzel definitions start here:         *\n",
+        ^
+ftparse.y:73:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " ***********************************************/\n\n",
+        ^
+ftparse.y:74:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%{                                                     \n\n",
+          ^
+ftparse.y:75:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* the default name of the include file with the token\n",
+          ^
+ftparse.y:76:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * code definitions is stored in PTOKDEFS_NAME and    \n",
+          ^
+ftparse.y:77:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  * defaults to `ptokdefs'.                            \n",
+          ^
+ftparse.y:78:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  */                                                   \n",
+          ^
+ftparse.y:79:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#ifndef PTOKDEFS_NAME                                  \n",
+          ^
+ftparse.y:80:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define PTOKDEFS_NAME \"ptokdefs.h\"                   \n",
+          ^
+ftparse.y:81:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#endif                                                 \n\n",
+          ^
+ftparse.y:82:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* now we have to include the token definitions */    \n",
+          ^
+ftparse.y:83:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include PTOKDEFS_NAME                                 \n\n",
+          ^
+ftparse.y:84:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* allow user to choose generated scanner class name*/\n",
+          ^
+ftparse.y:85:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#ifndef PSCAN_NAME                                     \n",
+          ^
+ftparse.y:86:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define PSCAN_NAME Ppscan                              \n",
+          ^
+ftparse.y:87:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include \"Ppscan.h\"                                  \n",
+          ^
+ftparse.y:88:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#endif                                                 \n\n",
+          ^
+ftparse.y:89:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* redefine the interface of the scanner */           \n",
+          ^
+ftparse.y:90:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#undef YY_DECL                                         \n",
+          ^
+ftparse.y:91:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YY_DECL int yylex (Attribute**rvalue)          \n\n",
+          ^
+ftparse.y:92:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          " /* here's the standard version of yywrap() */         \n",
+          ^
+ftparse.y:93:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#ifdef PSCAN_YYWRAP                                    \n",
+          ^
+ftparse.y:94:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "extern \"C\" int yywrap() {                            \n",
+          ^
+ftparse.y:95:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "    return(1);                                         \n",
+          ^
+ftparse.y:96:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "}                                                      \n",
+          ^
+ftparse.y:97:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#endif                                                 \n\n",
+          ^
+ftparse.y:98:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%}                                                     \n\n",
+          ^
+ftparse.y:99:3: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  "\n"
+  ^
+ftparse.y:103:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/************************************************\n",
+        ^
+ftparse.y:104:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * additional pretzel C code follows here:      *\n",
+        ^
+ftparse.y:105:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " ***********************************************/\n",
+        ^
+ftparse.y:106:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "PSCAN_NAME::PSCAN_NAME (istream* is ) : Pscan(is)\n",
+                ^
+ftparse.y:107:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                              \n",
+                ^
+ftparse.y:108:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    yyin_stream = is;                          \n",
+                ^
+ftparse.y:109:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                              \n",
+                ^
+ftparse.y:110:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "int PSCAN_NAME::scan(Attribute* *rvalue)       \n",
+                ^
+ftparse.y:111:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                              \n",
+                ^
+ftparse.y:112:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    return(yylex(rvalue));                     \n",
+                ^
+ftparse.y:113:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                              \n",
+                ^
+ftparse.y:114:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "PSCAN_NAME::~PSCAN_NAME ()                     \n",
+                ^
+ftparse.y:115:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                              \n",
+                ^
+ftparse.y:116:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    yyrestart(NULL);                           \n",
+                ^
+ftparse.y:117:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                              \n",
+                ^
+ftparse.y:118:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/************************************************\n",
+        ^
+ftparse.y:119:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * additional user defined C code follows here: *\n",
+        ^
+ftparse.y:120:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " ***********************************************/\n",
+        ^
+ftparse.y:121:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "\n"
+        ^
+ftparse.y:220:29: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+            error_message = "illegal identifier (USE UPPERCASE)"; return(3); }
+                            ^
+ftparse.y:254:22: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    {error_message = "illegal attribute";
+                     ^
+ftparse.y:313:34: warning: unused parameter 's' [-Wunused-parameter]
+int Pretzel_fterror (const char *s)
+                                 ^
+82 warnings generated.
+g++ -c ftscan.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from <stdout>:657:
+In file included from ftscan.nw:136:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+<stdout>:1428:17: warning: unused function 'yyunput' [-Wunused-function]
+    static void yyunput (int c, register char * yy_bp )
+                ^
+<stdout>:1467:16: warning: function 'yyinput' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+    static int yyinput (void)
+               ^
+4 warnings generated.
+g++ -o ftokens ftokens.o ftparse.o ftscan.o -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+./ftokens <pascal.ft > test.output
+if  diff test.output test.output.correct;		\
+		then echo "Regression test is fine."; 		\
+		else echo "Regression test failed.";		\
+		fi
+9c9
+< #include<iostream>                                     
+---
+> #include<iostream>                                   
+502c502
+< int PSCAN_NAME::scan(Attribute* *rvalue)       
+---
+> PSCAN_NAME::scan(Attribute* *rvalue)           
+Regression test failed.
+cp ftparse.h ftscan.h ftokdefs.h Pscan.h Ppscan.h ../include
+ar vrus ../libpretzel.a ftparse.o ftscan.o
+a - ftparse.o
+a - ftscan.o
+make[2]: Leaving directory `/«PKGBUILDDIR»/ftokens'
+(cd fgrammar; make regression release)
+make[2]: Entering directory `/«PKGBUILDDIR»/fgrammar'
+notangle -Rflex-implementation fgscan.nw | cpif fgscan.l
+notangle -Rbison-implementation fgparse.nw | cpif fgparse.y
+flex -L -PPretzel_fg fgscan.l
+mv lex.Pretzel_fg.c fgscan.c
+notangle -L -Rheader fgscan.nw | cpif fgscan.h
+notangle -L -Rheader fgparse.nw | cpif fgparse.h
+bison -d fgparse.y
+mv fgparse.tab.h fgramdefs.h
+notangle -R"header file for abstract base class of [[Pparse]]" fgparse.nw >Pparse.h
+notangle -R"header file for prettyprinting parser" fgparse.nw >Ppparse.h
+bison -pPretzel_fg fgparse.y
+mv fgparse.tab.c fgparse.c
+notangle -L -Rimplementation fgrammar.nw | cpif fgrammar.c
+g++ -c fgscan.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from lex.Pretzel_fg.c:568:
+In file included from fgscan.nw:139:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+lex.Pretzel_fg.c:1325:17: warning: unused function 'yyunput' [-Wunused-function]
+    static void yyunput (int c, register char * yy_bp )
+                ^
+lex.Pretzel_fg.c:1364:16: warning: function 'yyinput' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+    static int yyinput (void)
+               ^
+4 warnings generated.
+g++ -c fgparse.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from fgparse.y:3:
+In file included from fgparse.nw:204:
+In file included from fgscan.nw:139:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+fgparse.y:32:30: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+static char* error_message = "syntax error";
+                             ^
+fgparse.y:41:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/**************************************************    \n",
+        ^
+fgparse.y:42:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * This is a prettyprinting parser implementation *    \n",
+        ^
+fgparse.y:43:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * file generated by pretzel. (It's Bison code!)  *    \n",
+        ^
+fgparse.y:44:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *                                                *    \n",
+        ^
+fgparse.y:45:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *************************************************/    \n\n",
+        ^
+fgparse.y:46:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%{                                                     \n\n",
+          ^
+fgparse.y:47:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* this is needed for the yyprint function below */  \n",
+          ^
+fgparse.y:48:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include<stdio.h>                                      \n\n",
+          ^
+fgparse.y:49:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* include the attribute definitions */              \n",
+          ^
+fgparse.y:50:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include\"attr.h\"                                     \n\n",
+          ^
+fgparse.y:51:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* include the output definitions */                 \n",
+          ^
+fgparse.y:52:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include\"output.h\"                                   \n\n",
+          ^
+fgparse.y:53:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* enable parser debugging */                        \n",
+          ^
+fgparse.y:54:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YYDEBUG 1                                      \n\n",
+          ^
+fgparse.y:55:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* redefine the semantic value */                    \n",
+          ^
+fgparse.y:56:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YYSTYPE Attribute*                             \n\n",
+          ^
+fgparse.y:57:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* enable calls of YYPRINT */                        \n",
+          ^
+fgparse.y:58:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YYPRINT(file, type, value) yyprint (file, type, value)\n\n",
+          ^
+fgparse.y:59:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* this is the prototype for yyprint */              \n",
+          ^
+fgparse.y:60:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static void                                            \n",
+          ^
+fgparse.y:61:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "yyprint(FILE *file, int type, YYSTYPE value);          \n\n",
+          ^
+fgparse.y:62:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* make sure that our local copy of yylex is         \n",
+          ^
+fgparse.y:63:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * declared with name `yylex' and as a static        \n",
+          ^
+fgparse.y:64:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * function. This should trick the parser into       \n",
+          ^
+fgparse.y:65:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * calling the scanner object stored in              \n",
+          ^
+fgparse.y:66:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * `static_scanner' (see below). */                  \n\n",
+          ^
+fgparse.y:67:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* undefine yylex to make sure it isn't renamed      \n",
+          ^
+fgparse.y:68:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * by any command line option (e.g. -P). */          \n",
+          ^
+fgparse.y:69:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#undef yylex                                           \n",
+          ^
+fgparse.y:70:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* declare our local `dummy' yylex */                \n",
+          ^
+fgparse.y:71:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static int yylex(YYSTYPE *rvalue);                     \n",
+          ^
+fgparse.y:72:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* make sure any newer versions of Bison don't       \n",
+          ^
+fgparse.y:73:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * redeclare it differently */                       \n",
+          ^
+fgparse.y:74:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YYLEX_DECL                                     \n",
+          ^
+fgparse.y:75:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%}                                                     \n\n",
+          ^
+fgparse.y:76:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/*************************************************     \n",
+        ^
+fgparse.y:77:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * various user definitions start here:          *     \n",
+        ^
+fgparse.y:78:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *************************************************/    \n\n"
+        ^
+fgparse.y:82:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/*************************************************     \n",
+        ^
+fgparse.y:83:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * some pretzel definitions start here:          *     \n",
+        ^
+fgparse.y:84:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " ************************************************/     \n\n",
+        ^
+fgparse.y:85:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%{                                                     \n\n",
+          ^
+fgparse.y:86:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include <stdlib.h>                                    \n",
+          ^
+fgparse.y:87:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* include own header only in default case: */       \n",
+          ^
+fgparse.y:88:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#ifndef PPARSE_NAME                                    \n",
+          ^
+fgparse.y:89:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include \"Ppparse.h\"                                 \n",
+          ^
+fgparse.y:90:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#endif                                                 \n\n",
+          ^
+fgparse.y:91:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* this is a definition of the yyerror routine */    \n",
+          ^
+fgparse.y:92:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "int yyerror (const char *s)                            \n",
+          ^
+fgparse.y:93:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "{  /* ignore error messages by BISON */                \n",
+          ^
+fgparse.y:94:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   /* trick! use s do get around warning `s not used'. */\n",
+          ^
+fgparse.y:95:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   if (1==0) fprintf(stderr, \"%s\", s);               \n",
+          ^
+fgparse.y:96:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   return 0;                                           \n",
+          ^
+fgparse.y:97:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "}                                                      \n\n",
+          ^
+fgparse.y:98:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* enable parser debugging */                        \n",
+          ^
+fgparse.y:99:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define YYDEBUG 1                                      \n\n",
+          ^
+fgparse.y:100:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* variable to hold the parsed attribute */          \n",
+          ^
+fgparse.y:101:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static Attribute *rest=create(null);                   \n\n",
+          ^
+fgparse.y:102:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* include the scanner only in the default case: */  \n",
+          ^
+fgparse.y:103:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#ifndef PSCAN_NAME                                     \n",
+          ^
+fgparse.y:104:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#define PSCAN_NAME Ppscan                              \n",
+          ^
+fgparse.y:105:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#include \"Ppscan.h\"                                  \n",
+          ^
+fgparse.y:106:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "#endif                                                 \n\n",
+          ^
+fgparse.y:107:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "  /* trick the yyparse function to use the scan member \n",
+          ^
+fgparse.y:108:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "   * of the scanner class: */                          \n",
+          ^
+fgparse.y:109:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static Pscan* static_scanner = NULL;                   \n",
+          ^
+fgparse.y:110:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "static int yylex( YYSTYPE *rvalue )                    \n",
+          ^
+fgparse.y:111:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "{                                                      \n",
+          ^
+fgparse.y:112:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "    return(static_scanner->scan(rvalue));              \n",
+          ^
+fgparse.y:113:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "}                                                      \n\n",
+          ^
+fgparse.y:114:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%}                                                     \n\n",
+          ^
+fgparse.y:115:11: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+          "%pure_parser                                           \n\n",
+          ^
+fgparse.y:116:3: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  "\n"
+  ^
+fgparse.y:120:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/*************************************************     \n",
+        ^
+fgparse.y:121:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * additional pretzel code starts here:          *     \n",
+        ^
+fgparse.y:122:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *************************************************/    \n\n",
+        ^
+fgparse.y:123:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "#ifndef PPARSE_NAME                                    \n",
+                ^
+fgparse.y:124:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "#define PPARSE_NAME Ppparse                            \n",
+                ^
+fgparse.y:125:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "#endif                                                 \n\n",
+                ^
+fgparse.y:126:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "PPARSE_NAME::PPARSE_NAME()                             \n",
+                ^
+fgparse.y:127:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                                      \n",
+                ^
+fgparse.y:128:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                                      \n",
+                ^
+fgparse.y:129:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "PPARSE_NAME::~PPARSE_NAME()                            \n",
+                ^
+fgparse.y:130:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                                      \n",
+                ^
+fgparse.y:131:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    static_scanner = NULL;                             \n",
+                ^
+fgparse.y:132:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                                      \n",
+                ^
+fgparse.y:133:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "int PPARSE_NAME::prettyprint(istream* is, ostream* os) \n",
+                ^
+fgparse.y:134:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                                      \n",
+                ^
+fgparse.y:135:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    Latex_cweb_output ppoutput(*os);                   \n",
+                ^
+fgparse.y:136:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    return(prettyprint(is, &ppoutput));                \n",
+                ^
+fgparse.y:137:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                                      \n",
+                ^
+fgparse.y:138:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "int PPARSE_NAME::prettyprint(istream* is, Output* outp)\n",
+                ^
+fgparse.y:139:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "{                                                      \n",
+                ^
+fgparse.y:140:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    int ret_val = 0;                                   \n",
+                ^
+fgparse.y:141:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    PSCAN_NAME ppscanner(is);                          \n",
+                ^
+fgparse.y:142:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    static_scanner = &ppscanner;                       \n",
+                ^
+fgparse.y:143:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    ret_val=yyparse();                                 \n",
+                ^
+fgparse.y:144:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    while (!(is->eof())) {                             \n",
+                ^
+fgparse.y:145:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "        char c;                                        \n",
+                ^
+fgparse.y:146:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "        is->get(c);                                    \n",
+                ^
+fgparse.y:147:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    }                                                  \n",
+                ^
+fgparse.y:148:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    rest->print(*outp);                                \n",
+                ^
+fgparse.y:149:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "    return(ret_val);                                   \n",
+                ^
+fgparse.y:150:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}                                                      \n\n",
+                ^
+fgparse.y:151:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "void PPARSE_NAME::debug_on() { yydebug = 1; }          \n",
+                ^
+fgparse.y:152:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "void PPARSE_NAME::debug_off() { yydebug = 0; }         \n\n",
+                ^
+fgparse.y:153:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "  /* This is a routine to print the semantic value */\n",
+                ^
+fgparse.y:154:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "static void \n",
+                ^
+fgparse.y:155:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "yyprint(FILE *file, int type, YYSTYPE value) {\n",
+                ^
+fgparse.y:156:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "  Latex_cweb_output os(cerr);\n",
+                ^
+fgparse.y:157:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "  value->print(os);\n",
+                ^
+fgparse.y:158:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                "}\n",
+                ^
+fgparse.y:159:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        "/*************************************************     \n",
+        ^
+fgparse.y:160:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " * optional user defined C code follows here:    *     \n",
+        ^
+fgparse.y:161:9: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        " *************************************************/    \n\n"
+        ^
+fgparse.y:402:34: warning: unused parameter 's' [-Wunused-parameter]
+int Pretzel_fgerror (const char *s)
+                                 ^
+119 warnings generated.
+g++ -c fgrammar.c -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from fgrammar.nw:52:
+In file included from fgparse.nw:204:
+In file included from fgscan.nw:139:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+fgrammar.nw:55:10: warning: unused parameter 'argc' [-Wunused-parameter]
+main(int argc, char** argv)
+         ^
+3 warnings generated.
+g++ -o fgrammar fgscan.o fgparse.o fgrammar.o -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+./fgrammar <pascal.fg > test.output
+if  diff test.output test.output.correct;		\
+		then echo "Regression test is fine."; 		\
+		else echo "Regression test failed.";		\
+		fi
+86d85
+< #include <stdlib.h>                                    
+93c92
+< int yyerror (const char *s)                            
+---
+> yyerror (const char *s)                                
+Regression test failed.
+cp fgscan.h fgparse.h fgramdefs.h Pparse.h Ppparse.h ../include
+ar vrus ../libpretzel.a fgparse.o fgscan.o
+a - fgparse.o
+a - fgscan.o
+make[2]: Leaving directory `/«PKGBUILDDIR»/fgrammar'
+(cd main; make regression release)
+make[2]: Entering directory `/«PKGBUILDDIR»/main'
+notangle -L -Rimplementation pretzel.nw > pretzel.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c pretzel.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from pretzel.nw:803:
+In file included from ftparse.nw:203:
+In file included from ftscan.nw:136:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+pretzel.nw:310:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Starting the main program...");
+              ^
+pretzel.nw:503:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Starting to analyse the command line...");
+              ^
+pretzel.nw:521:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Beginning to analyse the command line options...");
+              ^
+pretzel.nw:525:40: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                default: debug_message("Unknown option");
+                                       ^
+pretzel.nw:620:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Beginning to analyse the parameters...");
+              ^
+pretzel.nw:622:16: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        debug_message("Wrong number of parameters!");
+                      ^
+pretzel.nw:626:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                debug_message("One command line parameter");
+                              ^
+pretzel.nw:629:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                debug_message("Two command line parameters");
+                              ^
+pretzel.nw:511:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Command line options and parameters okay!");
+              ^
+pretzel.nw:838:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Opening formatted token file failed.");
+                ^
+pretzel.nw:846:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Opening scanner file failed.");
+                ^
+pretzel.nw:857:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Exiting.");
+                ^
+pretzel.nw:891:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Opening formatted grammar file failed.");
+                ^
+pretzel.nw:899:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Opening parser file failed.");
+                ^
+pretzel.nw:909:17: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    fatal_error("Exiting.");
+                ^
+pretzel.nw:316:15: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+debug_message("Ending gracefully...");
+              ^
+18 warnings generated.
+g++ -o pretzel pretzel.o -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel 
+./pretzel pascal
+This is pretzel, version 2.0.
+Processing the formatted token file (pascal.ft -> pascal.l).
+Processing the formatted grammar file (pascal.fg -> pascal.y).
+No errors found.
+if { diff pascal.l pascal.correct.l && 		\
+		diff pascal.y pascal.correct.y; } 	\
+		then echo "Regression test is fine.";	\
+	else echo "Regression test failed.";		\
+	fi
+9c9
+< #include<iostream>                                     
+---
+> #include<iostream>                                   
+326c326
+< int PSCAN_NAME::scan(Attribute* *rvalue)       
+---
+> int PSCAN_NAME::scan(Attribute* *rvalue)           
+Regression test failed.
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c plainpp.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from plainpp.c:12:
+In file included from /«PKGBUILDDIR»/include/Ppparse.h:5:
+In file included from /«PKGBUILDDIR»/include/Pparse.h:5:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+2 warnings generated.
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel  -c plaindpp.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from plaindpp.c:11:
+In file included from /«PKGBUILDDIR»/include/Ppparse.h:5:
+In file included from /«PKGBUILDDIR»/include/Pparse.h:5:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+2 warnings generated.
+cp pretzel ../bin
+cp plainpp.o plaindpp.o ..
+make[2]: Leaving directory `/«PKGBUILDDIR»/main'
+(cd doc/styles; make pretzel-noweb.sty)
+make[2]: Entering directory `/«PKGBUILDDIR»/doc/styles'
+make[2]: `pretzel-noweb.sty' is up to date.
+make[2]: Leaving directory `/«PKGBUILDDIR»/doc/styles'
+(cd pretzel-it; make release)
+make[2]: Entering directory `/«PKGBUILDDIR»/pretzel-it'
+cp pretzel-it ../bin
+make[2]: Leaving directory `/«PKGBUILDDIR»/pretzel-it'
+(cd contrib/noweb/general; make release)
+make[2]: Entering directory `/«PKGBUILDDIR»/contrib/noweb/general'
+notangle -Rheader pretty.nw > pretty.h
+notangle -L nowebpretzelpp.nw >nowebpretzelpp.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c nowebpretzelpp.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+In file included from nowebpretzelpp.nw:329:
+In file included from /«PKGBUILDDIR»/include/Ppparse.h:5:
+In file included from /«PKGBUILDDIR»/include/Pparse.h:5:
+In file included from attr.nw:261:
+output.nw:492:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                         ^
+output.nw:492:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+void debug_on(char *bs = "[", char *es = "]" ); /* turn on debug mode */
+                                         ^
+nowebpretzelpp.nw:459:36: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+(pp->ppcb)(pp->user_data, LITERAL, "\\begin{ppcode}");
+                                   ^
+nowebpretzelpp.nw:479:36: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+(pp->ppcb)(pp->user_data, LITERAL, "\\end{ppcode}");
+                                   ^
+nowebpretzelpp.nw:554:36: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+(pp->ppcb)(pp->user_data, LITERAL, "\\pretzelnwcodeimitation{}");
+                                   ^
+5 warnings generated.
+notangle -Rheader errors.nw > errors.h
+notangle -L errors.nw >errors.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c errors.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+notangle -Rheader columns.nw > columns.h
+notangle -Rheader getline.nw > getline.h
+notangle -L getline.nw >getline.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c getline.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+getline.nw:41:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    checkptr(buf1 = (char *) realloc(buf1, buf_size));
+    ^
+./errors.h:6:36: note: expanded from macro 'checkptr'
+#define checkptr(P) do { if (!(P)) overflow("memory"); } while (0)
+                                   ^
+./errors.h:4:36: note: expanded from macro 'overflow'
+#define overflow(S) errormsg(Fatal,"Capacity exceeded: %s", S)
+                                   ^
+getline.nw:42:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    checkptr(buf2 = (char *) realloc(buf2, buf_size));
+    ^
+./errors.h:6:36: note: expanded from macro 'checkptr'
+#define checkptr(P) do { if (!(P)) overflow("memory"); } while (0)
+                                   ^
+./errors.h:4:36: note: expanded from macro 'overflow'
+#define overflow(S) errormsg(Fatal,"Capacity exceeded: %s", S)
+                                   ^
+getline.nw:83:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    checkptr(buf1 = (char *) malloc (buf_size));
+    ^
+./errors.h:6:36: note: expanded from macro 'checkptr'
+#define checkptr(P) do { if (!(P)) overflow("memory"); } while (0)
+                                   ^
+./errors.h:4:36: note: expanded from macro 'overflow'
+#define overflow(S) errormsg(Fatal,"Capacity exceeded: %s", S)
+                                   ^
+getline.nw:84:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    checkptr(buf2 = (char *) malloc (buf_size));
+    ^
+./errors.h:6:36: note: expanded from macro 'checkptr'
+#define checkptr(P) do { if (!(P)) overflow("memory"); } while (0)
+                                   ^
+./errors.h:4:36: note: expanded from macro 'overflow'
+#define overflow(S) errormsg(Fatal,"Capacity exceeded: %s", S)
+                                   ^
+4 warnings generated.
+notangle -Rheader match.nw > match.h
+notangle -L match.nw >match.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c match.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+match.nw:27:28: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    return is_keyword(line,"begin") && matches(line+1+6,type);
+                           ^
+match.nw:30:28: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    return is_keyword(line,"end") && matches (line+1+4,type);
+                           ^
+match.nw:33:28: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    return is_keyword(line,"index") && matches(line+1+6,type);
+                           ^
+3 warnings generated.
+notangle -Rheader strsave.nw > strsave.h
+notangle -L strsave.nw >strsave.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c strsave.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+strsave.nw:15:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    checkptr(t);
+    ^
+./errors.h:6:36: note: expanded from macro 'checkptr'
+#define checkptr(P) do { if (!(P)) overflow("memory"); } while (0)
+                                   ^
+./errors.h:4:36: note: expanded from macro 'overflow'
+#define overflow(S) errormsg(Fatal,"Capacity exceeded: %s", S)
+                                   ^
+1 warning generated.
+notangle -L columns.nw >columns.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c columns.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+notangle -L pretty.nw >pretty.c
+g++ -O2 -g -Wall -W -I/«PKGBUILDDIR»/include -L/«PKGBUILDDIR» -lpretzel -c pretty.c
+clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated
+clang: warning: -lpretzel: 'linker' input unused
+clang: warning: argument unused during compilation: '-L/«PKGBUILDDIR»'
+pretty.nw:124:24: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+{ if (is_keyword(line, "nl") || is_index(line, "nl")) {
+                       ^
+pretty.nw:124:48: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+{ if (is_keyword(line, "nl") || is_index(line, "nl")) {
+                                               ^
+pretty.nw:126:30: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  } else if (is_keyword(line,"file")) {
+                             ^
+pretty.nw:129:31: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  } else if (is_keyword(line, "line")) {
+                              ^
+pretty.nw:144:23: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+      errormsg(Error, "non-numeric line number in `@line %s'", temp);
+                      ^
+pretty.nw:113:21: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+if (!is_begin(line, "code")) {
+                    ^
+pretty.nw:76:39: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+             line && !is_keyword(line,"defn") && !is_keyword(line,"text");
+                                      ^
+pretty.nw:76:67: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+             line && !is_keyword(line,"defn") && !is_keyword(line,"text");
+                                                                  ^
+pretty.nw:79:21: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        insist(line,"defn","code chunk had no definition line");
+                    ^
+pretty.nw:79:28: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        insist(line,"defn","code chunk had no definition line");
+                           ^
+pretty.nw:120:22: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    if (is_end(line, "code")) break;
+                     ^
+pretty.nw:87:42: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        for (; line && !is_keyword(line, "nl") ;) {
+                                         ^
+pretty.nw:90:21: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        insist(line,"nl","definition line not followed by newline");
+                    ^
+pretty.nw:90:26: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        insist(line,"nl","definition line not followed by newline");
+                         ^
+pretty.nw:93:43: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+             line != NULL && !is_end(line,"code");
+                                          ^
+pretty.nw:124:24: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+{ if (is_keyword(line, "nl") || is_index(line, "nl")) {
+                       ^
+pretty.nw:124:48: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+{ if (is_keyword(line, "nl") || is_index(line, "nl")) {
+                                               ^
+pretty.nw:126:30: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  } else if (is_keyword(line,"file")) {
+                             ^
+pretty.nw:129:31: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+  } else if (is_keyword(line, "line")) {
+                              ^
+pretty.nw:144:23: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+      errormsg(Error, "non-numeric line number in `@line %s'", temp);
+                      ^
+pretty.nw:97:33: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+            if (is_keyword(line,"nl")) {
+                                ^
+pretty.nw:99:40: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+            } else if (is_keyword(line,"text")) {
+                                       ^
+pretty.nw:101:40: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+            } else if (is_keyword(line,"use")) {
+                                       ^
+pretty.nw:154:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    impossible("End of file occurred in mid-module");
+    ^
+./errors.h:5:44: note: expanded from macro 'impossible'
+#define impossible(S) errormsg(Impossible, "This can't happen: %s", S)
+                                           ^
+pretty.nw:154:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    impossible("End of file occurred in mid-module");
+    ^
+./errors.h:5:44: note: expanded from macro 'impossible'
+#define impossible(S) errormsg(Impossible, "This can't happen: %s", S)
+                                           ^
+pretty.nw:150:5: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    impossible(msg);
+    ^
+./errors.h:5:44: note: expanded from macro 'impossible'
+#define impossible(S) errormsg(Impossible, "This can't happen: %s", S)
+                                           ^
+pretty.nw:175:47: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+    case NEWLINE:        io->putline(io->out, "@nl");                    break;
+                                              ^
+pretty.nw:225:46: warning: unused parameter 'name' [-Wunused-parameter]
+static PrettyPrinter make_pp(void *cl, char *name) {
+                                             ^
+pretty.nw:232:1: error: C++ requires a type specifier for all declarations
+main (int argc, char *argv[]) {
+^~~~
+28 warnings and 1 error generated.
+make[2]: *** [pretty.o] Error 1
+make[2]: Leaving directory `/«PKGBUILDDIR»/contrib/noweb/general'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0600
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 7368
+Build-Time: 6
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 8
+Job: pretzel_2.0n-2-0.3
+Package: pretzel
+Package-Time: 42
+Source-Version: 2.0n-2-0.3
+Space: 7368
+Status: attempted
+Version: 2.0n-2-0.3
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0600
+Build needed 00:00:42, 7368k disc space
+DC-Status: Failed 42.999731s

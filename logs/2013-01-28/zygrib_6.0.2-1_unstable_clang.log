@@ -1,0 +1,1835 @@
+DC-Build-Header: zygrib 6.0.2-1 / Mon Jan 28 04:53:25 +0000 2013
+DC-Task: logfile:/tmp/zygrib_6.0.2-1_unstable_clang.log version:6.0.2-1 chroot:unstable modes:binary-only:clang source:zygrib architecture:any esttime:176
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang zygrib_6.0.2-1'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-0-100.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ zygrib 6.0.2-1 (amd64)                                     28 Jan 2013 04:53 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: zygrib
+Version: 6.0.2-1
+Source Version: 6.0.2-1
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/zygrib-OPM_Yy/zygrib-6.0.2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/zygrib-OPM_Yy' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-e97c1405-573c-4ff6-b8cf-a91bd7c6674f' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (4645 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 17.3 MB of source archives.
+Get:1 http://localhost/debian/ unstable/main zygrib 6.0.2-1 (dsc) [1832 B]
+Get:2 http://localhost/debian/ unstable/main zygrib 6.0.2-1 (tar) [17.2 MB]
+Get:3 http://localhost/debian/ unstable/main zygrib 6.0.2-1 (diff) [7323 B]
+Fetched 17.3 MB in 0s (19.1 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1269 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (3969 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (33.8 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-A1KEwr/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>> 7), dh-buildinfo, libz-dev, libbz2-dev, libproj-dev, libqt4-dev, qt4-dev-tools, libqwt-dev
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), cdbs, debhelper (>> 7), dh-buildinfo, libz-dev, libbz2-dev, libproj-dev, libqt4-dev, qt4-dev-tools, libqwt-dev
+dpkg-deb: building package `sbuild-build-depends-zygrib-dummy' in `/«BUILDDIR»/resolver-v3ZNry/apt_archive/sbuild-build-depends-zygrib-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install zygrib build dependencies (apt-based resolver)                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils cdbs debhelper dh-buildinfo file fontconfig fontconfig-config
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libaudio2 libbz2-dev libcroco3 libdbus-1-3 libfontconfig1
+  libfreetype6 libgettextpo-dev libgettextpo0 libglib2.0-0 libice6 libjbig0
+  libjpeg8 liblcms1 libmagic1 libmng1 libpcre3 libpipeline1 libpng12-0
+  libproj-dev libproj0 libqt4-dbus libqt4-declarative libqt4-designer
+  libqt4-dev libqt4-dev-bin libqt4-help libqt4-network libqt4-qt3support
+  libqt4-script libqt4-scripttools libqt4-sql libqt4-sql-sqlite libqt4-svg
+  libqt4-test libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4
+  libqwt-dev libqwt6 libsm6 libtiff4 libunistring0 libx11-6 libx11-data
+  libxau6 libxcb1 libxdmcp6 libxext6 libxi6 libxml2 libxrender1 libxt6
+  libxtst6 man-db po-debconf proj-data qdbus qt4-dev-tools qt4-linguist-tools
+  qt4-qmake ttf-dejavu-core x11-common zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation devscripts dh-make gettext-doc groff nas
+  liblcms-utils proj-bin libqt4-declarative-folderlistmodel
+  libqt4-declarative-gestures libqt4-declarative-particles
+  libqt4-declarative-shaders qt4-qmlviewer firebird-dev libmysqlclient-dev
+  libpq-dev libsqlite0-dev libsqlite3-dev qt4-doc unixodbc-dev libthai0
+  libicu48 qt4-qtconfig less www-browser libmail-box-perl qt4-doc-html
+Recommended packages:
+  autotools-dev curl wget lynx-cur autopoint dbus libglib2.0-data
+  shared-mime-info libqt4-opengl-dev libqtwebkit-dev ca-certificates libcups2
+  xml-core libmail-sendmail-perl qt4-designer
+The following NEW packages will be installed:
+  bsdmainutils cdbs debhelper dh-buildinfo file fontconfig fontconfig-config
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libaudio2 libbz2-dev libcroco3 libdbus-1-3 libfontconfig1
+  libfreetype6 libgettextpo-dev libgettextpo0 libglib2.0-0 libice6 libjbig0
+  libjpeg8 liblcms1 libmagic1 libmng1 libpcre3 libpipeline1 libpng12-0
+  libproj-dev libproj0 libqt4-dbus libqt4-declarative libqt4-designer
+  libqt4-dev libqt4-dev-bin libqt4-help libqt4-network libqt4-qt3support
+  libqt4-script libqt4-scripttools libqt4-sql libqt4-sql-sqlite libqt4-svg
+  libqt4-test libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4
+  libqwt-dev libqwt6 libsm6 libtiff4 libunistring0 libx11-6 libx11-data
+  libxau6 libxcb1 libxdmcp6 libxext6 libxi6 libxml2 libxrender1 libxt6
+  libxtst6 man-db po-debconf proj-data qdbus qt4-dev-tools qt4-linguist-tools
+  qt4-qmake sbuild-build-depends-zygrib-dummy ttf-dejavu-core x11-common
+  zlib1g-dev
+0 upgraded, 80 newly installed, 0 to remove and 0 not upgraded.
+Need to get 43.2 MB/43.2 MB of archives.
+After this operation, 135 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:10 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:11 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:12 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:13 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:14 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:15 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:16 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:17 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:18 http://localhost/debian/ unstable/main libaudio2 amd64 1.9.3-5 [86.4 kB]
+Get:19 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:20 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:21 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:22 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:23 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:24 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:25 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:26 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:27 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:28 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:29 http://localhost/debian/ unstable/main liblcms1 amd64 1.19.dfsg-1.2 [113 kB]
+Get:30 http://localhost/debian/ unstable/main libmng1 amd64 1.0.10-3 [235 kB]
+Get:31 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:32 http://localhost/debian/ unstable/main libqtcore4 amd64 4:4.8.2+dfsg-10 [2108 kB]
+Get:33 http://localhost/debian/ unstable/main libqt4-xml amd64 4:4.8.2+dfsg-10 [131 kB]
+Get:34 http://localhost/debian/ unstable/main libqtdbus4 amd64 4:4.8.2+dfsg-10 [219 kB]
+Get:35 http://localhost/debian/ unstable/main libqt4-network amd64 4:4.8.2+dfsg-10 [569 kB]
+Get:36 http://localhost/debian/ unstable/main libqt4-script amd64 4:4.8.2+dfsg-10 [814 kB]
+Get:37 http://localhost/debian/ unstable/main libqt4-sql amd64 4:4.8.2+dfsg-10 [137 kB]
+Get:38 http://localhost/debian/ unstable/main libqt4-xmlpatterns amd64 4:4.8.2+dfsg-10 [1049 kB]
+Get:39 http://localhost/debian/ unstable/main fontconfig amd64 2.9.0-7.1 [348 kB]
+Get:40 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:41 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:42 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:43 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:44 http://localhost/debian/ unstable/main libqtgui4 amd64 4:4.8.2+dfsg-10 [4050 kB]
+Get:45 http://localhost/debian/ unstable/main libqt4-declarative amd64 4:4.8.2+dfsg-10 [1105 kB]
+Get:46 http://localhost/debian/ unstable/main libqt4-designer amd64 4:4.8.2+dfsg-10 [3648 kB]
+Get:47 http://localhost/debian/ unstable/main libqt4-help amd64 4:4.8.2+dfsg-10 [238 kB]
+Get:48 http://localhost/debian/ unstable/main libqt4-qt3support amd64 4:4.8.2+dfsg-10 [1071 kB]
+Get:49 http://localhost/debian/ unstable/main libqt4-scripttools amd64 4:4.8.2+dfsg-10 [257 kB]
+Get:50 http://localhost/debian/ unstable/main libqt4-sql-sqlite amd64 4:4.8.2+dfsg-10 [63.4 kB]
+Get:51 http://localhost/debian/ unstable/main libqt4-svg amd64 4:4.8.2+dfsg-10 [176 kB]
+Get:52 http://localhost/debian/ unstable/main libqt4-test amd64 4:4.8.2+dfsg-10 [100 kB]
+Get:53 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:54 http://localhost/debian/ unstable/main libxtst6 amd64 2:1.2.1-1 [26.6 kB]
+Get:55 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:56 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:57 http://localhost/debian/ unstable/main cdbs all 0.4.120 [80.4 kB]
+Get:58 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:59 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:60 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:61 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:62 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:63 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:64 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:65 http://localhost/debian/ unstable/main dh-buildinfo all 0.9+nmu1 [15.7 kB]
+Get:66 http://localhost/debian/ unstable/main libbz2-dev amd64 1.0.6-4 [32.8 kB]
+Get:67 http://localhost/debian/ unstable/main qdbus amd64 4:4.8.2+dfsg-10 [68.8 kB]
+Get:68 http://localhost/debian/ unstable/main libqt4-dbus amd64 4:4.8.2+dfsg-10 [46.1 kB]
+Get:69 http://localhost/debian/ unstable/main libqt4-dev-bin amd64 4:4.8.2+dfsg-10 [1630 kB]
+Get:70 http://localhost/debian/ unstable/main qt4-linguist-tools amd64 4:4.8.2+dfsg-10 [852 kB]
+Get:71 http://localhost/debian/ unstable/main qt4-qmake amd64 4:4.8.2+dfsg-10 [1267 kB]
+Get:72 http://localhost/debian/ unstable/main libqt4-dev amd64 4:4.8.2+dfsg-10 [918 kB]
+Get:73 http://localhost/debian/ unstable/main libqwt6 amd64 6.0.0-1.2 [475 kB]
+Get:74 http://localhost/debian/ unstable/main libqwt-dev amd64 6.0.0-1.2 [111 kB]
+Get:75 http://localhost/debian/ unstable/main qt4-dev-tools amd64 4:4.8.2+dfsg-10 [3894 kB]
+Get:76 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:77 http://localhost/debian/ unstable/main proj-data amd64 4.7.0-2 [2937 kB]
+Get:78 http://localhost/debian/ unstable/main libproj0 amd64 4.7.0-2 [138 kB]
+Get:79 http://localhost/debian/ unstable/main libproj-dev amd64 4.7.0-2 [193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 43.2 MB in 2s (16.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libaudio2:amd64.
+Unpacking libaudio2:amd64 (from .../libaudio2_1.9.3-5_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package liblcms1:amd64.
+Unpacking liblcms1:amd64 (from .../liblcms1_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package libmng1:amd64.
+Unpacking libmng1:amd64 (from .../libmng1_1.0.10-3_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libqtcore4:amd64.
+Unpacking libqtcore4:amd64 (from .../libqtcore4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-xml:amd64.
+Unpacking libqt4-xml:amd64 (from .../libqt4-xml_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqtdbus4:amd64.
+Unpacking libqtdbus4:amd64 (from .../libqtdbus4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-network:amd64.
+Unpacking libqt4-network:amd64 (from .../libqt4-network_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-script:amd64.
+Unpacking libqt4-script:amd64 (from .../libqt4-script_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-sql:amd64.
+Unpacking libqt4-sql:amd64 (from .../libqt4-sql_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-xmlpatterns:amd64.
+Unpacking libqt4-xmlpatterns:amd64 (from .../libqt4-xmlpatterns_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libqtgui4:amd64.
+Unpacking libqtgui4:amd64 (from .../libqtgui4_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-declarative:amd64.
+Unpacking libqt4-declarative:amd64 (from .../libqt4-declarative_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-designer:amd64.
+Unpacking libqt4-designer:amd64 (from .../libqt4-designer_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-help:amd64.
+Unpacking libqt4-help:amd64 (from .../libqt4-help_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-qt3support:amd64.
+Unpacking libqt4-qt3support:amd64 (from .../libqt4-qt3support_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-scripttools:amd64.
+Unpacking libqt4-scripttools:amd64 (from .../libqt4-scripttools_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-sql-sqlite:amd64.
+Unpacking libqt4-sql-sqlite:amd64 (from .../libqt4-sql-sqlite_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-svg:amd64.
+Unpacking libqt4-svg:amd64 (from .../libqt4-svg_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-test:amd64.
+Unpacking libqt4-test:amd64 (from .../libqt4-test_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package libxtst6:amd64.
+Unpacking libxtst6:amd64 (from .../libxtst6_2%3a1.2.1-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.120_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package dh-buildinfo.
+Unpacking dh-buildinfo (from .../dh-buildinfo_0.9+nmu1_all.deb) ...
+Selecting previously unselected package libbz2-dev:amd64.
+Unpacking libbz2-dev:amd64 (from .../libbz2-dev_1.0.6-4_amd64.deb) ...
+Selecting previously unselected package qdbus.
+Unpacking qdbus (from .../qdbus_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dbus:amd64.
+Unpacking libqt4-dbus:amd64 (from .../libqt4-dbus_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dev-bin.
+Unpacking libqt4-dev-bin (from .../libqt4-dev-bin_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package qt4-linguist-tools.
+Unpacking qt4-linguist-tools (from .../qt4-linguist-tools_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package qt4-qmake.
+Unpacking qt4-qmake (from .../qt4-qmake_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqt4-dev.
+Unpacking libqt4-dev (from .../libqt4-dev_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package libqwt6.
+Unpacking libqwt6 (from .../libqwt6_6.0.0-1.2_amd64.deb) ...
+Selecting previously unselected package libqwt-dev.
+Unpacking libqwt-dev (from .../libqwt-dev_6.0.0-1.2_amd64.deb) ...
+Selecting previously unselected package qt4-dev-tools.
+Unpacking qt4-dev-tools (from .../qt4-dev-tools_4%3a4.8.2+dfsg-10_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package proj-data.
+Unpacking proj-data (from .../proj-data_4.7.0-2_amd64.deb) ...
+Selecting previously unselected package libproj0.
+Unpacking libproj0 (from .../libproj0_4.7.0-2_amd64.deb) ...
+Selecting previously unselected package libproj-dev.
+Unpacking libproj-dev (from .../libproj-dev_4.7.0-2_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-zygrib-dummy.
+Unpacking sbuild-build-depends-zygrib-dummy (from .../sbuild-build-depends-zygrib-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libaudio2:amd64 (1.9.3-5) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up liblcms1:amd64 (1.19.dfsg-1.2) ...
+Setting up libmng1:amd64 (1.0.10-3) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libqtcore4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-xml:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqtdbus4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-network:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-script:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-sql:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-xmlpatterns:amd64 (4:4.8.2+dfsg-10) ...
+Setting up fontconfig (2.9.0-7.1) ...
+Regenerating fonts cache... done.
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libqtgui4:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-declarative:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-designer:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-help:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-qt3support:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-scripttools:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-sql-sqlite:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-svg:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-test:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up libxtst6:amd64 (2:1.2.1-1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up cdbs (0.4.120) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up dh-buildinfo (0.9+nmu1) ...
+Setting up libbz2-dev:amd64 (1.0.6-4) ...
+Setting up qdbus (4:4.8.2+dfsg-10) ...
+Setting up libqt4-dbus:amd64 (4:4.8.2+dfsg-10) ...
+Setting up libqt4-dev-bin (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/moc-qt4 to provide /usr/bin/moc (moc) in auto mode
+update-alternatives: using /usr/bin/uic-qt4 to provide /usr/bin/uic (uic) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/uic.1.gz because associated file /usr/share/man/man1/uic-qt4.1.gz (of link group uic) doesn't exist
+Setting up qt4-linguist-tools (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/lupdate-qt4 to provide /usr/bin/lupdate (lupdate) in auto mode
+update-alternatives: using /usr/bin/lrelease-qt4 to provide /usr/bin/lrelease (lrelease) in auto mode
+Setting up qt4-qmake (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/qmake-qt4 to provide /usr/bin/qmake (qmake) in auto mode
+Setting up libqt4-dev (4:4.8.2+dfsg-10) ...
+Setting up libqwt6 (6.0.0-1.2) ...
+Setting up libqwt-dev (6.0.0-1.2) ...
+Setting up qt4-dev-tools (4:4.8.2+dfsg-10) ...
+update-alternatives: using /usr/bin/assistant-qt4 to provide /usr/bin/assistant (assistant) in auto mode
+update-alternatives: using /usr/bin/linguist-qt4 to provide /usr/bin/linguist (linguist) in auto mode
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up proj-data (4.7.0-2) ...
+Setting up libproj0 (4.7.0-2) ...
+Setting up libproj-dev (4.7.0-2) ...
+Setting up sbuild-build-depends-zygrib-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 cdbs_0.4.120 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 dh-buildinfo_0.9+nmu1 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig_2.9.0-7.1 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libaudio2_1.9.3-5 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libbz2-dev_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfreetype6_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libice6_2:1.0.8-2 libitm1_4.8-20130127-1 libjbig0_2.0-2 libjpeg8_8d-1 liblcms1_1.19.dfsg-1.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmng1_1.0.10-3 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpng12-0_1.2.49-3 libproj-dev_4.7.0-2 libproj0_4.7.0-2 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libqt4-dbus_4:4.8.2+dfsg-10 libqt4-declarative_4:4.8.2+dfsg-10 libqt4-designer_4:4.8.2+dfsg-10 libqt4-dev_4:4.8.2+dfsg-10 libqt4-dev-bin_4:4.8.2+dfsg-10 libqt4-help_4:4.8.2+dfsg-10 libqt4-network_4:4.8.2+dfsg-10 libqt4-qt3support_4:4.8.2+dfsg-10 libqt4-script_4:4.8.2+dfsg-10 libqt4-scripttools_4:4.8.2+dfsg-10 libqt4-sql_4:4.8.2+dfsg-10 libqt4-sql-sqlite_4:4.8.2+dfsg-10 libqt4-svg_4:4.8.2+dfsg-10 libqt4-test_4:4.8.2+dfsg-10 libqt4-xml_4:4.8.2+dfsg-10 libqt4-xmlpatterns_4:4.8.2+dfsg-10 libqtcore4_4:4.8.2+dfsg-10 libqtdbus4_4:4.8.2+dfsg-10 libqtgui4_4:4.8.2+dfsg-10 libquadmath0_4.8-20130127-1 libqwt-dev_6.0.0-1.2 libqwt6_6.0.0-1.2 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtiff4_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libxau6_1:1.0.7-1 libxcb1_1.8.1-2 libxdmcp6_1:1.1.1-1 libxext6_2:1.3.1-2 libxi6_2:1.6.1-1 libxml2_2.8.0+dfsg1-7 libxrender1_1:0.9.7-1 libxt6_1:1.1.3-1 libxtst6_2:1.2.1-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 proj-data_4.7.0-2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 qdbus_4:4.8.2+dfsg-10 qt4-dev-tools_4:4.8.2+dfsg-10 qt4-linguist-tools_4:4.8.2+dfsg-10 qt4-qmake_4:4.8.2+dfsg-10 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-zygrib-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Oct  8 02:11:45 2012 UTC using RSA key ID 5127742C
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./zygrib_6.0.2-1.dsc
+dpkg-source: info: extracting zygrib in zygrib-6.0.2
+dpkg-source: info: unpacking zygrib_6.0.2.orig.tar.gz
+dpkg-source: info: unpacking zygrib_6.0.2-1.debian.tar.gz
+dpkg-source: info: applying paths.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-e97c1405-573c-4ff6-b8cf-a91bd7c6674f
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package zygrib
+dpkg-buildpackage: source version 6.0.2-1
+dpkg-buildpackage: source changed by Alastair McKinstry <mckinstry@debian.org>
+ dpkg-source --before-build zygrib-6.0.2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+for i in ./src/proj-4.6.0/config.guess ./src/proj-4.6.0/config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+dh_clean 
+# cd src ; qmake-qt4 -o Makefile zyGrib.pro; /usr/bin/make clean
+rm -f  src/objs/* src/zyGrib
+ debian/rules build-arch
+test -x debian/rules
+mkdir -p "."
+if test -e /usr/share/misc/config.guess ; then \
+		for i in ./src/proj-4.6.0/config.guess ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.guess $i ; \
+			fi ; \
+		done ; \
+	fi
+if test -e /usr/share/misc/config.sub ; then \
+		for i in ./src/proj-4.6.0/config.sub ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.sub $i ; \
+			fi ; \
+		done ; \
+	fi
+cd src ; qmake-qt4 -o Makefile zyGrib.pro; /usr/bin/make
+make[1]: Entering directory `/«PKGBUILDDIR»/src'
+/usr/bin/uic-qt4 GUI/PositionEditorWidget.ui -o GUI/ui_PositionEditorWidget.h
+/usr/bin/uic-qt4 GUI/ColorEditorWidget.ui -o GUI/ui_ColorEditorWidget.h
+/usr/bin/uic-qt4 GUI/TextStyleEditorWidget.ui -o GUI/ui_TextStyleEditorWidget.h
+/usr/bin/uic-qt4 GUI/PoiEditorDialog.ui -o GUI/ui_PoiEditorDialog.h
+/usr/bin/uic-qt4 GUI/LineEditorWidget.ui -o GUI/ui_LineEditorWidget.h
+/usr/bin/uic-qt4 GUI/GraphicsParamsDialog.ui -o GUI/ui_GraphicsParamsDialog.h
+/usr/bin/uic-qt4 GUI/MeteotableOptionsDialog.ui -o GUI/ui_MeteotableOptionsDialog.h
+/usr/bin/uic-qt4 GUI/AngleConverterWidget.ui -o GUI/ui_AngleConverterWidget.h
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/PositionEditorWidget.o GUI/PositionEditorWidget.cpp
+In file included from GUI/PositionEditorWidget.cpp:2:
+In file included from /usr/include/qt4/QtGui/QtGui:3:
+In file included from /usr/include/qt4/QtCore/QtCore:12:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/ColorEditorWidget.o GUI/ColorEditorWidget.cpp
+In file included from GUI/ColorEditorWidget.cpp:1:
+In file included from /usr/include/qt4/QtGui/QtGui:3:
+In file included from /usr/include/qt4/QtCore/QtCore:12:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/LineEditorWidget.o GUI/LineEditorWidget.cpp
+In file included from GUI/LineEditorWidget.cpp:1:
+In file included from /usr/include/qt4/QtGui/QtGui:3:
+In file included from /usr/include/qt4/QtCore/QtCore:12:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/TextStyleEditorWidget.o GUI/TextStyleEditorWidget.cpp
+In file included from GUI/TextStyleEditorWidget.cpp:1:
+In file included from /usr/include/qt4/QtGui/QtGui:3:
+In file included from /usr/include/qt4/QtCore/QtCore:12:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/AngleConverterWidget.o GUI/AngleConverterWidget.cpp
+In file included from GUI/AngleConverterWidget.cpp:1:
+In file included from /usr/include/qt4/QtGui/QtGui:3:
+In file included from /usr/include/qt4/QtCore/QtCore:12:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/AngleConverterDialog.o GUI/AngleConverterDialog.cpp
+In file included from GUI/AngleConverterDialog.cpp:23:
+In file included from GUI/AngleConverterDialog.h:23:
+In file included from /usr/include/qt4/QtGui/QDialog:1:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/BoatSpeed.o curvedrawer/BoatSpeed.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/CurveDrawer.o curvedrawer/CurveDrawer.cpp
+In file included from curvedrawer/CurveDrawer.cpp:9:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/CustomQwtClasses.o curvedrawer/CustomQwtClasses.cpp
+In file included from curvedrawer/CustomQwtClasses.cpp:8:
+In file included from curvedrawer/CustomQwtClasses.h:13:
+In file included from /usr/include/qwt/qwt_scale_draw.h:14:
+In file included from /usr/include/qwt/qwt_abstract_scale_draw.h:15:
+In file included from /usr/include/qwt/qwt_text.h:16:
+In file included from /usr/include/qt4/QtGui/qfont.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MbzFile.o MbzFile.cpp
+In file included from MbzFile.cpp:21:
+In file included from ./MbzFile.h:22:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MblueRecord.o MblueRecord.cpp
+In file included from MblueRecord.cpp:30:
+In file included from ./MblueRecord.h:26:
+In file included from ./IrregularGridded.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MblueReader.o MblueReader.cpp
+In file included from MblueReader.cpp:19:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MbluePlot.o MbluePlot.cpp
+In file included from MbluePlot.cpp:19:
+In file included from ./MbluePlot.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+MbluePlot.cpp:167:10: warning: unused parameter 'arrowsColor' [-Wunused-parameter]
+                QColor arrowsColor, 
+                       ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/BoardPanel.o BoardPanel.cpp
+In file included from BoardPanel.cpp:21:
+In file included from ./BoardPanel.h:23:
+In file included from /usr/include/qt4/QtGui/QToolBar:1:
+In file included from /usr/include/qt4/QtGui/qtoolbar.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/ColorScale.o ColorScale.cpp
+In file included from ColorScale.cpp:19:
+In file included from ./ColorScale.h:25:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/ColorScaleWidget.o ColorScaleWidget.cpp
+In file included from ColorScaleWidget.cpp:18:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DataColors.o DataColors.cpp
+In file included from DataColors.cpp:20:
+In file included from ./DataColors.h:25:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DataQString.o DataQString.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DataMeteoAbstract.o DataMeteoAbstract.cpp
+In file included from DataMeteoAbstract.cpp:20:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DataPointInfo.o DataPointInfo.cpp
+In file included from DataPointInfo.cpp:19:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DateChooser.o DateChooser.cpp
+In file included from DateChooser.cpp:19:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogBoxColumn.o DialogBoxColumn.cpp
+In file included from DialogBoxColumn.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogFonts.o DialogFonts.cpp
+In file included from DialogFonts.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogGraphicsParams.o DialogGraphicsParams.cpp
+In file included from DialogGraphicsParams.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogLoadGRIB.o DialogLoadGRIB.cpp
+In file included from DialogLoadGRIB.cpp:22:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogLoadIAC.o DialogLoadIAC.cpp
+In file included from DialogLoadIAC.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogLoadMBLUE.o DialogLoadMBLUE.cpp
+In file included from DialogLoadMBLUE.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogProxy.o DialogProxy.cpp
+In file included from DialogProxy.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogSelectMetar.o DialogSelectMetar.cpp
+In file included from DialogSelectMetar.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogServerStatus.o DialogServerStatus.cpp
+In file included from DialogServerStatus.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/DialogUnits.o DialogUnits.cpp
+In file included from DialogUnits.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/FileLoaderGRIB.o FileLoaderGRIB.cpp
+In file included from FileLoaderGRIB.cpp:23:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/FileLoaderIAC.o FileLoaderIAC.cpp
+In file included from FileLoaderIAC.cpp:22:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/FileLoaderMBLUE.o FileLoaderMBLUE.cpp
+In file included from FileLoaderMBLUE.cpp:22:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Font.o util/Font.cpp
+In file included from util/Font.cpp:21:
+In file included from /usr/include/qt4/QtGui/QFontDatabase:1:
+In file included from /usr/include/qt4/QtGui/qfontdatabase.h:47:
+In file included from /usr/include/qt4/QtGui/qfont.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GriddedPlotter.o GriddedPlotter.cpp
+In file included from GriddedPlotter.cpp:19:
+In file included from ./GriddedPlotter.h:31:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GriddedReader.o GriddedReader.cpp
+In file included from GriddedReader.cpp:21:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GriddedRecord.o GriddedRecord.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GshhsRangsReader.o map/GshhsRangsReader.cpp
+In file included from map/GshhsRangsReader.cpp:19:
+In file included from map/GshhsRangsReader.h:28:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GshhsReader.o map/GshhsReader.cpp
+In file included from map/GshhsReader.cpp:19:
+In file included from map/GshhsReader.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GribAnimator.o GribAnimator.cpp
+In file included from GribAnimator.cpp:23:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from GribAnimator.cpp:26:
+In file included from ./GribAnimator.h:36:
+In file included from ./Terrain.h:28:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GribPlot.o GribPlot.cpp
+In file included from GribPlot.cpp:19:
+In file included from ./GribPlot.h:26:
+In file included from ./RegularGridded.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GisReader.o map/GisReader.cpp
+In file included from map/GisReader.cpp:21:
+In file included from map/GisReader.h:26:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from map/GisReader.cpp:21:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GribReader.o GribReader.cpp
+In file included from GribReader.cpp:21:
+In file included from ./GribReader.h:27:
+In file included from ./RegularGridded.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/GribRecord.o GribRecord.cpp
+In file included from GribRecord.cpp:21:
+In file included from ./GribRecord.h:32:
+In file included from ./RegularGridded.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/IacPlot.o IacPlot.cpp
+In file included from IacPlot.cpp:19:
+In file included from ./IacPlot.h:32:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/IacReader.o IacReader.cpp
+In file included from IacReader.cpp:21:
+In file included from ./IacReader.h:37:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/IacReaderUtil.o IacReaderUtil.cpp
+In file included from IacReaderUtil.cpp:21:
+In file included from ./IacReader.h:37:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/ImageWriter.o ImageWriter.cpp
+In file included from ImageWriter.cpp:20:
+In file included from /usr/include/qt4/QtGui/QFileDialog:1:
+In file included from /usr/include/qt4/QtGui/qfiledialog.h:47:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from ImageWriter.cpp:24:
+In file included from ./ImageWriter.h:27:
+In file included from ./Terrain.h:28:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/IrregularGridded.o IrregularGridded.cpp
+In file included from IrregularGridded.cpp:19:
+In file included from ./IrregularGridded.h:27:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/IsoLine.o IsoLine.cpp
+In file included from IsoLine.cpp:19:
+In file included from ./IsoLine.h:32:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/LongTaskProgress.o LongTaskProgress.cpp
+In file included from LongTaskProgress.cpp:21:
+In file included from util/Util.h:28:
+In file included from /usr/include/qt4/QtCore/QDateTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/LonLatGrid.o LonLatGrid.cpp
+In file included from LonLatGrid.cpp:19:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+LonLatGrid.cpp:142:11: warning: unused variable 'a' [-Wunused-variable]
+    int   a,b,c,d;
+          ^
+LonLatGrid.cpp:142:13: warning: unused variable 'b' [-Wunused-variable]
+    int   a,b,c,d;
+            ^
+LonLatGrid.cpp:142:15: warning: unused variable 'c' [-Wunused-variable]
+    int   a,b,c,d;
+              ^
+LonLatGrid.cpp:142:17: warning: unused variable 'd' [-Wunused-variable]
+    int   a,b,c,d;
+                ^
+LonLatGrid.cpp:151:11: warning: unused variable 'rect' [-Wunused-variable]
+    QRect rect = fmet.boundingRect(label);
+          ^
+LonLatGrid.cpp:139:61: warning: unused parameter 'proj' [-Wunused-parameter]
+void LonLatGrid::drawLabel(QPainter &pnt, const Projection *proj,
+                                                            ^
+LonLatGrid.cpp:140:23: warning: unused parameter 'i' [-Wunused-parameter]
+                                double value, int i, int j)
+                                                  ^
+LonLatGrid.cpp:140:30: warning: unused parameter 'j' [-Wunused-parameter]
+                                double value, int i, int j)
+                                                         ^
+9 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/main.o main.cpp
+In file included from main.cpp:22:
+In file included from /usr/include/qt4/QtCore/QTime:1:
+In file included from /usr/include/qt4/QtCore/qdatetime.h:47:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from main.cpp:26:
+In file included from ./MainWindow.h:27:
+In file included from ./ImageWriter.h:27:
+In file included from ./Terrain.h:28:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MainWindow.o MainWindow.cpp
+In file included from MainWindow.cpp:22:
+In file included from /usr/include/qt4/QtGui/QPushButton:1:
+In file included from /usr/include/qt4/QtGui/qpushbutton.h:45:
+In file included from /usr/include/qt4/QtGui/qabstractbutton.h:45:
+In file included from /usr/include/qt4/QtGui/qicon.h:48:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from MainWindow.cpp:31:
+In file included from ./MainWindow.h:27:
+In file included from ./ImageWriter.h:27:
+In file included from ./Terrain.h:28:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MapDrawer.o MapDrawer.cpp
+In file included from MapDrawer.cpp:25:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from MapDrawer.cpp:27:
+In file included from ./MapDrawer.h:26:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+2 warnings generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MenuBar.o MenuBar.cpp
+In file included from MenuBar.cpp:20:
+In file included from ./MenuBar.h:22:
+In file included from /usr/include/qt4/QtGui/QMenuBar:1:
+In file included from /usr/include/qt4/QtGui/qmenubar.h:45:
+In file included from /usr/include/qt4/QtGui/qmenu.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Metar.o Metar.cpp
+In file included from Metar.cpp:19:
+In file included from ./Metar.h:22:
+In file included from /usr/include/qt4/QtGui/QFrame:1:
+In file included from /usr/include/qt4/QtGui/qframe.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MeteoTable.o MeteoTable.cpp
+In file included from MeteoTable.cpp:19:
+In file included from /usr/include/qt4/QtGui/QFileDialog:1:
+In file included from /usr/include/qt4/QtGui/qfiledialog.h:47:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MeteoTableWidget.o MeteoTableWidget.cpp
+In file included from MeteoTableWidget.cpp:21:
+In file included from util/Settings.h:30:
+In file included from map/POI.h:22:
+In file included from /usr/include/qt4/QtGui/QFrame:1:
+In file included from /usr/include/qt4/QtGui/qframe.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/MeteotableOptionsDialog.o MeteotableOptionsDialog.cpp
+In file included from MeteotableOptionsDialog.cpp:19:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Orthodromie.o util/Orthodromie.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/POI.o map/POI.cpp
+In file included from map/POI.cpp:23:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/POI_Editor.o map/POI_Editor.cpp
+In file included from map/POI_Editor.cpp:23:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/PositionEditor.o map/PositionEditor.cpp
+In file included from map/PositionEditor.cpp:19:
+In file included from map/PositionEditor.h:23:
+In file included from /usr/include/qt4/QtGui/QToolBar:1:
+In file included from /usr/include/qt4/QtGui/qtoolbar.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Projection.o map/Projection.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Projection_libproj.o map/Projection_libproj.cpp
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Settings.o util/Settings.cpp
+In file included from util/Settings.cpp:21:
+In file included from /usr/include/qt4/QtGui/QMessageBox:1:
+In file included from /usr/include/qt4/QtGui/qmessagebox.h:45:
+In file included from /usr/include/qt4/QtGui/qdialog.h:45:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/SkewT.o SkewT.cpp
+In file included from SkewT.cpp:2:
+In file included from ./SkewT.h:8:
+In file included from ./Therm.h:6:
+In file included from /usr/include/qt4/QtGui/QWidget:1:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/SkewTWindow.o SkewTWindow.cpp
+In file included from SkewTWindow.cpp:2:
+In file included from ./SkewT.h:8:
+In file included from ./Therm.h:6:
+In file included from /usr/include/qt4/QtGui/QWidget:1:
+In file included from /usr/include/qt4/QtGui/qwidget.h:49:
+In file included from /usr/include/qt4/QtGui/qpalette.h:47:
+In file included from /usr/include/qt4/QtGui/qbrush.h:53:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+1 warning generated.
+g++ -c -m64 -pipe -O2 -D_REENTRANT -Wall -W -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtNetwork -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4 -I. -Iutil -Imap -IGUI -Ibzip2 -Izlib-1.2.3 -Iproj-4.6.0/src -Icurvedrawer -I/usr/include/qwt -Iobjs -IGUI -o objs/Terrain.o Terrain.cpp
+In file included from Terrain.cpp:25:
+In file included from /usr/include/qt4/QtGui/QPainter:1:
+In file included from /usr/include/qt4/QtGui/qpainter.h:49:
+In file included from /usr/include/qt4/QtGui/qpixmap.h:49:
+In file included from /usr/include/qt4/QtCore/qsharedpointer.h:50:
+/usr/include/qt4/QtCore/qsharedpointer_impl.h:595:43: warning: field 'd' is uninitialized when used here [-Wuninitialized]
+    inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
+                                          ^
+In file included from Terrain.cpp:28:
+In file included from ./Terrain.h:28:
+map/GisReader.h:80:15: warning: 'GisCity::draw' hides overloaded virtual function [-Woverloaded-virtual]
+        void  draw (QPainter *pnt, Projection *proj, int level);
+              ^
+map/GisReader.h:44:22: note: hidden overloaded virtual function 'GisPoint::draw' declared here
+        virtual void draw (QPainter *pnt, Projection *proj);
+                     ^
+Terrain.cpp:1035:41: error: parameter declarator cannot be qualified
+                QPen penLine(QColor(Qt::white));
+                                    ~~~~^
+Terrain.cpp:1035:29: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+                QPen penLine(QColor(Qt::white));
+                            ^~~~~~~~~~~~~~~~~~~
+Terrain.cpp:1035:30: note: add a pair of parentheses to declare a variable
+                QPen penLine(QColor(Qt::white));
+                             ^
+                             (                )
+Terrain.cpp:1036:24: error: member reference base type 'QPen (QColor)' is not a structure or union
+                penLine.setWidthF(1.6);
+                ~~~~~~~^~~~~~~~~~
+Terrain.cpp:1037:21: error: no matching member function for call to 'setPen'
+                pnt.setPen(penLine);
+                ~~~~^~~~~~
+/usr/include/qt4/QtGui/qpainter.h:186:10: note: candidate function not viable: no known conversion from 'QPen (QColor)' to 'const QColor' for 1st argument
+    void setPen(const QColor &color);
+         ^
+/usr/include/qt4/QtGui/qpainter.h:187:10: note: candidate function not viable: no known conversion from 'QPen (QColor)' to 'const QPen' for 1st argument
+    void setPen(const QPen &pen);
+         ^
+/usr/include/qt4/QtGui/qpainter.h:188:10: note: candidate function not viable: no known conversion from 'QPen (QColor)' to 'Qt::PenStyle' for 1st argument
+    void setPen(Qt::PenStyle style);
+         ^
+3 warnings and 3 errors generated.
+make[1]: *** [objs/Terrain.o] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»/src'
+make: *** [build/zygrib] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0455
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 45552
+Build-Time: 95
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 16
+Job: zygrib_6.0.2-1
+Package: zygrib
+Package-Time: 143
+Source-Version: 6.0.2-1
+Space: 45552
+Status: attempted
+Version: 6.0.2-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0455
+Build needed 00:02:23, 45552k disc space
+DC-Status: Failed 144.286864s

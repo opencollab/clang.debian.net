@@ -1,0 +1,951 @@
+DC-Build-Header: cbmc 4.2-6 / Mon Jan 28 04:23:10 +0000 2013
+DC-Task: logfile:/tmp/cbmc_4.2-6_unstable_clang.log version:4.2-6 chroot:unstable modes:binary-only:clang source:cbmc architecture:any esttime:613
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang cbmc_4.2-6'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-2-101.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ cbmc 4.2-6 (amd64)                                         28 Jan 2013 04:23 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: cbmc
+Version: 4.2-6
+Source Version: 4.2-6
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/cbmc-0rshXi/cbmc-4.2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/cbmc-0rshXi' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-0ee2a6f5-df27-4e6a-ae39-7d02d43787e8' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (4789 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 3407 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main cbmc 4.2-6 (dsc) [1061 B]
+Get:2 http://localhost/debian/ unstable/main cbmc 4.2-6 (tar) [3398 kB]
+Get:3 http://localhost/debian/ unstable/main cbmc 4.2-6 (diff) [7340 B]
+Fetched 3407 kB in 1s (2997 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1330 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (3979 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (34.1 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-4RNszv/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), minisat (>= 1:2.2.1-2), zlib1g-dev, flex, bison
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), minisat (>= 1:2.2.1-2), zlib1g-dev, flex, bison
+dpkg-deb: building package `sbuild-build-depends-cbmc-dummy' in `/«BUILDDIR»/resolver-oMY5hn/apt_archive/sbuild-build-depends-cbmc-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install cbmc build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bison bsdmainutils debhelper file flex gettext gettext-base groff-base
+  html2text intltool-debian libasprintf-dev libasprintf0c2 libbison-dev
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1 libpcre3
+  libpipeline1 libsigsegv2 libunistring0 libxml2 m4 man-db minisat po-debconf
+  zlib1g-dev
+Suggested packages:
+  bison-doc wamerican wordlist whois vacation dh-make gettext-doc groff less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bison bsdmainutils debhelper file flex gettext gettext-base groff-base
+  html2text intltool-debian libasprintf-dev libasprintf0c2 libbison-dev
+  libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1 libpcre3
+  libpipeline1 libsigsegv2 libunistring0 libxml2 m4 man-db minisat po-debconf
+  sbuild-build-depends-cbmc-dummy zlib1g-dev
+0 upgraded, 29 newly installed, 0 to remove and 0 not upgraded.
+Need to get 11.1 MB/11.1 MB of archives.
+After this operation, 30.3 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:10 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:11 http://localhost/debian/ unstable/main flex amd64 2.5.35-10.1 [332 kB]
+Get:12 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:13 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:14 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:15 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:16 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:17 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:18 http://localhost/debian/ unstable/main libbison-dev amd64 2:2.5.dfsg-3 [289 kB]
+Get:19 http://localhost/debian/ unstable/main bison amd64 2:2.5.dfsg-3 [688 kB]
+Get:20 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:21 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:22 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:23 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:24 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:25 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:26 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:27 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:28 http://localhost/debian/ unstable/main minisat amd64 1:2.2.1-3 [130 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 11.1 MB in 0s (17.8 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package flex.
+Unpacking flex (from .../flex_2.5.35-10.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libbison-dev:amd64.
+Unpacking libbison-dev:amd64 (from .../libbison-dev_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package bison.
+Unpacking bison (from .../bison_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package minisat.
+Unpacking minisat (from .../minisat_1%3a2.2.1-3_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-cbmc-dummy.
+Unpacking sbuild-build-depends-cbmc-dummy (from .../sbuild-build-depends-cbmc-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up flex (2.5.35-10.1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libbison-dev:amd64 (2:2.5.dfsg-3) ...
+Setting up bison (2:2.5.dfsg-3) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up minisat (1:2.2.1-3) ...
+Setting up sbuild-build-depends-cbmc-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bison_2:2.5.dfsg-3 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 flex_2.5.35-10.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libbison-dev_2:2.5.dfsg-3 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libitm1_4.8-20130127-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130127-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 minisat_1:2.2.1-3 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 readline-common_6.2+dfsg-0.1 sbuild-build-depends-cbmc-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Thu Sep 20 15:46:16 2012 UTC using DSA key ID 76D52AC4
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./cbmc_4.2-6.dsc
+dpkg-source: info: extracting cbmc in cbmc-4.2
+dpkg-source: info: unpacking cbmc_4.2.orig.tar.gz
+dpkg-source: info: unpacking cbmc_4.2-6.debian.tar.gz
+dpkg-source: info: applying top-makefile
+dpkg-source: info: applying minisat-debian
+dpkg-source: info: applying debian-changes-4.2-2
+dpkg-source: info: applying debian-changes-4.2-3
+dpkg-source: info: applying debian-changes-4.2-4
+dpkg-source: info: applying debian-changes-4.2-5
+dpkg-source: info: applying debian-changes-4.2-6
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-0ee2a6f5-df27-4e6a-ae39-7d02d43787e8
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package cbmc
+dpkg-buildpackage: source version 4.2-6
+dpkg-buildpackage: source changed by Michael Tautschnig <mt@debian.org>
+ dpkg-source --before-build cbmc-4.2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --parallel
+   dh_testdir -O--parallel
+   dh_auto_clean -O--parallel
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make -C src clean
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+if [ -e  ansi-c/. ] ; then \
+		make  -C  ansi-c clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/ansi-c'
+rm -f  c_typecast.o  y.tab.o  lex.yy.o  ansi_c_parser.o  expr2c.o  ansi_c_language.o  c_sizeof.o  c_types.o  trans_unit.o  ansi_c_typecheck.o  c_preprocess.o  c_typecheck_base.o  c_typecheck_initializer.o  c_typecheck_typecast.o  c_typecheck_code.o  c_typecheck_expr.o  c_typecheck_type.o  string_constant.o  c_qualifiers.o  c_typecheck_argc_argv.o  ansi_c_parse_tree.o  preprocessor_line.o  ansi_c_convert.o  ansi_c_convert_type.o  type2name.o  cprover_library.o  anonymous_member.o  printf_formatter.o  internal_additions.o  padding.o  ansi_c_declaration.o  designator.o  concatenate_strings.o  literals/parse_float.o  literals/unescape_string.o  literals/convert_float_literal.o  literals/convert_character_literal.o  literals/convert_integer_literal.o  literals/convert_string_literal.o \
+		 c_typecast.d  y.tab.d  lex.yy.d  ansi_c_parser.d  expr2c.d  ansi_c_language.d  c_sizeof.d  c_types.d  trans_unit.d  ansi_c_typecheck.d  c_preprocess.d  c_typecheck_base.d  c_typecheck_initializer.d  c_typecheck_typecast.d  c_typecheck_code.d  c_typecheck_expr.d  c_typecheck_type.d  string_constant.d  c_qualifiers.d  c_typecheck_argc_argv.d  ansi_c_parse_tree.d  preprocessor_line.d  ansi_c_convert.d  ansi_c_convert_type.d  type2name.d  cprover_library.d  anonymous_member.d  printf_formatter.d  internal_additions.d  padding.d  ansi_c_declaration.d  designator.d  concatenate_strings.d  literals/parse_float.d  literals/unescape_string.d  literals/convert_float_literal.d  literals/convert_character_literal.d  literals/convert_integer_literal.d  literals/convert_string_literal.d \
+		 \
+		 \
+		ansi-c.a y.tab.h y.tab.cpp lex.yy.cpp y.tab.cpp.output y.output library/converter cprover_library.inc file_converter gcc_builtin_headers_generic.inc gcc_builtin_headers_ia32.inc arm_builtin_headers.inc cw_builtin_headers.inc gcc_builtin_headers_arm.inc gcc_builtin_headers_alpha.inc gcc_builtin_headers_mips.inc gcc_builtin_headers_power.inc
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/ansi-c'
+if [ -e  big-int/. ] ; then \
+		make  -C  big-int clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/big-int'
+rm -f  \
+		 \
+		 bigint-test.o  bigint-func.o  bigint.o \
+		 bigint-test.d  bigint-func.d  bigint.d \
+		test-bigint
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/big-int'
+if [ -e  cbmc/. ] ; then \
+		make  -C  cbmc clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/cbmc'
+rm -f  main.o  parseoptions.o  bmc.o  dimacs.o  languages.o  bv_cbmc.o  symex_bmc.o  show_vcc.o  cbmc_solvers.o  xml_interface.o  cover.o  counterexample_beautification.o \
+		 main.d  parseoptions.d  bmc.d  dimacs.d  languages.d  bv_cbmc.d  symex_bmc.d  show_vcc.d  cbmc_solvers.d  xml_interface.d  cover.d  counterexample_beautification.d \
+		 \
+		 \
+		cbmc
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/cbmc'
+if [ -e  cpp/. ] ; then \
+		make  -C  cpp clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/cpp'
+rm -f  cpp_id.o  cpp_language.o  expr2cpp.o  cpp_parser.o  lex.yy.o  cpp_typecheck.o  cpp_convert_type.o  cpp_typecheck_expr.o  cpp_typecheck_code.o  cpp_typecheck_type.o  parse.o  cpp_parse_tree.o  cpp_token_buffer.o  cpp_typecheck_fargs.o  cpp_typecheck_resolve.o  cpp_util.o  cpp_typecheck_function.o  cpp_typecheck_namespace.o  cpp_name.o  cpp_is_pod.o  cpp_scope.o  cpp_typecheck_find_constructor.o  template_map.o  cpp_scopes.o  cpp_declarator.o  cpp_instantiate_template.o  internal_additions.o  cpp_type2name.o  cpp_typecheck_linkage_spec.o  cpp_typecheck_template.o  cpp_typecheck_function_bodies.o  cpp_typecheck_initializer.o  cpp_typecheck_compound_type.o  cpp_constructor.o  cpp_destructor.o  cpp_final.o  cpp_typecheck_conversions.o  cpp_typecheck_declaration.o  cpp_declarator_converter.o  cpp_declaration.o  cpp_namespace_spec.o  cpp_typecheck_using.o  cpp_exception_id.o  cpp_typecheck_enum_type.o  cpp_typecheck_bases.o  cpp_typecheck_constructor.o  cpp_typecheck_virtual_table.o \
+		 cpp_id.d  cpp_language.d  expr2cpp.d  cpp_parser.d  lex.yy.d  cpp_typecheck.d  cpp_convert_type.d  cpp_typecheck_expr.d  cpp_typecheck_code.d  cpp_typecheck_type.d  parse.d  cpp_parse_tree.d  cpp_token_buffer.d  cpp_typecheck_fargs.d  cpp_typecheck_resolve.d  cpp_util.d  cpp_typecheck_function.d  cpp_typecheck_namespace.d  cpp_name.d  cpp_is_pod.d  cpp_scope.d  cpp_typecheck_find_constructor.d  template_map.d  cpp_scopes.d  cpp_declarator.d  cpp_instantiate_template.d  internal_additions.d  cpp_type2name.d  cpp_typecheck_linkage_spec.d  cpp_typecheck_template.d  cpp_typecheck_function_bodies.d  cpp_typecheck_initializer.d  cpp_typecheck_compound_type.d  cpp_constructor.d  cpp_destructor.d  cpp_final.d  cpp_typecheck_conversions.d  cpp_typecheck_declaration.d  cpp_declarator_converter.d  cpp_declaration.d  cpp_namespace_spec.d  cpp_typecheck_using.d  cpp_exception_id.d  cpp_typecheck_enum_type.d  cpp_typecheck_bases.d  cpp_typecheck_constructor.d  cpp_typecheck_virtual_table.d \
+		 \
+		 \
+		cpp.a lex.yy.cpp y.tab.cpp.output
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/cpp'
+if [ -e  goto-cc/. ] ; then \
+		make  -C  goto-cc clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/goto-cc'
+rm -f  goto-cc.o  goto_cc_mode.o  gcc_mode.o  get_base_name.o  gcc_cmdline.o  ms_cl_cmdline.o  compile.o  armcc_cmdline.o  run.o  languages.o  goto_cc_cmdline.o  ms_cl_mode.o  armcc_mode.o  cw_mode.o \
+		 goto-cc.d  goto_cc_mode.d  gcc_mode.d  get_base_name.d  gcc_cmdline.d  ms_cl_cmdline.d  compile.d  armcc_cmdline.d  run.d  languages.d  goto_cc_cmdline.d  ms_cl_mode.d  armcc_mode.d  cw_mode.d \
+		 \
+		 \
+		goto-cc
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/goto-cc'
+if [ -e  goto-instrument/. ] ; then \
+		make  -C  goto-instrument clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/goto-instrument'
+rm -f  main.o  parseoptions.o  document_claims.o  languages.o  uninitialized.o  uninitialized_domain.o  full_slicer.o  object_id.o  show_locations.o  points_to.o  alignment_checks.o  race_check.o  rw_set.o  weak_memory.o  nondet_volatile.o  interrupt.o  mmio.o  stack_depth.o  nondet_static.o  cfg_dominators.o  natural_loops.o \
+		 main.d  parseoptions.d  document_claims.d  languages.d  uninitialized.d  uninitialized_domain.d  full_slicer.d  object_id.d  show_locations.d  points_to.d  alignment_checks.d  race_check.d  rw_set.d  weak_memory.d  nondet_volatile.d  interrupt.d  mmio.d  stack_depth.d  nondet_static.d  cfg_dominators.d  natural_loops.d \
+		 \
+		 \
+		goto-instrument
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/goto-instrument'
+if [ -e  goto-programs/. ] ; then \
+		make  -C  goto-programs clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/goto-programs'
+rm -f  goto_convert.o  goto_function.o  goto_main.o  goto_sideeffects.o  goto_program.o  basic_blocks.o  goto_check.o  remove_function_pointers.o  goto_functions.o  goto_inline.o  remove_skip.o  goto_convert_functions.o  string_instrumentation.o  builtin_functions.o  show_claims.o  destructor.o  set_claims.o  reachability_slicer.o  invariant_set.o  invariant_propagation.o  read_goto_binary.o  goto_asm.o  elf_reader.o  invariant_set_domain.o  static_analysis.o  string_abstraction.o  goto_program_serialization.o  goto_function_serialization.o  read_bin_goto_object.o  goto_program_irep.o  interpreter.o  interpreter_evaluate.o  flow_insensitive_analysis.o  format_strings.o  loop_numbers.o  pointer_arithmetic.o  goto_program_template.o  write_goto_binary.o  remove_unreachable.o  remove_unused_functions.o  dynamic_memory.o  dump_c.o  wp.o  goto_rw.o  goto_clean_expr.o  safety_checker.o  compute_called_functions.o  link_to_library.o \
+		 goto_convert.d  goto_function.d  goto_main.d  goto_sideeffects.d  goto_program.d  basic_blocks.d  goto_check.d  remove_function_pointers.d  goto_functions.d  goto_inline.d  remove_skip.d  goto_convert_functions.d  string_instrumentation.d  builtin_functions.d  show_claims.d  destructor.d  set_claims.d  reachability_slicer.d  invariant_set.d  invariant_propagation.d  read_goto_binary.d  goto_asm.d  elf_reader.d  invariant_set_domain.d  static_analysis.d  string_abstraction.d  goto_program_serialization.d  goto_function_serialization.d  read_bin_goto_object.d  goto_program_irep.d  interpreter.d  interpreter_evaluate.d  flow_insensitive_analysis.d  format_strings.d  loop_numbers.d  pointer_arithmetic.d  goto_program_template.d  write_goto_binary.d  remove_unreachable.d  remove_unused_functions.d  dynamic_memory.d  dump_c.d  wp.d  goto_rw.d  goto_clean_expr.d  safety_checker.d  compute_called_functions.d  link_to_library.d \
+		 \
+		 \
+		goto-programs.a test_wp
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/goto-programs'
+if [ -e  floatbv/. ] ; then \
+		make  -C  floatbv clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/floatbv'
+rm -f  float_utils.o \
+		 float_utils.d \
+		 \
+		 \
+		floatbv.a float_utils_test
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/floatbv'
+if [ -e  goto-symex/. ] ; then \
+		make  -C  goto-symex clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/goto-symex'
+rm -f  symex_target.o  symex_target_equation.o  basic_symex.o  symex_main.o  goto_trace.o  build_goto_trace.o  symex_function_call.o  goto_symex_state.o  symex_dereference.o  symex_goto.o  builtin_functions.o  slice.o  symex_other.o  slice_by_trace.o  xml_goto_trace.o  symex_decl.o  precondition.o  postcondition.o  symex_clean_expr.o  symex_dereference_state.o  vcd_goto_trace.o  auto_objects.o  symex_catch.o  symex_start_thread.o  symex_assign.o \
+		 symex_target.d  symex_target_equation.d  basic_symex.d  symex_main.d  goto_trace.d  build_goto_trace.d  symex_function_call.d  goto_symex_state.d  symex_dereference.d  symex_goto.d  builtin_functions.d  slice.d  symex_other.d  slice_by_trace.d  xml_goto_trace.d  symex_decl.d  precondition.d  postcondition.d  symex_clean_expr.d  symex_dereference_state.d  vcd_goto_trace.d  auto_objects.d  symex_catch.d  symex_start_thread.d  symex_assign.d \
+		 \
+		 \
+		goto-symex.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/goto-symex'
+if [ -e  langapi/. ] ; then \
+		make  -C  langapi clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/langapi'
+rm -f  mode.o  language_ui.o  languages.o  language_util.o \
+		 mode.d  language_ui.d  languages.d  language_util.d \
+		 \
+		 \
+		langapi.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/langapi'
+if [ -e  pointer-analysis/. ] ; then \
+		make  -C  pointer-analysis clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/pointer-analysis'
+rm -f  value_set.o  goto_program_dereference.o  value_set_analysis.o  dereference.o  pointer_offset_sum.o  add_failed_symbols.o  show_value_sets.o  value_set_domain.o  rewrite_index.o  value_set_analysis_fi.o  value_set_fi.o  value_set_domain_fi.o  value_set_analysis_fivr.o  value_set_fivr.o  value_set_domain_fivr.o  value_set_analysis_fivrns.o  value_set_fivrns.o  value_set_domain_fivrns.o \
+		 value_set.d  goto_program_dereference.d  value_set_analysis.d  dereference.d  pointer_offset_sum.d  add_failed_symbols.d  show_value_sets.d  value_set_domain.d  rewrite_index.d  value_set_analysis_fi.d  value_set_fi.d  value_set_domain_fi.d  value_set_analysis_fivr.d  value_set_fivr.d  value_set_domain_fivr.d  value_set_analysis_fivrns.d  value_set_fivrns.d  value_set_domain_fivrns.d \
+		 \
+		 \
+		pointer-analysis.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/pointer-analysis'
+if [ -e  solvers/. ] ; then \
+		make  -C  solvers clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/solvers'
+rm -f  sat/satcheck_minisat2.o  sat/cnf.o  sat/dimacs_cnf.o  sat/cnf_clause_list.o  sat/pbs_dimacs_cnf.o  sat/read_dimacs_cnf.o  sat/resolution_proof.o  sat/satcheck.o  qbf/qdimacs_cnf.o  qbf/qbf_quantor.o  qbf/qbf_skizzo.o  qbf/qdimacs_core.o  qbf/qbf_qube.o  qbf/qbf_qube_core.o  prop/prop.o  prop/prop_conv.o  prop/prop_conv_store.o  prop/aig_formula.o  prop/cover_goals.o  prop/aig.o  prop/aig_prop.o  prop/minimize.o  cvc/cvc_prop.o  cvc/cvc_conv.o  cvc/cvc_dec.o  smt1/smt1_dec.o  smt1/smt1_prop.o  smt1/smt1_conv.o  smt2/smt2_dec.o  smt2/smt2_prop.o  smt2/smt2_conv.o  dplib/dplib_conv.o  dplib/dplib_dec.o  dplib/dplib_prop.o  flattening/equality.o  flattening/arrays.o  flattening/functions.o  flattening/bv_minimize.o  flattening/boolbv_width.o  flattening/boolbv.o  flattening/boolbv_constraint_select_one.o  flattening/bv_pointers.o  flattening/bv_utils.o  flattening/boolbv_abs.o  flattening/boolbv_with.o  flattening/boolbv_typecast.o  flattening/boolbv_index.o  flattening/boolbv_member.o  flattening/boolbv_if.o  flattening/boolbv_byte_extract.o  flattening/boolbv_add_sub.o  flattening/boolbv_mult.o  flattening/boolbv_constant.o  flattening/boolbv_extractbit.o  flattening/boolbv_bv_rel.o  flattening/boolbv_shift.o  flattening/boolbv_case.o  flattening/boolbv_cond.o  flattening/boolbv_concatenation.o  flattening/boolbv_div.o  flattening/boolbv_mod.o  flattening/boolbv_extractbits.o  flattening/boolbv_replication.o  flattening/boolbv_reduction.o  flattening/boolbv_overflow.o  flattening/boolbv_get.o  flattening/boolbv_bitwise.o  flattening/boolbv_equality.o  flattening/boolbv_unary_minus.o  flattening/boolbv_ieee_float_rel.o  flattening/pointer_logic.o  flattening/boolbv_quantifier.o  flattening/boolbv_struct.o  flattening/boolbv_byte_update.o  flattening/boolbv_array_of.o  flattening/boolbv_map.o  flattening/boolbv_type.o  flattening/boolbv_array.o  flattening/boolbv_vector.o  flattening/boolbv_complex.o  flattening/boolbv_union.o  flattening/flatten_byte_operators.o \
+		 sat/satcheck_minisat2.d  sat/cnf.d  sat/dimacs_cnf.d  sat/cnf_clause_list.d  sat/pbs_dimacs_cnf.d  sat/read_dimacs_cnf.d  sat/resolution_proof.d  sat/satcheck.d  qbf/qdimacs_cnf.d  qbf/qbf_quantor.d  qbf/qbf_skizzo.d  qbf/qdimacs_core.d  qbf/qbf_qube.d  qbf/qbf_qube_core.d  prop/prop.d  prop/prop_conv.d  prop/prop_conv_store.d  prop/aig_formula.d  prop/cover_goals.d  prop/aig.d  prop/aig_prop.d  prop/minimize.d  cvc/cvc_prop.d  cvc/cvc_conv.d  cvc/cvc_dec.d  smt1/smt1_dec.d  smt1/smt1_prop.d  smt1/smt1_conv.d  smt2/smt2_dec.d  smt2/smt2_prop.d  smt2/smt2_conv.d  dplib/dplib_conv.d  dplib/dplib_dec.d  dplib/dplib_prop.d  flattening/equality.d  flattening/arrays.d  flattening/functions.d  flattening/bv_minimize.d  flattening/boolbv_width.d  flattening/boolbv.d  flattening/boolbv_constraint_select_one.d  flattening/bv_pointers.d  flattening/bv_utils.d  flattening/boolbv_abs.d  flattening/boolbv_with.d  flattening/boolbv_typecast.d  flattening/boolbv_index.d  flattening/boolbv_member.d  flattening/boolbv_if.d  flattening/boolbv_byte_extract.d  flattening/boolbv_add_sub.d  flattening/boolbv_mult.d  flattening/boolbv_constant.d  flattening/boolbv_extractbit.d  flattening/boolbv_bv_rel.d  flattening/boolbv_shift.d  flattening/boolbv_case.d  flattening/boolbv_cond.d  flattening/boolbv_concatenation.d  flattening/boolbv_div.d  flattening/boolbv_mod.d  flattening/boolbv_extractbits.d  flattening/boolbv_replication.d  flattening/boolbv_reduction.d  flattening/boolbv_overflow.d  flattening/boolbv_get.d  flattening/boolbv_bitwise.d  flattening/boolbv_equality.d  flattening/boolbv_unary_minus.d  flattening/boolbv_ieee_float_rel.d  flattening/pointer_logic.d  flattening/boolbv_quantifier.d  flattening/boolbv_struct.d  flattening/boolbv_byte_update.d  flattening/boolbv_array_of.d  flattening/boolbv_map.d  flattening/boolbv_type.d  flattening/boolbv_array.d  flattening/boolbv_vector.d  flattening/boolbv_complex.d  flattening/boolbv_union.d  flattening/flatten_byte_operators.d \
+		 \
+		 \
+		solvers.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/solvers'
+if [ -e  util/. ] ; then \
+		make  -C  util clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/util'
+rm -f  arith_tools.o  base_type.o  cmdline.o  config.o  context.o  expr.o  expr_util.o  i2string.o  irep.o  language.o  lispexpr.o  lispirep.o  location.o  message.o  language_file.o  mp_arith.o  namespace.o  parseoptions.o  rename.o  replace_expr.o  threeval.o  typecheck.o  graph.o  type.o  cnf_simplify.o  bitvector.o  parser.o  map_util.o  replace_symbol.o  actuals.o  get_module.o  string_hash.o  string_container.o  identifier.o  rational.o  options.o  c_misc.o  simplify_expr.o  dstring.o  find_symbols.o  rational_tools.o  ui_message.o  simplify_utils.o  time_stopping.o  symbol.o  irep_hash_container.o  cout_message.o  type_eq.o  guard.o  array_name.o  gcd.o  message_stream.o  substitute.o  decision_procedure.o  union_find.o  pretty_names.o  xml.o  xml_irep.o  xml_expr.o  std_types.o  std_code.o  format_constant.o  find_macros.o  ref_expr_set.o  std_expr.o  irep_serialization.o  symbol_serialization.o  fixedbv.o  ieee_float.o  signal_catcher.o  pointer_offset_size.o  bv_arithmetic.o  tempdir.o  tempfile.o  timer.o  unicode.o  irep_ids.o  byte_operators.o  string2int.o  file_util.o \
+		 arith_tools.d  base_type.d  cmdline.d  config.d  context.d  expr.d  expr_util.d  i2string.d  irep.d  language.d  lispexpr.d  lispirep.d  location.d  message.d  language_file.d  mp_arith.d  namespace.d  parseoptions.d  rename.d  replace_expr.d  threeval.d  typecheck.d  graph.d  type.d  cnf_simplify.d  bitvector.d  parser.d  map_util.d  replace_symbol.d  actuals.d  get_module.d  string_hash.d  string_container.d  identifier.d  rational.d  options.d  c_misc.d  simplify_expr.d  dstring.d  find_symbols.d  rational_tools.d  ui_message.d  simplify_utils.d  time_stopping.d  symbol.d  irep_hash_container.d  cout_message.d  type_eq.d  guard.d  array_name.d  gcd.d  message_stream.d  substitute.d  decision_procedure.d  union_find.d  pretty_names.d  xml.d  xml_irep.d  xml_expr.d  std_types.d  std_code.d  format_constant.d  find_macros.d  ref_expr_set.d  std_expr.d  irep_serialization.d  symbol_serialization.d  fixedbv.d  ieee_float.d  signal_catcher.d  pointer_offset_size.d  bv_arithmetic.d  tempdir.d  tempfile.d  timer.d  unicode.d  irep_ids.d  byte_operators.d  string2int.d  file_util.d \
+		 \
+		 \
+		util.a irep_ids.h irep_ids.inc ieee_float_test ieee_float_test.o ieee_float_test.d irep_ids_convert irep_ids_convert.o irep_ids_convert.d
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/util'
+if [ -e  linking/. ] ; then \
+		make  -C  linking clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/linking'
+rm -f  linking.o  linking_type_eq.o  zero_initializer.o  remove_internal_symbols.o  entry_point.o \
+		 linking.d  linking_type_eq.d  zero_initializer.d  remove_internal_symbols.d  entry_point.d \
+		 \
+		 \
+		linking.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/linking'
+if [ -e  xmllang/. ] ; then \
+		make  -C  xmllang clean ; \
+	fi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/xmllang'
+rm -f  xml_language.o  xml_parser.o  y.tab.o  lex.yy.o  xml_typecheck.o  xml_parse_tree.o \
+		 xml_language.d  xml_parser.d  y.tab.d  lex.yy.d  xml_typecheck.d  xml_parse_tree.d \
+		 \
+		 \
+		xmllang.a y.tab.h y.tab.cpp lex.yy.cpp y.tab.cpp.output y.output
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/xmllang'
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+rm -f regression/*/tests.log
+rm -f regression/*/*/*.out
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_clean -O--parallel
+ debian/rules build-arch
+dh build-arch --parallel
+   dh_testdir -a -O--parallel
+   dh_auto_configure -a -O--parallel
+   dh_auto_build -a -O--parallel
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make -C src
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+## Entering big-int
+make  -C big-int
+make[3]: Entering directory `/«PKGBUILDDIR»/src/big-int'
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic  -o bigint-test.o bigint-test.cc
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic  -o bigint-func.o bigint-func.cc
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic  -o bigint.o bigint.cc
+g++  -o test-bigint bigint-test.o bigint-func.o bigint.o 
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/big-int'
+## Entering util
+make  -C util
+make[3]: Entering directory `/«PKGBUILDDIR»/src/util'
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o irep_ids_convert.o irep_ids_convert.cpp
+g++  -o irep_ids_convert irep_ids_convert.o ../big-int/bigint.o
+./irep_ids_convert header < irep_ids.txt > irep_ids.h
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o arith_tools.o arith_tools.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o base_type.o base_type.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o cmdline.o cmdline.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o config.o config.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o context.o context.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o expr.o expr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o expr_util.o expr_util.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o i2string.o i2string.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o irep.o irep.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o language.o language.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o lispexpr.o lispexpr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o lispirep.o lispirep.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o location.o location.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o message.o message.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o language_file.o language_file.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o mp_arith.o mp_arith.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o namespace.o namespace.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o parseoptions.o parseoptions.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o rename.o rename.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o replace_expr.o replace_expr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o threeval.o threeval.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o typecheck.o typecheck.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o graph.o graph.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o type.o type.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o cnf_simplify.o cnf_simplify.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o bitvector.o bitvector.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o parser.o parser.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o map_util.o map_util.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o replace_symbol.o replace_symbol.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o actuals.o actuals.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o get_module.o get_module.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o string_hash.o string_hash.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o string_container.o string_container.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o identifier.o identifier.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o rational.o rational.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o options.o options.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o c_misc.o c_misc.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o simplify_expr.o simplify_expr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o dstring.o dstring.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o find_symbols.o find_symbols.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o rational_tools.o rational_tools.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o ui_message.o ui_message.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o simplify_utils.o simplify_utils.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o time_stopping.o time_stopping.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o symbol.o symbol.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o irep_hash_container.o irep_hash_container.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o cout_message.o cout_message.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o type_eq.o type_eq.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o guard.o guard.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o array_name.o array_name.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o gcd.o gcd.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o message_stream.o message_stream.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o substitute.o substitute.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o decision_procedure.o decision_procedure.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o union_find.o union_find.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o pretty_names.o pretty_names.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o xml.o xml.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o xml_irep.o xml_irep.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o xml_expr.o xml_expr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o std_types.o std_types.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o std_code.o std_code.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o format_constant.o format_constant.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o find_macros.o find_macros.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o ref_expr_set.o ref_expr_set.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o std_expr.o std_expr.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o irep_serialization.o irep_serialization.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o symbol_serialization.o symbol_serialization.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o fixedbv.o fixedbv.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o ieee_float.o ieee_float.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o signal_catcher.o signal_catcher.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o pointer_offset_size.o pointer_offset_size.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o bv_arithmetic.o bv_arithmetic.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o tempdir.o tempdir.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o tempfile.o tempfile.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o timer.o timer.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o unicode.o unicode.cpp
+./irep_ids_convert table < irep_ids.txt > irep_ids.inc
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o irep_ids.o irep_ids.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o byte_operators.o byte_operators.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o string2int.o string2int.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o file_util.o file_util.cpp
+ld -r -o util.a arith_tools.o base_type.o cmdline.o config.o context.o expr.o expr_util.o i2string.o irep.o language.o lispexpr.o lispirep.o location.o message.o language_file.o mp_arith.o namespace.o parseoptions.o rename.o replace_expr.o threeval.o typecheck.o graph.o type.o cnf_simplify.o bitvector.o parser.o map_util.o replace_symbol.o actuals.o get_module.o string_hash.o string_container.o identifier.o rational.o options.o c_misc.o simplify_expr.o dstring.o find_symbols.o rational_tools.o ui_message.o simplify_utils.o time_stopping.o symbol.o irep_hash_container.o cout_message.o type_eq.o guard.o array_name.o gcd.o message_stream.o substitute.o decision_procedure.o union_find.o pretty_names.o xml.o xml_irep.o xml_expr.o std_types.o std_code.o format_constant.o find_macros.o ref_expr_set.o std_expr.o irep_serialization.o symbol_serialization.o fixedbv.o ieee_float.o signal_catcher.o pointer_offset_size.o bv_arithmetic.o tempdir.o tempfile.o timer.o unicode.o irep_ids.o byte_operators.o string2int.o file_util.o
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I . -DHAVE_FLOATBV -o ieee_float_test.o ieee_float_test.cpp
+g++  -o ieee_float_test ieee_float_test.o util.a ../big-int/bigint.o
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/util'
+## Entering langapi
+make  -C langapi
+make[3]: Entering directory `/«PKGBUILDDIR»/src/langapi'
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o mode.o mode.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o language_ui.o language_ui.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o languages.o languages.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o language_util.o language_util.cpp
+ld -r -o langapi.a mode.o language_ui.o languages.o language_util.o
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/langapi'
+## Entering cpp
+make  -C cpp
+make[3]: Entering directory `/«PKGBUILDDIR»/src/cpp'
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o cpp_id.o cpp_id.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o cpp_language.o cpp_language.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o expr2cpp.o expr2cpp.cpp
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o cpp_parser.o cpp_parser.cpp
+flex -Pyycpp -olex.yy.cpp scanner.l
+g++ -c -MMD -MP -DSTL_HASH_TR1 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -O2 -g -Werror -Wno-long-long -Wno-sign-compare -Wno-parentheses -Wno-strict-aliasing -pedantic -I .. -I ../util -o lex.yy.o lex.yy.cpp
+lex.yy.cpp:3282:16: error: function 'yyinput' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
+    static int yyinput (void)
+               ^
+1 error generated.
+make[3]: *** [lex.yy.o] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/cpp'
+make[2]: *** [cpp.dir] Error 2
+make[1]: *** [all] Error 2
+dh_auto_build: make -j1 returned exit code 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0424
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 83980
+Build-Time: 48
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 7
+Job: cbmc_4.2-6
+Package: cbmc
+Package-Time: 85
+Source-Version: 4.2-6
+Space: 83980
+Status: attempted
+Version: 4.2-6
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0424
+Build needed 00:01:25, 83980k disc space
+DC-Status: Failed 86.101491s
+DC-Time-Estimation: 86.101491 versus expected 613 (r/m: 6.11950505015064 ; m: 86.101491)

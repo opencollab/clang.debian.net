@@ -1,0 +1,2233 @@
+DC-Build-Header: gcc-mingw-w64 8 / Mon Jan 28 04:19:55 +0000 2013
+DC-Task: logfile:/tmp/gcc-mingw-w64_8_unstable_clang.log version:8 chroot:unstable modes:binary-only:clang source:gcc-mingw-w64 architecture:any esttime:4051
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang gcc-mingw-w64_8'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-134-116.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ gcc-mingw-w64 8 (amd64)                                    28 Jan 2013 04:19 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: gcc-mingw-w64
+Version: 8
+Source Version: 8
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/gcc-mingw-w64-MEJ6py/gcc-mingw-w64-8' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/gcc-mingw-w64-MEJ6py' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-1649d1af-f564-4fba-beae-8b5d8ff251c0' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (4735 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'gcc-mingw-w64' packaging is maintained in the 'Git' version control system at:
+git://git.debian.org/collab-maint/gcc-mingw-w64.git
+Need to get 28.4 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main gcc-mingw-w64 8 (dsc) [2975 B]
+Get:2 http://localhost/debian/ unstable/main gcc-mingw-w64 8 (tar) [25.4 kB]
+Fetched 28.4 kB in 0s (206 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1333 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (3990 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (34.2 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-IT8tsv/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), autotools-dev, binutils-mingw-w64 (>= 2.21.51.20110523), debhelper (>= 7.0.50~), gcc-4.6 (>= 4.6.2-2), gcc-4.6-source (>= 4.6.2-2), gnat-4.6, libcloog-ppl-dev, libelf-dev, libgmp-dev, libmpc-dev (>= 0.8.0), libmpfr-dev (>= 2.3.2), lsb-release, mingw-w64-dev (>= 1.0), xz-utils, zlib1g-dev
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), autotools-dev, binutils-mingw-w64 (>= 2.21.51.20110523), debhelper (>= 7.0.50~), gcc-4.6 (>= 4.6.2-2), gcc-4.6-source (>= 4.6.2-2), gnat-4.6, libcloog-ppl-dev, libelf-dev, libgmp-dev, libmpc-dev (>= 0.8.0), libmpfr-dev (>= 2.3.2), lsb-release, mingw-w64-dev (>= 1.0), xz-utils, zlib1g-dev
+dpkg-deb: building package `sbuild-build-depends-gcc-mingw-w64-dummy' in `/«BUILDDIR»/resolver-0A58RC/apt_archive/sbuild-build-depends-gcc-mingw-w64-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install gcc-mingw-w64 build dependencies (apt-based resolver)                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autoconf autoconf2.64 automake autotools-dev binutils-mingw-w64
+  binutils-mingw-w64-i686 binutils-mingw-w64-x86-64 bsdmainutils debhelper
+  diffstat file gawk gcc-4.6-source gettext gettext-base gnat-4.6
+  gnat-4.6-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcloog-ppl-dev libcloog-ppl0 libcroco3 libelf-dev libelf1
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgmp-dev libgmpxx4ldbl
+  libgnat-4.6 libgnatprj4.6 libgnatvsn4.6 libmagic1 libmpc-dev libmpfr-dev
+  libpcre3 libpipeline1 libppl-c4 libppl0.11-dev libppl9 libpwl5 libsigsegv2
+  libunistring0 libxml2 lsb-release m4 man-db mingw-w64-dev mingw-w64-i686-dev
+  mingw-w64-x86-64-dev patchutils po-debconf quilt zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool wamerican
+  wordlist whois vacation dh-make gawk-doc gettext-doc gnat-4.6-doc
+  ada-reference-manual-html ada-reference-manual-info ada-reference-manual-pdf
+  ada-reference-manual-text gnat-4.6-sjlj groff libgmp10-doc libmpfr-doc
+  libppl-doc lsb less www-browser libmail-box-perl procmail graphviz
+  default-mta mail-transport-agent
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info libgmp3-dev
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf autoconf2.64 automake autotools-dev binutils-mingw-w64
+  binutils-mingw-w64-i686 binutils-mingw-w64-x86-64 bsdmainutils debhelper
+  diffstat file gawk gcc-4.6-source gettext gettext-base gnat-4.6
+  gnat-4.6-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcloog-ppl-dev libcloog-ppl0 libcroco3 libelf-dev libelf1
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgmp-dev libgmpxx4ldbl
+  libgnat-4.6 libgnatprj4.6 libgnatvsn4.6 libmagic1 libmpc-dev libmpfr-dev
+  libpcre3 libpipeline1 libppl-c4 libppl0.11-dev libppl9 libpwl5 libsigsegv2
+  libunistring0 libxml2 lsb-release m4 man-db mingw-w64-dev mingw-w64-i686-dev
+  mingw-w64-x86-64-dev patchutils po-debconf quilt
+  sbuild-build-depends-gcc-mingw-w64-dummy zlib1g-dev
+0 upgraded, 58 newly installed, 0 to remove and 0 not upgraded.
+Need to get 123 MB/123 MB of archives.
+After this operation, 377 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main gnat-4.6-base amd64 4.6.3-8 [151 kB]
+Get:10 http://localhost/debian/ unstable/main libgnat-4.6 amd64 4.6.3-8 [1189 kB]
+Get:11 http://localhost/debian/ unstable/main libgnatvsn4.6 amd64 4.6.3-8 [350 kB]
+Get:12 http://localhost/debian/ unstable/main libgnatprj4.6 amd64 4.6.3-8 [607 kB]
+Get:13 http://localhost/debian/ unstable/main gnat-4.6 amd64 4.6.3-8 [11.7 MB]
+Get:14 http://localhost/debian/ unstable/main libgmpxx4ldbl amd64 2:5.0.5+dfsg-2 [21.6 kB]
+Get:15 http://localhost/debian/ unstable/main libppl9 amd64 0.11.2-8 [540 kB]
+Get:16 http://localhost/debian/ unstable/main libpwl5 amd64 0.11.2-8 [30.5 kB]
+Get:17 http://localhost/debian/ unstable/main libppl-c4 amd64 0.11.2-8 [1516 kB]
+Get:18 http://localhost/debian/ unstable/main libcloog-ppl0 amd64 0.15.11-5 [64.2 kB]
+Get:19 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:20 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:21 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:22 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:23 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:24 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:25 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:26 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:27 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:28 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:29 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:30 http://localhost/debian/ unstable/main automake all 1:1.11.6-1 [607 kB]
+Get:31 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:32 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:33 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:34 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:35 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:36 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:37 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:38 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:39 http://localhost/debian/ unstable/main gawk amd64 1:4.0.1+dfsg-2 [972 kB]
+Get:40 http://localhost/debian/ unstable/main autoconf2.64 all 2.64-3 [522 kB]
+Get:41 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+Get:42 http://localhost/debian/ unstable/main patchutils amd64 0.3.2-1.1 [110 kB]
+Get:43 http://localhost/debian/ unstable/main gcc-4.6-source all 4.6.3-15 [58.2 MB]
+Get:44 http://localhost/debian/ unstable/main libppl0.11-dev amd64 0.11.2-8 [3586 kB]
+Get:45 http://localhost/debian/ unstable/main libgmp-dev amd64 2:5.0.5+dfsg-2 [610 kB]
+Get:46 http://localhost/debian/ unstable/main libcloog-ppl-dev amd64 0.15.11-5 [106 kB]
+Get:47 http://localhost/debian/ unstable/main libelf-dev amd64 0.153-2 [76.5 kB]
+Get:48 http://localhost/debian/ unstable/main libmpfr-dev amd64 3.1.0-5 [602 kB]
+Get:49 http://localhost/debian/ unstable/main lsb-release all 4.1+Debian9 [25.9 kB]
+Get:50 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:51 http://localhost/debian/ unstable/main binutils-mingw-w64-i686 amd64 2.22-7+2 [6714 kB]
+Get:52 http://localhost/debian/ unstable/main binutils-mingw-w64-x86-64 amd64 2.22-7+2 [7611 kB]
+Get:53 http://localhost/debian/ unstable/main binutils-mingw-w64 all 2.22-7+2 [125 kB]
+Get:54 http://localhost/debian/ unstable/main libmpc-dev amd64 0.9-4 [53.1 kB]
+Get:55 http://localhost/debian/ unstable/main mingw-w64-i686-dev all 2.0.3-1 [7209 kB]
+Get:56 http://localhost/debian/ unstable/main mingw-w64-x86-64-dev all 2.0.3-1 [9066 kB]
+Get:57 http://localhost/debian/ unstable/main mingw-w64-dev all 2.0.3-1 [6996 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 123 MB in 9s (12.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package gnat-4.6-base.
+Unpacking gnat-4.6-base (from .../gnat-4.6-base_4.6.3-8_amd64.deb) ...
+Selecting previously unselected package libgnat-4.6:amd64.
+Unpacking libgnat-4.6:amd64 (from .../libgnat-4.6_4.6.3-8_amd64.deb) ...
+Selecting previously unselected package libgnatvsn4.6:amd64.
+Unpacking libgnatvsn4.6:amd64 (from .../libgnatvsn4.6_4.6.3-8_amd64.deb) ...
+Selecting previously unselected package libgnatprj4.6:amd64.
+Unpacking libgnatprj4.6:amd64 (from .../libgnatprj4.6_4.6.3-8_amd64.deb) ...
+Selecting previously unselected package gnat-4.6.
+Unpacking gnat-4.6 (from .../gnat-4.6_4.6.3-8_amd64.deb) ...
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+Unpacking libgmpxx4ldbl:amd64 (from .../libgmpxx4ldbl_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libppl9:amd64.
+Unpacking libppl9:amd64 (from .../libppl9_0.11.2-8_amd64.deb) ...
+Selecting previously unselected package libpwl5:amd64.
+Unpacking libpwl5:amd64 (from .../libpwl5_0.11.2-8_amd64.deb) ...
+Selecting previously unselected package libppl-c4:amd64.
+Unpacking libppl-c4:amd64 (from .../libppl-c4_0.11.2-8_amd64.deb) ...
+Selecting previously unselected package libcloog-ppl0:amd64.
+Unpacking libcloog-ppl0:amd64 (from .../libcloog-ppl0_0.15.11-5_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.6-1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package gawk.
+Unpacking gawk (from .../gawk_1%3a4.0.1+dfsg-2_amd64.deb) ...
+Selecting previously unselected package autoconf2.64.
+Unpacking autoconf2.64 (from .../autoconf2.64_2.64-3_all.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package patchutils.
+Unpacking patchutils (from .../patchutils_0.3.2-1.1_amd64.deb) ...
+Selecting previously unselected package gcc-4.6-source.
+Unpacking gcc-4.6-source (from .../gcc-4.6-source_4.6.3-15_all.deb) ...
+Selecting previously unselected package libppl0.11-dev:amd64.
+Unpacking libppl0.11-dev:amd64 (from .../libppl0.11-dev_0.11.2-8_amd64.deb) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Unpacking libgmp-dev:amd64 (from .../libgmp-dev_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libcloog-ppl-dev:amd64.
+Unpacking libcloog-ppl-dev:amd64 (from .../libcloog-ppl-dev_0.15.11-5_amd64.deb) ...
+Selecting previously unselected package libelf-dev:amd64.
+Unpacking libelf-dev:amd64 (from .../libelf-dev_0.153-2_amd64.deb) ...
+Selecting previously unselected package libmpfr-dev:amd64.
+Unpacking libmpfr-dev:amd64 (from .../libmpfr-dev_3.1.0-5_amd64.deb) ...
+Selecting previously unselected package lsb-release.
+Unpacking lsb-release (from .../lsb-release_4.1+Debian9_all.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package binutils-mingw-w64-i686.
+Unpacking binutils-mingw-w64-i686 (from .../binutils-mingw-w64-i686_2.22-7+2_amd64.deb) ...
+Selecting previously unselected package binutils-mingw-w64-x86-64.
+Unpacking binutils-mingw-w64-x86-64 (from .../binutils-mingw-w64-x86-64_2.22-7+2_amd64.deb) ...
+Selecting previously unselected package binutils-mingw-w64.
+Unpacking binutils-mingw-w64 (from .../binutils-mingw-w64_2.22-7+2_all.deb) ...
+Selecting previously unselected package libmpc-dev:amd64.
+Unpacking libmpc-dev:amd64 (from .../libmpc-dev_0.9-4_amd64.deb) ...
+Selecting previously unselected package mingw-w64-i686-dev.
+Unpacking mingw-w64-i686-dev (from .../mingw-w64-i686-dev_2.0.3-1_all.deb) ...
+Selecting previously unselected package mingw-w64-x86-64-dev.
+Unpacking mingw-w64-x86-64-dev (from .../mingw-w64-x86-64-dev_2.0.3-1_all.deb) ...
+Selecting previously unselected package mingw-w64-dev.
+Unpacking mingw-w64-dev (from .../mingw-w64-dev_2.0.3-1_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-gcc-mingw-w64-dummy.
+Unpacking sbuild-build-depends-gcc-mingw-w64-dummy (from .../sbuild-build-depends-gcc-mingw-w64-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up gnat-4.6-base (4.6.3-8) ...
+Setting up libgnat-4.6:amd64 (4.6.3-8) ...
+Setting up libgnatvsn4.6:amd64 (4.6.3-8) ...
+Setting up libgnatprj4.6:amd64 (4.6.3-8) ...
+Setting up gnat-4.6 (4.6.3-8) ...
+Setting up libgmpxx4ldbl:amd64 (2:5.0.5+dfsg-2) ...
+Setting up libppl9:amd64 (0.11.2-8) ...
+Setting up libpwl5:amd64 (0.11.2-8) ...
+Setting up libppl-c4:amd64 (0.11.2-8) ...
+Setting up libcloog-ppl0:amd64 (0.15.11-5) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake (1:1.11.6-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up gawk (1:4.0.1+dfsg-2) ...
+Setting up autoconf2.64 (2.64-3) ...
+Setting up quilt (0.60-7) ...
+Setting up patchutils (0.3.2-1.1) ...
+Setting up gcc-4.6-source (4.6.3-15) ...
+Setting up libppl0.11-dev:amd64 (0.11.2-8) ...
+Setting up libgmp-dev:amd64 (2:5.0.5+dfsg-2) ...
+Setting up libcloog-ppl-dev:amd64 (0.15.11-5) ...
+Setting up libelf-dev:amd64 (0.153-2) ...
+Setting up libmpfr-dev:amd64 (3.1.0-5) ...
+Setting up lsb-release (4.1+Debian9) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up binutils-mingw-w64-i686 (2.22-7+2) ...
+Setting up binutils-mingw-w64-x86-64 (2.22-7+2) ...
+Setting up binutils-mingw-w64 (2.22-7+2) ...
+Setting up libmpc-dev:amd64 (0.9-4) ...
+Setting up mingw-w64-i686-dev (2.0.3-1) ...
+Setting up mingw-w64-x86-64-dev (2.0.3-1) ...
+Setting up mingw-w64-dev (2.0.3-1) ...
+Setting up sbuild-build-depends-gcc-mingw-w64-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 autoconf2.64_2.64-3 automake_1:1.11.6-1 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 binutils-mingw-w64_2.22-7+2 binutils-mingw-w64-i686_2.22-7+2 binutils-mingw-w64-x86-64_2.22-7+2 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gawk_1:4.0.1+dfsg-2 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.6-source_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnat-4.6_4.6.3-8 gnat-4.6-base_4.6.3-8 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcloog-ppl-dev_0.15.11-5 libcloog-ppl0_0.15.11-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libelf-dev_0.153-2 libelf1_0.153-2 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp-dev_2:5.0.5+dfsg-2 libgmp10_2:5.0.5+dfsg-2 libgmpxx4ldbl_2:5.0.5+dfsg-2 libgnat-4.6_4.6.3-8 libgnatprj4.6_4.6.3-8 libgnatvsn4.6_4.6.3-8 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libitm1_4.8-20130127-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc-dev_0.9-4 libmpc2_0.9-4 libmpfr-dev_3.1.0-5 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libppl-c4_0.11.2-8 libppl0.11-dev_0.11.2-8 libppl9_0.11.2-8 libpwl5_0.11.2-8 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130127-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 lsb-release_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mingw-w64-dev_2.0.3-1 mingw-w64-i686-dev_2.0.3-1 mingw-w64-x86-64-dev_2.0.3-1 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 patchutils_0.3.2-1.1 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-gcc-mingw-w64-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Dec 12 22:44:52 2012 UTC using RSA key ID A36B494F
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./gcc-mingw-w64_8.dsc
+dpkg-source: info: extracting gcc-mingw-w64 in gcc-mingw-w64-8
+dpkg-source: info: unpacking gcc-mingw-w64_8.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-1649d1af-f564-4fba-beae-8b5d8ff251c0
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package gcc-mingw-w64
+dpkg-buildpackage: source version 8
+dpkg-buildpackage: source changed by Stephen Kitt <steve@sk2.org>
+ dpkg-source --before-build gcc-mingw-w64-8
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+echo \# This file is generated using debian/rules control, do not edit > debian/control
+cat debian/control.source >> debian/control
+for language in c c++ fortran objc obj-c++ ada; do \
+		echo >> debian/control; \
+		sed -f debian/control.$language.sed debian/control.template >> debian/control; \
+	done
+echo >> debian/control
+cat debian/control.gcc-mingw32 >> debian/control
+echo >> debian/control
+cat debian/control.base >> debian/control
+sed -i '/^Recommends: $/d' debian/control
+sed -i '/^Breaks: $/d' debian/control
+sed -i '/^Conflicts: $/d' debian/control
+sed -i '/^Replaces: $/d' debian/control
+touch control-stamp
+dh_testdir
+dh_testroot
+rm -rf /«PKGBUILDDIR»/stamp /«PKGBUILDDIR»/build /«PKGBUILDDIR»/src .pc autotools_files series *-stamp
+dh_clean
+ debian/rules build-arch
+echo \# This file is generated using debian/rules control, do not edit > debian/control
+cat debian/control.source >> debian/control
+for language in c c++ fortran objc obj-c++ ada; do \
+		echo >> debian/control; \
+		sed -f debian/control.$language.sed debian/control.template >> debian/control; \
+	done
+echo >> debian/control
+cat debian/control.gcc-mingw32 >> debian/control
+echo >> debian/control
+cat debian/control.base >> debian/control
+sed -i '/^Recommends: $/d' debian/control
+sed -i '/^Breaks: $/d' debian/control
+sed -i '/^Conflicts: $/d' debian/control
+sed -i '/^Replaces: $/d' debian/control
+touch control-stamp
+tar xf /usr/src/gcc-4.6/gcc-*.tar.*
+rm -rf /«PKGBUILDDIR»/src
+mv gcc-4.6.3 /«PKGBUILDDIR»/src
+# Apply our extra patches here...
+# We can't use a separate target for this because the patches
+# need to be applied before gcc-4.6-source's
+patch -p0 < debian/patches/mingw-include.patch
+patching file src/gcc/config/i386/mingw32.h
+patching file src/gcc/config/i386/t-mingw32
+Hunk #1 succeeded at 1 with fuzz 1.
+patching file src/gcc/config/i386/t-mingw-w64
+patch -p0 < debian/patches/disable-multilib.patch
+patching file src/gcc/config/i386/t-mingw-w64
+mkdir -p /«PKGBUILDDIR»/stamp
+touch /«PKGBUILDDIR»/stamp/unpack
+echo svn-updates.diff gcc-gfdl-build.diff gcc-textdomain.diff gcc-driver-extra-langs.diff gcc-hash-style-both.diff libstdc++-pic.diff libstdc++-doclink.diff libstdc++-man-3cxx.diff libstdc++-test-installed.diff libjava-stacktrace.diff libjava-jnipath.diff libjava-sjlj.diff libjava-disable-plugin.diff alpha-no-ev4-directive.diff boehm-gc-getnprocs.diff note-gnu-stack.diff libgomp-omp_h-multilib.diff sparc-force-cpu.diff pr24619.diff gccgo-version.diff no_fpr_in_libgcc.diff pr48226.diff pr47487.diff mudflap-varargs.diff mudflapth-link.diff pr45078.diff pr43804.diff pr47818.diff pr48830.diff pr49169.diff pr49756.diff pr49940.diff pr49944.diff gcc-cloog-dl.diff libffi-kfreebsd.diff libffi-m68k.diff gcc-base-version.diff pr49696.diff libffi-powerpc-sf.diff libffi-powerpc-sysv-without-string-ops.diff pr49030.diff pr50193.diff pr50114.diff pr50946.diff gcc-arm-abi-conformance.diff arm-no-va_list-warn.diff pr47955.diff m68k-fp-cmp-zero.diff m68k-atomic.diff gcc-gengtype-fix1.diff gcc-gengtype-fix2.diff gcc-d-lang.diff libjava-disable-static.diff s390-biarch.diff mips-triarch.diff arm-dynamic-linker.diff arm-multilib-defaults.diff gcc-ice-hack.diff gcc-ice-apport.diff libjava-fixed-symlinks.diff libstdc++-arm-wno-abi.diff ada-mips.diff libffi-ro-eh_frame_sect.diff gcc-multiarch.diff libjava-nobiarch-check.diff config-ml.diff gcc-powerpc-nof.diff gcc-powerpc-undef.diff gcc-no-add-needed.diff gcc-as-needed.diff mips-fix-loongson2f-nop.diff gcc-system-root.diff libgomp-kfreebsd-testsuite.diff armhf-triplet.diff \
+	  | sed -r 's/  +/ /g' | tr " " "\n" > series
+sed -r 's/(.)$/\1 -p1/' -i series
+touch /«PKGBUILDDIR»/stamp/02-series-stamp
+QUILT_PATCHES=/usr/src/gcc-4.6/debian/patches \
+	  quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch svn-updates.diff
+patching file src/libgcc/Makefile.in
+patching file src/libgcc/ChangeLog
+patching file src/gcc/targhooks.c
+patching file src/gcc/targhooks.h
+patching file src/gcc/tree-pretty-print.c
+patching file src/gcc/target.def
+patching file src/gcc/cgraph.c
+patching file src/gcc/cgraph.h
+patching file src/gcc/DATESTAMP
+patching file src/gcc/incpath.c
+patching file src/gcc/target.h
+patching file src/gcc/configure
+patching file src/gcc/gcc.c
+patching file src/gcc/fold-const.c
+patching file src/gcc/toplev.c
+patching file src/gcc/genmultilib
+patching file src/gcc/cgraphunit.c
+patching file src/gcc/ChangeLog
+patching file src/gcc/tree-vect-loop-manip.c
+patching file src/gcc/testsuite/gcc.target/arm/volatile-bitfields-4.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-7.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-8.c
+patching file src/gcc/testsuite/gcc.target/powerpc/pr52775.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-1.c
+patching file src/gcc/testsuite/gcc.target/powerpc/pr52457.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-2.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-3.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-4.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-5.c
+patching file src/gcc/testsuite/gcc.target/powerpc/pr53199.c
+patching file src/gcc/testsuite/gcc.target/powerpc/cell_builtin-6.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-load-1.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-load-3.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-store-1.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-store-3.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-load-2.c
+patching file src/gcc/testsuite/gcc.target/i386/pr53416.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-load-4.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-store-2.c
+patching file src/gcc/testsuite/gcc.target/i386/avx256-unaligned-store-4.c
+patching file src/gcc/testsuite/gcc.target/i386/pr52736.c
+patching file src/gcc/testsuite/lib/target-supports.exp
+patching file src/gcc/testsuite/gfortran.dg/init_flag_10.f90
+patching file src/gcc/testsuite/gfortran.dg/use_23.f90
+patching file src/gcc/testsuite/gfortran.dg/intrinsic_8.f90
+patching file src/gcc/testsuite/gfortran.dg/array_section_3.f90
+patching file src/gcc/testsuite/gfortran.dg/use_25.f90
+patching file src/gcc/testsuite/gfortran.dg/use_27.f90
+patching file src/gcc/testsuite/gfortran.dg/elemental_scalar_args_2.f90
+patching file src/gcc/testsuite/gfortran.dg/bound_simplification_3.f90
+patching file src/gcc/testsuite/gfortran.dg/implicit_pure_3.f90
+patching file src/gcc/testsuite/gfortran.dg/optional_absent_2.f90
+patching file src/gcc/testsuite/gfortran.dg/use_22.f90
+patching file src/gcc/testsuite/gfortran.dg/coarray_28.f90
+patching file src/gcc/testsuite/gfortran.dg/save_4.f90
+patching file src/gcc/testsuite/gfortran.dg/use_24.f90
+patching file src/gcc/testsuite/gfortran.dg/proc_ptr_34.f90
+patching file src/gcc/testsuite/gfortran.dg/allocate_error_4.f90
+patching file src/gcc/testsuite/gfortran.dg/pointer_intent_6.f90
+patching file src/gcc/testsuite/gfortran.dg/use_26.f90
+patching file src/gcc/testsuite/gfortran.dg/coarray_10.f90
+patching file src/gcc/testsuite/gfortran.dg/realloc_on_assign_15.f90
+patching file src/gcc/testsuite/gcc.c-torture/execute/pr53084.c
+patching file src/gcc/testsuite/gcc.c-torture/execute/20120427-1.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/20121107-1.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-2.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr53418-1.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-4.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-6.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54552-1.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/limits-externdecl.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-1.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-3.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr53418-2.c
+patching file src/gcc/testsuite/gcc.c-torture/compile/pr54103-5.c
+patching file src/gcc/testsuite/gnat.dg/oconst6.ads
+patching file src/gcc/testsuite/gnat.dg/addr1.adb
+patching file src/gcc/testsuite/gnat.dg/addr1.ads
+patching file src/gcc/testsuite/gnat.dg/discr23.ads
+patching file src/gcc/testsuite/gnat.dg/nested_float_packed.ads
+patching file src/gcc/testsuite/gnat.dg/specs/oconst6.ads
+patching file src/gcc/testsuite/gnat.dg/atomic5.adb
+patching file src/gcc/testsuite/gnat.dg/atomic5.ads
+patching file src/gcc/testsuite/gnat.dg/discr29.adb
+patching file src/gcc/testsuite/gnat.dg/discr29.ads
+patching file src/gcc/testsuite/gcc.dg/pr52862.c
+patching file src/gcc/testsuite/gcc.dg/align-2.c
+patching file src/gcc/testsuite/gcc.dg/pr48374.c
+patching file src/gcc/testsuite/gcc.dg/pr53701.c
+patching file src/gcc/testsuite/gcc.dg/c90-const-expr-8.c
+patching file src/gcc/testsuite/gcc.dg/stack-usage-1.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr53908.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr52693.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr53790.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr52407.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr51071-2.c
+patching file src/gcc/testsuite/gcc.dg/torture/pr51071.c
+patching file src/gcc/testsuite/gcc.dg/volatile-bitfields-2.c
+patching file src/gcc/testsuite/gcc.dg/20020201-1.c
+patching file src/gcc/testsuite/gcc.dg/pr49948.c
+patching file src/gcc/testsuite/gcc.dg/vect/vect-peel-1.c
+patching file src/gcc/testsuite/gcc.dg/vect/vect-peel-2.c
+patching file src/gcc/testsuite/gcc.dg/vect/vect-peel-3.c
+patching file src/gcc/testsuite/gcc.dg/vect/vect-peel-4.c
+patching file src/gcc/testsuite/gcc.dg/vect/slp-25.c
+patching file src/gcc/testsuite/ChangeLog
+patching file src/gcc/testsuite/g++.dg/ext/visibility/anon11.C
+patching file src/gcc/testsuite/g++.dg/abi/anon1.C
+patching file src/gcc/testsuite/g++.dg/init/array33.C
+patching file src/gcc/testsuite/g++.dg/tree-ssa/pr54515.C
+patching file src/gcc/testsuite/g++.dg/cpp0x/variadic-value1.C
+patching file src/gcc/testsuite/g++.dg/cpp0x/variadic134.C
+patching file src/gcc/testsuite/g++.dg/cpp0x/nullptr28.C
+patching file src/gcc/testsuite/g++.dg/torture/pr55355.C
+patching file src/gcc/testsuite/g++.dg/template/array25.C
+patching file src/gcc/testsuite/g++.dg/template/anonunion2.C
+patching file src/gcc/testsuite/g++.dg/template/array24.C
+patching file src/gcc/testsuite/c-c++-common/pr33763.c
+patching file src/gcc/testsuite/c-c++-common/abi-bf.c
+patching file src/gcc/cp/typeck.c
+patching file src/gcc/cp/class.c
+patching file src/gcc/cp/decl.c
+patching file src/gcc/cp/method.c
+patching file src/gcc/cp/tree.c
+patching file src/gcc/cp/ChangeLog
+patching file src/gcc/cp/pt.c
+patching file src/gcc/cp/semantics.c
+patching file src/gcc/cp/decl2.c
+patching file src/gcc/cp/name-lookup.c
+patching file src/gcc/tree-ssa-ccp.c
+patching file src/gcc/ira-int.h
+patching file src/gcc/sel-sched.c
+patching file src/gcc/expr.c
+patching file src/gcc/gcov-iov.c
+patching file src/gcc/predict.c
+patching file src/gcc/ada/ChangeLog
+patching file src/gcc/ada/s-gearop.adb
+patching file src/gcc/ada/gcc-interface/decl.c
+patching file src/gcc/sel-sched-ir.h
+patching file src/gcc/fortran/trans-expr.c
+patching file src/gcc/fortran/trans-array.c
+patching file src/gcc/fortran/decl.c
+patching file src/gcc/fortran/array.c
+patching file src/gcc/fortran/ChangeLog
+patching file src/gcc/fortran/expr.c
+patching file src/gcc/fortran/module.c
+patching file src/gcc/fortran/trans.c
+patching file src/gcc/fortran/trans-types.c
+patching file src/gcc/fortran/resolve.c
+patching file src/gcc/fortran/simplify.c
+patching file src/gcc/configure.ac
+patching file src/gcc/cppdefault.c
+patching file src/gcc/cppdefault.h
+patching file src/gcc/tree-vectorizer.h
+patching file src/gcc/stor-layout.c
+patching file src/gcc/tree-vect-loop.c
+patching file src/gcc/tree-vect-data-refs.c
+patching file src/gcc/c-typeck.c
+patching file src/gcc/cselib.c
+patching file src/gcc/tree-sra.c
+patching file src/gcc/lto/lto.c
+patching file src/gcc/lto/ChangeLog
+patching file src/gcc/ipa-prop.c
+patching file src/gcc/common.opt
+patching file src/gcc/varasm.c
+patching file src/gcc/tree-vect-stmts.c
+patching file src/gcc/tree-inline.c
+patching file src/gcc/combine.c
+patching file src/gcc/emutls.c
+patching file src/gcc/df-problems.c
+patching file src/gcc/config.gcc
+patching file src/gcc/Makefile.in
+patching file src/gcc/gimple.c
+patching file src/gcc/gthr-posix.h
+patching file src/gcc/config/alpha/linux-unwind.h
+patching file src/gcc/config/alpha/alpha.c
+patching file src/gcc/config/alpha/t-linux
+patching file src/gcc/config/s390/t-linux64
+patching file src/gcc/config/m32c/predicates.md
+patching file src/gcc/config/m32c/m32c.c
+patching file src/gcc/config/m32c/muldiv.md
+patching file src/gcc/config/spu/spu.c
+patching file src/gcc/config/sparc/sparc.md
+patching file src/gcc/config/sparc/t-linux64
+patching file src/gcc/config/sparc/sparc.c
+patching file src/gcc/config/sparc/sol2-bi.h
+patching file src/gcc/config/sparc/t-linux
+patching file src/gcc/config/rx/rx.c
+patching file src/gcc/config/i386/i386.h
+patching file src/gcc/config/i386/t-kfreebsd
+patching file src/gcc/config/i386/i386.md
+patching file src/gcc/config/i386/t-gnu
+patching file src/gcc/config/i386/t-linux
+patching file src/gcc/config/i386/sse.md
+patching file src/gcc/config/i386/linux-unwind.h
+patching file src/gcc/config/i386/i386-protos.h
+patching file src/gcc/config/i386/t-linux64
+patching file src/gcc/config/i386/driver-i386.c
+patching file src/gcc/config/i386/i386.c
+patching file src/gcc/config/sol2.h
+patching file src/gcc/config/sh/linux-unwind.h
+patching file src/gcc/config/sh/sh.c
+patching file src/gcc/config/sh/sh.opt
+patching file src/gcc/config/avr/avr-stdint.h
+patching file src/gcc/config/avr/libgcc.S
+patching file src/gcc/config/avr/avr.md
+patching file src/gcc/config/avr/avr-devices.c
+patching file src/gcc/config/avr/avr.c
+patching file src/gcc/config/xtensa/linux-unwind.h
+patching file src/gcc/config/host-linux.c
+patching file src/gcc/config/mn10300/mn10300.c
+patching file src/gcc/config/ia64/t-glibc
+patching file src/gcc/config/ia64/linux-unwind.h
+patching file src/gcc/config/ia64/ia64.c
+patching file src/gcc/config/m68k/t-linux
+patching file src/gcc/config/rs6000/t-fprules
+patching file src/gcc/config/rs6000/vector.md
+patching file src/gcc/config/rs6000/t-linux
+patching file src/gcc/config/rs6000/rs6000.c
+patching file src/gcc/config/rs6000/vsx.md
+patching file src/gcc/config/rs6000/rs6000.h
+patching file src/gcc/config/rs6000/altivec.md
+patching file src/gcc/config/rs6000/t-linux64
+patching file src/gcc/config/rs6000/rs6000.md
+patching file src/gcc/config/arm/arm.c
+patching file src/gcc/config/arm/arm.h
+patching file src/gcc/config/arm/t-linux-eabi
+patching file src/gcc/config/pa/predicates.md
+patching file src/gcc/config/pa/linux-unwind.h
+patching file src/gcc/config/pa/pa.md
+patching file src/gcc/config/pa/t-linux64
+patching file src/gcc/config/pa/pa-protos.h
+patching file src/gcc/config/pa/pa.c
+patching file src/gcc/config/pa/pa.h
+patching file src/gcc/config/pa/t-linux
+patching file src/gcc/config/mips/linux-unwind.h
+patching file src/gcc/config/mips/t-linux64
+patching file src/gcc/config/mips/mips.c
+patching file src/gcc/config/h8300/h8300.c
+patching file src/gcc/config/bfin/linux-unwind.h
+patching file src/gcc/convert.c
+patching file src/libgo/Makefile.in
+patching file src/libgo/testsuite/Makefile.in
+patching file src/libgo/configure.ac
+patching file src/libstdc++-v3/configure
+patching file src/libstdc++-v3/src/condition_variable.cc
+patching file src/libstdc++-v3/src/thread.cc
+patching file src/libstdc++-v3/configure.ac
+patching file src/libstdc++-v3/include/debug/safe_iterator.h
+patching file src/libstdc++-v3/include/std/condition_variable
+patching file src/libstdc++-v3/include/std/mutex
+patching file src/libstdc++-v3/include/ext/concurrence.h
+patching file src/libstdc++-v3/include/ext/rope
+patching file src/libstdc++-v3/include/profile/iterator_tracker.h
+patching file src/libstdc++-v3/include/bits/stl_algo.h
+patching file src/libstdc++-v3/ChangeLog
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_n/move_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_n/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_n/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_n/3.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_n/4.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/stable_partition/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/stable_partition/pr52822.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/stable_partition/moveable.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/fill_n/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/move_backward/deque_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/move_backward/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/move/deque_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/move/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_backward/deque_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy_backward/move_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/deque_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/move_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/wchar_t/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/wchar_t/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/wchar_t/3.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/wchar_t/4.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/char/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/char/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/char/3.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/streambuf_iterators/char/4.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/3.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/4.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/copy/34595.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/fill/4.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/is_sorted_until/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/is_heap/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/partition/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/partition/moveable.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/find/istreambuf_iterators/wchar_t/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/find/istreambuf_iterators/wchar_t/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/find/istreambuf_iterators/char/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/find/istreambuf_iterators/char/2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/is_heap_until/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/is_sorted/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/heap/moveable2.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/heap/1.cc
+patching file src/libstdc++-v3/testsuite/25_algorithms/heap/moveable.cc
+patching file src/libstdc++-v3/testsuite/24_iterators/range_access.cc
+patching file src/libstdc++-v3/testsuite/Makefile.in
+patching file src/libstdc++-v3/testsuite/28_regex/range_access.cc
+patching file src/libstdc++-v3/testsuite/18_support/initializer_list/range_access.cc
+patching file src/libstdc++-v3/testsuite/21_strings/basic_string/capacity/wchar_t/shrink_to_fit.cc
+patching file src/libstdc++-v3/testsuite/21_strings/basic_string/capacity/char/shrink_to_fit.cc
+patching file src/libstdc++-v3/testsuite/21_strings/basic_string/range_access.cc
+patching file src/libstdc++-v3/testsuite/26_numerics/valarray/range_access.cc
+patching file src/libstdc++-v3/testsuite/30_threads/condition_variable_any/53830.cc
+patching file src/libstdc++-v3/testsuite/30_threads/thread/native_handle/cancel.cc
+patching file src/libstdc++-v3/testsuite/ext/vstring/range_access.cc
+patching file src/libstdc++-v3/testsuite/ext/vstring/hash/wchar_t/1.cc
+patching file src/libstdc++-v3/testsuite/ext/vstring/hash/char/1.cc
+patching file src/libstdc++-v3/testsuite/ext/vstring/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/ext/vstring/capacity/shrink_to_fit.cc
+patching file src/libstdc++-v3/testsuite/performance/25_algorithms/copy_backward_deque_iterators.cc
+patching file src/libstdc++-v3/testsuite/performance/25_algorithms/copy_deque_iterators.cc
+patching file src/libstdc++-v3/testsuite/22_locale/num_put/put/char/9780-2.cc
+patching file src/libstdc++-v3/testsuite/22_locale/ctype_base/53678.cc
+patching file src/libstdc++-v3/testsuite/tr1/6_containers/unordered_multimap/capacity/29134-multimap.cc
+patching file src/libstdc++-v3/testsuite/tr1/6_containers/unordered_set/capacity/29134-set.cc
+patching file src/libstdc++-v3/testsuite/tr1/6_containers/unordered_map/capacity/29134-map.cc
+patching file src/libstdc++-v3/testsuite/tr1/6_containers/unordered_multiset/capacity/29134-multiset.cc
+patching file src/libstdc++-v3/testsuite/Makefile.am
+patching file src/libstdc++-v3/testsuite/23_containers/unordered_map/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/multimap/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/multimap/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/set/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/set/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/modifiers/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/modifiers/2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/modifiers/3.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/modifiers/4.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/modifiers/5.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/3.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/4.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/5.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/6.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/7.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/8.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/cons/9.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/3.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/4.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/5.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/6.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/operations/7.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after2_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after3_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after4_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after5_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after6_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/insert_after1_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after7_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/insert_after2_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/splice_after.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after8_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/insert_after3_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after9_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/swap.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/splice_after1_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/splice_after2_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/move_constructor.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/splice_after3_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/splice_after4_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/clear.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/debug/erase_after1_neg.cc
+patching file src/libstdc++-v3/testsuite/23_containers/forward_list/capacity/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/unordered_multimap/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/debug/52433.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/bool/modifiers/insert/31370.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/bool/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/capacity/29134-2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/capacity/shrink_to_fit.cc
+patching file src/libstdc++-v3/testsuite/23_containers/vector/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/unordered_set/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/deque/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/deque/capacity/29134-2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/deque/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/deque/capacity/shrink_to_fit.cc
+patching file src/libstdc++-v3/testsuite/23_containers/multiset/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/multiset/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/1_c++0x.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/insert/25288.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/insert/25288.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/1.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/3.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/2.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/modifiers/3.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/42352.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/2.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/2_c++0x.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/1.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/3.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/3_c++0x.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/2.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/4.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/3.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/5.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/4.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/operations/5.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/capacity/1.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/capacity/1.h
+patching file src/libstdc++-v3/testsuite/23_containers/list/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/list/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/unordered_multiset/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/map/range_access.cc
+patching file src/libstdc++-v3/testsuite/23_containers/map/capacity/29134.cc
+patching file src/libstdc++-v3/testsuite/23_containers/array/range_access.cc
+patching file src/libstdc++-v3/testsuite/20_util/specialized_algorithms/uninitialized_copy_n/move_iterators/1.cc
+patching file src/libstdc++-v3/testsuite/20_util/specialized_algorithms/uninitialized_copy/move_iterators/1.cc
+patching file src/libstdc++-v3/config.h.in
+patching file src/libstdc++-v3/config/os/bsd/netbsd/ctype_base.h
+patching file src/libstdc++-v3/acinclude.m4
+patching file src/libgfortran/runtime/environ.c
+patching file src/libgfortran/intrinsics/eoshift2.c
+patching file src/libgfortran/ChangeLog
+patching file src/boehm-gc/configure.ac
+patching file src/boehm-gc/include/gc_config.h.in
+patching file src/boehm-gc/include/private/gcconfig.h
+patching file src/boehm-gc/ChangeLog
+patching file src/boehm-gc/configure
+patching file src/libffi/Makefile.in
+patching file src/libffi/include/Makefile.in
+patching file src/libffi/src/powerpc/aix.S
+patching file src/libffi/src/powerpc/aix_closure.S
+patching file src/libffi/ChangeLog
+patching file src/libffi/testsuite/Makefile.in
+patching file src/libffi/configure.ac
+patching file src/libffi/man/Makefile.in
+patching file src/libjava/configure.ac
+patching file src/libjava/classpath/Makefile.in
+patching file src/libjava/classpath/scripts/Makefile.in
+patching file src/libjava/classpath/resource/Makefile.in
+patching file src/libjava/classpath/tools/Makefile.in
+patching file src/libjava/classpath/configure.ac
+patching file src/libjava/classpath/doc/Makefile.in
+patching file src/libjava/classpath/doc/api/Makefile.in
+patching file src/libjava/classpath/external/Makefile.in
+patching file src/libjava/classpath/external/jsr166/Makefile.in
+patching file src/libjava/classpath/external/sax/Makefile.in
+patching file src/libjava/classpath/external/w3c_dom/Makefile.in
+patching file src/libjava/classpath/external/relaxngDatatype/Makefile.in
+patching file src/libjava/classpath/include/Makefile.in
+patching file src/libjava/classpath/native/jni/Makefile.in
+patching file src/libjava/classpath/native/jni/classpath/Makefile.in
+patching file src/libjava/classpath/native/jni/gstreamer-peer/Makefile.in
+patching file src/libjava/classpath/native/jni/midi-dssi/Makefile.in
+patching file src/libjava/classpath/native/jni/gconf-peer/Makefile.in
+patching file src/libjava/classpath/native/jni/java-io/Makefile.in
+patching file src/libjava/classpath/native/jni/native-lib/Makefile.in
+patching file src/libjava/classpath/native/jni/java-util/Makefile.in
+patching file src/libjava/classpath/native/jni/java-lang/Makefile.in
+patching file src/libjava/classpath/native/jni/midi-alsa/Makefile.in
+patching file src/libjava/classpath/native/jni/java-nio/Makefile.in
+patching file src/libjava/classpath/native/jni/java-net/Makefile.in
+patching file src/libjava/classpath/native/jni/java-math/Makefile.in
+patching file src/libjava/classpath/native/jni/xmlj/Makefile.in
+patching file src/libjava/classpath/native/jni/qt-peer/Makefile.in
+patching file src/libjava/classpath/native/jni/gtk-peer/Makefile.in
+patching file src/libjava/classpath/native/Makefile.in
+patching file src/libjava/classpath/native/jawt/Makefile.in
+patching file src/libjava/classpath/native/fdlibm/Makefile.in
+patching file src/libjava/classpath/native/plugin/Makefile.in
+patching file src/libjava/classpath/lib/Makefile.in
+patching file src/libjava/classpath/ChangeLog.gcj
+patching file src/libjava/classpath/examples/Makefile.in
+patching file src/libjava/ChangeLog
+patching file src/libjava/configure
+
+Applying patch gcc-gfdl-build.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 3697 (offset 16 lines).
+
+Applying patch gcc-textdomain.diff
+patching file src/gcc/intl.c
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 5173 (offset 16 lines).
+patching file src/libcpp/init.c
+patching file src/libcpp/system.h
+patching file src/libcpp/Makefile.in
+
+Applying patch gcc-driver-extra-langs.diff
+patching file src/gcc/Makefile.in
+
+Applying patch gcc-hash-style-both.diff
+patching file src/gcc/config/alpha/linux-elf.h
+patching file src/gcc/config/i386/linux.h
+patching file src/gcc/config/i386/linux64.h
+patching file src/gcc/config/ia64/linux.h
+patching file src/gcc/config/rs6000/linux64.h
+patching file src/gcc/config/rs6000/sysv4.h
+patching file src/gcc/config/s390/linux.h
+patching file src/gcc/config/sparc/linux.h
+patching file src/gcc/config/arm/linux-elf.h
+
+Applying patch libstdc++-pic.diff
+patching file src/libstdc++-v3/src/Makefile.am
+patching file src/libstdc++-v3/src/Makefile.in
+
+Applying patch libstdc++-doclink.diff
+patching file src/libstdc++-v3/doc/doxygen/mainpage.html
+patching file src/libstdc++-v3/doc/html/api.html
+patching file src/libstdc++-v3/doc/xml/api.xml
+
+Applying patch libstdc++-man-3cxx.diff
+patching file src/libstdc++-v3/doc/doxygen/user.cfg.in
+patching file src/libstdc++-v3/scripts/run_doxygen
+patching file src/libstdc++-v3/include/profile/impl/profiler_algos.h
+
+Applying patch libstdc++-test-installed.diff
+patching file src/libstdc++-v3/testsuite/lib/libstdc++.exp
+
+Applying patch libjava-stacktrace.diff
+patching file src/libjava/stacktrace.cc
+
+Applying patch libjava-jnipath.diff
+patching file src/libjava/configure.ac
+Hunk #1 succeeded at 1528 (offset -5 lines).
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+patching file src/libjava/gnu/classpath/natSystemProperties.cc
+
+Applying patch libjava-sjlj.diff
+patching file src/libjava/sysdep/generic/backtrace.h
+
+Applying patch libjava-disable-plugin.diff
+patching file src/libjava/configure.ac
+
+Applying patch alpha-no-ev4-directive.diff
+patching file src/gcc/config/alpha/alpha.c
+Hunk #1 succeeded at 9774 (offset 41 lines).
+Hunk #2 succeeded at 9784 (offset 41 lines).
+
+Applying patch boehm-gc-getnprocs.diff
+patching file src/boehm-gc/pthread_support.c
+
+Applying patch note-gnu-stack.diff
+patching file src/boehm-gc/ia64_save_regs_in_stack.s
+patching file src/boehm-gc/ia64_save_regs_in_stack.S
+patching file src/gcc/config/ia64/crtbegin.asm
+patching file src/gcc/config/ia64/crtend.asm
+patching file src/gcc/config/ia64/crti.asm
+patching file src/gcc/config/ia64/crtn.asm
+patching file src/gcc/config/ia64/lib1funcs.asm
+patching file src/gcc/config/ia64/linux.h
+patching file src/gcc/config/rs6000/ppc-asm.h
+
+Applying patch libgomp-omp_h-multilib.diff
+patching file src/libgomp/omp.h.in
+
+Applying patch sparc-force-cpu.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 3771 (offset 5 lines).
+
+Applying patch pr24619.diff
+patching file src/libmudflap/mf-hooks2.c
+
+Applying patch gccgo-version.diff
+patching file src/gcc/go/Make-lang.in
+patching file src/libgo/Makefile.in
+Hunk #1 succeeded at 383 (offset -86 lines).
+Hunk #2 succeeded at 453 (offset -86 lines).
+patching file src/libgo/Makefile.am
+
+Applying patch no_fpr_in_libgcc.diff
+patching file src/gcc/config/rs6000/crtresfpr.asm
+patching file src/gcc/config/rs6000/crtresxfpr.asm
+patching file src/gcc/config/rs6000/crtsavfpr.asm
+
+Applying patch pr48226.diff
+patching file src/gcc/testsuite/gcc.target/powerpc/pr48226.c
+patching file src/gcc/config/rs6000/rs6000-c.c
+
+Applying patch pr47487.diff
+patching file src/gcc/config/rs6000/rs6000.c
+Hunk #1 succeeded at 22047 (offset -6 lines).
+
+Applying patch mudflap-varargs.diff
+patching file src/gcc/builtins.c
+
+Applying patch mudflapth-link.diff
+patching file src/libmudflap/Makefile.am
+patching file src/libmudflap/Makefile.in
+
+Applying patch pr45078.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 4518 (offset 16 lines).
+Hunk #2 succeeded at 4543 (offset 16 lines).
+patching file src/gcc/config.gcc
+
+Applying patch pr43804.diff
+patching file src/gcc/config/m68k/constraints.md
+
+Applying patch pr47818.diff
+patching file src/gcc/ada/sem_prag.adb
+
+Applying patch pr48830.diff
+patching file src/gcc/reload.c
+patching file src/gcc/reload1.c
+patching file src/gcc/testsuite/gcc.target/sparc/ultrasp12.c
+
+Applying patch pr49169.diff
+patching file src/gcc/builtins.c
+patching file src/gcc/fold-const.c
+Hunk #1 succeeded at 9235 (offset 3 lines).
+Hunk #2 succeeded at 9268 (offset 3 lines).
+Hunk #3 succeeded at 9279 (offset 3 lines).
+Hunk #4 succeeded at 11143 (offset -13 lines).
+patching file src/gcc/testsuite/gcc.dg/torture/pr49169.c
+patching file src/gcc/tree-ssa-ccp.c
+
+Applying patch pr49756.diff
+patching file src/gcc/gcc.c
+Hunk #1 succeeded at 6192 (offset 31 lines).
+patching file src/gcc/toplev.c
+Hunk #1 succeeded at 1923 (offset 7 lines).
+patching file src/include/libiberty.h
+patching file src/libiberty/configure.ac
+patching file src/libiberty/Makefile.in
+patching file src/libiberty/config.in
+patching file src/libiberty/stack-limit.c
+
+Applying patch pr49940.diff
+patching file src/gcc/ada/s-osinte-kfreebsd-gnu.ads
+
+Applying patch pr49944.diff
+patching file src/gcc/ada/s-osinte-kfreebsd-gnu.ads
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/gcc/ada/s-osinte-freebsd.ads
+
+Applying patch gcc-cloog-dl.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 999 (offset 15 lines).
+Hunk #2 succeeded at 1054 (offset 15 lines).
+Hunk #3 succeeded at 2686 (offset 16 lines).
+Hunk #4 succeeded at 3501 (offset 16 lines).
+patching file src/gcc/graphite-cloog-compat.h
+patching file src/gcc/graphite.c
+patching file src/gcc/graphite-clast-to-gimple.c
+patching file src/gcc/graphite-poly.h
+
+Applying patch libffi-kfreebsd.diff
+patching file src/libffi/configure.ac
+Hunk #1 succeeded at 322 (offset 9 lines).
+
+Applying patch libffi-m68k.diff
+patching file src/libffi/src/m68k/sysv.S
+patching file src/libffi/src/m68k/ffi.c
+patching file src/libffi/src/m68k/ffitarget.h
+
+Applying patch gcc-base-version.diff
+patching file src/gcc/BASE-VER
+patching file src/gcc/FULL-VER
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 847 (offset 15 lines).
+Hunk #2 succeeded at 872 (offset 15 lines).
+Hunk #3 succeeded at 2202 (offset 16 lines).
+Hunk #4 succeeded at 2275 (offset 16 lines).
+Hunk #5 succeeded at 2816 (offset 16 lines).
+Hunk #6 succeeded at 3820 (offset 16 lines).
+Hunk #7 succeeded at 3983 (offset 16 lines).
+Hunk #8 succeeded at 4004 (offset 16 lines).
+Hunk #9 succeeded at 4229 (offset 16 lines).
+Hunk #10 succeeded at 4597 (offset 16 lines).
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+patching file src/libgcc/Makefile.in
+
+Applying patch pr49696.diff
+patching file src/gcc/config/mips/sync.md
+
+Applying patch libffi-powerpc-sf.diff
+patching file src/libffi/src/powerpc/ffi.c
+patching file src/libffi/src/powerpc/ffitarget.h
+patching file src/libffi/src/powerpc/ppc_closure.S
+patching file src/libffi/src/powerpc/sysv.S
+
+Applying patch libffi-powerpc-sysv-without-string-ops.diff
+patching file src/libffi/src/powerpc/ffi.c
+patching file src/libffi/src/powerpc/sysv.S
+
+Applying patch pr49030.diff
+patching file src/gcc/config/arm/arm-protos.h
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 17071 (offset 39 lines).
+Hunk #2 succeeded at 17098 (offset 39 lines).
+Hunk #3 succeeded at 17111 (offset 39 lines).
+Hunk #4 succeeded at 17119 (offset 39 lines).
+Hunk #5 succeeded at 17127 (offset 39 lines).
+Hunk #6 succeeded at 17152 (offset 39 lines).
+Hunk #7 succeeded at 17168 (offset 39 lines).
+Hunk #8 succeeded at 17176 (offset 39 lines).
+Hunk #9 succeeded at 17188 (offset 39 lines).
+Hunk #10 succeeded at 17198 (offset 39 lines).
+Hunk #11 succeeded at 17214 (offset 39 lines).
+patching file src/gcc/config/arm/arm.md
+Hunk #1 succeeded at 6468 (offset 1 line).
+Hunk #2 succeeded at 6519 (offset 1 line).
+Hunk #3 succeeded at 6531 (offset 1 line).
+Hunk #4 succeeded at 6543 (offset 1 line).
+Hunk #5 succeeded at 7380 (offset 1 line).
+Hunk #6 succeeded at 7516 (offset 1 line).
+Hunk #7 succeeded at 7526 (offset 1 line).
+Hunk #8 succeeded at 7536 (offset 1 line).
+Hunk #9 succeeded at 7656 (offset 1 line).
+Hunk #10 succeeded at 7676 (offset 1 line).
+Hunk #11 succeeded at 7702 (offset 1 line).
+patching file src/gcc/config/arm/predicates.md
+patching file src/gcc/testsuite/gcc.dg/torture/pr49030.c
+patching file src/gcc/testsuite/gcc.target/arm/cmp-1.c
+patching file src/gcc/testsuite/gcc.target/arm/cmp-2.c
+
+Applying patch pr50193.diff
+patching file src/gcc/config/arm/predicates.md
+patching file src/gcc/testsuite/gcc.target/arm/shiftable.c
+
+Applying patch pr50114.diff
+patching file src/gcc/testsuite/g++.dg/ext/forscope2.C
+patching file src/gcc/testsuite/g++.dg/cpp0x/lambda/lambda-for.C
+patching file src/gcc/cp/decl.c
+
+Applying patch pr50946.diff
+patching file src/gcc/config/arm/arm.h
+Hunk #1 succeeded at 1172 (offset 5 lines).
+
+Applying patch gcc-arm-abi-conformance.diff
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 4119 (offset -212 lines).
+Hunk #2 succeeded at 4131 (offset -212 lines).
+Hunk #3 succeeded at 4154 (offset -212 lines).
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/abitest.h
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-constants.h
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect1.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect2.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect3.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect4.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect5.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect6.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect7.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect8.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp1.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp10.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp11.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp12.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp13.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp14.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp15.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp16.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp17.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp2.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp3.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp4.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp5.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp6.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp7.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp8.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp9.c
+
+Applying patch arm-no-va_list-warn.diff
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 23085 with fuzz 2 (offset -1987 lines).
+
+Applying patch pr47955.diff
+patching file src/gcc/config/m68k/m68k.c
+
+Applying patch m68k-fp-cmp-zero.diff
+patching file src/gcc/config/m68k/m68k.c
+
+Applying patch m68k-atomic.diff
+patching file src/libgcc/config.host
+patching file src/libgcc/config/m68k/linux-atomic.c
+patching file src/libgcc/config/m68k/t-linux
+patching file src/gcc/config.gcc
+
+Applying patch gcc-gengtype-fix1.diff
+patching file src/gcc/gengtype-state.c
+patching file src/gcc/gengtype.c
+Hunk #1 succeeded at 1925 (offset -18 lines).
+
+Applying patch gcc-gengtype-fix2.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 3793 (offset 13 lines).
+
+Applying patch gcc-d-lang.diff
+patching file src/gcc/d/lang-specs.h
+patching file src/gcc/d/lang.opt
+patching file src/gcc/gcc.c
+Hunk #2 succeeded at 5127 (offset 31 lines).
+
+Applying patch libjava-disable-static.diff
+patching file src/Makefile.in
+
+Applying patch s390-biarch.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 2306 (offset 2 lines).
+
+Applying patch mips-triarch.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 1903 (offset 1 line).
+patching file src/gcc/config/mips/linux64.h
+
+Applying patch arm-dynamic-linker.diff
+patching file src/gcc/config/arm/linux-eabi.h
+
+Applying patch arm-multilib-defaults.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 3241 (offset 228 lines).
+Hunk #2 succeeded at 3288 (offset 220 lines).
+patching file src/gcc/config/arm/linux-eabi.h
+
+Applying patch gcc-ice-hack.diff
+patching file src/gcc/gcc.c
+Hunk #2 succeeded at 2660 (offset 18 lines).
+Hunk #3 succeeded at 2713 (offset 18 lines).
+Hunk #4 succeeded at 2780 (offset 18 lines).
+Hunk #5 succeeded at 5933 (offset 31 lines).
+patching file src/gcc/diagnostic.c
+
+Applying patch gcc-ice-apport.diff
+patching file src/gcc/gcc.c
+Hunk #1 succeeded at 6137 (offset 31 lines).
+
+Applying patch libjava-fixed-symlinks.diff
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+
+Applying patch libstdc++-arm-wno-abi.diff
+patching file src/libstdc++-v3/testsuite/lib/libstdc++.exp
+
+Applying patch ada-mips.diff
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/config/bootstrap-debug.mk
+
+Applying patch libffi-ro-eh_frame_sect.diff
+patching file src/libffi/configure.ac
+Hunk #1 succeeded at 356 (offset 9 lines).
+
+Applying patch gcc-multiarch.diff
+patching file src/gcc/config/sh/t-linux
+patching file src/gcc/config/s390/t-linux
+patching file src/libstdc++-v3/python/hook.in
+
+Applying patch libjava-nobiarch-check.diff
+patching file src/libjava/testsuite/Makefile.in
+
+Applying patch config-ml.diff
+patching file src/config-ml.in
+Hunk #1 succeeded at 480 (offset 13 lines).
+Hunk #2 succeeded at 686 (offset 13 lines).
+Hunk #3 succeeded at 919 (offset 13 lines).
+patching file src/libstdc++-v3/include/Makefile.am
+Hunk #1 succeeded at 822 (offset -7 lines).
+Hunk #2 succeeded at 1041 (offset -10 lines).
+patching file src/libstdc++-v3/include/Makefile.in
+Hunk #1 succeeded at 1063 (offset -19 lines).
+Hunk #2 succeeded at 1440 (offset -22 lines).
+patching file src/libstdc++-v3/configure.ac
+Hunk #1 succeeded at 411 (offset -47 lines).
+
+Applying patch gcc-powerpc-nof.diff
+patching file src/gcc/config/rs6000/t-linux64
+
+Applying patch gcc-powerpc-undef.diff
+patching file src/gcc/config/rs6000/sysv4.h
+
+Applying patch gcc-no-add-needed.diff
+patching file src/gcc/config/rs6000/sysv4.h
+patching file src/gcc/config/gnu-user.h
+patching file src/gcc/config/alpha/elf.h
+patching file src/gcc/config/ia64/linux.h
+
+Applying patch gcc-as-needed.diff
+patching file src/gcc/config/rs6000/sysv4.h
+patching file src/gcc/config/gnu-user.h
+patching file src/gcc/config/alpha/elf.h
+patching file src/gcc/config/ia64/linux.h
+
+Applying patch mips-fix-loongson2f-nop.diff
+patching file src/gcc/config/mips/mips.h
+
+Applying patch gcc-system-root.diff
+patching file src/gcc/incpath.c
+patching file src/gcc/gcc.c
+
+Applying patch libgomp-kfreebsd-testsuite.diff
+patching file src/libgomp/testsuite/libgomp.c/lock-2.c
+
+Applying patch armhf-triplet.diff
+patching file src/libjava/configure.ac
+Hunk #1 succeeded at 921 (offset -5 lines).
+patching file src/gcc/config.gcc
+patching file src/gcc/testsuite/lib/target-supports.exp
+Hunk #1 succeeded at 3286 (offset 21 lines).
+Hunk #2 succeeded at 3317 (offset 21 lines).
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/configure.ac
+patching file src/libstdc++-v3/configure.host
+patching file src/libstdc++-v3/testsuite/20_util/make_unsigned/requirements/typedefs-2.cc
+patching file src/libstdc++-v3/testsuite/20_util/make_signed/requirements/typedefs-2.cc
+
+Now at patch armhf-triplet.diff
+awk '/^EOF/ {exit} p==1 {print} /EOF$/ {p=1}' \
+	  /usr/src/gcc-4.6/debian/patches/svn-updates.diff > src/LAST_UPDATED
+if ! test -f ./autotools_files ; then touch ./autotools_files ; fi
+cd /«PKGBUILDDIR»/src/fixincludes && ./genfixes
+./genfixes: 1: ./genfixes: autogen: not found
+AutoGen appears to be out of date or not correctly installed.
+Please download and install:
+   ftp://gcc.gnu.org/pub/gcc/infrastructure/autogen.tar.gz
+for f in ./src/Makefile.in ./src/boehm-gc/configure.ac ./src/configure.ac ./src/gcc/Makefile.in ./src/gcc/ada/gcc-interface/Makefile.in ./src/gcc/configure.ac ./src/libcpp/Makefile.in ./src/libffi/Makefile.in ./src/libffi/configure.ac ./src/libffi/include/Makefile.in ./src/libffi/man/Makefile.in ./src/libffi/testsuite/Makefile.in ./src/libgcc/Makefile.in ./src/libgo/Makefile.am ./src/libgo/Makefile.in ./src/libgo/configure.ac ./src/libgo/testsuite/Makefile.in ./src/libiberty/Makefile.in ./src/libiberty/configure.ac ./src/libjava/Makefile.am ./src/libjava/Makefile.in ./src/libjava/classpath/Makefile.in ./src/libjava/classpath/configure.ac ./src/libjava/classpath/doc/Makefile.in ./src/libjava/classpath/doc/api/Makefile.in ./src/libjava/classpath/examples/Makefile.in ./src/libjava/classpath/external/Makefile.in ./src/libjava/classpath/external/jsr166/Makefile.in ./src/libjava/classpath/external/relaxngDatatype/Makefile.in ./src/libjava/classpath/external/sax/Makefile.in ./src/libjava/classpath/external/w3c_dom/Makefile.in ./src/libjava/classpath/include/Makefile.in ./src/libjava/classpath/lib/Makefile.in ./src/libjava/classpath/native/Makefile.in ./src/libjava/classpath/native/fdlibm/Makefile.in ./src/libjava/classpath/native/jawt/Makefile.in ./src/libjava/classpath/native/jni/Makefile.in ./src/libjava/classpath/native/jni/classpath/Makefile.in ./src/libjava/classpath/native/jni/gconf-peer/Makefile.in ./src/libjava/classpath/native/jni/gstreamer-peer/Makefile.in ./src/libjava/classpath/native/jni/gtk-peer/Makefile.in ./src/libjava/classpath/native/jni/java-io/Makefile.in ./src/libjava/classpath/native/jni/java-lang/Makefile.in ./src/libjava/classpath/native/jni/java-math/Makefile.in ./src/libjava/classpath/native/jni/java-net/Makefile.in ./src/libjava/classpath/native/jni/java-nio/Makefile.in ./src/libjava/classpath/native/jni/java-util/Makefile.in ./src/libjava/classpath/native/jni/midi-alsa/Makefile.in ./src/libjava/classpath/native/jni/midi-dssi/Makefile.in ./src/libjava/classpath/native/jni/native-lib/Makefile.in ./src/libjava/classpath/native/jni/qt-peer/Makefile.in ./src/libjava/classpath/native/jni/xmlj/Makefile.in ./src/libjava/classpath/native/plugin/Makefile.in ./src/libjava/classpath/resource/Makefile.in ./src/libjava/classpath/scripts/Makefile.in ./src/libjava/classpath/tools/Makefile.in ./src/libjava/configure.ac ./src/libjava/testsuite/Makefile.in ./src/libmudflap/Makefile.am ./src/libmudflap/Makefile.in ./src/libstdc++-v3/acinclude.m4 ./src/libstdc++-v3/configure.ac ./src/libstdc++-v3/include/Makefile.am ./src/libstdc++-v3/include/Makefile.in ./src/libstdc++-v3/src/Makefile.am ./src/libstdc++-v3/src/Makefile.in ./src/libstdc++-v3/testsuite/Makefile.am ./src/libstdc++-v3/testsuite/Makefile.in ; \
+	  do case $f in \
+	    */classpath/m4/acinclude.m4) \
+	        : ;; \
+	    */configure.*|*/acinclude.m4) \
+		if grep ^"$(md5sum $f)"$ ./autotools_files >/dev/null ; \
+		  then echo "Skipping already regenerated file $f." ; \
+		else \
+		  echo "Running autoconf2.64 in $(dirname $f)..." ; \
+		  dir="/«PKGBUILDDIR»"; cd /«PKGBUILDDIR»/$(dirname $f) \
+		    && AUTOM4TE=/usr/bin/autom4te2.64 autoconf2.64 \
+		    && cd $dir \
+		    && echo "$(md5sum $f)" >> ./autotools_files ; \
+		fi ;; \
+	    */Makefile.*) ;; \
+	    *) echo "Unknown file: $f"; false; \
+	  esac; \
+	done
+Running autoconf2.64 in ./src/boehm-gc...
+Running autoconf2.64 in ./src...
+Running autoconf2.64 in ./src/gcc...
+Running autoconf2.64 in ./src/libffi...
+Running autoconf2.64 in ./src/libgo...
+Running autoconf2.64 in ./src/libiberty...
+Running autoconf2.64 in ./src/libjava/classpath...
+Running autoconf2.64 in ./src/libjava...
+Running autoconf2.64 in ./src/libstdc++-v3...
+Running autoconf2.64 in ./src/libstdc++-v3...
+for i in   svn-updates  gcc-gfdl-build gcc-textdomain gcc-driver-extra-langs gcc-hash-style-both libstdc++-pic libstdc++-doclink libstdc++-man-3cxx libstdc++-test-installed libjava-stacktrace libjava-jnipath libjava-sjlj libjava-disable-plugin alpha-no-ev4-directive boehm-gc-getnprocs note-gnu-stack libgomp-omp_h-multilib sparc-force-cpu pr24619 gccgo-version no_fpr_in_libgcc pr48226 pr47487 mudflap-varargs mudflapth-link pr45078 pr43804 pr47818 pr48830 pr49169 pr49756 pr49940 pr49944 gcc-cloog-dl libffi-kfreebsd libffi-m68k gcc-base-version pr49696 libffi-powerpc-sf libffi-powerpc-sysv-without-string-ops pr49030 pr50193 pr50114 pr50946 gcc-arm-abi-conformance  arm-no-va_list-warn pr47955 m68k-fp-cmp-zero m68k-atomic gcc-gengtype-fix1 gcc-gengtype-fix2  gcc-d-lang libjava-disable-static s390-biarch mips-triarch arm-dynamic-linker arm-multilib-defaults gcc-ice-hack gcc-ice-apport libjava-fixed-symlinks libstdc++-arm-wno-abi ada-mips libffi-ro-eh_frame_sect gcc-multiarch libjava-nobiarch-check config-ml gcc-powerpc-nof gcc-powerpc-undef gcc-no-add-needed gcc-as-needed mips-fix-loongson2f-nop gcc-system-root libgomp-kfreebsd-testsuite armhf-triplet; do \
+	  echo -e "\n$i:" >> pxxx; \
+	  sed -n 's/^# *DP: */  /p' /usr/src/gcc-4.6/debian/patches/$i.diff >> pxxx; \
+	done
+mv pxxx /«PKGBUILDDIR»/stamp/patch
+# Remove the patch building libstdc++_pic.a before configuring
+patch -R -p2 -d/«PKGBUILDDIR»/src < /usr/src/gcc-4.6/debian/patches/libstdc++-pic.diff
+patching file libstdc++-v3/src/Makefile.am
+patching file libstdc++-v3/src/Makefile.in
+# Add extern "C" blocks around intrinsics
+patch -p1 -d/«PKGBUILDDIR»/src < debian/patches/cpp-intrinsics.patch
+patching file gcc/config/i386/abmintrin.h
+patching file gcc/config/i386/ammintrin.h
+patching file gcc/config/i386/avxintrin.h
+patching file gcc/config/i386/cpuid.h
+Hunk #2 succeeded at 190 (offset 7 lines).
+patching file gcc/config/i386/emmintrin.h
+patching file gcc/config/i386/fma4intrin.h
+Hunk #2 succeeded at 235 with fuzz 1.
+patching file gcc/config/i386/gmm_malloc.h
+patching file gcc/config/i386/ia32intrin.h
+Hunk #2 succeeded at 236 (offset 2 lines).
+patching file gcc/config/i386/lwpintrin.h
+patching file gcc/config/i386/mm3dnow.h
+patching file gcc/config/i386/mmintrin.h
+patching file gcc/config/i386/pmm_malloc.h
+patching file gcc/config/i386/pmmintrin.h
+patching file gcc/config/i386/popcntintrin.h
+patching file gcc/config/i386/smmintrin.h
+patching file gcc/config/i386/tmmintrin.h
+patching file gcc/config/i386/wmmintrin.h
+patching file gcc/config/i386/xmmintrin.h
+patching file gcc/config/i386/xopintrin.h
+# Spelling fixes
+patch -p2 -d/«PKGBUILDDIR»/src < debian/patches/spelling-fixes-code.patch
+patching file gcc/graphite-poly.c
+patching file gcc/lto/lto.c
+Hunk #1 succeeded at 1514 (offset 3 lines).
+touch mingw-w64-patch-stamp
+dh_testdir
+set -e; \
+	echo ============= Building with the following debian/control =============
+============= Building with the following debian/control =============
+cat debian/control
+# This file is generated using debian/rules control, do not edit
+Source: gcc-mingw-w64
+Section: devel
+Priority: extra
+Maintainer: Stephen Kitt <steve@sk2.org>
+DM-Upload-Allowed: yes
+Build-Depends: autotools-dev,
+               binutils-mingw-w64 (>= 2.21.51.20110523),
+               debhelper (>= 7.0.50~),
+               gcc-4.6 (>= 4.6.2-2),
+               gcc-4.6-source (>= 4.6.2-2),
+               gnat-4.6,
+               libcloog-ppl-dev,
+               libelf-dev,
+               libgmp-dev,
+               libmpc-dev (>= 0.8.0),
+               libmpfr-dev (>= 2.3.2),
+               lsb-release,
+               mingw-w64-dev (>= 1.0),
+               xz-utils,
+               zlib1g-dev
+Standards-Version: 3.9.3
+Homepage: http://www.gnu.org/software/gcc/
+Vcs-Git: git://git.debian.org/collab-maint/gcc-mingw-w64.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/gcc-mingw-w64.git;a=summary
+
+Package: gcc-mingw-w64
+Architecture: all
+Depends: gcc-mingw-w64-i686, gcc-mingw-w64-x86-64, ${misc:Depends}
+Recommends: g++-mingw-w64, gfortran-mingw-w64, gnat-mingw-w64
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU C compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the C compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: gcc-mingw-w64-i686
+Architecture: any
+Depends: binutils-mingw-w64-i686, mingw-w64-i686-dev | mingw-w64-dev, gcc-mingw-w64-base (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Conflicts: gcc-mingw-w64-bootstrap
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version}), gcc-mingw-w64-bootstrap
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU C compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the C compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: gcc-mingw-w64-x86-64
+Architecture: any
+Depends: binutils-mingw-w64-x86-64, mingw-w64-x86-64-dev | mingw-w64-dev, gcc-mingw-w64-base (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Conflicts: gcc-mingw-w64-bootstrap
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version}), gcc-mingw-w64-bootstrap
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU C compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the C compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: g++-mingw-w64
+Architecture: all
+Depends: g++-mingw-w64-i686, g++-mingw-w64-x86-64, ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU C++ compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the C++ compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: g++-mingw-w64-i686
+Architecture: any
+Depends: gcc-mingw-w64-i686 (= ${binary:Version}), libstdc++6-4.6-dev (>= ${local:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU C++ compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the C++ compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: g++-mingw-w64-x86-64
+Architecture: any
+Depends: gcc-mingw-w64-x86-64 (= ${binary:Version}), libstdc++6-4.6-dev (>= ${local:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU C++ compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the C++ compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: gfortran-mingw-w64
+Architecture: all
+Depends: gfortran-mingw-w64-i686, gfortran-mingw-w64-x86-64, ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU Fortran compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the Fortran compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: gfortran-mingw-w64-i686
+Architecture: any
+Depends: gcc-mingw-w64-i686 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Fortran compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Fortran compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: gfortran-mingw-w64-x86-64
+Architecture: any
+Depends: gcc-mingw-w64-x86-64 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Fortran compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Fortran compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: gobjc-mingw-w64
+Architecture: all
+Depends: gobjc-mingw-w64-i686, gobjc-mingw-w64-x86-64, ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU Objective-C compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the Objective-C compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: gobjc-mingw-w64-i686
+Architecture: any
+Depends: gcc-mingw-w64-i686 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Objective-C compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Objective-C compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: gobjc-mingw-w64-x86-64
+Architecture: any
+Depends: gcc-mingw-w64-x86-64 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Objective-C compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Objective-C compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: gobjc++-mingw-w64
+Architecture: all
+Depends: gobjc++-mingw-w64-i686, gobjc++-mingw-w64-x86-64, ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU Objective-C++ compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the Objective-C++ compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: gobjc++-mingw-w64-i686
+Architecture: any
+Depends: gobjc-mingw-w64-i686 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Objective-C++ compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Objective-C++ compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: gobjc++-mingw-w64-x86-64
+Architecture: any
+Depends: gobjc-mingw-w64-x86-64 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Objective-C++ compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Objective-C++ compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: gnat-mingw-w64
+Architecture: all
+Depends: gnat-mingw-w64-i686, gnat-mingw-w64-x86-64, ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU Ada compiler for MinGW-w64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This metapackage provides the Ada compiler, supporting
+ cross-compiling to 32- and 64-bit MinGW-w64 targets.
+
+Package: gnat-mingw-w64-i686
+Architecture: any
+Depends: gcc-mingw-w64-i686 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Ada compiler for MinGW-w64 targeting Win32
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Ada compiler, supporting
+ cross-compiling to 32-bit MinGW-w64 targets.
+
+Package: gnat-mingw-w64-x86-64
+Architecture: any
+Depends: gcc-mingw-w64-x86-64 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Breaks: gcc-mingw-w64 (<< ${split:Version})
+Replaces: gcc-mingw-w64 (<< ${split:Version})
+Suggests: gcc-4.6-locales (>= ${local:Version})
+Description: GNU Ada compiler for MinGW-w64 targeting Win64
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This package contains the Ada compiler, supporting
+ cross-compiling to 64-bit MinGW-w64 targets.
+
+Package: gcc-mingw32
+Architecture: all
+Depends: binutils-mingw-w64-i686,
+         binutils-mingw-w64-x86-64,
+         gcc-mingw-w64-i686,
+         gcc-mingw-w64-x86-64,
+         g++-mingw-w64-i686,
+         g++-mingw-w64-x86-64,
+         gfortran-mingw-w64-i686,
+         gfortran-mingw-w64-x86-64,
+         ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Conflicts: mingw32-binutils
+Description: GNU Compiler Collection for MinGW32 (transition package)
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This transition package replaces the old gcc-4.4.4-based gcc-mingw32
+ package and allows building software using the amd64-mingw32msvc and
+ i586-mingw32msvc triplets. It also includes compatibility symlinks
+ for amd64-mingw32msvc and i586-mingw32msvc binutils binaries.
+
+Package: gcc-mingw-w64-base
+Architecture: any
+Depends: ${misc:Depends}
+Built-Using: gcc-4.6 (= ${gcc:Version})
+Description: GNU Compiler Collection for MinGW-w64 (base package)
+ MinGW-w64 provides a development and runtime environment for 32- and
+ 64-bit (x86 and x64) Windows applications using the Windows API and
+ the GNU Compiler Collection (gcc).
+ .
+ This empty package contains the documentation common to all
+ gcc-mingw-w64 packages.
+echo ======================================================================
+======================================================================
+for target in i686-w64-mingw32 x86_64-w64-mingw32; do \
+		dh_auto_configure -B/«PKGBUILDDIR»/build/$target -D/«PKGBUILDDIR»/src -- \
+			--prefix=/usr --enable-shared --enable-static --disable-multilib --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --libdir=/usr/lib --enable-libstdcxx-time=yes --with-tune=generic --enable-version-specific-runtime-libs --enable-threads=win32 --enable-fully-dynamic-string --enable-sjlj-exceptions --enable-languages=c,c++,fortran,objc,obj-c++,ada --enable-lto --with-plugin-ld \
+			--target=$target \
+			--with-gxx-include-dir=/usr/include/c++/4.6 \
+			--with-as=/usr/bin/$target-as \
+			--with-ld=/usr/bin/$target-ld; \
+	done
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... i686-w64-mingw32
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for gawk... gawk
+checking for gcc... gcc-4.6
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc-4.6 accepts -g... yes
+checking for gcc-4.6 option to accept ISO C89... none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++-4.6 accepts -g... yes
+checking for gnatbind... gnatbind
+checking for gnatmake... gnatmake
+checking whether compiler driver understands Ada... no
+checking how to compare bootstrapped objects... cmp --ignore-initial=16 $$f1 $$f2
+checking for objdir... .libs
+checking for the correct version of gmp.h... yes
+checking for the correct version of mpfr.h... yes
+checking for the correct version of mpc.h... yes
+checking for the correct version of the gmp/mpfr/mpc libraries... yes
+checking for PWL_handle_timeout in -lpwl... no
+checking for version 0.11 (revision 0 or later) of PPL... yes
+checking for installed CLooG PPL Legacy... PPL Legacy
+checking for version 0.15.5 (or later revision) of CLooG... yes
+configure: error: GNAT is required to build ada
+dh_auto_configure: ../../src/configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --libexecdir=${prefix}/lib/gcc-mingw-w64 --disable-maintainer-mode --disable-dependency-tracking --prefix=/usr --enable-shared --enable-static --disable-multilib --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --libdir=/usr/lib --enable-libstdcxx-time=yes --with-tune=generic --enable-version-specific-runtime-libs --enable-threads=win32 --enable-fully-dynamic-string --enable-sjlj-exceptions --enable-languages=c,c++,fortran,objc,obj-c++,ada --enable-lto --with-plugin-ld --target=i686-w64-mingw32 --with-gxx-include-dir=/usr/include/c++/4.6 --with-as=/usr/bin/i686-w64-mingw32-as --with-ld=/usr/bin/i686-w64-mingw32-ld returned exit code 1
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-w64-mingw32
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for gawk... gawk
+checking for gcc... gcc-4.6
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc-4.6 accepts -g... yes
+checking for gcc-4.6 option to accept ISO C89... none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++-4.6 accepts -g... yes
+checking for gnatbind... gnatbind
+checking for gnatmake... gnatmake
+checking whether compiler driver understands Ada... no
+checking how to compare bootstrapped objects... cmp --ignore-initial=16 $$f1 $$f2
+checking for objdir... .libs
+checking for the correct version of gmp.h... yes
+checking for the correct version of mpfr.h... yes
+checking for the correct version of mpc.h... yes
+checking for the correct version of the gmp/mpfr/mpc libraries... yes
+checking for PWL_handle_timeout in -lpwl... no
+checking for version 0.11 (revision 0 or later) of PPL... yes
+checking for installed CLooG PPL Legacy... PPL Legacy
+checking for version 0.15.5 (or later revision) of CLooG... yes
+configure: error: GNAT is required to build ada
+dh_auto_configure: ../../src/configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --libexecdir=${prefix}/lib/gcc-mingw-w64 --disable-maintainer-mode --disable-dependency-tracking --prefix=/usr --enable-shared --enable-static --disable-multilib --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --libdir=/usr/lib --enable-libstdcxx-time=yes --with-tune=generic --enable-version-specific-runtime-libs --enable-threads=win32 --enable-fully-dynamic-string --enable-sjlj-exceptions --enable-languages=c,c++,fortran,objc,obj-c++,ada --enable-lto --with-plugin-ld --target=x86_64-w64-mingw32 --with-gxx-include-dir=/usr/include/c++/4.6 --with-as=/usr/bin/x86_64-w64-mingw32-as --with-ld=/usr/bin/x86_64-w64-mingw32-ld returned exit code 1
+make: *** [configure-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0528
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 668360
+Build-Time: 4047
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 21
+Job: gcc-mingw-w64_8
+Package: gcc-mingw-w64
+Package-Time: 4096
+Source-Version: 8
+Space: 668360
+Status: attempted
+Version: 8
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0528
+Build needed 01:08:16, 668360k disc space
+DC-Status: Failed 4109.723802s

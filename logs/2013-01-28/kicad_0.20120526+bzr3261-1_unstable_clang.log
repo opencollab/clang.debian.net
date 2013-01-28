@@ -1,0 +1,2008 @@
+DC-Build-Header: kicad 0.20120526+bzr3261-1 / Mon Jan 28 04:09:03 +0000 2013
+DC-Task: logfile:/tmp/kicad_0.20120526+bzr3261-1_unstable_clang.log version:0.20120526+bzr3261-1 chroot:unstable modes:binary-only:clang source:kicad architecture:any esttime:3892
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang kicad_0.20120526+bzr3261-1'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-144-143.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ kicad 0.20120526+bzr3261-1 (amd64)                         28 Jan 2013 04:09 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: kicad
+Version: 0.20120526+bzr3261-1
+Source Version: 0.20120526+bzr3261-1
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/kicad-6g8y1n/kicad-0.20120526+bzr3261' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/kicad-6g8y1n' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-43536bb9-123b-447e-bcca-773d0672666f' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8234 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Fetched 16.8 MB in 3s (5298 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 157 MB of source archives.
+Get:1 http://localhost/debian/ unstable/main kicad 0.20120526+bzr3261-1 (dsc) [1988 B]
+Get:2 http://localhost/debian/ unstable/main kicad 0.20120526+bzr3261-1 (tar) [157 MB]
+Get:3 http://localhost/debian/ unstable/main kicad 0.20120526+bzr3261-1 (diff) [11.3 kB]
+Fetched 157 MB in 5s (28.7 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 1s (1402 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 2s (3805 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (36.7 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130123-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130123-1) ...
+Setting up libitm1:amd64 (4.8-20130123-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130123-1) ...
+Setting up libquadmath0:amd64 (4.8-20130123-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-bDxtNP/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/710 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7.0.50~), quilt, libx11-dev, libglu1-mesa-dev, libgl1-mesa-dev, mesa-common-dev, libwxbase2.8-dev, libwxgtk2.8-dev, libboost-dev, cmake (>= 2.6.0)
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7.0.50~), quilt, libx11-dev, libglu1-mesa-dev, libgl1-mesa-dev, mesa-common-dev, libwxbase2.8-dev, libwxgtk2.8-dev, libboost-dev, cmake (>= 2.6.0)
+dpkg-deb: building package `sbuild-build-depends-kicad-dummy' in `/«BUILDDIR»/resolver-FrDj9_/apt_archive/sbuild-build-depends-kicad-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install kicad build dependencies (apt-based resolver)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils cmake cmake-data debhelper diffstat emacsen-common file
+  fontconfig fontconfig-config gettext gettext-base groff-base html2text
+  intltool-debian libarchive12 libasprintf-dev libasprintf0c2 libatk1.0-0
+  libatk1.0-data libavahi-client3 libavahi-common-data libavahi-common3
+  libboost-dev libboost1.49-dev libcairo2 libcroco3 libcups2 libcurl3
+  libcurl3-gnutls libdatrie1 libdbus-1-3 libdrm2 libfontconfig1 libfreetype6
+  libgcrypt11 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgettextpo-dev
+  libgettextpo0 libgl1-mesa-dev libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglu1-mesa libglu1-mesa-dev libgnutls26 libgpg-error0 libgssapi-krb5-2
+  libgtk2.0-0 libgtk2.0-common libice6 libicu48 libidn11 libjasper1 libjbig0
+  libjpeg8 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2
+  libmagic1 libnettle4 libp11-kit0 libpango1.0-0 libpcre3 libpipeline1
+  libpixman-1-0 libpng12-0 libprocps0 libpthread-stubs0 libpthread-stubs0-dev
+  librtmp0 libsasl2-2 libsm6 libssh2-1 libtasn1-3 libthai-data libthai0
+  libtiff4 libunistring0 libwxbase2.8-0 libwxbase2.8-dev libwxgtk2.8-0
+  libwxgtk2.8-dev libx11-6 libx11-data libx11-dev libx11-xcb1 libxau-dev
+  libxau6 libxcb-glx0 libxcb-render0 libxcb-shm0 libxcb1 libxcb1-dev
+  libxcomposite1 libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev
+  libxext6 libxfixes3 libxft2 libxi6 libxinerama1 libxml2 libxmlrpc-core-c3
+  libxrandr2 libxrender1 libxxf86vm1 man-db mesa-common-dev po-debconf procps
+  quilt shared-mime-info ttf-dejavu-core wx-common wx2.8-headers x11-common
+  x11proto-core-dev x11proto-input-dev x11proto-kb-dev x11proto-xext-dev
+  xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff libboost-doc
+  libboost1.49-doc libboost-chrono1.49-dev libboost-date-time1.49-dev
+  libboost-filesystem1.49-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams1.49-dev libboost-locale1.49-dev
+  libboost-math1.49-dev libboost-mpi1.49-dev libboost-program-options1.49-dev
+  libboost-python1.49-dev libboost-random1.49-dev libboost-regex1.49-dev
+  libboost-serialization1.49-dev libboost-signals1.49-dev
+  libboost-system1.49-dev libboost-test1.49-dev libboost-thread1.49-dev
+  libboost-timer1.49-dev libboost-wave1.49-dev xsltproc doxygen docbook-xml
+  docbook-xsl default-jdk fop cups-common rng-tools krb5-doc krb5-user
+  librsvg2-common gvfs libjasper-runtime ttf-baekmuk ttf-arphic-gbsn00lp
+  ttf-arphic-bsmi00lp ttf-arphic-gkai00mp ttf-arphic-bkai00mp wx2.8-doc
+  libgnomeprintui2.2-0 xlibmesa-glu-dev libglu-dev libxcb-doc libxext-doc less
+  www-browser libmail-box-perl procmail graphviz default-mta
+  mail-transport-agent
+Recommended packages:
+  curl wget lynx-cur autopoint ca-certificates dbus libgl1-mesa-dri
+  libglib2.0-data hicolor-icon-theme libgtk2.0-bin krb5-locales
+  libsasl2-modules libx11-doc xml-core libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  bsdmainutils cmake cmake-data debhelper diffstat emacsen-common file
+  fontconfig fontconfig-config gettext gettext-base groff-base html2text
+  intltool-debian libarchive12 libasprintf-dev libasprintf0c2 libatk1.0-0
+  libatk1.0-data libavahi-client3 libavahi-common-data libavahi-common3
+  libboost-dev libboost1.49-dev libcairo2 libcroco3 libcups2 libcurl3
+  libcurl3-gnutls libdatrie1 libdbus-1-3 libdrm2 libfontconfig1 libfreetype6
+  libgcrypt11 libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgettextpo-dev
+  libgettextpo0 libgl1-mesa-dev libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglu1-mesa libglu1-mesa-dev libgnutls26 libgpg-error0 libgssapi-krb5-2
+  libgtk2.0-0 libgtk2.0-common libice6 libicu48 libidn11 libjasper1 libjbig0
+  libjpeg8 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2
+  libmagic1 libnettle4 libp11-kit0 libpango1.0-0 libpcre3 libpipeline1
+  libpixman-1-0 libpng12-0 libprocps0 libpthread-stubs0 libpthread-stubs0-dev
+  librtmp0 libsasl2-2 libsm6 libssh2-1 libtasn1-3 libthai-data libthai0
+  libtiff4 libunistring0 libwxbase2.8-0 libwxbase2.8-dev libwxgtk2.8-0
+  libwxgtk2.8-dev libx11-6 libx11-data libx11-dev libx11-xcb1 libxau-dev
+  libxau6 libxcb-glx0 libxcb-render0 libxcb-shm0 libxcb1 libxcb1-dev
+  libxcomposite1 libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev
+  libxext6 libxfixes3 libxft2 libxi6 libxinerama1 libxml2 libxmlrpc-core-c3
+  libxrandr2 libxrender1 libxxf86vm1 man-db mesa-common-dev po-debconf procps
+  quilt sbuild-build-depends-kicad-dummy shared-mime-info ttf-dejavu-core
+  wx-common wx2.8-headers x11-common x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev
+0 upgraded, 129 newly installed, 0 to remove and 0 not upgraded.
+Need to get 58.9 MB/58.9 MB of archives.
+After this operation, 255 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:13 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:14 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:15 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:16 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:17 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:18 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:19 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:20 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:21 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:22 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:23 http://localhost/debian/ unstable/main libnettle4 amd64 2.4-3 [149 kB]
+Get:24 http://localhost/debian/ unstable/main libarchive12 amd64 3.0.4-2 [303 kB]
+Get:25 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:26 http://localhost/debian/ unstable/main libatk1.0-data all 2.4.0-2 [240 kB]
+Get:27 http://localhost/debian/ unstable/main libatk1.0-0 amd64 2.4.0-2 [95.1 kB]
+Get:28 http://localhost/debian/ unstable/main libavahi-common-data amd64 0.6.31-1 [134 kB]
+Get:29 http://localhost/debian/ unstable/main libavahi-common3 amd64 0.6.31-1 [54.3 kB]
+Get:30 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:31 http://localhost/debian/ unstable/main libavahi-client3 amd64 0.6.31-1 [59.1 kB]
+Get:32 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:33 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:34 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:35 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:36 http://localhost/debian/ unstable/main libpixman-1-0 amd64 0.26.0-3 [427 kB]
+Get:37 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:38 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:39 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:40 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:41 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:42 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:43 http://localhost/debian/ unstable/main libxcb-render0 amd64 1.8.1-2 [18.5 kB]
+Get:44 http://localhost/debian/ unstable/main libxcb-shm0 amd64 1.8.1-2 [10.3 kB]
+Get:45 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:46 http://localhost/debian/ unstable/main libcairo2 amd64 1.12.2-2.1 [912 kB]
+Get:47 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:48 http://localhost/debian/ unstable/main libcups2 amd64 1.5.3-2.14 [255 kB]
+Get:49 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:50 http://localhost/debian/ unstable/main libssh2-1 amd64 1.4.2-1.1 [133 kB]
+Get:51 http://localhost/debian/ unstable/main libcurl3 amd64 7.28.0-3 [331 kB]
+Get:52 http://localhost/debian/ unstable/main libcurl3-gnutls amd64 7.28.0-3 [322 kB]
+Get:53 http://localhost/debian/ unstable/main libdatrie1 amd64 0.2.5-3 [28.6 kB]
+Get:54 http://localhost/debian/ unstable/main libdrm2 amd64 2.4.40-1~deb7u2 [459 kB]
+Get:55 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:56 http://localhost/debian/ unstable/main libjasper1 amd64 1.900.1-14 [160 kB]
+Get:57 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:58 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:59 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-common all 2.26.1-1 [497 kB]
+Get:60 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-0 amd64 2.26.1-1 [207 kB]
+Get:61 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:62 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:63 http://localhost/debian/ unstable/main libglapi-mesa amd64 8.0.5-3 [46.6 kB]
+Get:64 http://localhost/debian/ unstable/main libx11-xcb1 amd64 2:1.5.0-1 [139 kB]
+Get:65 http://localhost/debian/ unstable/main libxcb-glx0 amd64 1.8.1-2 [32.1 kB]
+Get:66 http://localhost/debian/ unstable/main libxfixes3 amd64 1:5.0-4 [21.5 kB]
+Get:67 http://localhost/debian/ unstable/main libxdamage1 amd64 1:1.1.3-2 [14.3 kB]
+Get:68 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:69 http://localhost/debian/ unstable/main libxxf86vm1 amd64 1:1.1.2-1 [19.0 kB]
+Get:70 http://localhost/debian/ unstable/main libgl1-mesa-glx amd64 8.0.5-3 [134 kB]
+Get:71 http://localhost/debian/ unstable/main libglu1-mesa amd64 8.0.5-3 [190 kB]
+Get:72 http://localhost/debian/ unstable/main libgtk2.0-common all 2.24.10-2 [3081 kB]
+Get:73 http://localhost/debian/ unstable/main libthai-data all 0.1.18-2 [154 kB]
+Get:74 http://localhost/debian/ unstable/main libthai0 amd64 0.1.18-2 [42.3 kB]
+Get:75 http://localhost/debian/ unstable/main libxft2 amd64 2.3.1-1 [61.0 kB]
+Get:76 http://localhost/debian/ unstable/main fontconfig amd64 2.9.0-7.1 [348 kB]
+Get:77 http://localhost/debian/ unstable/main libpango1.0-0 amd64 1.30.0-1 [461 kB]
+Get:78 http://localhost/debian/ unstable/main libxcomposite1 amd64 1:0.4.3-2 [16.6 kB]
+Get:79 http://localhost/debian/ unstable/main libxcursor1 amd64 1:1.1.13-1 [26.9 kB]
+Get:80 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:81 http://localhost/debian/ unstable/main libxinerama1 amd64 2:1.1.2-1 [16.8 kB]
+Get:82 http://localhost/debian/ unstable/main libxrandr2 amd64 2:1.3.2-2 [33.5 kB]
+Get:83 http://localhost/debian/ unstable/main shared-mime-info amd64 1.0-1+b1 [595 kB]
+Get:84 http://localhost/debian/ unstable/main libgtk2.0-0 amd64 2.24.10-2 [2200 kB]
+Get:85 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:86 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:87 http://localhost/debian/ unstable/main libicu48 amd64 4.8.1.1-10 [4741 kB]
+Get:88 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:89 http://localhost/debian/ unstable/main libwxbase2.8-0 amd64 2.8.12.1-12 [678 kB]
+Get:90 http://localhost/debian/ unstable/main libwxgtk2.8-0 amd64 2.8.12.1-12 [3411 kB]
+Get:91 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:92 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:93 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:94 http://localhost/debian/ unstable/main libxmlrpc-core-c3 amd64 1.16.33-3.2 [186 kB]
+Get:95 http://localhost/debian/ unstable/main emacsen-common all 2.0.5 [20.9 kB]
+Get:96 http://localhost/debian/ unstable/main cmake-data all 2.8.9-1 [1359 kB]
+Get:97 http://localhost/debian/ unstable/main cmake amd64 2.8.9-1 [4730 kB]
+Get:98 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:99 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:100 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:101 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:102 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:103 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:104 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:105 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:106 http://localhost/debian/ unstable/main libboost1.49-dev amd64 1.49.0-3.1 [9203 kB]
+Get:107 http://localhost/debian/ unstable/main libboost-dev amd64 1.49.0.1 [3022 B]
+Get:108 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:109 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:110 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:111 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:112 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:113 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:114 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:115 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:116 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:117 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:118 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:119 http://localhost/debian/ unstable/main mesa-common-dev amd64 8.0.5-3 [277 kB]
+Get:120 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:121 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:122 http://localhost/debian/ unstable/main libgl1-mesa-dev amd64 8.0.5-3 [32.5 kB]
+Get:123 http://localhost/debian/ unstable/main libglu1-mesa-dev amd64 8.0.5-3 [226 kB]
+Get:124 http://localhost/debian/ unstable/main wx2.8-headers amd64 2.8.12.1-12 [1556 kB]
+Get:125 http://localhost/debian/ unstable/main libwxbase2.8-dev amd64 2.8.12.1-12 [107 kB]
+Get:126 http://localhost/debian/ unstable/main wx-common amd64 2.8.12.1-12 [129 kB]
+Get:127 http://localhost/debian/ unstable/main libwxgtk2.8-dev amd64 2.8.12.1-12 [107 kB]
+Get:128 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 58.9 MB in 2s (22.5 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libnettle4:amd64.
+Unpacking libnettle4:amd64 (from .../libnettle4_2.4-3_amd64.deb) ...
+Selecting previously unselected package libarchive12:amd64.
+Unpacking libarchive12:amd64 (from .../libarchive12_3.0.4-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libatk1.0-data.
+Unpacking libatk1.0-data (from .../libatk1.0-data_2.4.0-2_all.deb) ...
+Selecting previously unselected package libatk1.0-0:amd64.
+Unpacking libatk1.0-0:amd64 (from .../libatk1.0-0_2.4.0-2_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Unpacking libavahi-common-data:amd64 (from .../libavahi-common-data_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Unpacking libavahi-common3:amd64 (from .../libavahi-common3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Unpacking libavahi-client3:amd64 (from .../libavahi-client3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Unpacking libpixman-1-0:amd64 (from .../libpixman-1-0_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Unpacking libxcb-render0:amd64 (from .../libxcb-render0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Unpacking libxcb-shm0:amd64 (from .../libxcb-shm0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libcairo2:amd64.
+Unpacking libcairo2:amd64 (from .../libcairo2_1.12.2-2.1_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libcups2:amd64.
+Unpacking libcups2:amd64 (from .../libcups2_1.5.3-2.14_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1:amd64.
+Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl3:amd64.
+Unpacking libcurl3:amd64 (from .../libcurl3_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Unpacking libcurl3-gnutls:amd64 (from .../libcurl3-gnutls_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libdatrie1:amd64.
+Unpacking libdatrie1:amd64 (from .../libdatrie1_0.2.5-3_amd64.deb) ...
+Selecting previously unselected package libdrm2:amd64.
+Unpacking libdrm2:amd64 (from .../libdrm2_2.4.40-1~deb7u2_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package libjasper1:amd64.
+Unpacking libjasper1:amd64 (from .../libjasper1_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+Unpacking libgdk-pixbuf2.0-common (from .../libgdk-pixbuf2.0-common_2.26.1-1_all.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-0:amd64.
+Unpacking libgdk-pixbuf2.0-0:amd64 (from .../libgdk-pixbuf2.0-0_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglapi-mesa:amd64.
+Unpacking libglapi-mesa:amd64 (from .../libglapi-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Unpacking libx11-xcb1:amd64 (from .../libx11-xcb1_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-glx0:amd64.
+Unpacking libxcb-glx0:amd64 (from .../libxcb-glx0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxfixes3:amd64.
+Unpacking libxfixes3:amd64 (from .../libxfixes3_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxdamage1:amd64.
+Unpacking libxdamage1:amd64 (from .../libxdamage1_1%3a1.1.3-2_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxxf86vm1:amd64.
+Unpacking libxxf86vm1:amd64 (from .../libxxf86vm1_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-glx:amd64.
+Unpacking libgl1-mesa-glx:amd64 (from .../libgl1-mesa-glx_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa:amd64.
+Unpacking libglu1-mesa:amd64 (from .../libglu1-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libgtk2.0-common.
+Unpacking libgtk2.0-common (from .../libgtk2.0-common_2.24.10-2_all.deb) ...
+Selecting previously unselected package libthai-data.
+Unpacking libthai-data (from .../libthai-data_0.1.18-2_all.deb) ...
+Selecting previously unselected package libthai0:amd64.
+Unpacking libthai0:amd64 (from .../libthai0_0.1.18-2_amd64.deb) ...
+Selecting previously unselected package libxft2:amd64.
+Unpacking libxft2:amd64 (from .../libxft2_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpango1.0-0:amd64.
+Unpacking libpango1.0-0:amd64 (from .../libpango1.0-0_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package libxcomposite1:amd64.
+Unpacking libxcomposite1:amd64 (from .../libxcomposite1_1%3a0.4.3-2_amd64.deb) ...
+Selecting previously unselected package libxcursor1:amd64.
+Unpacking libxcursor1:amd64 (from .../libxcursor1_1%3a1.1.13-1_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package libxinerama1:amd64.
+Unpacking libxinerama1:amd64 (from .../libxinerama1_2%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libxrandr2:amd64.
+Unpacking libxrandr2:amd64 (from .../libxrandr2_2%3a1.3.2-2_amd64.deb) ...
+Selecting previously unselected package shared-mime-info.
+Unpacking shared-mime-info (from .../shared-mime-info_1.0-1+b1_amd64.deb) ...
+Selecting previously unselected package libgtk2.0-0:amd64.
+Unpacking libgtk2.0-0:amd64 (from .../libgtk2.0-0_2.24.10-2_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libicu48:amd64.
+Unpacking libicu48:amd64 (from .../libicu48_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libwxbase2.8-0:amd64.
+Unpacking libwxbase2.8-0:amd64 (from .../libwxbase2.8-0_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxgtk2.8-0:amd64.
+Unpacking libwxgtk2.8-0:amd64 (from .../libwxgtk2.8-0_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3.
+Unpacking libxmlrpc-core-c3 (from .../libxmlrpc-core-c3_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package emacsen-common.
+Unpacking emacsen-common (from .../emacsen-common_2.0.5_all.deb) ...
+Selecting previously unselected package cmake-data.
+Unpacking cmake-data (from .../cmake-data_2.8.9-1_all.deb) ...
+Selecting previously unselected package cmake.
+Unpacking cmake (from .../cmake_2.8.9-1_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package libboost1.49-dev.
+Unpacking libboost1.49-dev (from .../libboost1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-dev.
+Unpacking libboost-dev (from .../libboost-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package mesa-common-dev.
+Unpacking mesa-common-dev (from .../mesa-common-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-dev.
+Unpacking libgl1-mesa-dev (from .../libgl1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa-dev.
+Unpacking libglu1-mesa-dev (from .../libglu1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package wx2.8-headers.
+Unpacking wx2.8-headers (from .../wx2.8-headers_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxbase2.8-dev.
+Unpacking libwxbase2.8-dev (from .../libwxbase2.8-dev_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package wx-common.
+Unpacking wx-common (from .../wx-common_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxgtk2.8-dev.
+Unpacking libwxgtk2.8-dev (from .../libwxgtk2.8-dev_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-kicad-dummy.
+Unpacking sbuild-build-depends-kicad-dummy (from .../sbuild-build-depends-kicad-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libnettle4:amd64 (2.4-3) ...
+Setting up libarchive12:amd64 (3.0.4-2) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libatk1.0-data (2.4.0-2) ...
+Setting up libatk1.0-0:amd64 (2.4.0-2) ...
+Setting up libavahi-common-data:amd64 (0.6.31-1) ...
+Setting up libavahi-common3:amd64 (0.6.31-1) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libavahi-client3:amd64 (0.6.31-1) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libpixman-1-0:amd64 (0.26.0-3) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxcb-render0:amd64 (1.8.1-2) ...
+Setting up libxcb-shm0:amd64 (1.8.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libcairo2:amd64 (1.12.2-2.1) ...
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libcups2:amd64 (1.5.3-2.14) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1:amd64 (1.4.2-1.1) ...
+Setting up libcurl3:amd64 (7.28.0-3) ...
+Setting up libcurl3-gnutls:amd64 (7.28.0-3) ...
+Setting up libdatrie1:amd64 (0.2.5-3) ...
+Setting up libdrm2:amd64 (2.4.40-1~deb7u2) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up libjasper1:amd64 (1.900.1-14) ...
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libgdk-pixbuf2.0-common (2.26.1-1) ...
+Setting up libgdk-pixbuf2.0-0:amd64 (2.26.1-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglapi-mesa:amd64 (8.0.5-3) ...
+Setting up libx11-xcb1:amd64 (2:1.5.0-1) ...
+Setting up libxcb-glx0:amd64 (1.8.1-2) ...
+Setting up libxfixes3:amd64 (1:5.0-4) ...
+Setting up libxdamage1:amd64 (1:1.1.3-2) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxxf86vm1:amd64 (1:1.1.2-1) ...
+Setting up libgl1-mesa-glx:amd64 (8.0.5-3) ...
+Setting up libglu1-mesa:amd64 (8.0.5-3) ...
+Setting up libgtk2.0-common (2.24.10-2) ...
+Setting up libthai-data (0.1.18-2) ...
+Setting up libthai0:amd64 (0.1.18-2) ...
+Setting up libxft2:amd64 (2.3.1-1) ...
+Setting up fontconfig (2.9.0-7.1) ...
+Regenerating fonts cache... done.
+Setting up libpango1.0-0:amd64 (1.30.0-1) ...
+Setting up libxcomposite1:amd64 (1:0.4.3-2) ...
+Setting up libxcursor1:amd64 (1:1.1.13-1) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up libxinerama1:amd64 (2:1.1.2-1) ...
+Setting up libxrandr2:amd64 (2:1.3.2-2) ...
+Setting up shared-mime-info (1.0-1+b1) ...
+Setting up libgtk2.0-0:amd64 (2.24.10-2) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libicu48:amd64 (4.8.1.1-10) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libwxbase2.8-0:amd64 (2.8.12.1-12) ...
+Setting up libwxgtk2.8-0:amd64 (2.8.12.1-12) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libxmlrpc-core-c3 (1.16.33-3.2) ...
+Setting up emacsen-common (2.0.5) ...
+Setting up cmake-data (2.8.9-1) ...
+Install cmake-data for emacs
+Setting up cmake (2.8.9-1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up libboost1.49-dev (1.49.0-3.1) ...
+Setting up libboost-dev (1.49.0.1) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up mesa-common-dev (8.0.5-3) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up libgl1-mesa-dev (8.0.5-3) ...
+Setting up libglu1-mesa-dev (8.0.5-3) ...
+Setting up wx2.8-headers (2.8.12.1-12) ...
+Setting up libwxbase2.8-dev (2.8.12.1-12) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/wx/config/base-unicode-release-2.8 to provide /usr/bin/wx-config (wx-config) in auto mode
+Setting up wx-common (2.8.12.1-12) ...
+Setting up libwxgtk2.8-dev (2.8.12.1-12) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/wx/config/gtk2-unicode-release-2.8 to provide /usr/bin/wx-config (wx-config) in auto mode
+Setting up quilt (0.60-7) ...
+Setting up sbuild-build-depends-kicad-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 cmake_2.8.9-1 cmake-data_2.8.9-1 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 emacsen-common_2.0.5 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig_2.9.0-7.1 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130123-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libarchive12_3.0.4-2 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libatk1.0-0_2.4.0-2 libatk1.0-data_2.4.0-2 libattr1_1:2.4.46-8 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common3_0.6.31-1 libblkid1_2.20.1-5.3 libboost-dev_1.49.0.1 libboost1.49-dev_1.49.0-3.1 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libcairo2_1.12.2-2.1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcups2_1.5.3-2.14 libcurl3_7.28.0-3 libcurl3-gnutls_7.28.0-3 libdatrie1_0.2.5-3 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdpkg-perl_1.16.9 libdrm2_2.4.40-1~deb7u2 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfreetype6_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130123-1 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgdk-pixbuf2.0-0_2.26.1-1 libgdk-pixbuf2.0-common_2.26.1-1 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgl1-mesa-dev_8.0.5-3 libgl1-mesa-glx_8.0.5-3 libglapi-mesa_8.0.5-3 libglib2.0-0_2.33.12+really2.32.4-5 libglu1-mesa_8.0.5-3 libglu1-mesa-dev_8.0.5-3 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.8-20130123-1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgtk2.0-0_2.24.10-2 libgtk2.0-common_2.24.10-2 libice6_2:1.0.8-2 libicu48_4.8.1.1-10 libidn11_1.25-2 libitm1_4.8-20130123-1 libjasper1_1.900.1-14 libjbig0_2.0-2 libjpeg8_8d-1 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libnettle4_2.4-3 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130123-1 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpango1.0-0_1.30.0-1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpixman-1-0_0.26.0-3 libpng12-0_1.2.49-3 libprocps0_1:3.3.4-2 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130123-1 libreadline6_6.2+dfsg-0.1 librtmp0_2.4+20111222.git4e06e21-1 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130123-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libthai-data_0.1.18-2 libthai0_0.1.18-2 libtiff4_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libwxbase2.8-0_2.8.12.1-12 libwxbase2.8-dev_2.8.12.1-12 libwxgtk2.8-0_2.8.12.1-12 libwxgtk2.8-dev_2.8.12.1-12 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb-glx0_1.8.1-2 libxcb-render0_1.8.1-2 libxcb-shm0_1.8.1-2 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxcomposite1_1:0.4.3-2 libxcursor1_1:1.1.13-1 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfixes3_1:5.0-4 libxft2_2.3.1-1 libxi6_2:1.6.1-1 libxinerama1_2:1.1.2-1 libxml2_2.8.0+dfsg1-7 libxmlrpc-core-c3_1.16.33-3.2 libxrandr2_2:1.3.2-2 libxrender1_1:0.9.7-1 libxxf86vm1_1:1.1.2-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mesa-common-dev_8.0.5-3 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-kicad-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 shared-mime-info_1.0-1+b1 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 wx-common_2.8.12.1-12 wx2.8-headers_2.8.12.1-12 x11-common_1:7.7+1 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-xext-dev_7.2.1-1 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sat May 26 19:28:21 2012 UTC using DSA key ID 11691130
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./kicad_0.20120526+bzr3261-1.dsc
+dpkg-source: info: extracting kicad in kicad-0.20120526+bzr3261
+dpkg-source: info: unpacking kicad_0.20120526+bzr3261.orig.tar.gz
+dpkg-source: info: unpacking kicad_0.20120526+bzr3261-1.debian.tar.gz
+dpkg-source: info: applying gcc-4.7.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-43536bb9-123b-447e-bcca-773d0672666f
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package kicad
+dpkg-buildpackage: source version 0.20120526+bzr3261-1
+dpkg-buildpackage: source changed by Georges Khaznadar <georgesk@ofset.org>
+ dpkg-source --before-build kicad-0.20120526+bzr3261
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --parallel
+   dh_testdir -O--parallel
+   dh_auto_clean -O--parallel
+   debian/rules override_dh_clean
+make[1]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+dh_clean
+find . -type d -name CMakeFiles | xargs rm -rf
+rm -f ./3d-viewer/Makefile ./3d-viewer/cmake_install.cmake ./CMakeCache.txt ./CTestTestfile.cmake ./DartConfiguration.tcl ./Makefile ./bitmap2component/Makefile ./bitmap2component/cmake_install.cmake ./bitmaps_png/Makefile ./bitmaps_png/cmake_install.cmake ./cmake_install.cmake ./cmake_uninstall.cmake ./common/Makefile ./common/cmake_install.cmake ./config.h ./cvpcb/Makefile ./cvpcb/cmake_install.cmake ./demos/Makefile ./demos/cmake_install.cmake ./doc/CMakeCache.txt ./doc/Makefile ./doc/cmake_install.cmake ./doc/doc/help/Makefile ./doc/doc/help/cmake_install.cmake ./doc/doc/tutorials/Makefile ./doc/doc/tutorials/cmake_install.cmake ./doc/internat/Makefile ./doc/internat/cmake_install.cmake ./eeschema/Makefile ./eeschema/cmake_install.cmake ./eeschema/plugins/Makefile ./eeschema/plugins/cmake_install.cmake ./gerbview/Makefile ./gerbview/cmake_install.cmake ./kicad/Makefile ./kicad/cmake_install.cmake ./library/CMakeCache.txt ./library/Makefile ./library/cmake_install.cmake ./library/library/Makefile ./library/library/cmake_install.cmake ./library/modules/Makefile ./library/modules/cmake_install.cmake ./pcb_calculator/Makefile ./pcb_calculator/cmake_install.cmake ./pcbnew/Makefile ./pcbnew/cmake_install.cmake ./polygon/Makefile ./polygon/cmake_install.cmake ./polygon/kbool/src/Makefile ./polygon/kbool/src/cmake_install.cmake ./potrace/Makefile ./potrace/cmake_install.cmake ./template/Makefile ./template/cmake_install.cmake ./Testing/Temporary/CTestCostData.txt ./Testing/Temporary/LastTest.log ./install_manifest.txt
+debian/clean_sourceless_pdf
+doc/doc/tutorials/pl/KiCad-Biblioteki_dla_poczatkujacych.pdf is sourceless, erasing it
+doc/doc/tutorials/es/KiCad Tutorial.pdf is sourceless, erasing it
+doc/doc/contrib/gerber_rs274x_revd_e.pdf is sourceless, erasing it
+doc/doc/help/pl/getting_started_in_kicad.pdf is sourceless, erasing it
+doc/doc/help/file_formats/file_formats.pdf is sourceless, erasing it
+doc/doc/help/ru/Getting_Started_in_KiCad.pdf is sourceless, erasing it
+doc/doc/help/en/Getting_Started_in_KiCad.pdf is sourceless, erasing it
+doc/presentations/ru/kicad_ru_team.pdf is sourceless, erasing it
+Documentation/coding_style_policy.pdf is sourceless, erasing it
+pcb_calculator/docs/NFC93713_English_A1T.pdf is sourceless, erasing it
+pcb_calculator/docs/tracks_width_thickness.pdf is sourceless, erasing it
+pcb_calculator/docs/tracks_width_formulas.pdf is sourceless, erasing it
+make[1]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+ debian/rules build-arch
+dh build-arch --parallel
+   dh_testdir -a -O--parallel
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+cmake -DKICAD_STABLE_VERSION=ON .
+-- The C compiler identification is Clang 3.2.0
+-- The CXX compiler identification is Clang 3.2.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+Build stable version of Kicad
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Found X11: /usr/lib/x86_64-linux-gnu/libX11.so
+-- Check for installed OpenGL -- found
+-- Check for installed wxWidgets -- found
+-- Looking for malloc.h
+-- Looking for malloc.h - found
+-- Looking for iso646.h
+-- Looking for iso646.h - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for strncasecmp
+-- Looking for strncasecmp - found
+-- Looking for malloc
+-- Looking for malloc - found
+-- Looking for _stricmp
+-- Looking for _stricmp - not found.
+-- Looking for _strnicmp
+-- Looking for _strnicmp - not found.
+-- Looking for _snprintf
+-- Looking for _snprintf - not found.
+-- Looking for _hypot
+-- Looking for _hypot - not found.
+-- Bazaar version control command line client was not found.
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE) 
+-- WARNING: Doxygen not found - doxygen-docs (Source Docs) target not created
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /«BUILDDIR»/kicad-0.20120526+bzr3261
+cd /«BUILDDIR»/kicad-0.20120526+bzr3261/doc; cmake .
+-- The C compiler identification is Clang 3.2.0
+-- The CXX compiler identification is Clang 3.2.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /«BUILDDIR»/kicad-0.20120526+bzr3261/doc
+cd /«BUILDDIR»/kicad-0.20120526+bzr3261/library; cmake .
+-- The C compiler identification is Clang 3.2.0
+-- The CXX compiler identification is Clang 3.2.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /«BUILDDIR»/kicad-0.20120526+bzr3261/library
+make[1]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+   dh_auto_build -a -O--parallel
+make[1]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[2]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target 3d-viewer
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_aux.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/3d_aux.cpp:41:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/../pcbnew/class_zone.h:467:26: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        else if( aRadius < 0 )
+                 ~~~~~~~ ^ ~
+1 warning generated.
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_canvas.cpp.o
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_class.cpp.o
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_draw.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/3d_draw.cpp:43:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/../pcbnew/class_zone.h:467:26: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        else if( aRadius < 0 )
+                 ~~~~~~~ ^ ~
+/«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/3d_draw.cpp:140:17: warning: if statement has empty body [-Wempty-body]
+    if( finish );
+                ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/3d-viewer/3d_draw.cpp:140:17: note: put the semicolon on a separate line to silence this warning
+2 warnings generated.
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_frame.cpp.o
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_read_mesh.cpp.o
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/3d_toolbar.cpp.o
+[  0%] Building CXX object 3d-viewer/CMakeFiles/3d-viewer.dir/trackball.cpp.o
+Linking CXX static library lib3d-viewer.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[  0%] Built target 3d-viewer
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target bitmaps
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinorient_right.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinorient_left.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinorient_up.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinorient_down.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_normal.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_invert.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_clock_normal.cpp.o
+[  0%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_clock_invert.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_active_low_input.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_clock_active_low.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_active_low_output.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_clock_fall.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pinshape_nonlogic.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_input.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_output.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_bidi.cpp.o
+[  1%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_3states.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_passive.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_notspecif.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_powerinput.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_poweroutput.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_opencoll.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_openemit.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_16/pintype_noconnect.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_arc.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_bus2bus.cpp.o
+[  2%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_bus.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_circle.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_component.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_corner.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_dashed_line.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_dimension.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_entry.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_glabel.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_hierarchical_label.cpp.o
+[  3%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_hierar_pin.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_hierarchical_subsheet.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_junction.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_line2bus.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_line_label.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_line.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_mires.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_polygon.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_power.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_rectangle.cpp.o
+[  4%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_text.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_tracks.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_zone_cutout.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/add_zone.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/anchor.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/annotate_down_right.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/annotate_right_down.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/annotate.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/apply.cpp.o
+[  5%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/auto_associe.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/auto_delete_track.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/auto_track_width.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_back.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_bottom.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_front.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_left.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_right.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d_top.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/axis3d.cpp.o
+[  6%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/bom.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/book.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/break_bus.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/break_line.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/browse_files.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cancel_tool.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cancel.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/create_cmp_file.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/checked_ok.cpp.o
+[  7%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/component_select_unit.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/component_select_alternate_shape.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/config.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/copyblock.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/copycomponent.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/copy_button.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/copper_layers_setup.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cursor_shape.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cursor.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cut_button.cpp.o
+[  8%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/cvpcb.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/dashline.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/datasheet.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_body.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_arc.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_association.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_bus.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_circle.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_connection.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_cotation.cpp.o
+[  9%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_field.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_glabel.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_line.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_module.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_net.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_node.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_pad.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_pinsheet.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_pin.cpp.o
+[ 10%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_polygon.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_rectangle.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_segment.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_sheet.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_text.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete_track.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/delete.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/directory.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/display_options.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/down.cpp.o
+[ 11%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drag_module.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drag_outline_segment.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drag_pad.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drag_segment_withslope.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drag_track_segment.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drc_off.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/drc.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edges_sketch.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_comp_footprint.cpp.o
+[ 12%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_component.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_comp_ref.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_comp_value.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_module.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/editor.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_part.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_sheet.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit_text.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/edit.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/eeschema.cpp.o
+[ 13%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/enter_sheet.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/ercerr.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/erc_green.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/ercwarn.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/erc.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/exit.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/export_footprint_names.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/export_module.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/export_options_pad.cpp.o
+[ 14%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/export.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/fabrication.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/file_footprint.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/fill_zone.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/find.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/find_replace.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/flag.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/fonts.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/footprint_text.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gbr_select_mode0.cpp.o
+[ 15%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gbr_select_mode1.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gbr_select_mode2.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gerber_file.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gerber_recent_files.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gerbview_drill_file.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gerbview_clear_layers.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gerber_open_dcode_file.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/general_deletions.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/general_ratsnest.cpp.o
+[ 16%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/glabel2label.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/glabel2text.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/gl_change.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/global_options_pad.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/green.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/grid_select.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/grid_select_axis.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/grid.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/hammer.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/help.cpp.o
+[ 17%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/hidden_pin.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/hierarchy_cursor.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/hierarchy_nav.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/hotkeys.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/icon_cvpcb_small.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/icon_gerbview_small.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/icon_txt.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import3d.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/image.cpp.o
+[ 18%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import_cmp_from_lib.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import_footprint_names.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import_hierarchical_label.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import_module.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/import.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/info.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/insert_module_board.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/invert_module.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/invisible_text.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/jigsaw.cpp.o
+[ 19%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/kicad_icon_small.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/label2glabel.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/label2text.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/label.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_catalan.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_chinese.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_cs.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_def.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_de.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_en.cpp.o
+[ 20%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_es.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_fr.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_fi.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_gr.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_hu.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_it.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_jp.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_ko.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_nl.cpp.o
+[ 21%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_pl.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_pt.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_ru.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lang_sl.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/language.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/layers_manager.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/leave_sheet.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/left.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/libedit.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/libedprt.cpp.o
+[ 22%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lib_next.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lib_previous.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/library_browse.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/library_update.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/library.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/libview.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/lines90.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/load_module_board.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/load_module_lib.cpp.o
+[ 23%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/local_ratsnest.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/locked.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/macros_record.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mirepcb.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mirror_h.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mirror_v.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/modedit.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mode_module.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mode_track.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/modratsnest.cpp.o
+[ 24%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module_check.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/modul_edit.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module_filtered_list.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module_full_list.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module_options.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module_ratsnest.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/module.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/morgan1.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/morgan2.cpp.o
+[ 25%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_arc.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_circle.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_field.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_glabel.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_line.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_module.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_pad.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_pinsheet.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_pin.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_polygon.cpp.o
+[ 26%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_rectangle.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_sheet.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_text.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_track_segment.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move_track.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/move.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_add_gap.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_add_line.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_add_shape.cpp.o
+[ 27%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_add_stub_arc.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_add_stub.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/mw_toolbar.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/net_highlight.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/netlist.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/net_locked.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/net_unlocked.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_component.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_cvpcb.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_footprint.cpp.o
+[ 28%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_library.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_module.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_pcb.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_project.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_sch.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new_txt.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/new.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/noconn.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/normal.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/online_help.cpp.o
+[ 29%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/open_brd_file.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/open_library.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/open_project.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/open_document.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_all_tracks_and_vias.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_all_tracks.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_all_vias.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_arc.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_circle.cpp.o
+[ 30%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_module.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_new_pad.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_pad.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_pinsheet.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_pin.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_rectangle.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_segment.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_text.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_tracks.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_track.cpp.o
+[ 31%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/options_vias.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/opt_show_polygon.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/orient.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/ortho.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pad_sketch.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pad.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pads_mask_layers.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/palette.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/part_properties.cpp.o
+[ 32%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/paste.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pcbnew.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pcb_offset.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin2pin.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin_name_to.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin_number_to.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin_size_to.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin_to.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/pin.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/plot_hpg.cpp.o
+[ 33%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/plot_ps.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/plot.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/polar_coord.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/post_compo.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/post_drill.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/post_module.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/preference.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/print_button.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/ratsnest.cpp.o
+[ 34%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/read_setup.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/redo.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/red.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/reload2.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/reload.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/reset_text.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/resize_sheet.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/right.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_field.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_glabel.cpp.o
+[ 35%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_module_neg.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_module_pos.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_pin.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_ccw.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_cw.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_neg_x.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_pos_x.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_neg_y.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_pos_y.cpp.o
+[ 36%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_neg_z.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/rotate_pos_z.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_as.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_library.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_netlist.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_part_in_mem.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_project.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save_setup.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/save.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/schematic.cpp.o
+[ 37%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/select_grid.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/select_layer_pair.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/select_w_layer.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/shape_3d.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/sheetset.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_dcodenumber.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_footprint.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_mod_edge.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/showtrack.cpp.o
+[ 38%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_zone.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_zone_disable.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/show_zone_outline_only.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/swap_layer.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/text_sketch.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/three_d.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/tool_ratsnest.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/tools.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/track_locked.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/track_sketch.cpp.o
+[ 39%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/track_unlocked.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/transistor.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/tree_nosel.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/tree_sel.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/undelete.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/undo.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/unit_inch.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/unit_mm.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/unknown.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/unlocked.cpp.o
+[ 40%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/unzip.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/update_module_board.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/up.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/via_sketch.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/warning.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/web_support.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/width_net.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/width_segment.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/width_track_via.cpp.o
+[ 41%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/width_track.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/width_vias.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/window_close.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zip_tool.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zip.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_area.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_fit_in_page.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_center_on_screen.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_in.cpp.o
+[ 42%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_out.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_redraw.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_26/zoom_selection.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_3d.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_cvpcb.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_eeschema.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_gerbview.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_kicad.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_modedit.cpp.o
+[ 43%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_pcbnew.cpp.o
+[ 44%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_bitmap2component.cpp.o
+[ 44%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/icon_pcbcalculator.cpp.o
+[ 44%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/libedit_icon.cpp.o
+[ 44%] Building CXX object bitmaps_png/CMakeFiles/bitmaps.dir/cpp_48/viewlibs_icon.cpp.o
+Linking CXX static library libbitmaps.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 44%] Built target bitmaps
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 44%] TokenList2DsnLexer.cmake creating:
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/include/netlist_lexer.h and
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/common/netlist_keywords.cpp from
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/common/netlist.keywords
+Scanning dependencies of target common
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 44%] Building CXX object common/CMakeFiles/common.dir/dialog_about/AboutDialog_main.cpp.o
+[ 44%] Building CXX object common/CMakeFiles/common.dir/dialog_about/dialog_about.cpp.o
+[ 44%] Building CXX object common/CMakeFiles/common.dir/dialog_about/dialog_about_base.cpp.o
+[ 44%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_display_info_HTML_base.cpp.o
+[ 44%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_image_editor.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_image_editor_base.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_get_component.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_get_component_base.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_hotkeys_editor.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_hotkeys_editor_base.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/dialogs/dialog_page_settings_base.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/base_screen.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/base_struct.cpp.o
+[ 45%] Building CXX object common/CMakeFiles/common.dir/basicframe.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/bezier_curves.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/bitmap.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/block_commande.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/build_version.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/class_bitmap_base.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/class_colors_design_settings.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/class_marker_base.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/class_plotter.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/class_undoredo_container.cpp.o
+[ 46%] Building CXX object common/CMakeFiles/common.dir/common.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/common_plot_functions.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/common_plotHPGL_functions.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/common_plotPS_functions.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/common_plotGERBER_functions.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/common_plotDXF_functions.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/confirm.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/copy_to_clipboard.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/dcsvg.cpp.o
+[ 47%] Building CXX object common/CMakeFiles/common.dir/displlst.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/dlist.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/drawframe.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/drawpanel.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/drawtxt.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/dsnlexer.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/edaappl.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/eda_dde.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/eda_doc.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/filter_reader.cpp.o
+[ 48%] Building CXX object common/CMakeFiles/common.dir/gestfich.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/gr_basic.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/hotkeys_basic.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/hotkey_grid_table.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/html_messagebox.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/msgpanel.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/netlist_keywords.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/newstroke_font.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/projet_config.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/richio.cpp.o
+[ 49%] Building CXX object common/CMakeFiles/common.dir/selcolor.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/string.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/wineda_toolbar.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/trigo.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/worksheet.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/wxwineda.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/xnode.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/common.dir/zoom.cpp.o
+Linking CXX static library libcommon.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 50%] Built target common
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target pcbcommon
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 50%] Building CXX object common/CMakeFiles/pcbcommon.dir/pcbcommon.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/pcbcommon.dir/footprint_info.cpp.o
+[ 50%] Building CXX object common/CMakeFiles/pcbcommon.dir/class_layer_box_selector.cpp.o
+/«BUILDDIR»/kicad-0.20120526+bzr3261/common/class_layer_box_selector.cpp:87:35: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+        if( GetClientData( i ) == (void*) layer )
+                                  ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/common/class_layer_box_selector.cpp:148:38: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+        Append( layername, layerbmp, (void*) layerid );
+                                     ^
+2 warnings generated.
+[ 50%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/basepcbframe.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_board.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/pcbnew/class_board.cpp:20:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/common/../pcbnew/class_zone.h:467:26: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        else if( aRadius < 0 )
+                 ~~~~~~~ ^ ~
+1 warning generated.
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_board_connected_item.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_board_design_settings.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_board_item.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_dimension.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_drawsegment.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_drc_item.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_edge_mod.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_netclass.cpp.o
+[ 51%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_netinfo_item.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_netinfolist.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_marker_pcb.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_mire.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_module.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_module_transform_functions.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_pad.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_pad_draw_functions.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_pcb_text.cpp.o
+[ 52%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_text_mod.cpp.o
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_track.cpp.o
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_zone.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/pcbnew/class_zone.cpp:45:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/common/../pcbnew/class_zone.h:467:26: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        else if( aRadius < 0 )
+                 ~~~~~~~ ^ ~
+1 warning generated.
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/class_zone_setting.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/pcbnew/class_zone_setting.cpp:23:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/common/../pcbnew/class_zone.h:467:26: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        else if( aRadius < 0 )
+                 ~~~~~~~ ^ ~
+1 warning generated.
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/classpcb.cpp.o
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/collectors.cpp.o
+[ 53%] Building CXX object common/CMakeFiles/pcbcommon.dir/__/pcbnew/sel_layer.cpp.o
+Linking CXX static library libpcbcommon.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 53%] Built target pcbcommon
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target kbool
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/booleng.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/graph.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/graphlst.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/line.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/link.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/lpoint.cpp.o
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/node.cpp.o
+/«BUILDDIR»/kicad-0.20120526+bzr3261/polygon/kbool/src/node.cpp:403:31: warning: '&&' within '||' [-Wlogical-op-parentheses]
+             ( searchholelink && link->GetHoleLink() || !link->GetHoleLink() ) && 
+               ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~ ~~
+/«BUILDDIR»/kicad-0.20120526+bzr3261/polygon/kbool/src/node.cpp:403:31: note: place parentheses around the '&&' expression to silence this warning
+             ( searchholelink && link->GetHoleLink() || !link->GetHoleLink() ) && 
+                              ^
+               (                                    )
+/«BUILDDIR»/kicad-0.20120526+bzr3261/polygon/kbool/src/node.cpp:419:33: warning: '&&' within '||' [-Wlogical-op-parentheses]
+               ( searchholelink && link->GetHoleLink() || !link->GetHoleLink() ) && 
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~ ~~
+/«BUILDDIR»/kicad-0.20120526+bzr3261/polygon/kbool/src/node.cpp:419:33: note: place parentheses around the '&&' expression to silence this warning
+               ( searchholelink && link->GetHoleLink() || !link->GetHoleLink() ) && 
+                                ^
+                 (                                    )
+2 warnings generated.
+[ 53%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/record.cpp.o
+[ 54%] Building CXX object polygon/kbool/src/CMakeFiles/kbool.dir/scanbeam.cpp.o
+Linking CXX static library libkbool.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 54%] Built target kbool
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target polygon
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 54%] Building CXX object polygon/CMakeFiles/polygon.dir/math_for_graphics.cpp.o
+[ 54%] Building CXX object polygon/CMakeFiles/polygon.dir/PolyLine.cpp.o
+[ 55%] Building CXX object polygon/CMakeFiles/polygon.dir/polygon_test_point_inside.cpp.o
+Linking CXX static library libpolygon.a
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 55%] Built target polygon
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+Scanning dependencies of target cvpcb
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 55%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/autosel.cpp.o
+[ 55%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/cfg.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/class_cvpcb.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/class_components_listbox.cpp.o
+/«BUILDDIR»/kicad-0.20120526+bzr3261/cvpcb/class_components_listbox.cpp:56:19: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+    if( linecount >= 0 )
+        ~~~~~~~~~ ^  ~
+/«BUILDDIR»/kicad-0.20120526+bzr3261/cvpcb/class_components_listbox.cpp:86:16: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+    if( (index >= 0) && (GetCount() > 0) )
+         ~~~~~ ^  ~
+2 warnings generated.
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/class_DisplayFootprintsFrame.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/class_footprints_listbox.cpp.o
+/«BUILDDIR»/kicad-0.20120526+bzr3261/cvpcb/class_footprints_listbox.cpp:52:19: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+    if( linecount >= 0 )
+        ~~~~~~~~~ ^  ~
+/«BUILDDIR»/kicad-0.20120526+bzr3261/cvpcb/class_footprints_listbox.cpp:99:16: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+    if( (index >= 0)  && (GetCount() > 0) )
+         ~~~~~ ^  ~
+2 warnings generated.
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/cvframe.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/cvpcb.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/genequiv.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/init.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/listboxes.cpp.o
+[ 56%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/loadcmp.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/menubar.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/readschematicnetlist.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/savecmp.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/setvisu.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/tool_cvpcb.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/writenetlistpcbnew.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/dialogs/dialog_cvpcb_config.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/dialogs/dialog_cvpcb_config_fbp.cpp.o
+[ 57%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/dialogs/dialog_display_options.cpp.o
+[ 58%] Building CXX object cvpcb/CMakeFiles/cvpcb.dir/dialogs/dialog_display_options_base.cpp.o
+Linking CXX executable cvpcb
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 58%] Built target cvpcb
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 58%] TokenList2DsnLexer.cmake creating:
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/template_fieldnames_lexer.h and
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/template_fieldnames_keywords.cpp from
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/template_fieldnames.keywords
+[ 58%] TokenList2DsnLexer.cmake creating:
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/cmp_library_lexer.h and
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/cmp_library_keywords.cpp from
+           /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/cmp_library.keywords
+Scanning dependencies of target eeschema
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[3]: Entering directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/annotate.cpp.o
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/backanno.cpp.o
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/block.cpp.o
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/block_libedit.cpp.o
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/build_BOM.cpp.o
+[ 58%] Building CXX object eeschema/CMakeFiles/eeschema.dir/busentry.cpp.o
+[ 59%] Building CXX object eeschema/CMakeFiles/eeschema.dir/bus-wire-junction.cpp.o
+[ 59%] Building CXX object eeschema/CMakeFiles/eeschema.dir/class_drc_erc_item.cpp.o
+[ 59%] Building CXX object eeschema/CMakeFiles/eeschema.dir/class_libentry.cpp.o
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/class_libentry.cpp:33:
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/include/class_drawpanel.h:10:
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/include/base_struct.h:12:
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/ptr_vector.hpp:20:
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/ptr_sequence_adapter.hpp:20:
+In file included from /«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:24:
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/clone_allocator.hpp:34:22: error: allocating an object of abstract class type 'LIB_ITEM'
+        T* res = new T( r );
+                     ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/clone_allocator.hpp:68:20: note: in instantiation of function template specialization 'boost::new_clone<LIB_ITEM>' requested here
+            return new_clone( r );
+                   ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:110:28: note: in instantiation of function template specialization 'boost::heap_clone_allocator::allocate_clone<LIB_ITEM>' requested here
+                Ty_* res = CloneAllocator::allocate_clone( *x );
+                           ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:95:24: note: in instantiation of member function 'boost::ptr_container_detail::reversible_ptr_container<boost::ptr_container_detail::sequence_config<LIB_ITEM, std::vector<void *, std::allocator<void *> > >, boost::heap_clone_allocator>::null_clone_allocator<false>::allocate_clone' requested here
+                return allocate_clone( Config::get_const_pointer( i ) );
+                       ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/scoped_deleter.hpp:70:42: note: in instantiation of function template specialization 'boost::ptr_container_detail::reversible_ptr_container<boost::ptr_container_detail::sequence_config<LIB_ITEM, std::vector<void *, std::allocator<void *> > >, boost::heap_clone_allocator>::null_clone_allocator<false>::allocate_clone_from_iterator<boost::void_ptr_iterator<__gnu_cxx::__normal_iterator<void *const *, std::vector<void *, std::allocator<void *> > >, const LIB_ITEM> >' requested here
+                    add( CloneAllocator::allocate_clone_from_iterator( first ) );
+                                         ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:212:28: note: in instantiation of function template specialization 'boost::ptr_container_detail::scoped_deleter<LIB_ITEM, boost::ptr_container_detail::reversible_ptr_container<boost::ptr_container_detail::sequence_config<LIB_ITEM, std::vector<void *, std::allocator<void *> > >, boost::heap_clone_allocator>::null_clone_allocator<false> >::scoped_deleter<boost::void_ptr_iterator<__gnu_cxx::__normal_iterator<void *const *, std::vector<void *, std::allocator<void *> > >, const LIB_ITEM> >' requested here
+            scoped_deleter sd( first, last );
+                           ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:303:13: note: (skipping 1 context in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+            clone_back_insert( first, last );
+            ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/detail/reversible_ptr_container.hpp:348:13: note: in instantiation of function template specialization 'boost::ptr_container_detail::reversible_ptr_container<boost::ptr_container_detail::sequence_config<LIB_ITEM, std::vector<void *, std::allocator<void *> > >, boost::heap_clone_allocator>::constructor_impl<boost::void_ptr_iterator<__gnu_cxx::__normal_iterator<void *const *, std::vector<void *, std::allocator<void *> > >, const LIB_ITEM> >' requested here
+            constructor_impl( r.begin(), r.end(), std::forward_iterator_tag() ); 
+            ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/ptr_sequence_adapter.hpp:203:13: note: in instantiation of member function 'boost::ptr_container_detail::reversible_ptr_container<boost::ptr_container_detail::sequence_config<LIB_ITEM, std::vector<void *, std::allocator<void *> > >, boost::heap_clone_allocator>::reversible_ptr_container' requested here
+          : base_type( r )
+            ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/ptr_container/ptr_vector.hpp:31:11: note: in instantiation of member function 'boost::ptr_sequence_adapter<LIB_ITEM, std::vector<void *, std::allocator<void *> >, boost::heap_clone_allocator>::ptr_sequence_adapter' requested here
+    class ptr_vector : public 
+          ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/foreach.hpp:628:51: note: in instantiation of member function 'boost::foreach_detail_::simple_variant<boost::ptr_vector<LIB_ITEM, boost::heap_clone_allocator, std::allocator<void *> > >::simple_variant' requested here
+    return auto_any<simple_variant<T> >(*rvalue ? simple_variant<T>(t) : simple_variant<T>(&t));
+                                                  ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/class_libentry.cpp:968:5: note: in instantiation of function template specialization 'boost::foreach_detail_::contain<boost::ptr_vector<LIB_ITEM, boost::heap_clone_allocator, std::allocator<void *> > >' requested here
+    BOOST_FOREACH( const LIB_ITEM& item, drawings )
+    ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/foreach.hpp:1077:77: note: expanded from macro 'BOOST_FOREACH'
+    if (boost::foreach_detail_::auto_any_t BOOST_FOREACH_ID(_foreach_col) = BOOST_FOREACH_CONTAIN(COL)) {} else   \
+                                                                            ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/include/boost/foreach.hpp:989:5: note: expanded from macro 'BOOST_FOREACH_CONTAIN'
+    boost::foreach_detail_::contain(                                                            \
+    ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:84:18: note: unimplemented pure virtual method 'drawGraphic' in 'LIB_ITEM'
+    virtual void drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC,
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:214:17: note: unimplemented pure virtual method 'GetPenSize' in 'LIB_ITEM'
+    virtual int GetPenSize() const = 0;
+                ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:224:18: note: unimplemented pure virtual method 'Save' in 'LIB_ITEM'
+    virtual bool Save( OUTPUTFORMATTER& aFormatter ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:226:18: note: unimplemented pure virtual method 'Load' in 'LIB_ITEM'
+    virtual bool Load( LINE_READER& aLine, wxString& aErrorMsg ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:256:18: note: unimplemented pure virtual method 'HitTest' in 'LIB_ITEM'
+    virtual bool HitTest( wxPoint aPosition, int aThreshold, const TRANSFORM& aTransform ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:432:17: note: unimplemented pure virtual method 'DoCompare' in 'LIB_ITEM'
+    virtual int DoCompare( const LIB_ITEM& aOther ) const = 0;
+                ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:433:18: note: unimplemented pure virtual method 'DoOffset' in 'LIB_ITEM'
+    virtual void DoOffset( const wxPoint& aOffset ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:434:18: note: unimplemented pure virtual method 'DoTestInside' in 'LIB_ITEM'
+    virtual bool DoTestInside( EDA_RECT& aRect ) const = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:435:18: note: unimplemented pure virtual method 'DoMove' in 'LIB_ITEM'
+    virtual void DoMove( const wxPoint& aPosition ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:436:21: note: unimplemented pure virtual method 'DoGetPosition' in 'LIB_ITEM'
+    virtual wxPoint DoGetPosition() const = 0;
+                    ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:437:18: note: unimplemented pure virtual method 'DoMirrorHorizontal' in 'LIB_ITEM'
+    virtual void DoMirrorHorizontal( const wxPoint& aCenter ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:438:18: note: unimplemented pure virtual method 'DoMirrorVertical' in 'LIB_ITEM'
+    virtual void DoMirrorVertical( const wxPoint& aCenter ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:439:18: note: unimplemented pure virtual method 'DoRotate' in 'LIB_ITEM'
+    virtual void DoRotate( const wxPoint& aCenter, bool aRotateCCW = true ) = 0;
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:440:18: note: unimplemented pure virtual method 'DoPlot' in 'LIB_ITEM'
+    virtual void DoPlot( PLOTTER* aPlotter, const wxPoint& aOffset, bool aFill,
+                 ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:442:17: note: unimplemented pure virtual method 'DoGetWidth' in 'LIB_ITEM'
+    virtual int DoGetWidth() const = 0;
+                ^
+/«BUILDDIR»/kicad-0.20120526+bzr3261/eeschema/lib_draw_item.h:443:18: note: unimplemented pure virtual method 'DoSetWidth' in 'LIB_ITEM'
+    virtual void DoSetWidth( int aWidth ) = 0;
+                 ^
+1 error generated.
+make[3]: *** [eeschema/CMakeFiles/eeschema.dir/class_libentry.cpp.o] Error 1
+make[3]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[2]: *** [eeschema/CMakeFiles/eeschema.dir/all] Error 2
+make[2]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«BUILDDIR»/kicad-0.20120526+bzr3261'
+dh_auto_build: make -j1 returned exit code 2
+make: *** [build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0413
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 361792
+Build-Time: 192
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 21
+Job: kicad_0.20120526+bzr3261-1
+Package: kicad
+Package-Time: 254
+Source-Version: 0.20120526+bzr3261-1
+Space: 361792
+Status: attempted
+Version: 0.20120526+bzr3261-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0413
+Build needed 00:04:14, 361792k disc space
+DC-Status: Failed 255.472283s
+DC-Time-Estimation: 255.472283 versus expected 3892 (r/m: 14.2345293755409 ; m: 255.472283)

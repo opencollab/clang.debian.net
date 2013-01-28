@@ -1,0 +1,1615 @@
+DC-Build-Header: xevil 2.02r2-10 / Mon Jan 28 05:23:32 +0000 2013
+DC-Task: logfile:/tmp/xevil_2.02r2-10_unstable_clang.log version:2.02r2-10 chroot:unstable modes:binary-only:clang source:xevil architecture:any esttime:67
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang xevil_2.02r2-10'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-143-130.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ xevil 2.02r2-10 (amd64)                                    28 Jan 2013 05:23 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: xevil
+Version: 2.02r2-10
+Source Version: 2.02r2-10
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/xevil-o36Lqq/xevil-2.02r2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/xevil-o36Lqq' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-89882c6f-2a2b-4154-915f-3adb78c7c46c' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
+Get:6 http://localhost unstable/main Sources [8236 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
+Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
+Fetched 16.8 MB in 3s (4976 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 1367 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main xevil 2.02r2-10 (dsc) [996 B]
+Get:2 http://localhost/debian/ unstable/main xevil 2.02r2-10 (tar) [1320 kB]
+Get:3 http://localhost/debian/ unstable/main xevil 2.02r2-10 (diff) [45.5 kB]
+Fetched 1367 kB in 0s (1573 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add experimental as repository'
+Add experimental as repository
++ echo deb http://localhost:9999/debian experimental main
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Get:1 http://localhost experimental Release.gpg [836 B]
+Hit http://localhost unstable Release
+Get:2 http://localhost experimental Release [161 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost experimental/main Translation-en [704 kB]
+Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Fetched 2471 kB in 2s (1225 kB/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Ign http://localhost experimental InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost experimental Release.gpg
+Hit http://localhost unstable Release
+Hit http://localhost experimental Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Ign http://localhost experimental/main amd64 Packages/DiffIndex
+Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://localhost experimental/main amd64 Packages
+Fetched 7819 B in 1s (4016 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends clang -t experimental
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
+  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
+  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
+  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
+  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+Suggested packages:
+  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
+  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
+  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
+  python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev manpages-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
+  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
+  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
+  mime-support python python-minimal python2.7 python2.7-minimal
+The following packages will be upgraded:
+  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
+  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
+  libtinfo5
+15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
+Need to get 56.7 MB of archives.
+After this operation, 72.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
+Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
+Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
+Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
+Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
+Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
+Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
+Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
+Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
+Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
+Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
+Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
+Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
+Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
+Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
+Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
+Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
+Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
+Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
+Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
+Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
+Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
+Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
+Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
+Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
+Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
+Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
+Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
+Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
+Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
+Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
+Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 56.7 MB in 1s (36.9 MB/s)
+Selecting previously unselected package gcc-4.8-base:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
+Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
+(Reading database ... 13491 files and directories currently installed.)
+Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc6-dev:amd64 ...
+Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.16-0experimental1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Checking for services that may need to be restarted...
+Checking init scripts...
+Nothing to restart.
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgcc1:amd64 ...
+Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libstdc++6:amd64 ...
+Setting up libstdc++6:amd64 (4.8-20130127-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libtinfo5:amd64 ...
+Setting up libtinfo5:amd64 (5.9+20130119-1) ...
+(Reading database ... 13509 files and directories currently installed.)
+Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
+Unpacking replacement libncurses5:amd64 ...
+Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13509 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libgomp1:amd64 ...
+Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libitm1:amd64 ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package libobjc4:amd64.
+Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
+Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
+Unpacking replacement libquadmath0:amd64 ...
+Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking replacement libstdc++6-4.7-dev:amd64 ...
+Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement g++-4.7 ...
+Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7 ...
+Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
+Unpacking replacement cpp-4.7 ...
+Selecting previously unselected package libgcc-4.7-dev:amd64.
+Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
+Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
+Unpacking replacement gcc-4.7-base:amd64 ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
+Selecting previously unselected package libobjc-4.7-dev:amd64.
+Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
+Setting up libc-dev-bin (2.16-0experimental1) ...
+Setting up libc6-dev:amd64 (2.16-0experimental1) ...
+Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libgomp1:amd64 (4.8-20130127-1) ...
+Setting up libitm1:amd64 (4.8-20130127-1) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up libobjc4:amd64 (4.8-20130127-1) ...
+Setting up libquadmath0:amd64 (4.8-20130127-1) ...
+Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
+Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
+Setting up cpp-4.7 (4.7.2-19) ...
+Setting up gcc-4.7 (4.7.2-19) ...
+Setting up g++-4.7 (4.7.2-19) ...
+Setting up mime-support (3.53~experimental2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
+Setting up python2.7-minimal (2.7.3-15) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
+Setting up python2.7 (2.7.3-15) ...
+Setting up python-minimal (2.7.3-10) ...
+Setting up python (2.7.3-10) ...
+Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
+Setting up libclang-common-dev (3.2-1~exp5) ...
+Setting up compiler-rt (3.2-1~exp5) ...
+Setting up clang-3.2 (3.2-1~exp5) ...
+Setting up clang (3.2-1~exp5) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-n3gixf/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/712 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, x11proto-core-dev
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), libx11-dev, libxpm-dev, x11proto-core-dev
+dpkg-deb: building package `sbuild-build-depends-xevil-dummy' in `/«BUILDDIR»/resolver-AsThFS/apt_archive/sbuild-build-depends-xevil-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install xevil build dependencies (apt-based resolver)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libmagic1 libpcre3 libpipeline1 libpthread-stubs0
+  libpthread-stubs0-dev libunistring0 libx11-6 libx11-data libx11-dev
+  libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6 libxml2
+  libxpm-dev libxpm4 man-db po-debconf x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff libxcb-doc less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info libx11-doc
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libmagic1 libpcre3 libpipeline1 libpthread-stubs0
+  libpthread-stubs0-dev libunistring0 libx11-6 libx11-data libx11-dev
+  libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6 libxml2
+  libxpm-dev libxpm4 man-db po-debconf sbuild-build-depends-xevil-dummy
+  x11proto-core-dev x11proto-input-dev x11proto-kb-dev xorg-sgml-doctools
+  xtrans-dev
+0 upgraded, 40 newly installed, 0 to remove and 0 not upgraded.
+Need to get 13.0 MB/13.0 MB of archives.
+After this operation, 37.4 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:14 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:15 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:16 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:17 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:18 http://localhost/debian/ unstable/main libxpm4 amd64 1:3.5.10-1 [49.4 kB]
+Get:19 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:20 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:21 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:22 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:23 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:24 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:25 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:26 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:27 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:28 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:29 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:30 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:31 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:32 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:33 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:34 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:35 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:36 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:37 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:38 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:39 http://localhost/debian/ unstable/main libxpm-dev amd64 1:3.5.10-1 [107 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 13.0 MB in 0s (23.7 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14674 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxpm4:amd64.
+Unpacking libxpm4:amd64 (from .../libxpm4_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxpm-dev:amd64.
+Unpacking libxpm-dev:amd64 (from .../libxpm-dev_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-xevil-dummy.
+Unpacking sbuild-build-depends-xevil-dummy (from .../sbuild-build-depends-xevil-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxpm4:amd64 (1:3.5.10-1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up libxpm-dev:amd64 (1:3.5.10-1) ...
+Setting up sbuild-build-depends-xevil-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-19 libc6-dev_2.16-0experimental1 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-1~exp5 clang-3.2_3.2-1~exp5 compiler-rt_3.2-1~exp5 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-19 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-19 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-19 gcc-4.7-base_4.7.2-19 gcc-4.8-base_4.8-20130127-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.16-0experimental1 libc6_2.16-0experimental1 libc6-dev_2.16-0experimental1 libclang-common-dev_3.2-1~exp5 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-2 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc-4.7-dev_4.7.2-19 libgcc1_1:4.8-20130127-1 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.8-20130127-1 libgpm2_1.20.4-6 libitm1_4.8-20130127-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9+20130119-1 libncursesw5_5.9+20130119-1 libobjc-4.7-dev_4.7.2-19 libobjc4_4.8-20130127-1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpython2.7-minimal_2.7.3-15 libpython2.7-stdlib_2.7.3-15 libquadmath0_4.8-20130127-1 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.8-20130127-1 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-19 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9+20130119-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxml2_2.8.0+dfsg1-7 libxpm-dev_1:3.5.10-1 libxpm4_1:3.5.10-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.53~experimental2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-10 python-minimal_2.7.3-10 python2.7_2.7.3-15 python2.7-minimal_2.7.3-15 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-xevil-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Apr 15 13:32:35 2011 UTC using DSA key ID 4B2B2B9E
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./xevil_2.02r2-10.dsc
+dpkg-source: info: extracting xevil in xevil-2.02r2
+dpkg-source: info: unpacking xevil_2.02r2.orig.tar.gz
+dpkg-source: info: applying xevil_2.02r2-10.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ xevil-2.02r2/cmn/actual.cpp
+ xevil-2.02r2/cmn/area.cpp
+ xevil-2.02r2/cmn/coord.h
+ xevil-2.02r2/cmn/game.cpp
+ xevil-2.02r2/cmn/game.h
+ xevil-2.02r2/cmn/game_style.cpp
+ xevil-2.02r2/cmn/game_style.h
+ xevil-2.02r2/cmn/intel.cpp
+ xevil-2.02r2/cmn/intel.h
+ xevil-2.02r2/cmn/locator.cpp
+ xevil-2.02r2/cmn/locator.h
+ xevil-2.02r2/cmn/physical.cpp
+ xevil-2.02r2/cmn/physical.h
+ xevil-2.02r2/cmn/role.cpp
+ xevil-2.02r2/cmn/role.h
+ xevil-2.02r2/cmn/streams.cpp
+ xevil-2.02r2/cmn/streams.h
+ xevil-2.02r2/cmn/utils.cpp
+ xevil-2.02r2/cmn/utils.h
+ xevil-2.02r2/cmn/world.cpp
+ xevil-2.02r2/cmn/xetp.cpp
+ xevil-2.02r2/cmn/xetp.h
+ xevil-2.02r2/cmn/xetp_basic.cpp
+ xevil-2.02r2/cmn/xetp_basic.h
+ xevil-2.02r2/config.mk
+ xevil-2.02r2/makefile
+ xevil-2.02r2/x11/bitmaps/ui/xevil_icon.xpm
+ xevil-2.02r2/x11/draw.cpp
+ xevil-2.02r2/x11/gen_xpm/PCP/PCP_4.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0e.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_0f.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_10b.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_10c.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_10d.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_18.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_2.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_20b.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_20c.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_25.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_4.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_5.xpm
+ xevil-2.02r2/x11/gen_xpm/alien/alien_9.xpm
+ xevil-2.02r2/x11/gen_xpm/altar_of_sin/altar_of_sin_4.xpm
+ xevil-2.02r2/x11/gen_xpm/altar_of_sin/altar_of_sin_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/altar_of_sin/altar_of_sin_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/auto_lancer/auto_lancer_4.xpm
+ xevil-2.02r2/x11/gen_xpm/baby_seal/baby_seal_0.xpm
+ xevil-2.02r2/x11/gen_xpm/baby_seal/baby_seal_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/baby_seal/baby_seal_25.xpm
+ xevil-2.02r2/x11/gen_xpm/baby_seal/baby_seal_4.xpm
+ xevil-2.02r2/x11/gen_xpm/blood/blood_25.xpm
+ xevil-2.02r2/x11/gen_xpm/blood/blood_39.xpm
+ xevil-2.02r2/x11/gen_xpm/blood/blood_4.xpm
+ xevil-2.02r2/x11/gen_xpm/blood/blood_40.xpm
+ xevil-2.02r2/x11/gen_xpm/blood/blood_9.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_25.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_25b.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_26.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_27.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_28.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_29.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_30.xpm
+ xevil-2.02r2/x11/gen_xpm/bomb/bomb_31.xpm
+ xevil-2.02r2/x11/gen_xpm/caffine/caffine_4.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_0.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_1.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_1b.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_1c.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_4.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_5.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_5b.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_7.xpm
+ xevil-2.02r2/x11/gen_xpm/chainsaw/chainsaw_7b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0e.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_0f.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_2.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_21.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_21b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_21c.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_21d.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_22.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_22b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_22c.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_22d.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_25.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_2b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_2c.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_2d.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_4.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_4d.xpm
+ xevil-2.02r2/x11/gen_xpm/chopper_boy/chopper_boy_5.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4d.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4e.xpm
+ xevil-2.02r2/x11/gen_xpm/cloak/cloak_4f.xpm
+ xevil-2.02r2/x11/gen_xpm/crack_pipe/crack_pipe_4.xpm
+ xevil-2.02r2/x11/gen_xpm/demon_summoner/demon_summoner_4.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_0.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_19.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_19b.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_2.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_20b.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_25.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_26.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_28.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_38.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_39.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_4.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_5.xpm
+ xevil-2.02r2/x11/gen_xpm/dog/dog_5b.xpm
+ xevil-2.02r2/x11/gen_xpm/dog_whistle/dog_whistle_4.xpm
+ xevil-2.02r2/x11/gen_xpm/doppelganger/doppelganger_4.xpm
+ xevil-2.02r2/x11/gen_xpm/doppelganger/doppelganger_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_0.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_25.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_26.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_26b.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_26c.xpm
+ xevil-2.02r2/x11/gen_xpm/dragon/dragon_26d.xpm
+ xevil-2.02r2/x11/gen_xpm/egg/egg_4.xpm
+ xevil-2.02r2/x11/gen_xpm/egg/egg_5.xpm
+ xevil-2.02r2/x11/gen_xpm/enforcer/enforcer_0.xpm
+ xevil-2.02r2/x11/gen_xpm/enforcer/enforcer_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/enforcer/enforcer_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/enforcer/enforcer_25.xpm
+ xevil-2.02r2/x11/gen_xpm/enforcer/enforcer_4.xpm
+ xevil-2.02r2/x11/gen_xpm/exit/exit_4.xpm
+ xevil-2.02r2/x11/gen_xpm/fire/fire_4.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_0.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_2.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_22.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_25.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_4.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_5.xpm
+ xevil-2.02r2/x11/gen_xpm/fire_demon/fire_demon_5b.xpm
+ xevil-2.02r2/x11/gen_xpm/fireball/fireball_4.xpm
+ xevil-2.02r2/x11/gen_xpm/fireball/fireball_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/fireball/fireball_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/flag/flag_4.xpm
+ xevil-2.02r2/x11/gen_xpm/flame_thrower/flame_thrower_4.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_0.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_2.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_24.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_25.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_4.xpm
+ xevil-2.02r2/x11/gen_xpm/frog/frog_5.xpm
+ xevil-2.02r2/x11/gen_xpm/frog_gun/frog_gun_4.xpm
+ xevil-2.02r2/x11/gen_xpm/frog_shell/frog_shell_4.xpm
+ xevil-2.02r2/x11/gen_xpm/frog_shell/frog_shell_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/green_blood/green_blood_25.xpm
+ xevil-2.02r2/x11/gen_xpm/green_blood/green_blood_39.xpm
+ xevil-2.02r2/x11/gen_xpm/green_blood/green_blood_4.xpm
+ xevil-2.02r2/x11/gen_xpm/green_blood/green_blood_40.xpm
+ xevil-2.02r2/x11/gen_xpm/green_blood/green_blood_9.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_0.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_2.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_25.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_4.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/green_hugger/green_hugger_5.xpm
+ xevil-2.02r2/x11/gen_xpm/grenade/grenade_4.xpm
+ xevil-2.02r2/x11/gen_xpm/grenade/grenade_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/grenade/grenade_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/grenade/grenade_4d.xpm
+ xevil-2.02r2/x11/gen_xpm/grenades/grenades_4.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0e.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_0f.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_10.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_18.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_2.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_20.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_20c.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_20d.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_20e.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_20f.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_25.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_26.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_28.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_32.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_38.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_39.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_4.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_5.xpm
+ xevil-2.02r2/x11/gen_xpm/hero/hero_9.xpm
+ xevil-2.02r2/x11/gen_xpm/home/home_4.xpm
+ xevil-2.02r2/x11/gen_xpm/lance/lance_25.xpm
+ xevil-2.02r2/x11/gen_xpm/lance/lance_28.xpm
+ xevil-2.02r2/x11/gen_xpm/lancer/lancer_4.xpm
+ xevil-2.02r2/x11/gen_xpm/laser/laser_25.xpm
+ xevil-2.02r2/x11/gen_xpm/laser/laser_28.xpm
+ xevil-2.02r2/x11/gen_xpm/launcher/launcher_4.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_0_0.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_0_7.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_1_0.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_1_7.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_2_0.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_2_7.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_3_0.xpm
+ xevil-2.02r2/x11/gen_xpm/locator/tick_3_7.xpm
+ xevil-2.02r2/x11/gen_xpm/machine_gun/machine_gun_4.xpm
+ xevil-2.02r2/x11/gen_xpm/med_kit/med_kit_4.xpm
+ xevil-2.02r2/x11/gen_xpm/missile/missile_25.xpm
+ xevil-2.02r2/x11/gen_xpm/missile/missile_39.xpm
+ xevil-2.02r2/x11/gen_xpm/missile/missile_40.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_0.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_19.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_19b.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_2.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_20b.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_25.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_26.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_28.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_38.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_39.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_4.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_5.xpm
+ xevil-2.02r2/x11/gen_xpm/mutt/mutt_5b.xpm
+ xevil-2.02r2/x11/gen_xpm/n_shield/n_shield_4.xpm
+ xevil-2.02r2/x11/gen_xpm/napalm_grenade/napalm_grenade_4.xpm
+ xevil-2.02r2/x11/gen_xpm/napalm_grenade/napalm_grenade_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/napalm_grenade/napalm_grenade_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/napalm_grenade/napalm_grenade_4d.xpm
+ xevil-2.02r2/x11/gen_xpm/napalm_grenades/napalm_grenades_4.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0e.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_0f.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_10b.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_10c.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_10d.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_10e.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_10f.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_18.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_2.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_20.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_20c.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_20d.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_20e.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_20f.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_22.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_22b.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_25.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_26.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_28.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_2b.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_2c.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_2d.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_32.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_38.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_39.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_4.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_5.xpm
+ xevil-2.02r2/x11/gen_xpm/ninja/ninja_9.xpm
+ xevil-2.02r2/x11/gen_xpm/oil_droplet/oil_droplet_25.xpm
+ xevil-2.02r2/x11/gen_xpm/oil_droplet/oil_droplet_39.xpm
+ xevil-2.02r2/x11/gen_xpm/oil_droplet/oil_droplet_4.xpm
+ xevil-2.02r2/x11/gen_xpm/oil_droplet/oil_droplet_40.xpm
+ xevil-2.02r2/x11/gen_xpm/oil_droplet/oil_droplet_9.xpm
+ xevil-2.02r2/x11/gen_xpm/pistol/pistol_4.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_0.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_2.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_25.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_4.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/red_hugger/red_hugger_5.xpm
+ xevil-2.02r2/x11/gen_xpm/rock/rock_4.xpm
+ xevil-2.02r2/x11/gen_xpm/shell/shell_4.xpm
+ xevil-2.02r2/x11/gen_xpm/soul_swapper/soul_swapper_4.xpm
+ xevil-2.02r2/x11/gen_xpm/star/star_4.xpm
+ xevil-2.02r2/x11/gen_xpm/star/star_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/stars/stars_4.xpm
+ xevil-2.02r2/x11/gen_xpm/swap_shell/swap_shell_4.xpm
+ xevil-2.02r2/x11/gen_xpm/swap_shell/swap_shell_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/t_shield/t_shield_4.xpm
+ xevil-2.02r2/x11/gen_xpm/transmogifier/transmogifier_4.xpm
+ xevil-2.02r2/x11/gen_xpm/trapdoor/trapdoor_4.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_0.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_18.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_2.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_20b.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_25.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_2b.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_4.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_4b.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_4c.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_4d.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_5.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_5b.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_5c.xpm
+ xevil-2.02r2/x11/gen_xpm/walker/walker_5d.xpm
+ xevil-2.02r2/x11/gen_xpm/weight/weight_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_10.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_11.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_12.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_13.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_6.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_7.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_8.xpm
+ xevil-2.02r2/x11/gen_xpm/world/background_9.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_10.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_11.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_12.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_13.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_14.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_15.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_16.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_17.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_18.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_19.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_20.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_21.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_6.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_7.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_8.xpm
+ xevil-2.02r2/x11/gen_xpm/world/block_9.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_6.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_7.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_8.xpm
+ xevil-2.02r2/x11/gen_xpm/world/door_9.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_6.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_7.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_8.xpm
+ xevil-2.02r2/x11/gen_xpm/world/mover_square_9.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/outside_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_0.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_1.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_10.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_11.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_12.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_13.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_2.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_3.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_4.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_5.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_6.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_7.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_8.xpm
+ xevil-2.02r2/x11/gen_xpm/world/poster_9.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_0.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_0b.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_0c.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_0d.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10b.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10c.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10d.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10e.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_10f.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_18.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_2.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_20b.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_25.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_4.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_5.xpm
+ xevil-2.02r2/x11/gen_xpm/yeti/yeti_9.xpm
+ xevil-2.02r2/x11/l_agreement_dlg.cpp
+ xevil-2.02r2/x11/main.cpp
+ xevil-2.02r2/x11/makefile
+ xevil-2.02r2/x11/panel.cpp
+ xevil-2.02r2/x11/serverping.cpp
+ xevil-2.02r2/x11/ui.cpp
+ xevil-2.02r2/x11/ui.h
+ xevil-2.02r2/x11/viewport.cpp
+ xevil-2.02r2/x11/viewport.h
+ xevil-2.02r2/x11/xdata.cpp
+ xevil-2.02r2/x11/xdata.h
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-89882c6f-2a2b-4154-915f-3adb78c7c46c
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package xevil
+dpkg-buildpackage: source version 2.02r2-10
+dpkg-buildpackage: source changed by Brandon Barnes <winterknight@nerdshack.com>
+ dpkg-source --before-build xevil-2.02r2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+/usr/bin/make clean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/bin/rm -f ./x11/release/* core */core
+rmdir ./x11/release
+rmdir: failed to remove './x11/release': No such file or directory
+make[1]: [clean] Error 1 (ignored)
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -rf x11/release
+rm x11/bitmaps/ui/xevil.xpm
+rm: cannot remove 'x11/bitmaps/ui/xevil.xpm': No such file or directory
+make: [clean] Error 1 (ignored)
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+/usr/bin/make  DEBUG_OPT="-Wno-trigraphs -g -O2"
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making for debian-linux
+make[2]: Entering directory `/«PKGBUILDDIR»'
+make[3]: Entering directory `/«PKGBUILDDIR»'
+cd ./cmn; /usr/bin/make
+make[4]: Entering directory `/«PKGBUILDDIR»/cmn'
+Making for debian-linux
+make[5]: Entering directory `/«PKGBUILDDIR»/cmn'
+make[6]: Entering directory `/«PKGBUILDDIR»/cmn'
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/area.o -c area.cpp 
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/role.o -c role.cpp
+role.cpp:519:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (p = iter()) {
+         ~~^~~~~~~~
+role.cpp:519:12: note: place parentheses around the assignment to silence this warning
+  while (p = iter()) {
+           ^
+         (         )
+role.cpp:519:12: note: use '==' to turn this assignment into an equality comparison
+  while (p = iter()) {
+           ^
+           ==
+role.cpp:878:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (p = iter()) {
+         ~~^~~~~~~~
+role.cpp:878:12: note: place parentheses around the assignment to silence this warning
+  while (p = iter()) {
+           ^
+         (         )
+role.cpp:878:12: note: use '==' to turn this assignment into an equality comparison
+  while (p = iter()) {
+           ^
+           ==
+role.cpp:2200:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      while (p = iter()) {
+             ~~^~~~~~~~
+role.cpp:2200:16: note: place parentheses around the assignment to silence this warning
+      while (p = iter()) {
+               ^
+             (         )
+role.cpp:2200:16: note: use '==' to turn this assignment into an equality comparison
+      while (p = iter()) {
+               ^
+               ==
+role.cpp:2215:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      while (p = iter2()) {
+             ~~^~~~~~~~~
+role.cpp:2215:16: note: place parentheses around the assignment to silence this warning
+      while (p = iter2()) {
+               ^
+             (          )
+role.cpp:2215:16: note: use '==' to turn this assignment into an equality comparison
+      while (p = iter2()) {
+               ^
+               ==
+role.cpp:2304:21: warning: cast to 'void *' from smaller integer type 'TickType' (aka 'int') [-Wint-to-pointer-cast]
+      tickTypes.add((void *)tt);
+                    ^
+role.cpp:2308:19: warning: cast to 'void *' from smaller integer type 'TickType' (aka 'int') [-Wint-to-pointer-cast]
+    tickTypes.add((void *)locator->compute_tick_type(p,relativeTo));
+                  ^
+role.cpp:2614:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (msg = iter.next(propagate)) {
+           ~~~~^~~~~~~~~~~~~~~~~~~~~~
+role.cpp:2614:16: note: place parentheses around the assignment to silence this warning
+    while (msg = iter.next(propagate)) {
+               ^
+           (                         )
+role.cpp:2614:16: note: use '==' to turn this assignment into an equality comparison
+    while (msg = iter.next(propagate)) {
+               ^
+               ==
+7 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/utils.o -c utils.cpp 
+utils.cpp:583:9: warning: cast to 'void *' from smaller integer type 'u_int' (aka 'unsigned int') [-Wint-to-pointer-cast]
+    add((void *)in->read_int());
+        ^
+1 warning generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/actual.o -c actual.cpp 
+actual.cpp:1513:29: warning: cast to 'void *' from smaller integer type 'ClassId' (aka 'int') [-Wint-to-pointer-cast]
+                            (void*)notThis);
+                            ^
+actual.cpp:2402:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(frogGun)) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+actual.cpp:2402:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(frogGun)) {
+          ^
+        (                           )
+actual.cpp:2402:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(frogGun)) {
+          ^
+          ==
+2 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/streams.o -c streams.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/xetp_basic.o -c xetp_basic.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/xetp.o -c xetp.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/locator.o -c locator.cpp
+locator.cpp:751:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (msg = message_deq()) {
+         ~~~~^~~~~~~~~~~~~~~
+locator.cpp:751:14: note: place parentheses around the assignment to silence this warning
+  while (msg = message_deq()) {
+             ^
+         (                  )
+locator.cpp:751:14: note: use '==' to turn this assignment into an equality comparison
+  while (msg = message_deq()) {
+             ^
+             ==
+1 warning generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/world.o -c world.cpp 
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/ui_cmn.o -c ui_cmn.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/game.o -c game.cpp 
+game.cpp:1597:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (human = iter()) {
+         ~~~~~~^~~~~~~~
+game.cpp:1597:16: note: place parentheses around the assignment to silence this warning
+  while (human = iter()) {
+               ^
+         (             )
+game.cpp:1597:16: note: use '==' to turn this assignment into an equality comparison
+  while (human = iter()) {
+               ^
+               ==
+1 warning generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/physical.o -c physical.cpp 
+physical.cpp:1868:10: warning: cast to 'void *' from smaller integer type 'u_int' (aka 'unsigned int') [-Wint-to-pointer-cast]
+  return (void*)ret;
+         ^
+physical.cpp:3013:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(killerId)) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:3013:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(killerId)) {
+          ^
+        (                            )
+physical.cpp:3013:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(killerId)) {
+          ^
+          ==
+physical.cpp:3180:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  if (p = locator->lookup(id)) {
+      ~~^~~~~~~~~~~~~~~~~~~~~
+physical.cpp:3180:9: note: place parentheses around the assignment to silence this warning
+  if (p = locator->lookup(id)) {
+        ^
+      (                      )
+physical.cpp:3180:9: note: use '==' to turn this assignment into an equality comparison
+  if (p = locator->lookup(id)) {
+        ^
+        ==
+physical.cpp:3252:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  if (p = locator->lookup(id)) {
+      ~~^~~~~~~~~~~~~~~~~~~~~
+physical.cpp:3252:9: note: place parentheses around the assignment to silence this warning
+  if (p = locator->lookup(id)) {
+        ^
+      (                      )
+physical.cpp:3252:9: note: use '==' to turn this assignment into an equality comparison
+  if (p = locator->lookup(id)) {
+        ^
+        ==
+physical.cpp:4412:19: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  if (killerIntel = locator->lookup(killerIntelId)) {
+      ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:4412:19: note: place parentheses around the assignment to silence this warning
+  if (killerIntel = locator->lookup(killerIntelId)) {
+                  ^
+      (                                           )
+physical.cpp:4412:19: note: use '==' to turn this assignment into an equality comparison
+  if (killerIntel = locator->lookup(killerIntelId)) {
+                  ^
+                  ==
+physical.cpp:5747:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (ret = locator->lookup(weapons[n])) {
+        ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5747:13: note: place parentheses around the assignment to silence this warning
+    if (ret = locator->lookup(weapons[n])) {
+            ^
+        (                                )
+physical.cpp:5747:13: note: use '==' to turn this assignment into an equality comparison
+    if (ret = locator->lookup(weapons[n])) {
+            ^
+            ==
+physical.cpp:5762:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (ret = locator->lookup(items[n])) {
+        ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5762:13: note: place parentheses around the assignment to silence this warning
+    if (ret = locator->lookup(items[n])) {
+            ^
+        (                              )
+physical.cpp:5762:13: note: use '==' to turn this assignment into an equality comparison
+    if (ret = locator->lookup(items[n])) {
+            ^
+            ==
+physical.cpp:5777:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (ret = locator->lookup(weapons[weaponCurrent])) {
+        ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5777:13: note: place parentheses around the assignment to silence this warning
+    if (ret = locator->lookup(weapons[weaponCurrent])) {
+            ^
+        (                                            )
+physical.cpp:5777:13: note: use '==' to turn this assignment into an equality comparison
+    if (ret = locator->lookup(weapons[weaponCurrent])) {
+            ^
+            ==
+physical.cpp:5804:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (ret = locator->lookup(items[itemCurrent])) {
+        ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5804:13: note: place parentheses around the assignment to silence this warning
+    if (ret = locator->lookup(items[itemCurrent])) {
+            ^
+        (                                        )
+physical.cpp:5804:13: note: use '==' to turn this assignment into an equality comparison
+    if (ret = locator->lookup(items[itemCurrent])) {
+            ^
+            ==
+physical.cpp:5851:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      if (p = (WeaponP)locator->lookup(weapons[weaponCurrent])) {
+          ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5851:13: note: place parentheses around the assignment to silence this warning
+      if (p = (WeaponP)locator->lookup(weapons[weaponCurrent])) {
+            ^
+          (                                                   )
+physical.cpp:5851:13: note: use '==' to turn this assignment into an equality comparison
+      if (p = (WeaponP)locator->lookup(weapons[weaponCurrent])) {
+            ^
+            ==
+physical.cpp:5951:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(weapons[n])) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:5951:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(weapons[n])) {
+          ^
+        (                              )
+physical.cpp:5951:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(weapons[n])) {
+          ^
+          ==
+physical.cpp:6003:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(items[n])) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:6003:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(items[n])) {
+          ^
+        (                            )
+physical.cpp:6003:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(items[n])) {
+          ^
+          ==
+physical.cpp:6382:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(weapons[weaponCurrent])) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:6382:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(weapons[weaponCurrent])) {
+          ^
+        (                                          )
+physical.cpp:6382:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(weapons[weaponCurrent])) {
+          ^
+          ==
+physical.cpp:6432:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (weapon = locator->lookup(weapons[weaponCurrent])) {
+        ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:6432:16: note: place parentheses around the assignment to silence this warning
+    if (weapon = locator->lookup(weapons[weaponCurrent])) {
+               ^
+        (                                               )
+physical.cpp:6432:16: note: use '==' to turn this assignment into an equality comparison
+    if (weapon = locator->lookup(weapons[weaponCurrent])) {
+               ^
+               ==
+physical.cpp:6461:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (p = locator->lookup(items[itemCurrent])) {
+        ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:6461:11: note: place parentheses around the assignment to silence this warning
+    if (p = locator->lookup(items[itemCurrent])) {
+          ^
+        (                                      )
+physical.cpp:6461:11: note: use '==' to turn this assignment into an equality comparison
+    if (p = locator->lookup(items[itemCurrent])) {
+          ^
+          ==
+physical.cpp:6501:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (item = locator->lookup(items[itemCurrent])) {
+        ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+physical.cpp:6501:14: note: place parentheses around the assignment to silence this warning
+    if (item = locator->lookup(items[itemCurrent])) {
+             ^
+        (                                         )
+physical.cpp:6501:14: note: use '==' to turn this assignment into an equality comparison
+    if (item = locator->lookup(items[itemCurrent])) {
+             ^
+             ==
+16 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/intel.o -c intel.cpp
+intel.cpp:661:22: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    else if (builtIn = (BuiltInP)cre->get_ability(AB_BuiltIn)){
+             ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+intel.cpp:661:22: note: place parentheses around the assignment to silence this warning
+    else if (builtIn = (BuiltInP)cre->get_ability(AB_BuiltIn)){
+                     ^
+             (                                               )
+intel.cpp:661:22: note: use '==' to turn this assignment into an equality comparison
+    else if (builtIn = (BuiltInP)cre->get_ability(AB_BuiltIn)){
+                     ^
+                     ==
+1 warning generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/coord.o -c coord.cpp 
+coord.cpp:939:13: warning: enumeration value 'TR_NONE' not handled in switch [-Wswitch]
+    switch (transforms[0]) {
+            ^
+coord.cpp:954:13: warning: enumeration values 'TR_NONE' and 'TR_RF_X' not handled in switch [-Wswitch]
+    switch (transforms[1]) {
+            ^
+2 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/game_style.o -c game_style.cpp
+game_style.cpp:636:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (p = pIter()) {
+         ~~^~~~~~~~~
+game_style.cpp:636:12: note: place parentheses around the assignment to silence this warning
+  while (p = pIter()) {
+           ^
+         (          )
+game_style.cpp:636:12: note: use '==' to turn this assignment into an equality comparison
+  while (p = pIter()) {
+           ^
+           ==
+game_style.cpp:650:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+  while (p = pIter2()) {
+         ~~^~~~~~~~~~
+game_style.cpp:650:12: note: place parentheses around the assignment to silence this warning
+  while (p = pIter2()) {
+           ^
+         (           )
+game_style.cpp:650:12: note: use '==' to turn this assignment into an equality comparison
+  while (p = pIter2()) {
+           ^
+           ==
+game_style.cpp:2638:19: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  human->set_data((void *)(worldRooms.downMax - 1));
+                  ^
+game_style.cpp:2684:26: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+                human->set_data((void *)depth);
+                                ^
+4 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/id.o -c id.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/sound_cmn.o -c sound_cmn.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/l_agreement.o -c l_agreement.cpp
+Directory cmn finished.
+make[6]: Leaving directory `/«PKGBUILDDIR»/cmn'
+make[5]: Leaving directory `/«PKGBUILDDIR»/cmn'
+make[4]: Leaving directory `/«PKGBUILDDIR»/cmn'
+cd ./x11; /usr/bin/make
+make[4]: Entering directory `/«PKGBUILDDIR»/x11'
+Making for debian-linux
+make[5]: Entering directory `/«PKGBUILDDIR»/x11'
+make[6]: Entering directory `/«PKGBUILDDIR»/x11'
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/xdata.o -c xdata.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/panel.o -c panel.cpp
+panel.cpp:374:24: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+      (*callback)(this,(void*)(int)event->xbutton.button,closure);
+                       ^
+panel.cpp:416:24: warning: cast to 'void *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+      (*callback)(this,(void*)(int)set,closure);
+                       ^
+2 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/l_agreement_dlg.o -c l_agreement_dlg.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/viewport.o -c viewport.cpp
+viewport.cpp:652:3: warning: delete called on 'ITickRenderer' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+  delete borderRenderer;
+  ^
+viewport.cpp:2274:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      if (p = locator->lookup(intel->get_id())) {
+          ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+viewport.cpp:2274:13: note: place parentheses around the assignment to silence this warning
+      if (p = locator->lookup(intel->get_id())) {
+            ^
+          (                                   )
+viewport.cpp:2274:13: note: use '==' to turn this assignment into an equality comparison
+      if (p = locator->lookup(intel->get_id())) {
+            ^
+            ==
+2 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/ui.o -c ui.cpp 
+ui.cpp:860:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      if (msg = locator->message_deq()) {
+          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+ui.cpp:860:15: note: place parentheses around the assignment to silence this warning
+      if (msg = locator->message_deq()) {
+              ^
+          (                           )
+ui.cpp:860:15: note: use '==' to turn this assignment into an equality comparison
+      if (msg = locator->message_deq()) {
+              ^
+              ==
+ui.cpp:1168:26: warning: 'XKeycodeToKeysym' is deprecated [-Wdeprecated-declarations]
+      << XKeysymToString(XKeycodeToKeysym(ui->xvars.dpy[dpyNum],
+                         ^
+/usr/include/X11/Xlib.h:1695:15: note: 'XKeycodeToKeysym' declared here
+extern KeySym XKeycodeToKeysym(
+              ^
+ui.cpp:1579:13: warning: 'XKeycodeToKeysym' is deprecated [-Wdeprecated-declarations]
+            XKeycodeToKeysym(xvars.dpy[dpyNum],keycode,i);
+            ^
+/usr/include/X11/Xlib.h:1695:15: note: 'XKeycodeToKeysym' declared here
+extern KeySym XKeycodeToKeysym(
+              ^
+3 warnings generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/draw.o -c draw.cpp
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/main.o -c main.cpp 
+main.cpp:97:23: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        if (eventsNum = 
+            ~~~~~~~~~~^
+main.cpp:97:23: note: place parentheses around the assignment to silence this warning
+        if (eventsNum = 
+                      ^
+main.cpp:97:23: note: use '==' to turn this assignment into an equality comparison
+        if (eventsNum = 
+                      ^
+                      ==
+1 warning generated.
+g++ -Wno-trigraphs -g -O2 -DX11=1 -DUSE_RANDOM -DXEVIL_KEYSET=UIlinux -DUSE_UINT_NET_LENGTH  -I../cmn -I../x11 -I../x11/bitmaps -I/usr/X11R6/include -o ../x11/release/serverping.o -c serverping.cpp
+serverping.cpp:96:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (value = Utils::arg_value_check(n,argc,argv,"-count")) {
+        ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+serverping.cpp:96:15: note: place parentheses around the assignment to silence this warning
+    if (value = Utils::arg_value_check(n,argc,argv,"-count")) {
+              ^
+        (                                                   )
+serverping.cpp:96:15: note: use '==' to turn this assignment into an equality comparison
+    if (value = Utils::arg_value_check(n,argc,argv,"-count")) {
+              ^
+              ==
+serverping.cpp:99:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (value = Utils::arg_value_check(n,argc,argv,"-timeout")) {
+        ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+serverping.cpp:99:15: note: place parentheses around the assignment to silence this warning
+    if (value = Utils::arg_value_check(n,argc,argv,"-timeout")) {
+              ^
+        (                                                     )
+serverping.cpp:99:15: note: use '==' to turn this assignment into an equality comparison
+    if (value = Utils::arg_value_check(n,argc,argv,"-timeout")) {
+              ^
+              ==
+serverping.cpp:106:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (value = Utils::arg_value_check(n,argc,argv,"-client_port")) {
+        ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+serverping.cpp:106:15: note: place parentheses around the assignment to silence this warning
+    if (value = Utils::arg_value_check(n,argc,argv,"-client_port")) {
+              ^
+        (                                                         )
+serverping.cpp:106:15: note: use '==' to turn this assignment into an equality comparison
+    if (value = Utils::arg_value_check(n,argc,argv,"-client_port")) {
+              ^
+              ==
+serverping.cpp:352:1: error: C++ requires a type specifier for all declarations
+main(int argc,char** argv) {
+^~~~
+3 warnings and 1 error generated.
+make[6]: *** [../x11/release/serverping.o] Error 1
+make[6]: Leaving directory `/«PKGBUILDDIR»/x11'
+make[5]: *** [debian-linux] Error 2
+make[4]: *** [default] Error 2
+make[5]: Leaving directory `/«PKGBUILDDIR»/x11'
+make[4]: Leaving directory `/«PKGBUILDDIR»/x11'
+make[3]: *** [x11/release/xevil] Error 2
+make[2]: *** [debian-linux] Error 2
+make[1]: *** [default] Error 2
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+make[3]: Leaving directory `/«PKGBUILDDIR»'
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130128-0524
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 19428
+Build-Time: 19
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 8
+Job: xevil_2.02r2-10
+Package: xevil
+Package-Time: 60
+Source-Version: 2.02r2-10
+Space: 19428
+Status: attempted
+Version: 2.02r2-10
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130128-0524
+Build needed 00:01:00, 19428k disc space
+DC-Status: Failed 60.166717s
