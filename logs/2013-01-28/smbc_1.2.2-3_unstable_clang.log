@@ -1,12 +1,12 @@
-DC-Build-Header: smbc 1.2.2-3 / Mon Jan 28 05:38:40 +0000 2013
-DC-Task: logfile:/tmp/smbc_1.2.2-3_unstable_clang.log version:1.2.2-3 chroot:unstable modes:binary-only:clang source:smbc architecture:any esttime:50
+DC-Build-Header: smbc 1.2.2-3 / Thu Jan 31 19:05:47 +0000 2013
+DC-Task: logfile:/tmp/smbc_1.2.2-3_unstable_clang.log version:1.2.2-3 modes:binary-only:clang chroot:unstable source:smbc esttime:50 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang smbc_1.2.2-3'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-131-110.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-48-232.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ smbc 1.2.2-3 (amd64)                                       28 Jan 2013 05:38 ║
+║ smbc 1.2.2-3 (amd64)                                       31 Jan 2013 19:05 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: smbc
@@ -15,9 +15,9 @@ Source Version: 1.2.2-3
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/smbc-rgQ6_X/smbc-1.2.2' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/smbc-rgQ6_X' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-8396288f-dd44-4ee9-a83d-5367a13c6d64' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/smbc-Cf7PkA/smbc-1.2.2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/smbc-Cf7PkA' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-6244db7a-79b8-4677-9251-23cce081441d' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4706 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5044 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +58,7 @@ Need to get 998 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main smbc 1.2.2-3 (dsc) [653 B]
 Get:2 http://localhost/debian/ unstable/main smbc 1.2.2-3 (tar) [978 kB]
 Get:3 http://localhost/debian/ unstable/main smbc 1.2.2-3 (diff) [19.4 kB]
-Fetched 998 kB in 0s (2872 kB/s)
+Fetched 998 kB in 0s (2728 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +75,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1335 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2242 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3951 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (31.5 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (7705 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +190,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +248,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-J20bnE/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-gSRazf/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +267,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 4.0.0), gawk, gettext, libncurses5-dev, libpopt-dev, libsmbclient-dev (>> 3.0.0)
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 4.0.0), gawk, gettext, libncurses5-dev, libpopt-dev, libsmbclient-dev (>> 3.0.0)
-dpkg-deb: building package `sbuild-build-depends-smbc-dummy' in `/«BUILDDIR»/resolver-LOQk2c/apt_archive/sbuild-build-depends-smbc-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-smbc-dummy' in `/«BUILDDIR»/resolver-Kxzc7y/apt_archive/sbuild-build-depends-smbc-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +284,831 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bsdmainutils debhelper file gawk gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcap2 libcroco3 libgcrypt11
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26 libgpg-error0
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libldap-2.4-2 libmagic1 libncurses5-dev libp11-kit0 libpcre3 libpipeline1
+  libpopt-dev libpopt0 libsasl2-2 libsigsegv2 libsmbclient libsmbclient-dev
+  libtalloc2 libtasn1-3 libtdb1 libtinfo-dev libunistring0 libwbclient0
+  libxml2 man-db po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gawk-doc gettext-doc groff
+  rng-tools krb5-doc krb5-user ncurses-doc less www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info krb5-locales
+  libsasl2-modules xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gawk gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcap2 libcroco3 libgcrypt11
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26 libgpg-error0
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libldap-2.4-2 libmagic1 libncurses5-dev libp11-kit0 libpcre3 libpipeline1
+  libpopt-dev libpopt0 libsasl2-2 libsigsegv2 libsmbclient libsmbclient-dev
+  libtalloc2 libtasn1-3 libtdb1 libtinfo-dev libunistring0 libwbclient0
+  libxml2 man-db po-debconf sbuild-build-depends-smbc-dummy
+0 upgraded, 46 newly installed, 0 to remove and 0 not upgraded.
+Need to get 16.3 MB/16.3 MB of archives.
+After this operation, 54.3 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:8 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:9 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:10 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:11 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:13 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:14 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:15 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:16 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:17 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:18 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:19 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:20 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:21 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:22 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:23 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:24 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:25 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:26 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:27 http://localhost/debian/ unstable/main libtalloc2 amd64 2.0.7+git20120207-1 [24.8 kB]
+Get:28 http://localhost/debian/ unstable/main libtdb1 amd64 1.2.10-2 [39.7 kB]
+Get:29 http://localhost/debian/ unstable/main libwbclient0 amd64 2:3.6.6-5 [95.5 kB]
+Get:30 http://localhost/debian/ unstable/main libsmbclient amd64 2:3.6.6-5 [1538 kB]
+Get:31 http://localhost/debian/ unstable/main libsmbclient-dev amd64 2:3.6.6-5 [1864 kB]
+Get:32 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:33 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:34 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:35 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:36 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:37 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:38 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:39 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:40 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:41 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:42 http://localhost/debian/ unstable/main gawk amd64 1:4.0.1+dfsg-2 [972 kB]
+Get:43 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:44 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+Get:45 http://localhost/debian/ unstable/main libpopt-dev amd64 1.16-7 [56.2 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 16.3 MB in 0s (18.9 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libtalloc2:amd64.
+Unpacking libtalloc2:amd64 (from .../libtalloc2_2.0.7+git20120207-1_amd64.deb) ...
+Selecting previously unselected package libtdb1:amd64.
+Unpacking libtdb1:amd64 (from .../libtdb1_1.2.10-2_amd64.deb) ...
+Selecting previously unselected package libwbclient0:amd64.
+Unpacking libwbclient0:amd64 (from .../libwbclient0_2%3a3.6.6-5_amd64.deb) ...
+Selecting previously unselected package libsmbclient:amd64.
+Unpacking libsmbclient:amd64 (from .../libsmbclient_2%3a3.6.6-5_amd64.deb) ...
+Selecting previously unselected package libsmbclient-dev:amd64.
+Unpacking libsmbclient-dev:amd64 (from .../libsmbclient-dev_2%3a3.6.6-5_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package gawk.
+Unpacking gawk (from .../gawk_1%3a4.0.1+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpopt-dev:amd64.
+Unpacking libpopt-dev:amd64 (from .../libpopt-dev_1.16-7_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-smbc-dummy.
+Unpacking sbuild-build-depends-smbc-dummy (from .../sbuild-build-depends-smbc-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libtalloc2:amd64 (2.0.7+git20120207-1) ...
+Setting up libtdb1:amd64 (1.2.10-2) ...
+Setting up libwbclient0:amd64 (2:3.6.6-5) ...
+Setting up libsmbclient:amd64 (2:3.6.6-5) ...
+Setting up libsmbclient-dev:amd64 (2:3.6.6-5) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up gawk (1:4.0.1+dfsg-2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up libpopt-dev:amd64 (1.16-7) ...
+Setting up sbuild-build-depends-smbc-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-smbc-dummy : Depends: libncurses5-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gawk_1:4.0.1+dfsg-2 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcap2_1:2.22-1.2 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt-dev_1.16-7 libpopt0_1.16-7 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsmbclient_2:3.6.6-5 libsmbclient-dev_2:3.6.6-5 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtalloc2_2.0.7+git20120207-1 libtasn1-3_2.13-2 libtdb1_1.2.10-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libwbclient0_2:3.6.6-5 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-smbc-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Mar 23 13:19:28 2008 UTC using DSA key ID 307D56ED
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./smbc_1.2.2-3.dsc
+dpkg-source: info: extracting smbc in smbc-1.2.2
+dpkg-source: info: unpacking smbc_1.2.2.orig.tar.gz
+dpkg-source: info: applying smbc_1.2.2-3.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ smbc-1.2.2/config.guess
+ smbc-1.2.2/config.sub
+ smbc-1.2.2/doc/smbc.1
+ smbc-1.2.2/doc/smbcrc.1
+ smbc-1.2.2/src/convert.c
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-6244db7a-79b8-4677-9251-23cce081441d
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package smbc
+dpkg-buildpackage: source version 1.2.2-3
+dpkg-buildpackage: source changed by Noèl Köthe <noel@debian.org>
+ dpkg-source --before-build smbc-1.2.2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp 
+rm -f po/ru.gmo
+# Add here commands to clean up after the build process.
+[ ! -f Makefile ] || /usr/bin/make distclean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making distclean in doc
+make[2]: Entering directory `/«PKGBUILDDIR»/doc'
+rm -rf smbc.aux smbc.cp smbc.cps smbc.fn smbc.fns smbc.ky smbc.kys smbc.log \
+	  smbc.pg smbc.pgs smbc.tmp smbc.toc smbc.tp smbc.tps smbc.vr \
+	  smbc.vrs smbc.dvi smbc.pdf smbc.ps smbc.html
+rm -f vti.tmp
+test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory `/«PKGBUILDDIR»/doc'
+Making distclean in src
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+test -z "smbc" || rm -f smbc
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -rf ./.deps
+rm -f Makefile
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+Making distclean in po
+make[2]: Entering directory `/«PKGBUILDDIR»/po'
+rm -f *.insert-header
+rm -f core core.* *.pox smbc.po *.old.po cat-id-tbl.tmp
+rm -fr *.o
+rm -f Makefile Makefile.in POTFILES *.mo *.msg *.cat *.cat.m
+make[2]: Leaving directory `/«PKGBUILDDIR»/po'
+Making distclean in intl
+make[2]: Entering directory `/«PKGBUILDDIR»/intl'
+rm -f *.a *.la *.o *.obj *.lo core core.*
+rm -f libgnuintl.h libintl.h charset.alias ref-add.sed ref-del.sed
+rm -f -r .libs _libs
+rm -f Makefile ID TAGS
+if test "smbc" = "gettext-runtime" || test "smbc" = "gettext-tools"; then \
+	  rm -f ChangeLog.inst VERSION; \
+	else \
+	  : ; \
+	fi
+make[2]: Leaving directory `/«PKGBUILDDIR»/intl'
+Making distclean in m4
+make[2]: Entering directory `/«PKGBUILDDIR»/m4'
+test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory `/«PKGBUILDDIR»/m4'
+Making distclean in .
+make[2]: Entering directory `/«PKGBUILDDIR»'
+test -z "intl/Makefile" || rm -f intl/Makefile
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+rm -f config.status config.cache config.log configure.lineno configure.status.lineno
+rm -f Makefile
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -f po/pl.gmo
+dh_clean 
+dh_clean: Compatibility levels before 5 are deprecated (level 4 in use)
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+# Add here commands to configure the package.
+CFLAGS="-Wall -g -O2" ./configure --host=x86_64-linux-gnu \
+					--build=x86_64-linux-gnu \
+					--prefix=/usr \
+					--mandir=\${prefix}/share/man \
+					--infodir=\${prefix}/share/info
+
+Samba Commander version 1.2.2
+Configuring...
+
+checking for x86_64-linux-gnu-gcc... x86_64-linux-gnu-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether x86_64-linux-gnu-gcc accepts -g... yes
+checking for x86_64-linux-gnu-gcc option to accept ANSI C... none needed
+checking for library containing strerror... none required
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking dependency style of x86_64-linux-gnu-gcc... gcc3
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking how to run the C preprocessor... x86_64-linux-gnu-gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking libsmbclient.h usability... yes
+checking libsmbclient.h presence... yes
+checking for libsmbclient.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking popt.h usability... yes
+checking popt.h presence... yes
+checking for popt.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking curses.h usability... yes
+checking curses.h presence... yes
+checking for curses.h... yes
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for x86_64-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking for an ANSI C-conforming const... yes
+checking for signed... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking for long long... yes
+checking for long double... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking whether printf() supports POSIX/XSI format strings... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking whether integer division by zero raises SIGFPE... yes
+checking for unsigned long long... yes
+checking for inttypes.h... yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for stdint.h... (cached) yes
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+/bin/bash: config/config.rpath: No such file or directory
+checking for shared library run path origin... done
+checking for ptrdiff_t... yes
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... yes
+checking nl_types.h presence... yes
+checking for nl_types.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for asprintf... yes
+checking for fwprintf... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for snprintf... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for wcslen... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for __fsetlocking... yes
+checking whether _snprintf is declared... no
+checking whether _snwprintf is declared... no
+checking whether feof_unlocked is declared... yes
+checking whether fgets_unlocked is declared... no
+checking whether getc_unlocked is declared... yes
+checking for iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking for bison... no
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for an ANSI C-conforming const... (cached) yes
+checking for mode_t... yes
+checking for off_t... (cached) yes
+checking for size_t... (cached) yes
+checking whether closedir returns void... no
+checking for pid_t... yes
+checking for unistd.h... (cached) yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for working memcmp... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking return type of signal handlers... void
+checking whether lstat dereferences a symlink specified with a trailing slash... yes
+checking whether stat accepts an empty string... no
+checking for alarm... yes
+checking for dup2... yes
+checking for mkdir... yes
+checking for rmdir... yes
+checking for setlocale... (cached) yes
+checking for strdup... (cached) yes
+checking for strstr... yes
+checking for main in -lm... yes
+checking for main in -lpopt... yes
+checking for main in -lncurses... yes
+checking for main in -lsmbclient... yes
+checking for smbc_set_context in -lsmbclient... yes
+checking for smbc_new_context in -lsmbclient... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating po/Makefile.in
+config.status: creating intl/Makefile
+config.status: creating m4/Makefile
+config.status: creating doc/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+
+Configure finished.
+*** setting ****************************************
+Install prefix           : /usr
+smbc_set_context         : yes
+smbc_new_context         : yes
+****************************************************
+
+*** for developers *********************************
+debug message            : no
+compile for ggdb message : no
+****************************************************
+Now you can run
+make
+
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/«PKGBUILDDIR»'
+Making all in m4
+make[3]: Entering directory `/«PKGBUILDDIR»/m4'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/m4'
+Making all in intl
+make[3]: Entering directory `/«PKGBUILDDIR»/intl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/intl'
+Making all in po
+make[3]: Entering directory `/«PKGBUILDDIR»/po'
+file=./`echo pl | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt -o $file pl.po
+file=./`echo ru | sed 's,.*/,,'`.gmo \
+	  && rm -f $file && /usr/bin/msgfmt -o $file ru.po
+make[3]: Leaving directory `/«PKGBUILDDIR»/po'
+Making all in src
+make[3]: Entering directory `/«PKGBUILDDIR»/src'
+if x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../intl -DLOCALEDIR=\"/usr/share/locale\"   -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wall  -O3 -MT smbc-smbc.o -MD -MP -MF ".deps/smbc-smbc.Tpo" -c -o smbc-smbc.o `test -f 'smbc.c' || echo './'`smbc.c; \
+	then mv -f ".deps/smbc-smbc.Tpo" ".deps/smbc-smbc.Po"; else rm -f ".deps/smbc-smbc.Tpo"; exit 1; fi
+smbc.c:315:38: error: expected ';' at end of declaration
+ void Rpaint(int Ri, int Rnr, int Ry) 
+                                     ^
+                                     ;
+smbc.c:1181:38: error: expected ';' at end of declaration
+  RpaintList(int Rfirst, int Rselect)
+                                     ^
+                                     ;
+smbc.c:1371:3: warning: implicit declaration of function 'RmanageListCreateWindow' is invalid in C99 [-Wimplicit-function-declaration]
+  RmanageListCreateWindow();
+  ^
+smbc.c:1375:37: error: use of undeclared identifier 'RsigAlarmManageWindow'
+  RpreviousAction = signal(SIGALRM, RsigAlarmManageWindow);
+                                    ^
+smbc.c:1708:16: error: expected ';' at end of declaration
+  RretryAgain()
+               ^
+               ;
+smbc.c:1805:16: error: expected ';' at end of declaration
+  RretryAgain()
+               ^
+               ;
+smbc.c:1903:16: error: expected ';' at end of declaration
+  RretryAgain()
+               ^
+               ;
+smbc.c:2306:83: error: expected ';' at end of declaration
+  char RgetVar(char *Rstr1, char *Rstr2, int Rsize1, int Rsize2, int RsortMethodI)
+                                                                                  ^
+                                                                                  ;
+smbc.c:2421:3: warning: implicit declaration of function 'RpreSort' is invalid in C99 [-Wimplicit-function-declaration]
+  RpreSort((*RlistI)->next, RdoGroup, RsortMethodI);
+  ^
+smbc.c:2859:36: error: expected ';' at end of declaration
+  RremoveActFromListAndCloseFiles()
+                                   ^
+                                   ;
+smbc.c:3387:55: error: expected ';' at end of declaration
+  RsmbDownloadFile(char *RpathToFile, char *Rfilename)
+                                                      ^
+                                                      ;
+smbc.c:3465:5: warning: implicit declaration of function 'RsmbDownloadDir' is invalid in C99 [-Wimplicit-function-declaration]
+    RsmbDownloadDir(RstrLocalCF);
+    ^
+smbc.c:3484:60: error: expected ';' at end of declaration
+  void RsmbDownloadFile(char *RpathToFile, char *Rfilename)
+                                                           ^
+                                                           ;
+smbc.c:3619:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(Rm243);
+           ^~~~~
+smbc.c:3620:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(Rm244);
+           ^~~~~
+smbc.c:4032:36: error: expected ';' at end of declaration
+  void Rrefresh(int Rmax, int Rsel)
+                                   ^
+                                   ;
+smbc.c:4247:3: error: conflicting types for 'Rrefresh'
+  Rrefresh(int Rsel)
+  ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+smbc.c:4247:21: error: expected ';' at end of declaration
+  Rrefresh(int Rsel)
+                    ^
+                    ;
+smbc.c:4288:3: warning: use of out-of-scope declaration of 'Rrefresh'
+  Rrefresh(Rrol);
+  ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+smbc.c:4288:16: error: too few arguments to function call, expected 2, have 1
+  Rrefresh(Rrol);
+  ~~~~~~~~     ^
+smbc.c:4032:3: note: 'Rrefresh' declared here
+  void Rrefresh(int Rmax, int Rsel)
+  ^
+smbc.c:4302:7: warning: use of out-of-scope declaration of 'Rrefresh'
+      Rrefresh(--Rrol);
+      ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+smbc.c:4302:22: error: too few arguments to function call, expected 2, have 1
+      Rrefresh(--Rrol);
+      ~~~~~~~~       ^
+smbc.c:4032:3: note: 'Rrefresh' declared here
+  void Rrefresh(int Rmax, int Rsel)
+  ^
+smbc.c:4308:7: warning: use of out-of-scope declaration of 'Rrefresh'
+      Rrefresh(Rrol);
+      ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+smbc.c:4308:20: error: too few arguments to function call, expected 2, have 1
+      Rrefresh(Rrol);
+      ~~~~~~~~     ^
+smbc.c:4032:3: note: 'Rrefresh' declared here
+  void Rrefresh(int Rmax, int Rsel)
+  ^
+smbc.c:4388:25: error: expected ';' at end of declaration
+  RpaintTop(int RnoDraw)
+                        ^
+                        ;
+smbc.c:4744:3: warning: implicit declaration of function 'RcreateFindFileWindow' is invalid in C99 [-Wimplicit-function-declaration]
+  RcreateFindFileWindow();
+  ^
+smbc.c:4752:5: warning: implicit declaration of function 'RrefreshR' is invalid in C99 [-Wimplicit-function-declaration]
+    RrefreshR(0);
+    ^
+smbc.c:4765:9: warning: implicit declaration of function 'RresizeFindFile' is invalid in C99 [-Wimplicit-function-declaration]
+        RresizeFindFile(0);
+        ^
+smbc.c:4766:9: warning: implicit declaration of function 'RdetectAndPaintStatusCtrlp' is invalid in C99 [-Wimplicit-function-declaration]
+        RdetectAndPaintStatusCtrlp();
+        ^
+smbc.c:4768:11: warning: implicit declaration of function 'RfindFileFromIndex' is invalid in C99 [-Wimplicit-function-declaration]
+          RfindFileFromIndex();
+          ^
+smbc.c:4779:9: warning: implicit declaration of function 'RfreeRmanageFindFile' is invalid in C99 [-Wimplicit-function-declaration]
+        RfreeRmanageFindFile();
+        ^
+smbc.c:4921:11: warning: use of out-of-scope declaration of 'RpaintList'
+          RpaintList(RlFirst, RlSelect);
+          ^
+smbc.c:1181:3: note: previous declaration is here
+  RpaintList(int Rfirst, int Rselect)
+  ^
+smbc.c:4934:13: warning: use of out-of-scope declaration of 'RpaintList'
+            RpaintList(RlFirst, RlSelect);
+            ^
+smbc.c:1181:3: note: previous declaration is here
+  RpaintList(int Rfirst, int Rselect)
+  ^
+smbc.c:4962:10: warning: use of out-of-scope declaration of 'RpaintList'
+         RpaintList(RlFirst, RlSelect);
+         ^
+smbc.c:1181:3: note: previous declaration is here
+  RpaintList(int Rfirst, int Rselect)
+  ^
+smbc.c:4982:13: warning: use of out-of-scope declaration of 'RpaintList'
+            RpaintList(RlFirst, RlSelect);
+            ^
+smbc.c:1181:3: note: previous declaration is here
+  RpaintList(int Rfirst, int Rselect)
+  ^
+smbc.c:5009:13: warning: use of out-of-scope declaration of 'RpaintList'
+            RpaintList(RlFirst, RlSelect);
+            ^
+smbc.c:1181:3: note: previous declaration is here
+  RpaintList(int Rfirst, int Rselect)
+  ^
+smbc.c:5146:3: error: conflicting types for 'Rrefresh'
+  Rrefresh(int Rsel)
+  ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+smbc.c:5146:21: error: expected ';' at end of declaration
+  Rrefresh(int Rsel)
+                    ^
+                    ;
+smbc.c:5200:3: warning: use of out-of-scope declaration of 'Rrefresh'
+  Rrefresh(Rrol);
+  ^
+smbc.c:4032:8: note: previous declaration is here
+  void Rrefresh(int Rmax, int Rsel)
+       ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 warnings and 20 errors generated.
+make[3]: *** [smbc-smbc.o] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/src'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1906
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,27 +1116,25 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 3428
+Build-Time: 15
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 8
 Job: smbc_1.2.2-3
 Package: smbc
-Package-Time: 0
+Package-Time: 48
 Source-Version: 1.2.2-3
-Space: 0
-Status: failed
+Space: 3428
+Status: attempted
 Version: 1.2.2-3
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0538
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.949162s
+Finished at 20130131-1906
+Build needed 00:00:48, 3428k disc space
+DC-Status: Failed 47.89158s

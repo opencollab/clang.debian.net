@@ -1,12 +1,12 @@
-DC-Build-Header: sniffit 0.3.7.beta-17 / Mon Jan 28 05:49:42 +0000 2013
-DC-Task: logfile:/tmp/sniffit_0.3.7.beta-17_unstable_clang.log version:0.3.7.beta-17 chroot:unstable modes:binary-only:clang source:sniffit architecture:any esttime:40
+DC-Build-Header: sniffit 0.3.7.beta-17 / Thu Jan 31 19:08:17 +0000 2013
+DC-Task: logfile:/tmp/sniffit_0.3.7.beta-17_unstable_clang.log version:0.3.7.beta-17 modes:binary-only:clang chroot:unstable source:sniffit esttime:40 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang sniffit_0.3.7.beta-17'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-135-213.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-131-190.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ sniffit 0.3.7.beta-17 (amd64)                              28 Jan 2013 05:49 ║
+║ sniffit 0.3.7.beta-17 (amd64)                              31 Jan 2013 19:08 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: sniffit
@@ -15,9 +15,9 @@ Source Version: 0.3.7.beta-17
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/sniffit-huZO21/sniffit-0.3.7.beta' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/sniffit-huZO21' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-1060f3f8-2ae8-407c-b5ba-ddf0c78a71f6' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/sniffit-PlLd19/sniffit-0.3.7.beta' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/sniffit-PlLd19' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-15fd9183-ee79-4494-8957-ef0afb30d63b' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4843 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5510 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +58,7 @@ Need to get 231 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main sniffit 0.3.7.beta-17 (dsc) [1449 B]
 Get:2 http://localhost/debian/ unstable/main sniffit 0.3.7.beta-17 (tar) [212 kB]
 Get:3 http://localhost/debian/ unstable/main sniffit 0.3.7.beta-17 (diff) [17.1 kB]
-Fetched 231 kB in 0s (887 kB/s)
+Fetched 231 kB in 0s (943 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +75,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main Sources
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1330 kB/s)
+Fetched 3970 B in 1s (2636 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3972 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (33.2 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 7s (3359 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +190,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +248,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-HG2ubP/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-TV1LGi/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +267,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), libpcap-dev, libncurses5-dev, autotools-dev, automake
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), libpcap-dev, libncurses5-dev, autotools-dev, automake
-dpkg-deb: building package `sbuild-build-depends-sniffit-dummy' in `/«BUILDDIR»/resolver-RRctq8/apt_archive/sbuild-build-depends-sniffit-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-sniffit-dummy' in `/«BUILDDIR»/resolver-Z1EZo5/apt_archive/sbuild-build-depends-sniffit-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +284,2010 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake autotools-dev bsdmainutils debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0
+  libmagic1 libncurses5-dev libpcap-dev libpcap0.8 libpcap0.8-dev libpcre3
+  libpipeline1 libsigsegv2 libtinfo-dev libunistring0 libxml2 m4 man-db
+  po-debconf
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool wamerican
+  wordlist whois vacation dh-make gettext-doc groff ncurses-doc less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autotools-dev bsdmainutils debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0
+  libmagic1 libncurses5-dev libpcap-dev libpcap0.8 libpcap0.8-dev libpcre3
+  libpipeline1 libsigsegv2 libtinfo-dev libunistring0 libxml2 m4 man-db
+  po-debconf sbuild-build-depends-sniffit-dummy
+0 upgraded, 32 newly installed, 0 to remove and 0 not upgraded.
+Need to get 11.4 MB/11.4 MB of archives.
+After this operation, 32.5 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main libpcap0.8 amd64 1.3.0-1 [142 kB]
+Get:14 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:15 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:16 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:17 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:18 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:19 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:20 http://localhost/debian/ unstable/main automake all 1:1.11.6-1 [607 kB]
+Get:21 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:22 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:23 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:24 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:25 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:26 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:27 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:28 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:29 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+Get:30 http://localhost/debian/ unstable/main libpcap0.8-dev amd64 1.3.0-1 [264 kB]
+Get:31 http://localhost/debian/ unstable/main libpcap-dev all 1.3.0-1 [22.2 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 11.4 MB in 0s (30.6 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libpcap0.8:amd64.
+Unpacking libpcap0.8:amd64 (from .../libpcap0.8_1.3.0-1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.6-1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpcap0.8-dev.
+Unpacking libpcap0.8-dev (from .../libpcap0.8-dev_1.3.0-1_amd64.deb) ...
+Selecting previously unselected package libpcap-dev.
+Unpacking libpcap-dev (from .../libpcap-dev_1.3.0-1_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-sniffit-dummy.
+Unpacking sbuild-build-depends-sniffit-dummy (from .../sbuild-build-depends-sniffit-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libpcap0.8:amd64 (1.3.0-1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake (1:1.11.6-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up libpcap0.8-dev (1.3.0-1) ...
+Setting up libpcap-dev (1.3.0-1) ...
+Setting up sbuild-build-depends-sniffit-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-sniffit-dummy : Depends: libncurses5-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake_1:1.11.6-1 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcap-dev_1.3.0-1 libpcap0.8_1.3.0-1 libpcap0.8-dev_1.3.0-1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-sniffit-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Sep 17 16:58:24 2012 UTC using RSA key ID EED3BC0D
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./sniffit_0.3.7.beta-17.dsc
+dpkg-source: info: extracting sniffit in sniffit-0.3.7.beta
+dpkg-source: info: unpacking sniffit_0.3.7.beta.orig.tar.gz
+dpkg-source: info: unpacking sniffit_0.3.7.beta-17.debian.tar.gz
+dpkg-source: info: applying 01_diffpatch.patch
+dpkg-source: info: applying 02_headers.patch
+dpkg-source: info: applying 03_fixmanpages.patch
+dpkg-source: info: applying 04_sniffit+kbsd.patch
+dpkg-source: info: applying 05_fix_segfaults_on_amd64_bts644978.patch
+dpkg-source: info: applying use-dpkg-buildflags.patch
+dpkg-source: info: applying fixspelling.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-15fd9183-ee79-4494-8957-ef0afb30d63b
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package sniffit
+dpkg-buildpackage: source version 0.3.7.beta-17
+dpkg-buildpackage: source changed by William Vera <billy@billy.com.mx>
+ dpkg-source --before-build sniffit-0.3.7.beta
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh  clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ debian/rules build-arch
+dh  build-arch
+   dh_testdir -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«PKGBUILDDIR»'
+automake --force-missing --add-missing --copy || true
+configure.in: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.in: You should verify that configure.in invokes AM_INIT_AUTOMAKE,
+configure.in: that aclocal.m4 is present in the top-level directory,
+configure.in: and that aclocal.m4 was recently regenerated (using aclocal).
+automake: no `Makefile.am' found for any configure output
+cd libpcap && automake --force-missing --add-missing --copy && cd .. || true
+configure.in:19: warning: AC_REQUIRE: `AC_PROG_CC' was expanded before it was required
+configure.in:19: http://www.gnu.org/software/autoconf/manual/autoconf.html#Expanded-Before-Required
+../../lib/autoconf/c.m4:429: AC_LANG_COMPILER(C) is expanded from...
+../../lib/autoconf/lang.m4:329: AC_LANG_COMPILER_REQUIRE is expanded from...
+../../lib/autoconf/general.m4:2606: AC_COMPILE_IFELSE is expanded from...
+../../lib/autoconf/general.m4:2614: AC_TRY_COMPILE is expanded from...
+aclocal.m4:45: AC_LBL_C_INIT is expanded from...
+configure.in:19: the top level
+configure.in: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.in: You should verify that configure.in invokes AM_INIT_AUTOMAKE,
+configure.in: that aclocal.m4 is present in the top-level directory,
+configure.in: and that aclocal.m4 was recently regenerated (using aclocal).
+automake: no `Makefile.am' found for any configure output
+dh_auto_configure
+creating cache ./config.cache
+checking for gcc... gcc
+checking whether the C compiler (gcc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wl,-z,relro) works... yes
+checking whether the C compiler (gcc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wl,-z,relro) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for main in -lncurses... yes
+checking for ncurses.h... /usr/include/ncurses.h
+checking for shmget... yes
+checking for atexit... yes
+checking size of unsigned short int... 2
+checking size of unsigned long int... 8
+unsigned long is NOT 4 bytes... hmmm...
+checking size of unsigned int... 4
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking build system type... x86_64-pc-linux-gnu
+updating cache ./config.cache
+creating ./config.status
+creating Makefile
+configuring in libpcap
+running /bin/sh ./configure  --build=x86_64-linux-gnu --prefix=/usr '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' --sysconfdir=/etc --localstatedir=/var '--libexecdir=${prefix}/lib/sniffit' --disable-maintainer-mode --disable-dependency-tracking --cache-file=.././config.cache --srcdir=.
+loading cache .././config.cache
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking build system type... x86_64-pc-linux-gnu
+checking for gcc... (cached) gcc
+checking whether the C compiler (gcc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wl,-z,relro) works... yes
+checking whether the C compiler (gcc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wl,-z,relro) is a cross-compiler... no
+checking whether we are using GNU C... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+./configure: 892: test: -gt: unexpected operator
+checking gcc version... 
+checking how to run the C preprocessor... gcc -E
+checking for malloc.h... yes
+checking for sys/ioccom.h... no
+checking for sys/sockio.h... no
+checking for ANSI ioctl definitions... yes
+checking for ether_hostton... yes
+checking for strerror... yes
+checking packet capture type... linux
+checking for net/if_arp.h... yes
+checking Linux kernel version... 2
+checking for flex... no
+checking for bison... no
+checking for ranlib... ranlib
+checking if sockaddr struct has sa_len member... no
+checking if unaligned accesses fail... no
+rm: cannot remove 'net': Is a directory
+checking for a BSD compatible install... /usr/bin/install -c
+updating cache .././config.cache
+creating ./config.status
+creating Makefile
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_auto_build -a
+make[1]: Entering directory `/«PKGBUILDDIR»'
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security  sn_packets.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+sn_packets.c:68:15: warning: incompatible pointer types passing 'unsigned char *' to parameter of type 'unsigned short *' [-Wincompatible-pointer-types]
+                if(in_cksum((sp+PROTO_HEAD),unwrapped->IP_len) != IPhead.checksum)
+                            ^~~~~~~~~~~~~~~
+sn_packets.c:14:41: note: passing argument to parameter 'addr' here
+unsigned short in_cksum(unsigned short *addr,int len)
+                                        ^
+1 warning generated.
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security  sn_generation.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+sn_generation.c:66:1: warning: implicit declaration of function 'input_field' is invalid in C99 [-Wimplicit-function-declaration]
+input_field(msg,NULL,0);
+^
+sn_generation.c:67:1: warning: implicit declaration of function 'forced_refresh' is invalid in C99 [-Wimplicit-function-declaration]
+forced_refresh();
+^
+sn_generation.c:205:22: warning: implicit declaration of function 'in_cksum' is invalid in C99 [-Wimplicit-function-declaration]
+sp_help_ip->checksum=in_cksum((unsigned short *) (sp->buffer), 
+                     ^
+3 warnings generated.
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security  sn_interface.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+sn_interface.c:195:3: warning: incompatible pointer types assigning to 'unsigned char *' from '_32_bit *' (aka 'unsigned int *') [-Wincompatible-pointer-types]
+ad=&(mask->source_ip);
+  ^~~~~~~~~~~~~~~~~~~
+sn_interface.c:201:3: warning: incompatible pointer types assigning to 'unsigned char *' from '_32_bit *' (aka 'unsigned int *') [-Wincompatible-pointer-types]
+ad=&(mask->destination_ip);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+sn_interface.c:470:8: warning: implicit declaration of function 'isprint' is invalid in C99 [-Wimplicit-function-declaration]
+                        isprint(*(connection_data+i))?
+                        ^
+3 warnings generated.
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security sn_cfgfile.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+sn_cfgfile.c:125:7: warning: implicit declaration of function 'isalnum' is invalid in C99 [-Wimplicit-function-declaration]
+        if( (isalnum(string[i]))||(string[i]=='.') )
+             ^
+sn_cfgfile.c:144:8: warning: implicit declaration of function 'iscntrl' is invalid in C99 [-Wimplicit-function-declaration]
+        if( !(iscntrl(string[i])) && !(isspace(string[i])) )
+              ^
+sn_cfgfile.c:144:33: warning: implicit declaration of function 'isspace' is invalid in C99 [-Wimplicit-function-declaration]
+        if( !(iscntrl(string[i])) && !(isspace(string[i])) )
+                                       ^
+sn_cfgfile.c:164:6: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+digit=(char *)&hostnr;
+     ^~~~~~~~~~~~~~~~
+sn_cfgfile.c:228:22: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:244:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, clean_string(strtok(NULL," ")));
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:259:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:275:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, clean_string(strtok(NULL," ")));
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:291:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:292:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(helpp->host,dot_notation);
+                     ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:315:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, field);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:316:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(helpp->host, field);
+                     ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:337:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:353:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, clean_string(strtok(NULL," ")));
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:368:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:384:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, clean_string(strtok(NULL," ")));
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:400:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host,dot_notation);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:401:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(helpp->host,dot_notation);
+                     ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:423:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(help->host, field);
+                     ^~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:424:15: warning: passing 'unsigned char [16]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+              strcpy(helpp->host, field);
+                     ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:33: note: passing argument to parameter '__dest' here
+__NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+                                ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+sn_cfgfile.c:452:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(lineptr,259,cfgfile);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~
+21 warnings generated.
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security  sn_logfile.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+sn_logfile.c:96:8: warning: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
+fchmod(LogFILE,  S_IWUSR|S_IRUSR);
+       ^~~~~~~
+/usr/include/x86_64-linux-gnu/sys/stat.h:299:24: note: passing argument to parameter '__fd' here
+extern int fchmod (int __fd, __mode_t __mode) __THROW;
+                       ^
+1 warning generated.
+gcc -O2 -c -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security  sn_resolv.c -I./libpcap -L./libpcap -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1 
+clang: warning: argument unused during compilation: '-L./libpcap'
+gcc -D_FORTIFY_SOURCE=2 -O2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wl,-z,relro -o sniffit sniffit.0.3.7.c sn_packets.o sn_generation.o sn_interface.o sn_cfgfile.o sn_logfile.o sn_resolv.o -I./libpcap -L./libpcap -lpcap -lncurses  -DHAVE_LIBNCURSES=1 -DHAVE_NCURSES_H=1 -DHAVE_SHMGET=1 -DHAVE_ATEXIT=1 -DSIZEOF_UNSIGNED_SHORT_INT=2 -DSIZEOF_UNSIGNED_LONG_INT=8 -DSIZEOF_UNSIGNED_INT=4 -DUSE_32_INT=1 -DLINUX=1   
+In file included from sniffit.0.3.7.c:35:
+In file included from ./sn_plugins.h:23:
+./dns_plugin.plug:87:12: warning: incompatible pointer types assigning to 'struct PL_DNS_header *' from 'struct DNS_header *' [-Wincompatible-pointer-types]
+dns_dnshead= (struct DNS_header *) (dns_buffer+udp_start+sizeof(struct UDP_header));
+           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./dns_plugin.plug:122:25: warning: passing 'unsigned char *' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  dec_pos=PL_DNS_decode(dns_p,dec_pos,NULL,0);
+                        ^~~~~
+./dns_plugin.plug:30:25: note: passing argument to parameter 'buf' here
+int PL_DNS_decode(char *buf, int start_pos,char *string, int start_string)
+                        ^
+./dns_plugin.plug:142:25: warning: passing 'unsigned char *' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  dec_pos=PL_DNS_decode(dns_p,dec_pos,NULL,0);
+                        ^~~~~
+./dns_plugin.plug:30:25: note: passing argument to parameter 'buf' here
+int PL_DNS_decode(char *buf, int start_pos,char *string, int start_string)
+                        ^
+sniffit.0.3.7.c:127:22: warning: implicit declaration of function 'isupper' is invalid in C99 [-Wimplicit-function-declaration]
+    *(string + i) = (isupper (*(string + i)) ? tolower (*(string + i)) : *(string + i));
+                     ^
+sniffit.0.3.7.c:127:48: warning: implicit declaration of function 'tolower' is invalid in C99 [-Wimplicit-function-declaration]
+    *(string + i) = (isupper (*(string + i)) ? tolower (*(string + i)) : *(string + i));
+                                               ^
+sniffit.0.3.7.c:386:11: warning: implicit declaration of function 'isprint' is invalid in C99 [-Wimplicit-function-declaration]
+      if (isprint (data[i]))
+          ^
+sniffit.0.3.7.c:546:21: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          if (MODE == DEST && ipaddr != iphead.destination      /* -t */
+              ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:546:21: note: place parentheses around the '&&' expression to silence this warning
+          if (MODE == DEST && ipaddr != iphead.destination      /* -t */
+                           ^
+              (                                           )
+sniffit.0.3.7.c:548:23: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              MODE == SOURCE && ipaddr != iphead.source         /* -s */
+              ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:548:23: note: place parentheses around the '&&' expression to silence this warning
+              MODE == SOURCE && ipaddr != iphead.source         /* -s */
+                             ^
+              (                                        )
+sniffit.0.3.7.c:551:8: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              && ipaddr != iphead.source
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:551:8: note: place parentheses around the '&&' expression to silence this warning
+              && ipaddr != iphead.source
+              ^
+sniffit.0.3.7.c:565:25: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              if (MODE == DEST && (strncmp (wc_dest, IP, n_s) != 0)     /* -t */
+                  ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:565:25: note: place parentheses around the '&&' expression to silence this warning
+              if (MODE == DEST && (strncmp (wc_dest, IP, n_s) != 0)     /* -t */
+                               ^
+                  (                                                )
+sniffit.0.3.7.c:567:20: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                  MODE == SOURCE && (strncmp (wc_so, IP, n_s) != 0)     /* -s */
+                  ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:567:20: note: place parentheses around the '&&' expression to silence this warning
+                  MODE == SOURCE && (strncmp (wc_so, IP, n_s) != 0)     /* -s */
+                                 ^
+                  (                                                )
+sniffit.0.3.7.c:570:18: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                               && (strncmp (wc_so, IP, n_s) != 0)
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:570:18: note: place parentheses around the '&&' expression to silence this warning
+                               && (strncmp (wc_so, IP, n_s) != 0)
+                               ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:602:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:611:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:611:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:611:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:611:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:611:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:641:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:650:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:650:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:650:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:650:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:650:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:680:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:689:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:720:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:720:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:720:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:720:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:720:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:729:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:729:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:729:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:729:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:729:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:842:21: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          if (MODE == DEST && ipaddr != iphead.destination      /* -t */
+              ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:842:21: note: place parentheses around the '&&' expression to silence this warning
+          if (MODE == DEST && ipaddr != iphead.destination      /* -t */
+                           ^
+              (                                           )
+sniffit.0.3.7.c:844:23: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              MODE == SOURCE && ipaddr != iphead.source         /* -s */
+              ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:844:23: note: place parentheses around the '&&' expression to silence this warning
+              MODE == SOURCE && ipaddr != iphead.source         /* -s */
+                             ^
+              (                                        )
+sniffit.0.3.7.c:847:8: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              && ipaddr != iphead.source
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:847:8: note: place parentheses around the '&&' expression to silence this warning
+              && ipaddr != iphead.source
+              ^
+sniffit.0.3.7.c:858:25: warning: '&&' within '||' [-Wlogical-op-parentheses]
+              if (MODE == DEST && (strncmp (wc_dest, IP, n_s) != 0)     /* -t */
+                  ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:858:25: note: place parentheses around the '&&' expression to silence this warning
+              if (MODE == DEST && (strncmp (wc_dest, IP, n_s) != 0)     /* -t */
+                               ^
+                  (                                                )
+sniffit.0.3.7.c:860:20: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                  MODE == SOURCE && (strncmp (wc_so, IP, n_s) != 0)     /* -s */
+                  ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:860:20: note: place parentheses around the '&&' expression to silence this warning
+                  MODE == SOURCE && (strncmp (wc_so, IP, n_s) != 0)     /* -s */
+                                 ^
+                  (                                                )
+sniffit.0.3.7.c:863:5: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                  && (strncmp (wc_so, IP, n_s) != 0)
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:863:5: note: place parentheses around the '&&' expression to silence this warning
+                  && (strncmp (wc_so, IP, n_s) != 0)
+                  ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:893:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:904:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:904:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:904:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:904:42: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:904:26: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_so, str_IP, strlen (str_IP)) == 0)
+                                              ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:934:27: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_dest, str_IP) == 0)
+                                               ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:945:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:945:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:945:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:945:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:945:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:973:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:982:25: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strcmp (wc_so, str_IP) == 0)
+                                             ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:1010:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1010:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1010:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:1010:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1010:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:1019:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:921:41: note: expanded from macro 'strncmp'
+  (__extension__ (__builtin_constant_p (n)                                    \
+                                        ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1019:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:923:38: note: expanded from macro 'strncmp'
+                       && strlen (s1) < ((size_t) (n)))                       \
+                                                   ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:17: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                     ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1019:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:925:34: note: expanded from macro 'strncmp'
+                          && strlen (s2) < ((size_t) (n))))                   \
+                                                      ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:804:74: note: expanded from macro 'strcmp'
+      && (__s1_len = __builtin_strlen (s1), __s2_len = __builtin_strlen (s2), \
+                                                                         ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:807:31: note: expanded from macro 'strcmp'
+      ? __builtin_strcmp (s1, s2)                                             \
+                              ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:811:30: note: expanded from macro 'strcmp'
+            ? __builtin_strcmp (s1, s2)                                       \
+                                    ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:814:39: note: expanded from macro 'strcmp'
+            && (__s2_len = __builtin_strlen (s2), __s2_len < 4)               \
+                                             ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:816:33: note: expanded from macro 'strcmp'
+               ? __builtin_strcmp (s1, s2)                                    \
+                                       ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:19: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:818:30: note: expanded from macro 'strcmp'
+            : __builtin_strcmp (s1, s2)))); })
+                                    ^
+sniffit.0.3.7.c:1019:44: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:42: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                       ^
+/usr/include/string.h:399:37: note: passing argument to parameter '__s' here
+extern size_t strlen (__const char *__s)
+                                    ^
+sniffit.0.3.7.c:1019:28: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                          if (strncmp (wc_dest, str_IP, strlen (str_IP)) == 0)
+                                                ^~~~~~
+/usr/include/x86_64-linux-gnu/bits/string2.h:926:38: note: expanded from macro 'strncmp'
+                  ? strcmp (s1, s2) : strncmp (s1, s2, n)))
+                                                   ^
+/usr/include/string.h:146:55: note: passing argument to parameter '__s2' here
+extern int strncmp (__const char *__s1, __const char *__s2, size_t __n)
+                                                      ^
+sniffit.0.3.7.c:1096:5: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+    return;                     /* Packet is broken */
+    ^
+sniffit.0.3.7.c:1103:5: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+    return;                     /* Packet is not for us */
+    ^
+sniffit.0.3.7.c:1107:43: warning: incompatible pointer types passing 'const struct packetheader *' to parameter of type 'const struct pcap_pkthdr *' [-Wincompatible-pointer-types]
+    pcap_dump((unsigned char *) dev_dump, p_header, sp);
+                                          ^~~~~~~~
+./libpcap/pcap.h:132:52: note: passing argument to parameter here
+void    pcap_dump(u_char *, const struct pcap_pkthdr *, const u_char *);
+                                                      ^
+sniffit.0.3.7.c:1108:5: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+    return;
+    ^
+sniffit.0.3.7.c:1189:3: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+                return;
+                ^
+sniffit.0.3.7.c:1193:3: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+                return;
+                ^
+sniffit.0.3.7.c:1259:7: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+      return;
+      ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:13:2: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+        return;
+        ^
+./sn_analyse.c:29:3: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+  return;
+  ^
+./sn_analyse.c:43:30: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+if((dummy&FIN)||(dummy&RST)) return; /* needed, cauz entry don't exist  */  
+                             ^
+./sn_analyse.c:53:51: warning: passing 'const unsigned char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types]
+  sbuf_update(dummy_pointer,ntohl(tcphead.seq_nr),data,info.DATA_len);
+                                                  ^~~~
+sniffit.0.3.7.c:413:13: note: passing argument to parameter 'data' here
+             char *data, int len)
+                   ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:83:52: warning: passing 'const unsigned char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types]
+    record_buf(dummy_pointer,ntohl(tcphead.seq_nr),data,info.DATA_len,0);
+                                                   ^~~~
+sniffit.0.3.7.c:358:12: note: passing argument to parameter 'data' here
+            char *data, int len, int type)
+                  ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:95:54: warning: passing 'const unsigned char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types]
+      record_buf(dummy_pointer,ntohl(tcphead.seq_nr),data,info.DATA_len,0);
+                                                     ^~~~
+sniffit.0.3.7.c:358:12: note: passing argument to parameter 'data' here
+            char *data, int len, int type)
+                  ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:117:51: warning: passing 'const unsigned char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types]
+  sbuf_update(dummy_pointer,ntohl(tcphead.seq_nr),data,info.DATA_len);
+                                                  ^~~~
+sniffit.0.3.7.c:413:13: note: passing argument to parameter 'data' here
+             char *data, int len)
+                   ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:157:22: warning: passing 'const unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    strncpy(workbuf1,data,len);
+                     ^~~~
+/usr/include/x86_64-linux-gnu/bits/string3.h:118:67: note: passing argument to parameter '__src' here
+__NTH (strncpy (char *__restrict __dest, __const char *__restrict __src,
+                                                                  ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:48:52: note: expanded from macro '__NTH'
+#  define __NTH(fct)    __attribute__ ((__nothrow__)) fct
+                                                      ^
+In file included from sniffit.0.3.7.c:1270:
+./sn_analyse.c:200:1: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+return;
+^
+./sn_analyse.c:201:1: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+return;  /* DON'T FORGET THEM!!!! */
+^
+sniffit.0.3.7.c:1339:7: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+      return;
+      ^
+sniffit.0.3.7.c:1372:7: error: non-void function 'packethandler' should return a value [-Wreturn-type]
+      return;
+      ^
+In file included from sniffit.0.3.7.c:1458:
+./sn_conn_desc.c:24:12: warning: implicit declaration of function 'isalnum' is invalid in C99 [-Wimplicit-function-declaration]
+      if( (isalnum(data[i]) || ispunct(data[i]) || data[i]==' ')&&(j<(*DESC_LEN)-1) )
+           ^
+./sn_conn_desc.c:24:32: warning: implicit declaration of function 'ispunct' is invalid in C99 [-Wimplicit-function-declaration]
+      if( (isalnum(data[i]) || ispunct(data[i]) || data[i]==' ')&&(j<(*DESC_LEN)-1) )
+                               ^
+./sn_conn_desc.c:27:15: warning: implicit declaration of function 'isspace' is invalid in C99 [-Wimplicit-function-declaration]
+        {if( (isspace(data[i]) && data[i]!=' ')&&(j<(*DESC_LEN)-1) )
+              ^
+sniffit.0.3.7.c:1485:5: error: non-void function 'interactive_packethandler' should return a value [-Wreturn-type]
+    return;                     /* Packet is broken */
+    ^
+sniffit.0.3.7.c:1487:5: error: non-void function 'interactive_packethandler' should return a value [-Wreturn-type]
+    return;                     /* Packet is not for us */
+    ^
+sniffit.0.3.7.c:1522:20: warning: incompatible pointer types passing 'void (void)' to parameter of type '__sighandler_t' (aka 'void (*)(int)') [-Wincompatible-pointer-types]
+  signal (SIGINT,  my_exit);    /* gracefull termination in different ways */
+                   ^~~~~~~
+/usr/include/signal.h:101:57: note: passing argument to parameter '__handler' here
+extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+                                                        ^
+sniffit.0.3.7.c:1523:20: warning: incompatible pointer types passing 'void (void)' to parameter of type '__sighandler_t' (aka 'void (*)(int)') [-Wincompatible-pointer-types]
+  signal (SIGHUP,  my_exit);    
+                   ^~~~~~~
+/usr/include/signal.h:101:57: note: passing argument to parameter '__handler' here
+extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+                                                        ^
+sniffit.0.3.7.c:1524:20: warning: incompatible pointer types passing 'void (void)' to parameter of type '__sighandler_t' (aka 'void (*)(int)') [-Wincompatible-pointer-types]
+  signal (SIGTERM, my_exit);
+                   ^~~~~~~
+/usr/include/signal.h:101:57: note: passing argument to parameter '__handler' here
+extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+                                                        ^
+sniffit.0.3.7.c:1758:36: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    if((dev_desc=pcap_open_offline(DUMPfile,ebuf))==NULL)
+                                   ^~~~~~~~
+./libpcap/pcap.h:105:39: note: passing argument to parameter here
+pcap_t  *pcap_open_offline(const char *, char *);
+                                       ^
+sniffit.0.3.7.c:1796:5: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+    else
+    ^
+sniffit.0.3.7.c:1800:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN0_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1804:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN1_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1808:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN2_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1812:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN3_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1816:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN4_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1820:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN5_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1824:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN6_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1828:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN7_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1832:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN8_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1836:20: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef PLUGIN9_INIT()
+                   ^
+                   //
+sniffit.0.3.7.c:1867:18: warning: incompatible pointer types assigning to 'int *' from 'char *' [-Wincompatible-pointer-types]
+      DATAlength = timing + sizeof (int);
+                 ^ ~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1868:23: warning: incompatible pointer types assigning to 'char *' from 'int *' [-Wincompatible-pointer-types]
+      connection_data = DATAlength + sizeof (int);
+                      ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1869:18: warning: incompatible pointer types assigning to 'int *' from 'char *' [-Wincompatible-pointer-types]
+      LISTlength = connection_data + LENGTH_OF_INTERPROC_DATA;
+                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1870:12: warning: incompatible pointer types assigning to 'struct snif_mask *' from 'int *' [-Wincompatible-pointer-types]
+      mask = LISTlength + sizeof (int);
+           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1871:26: warning: incompatible pointer types assigning to 'char *' from 'struct snif_mask *' [-Wincompatible-pointer-types]
+      logged_connections = mask + sizeof (struct snif_mask);
+                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1874:25: warning: incompatible pointer types assigning to 'unsigned int *' from 'char *' [-Wincompatible-pointer-types]
+      TCP_nr_of_packets = running_connections + (sizeof (struct shared_conn_data) * CONNECTION_CAPACITY);
+                        ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1875:28: warning: incompatible pointer types assigning to 'unsigned long *' from 'unsigned int *' [-Wincompatible-pointer-types]
+      TCP_bytes_in_packets = TCP_nr_of_packets + sizeof (int);
+                           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1876:26: warning: incompatible pointer types assigning to 'unsigned int *' from 'unsigned long *' [-Wincompatible-pointer-types]
+      ICMP_nr_of_packets = TCP_bytes_in_packets + sizeof (unsigned long);
+                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1878:28: warning: incompatible pointer types assigning to 'unsigned long *' from 'unsigned int *' [-Wincompatible-pointer-types]
+      UDP_bytes_in_packets = UDP_nr_of_packets + sizeof (int);
+                           ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1879:24: warning: incompatible pointer types assigning to 'unsigned int *' from 'unsigned long *' [-Wincompatible-pointer-types]
+      IP_nr_of_packets = UDP_bytes_in_packets + sizeof (unsigned long);
+                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1880:16: warning: assigning to 'int *' from 'unsigned int *' converts between pointers to integer types with different sign [-Wpointer-sign]
+      DESC_LEN = IP_nr_of_packets + sizeof (int);
+               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sniffit.0.3.7.c:1894:11: warning: incompatible pointer types passing 'pcap_handler (char *, const struct packetheader *, const unsigned char *)' to parameter of type 'pcap_handler' (aka 'void (*)(u_char *, const struct pcap_pkthdr *, const u_char *)') [-Wincompatible-pointer-types]
+                               interactive_packethandler, NULL) < 0)
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+./libpcap/pcap.h:107:42: note: passing argument to parameter here
+int     pcap_loop(pcap_t *, int, pcap_handler, u_char *);
+                                             ^
+sniffit.0.3.7.c:1921:47: warning: passing 'unsigned char *' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        if((dev_dump=pcap_dump_open(dev_desc, DUMPfile))==NULL)
+                                              ^~~~~~~~
+./libpcap/pcap.h:130:53: note: passing argument to parameter here
+pcap_dumper_t *pcap_dump_open(pcap_t *, const char *);
+                                                    ^
+sniffit.0.3.7.c:1927:41: warning: incompatible pointer types passing 'pcap_handler (unsigned char *, const struct packetheader *, const unsigned char *)' to parameter of type 'pcap_handler' (aka 'void (*)(u_char *, const struct pcap_pkthdr *, const u_char *)') [-Wincompatible-pointer-types]
+      switch (pcap_loop (dev_desc, CNT, packethandler, (unsigned char *) &ipaddr))
+                                        ^~~~~~~~~~~~~
+./libpcap/pcap.h:107:42: note: passing argument to parameter here
+int     pcap_loop(pcap_t *, int, pcap_handler, u_char *);
+                                             ^
+200 warnings and 15 errors generated.
+make[1]: *** [sniffit] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_auto_build: make -j1 returned exit code 2
+make: *** [build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1909
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,27 +2295,25 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 2204
+Build-Time: 12
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 7
 Job: sniffit_0.3.7.beta-17
 Package: sniffit
-Package-Time: 0
+Package-Time: 47
 Source-Version: 0.3.7.beta-17
-Space: 0
-Status: failed
+Space: 2204
+Status: attempted
 Version: 0.3.7.beta-17
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0549
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.408269s
+Finished at 20130131-1909
+Build needed 00:00:47, 2204k disc space
+DC-Status: Failed 47.152639s

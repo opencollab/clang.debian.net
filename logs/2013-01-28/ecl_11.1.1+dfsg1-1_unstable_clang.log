@@ -1,12 +1,12 @@
-DC-Build-Header: ecl 11.1.1+dfsg1-1 / Mon Jan 28 04:25:43 +0000 2013
-DC-Task: logfile:/tmp/ecl_11.1.1+dfsg1-1_unstable_clang.log version:11.1.1+dfsg1-1 chroot:unstable modes:binary-only:clang source:ecl architecture:any esttime:504
+DC-Build-Header: ecl 11.1.1+dfsg1-1 / Thu Jan 31 18:39:06 +0000 2013
+DC-Task: logfile:/tmp/ecl_11.1.1+dfsg1-1_unstable_clang.log version:11.1.1+dfsg1-1 modes:binary-only:clang chroot:unstable source:ecl esttime:504 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang ecl_11.1.1+dfsg1-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-46.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-52-156.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ ecl 11.1.1+dfsg1-1 (amd64)                                 28 Jan 2013 04:25 ║
+║ ecl 11.1.1+dfsg1-1 (amd64)                                 31 Jan 2013 18:39 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: ecl
@@ -15,9 +15,9 @@ Source Version: 11.1.1+dfsg1-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/ecl-W5jTXX/ecl-11.1.1+dfsg1' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/ecl-W5jTXX' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-6009dec6-660b-42aa-808f-2a341815f9b8' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/ecl-a64uyn/ecl-11.1.1+dfsg1' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/ecl-a64uyn' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-c0551f25-facd-4ef4-ad41-a8f211f72f2d' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4411 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5190 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -64,7 +60,7 @@ Need to get 3778 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main ecl 11.1.1+dfsg1-1 (dsc) [2202 B]
 Get:2 http://localhost/debian/ unstable/main ecl 11.1.1+dfsg1-1 (tar) [3739 kB]
 Get:3 http://localhost/debian/ unstable/main ecl 11.1.1+dfsg1-1 (diff) [37.1 kB]
-Fetched 3778 kB in 0s (6474 kB/s)
+Fetched 3778 kB in 0s (5982 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -81,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main Sources/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main Sources
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1330 kB/s)
+Fetched 3970 B in 1s (2530 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3982 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.4 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 5s (4267 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -301,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -355,16 +233,16 @@ Block the installation of new gcc version
 + dpkg --set-selections
 + echo 'cpp-4.7 hold'
 + dpkg --set-selections
-+ echo 'g++-4.7 hold'
 + dpkg --set-selections
++ echo 'g++-4.7 hold'
 + echo 'Check if gcc, g++ & cpp are actually clang'
 Check if gcc, g++ & cpp are actually clang
++ grep clang
 + gcc --version
 + grep clang
 + cpp --version
 + grep clang
 + g++ --version
-+ grep clang
 
 I: Finished running '/tmp/switch-to-clang'.
 
@@ -372,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-vLKIYh/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-T9j3AE/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -391,14 +269,14 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7.0.0), autotools-dev, libgmp-dev, automake1.9, file, texinfo, libncurses5-dev, fakeroot, libgc-dev (>= 1:7.1), chrpath, install-info, libatomic-ops-dev
 Merged Build-Conflicts: autoconf2.13, automake1.4
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7.0.0), autotools-dev, libgmp-dev, automake1.9, file, texinfo, libncurses5-dev, fakeroot, libgc-dev (>= 1:7.1), chrpath, install-info, libatomic-ops-dev
 Filtered Build-Conflicts: autoconf2.13, automake1.4
-dpkg-deb: building package `sbuild-build-depends-ecl-dummy' in `/«BUILDDIR»/resolver-TQSAqH/apt_archive/sbuild-build-depends-ecl-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-ecl-dummy' in `/«BUILDDIR»/resolver-9QpGcq/apt_archive/sbuild-build-depends-ecl-dummy.deb'.
 OK
 Reading package lists...
 
@@ -410,18 +288,1663 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake1.9 autotools-dev bsdmainutils chrpath debhelper file
+  gettext gettext-base groff-base html2text install-info intltool-debian
+  libasprintf-dev libasprintf0c2 libatomic-ops-dev libcroco3 libgc-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgmp-dev libgmpxx4ldbl
+  libmagic1 libncurses5-dev libpcre3 libpipeline1 libsigsegv2 libtinfo-dev
+  libunistring0 libxml2 m4 man-db po-debconf texinfo
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool
+  automake1.9-doc wamerican wordlist whois vacation dh-make gettext-doc groff
+  libgmp10-doc libmpfr-dev ncurses-doc less www-browser libmail-box-perl
+  texlive-base texlive-latex-base texlive-generic-recommended
+  texinfo-doc-nonfree
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint libglib2.0-data
+  shared-mime-info xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake1.9 autotools-dev bsdmainutils chrpath debhelper file
+  gettext gettext-base groff-base html2text install-info intltool-debian
+  libasprintf-dev libasprintf0c2 libatomic-ops-dev libcroco3 libgc-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgmp-dev libgmpxx4ldbl
+  libmagic1 libncurses5-dev libpcre3 libpipeline1 libsigsegv2 libtinfo-dev
+  libunistring0 libxml2 m4 man-db po-debconf sbuild-build-depends-ecl-dummy
+  texinfo
+0 upgraded, 36 newly installed, 0 to remove and 0 not upgraded.
+Need to get 12.9 MB/12.9 MB of archives.
+After this operation, 36.8 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main libgmpxx4ldbl amd64 2:5.0.5+dfsg-2 [21.6 kB]
+Get:14 http://localhost/debian/ unstable/main install-info amd64 4.13a.dfsg.1-10 [148 kB]
+Get:15 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:16 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:17 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:18 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:19 http://localhost/debian/ unstable/main texinfo amd64 4.13a.dfsg.1-10 [983 kB]
+Get:20 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:21 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:22 http://localhost/debian/ unstable/main automake1.9 all 1.9.6+nogfdl-4 [391 kB]
+Get:23 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:24 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:25 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:26 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:27 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:28 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:29 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:30 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:31 http://localhost/debian/ unstable/main libatomic-ops-dev amd64 7.3~alpha3+git20121114-1 [85.6 kB]
+Get:32 http://localhost/debian/ unstable/main libgc-dev amd64 1:7.1-9.1 [248 kB]
+Get:33 http://localhost/debian/ unstable/main libgmp-dev amd64 2:5.0.5+dfsg-2 [610 kB]
+Get:34 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:35 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 12.9 MB in 0s (16.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+Unpacking libgmpxx4ldbl:amd64 (from .../libgmpxx4ldbl_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package install-info.
+Unpacking install-info (from .../install-info_4.13a.dfsg.1-10_amd64.deb) ...
+Processing triggers for mime-support ...
+Setting up install-info (4.13a.dfsg.1-10) ...
+Selecting previously unselected package file.
+(Reading database ... 15300 files and directories currently installed.)
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package texinfo.
+Unpacking texinfo (from .../texinfo_4.13a.dfsg.1-10_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake1.9.
+Unpacking automake1.9 (from .../automake1.9_1.9.6+nogfdl-4_all.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libatomic-ops-dev.
+Unpacking libatomic-ops-dev (from .../libatomic-ops-dev_7.3~alpha3+git20121114-1_amd64.deb) ...
+Selecting previously unselected package libgc-dev.
+Unpacking libgc-dev (from .../libgc-dev_1%3a7.1-9.1_amd64.deb) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Unpacking libgmp-dev:amd64 (from .../libgmp-dev_2%3a5.0.5+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-ecl-dummy.
+Unpacking sbuild-build-depends-ecl-dummy (from .../sbuild-build-depends-ecl-dummy.deb) ...
+Processing triggers for install-info ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libgmpxx4ldbl:amd64 (2:5.0.5+dfsg-2) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up texinfo (4.13a.dfsg.1-10) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake1.9 (1.9.6+nogfdl-4) ...
+update-alternatives: using /usr/bin/automake-1.9 to provide /usr/bin/automake (automake) in auto mode
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libatomic-ops-dev (7.3~alpha3+git20121114-1) ...
+Setting up libgc-dev (1:7.1-9.1) ...
+Setting up libgmp-dev:amd64 (2:5.0.5+dfsg-2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up sbuild-build-depends-ecl-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-ecl-dummy : Depends: libncurses5-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake1.9_1.9.6+nogfdl-4 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 install-info_4.13a.dfsg.1-10 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libatomic-ops-dev_7.3~alpha3+git20121114-1 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc-dev_1:7.1-9.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp-dev_2:5.0.5+dfsg-2 libgmp10_2:5.0.5+dfsg-2 libgmpxx4ldbl_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-ecl-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 texinfo_4.13a.dfsg.1-10 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Dec 26 08:37:24 2012 UTC using RSA key ID 4008C6F9
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./ecl_11.1.1+dfsg1-1.dsc
+dpkg-source: info: extracting ecl in ecl-11.1.1+dfsg1
+dpkg-source: info: unpacking ecl_11.1.1+dfsg1.orig.tar.xz
+dpkg-source: info: unpacking ecl_11.1.1+dfsg1-1.debian.tar.gz
+dpkg-source: info: applying patch-typo-contrib-sockets-sockets.patch
+dpkg-source: info: applying patch-typo-src-clos-streams.patch
+dpkg-source: info: applying patch-typo-src-clx-image.patch
+dpkg-source: info: applying autoconf-file-update.patch
+dpkg-source: info: applying build-with-libatomic-ops.patch
+dpkg-source: info: applying harden-configure.patch
+dpkg-source: info: applying patch-typo-alloc_2.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-c0551f25-facd-4ef4-ad41-a8f211f72f2d
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package ecl
+dpkg-buildpackage: source version 11.1.1+dfsg1-1
+dpkg-buildpackage: source changed by Christoph Egger <christoph@debian.org>
+ dpkg-source --before-build ecl-11.1.1+dfsg1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-*-stamp
+# do this manually on a big change:
+# autoreconf --force
+# Add here commands to clean up after the build process.
+# correct lintian warning debian-rules-ignores-make-clean-error
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -f src/gc/configure.in
+rm -rf build
+dh_clean
+ debian/rules build-arch
+dh_testdir
+# Add here commands to configure the package.
+chmod a+x configure \
+	 src/gmp/macos/configure \
+	 src/gmp/configure \
+	 src/configure \
+	 src/gmp/mpn/m4-ccas
+touch src/configure.in && \
+	touch src/aclocal.m4 && \
+	touch src/configure configure
+./configure --build x86_64-linux-gnu --enable-gengc \
+	   --prefix=/usr --mandir=\${prefix}/share/man \
+	   --infodir=\${prefix}/share/info \
+	   --with-system-gmp=yes \
+	   --with-tcp \
+	   --with-clx  \
+	   --enable-threads=yes \
+	   --enable-boehm=system  \
+	   --with-x
+Creating directory `build'
+Switching to directory `build' to continue configuration.
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C preprocessor... gcc -E
+checking for ranlib... ranlib
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... yes
+checking for ranlib... (cached) ranlib
+checking for ar... ar
+checking for etags... no
+checking for emacs-etags... no
+checking for ld flags when building shared libraries... -shared 
+checking for required libraries... -ldl
+checking for architecture... X86_64
+checking for software type... linux / 
+checking for __thread local data... yes
+checking for install-info... /usr/bin/ginstall-info
+checking for __gmpz_init in -lgmp... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking gmp.h usability... yes
+checking gmp.h presence... yes
+checking for gmp.h... yes
+checking GMP autoconf... "yes.no"
+checking for getpwnam in -lsun... no
+checking for library containing strerror... none required
+checking working sem_init()... no
+checking for pthread_rwlock_init... no
+checking for thread object files...  threads/process threads/mutex threads/condition_variable threads/rwlock
+checking for use of __thread... no
+checking for GC_malloc in -lgc... yes
+checking if we need to copy GC private headers ... checking if we use Boehm-Demers-Weiser precise garbage collector... no
+checking for soname flags... -Wl,-soname,libecl.so.11.1
+checking for X... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking fenv.h usability... yes
+checking fenv.h presence... yes
+checking for fenv.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/utsname.h usability... yes
+checking sys/utsname.h presence... yes
+checking for sys/utsname.h... yes
+checking float.h usability... yes
+checking float.h presence... yes
+checking for float.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking link.h usability... yes
+checking link.h presence... yes
+checking for link.h... yes
+checking mach-o/dyld.h usability... no
+checking mach-o/dyld.h presence... no
+checking for mach-o/dyld.h... no
+checking ulimit.h usability... yes
+checking ulimit.h presence... yes
+checking for ulimit.h... yes
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for size_t... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for working volatile... yes
+checking for ptrdiff_t... yes
+checking size of long long... 64
+checking whether byte ordering is bigendian... no
+checking appropiate type for fixnums... long int
+checking for stdint.h... (cached) yes
+checking for int8_t... yes
+checking for uint8_t... yes
+checking for int16_t... yes
+checking for uint16_t... yes
+checking for int32_t... yes
+checking for uint32_t... yes
+checking for int64_t... yes
+checking for uint64_t... yes
+checking character sequence for end of line... lf
+checking for _longjmp... yes
+checking for ffi_call in -lffi... no
+configure: WARNING: libffi is not installed; disabling dynamic FFI
+checking for code to detect FP exceptions... x86_64
+checking for long double... yes
+checking for sinl... yes
+checking for cosl... yes
+checking for tanl... yes
+checking for logl... yes
+checking for expl... yes
+checking whether stack growns downwards... no
+checking whether closedir returns void... no
+checking for error_at_line... yes
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether gcc needs -traditional... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for working memcmp... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for sys/select.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking return type of signal handlers... void
+checking whether lstat correctly handles trailing slash... yes
+checking whether stat accepts an empty string... no
+checking for working strtod... yes
+checking for floor... yes
+checking for getcwd... yes
+checking for gethostbyaddr... yes
+checking for gethostbyname... yes
+checking for getpagesize... (cached) yes
+checking for memmove... yes
+checking for memset... yes
+checking for mkdir... yes
+checking for putenv... yes
+checking for socket... yes
+checking for sqrt... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strerror... yes
+checking for strtol... yes
+checking for nanosleep... yes
+checking for alarm... yes
+checking for times... yes
+checking for select... yes
+checking for setenv... yes
+checking for putenv... (cached) yes
+checking for lstat... yes
+checking for mkstemp... yes
+checking for sigprocmask... yes
+checking for isatty... yes
+checking for tzset... yes
+checking for gettimeofday... yes
+checking for getrusage... yes
+checking for expf... yes
+checking for logf... yes
+checking for sqrtf... yes
+checking for cosf... yes
+checking for sinf... yes
+checking for tanf... yes
+checking for sinhf... yes
+checking for coshf... yes
+checking for tanhf... yes
+checking for floorf... yes
+checking for ceilf... yes
+checking for fabsf... yes
+checking for frexpf... yes
+checking for ldexpf... yes
+checking for log1p... yes
+checking for log1pf... yes
+checking for log1pl... yes
+checking for copysign... yes
+checking for sched_yield... yes
+checking for uname... yes
+checking for fseeko... yes
+checking for dladdr... yes
+checking for backtrace... yes
+checking for backtrace_symbols... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking working environ... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for ranlib... ranlib
+checking for gcc... gcc         -fPIC
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc         -fPIC accepts -g... yes
+checking for gcc         -fPIC option to accept ANSI C... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc         -fPIC... gcc3
+checking how to run the C preprocessor... gcc         -fPIC -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for ANSI C header files... (cached) yes
+checking Determining PIC compiler flag... -fPIC
+configure: creating ./config.status
+./config.status: line 396: -fPIC: command not found
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/atomic_ops/Makefile
+config.status: creating src/atomic_ops/sysdeps/Makefile
+config.status: creating doc/Makefile
+config.status: creating tests/Makefile
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing default commands
+checking gc.h usability... yes
+checking gc.h presence... yes
+checking for gc.h... yes
+configure: creating ./config.status
+config.status: creating bare.lsp
+config.status: creating lsp/load.lsp
+config.status: creating clos/load.lsp
+config.status: creating cmp/load.lsp
+config.status: creating new-cmp/load.lsp
+config.status: creating ../Makefile
+config.status: WARNING:  '../Makefile.in' seems to ignore the --datarootdir setting
+config.status: creating Makefile
+config.status: WARNING:  '/«BUILDDIR»/ecl-11.1.1+dfsg1/src/Makefile.in' seems to ignore the --datarootdir setting
+config.status: creating c/Makefile
+config.status: creating doc/Makefile
+config.status: WARNING:  '/«BUILDDIR»/ecl-11.1.1+dfsg1/src/doc/Makefile.in' seems to ignore the --datarootdir setting
+config.status: creating doc/ecl.man
+config.status: creating doc/ecl-config.man
+config.status: creating ecl/configpre.h
+config.status: creating bin/ecl-config.pre
+config.status: creating lsp/config.pre
+config.status: creating compile.pre
+config.status: creating cmp/cmpdefs.pre
+config.status: creating ecl/config.h
+Configuration complete. To build ECL, issue make in this directory.
+touch config.status
+dh_testdir -a
+/usr/bin/make
+make[1]: Entering directory `/«BUILDDIR»/ecl-11.1.1+dfsg1'
+cd build; /usr/bin/make
+make[2]: Entering directory `/«BUILDDIR»/ecl-11.1.1+dfsg1/build'
+cp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/util/gdbinit .gdbinit
+if (echo c | grep gmp); then \
+	  cd gmp && /usr/bin/make install && \
+	  cd .. && mv include/gmp.h ecl/ && rmdir include &&  \
+	  mv ./libgmp.a ./libeclgmp.a; \
+	fi
+if (echo c | grep atomic); then \
+	  cd atomic && /usr/bin/make && /usr/bin/make install && cd .. && \
+	  rm -f -rf share ecl/atomic_ops_stack.h ecl/atomic_ops_malloc.h *atomic*gpl* && \
+	  mv libatomic_ops.a libeclatomic.a; \
+	fi
+test -d ecl/gc || mkdir ecl/gc
+test -d ecl/gc/private || mkdir ecl/gc/private
+if (echo c | grep gc); then \
+	  cd gc && /usr/bin/make install && cd .. && \
+	  cp -rf /«BUILDDIR»/ecl-11.1.1+dfsg1/src/gc/include/private/*.h ecl/gc/private/ && \
+	  mv libgc.a libeclgc.a; \
+	fi
+sed -e 's,@ecldir\\@,/usr/lib/ecl-11.1.1/,g' < lsp/config.pre > lsp/config.lsp
+sed -e 's,@ecldir\\@,"/usr/lib/ecl-11.1.1/",g' \
+	    -e 's,@libdir\\@,"/usr/lib/",g' \
+	    -e 's,@includedir\\@,"/usr/include/",g' < cmp/cmpdefs.pre > cmp/cmpdefs.lsp
+test -d c/ecl || mkdir c/ecl
+sed 's,__declspec(dllimport),,g' /«BUILDDIR»/ecl-11.1.1+dfsg1/src/h/external.h > c/ecl/external.h
+cp -rf /«BUILDDIR»/ecl-11.1.1+dfsg1/src/h/*.h /«BUILDDIR»/ecl-11.1.1+dfsg1/src/h/impl ecl/
+cd c; /usr/bin/make
+make[3]: Entering directory `/«BUILDDIR»/ecl-11.1.1+dfsg1/build/c'
+cat /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/symbols_list.h | \
+	sed -e 's%{\([A-Z ]*.*".*"\),[^,]*,[ ]*NULL,.*}%{\1,NULL}%g' \
+	    -e 's%{\([A-Z ]*.*".*"\),[^,]*,[ ]*\([^,]*\),.*}%{\1,"\2"}%g' \
+	    -e 's%{NULL.*%{NULL,NULL}};%' > tmp.h
+mv tmp.h /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/symbols_list2.h
+if test -f ../CROSS-DPP; then touch dpp; else \
+	gcc -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I./ /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/dpp.c   -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -o dpp ; \
+	fi
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/main.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/main.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/main.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o main.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/main.d:594:2: warning: implicit declaration of function 'ecl_cs_set_org' is invalid in C99 [-Wimplicit-function-declaration]
+        ecl_cs_set_org(env);
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/main.d:781:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+2 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/symbol.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/symbol.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/symbol.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o symbol.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o package.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d:206:2: warning: implicit declaration of function 'mp_get_rwlock_write_wait' is invalid in C99 [-Wimplicit-function-declaration]
+        ECL_WITH_PACKAGE_WRLOCK_BEGIN(env) {
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/build/ecl/internal.h:352:9: note: expanded from macro 'ECL_WITH_PACKAGE_WRLOCK_BEGIN'
+        mp_get_rwlock_write_wait(cl_core.package_lock);
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d:227:35: warning: expression result unused [-Wunused-value]
+                } end_loop_for_in(nicknames);
+                                  ^~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d:232:35: warning: expression result unused [-Wunused-value]
+                } end_loop_for_in(use_list);
+                                  ^~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/package.d:443:9: warning: implicit declaration of function 'mp_get_rwlock_read_wait' is invalid in C99 [-Wimplicit-function-declaration]
+        ECL_WITH_PACKAGE_RDLOCK_BEGIN(ecl_process_env()) {
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/build/ecl/internal.h:345:9: note: expanded from macro 'ECL_WITH_PACKAGE_RDLOCK_BEGIN'
+        mp_get_rwlock_read_wait(cl_core.package_lock);
+        ^
+4 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o list.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:250:25: warning: expression result unused [-Wunused-value]
+defcxr(caar, x, car(car(x)))
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:251:25: warning: expression result unused [-Wunused-value]
+defcxr(cadr, x, car(cdr(x)))
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:252:25: warning: expression result unused [-Wunused-value]
+defcxr(cdar, x, cdr(car(x)))
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:253:25: warning: expression result unused [-Wunused-value]
+defcxr(cddr, x, cdr(cdr(x)))
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:254:30: warning: expression result unused [-Wunused-value]
+defcxr(caaar, x, car(car(car(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:255:30: warning: expression result unused [-Wunused-value]
+defcxr(caadr, x, car(car(cdr(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:256:30: warning: expression result unused [-Wunused-value]
+defcxr(cadar, x, car(cdr(car(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:257:30: warning: expression result unused [-Wunused-value]
+defcxr(caddr, x, car(cdr(cdr(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:258:30: warning: expression result unused [-Wunused-value]
+defcxr(cdaar, x, cdr(car(car(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:259:30: warning: expression result unused [-Wunused-value]
+defcxr(cdadr, x, cdr(car(cdr(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:260:30: warning: expression result unused [-Wunused-value]
+defcxr(cddar, x, cdr(cdr(car(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:261:30: warning: expression result unused [-Wunused-value]
+defcxr(cdddr, x, cdr(cdr(cdr(x))))
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:262:35: warning: expression result unused [-Wunused-value]
+defcxr(caaaar, x, car(car(car(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:263:35: warning: expression result unused [-Wunused-value]
+defcxr(caaadr, x, car(car(car(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:264:35: warning: expression result unused [-Wunused-value]
+defcxr(caadar, x, car(car(cdr(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:265:35: warning: expression result unused [-Wunused-value]
+defcxr(caaddr, x, car(car(cdr(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:266:35: warning: expression result unused [-Wunused-value]
+defcxr(cadaar, x, car(cdr(car(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:267:35: warning: expression result unused [-Wunused-value]
+defcxr(cadadr, x, car(cdr(car(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:268:35: warning: expression result unused [-Wunused-value]
+defcxr(caddar, x, car(cdr(cdr(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:269:35: warning: expression result unused [-Wunused-value]
+defcxr(cadddr, x, car(cdr(cdr(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:270:35: warning: expression result unused [-Wunused-value]
+defcxr(cdaaar, x, cdr(car(car(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:271:35: warning: expression result unused [-Wunused-value]
+defcxr(cdaadr, x, cdr(car(car(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:272:35: warning: expression result unused [-Wunused-value]
+defcxr(cdadar, x, cdr(car(cdr(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:273:35: warning: expression result unused [-Wunused-value]
+defcxr(cdaddr, x, cdr(car(cdr(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:274:35: warning: expression result unused [-Wunused-value]
+defcxr(cddaar, x, cdr(cdr(car(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:275:35: warning: expression result unused [-Wunused-value]
+defcxr(cddadr, x, cdr(cdr(car(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:276:35: warning: expression result unused [-Wunused-value]
+defcxr(cdddar, x, cdr(cdr(cdr(car(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:237:2: note: expanded from macro 'car'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:277:35: warning: expression result unused [-Wunused-value]
+defcxr(cddddr, x, cdr(cdr(cdr(cdr(x)))))
+                                  ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:241:2: note: expanded from macro 'cdr'
+        foo;                                    \
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/list.d:247:17: note: expanded from macro 'defcxr'
+                code; return1(arg);                             \
+                ^
+28 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/apply.d apply.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/apply.d apply.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/apply.d -> apply.c
+gcc -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c apply.c -o apply.o
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/eval.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/eval.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/eval.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o eval.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o interpreter.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d:282:2: warning: initializing 'struct ihs_frame *const' with an expression of type 'volatile struct ihs_frame *' discards qualifiers [-Wincompatible-pointer-types]
+        ecl_ihs_push(the_env, &ihs, bytecodes, lex_env);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/build/ecl/stacks.h:191:27: note: expanded from macro 'ecl_ihs_push'
+        struct ihs_frame * const r = (rec);     \
+                                 ^   ~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d:544:3: warning: expression result unused [-Wunused-value]
+                ECL_STACK_POP_UNSAFE(the_env);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/build/ecl/stacks.h:329:35: note: expanded from macro 'ECL_STACK_POP_UNSAFE'
+#define ECL_STACK_POP_UNSAFE(env) *(--((env)->stack_top))
+                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/interpreter.d:1158:3: warning: expression result unused [-Wunused-value]
+                ECL_STACK_POP_UNSAFE(the_env);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/build/ecl/stacks.h:329:35: note: expanded from macro 'ECL_STACK_POP_UNSAFE'
+#define ECL_STACK_POP_UNSAFE(env) *(--((env)->stack_top))
+                                  ^~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/compiler.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/compiler.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/compiler.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o compiler.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/disassembler.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/disassembler.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/disassembler.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o disassembler.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/instance.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/instance.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/instance.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o instance.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/gfun.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/gfun.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/gfun.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o gfun.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/gfun.d:140:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/gfun.d:186:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+2 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reference.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reference.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reference.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o reference.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/character.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/character.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/character.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o character.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o file.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d:2602:15: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        } while (out < 0 && restartable_io_error(strm));
+                 ~~~ ^ ~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d:4562:11: warning: 10 enumeration values not handled in switch: 'smm_input_file', 'smm_output_file', 'smm_io_file'... [-Wswitch]
+                switch (smm) {
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/file.d:4879:2: warning: function 'not_a_file_stream' declared 'noreturn' should not return [-Winvalid-noreturn]
+        return cl_error(9, ECL_SYM("SIMPLE-TYPE-ERROR",771), ECL_SYM(":FORMAT-CONTROL",1214),
+        ^
+3 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/read.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/read.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/read.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o read.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/read.d:2242:54: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types]
+                        (ecl_make_simple_base_string(block->cblock.data_text,
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~
+./ecl/external.h:1634:60: note: passing argument to parameter 's' here
+extern ECL_API cl_object ecl_make_simple_base_string(char *s, cl_fixnum i);
+                                                           ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/print.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/print.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/print.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o print.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o error.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:96:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:154:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:179:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:191:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:222:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:246:2: warning: function 'si_signal_type_error' declared 'noreturn' should not return [-Winvalid-noreturn]
+        return cl_error(5, ECL_SYM("TYPE-ERROR",868), ECL_SYM(":EXPECTED-TYPE",1206), type,
+        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:277:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:301:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:325:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:356:1: warning: function declared 'noreturn' should not return [-Winvalid-noreturn]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/error.d:532:23: warning: function 'cl_error' declared 'noreturn' should not return [-Winvalid-noreturn]
+the_env->nvalues = 0; return Cnil;
+                      ^
+11 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/string.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/string.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/string.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o string.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cfun.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cfun.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cfun.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o cfun.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cfun.d:236:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_integer.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_integer.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_integer.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o reader/parse_integer.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_number.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_number.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_number.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o reader/parse_number.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/reader/parse_number.d:29:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_digits.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_digits.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_digits.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/float_to_digits.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_digits.d:42:17: warning: 36 enumeration values not handled in switch: 't_start', 't_list', 't_character'... [-Wswitch]
+        switch (type_of(number)) {
+                ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/float_to_string.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d:52:43: warning: passing 'ecl_base_char *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        _ecl_string_push_c_string(buffer, s->base_string.self);
+                                          ^~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d:32:52: note: passing argument to parameter 'c' here
+_ecl_string_push_c_string(cl_object s, const char *c)
+                                                   ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d:65:17: warning: 36 enumeration values not handled in switch: 't_start', 't_list', 't_character'... [-Wswitch]
+        switch (type_of(number)) {
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/float_to_string.d:87:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+3 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/integer_to_string.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/integer_to_string.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/integer_to_string.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/integer_to_string.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_ugly.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_ugly.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_ugly.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_ugly.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_object.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_object.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_object.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_object.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_symbol.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d:50:16: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                    c == '^' && c == '_') {
+                    ~~~~~~~~~^~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d:50:16: note: place parentheses around the '&&' expression to silence this warning
+                    c == '^' && c == '_') {
+                             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d:53:27: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                if (ecl_alpha_char_p(c) && ((i+1) >= l) || !ecl_alpha_char_p(s[i+1])) {
+                    ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~ ~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_symbol.d:53:27: note: place parentheses around the '&&' expression to silence this warning
+                if (ecl_alpha_char_p(c) && ((i+1) >= l) || !ecl_alpha_char_p(s[i+1])) {
+                                        ^
+                    (                                  )
+2 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_array.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_array.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_array.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_array.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_list.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_list.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_list.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_list.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_code.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_code.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_code.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_code.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_sse.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_sse.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/write_sse.d -> tmp.c
+
+Unknown symbol: ext::*sse-pack-print-mode*
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/write_sse.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/print_unreadable.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/print_unreadable.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/printer/print_unreadable.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o printer/print_unreadable.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/libraries.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/libraries.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/libraries.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o ffi/libraries.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/backtrace.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/backtrace.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/ffi/backtrace.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o ffi/backtrace.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cos.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cos.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cos.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/cos.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cos.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sin.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sin.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sin.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/sin.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sin.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tan.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tan.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tan.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/tan.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tan.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/atan.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/atan.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/atan.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/atan.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/atan.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cosh.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cosh.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cosh.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/cosh.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/cosh.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sinh.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sinh.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sinh.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/sinh.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sinh.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tanh.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tanh.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tanh.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/tanh.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/tanh.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/exp.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/exp.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/exp.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/exp.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/exp.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/expt.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/expt.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/expt.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/expt.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/expt.d:25:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/expt.d:87:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+2 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/log.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/log.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/log.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/log.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/log.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sqrt.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sqrt.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sqrt.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/sqrt.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/sqrt.d:23:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/abs.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/abs.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/abs.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/abs.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/zerop.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/zerop.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/zerop.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/zerop.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plusp.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plusp.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plusp.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/plusp.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minusp.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minusp.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minusp.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/minusp.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/negate.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/negate.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/negate.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/negate.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/conjugate.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/conjugate.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/conjugate.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/conjugate.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_plus.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_plus.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_plus.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/one_plus.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_minus.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_minus.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/one_minus.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/one_minus.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plus.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plus.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/plus.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/plus.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minus.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minus.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minus.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/minus.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/times.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/times.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/times.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/times.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/divide.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/divide.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/divide.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/divide.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_compare.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_compare.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_compare.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/number_compare.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_equalp.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_equalp.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/number_equalp.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/number_equalp.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minmax.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minmax.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/numbers/minmax.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o numbers/minmax.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/typespec.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/typespec.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/typespec.d -> tmp.c
+
+Unknown symbol: mp::semaphore
+
+Unknown symbol: ext::sse-pack
+
+Unknown symbol: ext::sse-pack
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o typespec.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/assignment.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/assignment.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/assignment.d -> tmp.c
+
+Unknown symbol: si::pretty-print-format
+
+Unknown symbol: si::pretty-print-format
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o assignment.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o predicate.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d:286:3: warning: implicitly declaring library function 'memcmp' with type 'int (const void *, const void *, unsigned long)'
+                FLOAT_EQL(sf(x), sf(y), float);
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d:263:25: note: expanded from macro 'FLOAT_EQL'
+                return !memcmp(&xa, &xb, sizeof(type)); \
+                        ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d:286:3: note: please include the header <string.h> or explicitly provide a declaration for 'memcmp'
+                FLOAT_EQL(sf(x), sf(y), float);
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/predicate.d:263:25: note: expanded from macro 'FLOAT_EQL'
+                return !memcmp(&xa, &xb, sizeof(type)); \
+                        ^
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/number.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/number.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/number.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o number.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_pred.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_pred.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_pred.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o num_pred.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_arith.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_arith.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_arith.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o num_arith.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_co.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_co.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_co.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o num_co.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_log.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_log.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_log.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o num_log.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_rand.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_rand.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/num_rand.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o num_rand.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o array.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d:207:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d:510:61: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+        } else if (FIXNUMP(fillp) && ((f = fix(fillp)) <= d) && (f >= 0)) {
+                                                                 ~ ^  ~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/array.d:732:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+3 warnings generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/sequence.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/sequence.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/sequence.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o sequence.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cmpaux.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cmpaux.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/cmpaux.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o cmpaux.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/macros.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/macros.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/macros.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o macros.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/backq.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/backq.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/backq.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o backq.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/stacks.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/stacks.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/stacks.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o stacks.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/stacks.d:606:11: warning: for loop has empty body [-Wempty-body]
+             x++);
+                 ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/stacks.d:606:11: note: put the semicolon on a separate line to silence this warning
+1 warning generated.
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/time.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/time.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/time.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o time.o tmp.c
+rm -f tmp.c
+if test -f ../CROSS-DPP ; then ../CROSS-DPP /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d tmp.c ; else ./dpp /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d tmp.c ; fi
+dpp: /«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d -> tmp.c
+gcc -DECLDIR="\"/usr/lib/ecl-11.1.1\"" -I. -I/«BUILDDIR»/ecl-11.1.1+dfsg1/build -I/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c -I../ecl/gc -DECL_API -DECL_NO_LEGACY    -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fPIC -D_THREAD_SAFE -Dlinux -c -o unixint.o tmp.c
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d:261:17: error: non-void function 'lisp_signal_handler' should return a value [-Wreturn-type]
+                return;
+                ^
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d:692:24: warning: incompatible pointer types passing '__sighandler_t' (aka 'void (*)(int)') to parameter of type 'void (*)(int, siginfo_t *, void *)' [-Wincompatible-pointer-types]
+                                mysignal(code_int, SIG_DFL);
+                                                   ^~~~~~~
+/usr/include/x86_64-linux-gnu/bits/signum.h:24:17: note: expanded from macro 'SIG_DFL'
+#define SIG_DFL ((__sighandler_t) 0)            /* Default action.  */
+                ^~~~~~~~~~~~~~~~~~~~
+/«BUILDDIR»/ecl-11.1.1+dfsg1/src/c/unixint.d:214:27: note: passing argument to parameter 'handler' here
+mysignal(int code, void (*handler)(int, siginfo_t *, void*))
+                          ^
+1 warning and 1 error generated.
+make[3]: *** [unixint.o] Error 1
+make[3]: Leaving directory `/«BUILDDIR»/ecl-11.1.1+dfsg1/build/c'
+make[2]: *** [libeclmin.a] Error 2
+make[2]: Leaving directory `/«BUILDDIR»/ecl-11.1.1+dfsg1/build'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«BUILDDIR»/ecl-11.1.1+dfsg1'
+make: *** [build-arch-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1840
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -429,28 +1952,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 39460
+Build-Time: 43
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 12
 Job: ecl_11.1.1+dfsg1-1
 Package: ecl
-Package-Time: 0
+Package-Time: 85
 Source-Version: 11.1.1+dfsg1-1
-Space: 0
-Status: failed
+Space: 39460
+Status: attempted
 Version: 11.1.1+dfsg1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0425
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.266751s
-DC-Time-Estimation: 34.266751 versus expected 504 (r/m: 13.7081350081891 ; m: 34.266751)
+Finished at 20130131-1840
+Build needed 00:01:25, 39460k disc space
+DC-Status: Failed 85.448279s
+DC-Time-Estimation: 85.448279 versus expected 504 (r/m: 4.89830486814135 ; m: 85.448279)

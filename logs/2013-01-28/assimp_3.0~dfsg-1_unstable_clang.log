@@ -1,12 +1,12 @@
-DC-Build-Header: assimp 3.0~dfsg-1 / Mon Jan 28 04:15:16 +0000 2013
-DC-Task: logfile:/tmp/assimp_3.0~dfsg-1_unstable_clang.log version:3.0~dfsg-1 chroot:unstable modes:binary-only:clang source:assimp architecture:any esttime:1159
+DC-Build-Header: assimp 3.0~dfsg-1 / Thu Jan 31 18:30:32 +0000 2013
+DC-Task: logfile:/tmp/assimp_3.0~dfsg-1_unstable_clang.log version:3.0~dfsg-1 modes:binary-only:clang chroot:unstable source:assimp esttime:1159 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang assimp_3.0~dfsg-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-136-229.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-131-156.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ assimp 3.0~dfsg-1 (amd64)                                  28 Jan 2013 04:15 ║
+║ assimp 3.0~dfsg-1 (amd64)                                  31 Jan 2013 18:30 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: assimp
@@ -15,9 +15,9 @@ Source Version: 3.0~dfsg-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/assimp-ymAv0r/assimp-3.0~dfsg' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/assimp-ymAv0r' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-da64d223-0043-4aec-876e-98cdf3917e01' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/assimp-AcpP9l/assimp-3.0~dfsg' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/assimp-AcpP9l' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-3bf06c87-3b6f-4d2f-8731-18c2c1d4df97' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,12 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4844 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (4978 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +60,7 @@ Need to get 2931 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main assimp 3.0~dfsg-1 (dsc) [2238 B]
 Get:2 http://localhost/debian/ unstable/main assimp 3.0~dfsg-1 (tar) [2909 kB]
 Get:3 http://localhost/debian/ unstable/main assimp 3.0~dfsg-1 (diff) [19.7 kB]
-Fetched 2931 kB in 1s (2567 kB/s)
+Fetched 2931 kB in 0s (6818 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1342 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2493 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (4003 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.3 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 6s (4105 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-eg9htQ/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-8UZsKF/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9~), dh-buildinfo, devscripts, python (>= 2.6.5), cdbs (>= 0.4.97~), python-dev (>= 2.3.5-7), dpkg-dev (>= 1.15.6), pkg-kde-tools, cmake, libboost1.49-dev | libboost-dev, zlib1g-dev | libz-dev, doxygen
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9~), dh-buildinfo, devscripts, python (>= 2.6.5), cdbs (>= 0.4.97~), python-dev (>= 2.3.5-7), dpkg-dev (>= 1.15.6), pkg-kde-tools, cmake, libboost1.49-dev, zlib1g-dev, doxygen
-dpkg-deb: building package `sbuild-build-depends-assimp-dummy' in `/«BUILDDIR»/resolver-ezZZZC/apt_archive/sbuild-build-depends-assimp-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-assimp-dummy' in `/«BUILDDIR»/resolver-qALFyj/apt_archive/sbuild-build-depends-assimp-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +286,882 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bsdmainutils cdbs cmake cmake-data debhelper devscripts dh-buildinfo doxygen
+  emacsen-common file gettext gettext-base groff-base html2text
+  intltool-debian libarchive12 libasprintf-dev libasprintf0c2 libboost1.49-dev
+  libcroco3 libcurl3 libcurl3-gnutls libexpat1-dev libgcrypt11
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26 libgpg-error0
+  libgssapi-krb5-2 libicu48 libidn11 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 libldap-2.4-2 libmagic1 libnettle4 libp11-kit0 libpcre3
+  libpipeline1 libprocps0 libpython2.7 librtmp0 libsasl2-2 libssh2-1
+  libssl-dev libtasn1-3 libunistring0 libxml2 libxmlrpc-core-c3 man-db
+  pkg-kde-tools po-debconf procps python-dev python2.7-dev zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make bsd-mailx mailx cvs-buildpackage
+  devscripts-el gnuplot libauthen-sasl-perl libfile-desktopentry-perl
+  libnet-smtp-ssl-perl libterm-size-perl libyaml-syck-perl mutt ssh-client
+  svn-buildpackage w3m doxygen-doc doxygen-gui graphviz gettext-doc groff
+  libboost1.49-doc libboost-chrono1.49-dev libboost-date-time1.49-dev
+  libboost-filesystem1.49-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams1.49-dev libboost-locale1.49-dev
+  libboost-math1.49-dev libboost-mpi1.49-dev libboost-program-options1.49-dev
+  libboost-python1.49-dev libboost-random1.49-dev libboost-regex1.49-dev
+  libboost-serialization1.49-dev libboost-signals1.49-dev
+  libboost-system1.49-dev libboost-test1.49-dev libboost-thread1.49-dev
+  libboost-timer1.49-dev libboost-wave1.49-dev xsltproc docbook-xml
+  docbook-xsl default-jdk fop rng-tools krb5-doc krb5-user less www-browser
+  libmail-box-perl
+Recommended packages:
+  autotools-dev at curl wget dctrl-tools dput dupload libdistro-info-perl
+  libjson-perl libparse-debcontrol-perl liburi-perl libwww-perl lintian
+  patchutils python-debian python-magic strace unzip wdiff debian-keyring
+  equivs libcrypt-ssleay-perl libsoap-lite-perl doxygen-latex autopoint
+  ca-certificates libglib2.0-data shared-mime-info krb5-locales
+  libsasl2-modules libssl-doc xml-core libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  bsdmainutils cdbs cmake cmake-data debhelper devscripts dh-buildinfo doxygen
+  emacsen-common file gettext gettext-base groff-base html2text
+  intltool-debian libarchive12 libasprintf-dev libasprintf0c2 libboost1.49-dev
+  libcroco3 libcurl3 libcurl3-gnutls libexpat1-dev libgcrypt11
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26 libgpg-error0
+  libgssapi-krb5-2 libicu48 libidn11 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 libldap-2.4-2 libmagic1 libnettle4 libp11-kit0 libpcre3
+  libpipeline1 libprocps0 libpython2.7 librtmp0 libsasl2-2 libssh2-1
+  libssl-dev libtasn1-3 libunistring0 libxml2 libxmlrpc-core-c3 man-db
+  pkg-kde-tools po-debconf procps python-dev python2.7-dev
+  sbuild-build-depends-assimp-dummy zlib1g-dev
+0 upgraded, 60 newly installed, 0 to remove and 0 not upgraded.
+Need to get 63.1 MB/63.1 MB of archives.
+After this operation, 217 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:13 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:14 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:15 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:16 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:17 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:18 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:19 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:20 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:21 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:22 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:23 http://localhost/debian/ unstable/main libnettle4 amd64 2.4-3 [149 kB]
+Get:24 http://localhost/debian/ unstable/main libarchive12 amd64 3.0.4-2 [303 kB]
+Get:25 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:26 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:27 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:28 http://localhost/debian/ unstable/main libssh2-1 amd64 1.4.2-1.1 [133 kB]
+Get:29 http://localhost/debian/ unstable/main libcurl3 amd64 7.28.0-3 [331 kB]
+Get:30 http://localhost/debian/ unstable/main libcurl3-gnutls amd64 7.28.0-3 [322 kB]
+Get:31 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:32 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:33 http://localhost/debian/ unstable/main libicu48 amd64 4.8.1.1-10 [4741 kB]
+Get:34 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:35 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:36 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:37 http://localhost/debian/ unstable/main cdbs all 0.4.120 [80.4 kB]
+Get:38 http://localhost/debian/ unstable/main libxmlrpc-core-c3 amd64 1.16.33-3.2 [186 kB]
+Get:39 http://localhost/debian/ unstable/main emacsen-common all 2.0.5 [20.9 kB]
+Get:40 http://localhost/debian/ unstable/main cmake-data all 2.8.9-1 [1359 kB]
+Get:41 http://localhost/debian/ unstable/main cmake amd64 2.8.9-1 [4730 kB]
+Get:42 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:43 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:44 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:45 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:46 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:47 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:48 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:49 http://localhost/debian/ unstable/main devscripts amd64 2.12.6 [879 kB]
+Get:50 http://localhost/debian/ unstable/main dh-buildinfo all 0.9+nmu1 [15.7 kB]
+Get:51 http://localhost/debian/ unstable/main doxygen amd64 1.8.1.2-1 [2571 kB]
+Get:52 http://localhost/debian/ unstable/main libboost1.49-dev amd64 1.49.0-3.1 [9203 kB]
+Get:53 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:54 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:55 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:56 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:57 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:58 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:59 http://localhost/debian/ unstable/main pkg-kde-tools all 0.15.3 [108 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 63.1 MB in 2s (29.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libnettle4:amd64.
+Unpacking libnettle4:amd64 (from .../libnettle4_2.4-3_amd64.deb) ...
+Selecting previously unselected package libarchive12:amd64.
+Unpacking libarchive12:amd64 (from .../libarchive12_3.0.4-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1:amd64.
+Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl3:amd64.
+Unpacking libcurl3:amd64 (from .../libcurl3_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Unpacking libcurl3-gnutls:amd64 (from .../libcurl3-gnutls_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libicu48:amd64.
+Unpacking libicu48:amd64 (from .../libicu48_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.120_all.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3.
+Unpacking libxmlrpc-core-c3 (from .../libxmlrpc-core-c3_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package emacsen-common.
+Unpacking emacsen-common (from .../emacsen-common_2.0.5_all.deb) ...
+Selecting previously unselected package cmake-data.
+Unpacking cmake-data (from .../cmake-data_2.8.9-1_all.deb) ...
+Selecting previously unselected package cmake.
+Unpacking cmake (from .../cmake_2.8.9-1_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package devscripts.
+Unpacking devscripts (from .../devscripts_2.12.6_amd64.deb) ...
+Selecting previously unselected package dh-buildinfo.
+Unpacking dh-buildinfo (from .../dh-buildinfo_0.9+nmu1_all.deb) ...
+Selecting previously unselected package doxygen.
+Unpacking doxygen (from .../doxygen_1.8.1.2-1_amd64.deb) ...
+Selecting previously unselected package libboost1.49-dev.
+Unpacking libboost1.49-dev (from .../libboost1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package pkg-kde-tools.
+Unpacking pkg-kde-tools (from .../pkg-kde-tools_0.15.3_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-assimp-dummy.
+Unpacking sbuild-build-depends-assimp-dummy (from .../sbuild-build-depends-assimp-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libnettle4:amd64 (2.4-3) ...
+Setting up libarchive12:amd64 (3.0.4-2) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1:amd64 (1.4.2-1.1) ...
+Setting up libcurl3:amd64 (7.28.0-3) ...
+Setting up libcurl3-gnutls:amd64 (7.28.0-3) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libicu48:amd64 (4.8.1.1-10) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up cdbs (0.4.120) ...
+Setting up libxmlrpc-core-c3 (1.16.33-3.2) ...
+Setting up emacsen-common (2.0.5) ...
+Setting up cmake-data (2.8.9-1) ...
+Install cmake-data for emacs
+Setting up cmake (2.8.9-1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up devscripts (2.12.6) ...
+Setting up dh-buildinfo (0.9+nmu1) ...
+Setting up doxygen (1.8.1.2-1) ...
+Setting up libboost1.49-dev (1.49.0-3.1) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up pkg-kde-tools (0.15.3) ...
+Setting up sbuild-build-depends-assimp-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-assimp-dummy : Depends: python-dev (>= 2.3.5-7) but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 cdbs_0.4.120 clang_3.2-2 clang-3.2_3.2-2 cmake_2.8.9-1 cmake-data_2.8.9-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 devscripts_2.12.6 dh-buildinfo_0.9+nmu1 diffutils_1:3.2-7 doxygen_1.8.1.2-1 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 emacsen-common_2.0.5 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libarchive12_3.0.4-2 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libboost1.49-dev_1.49.0-3.1 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcurl3_7.28.0-3 libcurl3-gnutls_7.28.0-3 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libicu48_4.8.1.1-10 libidn11_1.25-2 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libnettle4_2.4-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libprocps0_1:3.3.4-2 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 librtmp0_2.4+20111222.git4e06e21-1 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 libxmlrpc-core-c3_1.16.33-3.2 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-kde-tools_0.15.3 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-assimp-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Jun 26 11:20:30 2012 UTC using RSA key ID 311D765A
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./assimp_3.0~dfsg-1.dsc
+dpkg-source: info: extracting assimp in assimp-3.0~dfsg
+dpkg-source: info: unpacking assimp_3.0~dfsg.orig.tar.gz
+dpkg-source: info: unpacking assimp_3.0~dfsg-1.debian.tar.gz
+dpkg-source: info: applying no_boost_workaround.patch
+dpkg-source: info: applying pyassimp.patch
+dpkg-source: info: applying doxygen.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-3bf06c87-3b6f-4d2f-8731-18c2c1d4df97
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package assimp
+dpkg-buildpackage: source version 3.0~dfsg-1
+dpkg-buildpackage: source changed by IOhannes m zmoelnig (gpg-key at iem) <zmoelnig@iem.at>
+ dpkg-source --before-build assimp-3.0~dfsg
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+pyversions: missing X(S)-Python-Version in control file, fall back to debian/pyversions
+pyversions: missing debian/pyversions file, fall back to supported versions
+test -x debian/rules
+dh_testroot
+rm -rf obj-x86_64-linux-gnu
+mkdir -p obj-x86_64-linux-gnu
+rmdir obj-x86_64-linux-gnu
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C obj-x86_64-linux-gnu  -k clean
+make: *** obj-x86_64-linux-gnu: No such file or directory.  Stop.
+make: [makefile-clean] Error 2 (ignored)
+rm -rf obj-x86_64-linux-gnu
+dh_clean 
+rm -f debian/copyright_newhints
+rm -f debian/cdbs-install-list debian/cdbs-package-list debian/stamp-copyright-check
+rm -rf "debian/upstream-cruft"
+rm -f debian/stamp-upstream-cruft
+cd . && \
+		python debian/setup.py clean \
+		-a
+running clean
+'build/lib.linux-x86_64-2.7' does not exist -- can't clean it
+'build/bdist.linux-x86_64' does not exist -- can't clean it
+'build/scripts-2.7' does not exist -- can't clean it
+rm -rf debian/python-module-stampdir
+find "/«PKGBUILDDIR»" -name '*.py[co]' -delete
+find "/«PKGBUILDDIR»" -name __pycache__ -type d -empty -delete
+find "/«PKGBUILDDIR»" -prune -name '*.egg-info' -exec rm -rf '{}' ';'
+rm -rf doc/AssimpCmdDoc_Html_tmp/
+rm -rf doc/AssimpDoc_Html_tmp/
+ debian/rules build-arch
+pyversions: missing X(S)-Python-Version in control file, fall back to debian/pyversions
+pyversions: missing debian/pyversions file, fall back to supported versions
+test -x debian/rules
+mkdir -p "obj-x86_64-linux-gnu"
+
+Scanning upstream source for new/changed copyright notices...
+
+licensecheck -c '.*' -r --copyright -i '^((Documentation|CommandLine).chm|tools\/assimp_view\/base\.PNG|tools\/shared\/(default_icon\.xcf|assimp_tools_icon\.png)|port\/Assimp\.NET\/CSharpViewerScreenShot\.PNG|doc\/AssimpCmdDoc_Html\/(dragonsplash\.png|AssimpCmdDoc.chm)|doc\/AssimpDoc_Html\/(dragonsplash\.png|AssimpDoc.chm)|debian/(changelog|copyright(|_hints|_newhints)))' -l '99999' * | /usr/lib/cdbs/licensecheck2dep5 > debian/copyright_newhints
+29 combinations of copyright and licensing found.
+WARNING: The following (and possibly more) new or changed notices discovered:
+
+License: BSD-3-clause
+License: Zlib
+
+To fix the situation please do the following:
+  1) Fully compare debian/copyright_hints with debian/copyright_newhints
+  2) Update debian/copyright as needed
+  3) Replace debian/copyright_hints with debian/copyright_newhints
+touch debian/stamp-copyright-check
+touch debian/stamp-upstream-cruft
+mkdir -p debian/python-module-stampdir
+cd obj-x86_64-linux-gnu && cmake /«PKGBUILDDIR»/. -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_C_COMPILER:FILEPATH="cc" -DCMAKE_CXX_COMPILER:FILEPATH="g++" -DCMAKE_C_FLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2" -DCMAKE_CXX_FLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2" -DCMAKE_SKIP_RPATH=ON -DCMAKE_VERBOSE_MAKEFILE=ON -DASSIMP_BUILD_ARCHITECTURE=amd64 -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--version-script=/«PKGBUILDDIR»/debian/libassimp3.ver -Wl,-z,relro -Wl,--as-needed" -DCMAKE_EXE_LINKER_FLAGS="-Wl,-z,relro -Wl,--as-needed" -DBUILD_ASSIMP_SAMPLES=OFF
+-- The C compiler identification is Clang 3.2.0
+-- The CXX compiler identification is Clang 3.2.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Could NOT find PkgConfig (missing:  PKG_CONFIG_EXECUTABLE) 
+-- Boost version: 1.49.0
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.7") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /«PKGBUILDDIR»/obj-x86_64-linux-gnu
+/usr/bin/make  -C obj-x86_64-linux-gnu  
+make[1]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -H"/«PKGBUILDDIR»" -B"/«PKGBUILDDIR»/obj-x86_64-linux-gnu" --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/progress.marks"
+/usr/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/make -f code/CMakeFiles/assimp.dir/build.make code/CMakeFiles/assimp.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu" && /usr/bin/cmake -E cmake_depends "Unix Makefiles" "/«PKGBUILDDIR»" "/«PKGBUILDDIR»/code" "/«PKGBUILDDIR»/obj-x86_64-linux-gnu" "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code/CMakeFiles/assimp.dir/DependInfo.cmake" --color=
+Scanning dependencies of target assimp
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/make -f code/CMakeFiles/assimp.dir/build.make code/CMakeFiles/assimp.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[  0%] Building CXX object code/CMakeFiles/assimp.dir/Assimp.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Assimp.cpp.o -c "/«PKGBUILDDIR»/code/Assimp.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 1
+[  1%] Building CXX object code/CMakeFiles/assimp.dir/AssimpPCH.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/AssimpPCH.cpp.o -c "/«PKGBUILDDIR»/code/AssimpPCH.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 2
+[  2%] Building CXX object code/CMakeFiles/assimp.dir/BaseImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BaseImporter.cpp.o -c "/«PKGBUILDDIR»/code/BaseImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[  2%] Building CXX object code/CMakeFiles/assimp.dir/BaseProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BaseProcess.cpp.o -c "/«PKGBUILDDIR»/code/BaseProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 3
+[  3%] Building CXX object code/CMakeFiles/assimp.dir/PostStepRegistry.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/PostStepRegistry.cpp.o -c "/«PKGBUILDDIR»/code/PostStepRegistry.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 4
+[  4%] Building CXX object code/CMakeFiles/assimp.dir/ImporterRegistry.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ImporterRegistry.cpp.o -c "/«PKGBUILDDIR»/code/ImporterRegistry.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 5
+[  5%] Building CXX object code/CMakeFiles/assimp.dir/DefaultIOStream.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/DefaultIOStream.cpp.o -c "/«PKGBUILDDIR»/code/DefaultIOStream.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[  5%] Building CXX object code/CMakeFiles/assimp.dir/DefaultIOSystem.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/DefaultIOSystem.cpp.o -c "/«PKGBUILDDIR»/code/DefaultIOSystem.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 6
+[  6%] Building CXX object code/CMakeFiles/assimp.dir/Importer.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Importer.cpp.o -c "/«PKGBUILDDIR»/code/Importer.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 7
+[  7%] Building CXX object code/CMakeFiles/assimp.dir/SGSpatialSort.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SGSpatialSort.cpp.o -c "/«PKGBUILDDIR»/code/SGSpatialSort.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 8
+[  8%] Building CXX object code/CMakeFiles/assimp.dir/VertexTriangleAdjacency.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/VertexTriangleAdjacency.cpp.o -c "/«PKGBUILDDIR»/code/VertexTriangleAdjacency.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[  8%] Building CXX object code/CMakeFiles/assimp.dir/SpatialSort.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SpatialSort.cpp.o -c "/«PKGBUILDDIR»/code/SpatialSort.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 9
+[  9%] Building CXX object code/CMakeFiles/assimp.dir/SceneCombiner.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SceneCombiner.cpp.o -c "/«PKGBUILDDIR»/code/SceneCombiner.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 10
+[ 10%] Building CXX object code/CMakeFiles/assimp.dir/ScenePreprocessor.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ScenePreprocessor.cpp.o -c "/«PKGBUILDDIR»/code/ScenePreprocessor.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 11
+[ 11%] Building CXX object code/CMakeFiles/assimp.dir/SkeletonMeshBuilder.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SkeletonMeshBuilder.cpp.o -c "/«PKGBUILDDIR»/code/SkeletonMeshBuilder.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 11%] Building CXX object code/CMakeFiles/assimp.dir/SplitByBoneCountProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SplitByBoneCountProcess.cpp.o -c "/«PKGBUILDDIR»/code/SplitByBoneCountProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 12
+[ 12%] Building CXX object code/CMakeFiles/assimp.dir/StandardShapes.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/StandardShapes.cpp.o -c "/«PKGBUILDDIR»/code/StandardShapes.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 13
+[ 13%] Building CXX object code/CMakeFiles/assimp.dir/TargetAnimation.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/TargetAnimation.cpp.o -c "/«PKGBUILDDIR»/code/TargetAnimation.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 14
+[ 14%] Building CXX object code/CMakeFiles/assimp.dir/RemoveComments.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/RemoveComments.cpp.o -c "/«PKGBUILDDIR»/code/RemoveComments.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 14%] Building CXX object code/CMakeFiles/assimp.dir/Subdivision.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Subdivision.cpp.o -c "/«PKGBUILDDIR»/code/Subdivision.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 15
+[ 15%] Building CXX object code/CMakeFiles/assimp.dir/DefaultLogger.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/DefaultLogger.cpp.o -c "/«PKGBUILDDIR»/code/DefaultLogger.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 16
+[ 16%] Building CXX object code/CMakeFiles/assimp.dir/Exporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Exporter.cpp.o -c "/«PKGBUILDDIR»/code/Exporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 17
+[ 17%] Building CXX object code/CMakeFiles/assimp.dir/AssimpCExport.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/AssimpCExport.cpp.o -c "/«PKGBUILDDIR»/code/AssimpCExport.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 17%] Building CXX object code/CMakeFiles/assimp.dir/CalcTangentsProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/CalcTangentsProcess.cpp.o -c "/«PKGBUILDDIR»/code/CalcTangentsProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 18
+[ 18%] Building CXX object code/CMakeFiles/assimp.dir/ComputeUVMappingProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ComputeUVMappingProcess.cpp.o -c "/«PKGBUILDDIR»/code/ComputeUVMappingProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 19
+[ 19%] Building CXX object code/CMakeFiles/assimp.dir/ConvertToLHProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ConvertToLHProcess.cpp.o -c "/«PKGBUILDDIR»/code/ConvertToLHProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 20
+[ 20%] Building CXX object code/CMakeFiles/assimp.dir/FindDegenerates.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/FindDegenerates.cpp.o -c "/«PKGBUILDDIR»/code/FindDegenerates.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 20%] Building CXX object code/CMakeFiles/assimp.dir/FindInstancesProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/FindInstancesProcess.cpp.o -c "/«PKGBUILDDIR»/code/FindInstancesProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 21
+[ 21%] Building CXX object code/CMakeFiles/assimp.dir/FindInvalidDataProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/FindInvalidDataProcess.cpp.o -c "/«PKGBUILDDIR»/code/FindInvalidDataProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 22
+[ 22%] Building CXX object code/CMakeFiles/assimp.dir/FixNormalsStep.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/FixNormalsStep.cpp.o -c "/«PKGBUILDDIR»/code/FixNormalsStep.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 22%] Building CXX object code/CMakeFiles/assimp.dir/GenFaceNormalsProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/GenFaceNormalsProcess.cpp.o -c "/«PKGBUILDDIR»/code/GenFaceNormalsProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 23
+[ 23%] Building CXX object code/CMakeFiles/assimp.dir/GenVertexNormalsProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/GenVertexNormalsProcess.cpp.o -c "/«PKGBUILDDIR»/code/GenVertexNormalsProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 24
+[ 24%] Building CXX object code/CMakeFiles/assimp.dir/PretransformVertices.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/PretransformVertices.cpp.o -c "/«PKGBUILDDIR»/code/PretransformVertices.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 25
+[ 25%] Building CXX object code/CMakeFiles/assimp.dir/ImproveCacheLocality.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ImproveCacheLocality.cpp.o -c "/«PKGBUILDDIR»/code/ImproveCacheLocality.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 25%] Building CXX object code/CMakeFiles/assimp.dir/JoinVerticesProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/JoinVerticesProcess.cpp.o -c "/«PKGBUILDDIR»/code/JoinVerticesProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 26
+[ 26%] Building CXX object code/CMakeFiles/assimp.dir/LimitBoneWeightsProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LimitBoneWeightsProcess.cpp.o -c "/«PKGBUILDDIR»/code/LimitBoneWeightsProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 27
+[ 27%] Building CXX object code/CMakeFiles/assimp.dir/RemoveRedundantMaterials.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/RemoveRedundantMaterials.cpp.o -c "/«PKGBUILDDIR»/code/RemoveRedundantMaterials.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 28
+[ 28%] Building CXX object code/CMakeFiles/assimp.dir/RemoveVCProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/RemoveVCProcess.cpp.o -c "/«PKGBUILDDIR»/code/RemoveVCProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 28%] Building CXX object code/CMakeFiles/assimp.dir/SortByPTypeProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SortByPTypeProcess.cpp.o -c "/«PKGBUILDDIR»/code/SortByPTypeProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 29
+[ 29%] Building CXX object code/CMakeFiles/assimp.dir/SplitLargeMeshes.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SplitLargeMeshes.cpp.o -c "/«PKGBUILDDIR»/code/SplitLargeMeshes.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 30
+[ 30%] Building CXX object code/CMakeFiles/assimp.dir/TerragenLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/TerragenLoader.cpp.o -c "/«PKGBUILDDIR»/code/TerragenLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 31
+[ 31%] Building CXX object code/CMakeFiles/assimp.dir/TextureTransform.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/TextureTransform.cpp.o -c "/«PKGBUILDDIR»/code/TextureTransform.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 31%] Building CXX object code/CMakeFiles/assimp.dir/TriangulateProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/TriangulateProcess.cpp.o -c "/«PKGBUILDDIR»/code/TriangulateProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 32
+[ 32%] Building CXX object code/CMakeFiles/assimp.dir/ValidateDataStructure.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ValidateDataStructure.cpp.o -c "/«PKGBUILDDIR»/code/ValidateDataStructure.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 33
+[ 33%] Building CXX object code/CMakeFiles/assimp.dir/OptimizeGraph.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OptimizeGraph.cpp.o -c "/«PKGBUILDDIR»/code/OptimizeGraph.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 34
+[ 34%] Building CXX object code/CMakeFiles/assimp.dir/OptimizeMeshes.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OptimizeMeshes.cpp.o -c "/«PKGBUILDDIR»/code/OptimizeMeshes.cpp"
+In file included from /«PKGBUILDDIR»/code/OptimizeMeshes.cpp:50:
+/«PKGBUILDDIR»/code/OptimizeMeshes.h:165:10: warning: private field 'mesh' is not used [-Wunused-private-field]
+        aiMesh* mesh;
+                ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 34%] Building CXX object code/CMakeFiles/assimp.dir/DeboneProcess.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/DeboneProcess.cpp.o -c "/«PKGBUILDDIR»/code/DeboneProcess.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 35
+[ 35%] Building CXX object code/CMakeFiles/assimp.dir/ProcessHelper.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ProcessHelper.cpp.o -c "/«PKGBUILDDIR»/code/ProcessHelper.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 36
+[ 36%] Building CXX object code/CMakeFiles/assimp.dir/MakeVerboseFormat.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MakeVerboseFormat.cpp.o -c "/«PKGBUILDDIR»/code/MakeVerboseFormat.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 37
+[ 37%] Building CXX object code/CMakeFiles/assimp.dir/3DSConverter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/3DSConverter.cpp.o -c "/«PKGBUILDDIR»/code/3DSConverter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 37%] Building CXX object code/CMakeFiles/assimp.dir/3DSLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/3DSLoader.cpp.o -c "/«PKGBUILDDIR»/code/3DSLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 38
+[ 38%] Building CXX object code/CMakeFiles/assimp.dir/ACLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ACLoader.cpp.o -c "/«PKGBUILDDIR»/code/ACLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 39
+[ 39%] Building CXX object code/CMakeFiles/assimp.dir/ASELoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ASELoader.cpp.o -c "/«PKGBUILDDIR»/code/ASELoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 40
+[ 40%] Building CXX object code/CMakeFiles/assimp.dir/ASEParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ASEParser.cpp.o -c "/«PKGBUILDDIR»/code/ASEParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 40%] Building CXX object code/CMakeFiles/assimp.dir/B3DImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/B3DImporter.cpp.o -c "/«PKGBUILDDIR»/code/B3DImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 41
+[ 41%] Building CXX object code/CMakeFiles/assimp.dir/BVHLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BVHLoader.cpp.o -c "/«PKGBUILDDIR»/code/BVHLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 42
+[ 42%] Building CXX object code/CMakeFiles/assimp.dir/ColladaLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ColladaLoader.cpp.o -c "/«PKGBUILDDIR»/code/ColladaLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 42%] Building CXX object code/CMakeFiles/assimp.dir/ColladaParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ColladaParser.cpp.o -c "/«PKGBUILDDIR»/code/ColladaParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 43
+[ 43%] Building CXX object code/CMakeFiles/assimp.dir/ColladaExporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ColladaExporter.cpp.o -c "/«PKGBUILDDIR»/code/ColladaExporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 44
+[ 44%] Building CXX object code/CMakeFiles/assimp.dir/DXFLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/DXFLoader.cpp.o -c "/«PKGBUILDDIR»/code/DXFLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 45
+[ 45%] Building CXX object code/CMakeFiles/assimp.dir/CSMLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/CSMLoader.cpp.o -c "/«PKGBUILDDIR»/code/CSMLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 45%] Building CXX object code/CMakeFiles/assimp.dir/HMPLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/HMPLoader.cpp.o -c "/«PKGBUILDDIR»/code/HMPLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 46
+[ 46%] Building CXX object code/CMakeFiles/assimp.dir/IRRLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/IRRLoader.cpp.o -c "/«PKGBUILDDIR»/code/IRRLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 47
+[ 47%] Building CXX object code/CMakeFiles/assimp.dir/IRRMeshLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/IRRMeshLoader.cpp.o -c "/«PKGBUILDDIR»/code/IRRMeshLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 48
+[ 48%] Building CXX object code/CMakeFiles/assimp.dir/IRRShared.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/IRRShared.cpp.o -c "/«PKGBUILDDIR»/code/IRRShared.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 48%] Building CXX object code/CMakeFiles/assimp.dir/LWOAnimation.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LWOAnimation.cpp.o -c "/«PKGBUILDDIR»/code/LWOAnimation.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 49
+[ 49%] Building CXX object code/CMakeFiles/assimp.dir/LWOBLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LWOBLoader.cpp.o -c "/«PKGBUILDDIR»/code/LWOBLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 50
+[ 50%] Building CXX object code/CMakeFiles/assimp.dir/LWOLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LWOLoader.cpp.o -c "/«PKGBUILDDIR»/code/LWOLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 51
+[ 51%] Building CXX object code/CMakeFiles/assimp.dir/LWOMaterial.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LWOMaterial.cpp.o -c "/«PKGBUILDDIR»/code/LWOMaterial.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 51%] Building CXX object code/CMakeFiles/assimp.dir/LWSLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/LWSLoader.cpp.o -c "/«PKGBUILDDIR»/code/LWSLoader.cpp"
+/«PKGBUILDDIR»/code/LWSLoader.cpp:463:15: warning: adding 'const char' to a string does not append to the string [-Wstring-plus-int]
+                tmp = in[0] + ":\\" + in.substr(2);
+                      ~~~~~~^~~~~~~
+/«PKGBUILDDIR»/code/LWSLoader.cpp:463:15: note: use array indexing to silence this warning
+/«PKGBUILDDIR»/code/LWSLoader.cpp:479:26: warning: adding 'char' to a string does not append to the string [-Wstring-plus-int]
+        std::string test = ".." + io->getOsSeparator() + tmp; 
+                           ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/code/LWSLoader.cpp:479:26: note: use array indexing to silence this warning
+        std::string test = ".." + io->getOsSeparator() + tmp; 
+                                ^
+                           &    [                     ]
+/«PKGBUILDDIR»/code/LWSLoader.cpp:483:14: warning: adding 'char' to a string does not append to the string [-Wstring-plus-int]
+        test = ".." + io->getOsSeparator() + test; 
+               ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/«PKGBUILDDIR»/code/LWSLoader.cpp:483:14: note: use array indexing to silence this warning
+        test = ".." + io->getOsSeparator() + test; 
+                    ^
+               &    [                     ]
+3 warnings generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 52
+[ 52%] Building CXX object code/CMakeFiles/assimp.dir/M3Importer.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/M3Importer.cpp.o -c "/«PKGBUILDDIR»/code/M3Importer.cpp"
+/«PKGBUILDDIR»/code/M3Importer.cpp:116:9: warning: unused variable 'readsize' [-Wunused-variable]
+        size_t readsize = file->Read( &m_Buffer[ 0 ], sizeof( unsigned char ), filesize );
+               ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 53
+[ 53%] Building CXX object code/CMakeFiles/assimp.dir/MD2Loader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MD2Loader.cpp.o -c "/«PKGBUILDDIR»/code/MD2Loader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 54
+[ 54%] Building CXX object code/CMakeFiles/assimp.dir/MD3Loader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MD3Loader.cpp.o -c "/«PKGBUILDDIR»/code/MD3Loader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 54%] Building CXX object code/CMakeFiles/assimp.dir/MD5Loader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MD5Loader.cpp.o -c "/«PKGBUILDDIR»/code/MD5Loader.cpp"
+/«PKGBUILDDIR»/code/MD5Loader.cpp:190:9: warning: assigning field to itself [-Wself-assign-field]
+        pScene = pScene;
+               ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 55
+[ 55%] Building CXX object code/CMakeFiles/assimp.dir/MD5Parser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MD5Parser.cpp.o -c "/«PKGBUILDDIR»/code/MD5Parser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 56
+[ 56%] Building CXX object code/CMakeFiles/assimp.dir/MDCLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MDCLoader.cpp.o -c "/«PKGBUILDDIR»/code/MDCLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 57
+[ 57%] Building CXX object code/CMakeFiles/assimp.dir/MDLLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MDLLoader.cpp.o -c "/«PKGBUILDDIR»/code/MDLLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 57%] Building CXX object code/CMakeFiles/assimp.dir/MDLMaterialLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MDLMaterialLoader.cpp.o -c "/«PKGBUILDDIR»/code/MDLMaterialLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 58
+[ 58%] Building CXX object code/CMakeFiles/assimp.dir/MaterialSystem.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MaterialSystem.cpp.o -c "/«PKGBUILDDIR»/code/MaterialSystem.cpp"
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:133:7: warning: variable 'iWrite' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+                if (pMax) {
+                    ^~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:141:10: note: uninitialized use occurs here
+                        if(a==iWrite-1) {
+                              ^~~~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:133:3: note: remove the 'if' if its condition is always true
+                if (pMax) {
+                ^~~~~~~~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:105:21: note: initialize the variable 'iWrite' to silence this warning
+        unsigned int iWrite;
+                           ^
+                            = 0
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:206:7: warning: variable 'iWrite' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+                if (pMax) {
+                    ^~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:214:10: note: uninitialized use occurs here
+                        if(a==iWrite-1) {
+                              ^~~~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:206:3: note: remove the 'if' if its condition is always true
+                if (pMax) {
+                ^~~~~~~~~~
+/«PKGBUILDDIR»/code/MaterialSystem.cpp:178:21: note: initialize the variable 'iWrite' to silence this warning
+        unsigned int iWrite;
+                           ^
+                            = 0
+2 warnings generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 59
+[ 59%] Building CXX object code/CMakeFiles/assimp.dir/NFFLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/NFFLoader.cpp.o -c "/«PKGBUILDDIR»/code/NFFLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 60
+[ 60%] Building CXX object code/CMakeFiles/assimp.dir/OFFLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OFFLoader.cpp.o -c "/«PKGBUILDDIR»/code/OFFLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 60%] Building CXX object code/CMakeFiles/assimp.dir/ObjFileImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ObjFileImporter.cpp.o -c "/«PKGBUILDDIR»/code/ObjFileImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 61
+[ 61%] Building CXX object code/CMakeFiles/assimp.dir/ObjFileMtlImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ObjFileMtlImporter.cpp.o -c "/«PKGBUILDDIR»/code/ObjFileMtlImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 62
+[ 62%] Building CXX object code/CMakeFiles/assimp.dir/ObjFileParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ObjFileParser.cpp.o -c "/«PKGBUILDDIR»/code/ObjFileParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 62%] Building CXX object code/CMakeFiles/assimp.dir/ObjExporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/ObjExporter.cpp.o -c "/«PKGBUILDDIR»/code/ObjExporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 63
+[ 63%] Building CXX object code/CMakeFiles/assimp.dir/OgreImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OgreImporter.cpp.o -c "/«PKGBUILDDIR»/code/OgreImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 64
+[ 64%] Building CXX object code/CMakeFiles/assimp.dir/OgreMaterial.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OgreMaterial.cpp.o -c "/«PKGBUILDDIR»/code/OgreMaterial.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 65
+[ 65%] Building CXX object code/CMakeFiles/assimp.dir/OgreMesh.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OgreMesh.cpp.o -c "/«PKGBUILDDIR»/code/OgreMesh.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 65%] Building CXX object code/CMakeFiles/assimp.dir/OgreSkeleton.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/OgreSkeleton.cpp.o -c "/«PKGBUILDDIR»/code/OgreSkeleton.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 66
+[ 66%] Building CXX object code/CMakeFiles/assimp.dir/PlyLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/PlyLoader.cpp.o -c "/«PKGBUILDDIR»/code/PlyLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 67
+[ 67%] Building CXX object code/CMakeFiles/assimp.dir/PlyParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/PlyParser.cpp.o -c "/«PKGBUILDDIR»/code/PlyParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 68
+[ 68%] Building CXX object code/CMakeFiles/assimp.dir/PlyExporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/PlyExporter.cpp.o -c "/«PKGBUILDDIR»/code/PlyExporter.cpp"
+In file included from /«PKGBUILDDIR»/code/PlyExporter.cpp:45:
+/«PKGBUILDDIR»/code/PlyExporter.h:77:23: warning: private field 'pScene' is not used [-Wunused-private-field]
+        const aiScene* const pScene;
+                             ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 68%] Building CXX object code/CMakeFiles/assimp.dir/Q3DLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Q3DLoader.cpp.o -c "/«PKGBUILDDIR»/code/Q3DLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 69
+[ 69%] Building CXX object code/CMakeFiles/assimp.dir/Q3BSPFileParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Q3BSPFileParser.cpp.o -c "/«PKGBUILDDIR»/code/Q3BSPFileParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 70
+[ 70%] Building CXX object code/CMakeFiles/assimp.dir/Q3BSPFileImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Q3BSPFileImporter.cpp.o -c "/«PKGBUILDDIR»/code/Q3BSPFileImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 71
+[ 71%] Building CXX object code/CMakeFiles/assimp.dir/Q3BSPZipArchive.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/Q3BSPZipArchive.cpp.o -c "/«PKGBUILDDIR»/code/Q3BSPZipArchive.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 71%] Building CXX object code/CMakeFiles/assimp.dir/RawLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/RawLoader.cpp.o -c "/«PKGBUILDDIR»/code/RawLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 72
+[ 72%] Building CXX object code/CMakeFiles/assimp.dir/SMDLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/SMDLoader.cpp.o -c "/«PKGBUILDDIR»/code/SMDLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 73
+[ 73%] Building CXX object code/CMakeFiles/assimp.dir/STLLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/STLLoader.cpp.o -c "/«PKGBUILDDIR»/code/STLLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 74
+[ 74%] Building CXX object code/CMakeFiles/assimp.dir/STLExporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/STLExporter.cpp.o -c "/«PKGBUILDDIR»/code/STLExporter.cpp"
+In file included from /«PKGBUILDDIR»/code/STLExporter.cpp:45:
+/«PKGBUILDDIR»/code/STLExporter.h:76:23: warning: private field 'pScene' is not used [-Wunused-private-field]
+        const aiScene* const pScene;
+                             ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 74%] Building CXX object code/CMakeFiles/assimp.dir/UnrealLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/UnrealLoader.cpp.o -c "/«PKGBUILDDIR»/code/UnrealLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 75
+[ 75%] Building CXX object code/CMakeFiles/assimp.dir/XFileImporter.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/XFileImporter.cpp.o -c "/«PKGBUILDDIR»/code/XFileImporter.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 76
+[ 76%] Building CXX object code/CMakeFiles/assimp.dir/XFileParser.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/XFileParser.cpp.o -c "/«PKGBUILDDIR»/code/XFileParser.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 77
+[ 77%] Building CXX object code/CMakeFiles/assimp.dir/MS3DLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/MS3DLoader.cpp.o -c "/«PKGBUILDDIR»/code/MS3DLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 77%] Building CXX object code/CMakeFiles/assimp.dir/COBLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/COBLoader.cpp.o -c "/«PKGBUILDDIR»/code/COBLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 78
+[ 78%] Building CXX object code/CMakeFiles/assimp.dir/BlenderLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BlenderLoader.cpp.o -c "/«PKGBUILDDIR»/code/BlenderLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 79
+[ 79%] Building CXX object code/CMakeFiles/assimp.dir/BlenderDNA.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BlenderDNA.cpp.o -c "/«PKGBUILDDIR»/code/BlenderDNA.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 80
+[ 80%] Building CXX object code/CMakeFiles/assimp.dir/BlenderScene.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BlenderScene.cpp.o -c "/«PKGBUILDDIR»/code/BlenderScene.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 
+[ 80%] Building CXX object code/CMakeFiles/assimp.dir/BlenderModifier.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/BlenderModifier.cpp.o -c "/«PKGBUILDDIR»/code/BlenderModifier.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 81
+[ 81%] Building CXX object code/CMakeFiles/assimp.dir/NDOLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/NDOLoader.cpp.o -c "/«PKGBUILDDIR»/code/NDOLoader.cpp"
+/usr/bin/cmake -E cmake_progress_report "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles" 82
+[ 82%] Building CXX object code/CMakeFiles/assimp.dir/IFCLoader.cpp.o
+cd "/«PKGBUILDDIR»/obj-x86_64-linux-gnu/code" && /usr/bin/g++   -Dassimp_EXPORTS -DASSIMP_BUILD_NO_OWN_ZLIB -DASSIMP_BUILD_DLL_EXPORT -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2 -fPIC -I"/«PKGBUILDDIR»/include" -I"/«PKGBUILDDIR»/code/../contrib/unzip"    -D'ASSIMP_BUILD_ARCHITECTURE="amd64"' -o CMakeFiles/assimp.dir/IFCLoader.cpp.o -c "/«PKGBUILDDIR»/code/IFCLoader.cpp"
+In file included from /«PKGBUILDDIR»/code/IFCLoader.cpp:53:
+In file included from /«PKGBUILDDIR»/code/STEPFileReader.h:44:
+/«PKGBUILDDIR»/code/STEPFile.h:198:64: error: use 'template' keyword to treat 'To' as a dependent template name
+                                return Couple<T>(db).MustGetObject(To<EXPRESS::ENTITY>())->To<T>();
+                                                                                           ^
+                                                                                           template 
+/«PKGBUILDDIR»/code/STEPFile.h:204:47: error: use 'template' keyword to treat 'ToPtr' as a dependent template name
+                                return e?Couple<T>(db).MustGetObject(*e)->ToPtr<T>():(const T*)0;
+                                                                          ^
+                                                                          template 
+/«PKGBUILDDIR»/code/IFCLoader.cpp:539:28: warning: unused variable 'space' [-Wunused-variable]
+                if(const IfcSpace* const space = el.ToPtr<IfcSpace>()) {
+                                         ^
+/«PKGBUILDDIR»/code/IFCLoader.cpp:546:33: warning: unused variable 'ann' [-Wunused-variable]
+                if(const IfcAnnotation* const ann = el.ToPtr<IfcAnnotation>()) {
+                                              ^
+/«PKGBUILDDIR»/code/IFCLoader.cpp:580:40: warning: unused variable 'open' [-Wunused-variable]
+                                        if(const IfcOpeningElement* const open = pro.ToPtr<IfcOpeningElement>()) {
+                                                                          ^
+3 warnings and 2 errors generated.
+make[3]: *** [code/CMakeFiles/assimp.dir/IFCLoader.cpp.o] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[2]: *** [code/CMakeFiles/assimp.dir/all] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[1]: *** [all] Error 2
+make: *** [debian/stamp-makefile-build] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1835
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,28 +1169,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 88704
+Build-Time: 228
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 13
 Job: assimp_3.0~dfsg-1
 Package: assimp
-Package-Time: 0
+Package-Time: 268
 Source-Version: 3.0~dfsg-1
-Space: 0
-Status: failed
+Space: 88704
+Status: attempted
 Version: 3.0~dfsg-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0415
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.23844s
-DC-Time-Estimation: 34.23844 versus expected 1159 (r/m: 32.8508413350608 ; m: 34.23844)
+Finished at 20130131-1835
+Build needed 00:04:28, 88704k disc space
+DC-Status: Failed 268.789437s
+DC-Time-Estimation: 268.789437 versus expected 1159 (r/m: 3.31192539757431 ; m: 268.789437)

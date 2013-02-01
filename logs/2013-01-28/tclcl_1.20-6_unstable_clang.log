@@ -1,12 +1,12 @@
-DC-Build-Header: tclcl 1.20-6 / Mon Jan 28 04:54:47 +0000 2013
-DC-Task: logfile:/tmp/tclcl_1.20-6_unstable_clang.log version:1.20-6 chroot:unstable modes:binary-only:clang source:tclcl architecture:any esttime:164
+DC-Build-Header: tclcl 1.20-6 / Thu Jan 31 18:47:32 +0000 2013
+DC-Task: logfile:/tmp/tclcl_1.20-6_unstable_clang.log version:1.20-6 modes:binary-only:clang chroot:unstable source:tclcl esttime:164 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang tclcl_1.20-6'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-29-139-29.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-147-246.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ tclcl 1.20-6 (amd64)                                       28 Jan 2013 04:54 ║
+║ tclcl 1.20-6 (amd64)                                       31 Jan 2013 18:47 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: tclcl
@@ -15,9 +15,9 @@ Source Version: 1.20-6
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/tclcl-VEeedj/tclcl-1.20' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/tclcl-VEeedj' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-4d466315-e8cc-4d14-ae1b-b27705974f76' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/tclcl-FUL7fj/tclcl-1.20' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/tclcl-FUL7fj' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-069643e7-bd2e-4a93-805a-f064bc3ae379' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4821 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5565 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -64,7 +60,7 @@ Need to get 183 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main tclcl 1.20-6 (dsc) [1834 B]
 Get:2 http://localhost/debian/ unstable/main tclcl 1.20-6 (tar) [172 kB]
 Get:3 http://localhost/debian/ unstable/main tclcl 1.20-6 (diff) [9538 B]
-Fetched 183 kB in 0s (671 kB/s)
+Fetched 183 kB in 0s (708 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -81,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1340 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2734 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3955 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.1 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 10s (2430 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -301,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -372,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-y5Qnrf/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-BjajL7/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -391,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8.1.3~), quilt (>= 0.46-7~), cmake, tcl-dev, tk-dev, libxext-dev, libotcl1-dev (>= 1.14+dfsg-2~), libxt-dev
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8.1.3~), quilt (>= 0.46-7~), cmake, tcl-dev, tk-dev, libxext-dev, libotcl1-dev (>= 1.14+dfsg-2~), libxt-dev
-dpkg-deb: building package `sbuild-build-depends-tclcl-dummy' in `/«BUILDDIR»/resolver-FCbMp5/apt_archive/sbuild-build-depends-tclcl-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-tclcl-dummy' in `/«BUILDDIR»/resolver-pfsQvy/apt_archive/sbuild-build-depends-tclcl-dummy.deb'.
 OK
 Reading package lists...
 
@@ -408,18 +286,1247 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bsdmainutils cmake cmake-data debhelper diffstat emacsen-common file
+  fontconfig-config gettext gettext-base groff-base html2text intltool-debian
+  libarchive12 libasprintf-dev libasprintf0c2 libcroco3 libcurl3
+  libcurl3-gnutls libexpat1-dev libfontconfig1 libfontconfig1-dev libfreetype6
+  libfreetype6-dev libgcrypt11 libgettextpo-dev libgettextpo0 libglib2.0-0
+  libgnutls26 libgpg-error0 libgssapi-krb5-2 libice-dev libice6 libidn11
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libmagic1
+  libnettle4 libotcl1 libotcl1-dev libp11-kit0 libpcre3 libpipeline1 libpopt0
+  libprocps0 libpthread-stubs0 libpthread-stubs0-dev librtmp0 libsasl2-2
+  libsm-dev libsm6 libssh2-1 libtasn1-3 libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxft-dev libxft2 libxml2 libxmlrpc-core-c3
+  libxrender-dev libxrender1 libxss-dev libxss1 libxt-dev libxt6 man-db
+  pkg-config po-debconf procps quilt tcl tcl-dev tcl8.5 tcl8.5-dev tk tk-dev
+  tk8.5 tk8.5-dev ttf-dejavu-core x11-common x11proto-core-dev
+  x11proto-input-dev x11proto-kb-dev x11proto-render-dev
+  x11proto-scrnsaver-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev
+  zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff rng-tools
+  krb5-doc krb5-user libice-doc libsm-doc libxcb-doc libxext-doc libxt-doc
+  less www-browser libmail-box-perl procmail graphviz default-mta
+  mail-transport-agent tcl-doc tcl-tclreadline tcl8.5-doc tk-doc tk8.5-doc
+Recommended packages:
+  curl wget lynx-cur autopoint ca-certificates libglib2.0-data
+  shared-mime-info krb5-locales libsasl2-modules libx11-doc xml-core
+  libmail-sendmail-perl psmisc xterm x-terminal-emulator
+The following NEW packages will be installed:
+  bsdmainutils cmake cmake-data debhelper diffstat emacsen-common file
+  fontconfig-config gettext gettext-base groff-base html2text intltool-debian
+  libarchive12 libasprintf-dev libasprintf0c2 libcroco3 libcurl3
+  libcurl3-gnutls libexpat1-dev libfontconfig1 libfontconfig1-dev libfreetype6
+  libfreetype6-dev libgcrypt11 libgettextpo-dev libgettextpo0 libglib2.0-0
+  libgnutls26 libgpg-error0 libgssapi-krb5-2 libice-dev libice6 libidn11
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 libmagic1
+  libnettle4 libotcl1 libotcl1-dev libp11-kit0 libpcre3 libpipeline1 libpopt0
+  libprocps0 libpthread-stubs0 libpthread-stubs0-dev librtmp0 libsasl2-2
+  libsm-dev libsm6 libssh2-1 libtasn1-3 libunistring0 libx11-6 libx11-data
+  libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxft-dev libxft2 libxml2 libxmlrpc-core-c3
+  libxrender-dev libxrender1 libxss-dev libxss1 libxt-dev libxt6 man-db
+  pkg-config po-debconf procps quilt sbuild-build-depends-tclcl-dummy tcl
+  tcl-dev tcl8.5 tcl8.5-dev tk tk-dev tk8.5 tk8.5-dev ttf-dejavu-core
+  x11-common x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  x11proto-render-dev x11proto-scrnsaver-dev x11proto-xext-dev
+  xorg-sgml-doctools xtrans-dev zlib1g-dev
+0 upgraded, 103 newly installed, 0 to remove and 0 not upgraded.
+Need to get 34.7 MB/34.7 MB of archives.
+After this operation, 92.6 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:4 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:5 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:6 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:7 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:8 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:9 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:10 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:11 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:13 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:14 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:15 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:16 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:17 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:18 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:19 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:20 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:21 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:22 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:23 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:24 http://localhost/debian/ unstable/main libnettle4 amd64 2.4-3 [149 kB]
+Get:25 http://localhost/debian/ unstable/main libarchive12 amd64 3.0.4-2 [303 kB]
+Get:26 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:27 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:28 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:29 http://localhost/debian/ unstable/main libssh2-1 amd64 1.4.2-1.1 [133 kB]
+Get:30 http://localhost/debian/ unstable/main libcurl3 amd64 7.28.0-3 [331 kB]
+Get:31 http://localhost/debian/ unstable/main libcurl3-gnutls amd64 7.28.0-3 [322 kB]
+Get:32 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:33 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:34 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:35 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:36 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:37 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:38 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:39 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:40 http://localhost/debian/ unstable/main tcl8.5 amd64 8.5.11-2 [1627 kB]
+Get:41 http://localhost/debian/ unstable/main libotcl1 amd64 1.14+dfsg-2 [39.0 kB]
+Get:42 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:43 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:44 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:45 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:46 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:47 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:48 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:49 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:50 http://localhost/debian/ unstable/main libxft2 amd64 2.3.1-1 [61.0 kB]
+Get:51 http://localhost/debian/ unstable/main libxss1 amd64 1:1.2.2-1 [17.5 kB]
+Get:52 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:53 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:54 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:55 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:56 http://localhost/debian/ unstable/main libxmlrpc-core-c3 amd64 1.16.33-3.2 [186 kB]
+Get:57 http://localhost/debian/ unstable/main emacsen-common all 2.0.5 [20.9 kB]
+Get:58 http://localhost/debian/ unstable/main cmake-data all 2.8.9-1 [1359 kB]
+Get:59 http://localhost/debian/ unstable/main cmake amd64 2.8.9-1 [4730 kB]
+Get:60 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:61 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:62 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:63 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:64 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:65 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:66 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:67 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:68 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:69 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:70 http://localhost/debian/ unstable/main libfreetype6-dev amd64 2.4.9-1.1 [805 kB]
+Get:71 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:72 http://localhost/debian/ unstable/main libfontconfig1-dev amd64 2.9.0-7.1 [857 kB]
+Get:73 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:74 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:75 http://localhost/debian/ unstable/main libice-dev amd64 2:1.0.8-2 [74.1 kB]
+Get:76 http://localhost/debian/ unstable/main libotcl1-dev amd64 1.14+dfsg-2 [54.6 kB]
+Get:77 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:78 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:79 http://localhost/debian/ unstable/main libsm-dev amd64 2:1.2.1-2 [37.0 kB]
+Get:80 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:81 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:82 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:83 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:84 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:85 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:86 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:87 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:88 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:89 http://localhost/debian/ unstable/main x11proto-render-dev all 2:0.11.1-2 [20.8 kB]
+Get:90 http://localhost/debian/ unstable/main libxrender-dev amd64 1:0.9.7-1 [40.4 kB]
+Get:91 http://localhost/debian/ unstable/main libxft-dev amd64 2.3.1-1 [74.5 kB]
+Get:92 http://localhost/debian/ unstable/main x11proto-scrnsaver-dev all 1.2.2-1 [25.0 kB]
+Get:93 http://localhost/debian/ unstable/main libxss-dev amd64 1:1.2.2-1 [22.8 kB]
+Get:94 http://localhost/debian/ unstable/main libxt-dev amd64 1:1.1.3-1 [516 kB]
+Get:95 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+Get:96 http://localhost/debian/ unstable/main tcl all 8.5.0-2 [4636 B]
+Get:97 http://localhost/debian/ unstable/main tcl8.5-dev amd64 8.5.11-2 [1089 kB]
+Get:98 http://localhost/debian/ unstable/main tcl-dev all 8.5.0-2 [6968 B]
+Get:99 http://localhost/debian/ unstable/main tk8.5 amd64 8.5.11-2 [1189 kB]
+Get:100 http://localhost/debian/ unstable/main tk all 8.5.0-2 [4674 B]
+Get:101 http://localhost/debian/ unstable/main tk8.5-dev amd64 8.5.11-2 [1008 kB]
+Get:102 http://localhost/debian/ unstable/main tk-dev all 8.5.0-2 [4388 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 34.7 MB in 3s (8767 kB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libnettle4:amd64.
+Unpacking libnettle4:amd64 (from .../libnettle4_2.4-3_amd64.deb) ...
+Selecting previously unselected package libarchive12:amd64.
+Unpacking libarchive12:amd64 (from .../libarchive12_3.0.4-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1:amd64.
+Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl3:amd64.
+Unpacking libcurl3:amd64 (from .../libcurl3_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Unpacking libcurl3-gnutls:amd64 (from .../libcurl3-gnutls_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package tcl8.5.
+Unpacking tcl8.5 (from .../tcl8.5_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package libotcl1:amd64.
+Unpacking libotcl1:amd64 (from .../libotcl1_1.14+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libxft2:amd64.
+Unpacking libxft2:amd64 (from .../libxft2_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package libxss1:amd64.
+Unpacking libxss1:amd64 (from .../libxss1_1%3a1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3.
+Unpacking libxmlrpc-core-c3 (from .../libxmlrpc-core-c3_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package emacsen-common.
+Unpacking emacsen-common (from .../emacsen-common_2.0.5_all.deb) ...
+Selecting previously unselected package cmake-data.
+Unpacking cmake-data (from .../cmake-data_2.8.9-1_all.deb) ...
+Selecting previously unselected package cmake.
+Unpacking cmake (from .../cmake_2.8.9-1_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libfreetype6-dev.
+Unpacking libfreetype6-dev (from .../libfreetype6-dev_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libfontconfig1-dev.
+Unpacking libfontconfig1-dev (from .../libfontconfig1-dev_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libice-dev:amd64.
+Unpacking libice-dev:amd64 (from .../libice-dev_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libotcl1-dev.
+Unpacking libotcl1-dev (from .../libotcl1-dev_1.14+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libsm-dev:amd64.
+Unpacking libsm-dev:amd64 (from .../libsm-dev_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package x11proto-render-dev.
+Unpacking x11proto-render-dev (from .../x11proto-render-dev_2%3a0.11.1-2_all.deb) ...
+Selecting previously unselected package libxrender-dev:amd64.
+Unpacking libxrender-dev:amd64 (from .../libxrender-dev_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libxft-dev.
+Unpacking libxft-dev (from .../libxft-dev_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-scrnsaver-dev.
+Unpacking x11proto-scrnsaver-dev (from .../x11proto-scrnsaver-dev_1.2.2-1_all.deb) ...
+Selecting previously unselected package libxss-dev:amd64.
+Unpacking libxss-dev:amd64 (from .../libxss-dev_1%3a1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libxt-dev:amd64.
+Unpacking libxt-dev:amd64 (from .../libxt-dev_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package tcl.
+Unpacking tcl (from .../archives/tcl_8.5.0-2_all.deb) ...
+Selecting previously unselected package tcl8.5-dev.
+Unpacking tcl8.5-dev (from .../tcl8.5-dev_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package tcl-dev.
+Unpacking tcl-dev (from .../tcl-dev_8.5.0-2_all.deb) ...
+Selecting previously unselected package tk8.5.
+Unpacking tk8.5 (from .../tk8.5_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package tk.
+Unpacking tk (from .../archives/tk_8.5.0-2_all.deb) ...
+Selecting previously unselected package tk8.5-dev.
+Unpacking tk8.5-dev (from .../tk8.5-dev_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package tk-dev.
+Unpacking tk-dev (from .../tk-dev_8.5.0-2_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-tclcl-dummy.
+Unpacking sbuild-build-depends-tclcl-dummy (from .../sbuild-build-depends-tclcl-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libnettle4:amd64 (2.4-3) ...
+Setting up libarchive12:amd64 (3.0.4-2) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1:amd64 (1.4.2-1.1) ...
+Setting up libcurl3:amd64 (7.28.0-3) ...
+Setting up libcurl3-gnutls:amd64 (7.28.0-3) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up tcl8.5 (8.5.11-2) ...
+update-alternatives: using /usr/bin/tclsh8.5 to provide /usr/bin/tclsh (tclsh) in auto mode
+Setting up libotcl1:amd64 (1.14+dfsg-2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libxft2:amd64 (2.3.1-1) ...
+Setting up libxss1:amd64 (1:1.2.2-1) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libxmlrpc-core-c3 (1.16.33-3.2) ...
+Setting up emacsen-common (2.0.5) ...
+Setting up cmake-data (2.8.9-1) ...
+Install cmake-data for emacs
+Setting up cmake (2.8.9-1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libfreetype6-dev (2.4.9-1.1) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libfontconfig1-dev (2.9.0-7.1) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libice-dev:amd64 (2:1.0.8-2) ...
+Setting up libotcl1-dev (1.14+dfsg-2) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libsm-dev:amd64 (2:1.2.1-2) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up x11proto-render-dev (2:0.11.1-2) ...
+Setting up libxrender-dev:amd64 (1:0.9.7-1) ...
+Setting up libxft-dev (2.3.1-1) ...
+Setting up x11proto-scrnsaver-dev (1.2.2-1) ...
+Setting up libxss-dev:amd64 (1:1.2.2-1) ...
+Setting up libxt-dev:amd64 (1:1.1.3-1) ...
+Setting up quilt (0.60-7) ...
+Setting up tcl (8.5.0-2) ...
+update-alternatives: using /usr/bin/tclsh-default to provide /usr/bin/tclsh (tclsh) in auto mode
+Setting up tcl8.5-dev (8.5.11-2) ...
+Setting up tcl-dev (8.5.0-2) ...
+Setting up tk8.5 (8.5.11-2) ...
+update-alternatives: using /usr/bin/wish8.5 to provide /usr/bin/wish (wish) in auto mode
+Setting up tk (8.5.0-2) ...
+update-alternatives: using /usr/bin/wish-default to provide /usr/bin/wish (wish) in auto mode
+Setting up tk8.5-dev (8.5.11-2) ...
+Setting up tk-dev (8.5.0-2) ...
+Setting up sbuild-build-depends-tclcl-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-tclcl-dummy : Depends: tk-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 cmake_2.8.9-1 cmake-data_2.8.9-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 emacsen-common_2.0.5 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libarchive12_3.0.4-2 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcurl3_7.28.0-3 libcurl3-gnutls_7.28.0-3 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfontconfig1-dev_2.9.0-7.1 libfreetype6_2.4.9-1.1 libfreetype6-dev_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libidn11_1.25-2 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libnettle4_2.4-3 libotcl1_1.14+dfsg-2 libotcl1-dev_1.14+dfsg-2 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libprocps0_1:3.3.4-2 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 librtmp0_2.4+20111222.git4e06e21-1 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxft-dev_2.3.1-1 libxft2_2.3.1-1 libxml2_2.8.0+dfsg1-7 libxmlrpc-core-c3_1.16.33-3.2 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxss-dev_1:1.2.2-1 libxss1_1:1.2.2-1 libxt-dev_1:1.1.3-1 libxt6_1:1.1.3-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-tclcl-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tcl_8.5.0-2 tcl-dev_8.5.0-2 tcl8.5_8.5.11-2 tcl8.5-dev_8.5.11-2 tk_8.5.0-2 tk-dev_8.5.0-2 tk8.5_8.5.11-2 tk8.5-dev_8.5.11-2 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-render-dev_2:0.11.1-2 x11proto-scrnsaver-dev_1.2.2-1 x11proto-xext-dev_7.2.1-1 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Dec 13 10:48:12 2011 UTC using RSA key ID 2F650912
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./tclcl_1.20-6.dsc
+dpkg-source: info: extracting tclcl in tclcl-1.20
+dpkg-source: info: unpacking tclcl_1.20.orig.tar.gz
+dpkg-source: info: unpacking tclcl_1.20-6.debian.tar.gz
+dpkg-source: info: applying package_require_rm_exact.diff
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-069643e7-bd2e-4a93-805a-f064bc3ae379
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package tclcl
+dpkg-buildpackage: source version 1.20-6
+dpkg-buildpackage: source changed by YunQiang Su <wzssyqa@gmail.com>
+ dpkg-source --before-build tclcl-1.20
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh  clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+	rm -f debian/tclcl.substvars
+	rm -f debian/tclcl.*.debhelper
+	rm -rf debian/tclcl/
+	rm -f debian/libtclcl1.substvars
+	rm -f debian/libtclcl1.*.debhelper
+	rm -rf debian/libtclcl1/
+	rm -f debian/libtclcl1-dev.substvars
+	rm -f debian/libtclcl1-dev.*.debhelper
+	rm -rf debian/libtclcl1-dev/
+	rm -f debian/tclcl-dev.substvars
+	rm -f debian/tclcl-dev.*.debhelper
+	rm -rf debian/tclcl-dev/
+	rm -f debian/tclcl-dbg.substvars
+	rm -f debian/tclcl-dbg.*.debhelper
+	rm -rf debian/tclcl-dbg/
+	rm -f debian/*.debhelper.log
+	rm -f -- config.h config.status CMakeLists.txt tclcl.pc.cmake config-tclcl.h.cmake
+	rm -f debian/files
+	find .  \( \( -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} \; \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} \; \) \)
+	rm -f *-stamp
+ debian/rules build-arch
+dh  build-arch
+   dh_testdir -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«PKGBUILDDIR»'
+cp debian/CMakeLists.txt .
+cp debian/tclcl.pc.cmake .
+cp debian/config-tclcl.h.cmake .
+dh_auto_configure -Scmake -- -DLIB_INSTALL_DIR=\${prefix}/lib/x86_64-linux-gnu
+	mkdir -p obj-x86_64-linux-gnu
+	cd obj-x86_64-linux-gnu
+	cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DLIB_INSTALL_DIR=\${prefix}/lib/x86_64-linux-gnu
+-- The C compiler identification is Clang 3.2.0
+-- The CXX compiler identification is Clang 3.2.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.26") 
+-- Found Tclsh: /usr/bin/tclsh (found version "8.5") 
+-- Found TCL: /usr/lib/libtcl.so  
+-- Found TCLTK: /usr/lib/libtcl.so  
+-- Found TK: /usr/lib/libtk.so  
+-- checking for module 'otcl'
+--   found otcl, version 1.14
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /«PKGBUILDDIR»/obj-x86_64-linux-gnu
+	cd /«PKGBUILDDIR»
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_auto_build -a
+	cd obj-x86_64-linux-gnu
+	make -j1
+make[1]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -H/«PKGBUILDDIR» -B/«PKGBUILDDIR»/obj-x86_64-linux-gnu --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tcl2c++.dir/build.make CMakeFiles/tcl2c++.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tcl2c++.dir/DependInfo.cmake --color=
+Scanning dependencies of target tcl2c++
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tcl2c++.dir/build.make CMakeFiles/tcl2c++.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 1
+[  4%] Building C object CMakeFiles/tcl2c++.dir/tcl2c++.c.o
+/usr/bin/gcc   -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tcl2c++.dir/tcl2c++.c.o   -c /«PKGBUILDDIR»/tcl2c++.c
+Linking C executable tcl2c++
+/usr/bin/cmake -E cmake_link_script CMakeFiles/tcl2c++.dir/link.txt --verbose=1
+/usr/bin/gcc  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2    -Wl,-z,relro -Wl,--as-needed CMakeFiles/tcl2c++.dir/tcl2c++.c.o  -o tcl2c++ -rdynamic 
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  1
+[  4%] Built target tcl2c++
+make -f CMakeFiles/tclcl.dir/build.make CMakeFiles/tclcl.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 2
+[  8%] Generating embedded-tcl.cc, embedded-tk.cc, embedded-tclobj.cc
+./tcl2c++ et_tcl /usr/share/tcltk/tcl8.5/init.tcl	/usr/share/tcltk/tcl8.5/history.tcl	/usr/share/tcltk/tcl8.5/word.tcl	/usr/share/tcltk/tcl8.5/http1.0/http.tcl > embedded-tcl.cc
+sed -i -e 's/package require -exact T/package require T/g' embedded-tcl.cc
+./tcl2c++ et_tk /usr/share/tcltk/tk8.5/tk.tcl	/usr/share/tcltk/tk8.5/clrpick.tcl	/usr/share/tcltk/tk8.5/comdlg.tcl	/usr/share/tcltk/tk8.5/button.tcl	/usr/share/tcltk/tk8.5/dialog.tcl	/usr/share/tcltk/tk8.5/entry.tcl	/usr/share/tcltk/tk8.5/focus.tcl	/usr/share/tcltk/tk8.5/listbox.tcl	/usr/share/tcltk/tk8.5/menu.tcl	/usr/share/tcltk/tk8.5/palette.tcl	/usr/share/tcltk/tk8.5/scale.tcl	/usr/share/tcltk/tk8.5/tearoff.tcl	/usr/share/tcltk/tk8.5/text.tcl	/usr/share/tcltk/tk8.5/tkfbox.tcl	/usr/share/tcltk/tk8.5/msgbox.tcl > embedded-tk.cc
+sed -i -e 's/package require -exact T/package require T/g' embedded-tk.cc
+./tcl2c++ et_tclobject /«PKGBUILDDIR»/tcl-object.tcl	/«PKGBUILDDIR»/tcl-import.tcl	/«PKGBUILDDIR»/tcl-http.tcl > embedded-tclobj.cc
+./tcl2c++ et_console /usr/share/tcltk/tk8.5/console.tcl > embedded-console.cc
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tclcl.dir/DependInfo.cmake --color=
+Scanning dependencies of target tclcl
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tclcl.dir/build.make CMakeFiles/tclcl.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 3
+[ 13%] Building CXX object CMakeFiles/tclcl.dir/Tcl.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/Tcl.cc.o -c /«PKGBUILDDIR»/Tcl.cc
+/«PKGBUILDDIR»/Tcl.cc:182:8: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                        s = "\n[code omitted because of length]\n";
+                            ^
+/«PKGBUILDDIR»/Tcl.cc:421:10: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                                     "1", (char *)varName, (char *)varName, 0);
+                                     ^
+/«PKGBUILDDIR»/Tcl.cc:508:50: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                OTclAddPMethod(OTclGetObject(interp, argv[0]), "cmd",
+                                                               ^
+/«PKGBUILDDIR»/Tcl.cc:510:50: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                OTclAddPMethod(OTclGetObject(interp, argv[0]), "instvar",
+                                                               ^
+/«PKGBUILDDIR»/Tcl.cc:571:46: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                        result = OTclOInstVarOne(otcl_object, in, "1", varName, localName, 0);
+                                                                  ^
+/«PKGBUILDDIR»/Tcl.cc:602:25: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        OTclAddIMethod(class_, "create-shadow",
+                               ^
+/«PKGBUILDDIR»/Tcl.cc:604:25: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        OTclAddIMethod(class_, "delete-shadow",
+                               ^
+7 warnings generated.
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 4
+[ 17%] Building CXX object CMakeFiles/tclcl.dir/Tcl2.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/Tcl2.cc.o -c /«PKGBUILDDIR»/Tcl2.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 5
+[ 21%] Building CXX object CMakeFiles/tclcl.dir/idlecallback.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/idlecallback.cc.o -c /«PKGBUILDDIR»/idlecallback.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 6
+[ 26%] Building CXX object CMakeFiles/tclcl.dir/iohandler.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/iohandler.cc.o -c /«PKGBUILDDIR»/iohandler.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 7
+[ 30%] Building CXX object CMakeFiles/tclcl.dir/timer.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/timer.cc.o -c /«PKGBUILDDIR»/timer.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 8
+[ 34%] Building CXX object CMakeFiles/tclcl.dir/rate-variable.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/rate-variable.cc.o -c /«PKGBUILDDIR»/rate-variable.cc
+/«PKGBUILDDIR»/rate-variable.cc:74:10: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                return ("no clientdata for rate var");
+                       ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 9
+[ 39%] Building CXX object CMakeFiles/tclcl.dir/tracedvar.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/tracedvar.cc.o -c /«PKGBUILDDIR»/tracedvar.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 10
+[ 43%] Building CXX object CMakeFiles/tclcl.dir/embedded-tcl.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/embedded-tcl.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tcl.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 11
+[ 47%] Building CXX object CMakeFiles/tclcl.dir/embedded-tk.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/embedded-tk.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tk.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 12
+[ 52%] Building CXX object CMakeFiles/tclcl.dir/embedded-tclobj.cc.o
+/usr/bin/c++   -Dtclcl_EXPORTS -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -fPIC -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl.dir/embedded-tclobj.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tclobj.cc
+Linking CXX shared library libtclcl.so
+/usr/bin/cmake -E cmake_link_script CMakeFiles/tclcl.dir/link.txt --verbose=1
+/usr/bin/c++  -fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2   -Wl,-z,relro -Wl,--as-needed -shared -Wl,-soname,libtclcl.so.1 -o libtclcl.so.1.20 CMakeFiles/tclcl.dir/Tcl.cc.o CMakeFiles/tclcl.dir/Tcl2.cc.o CMakeFiles/tclcl.dir/idlecallback.cc.o CMakeFiles/tclcl.dir/iohandler.cc.o CMakeFiles/tclcl.dir/timer.cc.o CMakeFiles/tclcl.dir/rate-variable.cc.o CMakeFiles/tclcl.dir/tracedvar.cc.o CMakeFiles/tclcl.dir/embedded-tcl.cc.o CMakeFiles/tclcl.dir/embedded-tk.cc.o CMakeFiles/tclcl.dir/embedded-tclobj.cc.o -ltcl -ltk 
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+/usr/bin/cmake -E cmake_symlink_library libtclcl.so.1.20 libtclcl.so.1 libtclcl.so
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12
+[ 52%] Built target tclcl
+make -f CMakeFiles/tclcl-static.dir/build.make CMakeFiles/tclcl-static.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tclcl-static.dir/DependInfo.cmake --color=
+Scanning dependencies of target tclcl-static
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tclcl-static.dir/build.make CMakeFiles/tclcl-static.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 14
+[ 56%] Building CXX object CMakeFiles/tclcl-static.dir/Tcl.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/Tcl.cc.o -c /«PKGBUILDDIR»/Tcl.cc
+/«PKGBUILDDIR»/Tcl.cc:182:8: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                        s = "\n[code omitted because of length]\n";
+                            ^
+/«PKGBUILDDIR»/Tcl.cc:421:10: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                                     "1", (char *)varName, (char *)varName, 0);
+                                     ^
+/«PKGBUILDDIR»/Tcl.cc:508:50: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                OTclAddPMethod(OTclGetObject(interp, argv[0]), "cmd",
+                                                               ^
+/«PKGBUILDDIR»/Tcl.cc:510:50: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                OTclAddPMethod(OTclGetObject(interp, argv[0]), "instvar",
+                                                               ^
+/«PKGBUILDDIR»/Tcl.cc:571:46: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                        result = OTclOInstVarOne(otcl_object, in, "1", varName, localName, 0);
+                                                                  ^
+/«PKGBUILDDIR»/Tcl.cc:602:25: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        OTclAddIMethod(class_, "create-shadow",
+                               ^
+/«PKGBUILDDIR»/Tcl.cc:604:25: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+        OTclAddIMethod(class_, "delete-shadow",
+                               ^
+7 warnings generated.
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 15
+[ 60%] Building CXX object CMakeFiles/tclcl-static.dir/Tcl2.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/Tcl2.cc.o -c /«PKGBUILDDIR»/Tcl2.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 16
+[ 65%] Building CXX object CMakeFiles/tclcl-static.dir/idlecallback.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/idlecallback.cc.o -c /«PKGBUILDDIR»/idlecallback.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 17
+[ 69%] Building CXX object CMakeFiles/tclcl-static.dir/iohandler.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/iohandler.cc.o -c /«PKGBUILDDIR»/iohandler.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 18
+[ 73%] Building CXX object CMakeFiles/tclcl-static.dir/timer.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/timer.cc.o -c /«PKGBUILDDIR»/timer.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 19
+[ 78%] Building CXX object CMakeFiles/tclcl-static.dir/rate-variable.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/rate-variable.cc.o -c /«PKGBUILDDIR»/rate-variable.cc
+/«PKGBUILDDIR»/rate-variable.cc:74:10: warning: conversion from string literal to 'char *' is deprecated [-Wdeprecated-writable-strings]
+                return ("no clientdata for rate var");
+                       ^
+1 warning generated.
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 20
+[ 82%] Building CXX object CMakeFiles/tclcl-static.dir/tracedvar.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/tracedvar.cc.o -c /«PKGBUILDDIR»/tracedvar.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 21
+[ 86%] Building CXX object CMakeFiles/tclcl-static.dir/embedded-tcl.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/embedded-tcl.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tcl.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 22
+[ 91%] Building CXX object CMakeFiles/tclcl-static.dir/embedded-tk.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/embedded-tk.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tk.cc
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 23
+[ 95%] Building CXX object CMakeFiles/tclcl-static.dir/embedded-tclobj.cc.o
+/usr/bin/c++    -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I/«PKGBUILDDIR»/obj-x86_64-linux-gnu -I/«PKGBUILDDIR» -I/usr/include/tcl    -o CMakeFiles/tclcl-static.dir/embedded-tclobj.cc.o -c /«PKGBUILDDIR»/obj-x86_64-linux-gnu/embedded-tclobj.cc
+Linking CXX static library libtclcl.a
+/usr/bin/cmake -P CMakeFiles/tclcl-static.dir/cmake_clean_target.cmake
+/usr/bin/cmake -E cmake_link_script CMakeFiles/tclcl-static.dir/link.txt --verbose=1
+/usr/bin/ar cr libtclcl.a  CMakeFiles/tclcl-static.dir/Tcl.cc.o CMakeFiles/tclcl-static.dir/Tcl2.cc.o CMakeFiles/tclcl-static.dir/idlecallback.cc.o CMakeFiles/tclcl-static.dir/iohandler.cc.o CMakeFiles/tclcl-static.dir/timer.cc.o CMakeFiles/tclcl-static.dir/rate-variable.cc.o CMakeFiles/tclcl-static.dir/tracedvar.cc.o CMakeFiles/tclcl-static.dir/embedded-tcl.cc.o CMakeFiles/tclcl-static.dir/embedded-tk.cc.o CMakeFiles/tclcl-static.dir/embedded-tclobj.cc.o
+/usr/bin/ranlib libtclcl.a
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  13 14 15 16 17 18 19 20 21 22 23
+[100%] Built target tclcl-static
+make[2]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_start /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 0
+make[1]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+	cd /«PKGBUILDDIR»
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh  binary-arch
+   dh_testroot -a
+   dh_prep -a
+	rm -f debian/tclcl.substvars
+	rm -f debian/tclcl.*.debhelper
+	rm -rf debian/tclcl/
+	rm -f debian/libtclcl1.substvars
+	rm -f debian/libtclcl1.*.debhelper
+	rm -rf debian/libtclcl1/
+	rm -f debian/libtclcl1-dev.substvars
+	rm -f debian/libtclcl1-dev.*.debhelper
+	rm -rf debian/libtclcl1-dev/
+	rm -f debian/tclcl-dbg.substvars
+	rm -f debian/tclcl-dbg.*.debhelper
+	rm -rf debian/tclcl-dbg/
+   dh_installdirs -a
+	install -d debian/tclcl
+	install -d debian/libtclcl1
+	install -d debian/libtclcl1-dev
+	install -d debian/tclcl-dbg
+   dh_auto_install -a
+	cd obj-x86_64-linux-gnu
+	make -j1 install DESTDIR=/«PKGBUILDDIR»/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -H/«PKGBUILDDIR» -B/«PKGBUILDDIR»/obj-x86_64-linux-gnu --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tcl2c++.dir/build.make CMakeFiles/tcl2c++.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tcl2c++.dir/DependInfo.cmake --color=
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tcl2c++.dir/build.make CMakeFiles/tcl2c++.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[3]: Nothing to be done for `CMakeFiles/tcl2c++.dir/build'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  1
+[  4%] Built target tcl2c++
+make -f CMakeFiles/tclcl.dir/build.make CMakeFiles/tclcl.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tclcl.dir/DependInfo.cmake --color=
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tclcl.dir/build.make CMakeFiles/tclcl.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[3]: Nothing to be done for `CMakeFiles/tclcl.dir/build'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12
+[ 52%] Built target tclcl
+make -f CMakeFiles/tclcl-static.dir/build.make CMakeFiles/tclcl-static.dir/depend
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+cd /«PKGBUILDDIR»/obj-x86_64-linux-gnu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /«PKGBUILDDIR» /«PKGBUILDDIR» /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles/tclcl-static.dir/DependInfo.cmake --color=
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make -f CMakeFiles/tclcl-static.dir/build.make CMakeFiles/tclcl-static.dir/build
+make[3]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[3]: Nothing to be done for `CMakeFiles/tclcl-static.dir/build'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_report /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles  13 14 15 16 17 18 19 20 21 22 23
+[100%] Built target tclcl-static
+make[2]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+/usr/bin/cmake -E cmake_progress_start /«PKGBUILDDIR»/obj-x86_64-linux-gnu/CMakeFiles 0
+make -f CMakeFiles/Makefile2 preinstall
+make[2]: Entering directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+make[2]: Nothing to be done for `preinstall'.
+make[2]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+Install the project...
+/usr/bin/cmake -P cmake_install.cmake
+-- Install configuration: ""
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/bin/tcl2c++
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr//lib/x86_64-linux-gnu/libtclcl.so.1.20
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr//lib/x86_64-linux-gnu/libtclcl.so.1
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr//lib/x86_64-linux-gnu/libtclcl.so
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr//lib/x86_64-linux-gnu/libtclcl.a
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/tracedvar.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/timer.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/tclcl.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/tclcl-mappings.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/tclcl-internal.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/tclcl-config.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/rate-variable.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/iohandler.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr/include/tclcl/idlecallback.h
+-- Installing: /«PKGBUILDDIR»/debian/tmp/usr//lib/x86_64-linux-gnu/pkgconfig/tclcl.pc
+make[1]: Leaving directory `/«PKGBUILDDIR»/obj-x86_64-linux-gnu'
+	cd /«PKGBUILDDIR»
+   dh_install -a
+	install -d debian/tclcl//usr/bin
+	cp -a debian/tmp/usr/bin/tcl2c\+\+ debian/tclcl//usr/bin/
+	cp -a ./otcldoc debian/tclcl//usr/bin/
+	install -d debian/libtclcl1//usr/lib/x86_64-linux-gnu
+	cp -a debian/tmp/usr/lib/x86_64-linux-gnu/libtclcl.so.1 debian/libtclcl1//usr/lib/x86_64-linux-gnu/
+	cp -a debian/tmp/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20 debian/libtclcl1//usr/lib/x86_64-linux-gnu/
+	install -d debian/libtclcl1-dev//usr/lib/x86_64-linux-gnu
+	cp -a debian/tmp/usr/lib/x86_64-linux-gnu/libtclcl.a debian/libtclcl1-dev//usr/lib/x86_64-linux-gnu/
+	cp -a debian/tmp/usr/lib/x86_64-linux-gnu/libtclcl.so debian/libtclcl1-dev//usr/lib/x86_64-linux-gnu/
+	cp -a debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig debian/libtclcl1-dev//usr/lib/x86_64-linux-gnu/
+	install -d debian/libtclcl1-dev//usr/include
+	cp -a debian/tmp/usr/include/tclcl debian/libtclcl1-dev//usr/include/
+   dh_installdocs -a
+	install -g 0 -o 0 -d debian/tclcl/usr/share/doc/tclcl
+	cp -a README debian/tclcl/usr/share/doc/tclcl
+	cp -a TODO.html debian/tclcl/usr/share/doc/tclcl
+	chown -R 0:0 debian/tclcl/usr/share/doc
+	chmod -R go=rX debian/tclcl/usr/share/doc
+	chmod -R u\+rw debian/tclcl/usr/share/doc
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/tclcl/usr/share/doc/tclcl/copyright
+	install -g 0 -o 0 -d debian/libtclcl1/usr/share/doc/libtclcl1
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/libtclcl1/usr/share/doc/libtclcl1/copyright
+	install -g 0 -o 0 -d debian/libtclcl1-dev/usr/share/doc/libtclcl1-dev
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/libtclcl1-dev/usr/share/doc/libtclcl1-dev/copyright
+	install -g 0 -o 0 -d debian/tclcl-dbg/usr/share/doc/tclcl-dbg
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/tclcl-dbg/usr/share/doc/tclcl-dbg/copyright
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory `/«PKGBUILDDIR»'
+dh_installchangelogs CHANGES.html
+	install -o 0 -g 0 -p -m644 debian/changelog debian/tclcl/usr/share/doc/tclcl/changelog.Debian
+	install -o 0 -g 0 -p -m644 CHANGES.html debian/tclcl/usr/share/doc/tclcl/changelog.html
+	html2text -nobs -o debian/tclcl/usr/share/doc/tclcl/changelog CHANGES.html
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+	install -o 0 -g 0 -p -m644 debian/changelog debian/libtclcl1/usr/share/doc/libtclcl1/changelog.Debian
+	install -o 0 -g 0 -p -m644 CHANGES.html debian/libtclcl1/usr/share/doc/libtclcl1/changelog.html
+	html2text -nobs -o debian/libtclcl1/usr/share/doc/libtclcl1/changelog CHANGES.html
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+	install -o 0 -g 0 -p -m644 debian/changelog debian/libtclcl1-dev/usr/share/doc/libtclcl1-dev/changelog.Debian
+	install -o 0 -g 0 -p -m644 CHANGES.html debian/libtclcl1-dev/usr/share/doc/libtclcl1-dev/changelog.html
+	html2text -nobs -o debian/libtclcl1-dev/usr/share/doc/libtclcl1-dev/changelog CHANGES.html
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+	install -o 0 -g 0 -p -m644 debian/changelog debian/tclcl-dbg/usr/share/doc/tclcl-dbg/changelog.Debian
+	install -o 0 -g 0 -p -m644 CHANGES.html debian/tclcl-dbg/usr/share/doc/tclcl-dbg/changelog.html
+	html2text -nobs -o debian/tclcl-dbg/usr/share/doc/tclcl-dbg/changelog CHANGES.html
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+File "CHANGES.html", line 269, column 2: Levels of opening and closing headings don't match
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_installexamples -a
+   dh_installman -a
+	install -d debian/tclcl/usr/share/man/man1/
+	install -p -m644 debian/tcl2c\+\+.1 debian/tclcl/usr/share/man/man1/tcl2c\+\+.1
+	install -p -m644 debian/otcldoc.1 debian/tclcl/usr/share/man/man1/otcldoc.1
+	man --recode UTF-8 ./otcldoc\.1 > otcldoc\.1\.new
+	chmod 644 otcldoc.1.new
+	mv -f otcldoc.1.new otcldoc.1
+	man --recode UTF-8 ./tcl2c\+\+\.1 > tcl2c\+\+\.1\.new
+	chmod 644 tcl2c\+\+.1.new
+	mv -f tcl2c\+\+.1.new tcl2c\+\+.1
+   dh_installcatalogs -a
+   dh_installcron -a
+   dh_installdebconf -a
+	install -o 0 -g 0 -d debian/tclcl/DEBIAN
+	install -o 0 -g 0 -d debian/libtclcl1/DEBIAN
+	install -o 0 -g 0 -d debian/libtclcl1-dev/DEBIAN
+	install -o 0 -g 0 -d debian/tclcl-dbg/DEBIAN
+   dh_installemacsen -a
+   dh_installifupdown -a
+   dh_installinfo -a
+   dh_installinit -a
+   dh_installmenu -a
+   dh_installmime -a
+   dh_installmodules -a
+   dh_installlogcheck -a
+   dh_installlogrotate -a
+   dh_installpam -a
+   dh_installppp -a
+   dh_installudev -a
+   dh_installwm -a
+   dh_installxfonts -a
+   dh_installgsettings -a
+   dh_bugfiles -a
+   dh_ucf -a
+   dh_lintian -a
+   dh_gconf -a
+   dh_icons -a
+   dh_perl -a
+   dh_usrlocal -a
+   dh_link -a
+	rm -f debian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1
+	ln -sf libtclcl.so.1.20 debian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1
+	rm -f debian/libtclcl1-dev/usr/lib/x86_64-linux-gnu/libtclcl.so
+	ln -sf libtclcl.so.1 debian/libtclcl1-dev/usr/lib/x86_64-linux-gnu/libtclcl.so
+   dh_compress -a
+	cd debian/tclcl
+	chmod a-x usr/share/man/man1/tcl2c\+\+.1 usr/share/man/man1/otcldoc.1 usr/share/doc/tclcl/changelog usr/share/doc/tclcl/changelog.html usr/share/doc/tclcl/changelog.Debian
+	gzip -9nf usr/share/man/man1/tcl2c\+\+.1 usr/share/man/man1/otcldoc.1 usr/share/doc/tclcl/changelog usr/share/doc/tclcl/changelog.html usr/share/doc/tclcl/changelog.Debian
+	cd '/«PKGBUILDDIR»'
+	cd debian/libtclcl1
+	chmod a-x usr/share/doc/libtclcl1/changelog usr/share/doc/libtclcl1/changelog.html usr/share/doc/libtclcl1/changelog.Debian
+	gzip -9nf usr/share/doc/libtclcl1/changelog usr/share/doc/libtclcl1/changelog.html usr/share/doc/libtclcl1/changelog.Debian
+	cd '/«PKGBUILDDIR»'
+	cd debian/libtclcl1-dev
+	chmod a-x usr/share/doc/libtclcl1-dev/changelog usr/share/doc/libtclcl1-dev/changelog.html usr/share/doc/libtclcl1-dev/changelog.Debian
+	gzip -9nf usr/share/doc/libtclcl1-dev/changelog usr/share/doc/libtclcl1-dev/changelog.html usr/share/doc/libtclcl1-dev/changelog.Debian
+	cd '/«PKGBUILDDIR»'
+	cd debian/tclcl-dbg
+	chmod a-x usr/share/doc/tclcl-dbg/changelog usr/share/doc/tclcl-dbg/changelog.html usr/share/doc/tclcl-dbg/changelog.Debian
+	gzip -9nf usr/share/doc/tclcl-dbg/changelog usr/share/doc/tclcl-dbg/changelog.html usr/share/doc/tclcl-dbg/changelog.Debian
+	cd '/«PKGBUILDDIR»'
+   dh_fixperms -a
+	find debian/tclcl  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/tclcl ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/tclcl/usr/share/doc -type f  ! -regex 'debian/tclcl/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/tclcl/usr/share/man debian/tclcl/usr/man/ debian/tclcl/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl/usr/lib/perl5 debian/tclcl/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/tclcl/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/tclcl/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/libtclcl1  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libtclcl1 ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libtclcl1/usr/share/doc -type f  ! -regex 'debian/libtclcl1/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/libtclcl1/usr/share/man debian/libtclcl1/usr/man/ debian/libtclcl1/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1 -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1 -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1/usr/lib/perl5 debian/libtclcl1/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/libtclcl1/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/libtclcl1-dev  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libtclcl1-dev ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libtclcl1-dev/usr/share/doc -type f  ! -regex 'debian/libtclcl1-dev/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/libtclcl1-dev/usr/share/man debian/libtclcl1-dev/usr/man/ debian/libtclcl1-dev/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/libtclcl1-dev/usr/lib/perl5 debian/libtclcl1-dev/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/libtclcl1-dev/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/tclcl-dbg  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/tclcl-dbg ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/tclcl-dbg/usr/share/doc -type f  ! -regex 'debian/tclcl-dbg/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/tclcl-dbg/usr/share/man debian/tclcl-dbg/usr/man/ debian/tclcl-dbg/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/tclcl-dbg/usr/lib/perl5 debian/tclcl-dbg/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/tclcl-dbg/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
+   debian/rules override_dh_strip
+make[1]: Entering directory `/«PKGBUILDDIR»'
+dh_strip --dbg-package=tclcl-dbg
+	install -d debian/tclcl-dbg/usr/lib/debug/.build-id/b7
+	objcopy --only-keep-debug --compress-debug-sections debian/tclcl/usr/bin/tcl2c\+\+ debian/tclcl-dbg/usr/lib/debug/.build-id/b7/cf265749ef4379dd7f0d556cbcfc2da0a13798.debug
+	chmod 644 debian/tclcl-dbg/usr/lib/debug/.build-id/b7/cf265749ef4379dd7f0d556cbcfc2da0a13798.debug
+	strip --remove-section=.comment --remove-section=.note debian/tclcl/usr/bin/tcl2c\+\+
+	objcopy --add-gnu-debuglink debian/tclcl-dbg/usr/lib/debug/.build-id/b7/cf265749ef4379dd7f0d556cbcfc2da0a13798.debug debian/tclcl/usr/bin/tcl2c\+\+
+	install -d debian/tclcl-dbg/usr/lib/debug/.build-id/4b
+	objcopy --only-keep-debug --compress-debug-sections debian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20 debian/tclcl-dbg/usr/lib/debug/.build-id/4b/d24fddb43f0ed66d41883da6d72f530d92bd83.debug
+	chmod 644 debian/tclcl-dbg/usr/lib/debug/.build-id/4b/d24fddb43f0ed66d41883da6d72f530d92bd83.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20
+	objcopy --add-gnu-debuglink debian/tclcl-dbg/usr/lib/debug/.build-id/4b/d24fddb43f0ed66d41883da6d72f530d92bd83.debug debian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20
+	strip --strip-debug debian/libtclcl1-dev/usr/lib/x86_64-linux-gnu/libtclcl.a
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_makeshlibs -a
+	rm -f debian/tclcl/DEBIAN/shlibs
+	rm -f debian/libtclcl1/DEBIAN/shlibs
+	echo 'libtclcl 1 libtclcl1' >>debian/libtclcl1/DEBIAN/shlibs
+	echo "# Automatically added by dh_makeshlibs">> debian/libtclcl1.postinst.debhelper
+	sed "" /usr/share/debhelper/autoscripts/postinst-makeshlibs >> debian/libtclcl1.postinst.debhelper
+	echo '# End automatically added section' >> debian/libtclcl1.postinst.debhelper
+	echo "# Automatically added by dh_makeshlibs">> debian/libtclcl1.postrm.debhelper
+	sed "" /usr/share/debhelper/autoscripts/postrm-makeshlibs >> debian/libtclcl1.postrm.debhelper
+	echo '# End automatically added section' >> debian/libtclcl1.postrm.debhelper
+	chmod 644 debian/libtclcl1/DEBIAN/shlibs
+	chown 0:0 debian/libtclcl1/DEBIAN/shlibs
+	dpkg-gensymbols -plibtclcl1 -Idebian/libtclcl1.symbols -Pdebian/libtclcl1 "-edebian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20\
+"
+dpkg-gensymbols: warning: some symbols or patterns disappeared in the symbols file: see diff output below
+dpkg-gensymbols: warning: debian/libtclcl1/DEBIAN/symbols doesn't match completely debian/libtclcl1.symbols
+--- debian/libtclcl1.symbols (libtclcl1_1.20-6_amd64)
++++ dpkg-gensymbolsjN4EUQ	2013-01-31 18:48:25.379917582 +0000
+@@ -5,9 +5,9 @@
+ #MISSING: 1.20-4# _ZN10InstVarIntC2EPKcPi@Base 1.20
+  _ZN10InstVarIntD0Ev@Base 1.20
+  _ZN10InstVarIntD1Ev@Base 1.20
+- _ZN10InstVarIntD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN10InstVarIntD2Ev@Base 1.20
+  _ZN10TclCommand12dispatch_cmdEPvP10Tcl_InterpiPPKc@Base 1.20
+- _ZN10TclCommandC1EPKc@Base 1.20
++#MISSING: 1.20-6# _ZN10TclCommandC1EPKc@Base 1.20
+  _ZN10TclCommandC2EPKc@Base 1.20
+  _ZN10TclCommandD0Ev@Base 1.20
+  _ZN10TclCommandD1Ev@Base 1.20
+@@ -21,31 +21,31 @@
+ #MISSING: 1.20-4# _ZN11InstVarBoolC2EPKcPi@Base 1.20
+  _ZN11InstVarBoolD0Ev@Base 1.20
+  _ZN11InstVarBoolD1Ev@Base 1.20
+- _ZN11InstVarBoolD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN11InstVarBoolD2Ev@Base 1.20
+  _ZN11InstVarReal3setEPKc@Base 1.20
+  _ZN11InstVarReal5sngetEPci@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarRealC1EPKcPd@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarRealC2EPKcPd@Base 1.20
+  _ZN11InstVarRealD0Ev@Base 1.20
+  _ZN11InstVarRealD1Ev@Base 1.20
+- _ZN11InstVarRealD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN11InstVarRealD2Ev@Base 1.20
+  _ZN11InstVarTime3setEPKc@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarTimeC1EPKcPd@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarTimeC2EPKcPd@Base 1.20
+  _ZN11InstVarTimeD0Ev@Base 1.20
+  _ZN11InstVarTimeD1Ev@Base 1.20
+- _ZN11InstVarTimeD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN11InstVarTimeD2Ev@Base 1.20
+  _ZN11InstVarUInt3setEPKc@Base 1.20
+  _ZN11InstVarUInt5sngetEPci@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarUIntC1EPKcPj@Base 1.20
+ #MISSING: 1.20-4# _ZN11InstVarUIntC2EPKcPj@Base 1.20
+  _ZN11InstVarUIntD0Ev@Base 1.20
+  _ZN11InstVarUIntD1Ev@Base 1.20
+- _ZN11InstVarUIntD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN11InstVarUIntD2Ev@Base 1.20
+  _ZN12IdleCallback10idle_schedEv@Base 1.20
+  _ZN12IdleCallback11idle_cancelEv@Base 1.20
+  _ZN12IdleCallback8dispatchEPv@Base 1.20
+- _ZN12IdleCallbackC1Ev@Base 1.20
++#MISSING: 1.20-6# _ZN12IdleCallbackC1Ev@Base 1.20
+  _ZN12IdleCallbackC2Ev@Base 1.20
+  _ZN12IdleCallbackD0Ev@Base 1.20
+  _ZN12IdleCallbackD1Ev@Base 1.20
+@@ -56,7 +56,7 @@
+ #MISSING: 1.20-4# _ZN12InstVarErrorC2EPKcS1_@Base 1.20
+  _ZN12InstVarErrorD0Ev@Base 1.20
+  _ZN12InstVarErrorD1Ev@Base 1.20
+- _ZN12InstVarErrorD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN12InstVarErrorD2Ev@Base 1.20
+  _ZN12RateVariable15update_rate_varEPvP10Tcl_InterpPKcS4_i@Base 1.20
+  _ZN12RateVariable4initEv@Base 1.20
+  _ZN12RateVariable7commandEiPKPKc@Base 1.20
+@@ -64,7 +64,7 @@
+ #MISSING: 1.20-4# _ZN12RateVariableC2Ev@Base 1.20
+  _ZN12RateVariableD0Ev@Base 1.20
+  _ZN12RateVariableD1Ev@Base 1.20
+- _ZN12RateVariableD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN12RateVariableD2Ev@Base 1.20
+  _ZN12TclArguments3argERP9TclObject@Base 1.20
+  _ZN12TclArguments3argERPKc@Base 1.20
+  _ZN12TclArguments3argERd@Base 1.20
+@@ -76,7 +76,7 @@
+  _ZN12TracedDouble6assignEd@Base 1.20
+  _ZN12TracedDoubleD0Ev@Base 1.20
+  _ZN12TracedDoubleD1Ev@Base 1.20
+- _ZN12TracedDoubleD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN12TracedDoubleD2Ev@Base 1.20
+ #MISSING: 1.20-4# _ZN12TracedDoubleaSEd@Base 1.20
+  _ZN12TracedVarTcl11catch_writeEPKcS1_@Base 1.20
+  _ZN12TracedVarTcl13catch_destroyEPKcS1_@Base 1.20
+@@ -92,28 +92,28 @@
+ #MISSING: 1.20-4# _ZN16InstVarBandwidthC2EPKcPd@Base 1.20
+  _ZN16InstVarBandwidthD0Ev@Base 1.20
+  _ZN16InstVarBandwidthD1Ev@Base 1.20
+- _ZN16InstVarBandwidthD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN16InstVarBandwidthD2Ev@Base 1.20
+  _ZN16InstVarTclObject3setEPKc@Base 1.20
+  _ZN16InstVarTclObject5sngetEPci@Base 1.20
+ #MISSING: 1.20-4# _ZN16InstVarTclObjectC1EPKcPP9TclObject@Base 1.20
+ #MISSING: 1.20-4# _ZN16InstVarTclObjectC2EPKcPP9TclObject@Base 1.20
+  _ZN16InstVarTclObjectD0Ev@Base 1.20
+  _ZN16InstVarTclObjectD1Ev@Base 1.20
+- _ZN16InstVarTclObjectD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN16InstVarTclObjectD2Ev@Base 1.20
+  _ZN16InstVarTracedInt3setEPKc@Base 1.20
+  _ZN16InstVarTracedInt5sngetEPci@Base 1.20
+ #MISSING: 1.20-4# _ZN16InstVarTracedIntC1EPKcP9TracedInt@Base 1.20
+ #MISSING: 1.20-4# _ZN16InstVarTracedIntC2EPKcP9TracedInt@Base 1.20
+  _ZN16InstVarTracedIntD0Ev@Base 1.20
+  _ZN16InstVarTracedIntD1Ev@Base 1.20
+- _ZN16InstVarTracedIntD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN16InstVarTracedIntD2Ev@Base 1.20
+  _ZN17InstVarTracedReal3setEPKc@Base 1.20
+  _ZN17InstVarTracedReal5sngetEPci@Base 1.20
+ #MISSING: 1.20-4# _ZN17InstVarTracedRealC1EPKcP12TracedDouble@Base 1.20
+ #MISSING: 1.20-4# _ZN17InstVarTracedRealC2EPKcP12TracedDouble@Base 1.20
+  _ZN17InstVarTracedRealD0Ev@Base 1.20
+  _ZN17InstVarTracedRealD1Ev@Base 1.20
+- _ZN17InstVarTracedRealD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN17InstVarTracedRealD2Ev@Base 1.20
+  _ZN3Tcl10add_errorfEPKcz@Base 1.20
+ #MISSING: 1.20-4# _ZN3Tcl13CreateCommandEPKcPFiPvP10Tcl_InterpiPS1_ES2_PFvS2_E@Base 1.20
+ #MISSING: 1.20-4# _ZN3Tcl13DeleteCommandEPKc@Base 1.20
+@@ -137,7 +137,7 @@
+  _ZN5Timer6cancelEv@Base 1.20
+  _ZN5Timer6mschedEi@Base 1.20
+  _ZN5Timer8dispatchEPv@Base 1.20
+- _ZN5TimerC1Ev@Base 1.20
++#MISSING: 1.20-6# _ZN5TimerC1Ev@Base 1.20
+  _ZN5TimerC2Ev@Base 1.20
+  _ZN5TimerD0Ev@Base 1.20
+  _ZN5TimerD1Ev@Base 1.20
+@@ -152,7 +152,7 @@
+  _ZN7InstVar9time_atofEPKc@Base 1.20
+ #MISSING: 1.20-4# _ZN7InstVar9tracedvarEP9TracedVar@Base 1.20
+ #MISSING: 1.20-4# _ZN7InstVar9tracedvarEv@Base 1.20
+- _ZN7InstVarC1EPKc@Base 1.20
++#MISSING: 1.20-6# _ZN7InstVarC1EPKc@Base 1.20
+  _ZN7InstVarC2EPKc@Base 1.20
+  _ZN7InstVarD0Ev@Base 1.20
+  _ZN7InstVarD1Ev@Base 1.20
+@@ -168,7 +168,7 @@
+  _ZN8TclClass4bindEv@Base 1.20
+  _ZN8TclClass4initEv@Base 1.20
+  _ZN8TclClass6methodEiPKPKc@Base 1.20
+- _ZN8TclClassC1EPKc@Base 1.20
++#MISSING: 1.20-6# _ZN8TclClassC1EPKc@Base 1.20
+  _ZN8TclClassC2EPKc@Base 1.20
+  _ZN8TclClassD0Ev@Base 1.20
+  _ZN8TclClassD1Ev@Base 1.20
+@@ -176,7 +176,7 @@
+  _ZN9IOHandler4linkEii@Base 1.20
+  _ZN9IOHandler6unlinkEv@Base 1.20
+  _ZN9IOHandler8callbackEPvi@Base 1.20
+- _ZN9IOHandlerC1Ev@Base 1.20
++#MISSING: 1.20-6# _ZN9IOHandlerC1Ev@Base 1.20
+  _ZN9IOHandlerC2Ev@Base 1.20
+  _ZN9IOHandlerD0Ev@Base 1.20
+  _ZN9IOHandlerD1Ev@Base 1.20
+@@ -232,20 +232,20 @@
+  _ZN9TracedInt6assignEi@Base 1.20
+  _ZN9TracedIntD0Ev@Base 1.20
+  _ZN9TracedIntD1Ev@Base 1.20
+- _ZN9TracedIntD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN9TracedIntD2Ev@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedIntaSEi@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedVar4nameEPKc@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedVar4nameEv@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedVar5ownerEP9TclObject@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedVar6tracerEP9TclObject@Base 1.20
+ #MISSING: 1.20-4# _ZN9TracedVar6tracerEv@Base 1.20
+- _ZN9TracedVarC1EPKc@Base 1.20
+- _ZN9TracedVarC1Ev@Base 1.20
++#MISSING: 1.20-6# _ZN9TracedVarC1EPKc@Base 1.20
++#MISSING: 1.20-6# _ZN9TracedVarC1Ev@Base 1.20
+  _ZN9TracedVarC2EPKc@Base 1.20
+  _ZN9TracedVarC2Ev@Base 1.20
+  _ZN9TracedVarD0Ev@Base 1.20
+  _ZN9TracedVarD1Ev@Base 1.20
+- _ZN9TracedVarD2Ev@Base 1.20
++#MISSING: 1.20-6# _ZN9TracedVarD2Ev@Base 1.20
+  _ZNK12TclArguments9add_errorEv@Base 1.20
+ #MISSING: 1.20-4# _ZNK12TclArguments9more_argsEv@Base 1.20
+ #MISSING: 1.20-4# _ZNK3Tcl6interpEv@Base 1.20
+dh_makeshlibs: dpkg-gensymbols -plibtclcl1 -Idebian/libtclcl1.symbols -Pdebian/libtclcl1 -edebian/libtclcl1/usr/lib/x86_64-linux-gnu/libtclcl.so.1.20
+ returned exit code 1
+make: *** [binary-arch] Error 1
+dpkg-buildpackage: error: fakeroot debian/rules binary-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1848
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -427,28 +1534,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 5936
+Build-Time: 8
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 13
 Job: tclcl_1.20-6
 Package: tclcl
-Package-Time: 0
+Package-Time: 53
 Source-Version: 1.20-6
-Space: 0
-Status: failed
+Space: 5936
+Status: attempted
 Version: 1.20-6
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0454
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 32.968264s
-DC-Time-Estimation: 32.968264 versus expected 164 (r/m: 3.97448091291674 ; m: 32.968264)
+Finished at 20130131-1848
+Build needed 00:00:53, 5936k disc space
+DC-Status: Failed 53.086847s
+DC-Time-Estimation: 53.086847 versus expected 164 (r/m: 2.08927746264531 ; m: 53.086847)

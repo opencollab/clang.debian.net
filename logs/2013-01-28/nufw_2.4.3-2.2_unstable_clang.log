@@ -1,12 +1,12 @@
-DC-Build-Header: nufw 2.4.3-2.2 / Mon Jan 28 04:58:28 +0000 2013
-DC-Task: logfile:/tmp/nufw_2.4.3-2.2_unstable_clang.log version:2.4.3-2.2 chroot:unstable modes:binary-only:clang source:nufw architecture:any esttime:149
+DC-Build-Header: nufw 2.4.3-2.2 / Thu Jan 31 18:48:15 +0000 2013
+DC-Task: logfile:/tmp/nufw_2.4.3-2.2_unstable_clang.log version:2.4.3-2.2 modes:binary-only:clang chroot:unstable source:nufw esttime:149 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang nufw_2.4.3-2.2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-0-100.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-52-156.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ nufw 2.4.3-2.2 (amd64)                                     28 Jan 2013 04:58 ║
+║ nufw 2.4.3-2.2 (amd64)                                     31 Jan 2013 18:48 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: nufw
@@ -15,9 +15,9 @@ Source Version: 2.4.3-2.2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/nufw-HDrzAB/nufw-2.4.3' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/nufw-HDrzAB' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-d48ab704-1baa-455d-8bb8-5d07f9918dc8' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/nufw-VYBgC1/nufw-2.4.3' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/nufw-VYBgC1' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-218ad166-adfa-4824-8df2-d2088fcce451' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4579 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (4415 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +58,7 @@ Need to get 999 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main nufw 2.4.3-2.2 (dsc) [2536 B]
 Get:2 http://localhost/debian/ unstable/main nufw 2.4.3-2.2 (tar) [979 kB]
 Get:3 http://localhost/debian/ unstable/main nufw 2.4.3-2.2 (diff) [16.7 kB]
-Fetched 999 kB in 0s (3252 kB/s)
+Fetched 999 kB in 0s (2859 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +75,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main Sources/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main Sources
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1286 kB/s)
+Fetched 3970 B in 1s (2675 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3858 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (32.4 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 15s (1648 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +190,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +248,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-gpe1Yc/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-JZWWjU/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +267,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5.0), po-debconf, automake1.9, libldap2-dev, libglib2.0-dev, libmysqlclient-dev | libmysqlclient15-dev, libpq-dev, iptables-dev, libtool, libgnutls-dev, libsasl2-dev, libpam0g-dev, libprelude-dev, libnetfilter-conntrack-dev, libnetfilter-queue-dev, libnfnetlink-dev, python-support (>= 0.4), python-dev, pkg-config, flex, bison, chrpath
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5.0), po-debconf, automake1.9, libldap2-dev, libglib2.0-dev, libmysqlclient-dev, libpq-dev, iptables-dev, libtool, libgnutls-dev, libsasl2-dev, libpam0g-dev, libprelude-dev, libnetfilter-conntrack-dev, libnetfilter-queue-dev, libnfnetlink-dev, python-support (>= 0.4), python-dev, pkg-config, flex, bison, chrpath
-dpkg-deb: building package `sbuild-build-depends-nufw-dummy' in `/«BUILDDIR»/resolver-58MZqn/apt_archive/sbuild-build-depends-nufw-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-nufw-dummy' in `/«BUILDDIR»/resolver-QBSlIM/apt_archive/sbuild-build-depends-nufw-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +284,1531 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake1.9 autotools-dev bison bsdmainutils chrpath comerr-dev
+  debhelper file flex gettext gettext-base groff-base html2text
+  intltool-debian iptables iptables-dev krb5-multidev libasprintf-dev
+  libasprintf0c2 libbison-dev libcroco3 libelf1 libexpat1-dev libgcrypt11
+  libgcrypt11-dev libgettextpo-dev libgettextpo0 libglib2.0-0 libglib2.0-bin
+  libglib2.0-data libglib2.0-dev libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4
+  libk5crypto3 libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1
+  libkrb5-3 libkrb5-dev libkrb5support0 libldap-2.4-2 libldap2-dev libltdl-dev
+  libltdl7 libmagic1 libmysqlclient-dev libmysqlclient18
+  libnetfilter-conntrack-dev libnetfilter-conntrack3 libnetfilter-queue-dev
+  libnetfilter-queue1 libnfnetlink-dev libnfnetlink0 libp11-kit-dev
+  libp11-kit0 libpam0g-dev libpcre3 libpcre3-dev libpcrecpp0 libpipeline1
+  libpopt0 libpq-dev libpq5 libprelude-dev libprelude2 libpython2.7 libsasl2-2
+  libsasl2-dev libsasl2-modules libsigsegv2 libssl-dev libtasn1-3
+  libtasn1-3-dev libtool libunistring0 libxml2 libxtables9 m4 man-db
+  mysql-common pkg-config po-debconf python-dev python-support python2.7-dev
+  zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc automake1.9-doc
+  bison-doc wamerican wordlist whois vacation doc-base dh-make gettext-doc
+  groff krb5-doc rng-tools libgcrypt11-doc libglib2.0-doc gnutls26-doc
+  krb5-user libtool-doc postgresql-doc-9.1 libsasl2-modules-otp
+  libsasl2-modules-ldap libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  libsasl2-modules-gssapi-heimdal gfortran fortran95-compiler gcj less
+  www-browser libmail-box-perl
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint shared-mime-info
+  krb5-locales libssl-doc xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake1.9 autotools-dev bison bsdmainutils chrpath comerr-dev
+  debhelper file flex gettext gettext-base groff-base html2text
+  intltool-debian iptables iptables-dev krb5-multidev libasprintf-dev
+  libasprintf0c2 libbison-dev libcroco3 libelf1 libexpat1-dev libgcrypt11
+  libgcrypt11-dev libgettextpo-dev libgettextpo0 libglib2.0-0 libglib2.0-bin
+  libglib2.0-data libglib2.0-dev libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4
+  libk5crypto3 libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1
+  libkrb5-3 libkrb5-dev libkrb5support0 libldap-2.4-2 libldap2-dev libltdl-dev
+  libltdl7 libmagic1 libmysqlclient-dev libmysqlclient18
+  libnetfilter-conntrack-dev libnetfilter-conntrack3 libnetfilter-queue-dev
+  libnetfilter-queue1 libnfnetlink-dev libnfnetlink0 libp11-kit-dev
+  libp11-kit0 libpam0g-dev libpcre3 libpcre3-dev libpcrecpp0 libpipeline1
+  libpopt0 libpq-dev libpq5 libprelude-dev libprelude2 libpython2.7 libsasl2-2
+  libsasl2-dev libsasl2-modules libsigsegv2 libssl-dev libtasn1-3
+  libtasn1-3-dev libtool libunistring0 libxml2 libxtables9 m4 man-db
+  mysql-common pkg-config po-debconf python-dev python-support python2.7-dev
+  sbuild-build-depends-nufw-dummy zlib1g-dev
+0 upgraded, 95 newly installed, 0 to remove and 0 not upgraded.
+Need to get 55.4 MB/55.4 MB of archives.
+After this operation, 133 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:13 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:14 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:15 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:16 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:17 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:18 http://localhost/debian/ unstable/main libgssrpc4 amd64 1.10.1+dfsg-3 [87.5 kB]
+Get:19 http://localhost/debian/ unstable/main libkadm5clnt-mit8 amd64 1.10.1+dfsg-3 [67.6 kB]
+Get:20 http://localhost/debian/ unstable/main libkdb5-6 amd64 1.10.1+dfsg-3 [66.5 kB]
+Get:21 http://localhost/debian/ unstable/main libkadm5srv-mit8 amd64 1.10.1+dfsg-3 [84.6 kB]
+Get:22 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:23 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:24 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:25 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:26 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:27 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:28 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:29 http://localhost/debian/ unstable/main flex amd64 2.5.35-10.1 [332 kB]
+Get:30 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:31 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:32 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:33 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:34 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:35 http://localhost/debian/ unstable/main libglib2.0-data all 2.33.12+really2.32.4-5 [1607 kB]
+Get:36 http://localhost/debian/ unstable/main libglib2.0-bin amd64 2.33.12+really2.32.4-5 [868 kB]
+Get:37 http://localhost/debian/ unstable/main libltdl7 amd64 2.4.2-1.2 [352 kB]
+Get:38 http://localhost/debian/ unstable/main mysql-common all 5.5.29+dfsg-1 [109 kB]
+Get:39 http://localhost/debian/ unstable/main libmysqlclient18 amd64 5.5.29+dfsg-1 [708 kB]
+Get:40 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:41 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:42 http://localhost/debian/ unstable/main libnfnetlink0 amd64 1.0.0-1.1 [14.8 kB]
+Get:43 http://localhost/debian/ unstable/main libnetfilter-conntrack3 amd64 1.0.1-1 [37.8 kB]
+Get:44 http://localhost/debian/ unstable/main libxtables9 amd64 1.4.16.3-4 [63.1 kB]
+Get:45 http://localhost/debian/ unstable/main iptables amd64 1.4.16.3-4 [378 kB]
+Get:46 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:47 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:48 http://localhost/debian/ unstable/main python-support all 1.0.15 [33.6 kB]
+Get:49 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:50 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:51 http://localhost/debian/ unstable/main automake1.9 all 1.9.6+nogfdl-4 [391 kB]
+Get:52 http://localhost/debian/ unstable/main libbison-dev amd64 2:2.5.dfsg-3 [289 kB]
+Get:53 http://localhost/debian/ unstable/main bison amd64 2:2.5.dfsg-3 [688 kB]
+Get:54 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:55 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:56 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:57 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:58 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:59 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:60 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:61 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:62 http://localhost/debian/ unstable/main iptables-dev amd64 1.4.16.3-4 [63.8 kB]
+Get:63 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:64 http://localhost/debian/ unstable/main krb5-multidev amd64 1.10.1+dfsg-3 [153 kB]
+Get:65 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:66 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:67 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:68 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:69 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:70 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:71 http://localhost/debian/ unstable/main libglib2.0-dev amd64 2.33.12+really2.32.4-5 [2051 kB]
+Get:72 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:73 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:74 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:75 http://localhost/debian/ unstable/main libltdl-dev amd64 2.4.2-1.2 [206 kB]
+Get:76 http://localhost/debian/ unstable/main libmysqlclient-dev amd64 5.5.29+dfsg-1 [974 kB]
+Get:77 http://localhost/debian/ unstable/main libnfnetlink-dev amd64 1.0.0-1.1 [20.5 kB]
+Get:78 http://localhost/debian/ unstable/main libnetfilter-conntrack-dev amd64 1.0.1-1 [8428 B]
+Get:79 http://localhost/debian/ unstable/main libnetfilter-queue1 amd64 0.0.17-1 [8674 B]
+Get:80 http://localhost/debian/ unstable/main libnetfilter-queue-dev amd64 0.0.17-1 [8674 B]
+Get:81 http://localhost/debian/ unstable/main libpam0g-dev amd64 1.1.3-7.1 [191 kB]
+Get:82 http://localhost/debian/ unstable/main libpq5 amd64 9.1.7-1 [516 kB]
+Get:83 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:84 http://localhost/debian/ unstable/main libkrb5-dev amd64 1.10.1+dfsg-3 [39.6 kB]
+Get:85 http://localhost/debian/ unstable/main libpq-dev amd64 9.1.7-1 [570 kB]
+Get:86 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:87 http://localhost/debian/ unstable/main libsasl2-modules amd64 2.1.25.dfsg1-6 [116 kB]
+Get:88 http://localhost/debian/ unstable/main libsasl2-dev amd64 2.1.25.dfsg1-6 [361 kB]
+Get:89 http://localhost/debian/ unstable/main libtool amd64 2.4.2-1.2 [621 kB]
+Get:90 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:91 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:92 http://localhost/debian/ unstable/main libldap2-dev amd64 2.4.31-1 [563 kB]
+Get:93 http://localhost/debian/ unstable/main libprelude2 amd64 1.0.0-9 [919 kB]
+Get:94 http://localhost/debian/ unstable/main libprelude-dev amd64 1.0.0-9 [361 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 55.4 MB in 2s (19.1 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Unpacking libgssrpc4:amd64 (from .../libgssrpc4_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8:amd64.
+Unpacking libkadm5clnt-mit8:amd64 (from .../libkadm5clnt-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkdb5-6:amd64.
+Unpacking libkdb5-6:amd64 (from .../libkdb5-6_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8:amd64.
+Unpacking libkadm5srv-mit8:amd64 (from .../libkadm5srv-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package flex.
+Unpacking flex (from .../flex_2.5.35-10.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglib2.0-data.
+Unpacking libglib2.0-data (from .../libglib2.0-data_2.33.12+really2.32.4-5_all.deb) ...
+Selecting previously unselected package libglib2.0-bin.
+Unpacking libglib2.0-bin (from .../libglib2.0-bin_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libltdl7:amd64.
+Unpacking libltdl7:amd64 (from .../libltdl7_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.29+dfsg-1_all.deb) ...
+Selecting previously unselected package libmysqlclient18:amd64.
+Unpacking libmysqlclient18:amd64 (from .../libmysqlclient18_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libnfnetlink0.
+Unpacking libnfnetlink0 (from .../libnfnetlink0_1.0.0-1.1_amd64.deb) ...
+Selecting previously unselected package libnetfilter-conntrack3:amd64.
+Unpacking libnetfilter-conntrack3:amd64 (from .../libnetfilter-conntrack3_1.0.1-1_amd64.deb) ...
+Selecting previously unselected package libxtables9.
+Unpacking libxtables9 (from .../libxtables9_1.4.16.3-4_amd64.deb) ...
+Selecting previously unselected package iptables.
+Unpacking iptables (from .../iptables_1.4.16.3-4_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package python-support.
+Unpacking python-support (from .../python-support_1.0.15_all.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake1.9.
+Unpacking automake1.9 (from .../automake1.9_1.9.6+nogfdl-4_all.deb) ...
+Selecting previously unselected package libbison-dev:amd64.
+Unpacking libbison-dev:amd64 (from .../libbison-dev_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package bison.
+Unpacking bison (from .../bison_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package iptables-dev.
+Unpacking iptables-dev (from .../iptables-dev_1.4.16.3-4_amd64.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libglib2.0-dev.
+Unpacking libglib2.0-dev (from .../libglib2.0-dev_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libltdl-dev:amd64.
+Unpacking libltdl-dev:amd64 (from .../libltdl-dev_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libmysqlclient-dev.
+Unpacking libmysqlclient-dev (from .../libmysqlclient-dev_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libnfnetlink-dev.
+Unpacking libnfnetlink-dev (from .../libnfnetlink-dev_1.0.0-1.1_amd64.deb) ...
+Selecting previously unselected package libnetfilter-conntrack-dev.
+Unpacking libnetfilter-conntrack-dev (from .../libnetfilter-conntrack-dev_1.0.1-1_amd64.deb) ...
+Selecting previously unselected package libnetfilter-queue1.
+Unpacking libnetfilter-queue1 (from .../libnetfilter-queue1_0.0.17-1_amd64.deb) ...
+Selecting previously unselected package libnetfilter-queue-dev.
+Unpacking libnetfilter-queue-dev (from .../libnetfilter-queue-dev_0.0.17-1_amd64.deb) ...
+Selecting previously unselected package libpam0g-dev:amd64.
+Unpacking libpam0g-dev:amd64 (from .../libpam0g-dev_1.1.3-7.1_amd64.deb) ...
+Selecting previously unselected package libpq5.
+Unpacking libpq5 (from .../libpq5_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libpq-dev.
+Unpacking libpq-dev (from .../libpq-dev_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libsasl2-modules:amd64.
+Unpacking libsasl2-modules:amd64 (from .../libsasl2-modules_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libsasl2-dev.
+Unpacking libsasl2-dev (from .../libsasl2-dev_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libtool.
+Unpacking libtool (from .../libtool_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package libldap2-dev:amd64.
+Unpacking libldap2-dev:amd64 (from .../libldap2-dev_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libprelude2.
+Unpacking libprelude2 (from .../libprelude2_1.0.0-9_amd64.deb) ...
+Selecting previously unselected package libprelude-dev.
+Unpacking libprelude-dev (from .../libprelude-dev_1.0.0-9_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-nufw-dummy.
+Unpacking sbuild-build-depends-nufw-dummy (from .../sbuild-build-depends-nufw-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssrpc4:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5clnt-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libkdb5-6:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5srv-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up flex (2.5.35-10.1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglib2.0-data (2.33.12+really2.32.4-5) ...
+Setting up libglib2.0-bin (2.33.12+really2.32.4-5) ...
+Setting up libltdl7:amd64 (2.4.2-1.2) ...
+Setting up mysql-common (5.5.29+dfsg-1) ...
+Setting up libmysqlclient18:amd64 (5.5.29+dfsg-1) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up libnfnetlink0 (1.0.0-1.1) ...
+Setting up libnetfilter-conntrack3:amd64 (1.0.1-1) ...
+Setting up libxtables9 (1.4.16.3-4) ...
+Setting up iptables (1.4.16.3-4) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up python-support (1.0.15) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake1.9 (1.9.6+nogfdl-4) ...
+update-alternatives: using /usr/bin/automake-1.9 to provide /usr/bin/automake (automake) in auto mode
+Setting up libbison-dev:amd64 (2:2.5.dfsg-3) ...
+Setting up bison (2:2.5.dfsg-3) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up iptables-dev (1.4.16.3-4) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up krb5-multidev (1.10.1+dfsg-3) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up pkg-config (0.26-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libglib2.0-dev (2.33.12+really2.32.4-5) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up libltdl-dev:amd64 (2.4.2-1.2) ...
+Setting up libmysqlclient-dev (5.5.29+dfsg-1) ...
+Setting up libnfnetlink-dev (1.0.0-1.1) ...
+Setting up libnetfilter-conntrack-dev (1.0.1-1) ...
+Setting up libnetfilter-queue1 (0.0.17-1) ...
+Setting up libnetfilter-queue-dev (0.0.17-1) ...
+Setting up libpam0g-dev:amd64 (1.1.3-7.1) ...
+Setting up libpq5 (9.1.7-1) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libkrb5-dev (1.10.1+dfsg-3) ...
+Setting up libpq-dev (9.1.7-1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libsasl2-modules:amd64 (2.1.25.dfsg1-6) ...
+Setting up libsasl2-dev (2.1.25.dfsg1-6) ...
+Setting up libtool (2.4.2-1.2) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up libldap2-dev:amd64 (2.4.31-1) ...
+Setting up libprelude2 (1.0.0-9) ...
+Setting up libprelude-dev (1.0.0-9) ...
+Setting up sbuild-build-depends-nufw-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-nufw-dummy : Depends: python-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake1.9_1.9.6+nogfdl-4 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bison_2:2.5.dfsg-3 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 flex_2.5.35-10.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 iptables_1.4.16.3-4 iptables-dev_1.4.16.3-4 krb5-multidev_1.10.1+dfsg-3 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libbison-dev_2:2.5.dfsg-3 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libelf1_0.153-2 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libglib2.0-bin_2.33.12+really2.32.4-5 libglib2.0-data_2.33.12+really2.32.4-5 libglib2.0-dev_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgssrpc4_1.10.1+dfsg-3 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkadm5clnt-mit8_1.10.1+dfsg-3 libkadm5srv-mit8_1.10.1+dfsg-3 libkdb5-6_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5-dev_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libldap2-dev_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 libltdl-dev_2.4.2-1.2 libltdl7_2.4.2-1.2 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmysqlclient-dev_5.5.29+dfsg-1 libmysqlclient18_5.5.29+dfsg-1 libncurses5_5.9-10 libncursesw5_5.9-10 libnetfilter-conntrack-dev_1.0.1-1 libnetfilter-conntrack3_1.0.1-1 libnetfilter-queue-dev_0.0.17-1 libnetfilter-queue1_0.0.17-1 libnfnetlink-dev_1.0.0-1.1 libnfnetlink0_1.0.0-1.1 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpam0g-dev_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libpq-dev_9.1.7-1 libpq5_9.1.7-1 libprelude-dev_1.0.0-9 libprelude2_1.0.0-9 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libsasl2-2_2.1.25.dfsg1-6 libsasl2-dev_2.1.25.dfsg1-6 libsasl2-modules_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtool_2.4.2-1.2 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 libxtables9_1.4.16.3-4 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 mysql-common_5.5.29+dfsg-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python-support_1.0.15 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-nufw-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Sep 30 16:51:32 2012 UTC using RSA key ID 8649AA06
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./nufw_2.4.3-2.2.dsc
+dpkg-source: info: extracting nufw in nufw-2.4.3
+dpkg-source: info: unpacking nufw_2.4.3.orig.tar.gz
+dpkg-source: info: unpacking nufw_2.4.3-2.2.debian.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-218ad166-adfa-4824-8df2-d2088fcce451
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package nufw
+dpkg-buildpackage: source version 2.4.3-2.2
+dpkg-buildpackage: source changed by gregor herrmann <gregoa@debian.org>
+ dpkg-source --before-build nufw-2.4.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+rm -f build-nufw build-nufw-stamp
+rm -f config-nufw-stamp install-stamp
+# Add here commands to clean up after the build process.
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -f tests/pki/Makefile
+find scripts/nuauth_command/ -name '*.pyc' -exec rm {} \;
+[ ! -d scripts/nuauth_command/build ] || rm -rf scripts/nuauth_command/build
+[ ! -f scripts/nuauth_command/scripts/nuauth_command ] || rm -f scripts/nuauth_command/scripts/nuauth_command
+rm -f tests/inl_tests/libnobuffer.so
+rm -f config.log
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir -a
+Doing config-nufw-stamp
+[ ! -f Makefile ] || make clean
+CFLAGS='-Wall -g -O2' ./configure --host=x86_64-linux-gnu --build=x86_64-linux-gnu --prefix=/usr --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --localstatedir=/var --sysconfdir=/etc/nufw/ --with-mysql-log --with-pgsql-log --with-system-auth --with-ldap --with-utf8 --with-nfqueue --with-nfconntrack --without-fixedtimeout --enable-pam-nufw --with-prelude-log --with-mysql-auth
+checking for x86_64-linux-gnu-gcc... x86_64-linux-gnu-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether x86_64-linux-gnu-gcc accepts -g... yes
+checking for x86_64-linux-gnu-gcc option to accept ISO C89... none needed
+checking for x86_64-linux-gnu-gcc option to accept ISO C99... none needed
+checking for x86_64-linux-gnu-gcc option to accept ISO Standard C... (cached) none needed
+checking for an ANSI C99-conforming __func__... yes
+./configure: line 3446: cd: /sbuild-nonexistent: No such file or directory
+/bin/bash: /missing: No such file or directory
+configure: WARNING: `missing' script is too old or missing
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for flex... flex
+checking for bison... bison -y
+checking for yacc... (cached) bison -y
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by x86_64-linux-gnu-gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... pass_all
+checking how to run the C preprocessor... x86_64-linux-gnu-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for x86_64-linux-gnu-g++... x86_64-linux-gnu-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether x86_64-linux-gnu-g++ accepts -g... yes
+checking how to run the C++ preprocessor... x86_64-linux-gnu-g++ -E
+checking for x86_64-linux-gnu-g77... no
+checking for x86_64-linux-gnu-xlf... no
+checking for x86_64-linux-gnu-f77... no
+checking for x86_64-linux-gnu-frt... no
+checking for x86_64-linux-gnu-pgf77... no
+checking for x86_64-linux-gnu-cf77... no
+checking for x86_64-linux-gnu-fort77... no
+checking for x86_64-linux-gnu-fl32... no
+checking for x86_64-linux-gnu-af77... no
+checking for x86_64-linux-gnu-xlf90... no
+checking for x86_64-linux-gnu-f90... no
+checking for x86_64-linux-gnu-pgf90... no
+checking for x86_64-linux-gnu-pghpf... no
+checking for x86_64-linux-gnu-epcf90... no
+checking for x86_64-linux-gnu-gfortran... no
+checking for x86_64-linux-gnu-g95... no
+checking for x86_64-linux-gnu-xlf95... no
+checking for x86_64-linux-gnu-f95... no
+checking for x86_64-linux-gnu-fort... no
+checking for x86_64-linux-gnu-ifort... no
+checking for x86_64-linux-gnu-ifc... no
+checking for x86_64-linux-gnu-efc... no
+checking for x86_64-linux-gnu-pgf95... no
+checking for x86_64-linux-gnu-lf95... no
+checking for x86_64-linux-gnu-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 3458764513820540925
+checking command to parse /usr/bin/nm -B output from x86_64-linux-gnu-gcc object... ok
+checking for objdir... .libs
+checking for x86_64-linux-gnu-ar... no
+checking for ar... ar
+checking for x86_64-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking for x86_64-linux-gnu-strip... no
+checking for strip... strip
+checking if x86_64-linux-gnu-gcc supports -fno-rtti -fno-exceptions... yes
+checking for x86_64-linux-gnu-gcc option to produce PIC... -fPIC
+checking if x86_64-linux-gnu-gcc PIC flag -fPIC works... yes
+checking if x86_64-linux-gnu-gcc static flag -static works... yes
+checking if x86_64-linux-gnu-gcc supports -c -o file.o... yes
+checking whether the x86_64-linux-gnu-gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by x86_64-linux-gnu-g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the x86_64-linux-gnu-g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for x86_64-linux-gnu-g++ option to produce PIC... -fPIC
+checking if x86_64-linux-gnu-g++ PIC flag -fPIC works... yes
+checking if x86_64-linux-gnu-g++ static flag -static works... yes
+checking if x86_64-linux-gnu-g++ supports -c -o file.o... yes
+checking whether the x86_64-linux-gnu-g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+(cached) (cached) checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether byte ordering is bigendian... no
+checking for struct dirent.d_type... yes
+checking for pthread_mutex_init in -lpthread... yes
+checking for x86_64-linux-gnu-docbook2man... no
+checking for docbook2man... no
+checking for x86_64-linux-gnu-docbook2pdf... no
+checking for docbook2pdf... no
+checking for ANSI C header files... (cached) yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for unistd.h... (cached) yes
+checking inexistent.h usability... no
+checking inexistent.h presence... no
+checking for inexistent.h... no
+checking for an ANSI C-conforming const... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking whether lstat dereferences a symlink specified with a trailing slash... yes
+checking whether stat accepts an empty string... no
+checking for getopt_long... yes
+checking for gethostbyname... yes
+checking for memset... yes
+checking for setsockopt... yes
+checking for socket... yes
+checking for strcasecmp... yes
+checking for strspn... yes
+checking for x86_64-linux-gnu-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libgcrypt-config... /usr/bin/libgcrypt-config
+checking for LIBGCRYPT - version >= 1.2.0... yes (1.5.0)
+checking for GNUTLS... yes
+checking for gnutls_priority_set in -lgnutls... yes
+checking for x86_64-linux-gnu-python... no
+checking for python... python
+checking for sasl_server_init in -lsasl2... yes
+checking for sasl_server_init in -lsasl2... (cached) yes
+checking for x86_64-linux-gnu-pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for GLIB - version >= 2.4.0... yes (version 2.32.4)
+checking for pam_start in -lpam... yes
+checking for ldap_simple_bind_s in -lldap... yes
+checking for mysql_real_connect in -lmysqlclient... yes
+checking for mysql_ssl_set in -lmysqlclient... yes
+checking prelude.h usability... yes
+checking prelude.h presence... yes
+checking for prelude.h... yes
+checking for prelude_init in -lprelude... yes
+checking for PQconnectdb in -lpq... yes
+checking for sasl_server_init in -lsasl2... (cached) yes
+checking for nfnl_open in -lnfnetlink... yes
+checking for nfq_open in -lnetfilter_queue... yes
+checking for nfq_set_queue_maxlen in -lnetfilter_queue... yes
+checking for nlif_catch in -lnfnetlink... yes
+checking for nfq_get_indev_name in -lnetfilter_queue... yes
+checking for nfct_dump_conntrack_table in -lnetfilter_conntrack... no
+checking for pam_start in -lpam... (cached) yes
+checking gcc version... 4.2.1
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking dependency style of x86_64-linux-gnu-gcc... gcc3
+checking dependency style of x86_64-linux-gnu-g++... gcc3
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating conf/Makefile
+config.status: creating python/Makefile
+config.status: creating selinux/Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/libs/Makefile
+config.status: creating src/libs/nubase/Makefile
+config.status: creating src/libs/nuconfparser/Makefile
+config.status: creating src/libs/nussl/Makefile
+config.status: creating src/libs/nussl/libnussl.pc
+config.status: creating src/nuauth/Makefile
+config.status: creating src/nuauth/modules/Makefile
+config.status: creating src/nuauth/modules/ldap/Makefile
+config.status: creating src/nuauth/modules/plaintext/Makefile
+config.status: creating src/nuauth/modules/mark_group/Makefile
+config.status: creating src/nuauth/modules/mark_field/Makefile
+config.status: creating src/nuauth/modules/mark_flag/Makefile
+config.status: creating src/nuauth/modules/system/Makefile
+config.status: creating src/nuauth/modules/log_pgsql/Makefile
+config.status: creating src/nuauth/modules/log_mysql/Makefile
+config.status: creating src/nuauth/modules/log_nuprelude/Makefile
+config.status: creating src/nuauth/modules/log_syslog/Makefile
+config.status: creating src/nuauth/modules/log_script/Makefile
+config.status: creating src/nuauth/modules/log_ulogd2/Makefile
+config.status: creating src/nuauth/modules/xml_defs/Makefile
+config.status: creating src/nuauth/modules/x509_std/Makefile
+config.status: creating src/nuauth/modules/mark_uid/Makefile
+config.status: creating src/nuauth/modules/session_expire/Makefile
+config.status: creating src/nuauth/modules/session_authtype/Makefile
+config.status: creating src/nuauth/modules/ipauth_guest/Makefile
+config.status: creating src/nuauth/modules/auth_mysql/Makefile
+config.status: creating src/nuauth/modules/postauth_localuser/Makefile
+config.status: creating src/clients/Makefile
+config.status: creating src/clients/lib/Makefile
+config.status: creating src/clients/lib/libnuclient.pc
+config.status: creating src/clients/lib/tests/Makefile
+config.status: creating src/clients/lib/plugins/Makefile
+config.status: creating src/clients/lib/plugins/luser/Makefile
+config.status: creating src/clients/nutcpc/Makefile
+config.status: creating src/clients/pam_nufw/Makefile
+config.status: creating src/nufw/Makefile
+config.status: creating scripts/Makefile
+config.status: creating scripts/nuauth_command/Makefile
+config.status: creating scripts/nuauth_command/scripts/Makefile
+config.status: creating scripts/nuauth_command/scripts/nuauth_command
+config.status: creating scripts/nuauth_command/nuauth_command/Makefile
+config.status: creating scripts/auth_mysql/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/inl_tests/Makefile
+config.status: creating tests/pki/Makefile
+config.status: creating src/include/config.h
+config.status: executing depfiles commands
+
+
+Configuration complete
+
+* Compiling with GnuTLS
+* Compiling NuAuth
+  - NuAuth: compile auth module system
+  - NuAuth: compile module ldap
+  - NuAuth: compile log module prelude
+  - NuAuth: compile log module mysql
+  - NuAuth: compile authentication module mysql
+  - NuAuth: compile log module pgsql
+  - NuAuth: compile syslog log module
+  - NuAuth: compile ulogd2 log module
+  - NuAuth: compile plaintext auth module
+  - NuAuth: compile mark group module
+  - NuAuth: compile mark field module
+  - NuAuth: compile mark flag module
+* Compiling NuFW
+  - NuFW: libnetfilter_queue support
+* Compiling libnuclient
+* Compiling nutcpc
+* Compiling pam_nufw
+
+Now type 'make' and then 'sudo make install'
+touch config-nufw-stamp
+dh_testdir -a
+Doing build-nufw-stamp
+/usr/bin/make
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making all in src
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+Making all in include
+make[3]: Entering directory `/«PKGBUILDDIR»/src/include'
+/usr/bin/make  all-am
+make[4]: Entering directory `/«PKGBUILDDIR»/src/include'
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/include'
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/include'
+Making all in libs
+make[3]: Entering directory `/«PKGBUILDDIR»/src/libs'
+Making all in nubase
+make[4]: Entering directory `/«PKGBUILDDIR»/src/libs/nubase'
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT config-table.lo -MD -MP -MF .deps/config-table.Tpo -c -o config-table.lo config-table.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-table.lo -MD -MP -MF .deps/config-table.Tpo -c config-table.c  -fPIC -DPIC -o .libs/config-table.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-table.lo -MD -MP -MF .deps/config-table.Tpo -c config-table.c -o config-table.o >/dev/null 2>&1
+mv -f .deps/config-table.Tpo .deps/config-table.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT log.lo -MD -MP -MF .deps/log.Tpo -c -o log.lo log.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT log.lo -MD -MP -MF .deps/log.Tpo -c log.c  -fPIC -DPIC -o .libs/log.o
+log.c:66:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_CRIT,       /* DEBUG_LEVEL_CRITICAL */
+                     ^  ~~~~~~~~
+log.c:66:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_CRIT,       /* DEBUG_LEVEL_CRITICAL */
+                     ^~
+                     |
+log.c:67:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_WARNING,    /* DEBUG_LEVEL_SERIOUS_WARNING */
+                     ^  ~~~~~~~~~~~
+log.c:67:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_WARNING,    /* DEBUG_LEVEL_SERIOUS_WARNING */
+                     ^~
+                     |
+log.c:68:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_WARNING,    /* DEBUG_LEVEL_WARNING */
+                     ^  ~~~~~~~~~~~
+log.c:68:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_WARNING,    /* DEBUG_LEVEL_WARNING */
+                     ^~
+                     |
+log.c:69:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_NOTICE,     /* DEBUG_LEVEL_SERIOUS_MESSAGE */
+                     ^  ~~~~~~~~~~
+log.c:69:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_NOTICE,     /* DEBUG_LEVEL_SERIOUS_MESSAGE */
+                     ^~
+                     |
+log.c:70:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_NOTICE,     /* DEBUG_LEVEL_MESSAGE */
+                     ^  ~~~~~~~~~~
+log.c:70:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_NOTICE,     /* DEBUG_LEVEL_MESSAGE */
+                     ^~
+                     |
+log.c:71:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_INFO,       /* DEBUG_LEVEL_INFO */
+                     ^  ~~~~~~~~
+log.c:71:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_INFO,       /* DEBUG_LEVEL_INFO */
+                     ^~
+                     |
+log.c:72:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_DEBUG,      /* DEBUG_LEVEL_DEBUG */
+                     ^  ~~~~~~~~~
+log.c:72:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_DEBUG,      /* DEBUG_LEVEL_DEBUG */
+                     ^~
+                     |
+log.c:73:15: warning: use of logical '||' with constant operand [-Wconstant-logical-operand]
+        LOG_FACILITY || LOG_DEBUG       /* DEBUG_LEVEL_VERBOSE_DEBUG */
+                     ^  ~~~~~~~~~
+log.c:73:15: note: use '|' for a bitwise operation
+        LOG_FACILITY || LOG_DEBUG       /* DEBUG_LEVEL_VERBOSE_DEBUG */
+                     ^~
+                     |
+8 warnings generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT log.lo -MD -MP -MF .deps/log.Tpo -c log.c -o log.o >/dev/null 2>&1
+mv -f .deps/log.Tpo .deps/log.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT ipv6.lo -MD -MP -MF .deps/ipv6.Tpo -c -o ipv6.lo ipv6.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ipv6.lo -MD -MP -MF .deps/ipv6.Tpo -c ipv6.c  -fPIC -DPIC -o .libs/ipv6.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ipv6.lo -MD -MP -MF .deps/ipv6.Tpo -c ipv6.c -o ipv6.o >/dev/null 2>&1
+mv -f .deps/ipv6.Tpo .deps/ipv6.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT packet_parser.lo -MD -MP -MF .deps/packet_parser.Tpo -c -o packet_parser.lo packet_parser.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT packet_parser.lo -MD -MP -MF .deps/packet_parser.Tpo -c packet_parser.c  -fPIC -DPIC -o .libs/packet_parser.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT packet_parser.lo -MD -MP -MF .deps/packet_parser.Tpo -c packet_parser.c -o packet_parser.o >/dev/null 2>&1
+mv -f .deps/packet_parser.Tpo .deps/packet_parser.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT strings.lo -MD -MP -MF .deps/strings.Tpo -c -o strings.lo strings.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT strings.lo -MD -MP -MF .deps/strings.Tpo -c strings.c  -fPIC -DPIC -o .libs/strings.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT strings.lo -MD -MP -MF .deps/strings.Tpo -c strings.c -o strings.o >/dev/null 2>&1
+mv -f .deps/strings.Tpo .deps/strings.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT ext_proto.lo -MD -MP -MF .deps/ext_proto.Tpo -c -o ext_proto.lo ext_proto.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ext_proto.lo -MD -MP -MF .deps/ext_proto.Tpo -c ext_proto.c  -fPIC -DPIC -o .libs/ext_proto.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ext_proto.lo -MD -MP -MF .deps/ext_proto.Tpo -c ext_proto.c -o ext_proto.o >/dev/null 2>&1
+mv -f .deps/ext_proto.Tpo .deps/ext_proto.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libnubase.la  config-table.lo log.lo ipv6.lo packet_parser.lo strings.lo ext_proto.lo  
+ar cru .libs/libnubase.a .libs/config-table.o .libs/log.o .libs/ipv6.o .libs/packet_parser.o .libs/strings.o .libs/ext_proto.o
+ranlib .libs/libnubase.a
+creating libnubase.la
+(cd .libs && rm -f libnubase.la && ln -s ../libnubase.la libnubase.la)
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/libs/nubase'
+Making all in nuconfparser
+make[4]: Entering directory `/«PKGBUILDDIR»/src/libs/nuconfparser'
+/usr/bin/make  all-am
+make[5]: Entering directory `/«PKGBUILDDIR»/src/libs/nuconfparser'
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -I../../../src/libs/nubase   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.yacc.lo -MD -MP -MF .deps/config-parser.yacc.Tpo -c -o config-parser.yacc.lo config-parser.yacc.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -I../../../src/libs/nubase -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.yacc.lo -MD -MP -MF .deps/config-parser.yacc.Tpo -c config-parser.yacc.c  -fPIC -DPIC -o .libs/config-parser.yacc.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -I../../../src/libs/nubase -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.yacc.lo -MD -MP -MF .deps/config-parser.yacc.Tpo -c config-parser.yacc.c -o config-parser.yacc.o >/dev/null 2>&1
+mv -f .deps/config-parser.yacc.Tpo .deps/config-parser.yacc.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -I../../../src/libs/nubase   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.lex.lo -MD -MP -MF .deps/config-parser.lex.Tpo -c -o config-parser.lex.lo config-parser.lex.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -I../../../src/libs/nubase -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.lex.lo -MD -MP -MF .deps/config-parser.lex.Tpo -c config-parser.lex.c  -fPIC -DPIC -o .libs/config-parser.lex.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -I../../../src/libs/nubase -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT config-parser.lex.lo -MD -MP -MF .deps/config-parser.lex.Tpo -c config-parser.lex.c -o config-parser.lex.o >/dev/null 2>&1
+mv -f .deps/config-parser.lex.Tpo .deps/config-parser.lex.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libnuconfparser.la  config-parser.yacc.lo config-parser.lex.lo  
+ar cru .libs/libnuconfparser.a .libs/config-parser.yacc.o .libs/config-parser.lex.o
+ranlib .libs/libnuconfparser.a
+creating libnuconfparser.la
+(cd .libs && rm -f libnuconfparser.la && ln -s ../libnuconfparser.la libnuconfparser.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/libs/nuconfparser'
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/libs/nuconfparser'
+Making all in nussl
+make[4]: Entering directory `/«PKGBUILDDIR»/src/libs/nussl'
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_alloc.lo -MD -MP -MF .deps/nussl_alloc.Tpo -c -o nussl_alloc.lo nussl_alloc.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_alloc.lo -MD -MP -MF .deps/nussl_alloc.Tpo -c nussl_alloc.c  -fPIC -DPIC -o .libs/nussl_alloc.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_alloc.lo -MD -MP -MF .deps/nussl_alloc.Tpo -c nussl_alloc.c -o nussl_alloc.o >/dev/null 2>&1
+mv -f .deps/nussl_alloc.Tpo .deps/nussl_alloc.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_dates.lo -MD -MP -MF .deps/nussl_dates.Tpo -c -o nussl_dates.lo nussl_dates.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_dates.lo -MD -MP -MF .deps/nussl_dates.Tpo -c nussl_dates.c  -fPIC -DPIC -o .libs/nussl_dates.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_dates.lo -MD -MP -MF .deps/nussl_dates.Tpo -c nussl_dates.c -o nussl_dates.o >/dev/null 2>&1
+mv -f .deps/nussl_dates.Tpo .deps/nussl_dates.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl.lo -MD -MP -MF .deps/nussl_openssl.Tpo -c -o nussl_openssl.lo nussl_openssl.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl.lo -MD -MP -MF .deps/nussl_openssl.Tpo -c nussl_openssl.c  -fPIC -DPIC -o .libs/nussl_openssl.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl.lo -MD -MP -MF .deps/nussl_openssl.Tpo -c nussl_openssl.c -o nussl_openssl.o >/dev/null 2>&1
+mv -f .deps/nussl_openssl.Tpo .deps/nussl_openssl.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_ctx.lo -MD -MP -MF .deps/nussl_openssl_ctx.Tpo -c -o nussl_openssl_ctx.lo nussl_openssl_ctx.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_ctx.lo -MD -MP -MF .deps/nussl_openssl_ctx.Tpo -c nussl_openssl_ctx.c  -fPIC -DPIC -o .libs/nussl_openssl_ctx.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_ctx.lo -MD -MP -MF .deps/nussl_openssl_ctx.Tpo -c nussl_openssl_ctx.c -o nussl_openssl_ctx.o >/dev/null 2>&1
+mv -f .deps/nussl_openssl_ctx.Tpo .deps/nussl_openssl_ctx.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls.lo -MD -MP -MF .deps/nussl_gnutls.Tpo -c -o nussl_gnutls.lo nussl_gnutls.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls.lo -MD -MP -MF .deps/nussl_gnutls.Tpo -c nussl_gnutls.c  -fPIC -DPIC -o .libs/nussl_gnutls.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls.lo -MD -MP -MF .deps/nussl_gnutls.Tpo -c nussl_gnutls.c -o nussl_gnutls.o >/dev/null 2>&1
+mv -f .deps/nussl_gnutls.Tpo .deps/nussl_gnutls.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_ctx.lo -MD -MP -MF .deps/nussl_gnutls_ctx.Tpo -c -o nussl_gnutls_ctx.lo nussl_gnutls_ctx.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_ctx.lo -MD -MP -MF .deps/nussl_gnutls_ctx.Tpo -c nussl_gnutls_ctx.c  -fPIC -DPIC -o .libs/nussl_gnutls_ctx.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_ctx.lo -MD -MP -MF .deps/nussl_gnutls_ctx.Tpo -c nussl_gnutls_ctx.c -o nussl_gnutls_ctx.o >/dev/null 2>&1
+mv -f .deps/nussl_gnutls_ctx.Tpo .deps/nussl_gnutls_ctx.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_ssl_common.lo -MD -MP -MF .deps/nussl_ssl_common.Tpo -c -o nussl_ssl_common.lo nussl_ssl_common.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_ssl_common.lo -MD -MP -MF .deps/nussl_ssl_common.Tpo -c nussl_ssl_common.c  -fPIC -DPIC -o .libs/nussl_ssl_common.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_ssl_common.lo -MD -MP -MF .deps/nussl_ssl_common.Tpo -c nussl_ssl_common.c -o nussl_ssl_common.o >/dev/null 2>&1
+mv -f .deps/nussl_ssl_common.Tpo .deps/nussl_ssl_common.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_request.lo -MD -MP -MF .deps/nussl_request.Tpo -c -o nussl_request.lo nussl_request.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_request.lo -MD -MP -MF .deps/nussl_request.Tpo -c nussl_request.c  -fPIC -DPIC -o .libs/nussl_request.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_request.lo -MD -MP -MF .deps/nussl_request.Tpo -c nussl_request.c -o nussl_request.o >/dev/null 2>&1
+mv -f .deps/nussl_request.Tpo .deps/nussl_request.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_session.lo -MD -MP -MF .deps/nussl_session.Tpo -c -o nussl_session.lo nussl_session.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_session.lo -MD -MP -MF .deps/nussl_session.Tpo -c nussl_session.c  -fPIC -DPIC -o .libs/nussl_session.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_session.lo -MD -MP -MF .deps/nussl_session.Tpo -c nussl_session.c -o nussl_session.o >/dev/null 2>&1
+mv -f .deps/nussl_session.Tpo .deps/nussl_session.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_socket.lo -MD -MP -MF .deps/nussl_socket.Tpo -c -o nussl_socket.lo nussl_socket.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_socket.lo -MD -MP -MF .deps/nussl_socket.Tpo -c nussl_socket.c  -fPIC -DPIC -o .libs/nussl_socket.o
+nussl_socket.c:1711:2: warning: 'gnutls_certificate_type_set_priority' is deprecated [-Wdeprecated-declarations]
+        gnutls_certificate_type_set_priority(sock->ssl,
+        ^
+/usr/include/gnutls/compat.h:347:7: note: 'gnutls_certificate_type_set_priority' declared here
+  int gnutls_certificate_type_set_priority (gnutls_session_t session,
+      ^
+1 warning generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_socket.lo -MD -MP -MF .deps/nussl_socket.Tpo -c nussl_socket.c -o nussl_socket.o >/dev/null 2>&1
+mv -f .deps/nussl_socket.Tpo .deps/nussl_socket.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_string.lo -MD -MP -MF .deps/nussl_string.Tpo -c -o nussl_string.lo nussl_string.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_string.lo -MD -MP -MF .deps/nussl_string.Tpo -c nussl_string.c  -fPIC -DPIC -o .libs/nussl_string.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_string.lo -MD -MP -MF .deps/nussl_string.Tpo -c nussl_string.c -o nussl_string.o >/dev/null 2>&1
+mv -f .deps/nussl_string.Tpo .deps/nussl_string.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_utils.lo -MD -MP -MF .deps/nussl_utils.Tpo -c -o nussl_utils.lo nussl_utils.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_utils.lo -MD -MP -MF .deps/nussl_utils.Tpo -c nussl_utils.c  -fPIC -DPIC -o .libs/nussl_utils.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_utils.lo -MD -MP -MF .deps/nussl_utils.Tpo -c nussl_utils.c -o nussl_utils.o >/dev/null 2>&1
+mv -f .deps/nussl_utils.Tpo .deps/nussl_utils.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_local.lo -MD -MP -MF .deps/nussl_openssl_local.Tpo -c -o nussl_openssl_local.lo nussl_openssl_local.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_local.lo -MD -MP -MF .deps/nussl_openssl_local.Tpo -c nussl_openssl_local.c  -fPIC -DPIC -o .libs/nussl_openssl_local.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_openssl_local.lo -MD -MP -MF .deps/nussl_openssl_local.Tpo -c nussl_openssl_local.c -o nussl_openssl_local.o >/dev/null 2>&1
+mv -f .deps/nussl_openssl_local.Tpo .deps/nussl_openssl_local.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_local.lo -MD -MP -MF .deps/nussl_gnutls_local.Tpo -c -o nussl_gnutls_local.lo nussl_gnutls_local.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_local.lo -MD -MP -MF .deps/nussl_gnutls_local.Tpo -c nussl_gnutls_local.c  -fPIC -DPIC -o .libs/nussl_gnutls_local.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_gnutls_local.lo -MD -MP -MF .deps/nussl_gnutls_local.Tpo -c nussl_gnutls_local.c -o nussl_gnutls_local.o >/dev/null 2>&1
+mv -f .deps/nussl_gnutls_local.Tpo .deps/nussl_gnutls_local.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include  -I../../../src/include/ -D_REENTRANT   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_hash.lo -MD -MP -MF .deps/nussl_hash.Tpo -c -o nussl_hash.lo nussl_hash.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_hash.lo -MD -MP -MF .deps/nussl_hash.Tpo -c nussl_hash.c  -fPIC -DPIC -o .libs/nussl_hash.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../src/include -I../../../src/include/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nussl_hash.lo -MD -MP -MF .deps/nussl_hash.Tpo -c nussl_hash.c -o nussl_hash.o >/dev/null 2>&1
+mv -f .deps/nussl_hash.Tpo .deps/nussl_hash.Plo
+/bin/bash ../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -version-info 1:0:0 -L/lib/x86_64-linux-gnu -lgcrypt -o libnussl.la -rpath /usr/lib nussl_alloc.lo nussl_dates.lo nussl_openssl.lo nussl_openssl_ctx.lo nussl_gnutls.lo nussl_gnutls_ctx.lo nussl_ssl_common.lo nussl_request.lo nussl_session.lo nussl_socket.lo nussl_string.lo nussl_utils.lo nussl_openssl_local.lo nussl_gnutls_local.lo nussl_hash.lo   -lpthread -lgcrypt -lgnutls 
+x86_64-linux-gnu-gcc -shared  .libs/nussl_alloc.o .libs/nussl_dates.o .libs/nussl_openssl.o .libs/nussl_openssl_ctx.o .libs/nussl_gnutls.o .libs/nussl_gnutls_ctx.o .libs/nussl_ssl_common.o .libs/nussl_request.o .libs/nussl_session.o .libs/nussl_socket.o .libs/nussl_string.o .libs/nussl_utils.o .libs/nussl_openssl_local.o .libs/nussl_gnutls_local.o .libs/nussl_hash.o  -L/lib/x86_64-linux-gnu -lpthread -lgcrypt -lgnutls  -Wl,-soname -Wl,libnussl.so.1 -o .libs/libnussl.so.1.0.0
+(cd .libs && rm -f libnussl.so.1 && ln -s libnussl.so.1.0.0 libnussl.so.1)
+(cd .libs && rm -f libnussl.so && ln -s libnussl.so.1.0.0 libnussl.so)
+ar cru .libs/libnussl.a  nussl_alloc.o nussl_dates.o nussl_openssl.o nussl_openssl_ctx.o nussl_gnutls.o nussl_gnutls_ctx.o nussl_ssl_common.o nussl_request.o nussl_session.o nussl_socket.o nussl_string.o nussl_utils.o nussl_openssl_local.o nussl_gnutls_local.o nussl_hash.o
+ranlib .libs/libnussl.a
+creating libnussl.la
+(cd .libs && rm -f libnussl.la && ln -s ../libnussl.la libnussl.la)
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/libs/nussl'
+make[4]: Entering directory `/«PKGBUILDDIR»/src/libs'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/libs'
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/libs'
+Making all in nuauth
+make[3]: Entering directory `/«PKGBUILDDIR»/src/nuauth'
+Making all in modules
+make[4]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules'
+Making all in ldap
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/ldap'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -fPIC -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT ldap.lo -MD -MP -MF .deps/ldap.Tpo -c -o ldap.lo ldap.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -fPIC -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ldap.lo -MD -MP -MF .deps/ldap.Tpo -c ldap.c  -fPIC -DPIC -o .libs/ldap.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -fPIC -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ldap.lo -MD -MP -MF .deps/ldap.Tpo -c ldap.c -o ldap.o >/dev/null 2>&1
+mv -f .deps/ldap.Tpo .deps/ldap.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libldap.la -rpath /usr/lib/nuauth/modules/ -rpath /usr/lib/nuauth/modules/ -module -avoid-version ldap.lo  -lldap_r
+x86_64-linux-gnu-gcc -shared  .libs/ldap.o  -L/lib/x86_64-linux-gnu -lgcrypt -lldap_r  -Wl,-soname -Wl,libldap.so -o .libs/libldap.so
+ar cru .libs/libldap.a  ldap.o
+ranlib .libs/libldap.a
+creating libldap.la
+(cd .libs && rm -f libldap.la && ln -s ../libldap.la libldap.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/ldap'
+Making all in log_syslog
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_syslog'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT syslog.lo -MD -MP -MF .deps/syslog.Tpo -c -o syslog.lo syslog.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT syslog.lo -MD -MP -MF .deps/syslog.Tpo -c syslog.c  -fPIC -DPIC -o .libs/syslog.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT syslog.lo -MD -MP -MF .deps/syslog.Tpo -c syslog.c -o syslog.o >/dev/null 2>&1
+mv -f .deps/syslog.Tpo .deps/syslog.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libsyslog.la -rpath /usr/lib/nuauth/modules -module -avoid-version syslog.lo 
+x86_64-linux-gnu-gcc -shared  .libs/syslog.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libsyslog.so -o .libs/libsyslog.so
+ar cru .libs/libsyslog.a  syslog.o
+ranlib .libs/libsyslog.a
+creating libsyslog.la
+(cd .libs && rm -f libsyslog.la && ln -s ../libsyslog.la libsyslog.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_syslog'
+Making all in log_script
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_script'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT script.lo -MD -MP -MF .deps/script.Tpo -c -o script.lo script.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT script.lo -MD -MP -MF .deps/script.Tpo -c script.c  -fPIC -DPIC -o .libs/script.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT script.lo -MD -MP -MF .deps/script.Tpo -c script.c -o script.o >/dev/null 2>&1
+mv -f .deps/script.Tpo .deps/script.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libscript.la -rpath /usr/lib/nuauth/modules -module -avoid-version  script.lo 
+x86_64-linux-gnu-gcc -shared  .libs/script.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libscript.so -o .libs/libscript.so
+ar cru .libs/libscript.a  script.o
+ranlib .libs/libscript.a
+creating libscript.la
+(cd .libs && rm -f libscript.la && ln -s ../libscript.la libscript.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_script'
+Making all in log_mysql
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_mysql'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ `mysql_config --include` -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql.lo -MD -MP -MF .deps/mysql.Tpo -c -o mysql.lo mysql.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -I/usr/include/mysql -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql.lo -MD -MP -MF .deps/mysql.Tpo -c mysql.c  -fPIC -DPIC -o .libs/mysql.o
+mysql.c:573:10: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                     TCP_STATE_CLOSE,
+                                     ^~~~~~~~~~~~~~~
+mysql.c:650:10: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                     TCP_STATE_ESTABLISHED,
+                                     ^~~~~~~~~~~~~~~~~~~~~
+mysql.c:656:10: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                     TCP_STATE_OPEN);
+                                     ^~~~~~~~~~~~~~
+mysql.c:726:5: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                TCP_STATE_CLOSE,
+                                ^~~~~~~~~~~~~~~
+mysql.c:735:5: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                TCP_STATE_ESTABLISHED,
+                                ^~~~~~~~~~~~~~~~~~~~~
+mysql.c:736:5: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                                TCP_STATE_OPEN);
+                                ^~~~~~~~~~~~~~
+6 warnings generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -I/usr/include/mysql -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql.lo -MD -MP -MF .deps/mysql.Tpo -c mysql.c -o mysql.o >/dev/null 2>&1
+mv -f .deps/mysql.Tpo .deps/mysql.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libmysql.la -rpath /usr/lib/nuauth/modules -rpath /usr/lib/nuauth/modules -module -avoid-version  mysql.lo  `mysql_config --libs_r` 
+x86_64-linux-gnu-gcc -shared  .libs/mysql.o  -L/lib/x86_64-linux-gnu -lgcrypt -L/usr/lib/x86_64-linux-gnu -lmysqlclient_r -lpthread -lz -lm -lrt -ldl  -Wl,-soname -Wl,libmysql.so -o .libs/libmysql.so
+ar cru .libs/libmysql.a  mysql.o
+ranlib .libs/libmysql.a
+creating libmysql.la
+(cd .libs && rm -f libmysql.la && ln -s ../libmysql.la libmysql.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_mysql'
+Making all in log_pgsql
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_pgsql'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I/usr/include/postgresql/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT pgsql.lo -MD -MP -MF .deps/pgsql.Tpo -c -o pgsql.lo pgsql.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I/usr/include/postgresql/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT pgsql.lo -MD -MP -MF .deps/pgsql.Tpo -c pgsql.c  -fPIC -DPIC -o .libs/pgsql.o
+pgsql.c:317:33: warning: format specifies type 'unsigned short' but the argument has type 'tcp_state_t' [-Wformat]
+                             log_prefix, oob_prefix, state,
+                                                     ^~~~~
+pgsql.c:436:9: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                             TCP_STATE_CLOSE,
+                             ^~~~~~~~~~~~~~~
+pgsql.c:504:5: warning: format specifies type 'unsigned short' but the argument has type 'tcp_state_t' [-Wformat]
+                                new_state, element->timestamp,
+                                ^~~~~~~~~
+pgsql.c:505:39: warning: format specifies type 'unsigned short' but the argument has type 'tcp_state_t' [-Wformat]
+                                ip_src, ip_dst, tcp_src, tcp_dst, old_state);
+                                                                  ^~~~~~~~~
+pgsql.c:515:5: warning: format specifies type 'unsigned short' but the argument has type 'tcp_state_t' [-Wformat]
+                                new_state, element->timestamp,
+                                ^~~~~~~~~
+pgsql.c:520:39: warning: format specifies type 'unsigned short' but the argument has type 'tcp_state_t' [-Wformat]
+                                ip_src, ip_dst, tcp_src, tcp_dst, old_state);
+                                                                  ^~~~~~~~~
+6 warnings generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I/usr/include/postgresql/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT pgsql.lo -MD -MP -MF .deps/pgsql.Tpo -c pgsql.c -o pgsql.o >/dev/null 2>&1
+mv -f .deps/pgsql.Tpo .deps/pgsql.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libpgsql.la -rpath /usr/lib/nuauth/modules -rpath /usr/lib/nuauth/modules -module -avoid-version pgsql.lo  -lpq
+x86_64-linux-gnu-gcc -shared  .libs/pgsql.o  -L/lib/x86_64-linux-gnu -lgcrypt -lpq  -Wl,-soname -Wl,libpgsql.so -o .libs/libpgsql.so
+ar cru .libs/libpgsql.a  pgsql.o
+ranlib .libs/libpgsql.a
+creating libpgsql.la
+(cd .libs && rm -f libpgsql.la && ln -s ../libpgsql.la libpgsql.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_pgsql'
+Making all in plaintext
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/plaintext'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT plaintext.lo -MD -MP -MF .deps/plaintext.Tpo -c -o plaintext.lo plaintext.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT plaintext.lo -MD -MP -MF .deps/plaintext.Tpo -c plaintext.c  -fPIC -DPIC -o .libs/plaintext.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT plaintext.lo -MD -MP -MF .deps/plaintext.Tpo -c plaintext.c -o plaintext.o >/dev/null 2>&1
+mv -f .deps/plaintext.Tpo .deps/plaintext.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libplaintext.la -rpath /usr/lib/nuauth/modules -module -avoid-version plaintext.lo  
+x86_64-linux-gnu-gcc -shared  .libs/plaintext.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libplaintext.so -o .libs/libplaintext.so
+ar cru .libs/libplaintext.a  plaintext.o
+ranlib .libs/libplaintext.a
+creating libplaintext.la
+(cd .libs && rm -f libplaintext.la && ln -s ../libplaintext.la libplaintext.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/plaintext'
+Making all in system
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/system'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT system.lo -MD -MP -MF .deps/system.Tpo -c -o system.lo system.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT system.lo -MD -MP -MF .deps/system.Tpo -c system.c  -fPIC -DPIC -o .libs/system.o
+system.c:42:26: warning: missing field 'unused' initializer [-Wmissing-field-initializers]
+GStaticMutex pam_mutex = G_STATIC_MUTEX_INIT;
+                         ^
+/usr/include/glib-2.0/glib/deprecated/gthread.h:127:36: note: expanded from macro 'G_STATIC_MUTEX_INIT'
+#define G_STATIC_MUTEX_INIT { NULL }
+                                   ^
+1 warning generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT system.lo -MD -MP -MF .deps/system.Tpo -c system.c -o system.o >/dev/null 2>&1
+mv -f .deps/system.Tpo .deps/system.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT getugroups.lo -MD -MP -MF .deps/getugroups.Tpo -c -o getugroups.lo getugroups.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT getugroups.lo -MD -MP -MF .deps/getugroups.Tpo -c getugroups.c  -fPIC -DPIC -o .libs/getugroups.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT getugroups.lo -MD -MP -MF .deps/getugroups.Tpo -c getugroups.c -o getugroups.o >/dev/null 2>&1
+mv -f .deps/getugroups.Tpo .deps/getugroups.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libsystem.la -rpath /usr/lib/nuauth/modules -rpath /usr/lib/nuauth/modules -module -avoid-version system.lo getugroups.lo -lpam -pthread -Wl,--export-dynamic -lgthread-2.0 -lgmodule-2.0 -lrt -lglib-2.0  
+x86_64-linux-gnu-gcc -shared  .libs/system.o .libs/getugroups.o  -L/lib/x86_64-linux-gnu -lgcrypt -lpam -lgthread-2.0 -lgmodule-2.0 -lrt -lglib-2.0  -pthread -Wl,--export-dynamic -Wl,-soname -Wl,libsystem.so -o .libs/libsystem.so
+ar cru .libs/libsystem.a  system.o getugroups.o
+ranlib .libs/libsystem.a
+creating libsystem.la
+(cd .libs && rm -f libsystem.la && ln -s ../libsystem.la libsystem.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/system'
+Making all in xml_defs
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/xml_defs'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT xml_defs.lo -MD -MP -MF .deps/xml_defs.Tpo -c -o xml_defs.lo xml_defs.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT xml_defs.lo -MD -MP -MF .deps/xml_defs.Tpo -c xml_defs.c  -fPIC -DPIC -o .libs/xml_defs.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT xml_defs.lo -MD -MP -MF .deps/xml_defs.Tpo -c xml_defs.c -o xml_defs.o >/dev/null 2>&1
+mv -f .deps/xml_defs.Tpo .deps/xml_defs.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libxml_defs.la -rpath /usr/lib/nuauth/modules -module -avoid-version xml_defs.lo  
+x86_64-linux-gnu-gcc -shared  .libs/xml_defs.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libxml_defs.so -o .libs/libxml_defs.so
+ar cru .libs/libxml_defs.a  xml_defs.o
+ranlib .libs/libxml_defs.a
+creating libxml_defs.la
+(cd .libs && rm -f libxml_defs.la && ln -s ../libxml_defs.la libxml_defs.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/xml_defs'
+Making all in x509_std
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/x509_std'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT x509_std.lo -MD -MP -MF .deps/x509_std.Tpo -c -o x509_std.lo x509_std.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT x509_std.lo -MD -MP -MF .deps/x509_std.Tpo -c x509_std.c  -fPIC -DPIC -o .libs/x509_std.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT x509_std.lo -MD -MP -MF .deps/x509_std.Tpo -c x509_std.c -o x509_std.o >/dev/null 2>&1
+mv -f .deps/x509_std.Tpo .deps/x509_std.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libx509_std.la -rpath /usr/lib/nuauth/modules -module -avoid-version x509_std.lo  
+x86_64-linux-gnu-gcc -shared  .libs/x509_std.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libx509_std.so -o .libs/libx509_std.so
+ar cru .libs/libx509_std.a  x509_std.o
+ranlib .libs/libx509_std.a
+creating libx509_std.la
+(cd .libs && rm -f libx509_std.la && ln -s ../libx509_std.la libx509_std.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/x509_std'
+Making all in log_nuprelude
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_nuprelude'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -I/usr/include/libprelude/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nuprelude.lo -MD -MP -MF .deps/nuprelude.Tpo -c -o nuprelude.lo nuprelude.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -I/usr/include/libprelude/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nuprelude.lo -MD -MP -MF .deps/nuprelude.Tpo -c nuprelude.c  -fPIC -DPIC -o .libs/nuprelude.o
+nuprelude.c:452:53: warning: format specifies type 'unsigned short' but the argument has type 'u_int8_t' (aka 'unsigned char') [-Wformat]
+        if (secure_snprintf(buffer, sizeof(buffer), "%hu", conn->tracking.protocol)) {
+                                                     ~~~   ^~~~~~~~~~~~~~~~~~~~~~~
+                                                     %hhu
+nuprelude.c:464:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if ((state ==
+                     ~~~~~~^~
+nuprelude.c:464:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if ((state ==
+                    ~      ^
+nuprelude.c:464:14: note: use '=' to turn this equality comparison into an assignment
+                if ((state ==
+                           ^~
+                           =
+2 warnings generated.
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase/ -I../../../../src/libs/nussl/ -I/usr/include/libprelude/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT nuprelude.lo -MD -MP -MF .deps/nuprelude.Tpo -c nuprelude.c -o nuprelude.o >/dev/null 2>&1
+mv -f .deps/nuprelude.Tpo .deps/nuprelude.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libnuprelude.la -rpath /usr/lib/nuauth/modules -module -avoid-version nuprelude.lo  -lprelude
+x86_64-linux-gnu-gcc -shared  .libs/nuprelude.o  -L/lib/x86_64-linux-gnu -lgcrypt /usr/lib/libprelude.so  -Wl,-soname -Wl,libnuprelude.so -o .libs/libnuprelude.so
+ar cru .libs/libnuprelude.a  nuprelude.o
+ranlib .libs/libnuprelude.a
+creating libnuprelude.la
+(cd .libs && rm -f libnuprelude.la && ln -s ../libnuprelude.la libnuprelude.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_nuprelude'
+Making all in mark_uid
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_uid'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_uid.lo -MD -MP -MF .deps/mark_uid.Tpo -c -o mark_uid.lo mark_uid.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_uid.lo -MD -MP -MF .deps/mark_uid.Tpo -c mark_uid.c  -fPIC -DPIC -o .libs/mark_uid.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_uid.lo -MD -MP -MF .deps/mark_uid.Tpo -c mark_uid.c -o mark_uid.o >/dev/null 2>&1
+mv -f .deps/mark_uid.Tpo .deps/mark_uid.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libmark_uid.la -rpath /usr/lib/nuauth/modules -module -avoid-version mark_uid.lo 
+x86_64-linux-gnu-gcc -shared  .libs/mark_uid.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libmark_uid.so -o .libs/libmark_uid.so
+ar cru .libs/libmark_uid.a  mark_uid.o
+ranlib .libs/libmark_uid.a
+creating libmark_uid.la
+(cd .libs && rm -f libmark_uid.la && ln -s ../libmark_uid.la libmark_uid.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_uid'
+Making all in session_expire
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/session_expire'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT session_expire.lo -MD -MP -MF .deps/session_expire.Tpo -c -o session_expire.lo session_expire.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT session_expire.lo -MD -MP -MF .deps/session_expire.Tpo -c session_expire.c  -fPIC -DPIC -o .libs/session_expire.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT session_expire.lo -MD -MP -MF .deps/session_expire.Tpo -c session_expire.c -o session_expire.o >/dev/null 2>&1
+mv -f .deps/session_expire.Tpo .deps/session_expire.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libsession_expire.la -rpath /usr/lib/nuauth/modules -module -avoid-version session_expire.lo 
+x86_64-linux-gnu-gcc -shared  .libs/session_expire.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libsession_expire.so -o .libs/libsession_expire.so
+ar cru .libs/libsession_expire.a  session_expire.o
+ranlib .libs/libsession_expire.a
+creating libsession_expire.la
+(cd .libs && rm -f libsession_expire.la && ln -s ../libsession_expire.la libsession_expire.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/session_expire'
+Making all in ipauth_guest
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/ipauth_guest'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT libipauth_guest.lo -MD -MP -MF .deps/libipauth_guest.Tpo -c -o libipauth_guest.lo libipauth_guest.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT libipauth_guest.lo -MD -MP -MF .deps/libipauth_guest.Tpo -c libipauth_guest.c  -fPIC -DPIC -o .libs/libipauth_guest.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT libipauth_guest.lo -MD -MP -MF .deps/libipauth_guest.Tpo -c libipauth_guest.c -o libipauth_guest.o >/dev/null 2>&1
+mv -f .deps/libipauth_guest.Tpo .deps/libipauth_guest.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libipauth_guest.la -rpath /usr/lib/nuauth/modules -module -avoid-version  libipauth_guest.lo 
+x86_64-linux-gnu-gcc -shared  .libs/libipauth_guest.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libipauth_guest.so -o .libs/libipauth_guest.so
+ar cru .libs/libipauth_guest.a  libipauth_guest.o
+ranlib .libs/libipauth_guest.a
+creating libipauth_guest.la
+(cd .libs && rm -f libipauth_guest.la && ln -s ../libipauth_guest.la libipauth_guest.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/ipauth_guest'
+Making all in mark_group
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_group'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_group.lo -MD -MP -MF .deps/mark_group.Tpo -c -o mark_group.lo mark_group.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_group.lo -MD -MP -MF .deps/mark_group.Tpo -c mark_group.c  -fPIC -DPIC -o .libs/mark_group.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_group.lo -MD -MP -MF .deps/mark_group.Tpo -c mark_group.c -o mark_group.o >/dev/null 2>&1
+mv -f .deps/mark_group.Tpo .deps/mark_group.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libmark_group.la -rpath /usr/lib/nuauth/modules -module -avoid-version mark_group.lo  
+x86_64-linux-gnu-gcc -shared  .libs/mark_group.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libmark_group.so -o .libs/libmark_group.so
+ar cru .libs/libmark_group.a  mark_group.o
+ranlib .libs/libmark_group.a
+creating libmark_group.la
+(cd .libs && rm -f libmark_group.la && ln -s ../libmark_group.la libmark_group.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_group'
+Making all in mark_field
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_field'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_field.lo -MD -MP -MF .deps/mark_field.Tpo -c -o mark_field.lo mark_field.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_field.lo -MD -MP -MF .deps/mark_field.Tpo -c mark_field.c  -fPIC -DPIC -o .libs/mark_field.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_field.lo -MD -MP -MF .deps/mark_field.Tpo -c mark_field.c -o mark_field.o >/dev/null 2>&1
+mv -f .deps/mark_field.Tpo .deps/mark_field.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libmark_field.la -rpath /usr/lib/nuauth/modules -module -avoid-version mark_field.lo  
+x86_64-linux-gnu-gcc -shared  .libs/mark_field.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libmark_field.so -o .libs/libmark_field.so
+ar cru .libs/libmark_field.a  mark_field.o
+ranlib .libs/libmark_field.a
+creating libmark_field.la
+(cd .libs && rm -f libmark_field.la && ln -s ../libmark_field.la libmark_field.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_field'
+Making all in mark_flag
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_flag'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_flag.lo -MD -MP -MF .deps/mark_flag.Tpo -c -o mark_flag.lo mark_flag.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_flag.lo -MD -MP -MF .deps/mark_flag.Tpo -c mark_flag.c  -fPIC -DPIC -o .libs/mark_flag.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mark_flag.lo -MD -MP -MF .deps/mark_flag.Tpo -c mark_flag.c -o mark_flag.o >/dev/null 2>&1
+mv -f .deps/mark_flag.Tpo .deps/mark_flag.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libmark_flag.la -rpath /usr/lib/nuauth/modules -module -avoid-version mark_flag.lo 
+x86_64-linux-gnu-gcc -shared  .libs/mark_flag.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libmark_flag.so -o .libs/libmark_flag.so
+ar cru .libs/libmark_flag.a  mark_flag.o
+ranlib .libs/libmark_flag.a
+creating libmark_flag.la
+(cd .libs && rm -f libmark_flag.la && ln -s ../libmark_flag.la libmark_flag.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/mark_flag'
+Making all in auth_mysql
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/auth_mysql'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ `mysql_config --include` -I../../../../src/libs/nussl/ -I../../../../src/libs/nubase/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql_auth.lo -MD -MP -MF .deps/mysql_auth.Tpo -c -o mysql_auth.lo mysql_auth.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I/usr/include/mysql -I../../../../src/libs/nussl/ -I../../../../src/libs/nubase/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql_auth.lo -MD -MP -MF .deps/mysql_auth.Tpo -c mysql_auth.c  -fPIC -DPIC -o .libs/mysql_auth.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I/usr/include/mysql -I../../../../src/libs/nussl/ -I../../../../src/libs/nubase/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT mysql_auth.lo -MD -MP -MF .deps/mysql_auth.Tpo -c mysql_auth.c -o mysql_auth.o >/dev/null 2>&1
+mv -f .deps/mysql_auth.Tpo .deps/mysql_auth.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libauth_mysql.la -rpath /usr/lib/nuauth/modules -rpath /usr/lib/nuauth/modules -module -avoid-version mysql_auth.lo  `mysql_config --libs_r` 
+x86_64-linux-gnu-gcc -shared  .libs/mysql_auth.o  -L/lib/x86_64-linux-gnu -lgcrypt -L/usr/lib/x86_64-linux-gnu -lmysqlclient_r -lpthread -lz -lm -lrt -ldl  -Wl,-soname -Wl,libauth_mysql.so -o .libs/libauth_mysql.so
+ar cru .libs/libauth_mysql.a  mysql_auth.o
+ranlib .libs/libauth_mysql.a
+creating libauth_mysql.la
+(cd .libs && rm -f libauth_mysql.la && ln -s ../libauth_mysql.la libauth_mysql.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/auth_mysql'
+Making all in session_authtype
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/session_authtype'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT session_authtype.lo -MD -MP -MF .deps/session_authtype.Tpo -c -o session_authtype.lo session_authtype.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT session_authtype.lo -MD -MP -MF .deps/session_authtype.Tpo -c session_authtype.c  -fPIC -DPIC -o .libs/session_authtype.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT session_authtype.lo -MD -MP -MF .deps/session_authtype.Tpo -c session_authtype.c -o session_authtype.o >/dev/null 2>&1
+mv -f .deps/session_authtype.Tpo .deps/session_authtype.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libsession_authtype.la -rpath /usr/lib/nuauth/modules -module -avoid-version session_authtype.lo 
+x86_64-linux-gnu-gcc -shared  .libs/session_authtype.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libsession_authtype.so -o .libs/libsession_authtype.so
+ar cru .libs/libsession_authtype.a  session_authtype.o
+ranlib .libs/libsession_authtype.a
+creating libsession_authtype.la
+(cd .libs && rm -f libsession_authtype.la && ln -s ../libsession_authtype.la libsession_authtype.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/session_authtype'
+Making all in log_ulogd2
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/log_ulogd2'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT ulogd2.lo -MD -MP -MF .deps/ulogd2.Tpo -c -o ulogd2.lo ulogd2.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ulogd2.lo -MD -MP -MF .deps/ulogd2.Tpo -c ulogd2.c  -fPIC -DPIC -o .libs/ulogd2.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT ulogd2.lo -MD -MP -MF .deps/ulogd2.Tpo -c ulogd2.c -o ulogd2.o >/dev/null 2>&1
+mv -f .deps/ulogd2.Tpo .deps/ulogd2.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT log_ulogd2_request.lo -MD -MP -MF .deps/log_ulogd2_request.Tpo -c -o log_ulogd2_request.lo log_ulogd2_request.c
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT log_ulogd2_request.lo -MD -MP -MF .deps/log_ulogd2_request.Tpo -c log_ulogd2_request.c  -fPIC -DPIC -o .libs/log_ulogd2_request.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth -I../../../../src/include -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT log_ulogd2_request.lo -MD -MP -MF .deps/log_ulogd2_request.Tpo -c log_ulogd2_request.c -o log_ulogd2_request.o >/dev/null 2>&1
+mv -f .deps/log_ulogd2_request.Tpo .deps/log_ulogd2_request.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libulogd2.la -rpath /usr/lib/nuauth/modules -module -avoid-version ulogd2.lo log_ulogd2_request.lo  
+x86_64-linux-gnu-gcc -shared  .libs/ulogd2.o .libs/log_ulogd2_request.o  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libulogd2.so -o .libs/libulogd2.so
+ar cru .libs/libulogd2.a  ulogd2.o log_ulogd2_request.o
+ranlib .libs/libulogd2.a
+creating libulogd2.la
+(cd .libs && rm -f libulogd2.la && ln -s ../libulogd2.la libulogd2.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/log_ulogd2'
+Making all in postauth_localuser
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules/postauth_localuser'
+/bin/bash ../../../../libtool --tag=CC   --mode=compile x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\"   -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT libpostauth_localuser.lo -MD -MP -MF .deps/libpostauth_localuser.Tpo -c -o libpostauth_localuser.lo libpostauth_localuser.c
+mkdir .libs
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT libpostauth_localuser.lo -MD -MP -MF .deps/libpostauth_localuser.Tpo -c libpostauth_localuser.c  -fPIC -DPIC -o .libs/libpostauth_localuser.o
+ x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I../../../../src/nuauth/ -I../../../../src/include/ -I../../../../src/libs/nubase -I../../../../src/libs/nussl/ -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE -Wextra -Wall -Wno-unused-parameter -O2 -MT libpostauth_localuser.lo -MD -MP -MF .deps/libpostauth_localuser.Tpo -c libpostauth_localuser.c -o libpostauth_localuser.o >/dev/null 2>&1
+mv -f .deps/libpostauth_localuser.Tpo .deps/libpostauth_localuser.Plo
+/bin/bash ../../../../libtool --tag=CC   --mode=link x86_64-linux-gnu-gcc  -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2  -L/lib/x86_64-linux-gnu -lgcrypt -o libpostauth_localuser.la -rpath /usr/lib/nuauth/modules -module -avoid-version ../../../libs/nubase/libnubase.la libpostauth_localuser.lo 
+x86_64-linux-gnu-gcc -shared  .libs/libpostauth_localuser.o -Wl,--whole-archive ../../../libs/nubase/.libs/libnubase.a -Wl,--no-whole-archive  -L/lib/x86_64-linux-gnu -lgcrypt  -Wl,-soname -Wl,libpostauth_localuser.so -o .libs/libpostauth_localuser.so
+rm -fr .libs/libpostauth_localuser.lax
+mkdir .libs/libpostauth_localuser.lax
+rm -fr .libs/libpostauth_localuser.lax/libnubase.a
+mkdir .libs/libpostauth_localuser.lax/libnubase.a
+(cd .libs/libpostauth_localuser.lax/libnubase.a && ar x /«PKGBUILDDIR»/src/nuauth/modules/postauth_localuser/../../../libs/nubase/.libs/libnubase.a)
+ar cru .libs/libpostauth_localuser.a  libpostauth_localuser.o  .libs/libpostauth_localuser.lax/libnubase.a/ext_proto.o .libs/libpostauth_localuser.lax/libnubase.a/strings.o .libs/libpostauth_localuser.lax/libnubase.a/packet_parser.o .libs/libpostauth_localuser.lax/libnubase.a/ipv6.o .libs/libpostauth_localuser.lax/libnubase.a/log.o .libs/libpostauth_localuser.lax/libnubase.a/config-table.o 
+ranlib .libs/libpostauth_localuser.a
+rm -fr .libs/libpostauth_localuser.lax
+creating libpostauth_localuser.la
+(cd .libs && rm -f libpostauth_localuser.la && ln -s ../libpostauth_localuser.la libpostauth_localuser.la)
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules/postauth_localuser'
+make[5]: Entering directory `/«PKGBUILDDIR»/src/nuauth/modules'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules'
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/nuauth/modules'
+make[4]: Entering directory `/«PKGBUILDDIR»/src/nuauth'
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT nuthread.o -MD -MP -MF .deps/nuthread.Tpo -c -o nuthread.o nuthread.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/nuthread.Tpo .deps/nuthread.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT acls.o -MD -MP -MF .deps/acls.Tpo -c -o acls.o acls.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/acls.Tpo .deps/acls.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT audit.o -MD -MP -MF .deps/audit.Tpo -c -o audit.o audit.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/audit.Tpo .deps/audit.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT auth_common.o -MD -MP -MF .deps/auth_common.Tpo -c -o auth_common.o auth_common.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/auth_common.Tpo .deps/auth_common.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT authsrv.o -MD -MP -MF .deps/authsrv.Tpo -c -o authsrv.o authsrv.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+authsrv.c:1061:9: warning: unused variable 'sec' [-Wunused-variable]
+        double sec;
+               ^
+authsrv.c:1062:16: warning: unused variable 'ms' [-Wunused-variable]
+        unsigned long ms;
+                      ^
+2 warnings generated.
+mv -f .deps/authsrv.Tpo .deps/authsrv.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT cache.o -MD -MP -MF .deps/cache.Tpo -c -o cache.o cache.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/cache.Tpo .deps/cache.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT check_acls.o -MD -MP -MF .deps/check_acls.Tpo -c -o check_acls.o check_acls.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/check_acls.Tpo .deps/check_acls.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT client_mngr.o -MD -MP -MF .deps/client_mngr.Tpo -c -o client_mngr.o client_mngr.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/client_mngr.Tpo .deps/client_mngr.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT debug.o -MD -MP -MF .deps/debug.Tpo -c -o debug.o debug.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+debug.c:54:26: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+        log_printf(debug_level, message);
+                                ^~~~~~~
+debug.c:66:2: warning: implicit declaration of function 'nubase_log_engine_set' is invalid in C99 [-Wimplicit-function-declaration]
+        nubase_log_engine_set(flags);
+        ^
+2 warnings generated.
+mv -f .deps/debug.Tpo .deps/debug.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT gcrypt.o -MD -MP -MF .deps/gcrypt.Tpo -c -o gcrypt.o gcrypt.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/gcrypt.Tpo .deps/gcrypt.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT ip_auth.o -MD -MP -MF .deps/ip_auth.Tpo -c -o ip_auth.o ip_auth.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/ip_auth.Tpo .deps/ip_auth.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT localid_auth.o -MD -MP -MF .deps/localid_auth.Tpo -c -o localid_auth.o localid_auth.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+localid_auth.c:228:7: warning: 'g_async_queue_timed_pop' is deprecated [-Wdeprecated-declarations]
+                    g_async_queue_timed_pop(nuauthdatas->
+                    ^
+/usr/include/glib-2.0/glib/gasyncqueue.h:83:14: note: 'g_async_queue_timed_pop' declared here
+gpointer     g_async_queue_timed_pop            (GAsyncQueue      *queue,
+             ^
+1 warning generated.
+mv -f .deps/localid_auth.Tpo .deps/localid_auth.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT parsing.o -MD -MP -MF .deps/parsing.Tpo -c -o parsing.o parsing.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/parsing.Tpo .deps/parsing.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT pckt_authsrv.o -MD -MP -MF .deps/pckt_authsrv.Tpo -c -o pckt_authsrv.o pckt_authsrv.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/pckt_authsrv.Tpo .deps/pckt_authsrv.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT pckt_authsrv_v3.o -MD -MP -MF .deps/pckt_authsrv_v3.Tpo -c -o pckt_authsrv_v3.o pckt_authsrv_v3.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+mv -f .deps/pckt_authsrv_v3.Tpo .deps/pckt_authsrv_v3.Po
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I../../src/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include   -I../../src/include/ -I../../src/nuauth/ -I../../src/libs/nussl/ -I../../src/libs/nubase -I../../src/libs/nuconfparser   -DCONFIG_DIR=\"/etc/nufw/\" -DMODULE_DIR=\"/usr/lib\" -DLOCAL_STATE_DIR=\"/var\" -L../../src/include/ -L../../src/nuauth/ -D_REENTRANT -Wall -g -O2 -D_POSIX_C_SOURCE=199506L -D_ISOC99_SOURCE -D_GNU_SOURCE -D_BSD_SOURCE -D_SVID_SOURCE  -Wextra -Wall -Wno-unused-parameter -O2 -MT sasl.o -MD -MP -MF .deps/sasl.Tpo -c -o sasl.o sasl.c
+clang: warning: argument unused during compilation: '-L../../src/include/'
+clang: warning: argument unused during compilation: '-L../../src/nuauth/'
+sasl.c:368:7: error: non-void function 'get_proto_info' should return a value [-Wreturn-type]
+                                                return;
+                                                ^
+sasl.c:829:20: warning: incompatible pointer types initializing 'int (*)(void)' with an expression of type 'int (*)(void *, const char *, const char *, const char **, unsigned int *)' [-Wincompatible-pointer-types]
+                {SASL_CB_GETOPT, &internal_get_opt, c_session},
+                                 ^~~~~~~~~~~~~~~~~
+sasl.c:830:37: warning: incompatible pointer types initializing 'int (*)(void)' with an expression of type 'int (*)(sasl_conn_t *, void *, const char *, const char *, unsigned int, struct propctx *)' [-Wincompatible-pointer-types]
+                {SASL_CB_SERVER_USERDB_CHECKPASS, &userdb_checkpass, c_session},
+                                                  ^~~~~~~~~~~~~~~~~
+sasl.c:834:20: warning: incompatible pointer types initializing 'int (*)(void)' with an expression of type 'int (*)(void *, const char *, const char *, const char **, unsigned int *)' [-Wincompatible-pointer-types]
+                {SASL_CB_GETOPT, &external_get_opt, c_session},
+                                 ^~~~~~~~~~~~~~~~~
+sasl.c:835:37: warning: incompatible pointer types initializing 'int (*)(void)' with an expression of type 'int (*)(sasl_conn_t *, void *, const char *, const char *, unsigned int, struct propctx *)' [-Wincompatible-pointer-types]
+                {SASL_CB_SERVER_USERDB_CHECKPASS, &userdb_checkpass, c_session},
+                                                  ^~~~~~~~~~~~~~~~~
+4 warnings and 1 error generated.
+make[4]: *** [sasl.o] Error 1
+make[4]: Leaving directory `/«PKGBUILDDIR»/src/nuauth'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/src/nuauth'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-nufw-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1850
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,28 +1816,25 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 14952
+Build-Time: 62
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 12
 Job: nufw_2.4.3-2.2
 Package: nufw
-Package-Time: 0
+Package-Time: 115
 Source-Version: 2.4.3-2.2
-Space: 0
-Status: failed
+Space: 14952
+Status: attempted
 Version: 2.4.3-2.2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0458
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.976046s
-DC-Time-Estimation: 34.976046 versus expected 149 (r/m: 3.26005844113997 ; m: 34.976046)
+Finished at 20130131-1850
+Build needed 00:01:55, 14952k disc space
+DC-Status: Failed 116.348091s

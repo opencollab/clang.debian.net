@@ -1,12 +1,12 @@
-DC-Build-Header: augeas 1.0.0-1 / Mon Jan 28 04:19:29 +0000 2013
-DC-Task: logfile:/tmp/augeas_1.0.0-1_unstable_clang.log version:1.0.0-1 chroot:unstable modes:binary-only:clang source:augeas architecture:any esttime:822
+DC-Build-Header: augeas 1.0.0-1 / Thu Jan 31 18:35:36 +0000 2013
+DC-Task: logfile:/tmp/augeas_1.0.0-1_unstable_clang.log version:1.0.0-1 modes:binary-only:clang chroot:unstable source:augeas esttime:822 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang augeas_1.0.0-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-4-166.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-147-246.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ augeas 1.0.0-1 (amd64)                                     28 Jan 2013 04:19 ║
+║ augeas 1.0.0-1 (amd64)                                     31 Jan 2013 18:35 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: augeas
@@ -15,9 +15,9 @@ Source Version: 1.0.0-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/augeas-OvP8Ri/augeas-1.0.0' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/augeas-OvP8Ri' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-9d9d0531-af90-418a-b45d-ee47553fe59f' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/augeas-Ai4C69/augeas-1.0.0' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/augeas-Ai4C69' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-87212407-99cd-47fb-8e73-2a87ce73cc15' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4859 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 8s (1896 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +58,7 @@ Need to get 1891 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main augeas 1.0.0-1 (dsc) [1582 B]
 Get:2 http://localhost/debian/ unstable/main augeas 1.0.0-1 (tar) [1881 kB]
 Get:3 http://localhost/debian/ unstable/main augeas 1.0.0-1 (diff) [8545 B]
-Fetched 1891 kB in 0s (4351 kB/s)
+Fetched 1891 kB in 0s (5843 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +75,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Sources
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1335 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 2s (1979 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (4024 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:4 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:5 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:6 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:7 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:8 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:9 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:10 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
+Get:11 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:12 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:13 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:14 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:15 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.3 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 6s (3631 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +190,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +248,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-qwGaCv/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-NKqOl1/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -386,15 +264,15 @@ The following NEW packages will be installed:
   sbuild-build-depends-core-dummy
 debconf: delaying package configuration, since apt-utils is not installed
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 0 B/708 B of archives.
+Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), autotools-dev, libreadline-dev, chrpath, naturaldocs (>= 1.51), texlive-latex-base, libxml2-dev, pkg-config
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), autotools-dev, libreadline-dev, chrpath, naturaldocs (>= 1.51), texlive-latex-base, libxml2-dev, pkg-config
-dpkg-deb: building package `sbuild-build-depends-augeas-dummy' in `/«BUILDDIR»/resolver-X8rv1t/apt_archive/sbuild-build-depends-augeas-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-augeas-dummy' in `/«BUILDDIR»/resolver-jvtk4M/apt_archive/sbuild-build-depends-augeas-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +284,2330 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autotools-dev bsdmainutils chrpath debhelper ed file fontconfig-config
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libavahi-client3 libavahi-common-data libavahi-common3
+  libcroco3 libcups2 libcupsimage2 libdbus-1-3 libfontconfig1 libfreetype6
+  libgcrypt11 libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26
+  libgpg-error0 libgraphite3 libgs9 libgs9-common libgssapi-krb5-2 libice6
+  libidn11 libijs-0.35 libjasper1 libjbig0 libjbig2dec0 libjpeg8 libk5crypto3
+  libkeyutils1 libkpathsea6 libkrb5-3 libkrb5support0 liblcms1 liblcms2-2
+  libmagic1 libopenjpeg2 libp11-kit0 libpaper-utils libpaper1 libpcre3
+  libpipeline1 libpng12-0 libpoppler19 libpopt0 libptexenc1 libreadline-dev
+  libreadline6-dev libsm6 libtasn1-3 libtiff4 libtinfo-dev libunistring0
+  libx11-6 libx11-data libxau6 libxaw7 libxcb1 libxdmcp6 libxext6 libxml2
+  libxml2-dev libxmu6 libxpm4 libxt6 luatex man-db naturaldocs pkg-config
+  po-debconf poppler-data tex-common texlive-base texlive-binaries
+  texlive-common texlive-doc-base texlive-latex-base ttf-dejavu-core
+  x11-common xdg-utils
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff cups-common
+  rng-tools krb5-doc krb5-user libjasper-runtime liblcms-utils liblcms2-utils
+  less www-browser libmail-box-perl poppler-utils ghostscript
+  fonts-japanese-mincho fonts-ipafont-mincho fonts-japanese-gothic
+  fonts-ipafont-gothic fonts-arphic-ukai fonts-arphic-uming fonts-unfonts-core
+  perl-tk xpdf-reader pdf-viewer gv postscript-viewer gvfs-bin
+Recommended packages:
+  curl wget lynx-cur autopoint dbus libglib2.0-data shared-mime-info
+  fonts-droid krb5-locales xml-core texlive-luatex libmail-sendmail-perl
+  lmodern ruby wish texlive-latex-base-doc libfile-mimeinfo-perl
+  libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
+The following NEW packages will be installed:
+  autotools-dev bsdmainutils chrpath debhelper ed file fontconfig-config
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libavahi-client3 libavahi-common-data libavahi-common3
+  libcroco3 libcups2 libcupsimage2 libdbus-1-3 libfontconfig1 libfreetype6
+  libgcrypt11 libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls26
+  libgpg-error0 libgraphite3 libgs9 libgs9-common libgssapi-krb5-2 libice6
+  libidn11 libijs-0.35 libjasper1 libjbig0 libjbig2dec0 libjpeg8 libk5crypto3
+  libkeyutils1 libkpathsea6 libkrb5-3 libkrb5support0 liblcms1 liblcms2-2
+  libmagic1 libopenjpeg2 libp11-kit0 libpaper-utils libpaper1 libpcre3
+  libpipeline1 libpng12-0 libpoppler19 libpopt0 libptexenc1 libreadline-dev
+  libreadline6-dev libsm6 libtasn1-3 libtiff4 libtinfo-dev libunistring0
+  libx11-6 libx11-data libxau6 libxaw7 libxcb1 libxdmcp6 libxext6 libxml2
+  libxml2-dev libxmu6 libxpm4 libxt6 luatex man-db naturaldocs pkg-config
+  po-debconf poppler-data sbuild-build-depends-augeas-dummy tex-common
+  texlive-base texlive-binaries texlive-common texlive-doc-base
+  texlive-latex-base ttf-dejavu-core x11-common xdg-utils
+0 upgraded, 93 newly installed, 0 to remove and 0 not upgraded.
+Need to get 63.3 MB/63.3 MB of archives.
+After this operation, 178 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:13 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:14 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:15 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:16 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:17 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:18 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:19 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:20 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:21 http://localhost/debian/ unstable/main libavahi-common-data amd64 0.6.31-1 [134 kB]
+Get:22 http://localhost/debian/ unstable/main libavahi-common3 amd64 0.6.31-1 [54.3 kB]
+Get:23 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:24 http://localhost/debian/ unstable/main libavahi-client3 amd64 0.6.31-1 [59.1 kB]
+Get:25 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:26 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:27 http://localhost/debian/ unstable/main libcups2 amd64 1.5.3-2.14 [255 kB]
+Get:28 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:29 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:30 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:31 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:32 http://localhost/debian/ unstable/main libcupsimage2 amd64 1.5.3-2.14 [137 kB]
+Get:33 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:34 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:35 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:36 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:37 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:38 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:39 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:40 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:41 http://localhost/debian/ unstable/main libjasper1 amd64 1.900.1-14 [160 kB]
+Get:42 http://localhost/debian/ unstable/main liblcms1 amd64 1.19.dfsg-1.2 [113 kB]
+Get:43 http://localhost/debian/ unstable/main liblcms2-2 amd64 2.2+git20110628-2.2 [143 kB]
+Get:44 http://localhost/debian/ unstable/main libopenjpeg2 amd64 1.3+dfsg-4.6 [85.9 kB]
+Get:45 http://localhost/debian/ unstable/main libpaper1 amd64 1.1.24+nmu2 [22.0 kB]
+Get:46 http://localhost/debian/ unstable/main libpoppler19 amd64 0.18.4-4 [1109 kB]
+Get:47 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:48 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:49 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:50 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:51 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:52 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:53 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:54 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:55 http://localhost/debian/ unstable/main libxmu6 amd64 2:1.1.1-1 [66.6 kB]
+Get:56 http://localhost/debian/ unstable/main libxpm4 amd64 1:3.5.10-1 [49.4 kB]
+Get:57 http://localhost/debian/ unstable/main libxaw7 amd64 2:1.0.10-2 [226 kB]
+Get:58 http://localhost/debian/ unstable/main tex-common all 3.15 [640 kB]
+Get:59 http://localhost/debian/ unstable/main libkpathsea6 amd64 2012.20120628-4 [164 kB]
+Get:60 http://localhost/debian/ unstable/main luatex amd64 0.70.1.20120524-3 [2438 kB]
+Get:61 http://localhost/debian/ unstable/main poppler-data all 0.4.6-2 [1484 kB]
+Get:62 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:63 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:64 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:65 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:66 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:67 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:68 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:69 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:70 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:71 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:72 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:73 http://localhost/debian/ unstable/main ed amd64 1.6-2 [57.6 kB]
+Get:74 http://localhost/debian/ unstable/main libgraphite3 amd64 1:2.3.1-0.2 [197 kB]
+Get:75 http://localhost/debian/ unstable/main libijs-0.35 amd64 0.35-8 [20.4 kB]
+Get:76 http://localhost/debian/ unstable/main libjbig2dec0 amd64 0.11+20120125-1 [51.8 kB]
+Get:77 http://localhost/debian/ unstable/main libgs9-common all 9.05~dfsg-6.3 [1977 kB]
+Get:78 http://localhost/debian/ unstable/main libgs9 amd64 9.05~dfsg-6.3 [1845 kB]
+Get:79 http://localhost/debian/ unstable/main libpaper-utils amd64 1.1.24+nmu2 [18.3 kB]
+Get:80 http://localhost/debian/ unstable/main libptexenc1 amd64 2012.20120628-4 [55.9 kB]
+Get:81 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:82 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:83 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+Get:84 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:85 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:86 http://localhost/debian/ unstable/main texlive-common all 2012.20120611-5 [200 kB]
+Get:87 http://localhost/debian/ unstable/main texlive-doc-base all 2012.20120611-1 [1651 kB]
+Get:88 http://localhost/debian/ unstable/main texlive-binaries amd64 2012.20120628-4 [17.3 MB]
+Get:89 http://localhost/debian/ unstable/main xdg-utils all 1.1.0~rc1+git20111210-6 [83.7 kB]
+Get:90 http://localhost/debian/ unstable/main texlive-base all 2012.20120611-5 [14.2 MB]
+Get:91 http://localhost/debian/ unstable/main texlive-latex-base all 2012.20120611-5 [894 kB]
+Get:92 http://localhost/debian/ unstable/main naturaldocs all 1.51-1 [302 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 63.3 MB in 7s (7985 kB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Unpacking libavahi-common-data:amd64 (from .../libavahi-common-data_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Unpacking libavahi-common3:amd64 (from .../libavahi-common3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Unpacking libavahi-client3:amd64 (from .../libavahi-client3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libcups2:amd64.
+Unpacking libcups2:amd64 (from .../libcups2_1.5.3-2.14_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libcupsimage2:amd64.
+Unpacking libcupsimage2:amd64 (from .../libcupsimage2_1.5.3-2.14_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libjasper1:amd64.
+Unpacking libjasper1:amd64 (from .../libjasper1_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package liblcms1:amd64.
+Unpacking liblcms1:amd64 (from .../liblcms1_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package liblcms2-2:amd64.
+Unpacking liblcms2-2:amd64 (from .../liblcms2-2_2.2+git20110628-2.2_amd64.deb) ...
+Selecting previously unselected package libopenjpeg2:amd64.
+Unpacking libopenjpeg2:amd64 (from .../libopenjpeg2_1.3+dfsg-4.6_amd64.deb) ...
+Selecting previously unselected package libpaper1:amd64.
+Unpacking libpaper1:amd64 (from .../libpaper1_1.1.24+nmu2_amd64.deb) ...
+Selecting previously unselected package libpoppler19:amd64.
+Unpacking libpoppler19:amd64 (from .../libpoppler19_0.18.4-4_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libxmu6:amd64.
+Unpacking libxmu6:amd64 (from .../libxmu6_2%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxpm4:amd64.
+Unpacking libxpm4:amd64 (from .../libxpm4_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package libxaw7:amd64.
+Unpacking libxaw7:amd64 (from .../libxaw7_2%3a1.0.10-2_amd64.deb) ...
+Selecting previously unselected package tex-common.
+Unpacking tex-common (from .../tex-common_3.15_all.deb) ...
+Selecting previously unselected package libkpathsea6.
+Unpacking libkpathsea6 (from .../libkpathsea6_2012.20120628-4_amd64.deb) ...
+Selecting previously unselected package luatex.
+Unpacking luatex (from .../luatex_0.70.1.20120524-3_amd64.deb) ...
+Selecting previously unselected package poppler-data.
+Unpacking poppler-data (from .../poppler-data_0.4.6-2_all.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package ed.
+Unpacking ed (from .../archives/ed_1.6-2_amd64.deb) ...
+Selecting previously unselected package libgraphite3.
+Unpacking libgraphite3 (from .../libgraphite3_1%3a2.3.1-0.2_amd64.deb) ...
+Selecting previously unselected package libijs-0.35.
+Unpacking libijs-0.35 (from .../libijs-0.35_0.35-8_amd64.deb) ...
+Selecting previously unselected package libjbig2dec0.
+Unpacking libjbig2dec0 (from .../libjbig2dec0_0.11+20120125-1_amd64.deb) ...
+Selecting previously unselected package libgs9-common.
+Unpacking libgs9-common (from .../libgs9-common_9.05~dfsg-6.3_all.deb) ...
+Selecting previously unselected package libgs9.
+Unpacking libgs9 (from .../libgs9_9.05~dfsg-6.3_amd64.deb) ...
+Selecting previously unselected package libpaper-utils.
+Unpacking libpaper-utils (from .../libpaper-utils_1.1.24+nmu2_amd64.deb) ...
+Selecting previously unselected package libptexenc1.
+Unpacking libptexenc1 (from .../libptexenc1_2012.20120628-4_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package texlive-common.
+Unpacking texlive-common (from .../texlive-common_2012.20120611-5_all.deb) ...
+Selecting previously unselected package texlive-doc-base.
+Unpacking texlive-doc-base (from .../texlive-doc-base_2012.20120611-1_all.deb) ...
+Selecting previously unselected package texlive-binaries.
+Unpacking texlive-binaries (from .../texlive-binaries_2012.20120628-4_amd64.deb) ...
+Selecting previously unselected package xdg-utils.
+Unpacking xdg-utils (from .../xdg-utils_1.1.0~rc1+git20111210-6_all.deb) ...
+Selecting previously unselected package texlive-base.
+Unpacking texlive-base (from .../texlive-base_2012.20120611-5_all.deb) ...
+Selecting previously unselected package texlive-latex-base.
+Unpacking texlive-latex-base (from .../texlive-latex-base_2012.20120611-5_all.deb) ...
+Selecting previously unselected package naturaldocs.
+Unpacking naturaldocs (from .../naturaldocs_1.51-1_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-augeas-dummy.
+Unpacking sbuild-build-depends-augeas-dummy (from .../sbuild-build-depends-augeas-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libavahi-common-data:amd64 (0.6.31-1) ...
+Setting up libavahi-common3:amd64 (0.6.31-1) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libavahi-client3:amd64 (0.6.31-1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libcups2:amd64 (1.5.3-2.14) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libcupsimage2:amd64 (1.5.3-2.14) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libjasper1:amd64 (1.900.1-14) ...
+Setting up liblcms1:amd64 (1.19.dfsg-1.2) ...
+Setting up liblcms2-2:amd64 (2.2+git20110628-2.2) ...
+Setting up libopenjpeg2:amd64 (1.3+dfsg-4.6) ...
+Setting up libpaper1:amd64 (1.1.24+nmu2) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-augeas-dummy : Depends: libreadline-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+Creating config file /etc/papersize with new version
+Setting up libpoppler19:amd64 (0.18.4-4) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libxmu6:amd64 (2:1.1.1-1) ...
+Setting up libxpm4:amd64 (1:3.5.10-1) ...
+Setting up libxaw7:amd64 (2:1.0.10-2) ...
+Setting up tex-common (3.15) ...
+Running mktexlsr. This may take some time... done.
+texlive-base is not ready, delaying updmap-sys call
+texlive-base is not ready, skipping fmtutil-sys --all call
+Setting up libkpathsea6 (2012.20120628-4) ...
+Setting up luatex (0.70.1.20120524-3) ...
+texlive-base is not ready, cannot create formats
+Setting up poppler-data (0.4.6-2) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up ed (1.6-2) ...
+Setting up libgraphite3 (1:2.3.1-0.2) ...
+Setting up libijs-0.35 (0.35-8) ...
+Setting up libjbig2dec0 (0.11+20120125-1) ...
+Setting up libgs9-common (9.05~dfsg-6.3) ...
+Setting up libgs9 (9.05~dfsg-6.3) ...
+Setting up libpaper-utils (1.1.24+nmu2) ...
+Setting up libptexenc1 (2012.20120628-4) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up pkg-config (0.26-1) ...
+Setting up texlive-common (2012.20120611-5) ...
+Setting up texlive-doc-base (2012.20120611-1) ...
+Setting up texlive-binaries (2012.20120628-4) ...
+update-alternatives: using /usr/bin/xdvi-xaw to provide /usr/bin/xdvi.bin (xdvi.bin) in auto mode
+update-alternatives: using /usr/bin/bibtex.original to provide /usr/bin/bibtex (bibtex) in auto mode
+Building format(s) --refresh.
+	This may take some time... done.
+Setting up xdg-utils (1.1.0~rc1+git20111210-6) ...
+Setting up naturaldocs (1.51-1) ...
+Processing triggers for tex-common ...
+Running mktexlsr. This may take some time... done.
+Setting up texlive-base (2012.20120611-5) ...
+/usr/bin/tl-paper: setting paper size for dvips to a4.
+/usr/bin/tl-paper: setting paper size for dvipdfmx to a4.
+/usr/bin/tl-paper: setting paper size for xdvi to a4.
+/usr/bin/tl-paper: setting paper size for pdftex to a4.
+Running mktexlsr. This may take some time... done.
+Building format(s) --all.
+	This may take some time... done.
+Processing triggers for tex-common ...
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Setting up texlive-latex-base (2012.20120611-5) ...
+Running mktexlsr. This may take some time... done.
+Building format(s) --all --cnffile /etc/texmf/fmt.d/10texlive-latex-base.cnf.
+	This may take some time... done.
+Processing triggers for tex-common ...
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Setting up sbuild-build-depends-augeas-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 ed_1.6-2 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common3_0.6.31-1 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcups2_1.5.3-2.14 libcupsimage2_1.5.3-2.14 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfreetype6_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgraphite3_1:2.3.1-0.2 libgs9_9.05~dfsg-6.3 libgs9-common_9.05~dfsg-6.3 libgssapi-krb5-2_1.10.1+dfsg-3 libice6_2:1.0.8-2 libidn11_1.25-2 libijs-0.35_0.35-8 libitm1_4.7.2-5 libjasper1_1.900.1-14 libjbig0_2.0-2 libjbig2dec0_0.11+20120125-1 libjpeg8_8d-1 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkpathsea6_2012.20120628-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 liblcms1_1.19.dfsg-1.2 liblcms2-2_2.2+git20110628-2.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libopenjpeg2_1.3+dfsg-4.6 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpaper-utils_1.1.24+nmu2 libpaper1_1.1.24+nmu2 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpng12-0_1.2.49-3 libpoppler19_0.18.4-4 libpopt0_1.16-7 libptexenc1_2012.20120628-4 libquadmath0_4.7.2-5 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtiff4_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libxau6_1:1.0.7-1 libxaw7_2:1.0.10-2 libxcb1_1.8.1-2 libxdmcp6_1:1.1.1-1 libxext6_2:1.3.1-2 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxmu6_2:1.1.1-1 libxpm4_1:3.5.10-1 libxt6_1:1.1.3-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 luatex_0.70.1.20120524-3 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 naturaldocs_1.51-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 poppler-data_0.4.6-2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-augeas-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tex-common_3.15 texlive-base_2012.20120611-5 texlive-binaries_2012.20120628-4 texlive-common_2012.20120611-5 texlive-doc-base_2012.20120611-1 texlive-latex-base_2012.20120611-5 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 xdg-utils_1.1.0~rc1+git20111210-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Jan 11 12:18:57 2013 UTC using DSA key ID 57159E59
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./augeas_1.0.0-1.dsc
+dpkg-source: info: extracting augeas in augeas-1.0.0
+dpkg-source: info: unpacking augeas_1.0.0.orig.tar.gz
+dpkg-source: info: unpacking augeas_1.0.0-1.debian.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-87212407-99cd-47fb-8e73-2a87ce73cc15
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package augeas
+dpkg-buildpackage: source version 1.0.0-1
+dpkg-buildpackage: source changed by Free Ekanayaka <freee@debian.org>
+ dpkg-source --before-build augeas-1.0.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+# Add here commands to clean up after the build process.
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -f config.sub config.guess config.log
+dh_clean \
+	    --exclude=./tests/root/etc/group~ \
+	    --exclude=./tests/root/etc/multipath.conf~ \
+	    --exclude=./tests/root/etc/passwd~
+ debian/rules build-arch
+dh_testdir
+# Add here commands to configure the package.
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+./configure --host=x86_64-linux-gnu --build=x86_64-linux-gnu \
+                    --prefix=/usr --mandir=\${prefix}/share/man \
+                    --infodir=\${prefix}/share/info CFLAGS="" \
+                    --enable-compile-warnings=yes \
+                    --with-naturaldocs-output=HTML \
+                    --with-pdfdocs
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for naturaldocs... /usr/bin/naturaldocs
+checking for pdflatex... /usr/bin/pdflatex
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for style of include used by make... GNU
+checking for x86_64-linux-gnu-gcc... x86_64-linux-gnu-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether x86_64-linux-gnu-gcc accepts -g... yes
+checking for x86_64-linux-gnu-gcc option to accept ISO C89... none needed
+checking dependency style of x86_64-linux-gnu-gcc... gcc3
+checking how to run the C preprocessor... x86_64-linux-gnu-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for x86_64-linux-gnu-gcc... (cached) x86_64-linux-gnu-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether x86_64-linux-gnu-gcc accepts -g... (cached) yes
+checking for x86_64-linux-gnu-gcc option to accept ISO C89... (cached) none needed
+checking dependency style of x86_64-linux-gnu-gcc... (cached) gcc3
+checking for Minix Amsterdam compiler... no
+checking for x86_64-linux-gnu-ar... no
+checking for ar... ar
+checking for x86_64-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by x86_64-linux-gnu-gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for x86_64-linux-gnu-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for x86_64-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for x86_64-linux-gnu-ar... ar
+checking for archiver @FILE support... @
+checking for x86_64-linux-gnu-strip... no
+checking for strip... strip
+checking for x86_64-linux-gnu-ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from x86_64-linux-gnu-gcc object... ok
+checking for sysroot... no
+checking for x86_64-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if x86_64-linux-gnu-gcc supports -fno-rtti -fno-exceptions... yes
+checking for x86_64-linux-gnu-gcc option to produce PIC... -fPIC -DPIC
+checking if x86_64-linux-gnu-gcc PIC flag -fPIC -DPIC works... yes
+checking if x86_64-linux-gnu-gcc static flag -static works... yes
+checking if x86_64-linux-gnu-gcc supports -c -o file.o... yes
+checking if x86_64-linux-gnu-gcc supports -c -o file.o... (cached) yes
+checking whether the x86_64-linux-gnu-gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for bison... no
+checking for byacc... no
+checking for flex... no
+checking for lex... no
+checking whether gcc understands -Wall... yes
+checking whether gcc understands -Wformat... yes
+checking whether gcc understands -Wformat-security... yes
+checking whether gcc understands -Wmissing-prototypes... yes
+checking whether gcc understands -Wp,-D_FORTIFY_SOURCE=2... yes
+checking whether gcc understands -fexceptions... yes
+checking whether gcc understands -fasynchronous-unwind-tables... yes
+checking what language compliance flags to pass to the C compiler... 
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for readline in -lreadline... yes
+checking for rl_completion_matches... yes
+checking for open_memstream... yes
+checking for uselocale... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for C/C++ restrict keyword... __restrict
+checking whether <wchar.h> uses 'inline' correctly... yes
+checking for btowc... yes
+checking for canonicalize_file_name... yes
+checking for getcwd... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for mempcpy... yes
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... yes
+checking for getdelim... yes
+checking for symlink... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mprotect... yes
+checking for nl_langinfo... yes
+checking for wcscoll... yes
+checking for stpncpy... yes
+checking for strndup... yes
+checking for vasnprintf... no
+checking for snprintf... yes
+checking for wcrtomb... yes
+checking for iswcntrl... yes
+checking for _set_invalid_parameter_handler... no
+checking for newlocale... yes
+checking for setenv... yes
+checking for wctob... yes
+checking for nl_langinfo and CODESET... yes
+checking for a traditional french locale... none
+checking whether // is distinct from /... no
+checking whether realpath works... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking for unistd.h... (cached) yes
+checking xlocale.h usability... yes
+checking xlocale.h presence... yes
+checking for xlocale.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking selinux/selinux.h usability... no
+checking selinux/selinux.h presence... no
+checking for selinux/selinux.h... no
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking features.h usability... yes
+checking features.h presence... yes
+checking for features.h... yes
+checking for inttypes.h... (cached) yes
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for complete errno.h... yes
+checking for mbstate_t... yes
+checking whether getdelim is declared... yes
+checking whether getline is declared... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... no
+checking whether getenv is declared... yes
+checking for working fcntl.h... yes
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... yes
+checking for wchar_t... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking whether lstat correctly handles trailing slash... yes
+checking for inline... inline
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking for a traditional japanese locale... none
+checking for a transitional chinese locale... none
+checking for a french Unicode locale... none
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... yes
+checking for library containing setfilecon... no
+configure: WARNING: This system supports SELinux but libselinux is missing.
+configure: WARNING: augeas will be compiled without SELinux support.
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether stdint.h conforms to C99... yes
+checking whether stpncpy is declared... yes
+checking whether ffsl is declared without a macro... yes
+checking whether ffsll is declared without a macro... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... yes
+checking whether memrchr is declared without a macro... yes
+checking whether rawmemchr is declared without a macro... yes
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... yes
+checking whether strndup is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking whether strstr works... yes
+checking whether stat file-mode macros are broken... no
+checking for mode_t... yes
+checking for pid_t... yes
+checking for struct timespec in <time.h>... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking where to find the exponent in a 'double'... word 1 bit 20
+checking whether snprintf returns a byte count as in C99... yes
+checking for snprintf... (cached) yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... (cached) yes
+checking for wcrtomb... (cached) yes
+checking whether _snprintf is declared... no
+checking if environ is properly declared... yes
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking for getcwd with POSIX signature... yes
+checking whether imaxabs is declared without a macro... yes
+checking whether imaxdiv is declared without a macro... yes
+checking whether strtoimax is declared without a macro... yes
+checking whether strtoumax is declared without a macro... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for ld used by GCC... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for multithread API to use... posix
+checking for promoted mode_t type... mode_t
+checking whether setenv is declared... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for tsearch... yes
+checking whether alarm is declared... yes
+checking whether unsetenv is declared... yes
+checking for alloca as a compiler built-in... yes
+checking for argz.h... yes
+checking for error_t... yes
+checking for argz_replace... yes
+checking if argz actually works... yes
+checking whether btowc(0) is correct... yes
+checking whether btowc(EOF) is correct... guessing yes
+checking whether isblank is declared without a macro... yes
+checking whether conversion from 'int' to 'long double' works... yes
+checking for working POSIX fnmatch... yes
+checking for working getdelim function... yes
+checking for getline... yes
+checking for working getline function... yes
+checking whether langinfo.h defines CODESET... yes
+checking whether langinfo.h defines T_FMT_AMPM... yes
+checking whether langinfo.h defines ERA... yes
+checking whether langinfo.h defines YESEXPR... yes
+checking whether nl_langinfo is declared without a macro... yes
+checking whether locale.h conforms to POSIX:2001... yes
+checking whether locale.h defines locale_t... yes
+checking whether struct lconv is properly defined... yes
+checking whether setlocale is declared without a macro... yes
+checking whether duplocale is declared without a macro... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking whether mbrtowc handles incomplete characters... guessing yes
+checking whether mbrtowc works as well as mbtowc... guessing yes
+checking whether mbrtowc handles a NULL pwc argument... guessing yes
+checking whether mbrtowc handles a NULL string argument... guessing yes
+checking whether mbrtowc has a correct return value... guessing yes
+checking whether mbrtowc returns 0 when parsing a NUL character... guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbsrtowcs works... guessing yes
+checking for mempcpy... (cached) yes
+checking whether YESEXPR works... yes
+checking for rawmemchr... yes
+checking whether readlink signature is correct... yes
+checking whether readlink handles trailing slash correctly... yes
+checking for working re_compile_pattern... yes
+checking for selinux/selinux.h... (cached) no
+checking selinux/context.h usability... no
+checking selinux/context.h presence... no
+checking for selinux/context.h... no
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for ssize_t... yes
+checking whether stat handles trailing slashes on directories... yes
+checking whether stat handles trailing slashes on files... yes
+checking whether NULL can be used in arbitrary expressions... (cached) yes
+checking whether dprintf is declared without a macro... yes
+checking whether fpurge is declared without a macro... no
+checking whether fseeko is declared without a macro... yes
+checking whether ftello is declared without a macro... yes
+checking whether getdelim is declared without a macro... yes
+checking whether getline is declared without a macro... yes
+checking whether gets is declared without a macro... yes
+checking whether pclose is declared without a macro... yes
+checking whether popen is declared without a macro... yes
+checking whether renameat is declared without a macro... yes
+checking whether snprintf is declared without a macro... yes
+checking whether tmpfile is declared without a macro... yes
+checking whether vdprintf is declared without a macro... yes
+checking whether vsnprintf is declared without a macro... yes
+checking whether _Exit is declared without a macro... yes
+checking whether atoll is declared without a macro... yes
+checking whether canonicalize_file_name is declared without a macro... yes
+checking whether getloadavg is declared without a macro... yes
+checking whether getsubopt is declared without a macro... yes
+checking whether grantpt is declared without a macro... yes
+checking whether initstate is declared without a macro... yes
+checking whether initstate_r is declared without a macro... yes
+checking whether mkdtemp is declared without a macro... yes
+checking whether mkostemp is declared without a macro... yes
+checking whether mkostemps is declared without a macro... yes
+checking whether mkstemp is declared without a macro... yes
+checking whether mkstemps is declared without a macro... yes
+checking whether posix_openpt is declared without a macro... yes
+checking whether ptsname is declared without a macro... yes
+checking whether ptsname_r is declared without a macro... yes
+checking whether random is declared without a macro... yes
+checking whether random_r is declared without a macro... yes
+checking whether realpath is declared without a macro... yes
+checking whether rpmatch is declared without a macro... yes
+checking whether setenv is declared without a macro... yes
+checking whether setstate is declared without a macro... yes
+checking whether setstate_r is declared without a macro... yes
+checking whether srandom is declared without a macro... yes
+checking whether srandom_r is declared without a macro... yes
+checking whether strtod is declared without a macro... yes
+checking whether strtoll is declared without a macro... yes
+checking whether strtoull is declared without a macro... yes
+checking whether unlockpt is declared without a macro... yes
+checking whether unsetenv is declared without a macro... yes
+checking for stpcpy... yes
+checking for working stpncpy... yes
+checking for strchrnul... yes
+checking whether strchrnul works... yes
+checking for working strndup... yes
+checking for working strnlen... yes
+checking whether strstr works in linear time... no
+checking whether strstr works... (cached) yes
+checking for nlink_t... yes
+checking whether fchmodat is declared without a macro... yes
+checking whether fstat is declared without a macro... yes
+checking whether fstatat is declared without a macro... yes
+checking whether futimens is declared without a macro... yes
+checking whether lchmod is declared without a macro... yes
+checking whether lstat is declared without a macro... yes
+checking whether mkdirat is declared without a macro... yes
+checking whether mkfifo is declared without a macro... yes
+checking whether mkfifoat is declared without a macro... yes
+checking whether mknod is declared without a macro... yes
+checking whether mknodat is declared without a macro... yes
+checking whether stat is declared without a macro... yes
+checking whether utimensat is declared without a macro... yes
+checking whether waitpid is declared without a macro... yes
+checking whether chdir is declared without a macro... yes
+checking whether chown is declared without a macro... yes
+checking whether dup is declared without a macro... yes
+checking whether dup2 is declared without a macro... yes
+checking whether dup3 is declared without a macro... yes
+checking whether environ is declared without a macro... yes
+checking whether euidaccess is declared without a macro... yes
+checking whether faccessat is declared without a macro... yes
+checking whether fchdir is declared without a macro... yes
+checking whether fchownat is declared without a macro... yes
+checking whether fdatasync is declared without a macro... yes
+checking whether fsync is declared without a macro... yes
+checking whether ftruncate is declared without a macro... yes
+checking whether getcwd is declared without a macro... yes
+checking whether getdomainname is declared without a macro... yes
+checking whether getdtablesize is declared without a macro... yes
+checking whether getgroups is declared without a macro... yes
+checking whether gethostname is declared without a macro... yes
+checking whether getlogin is declared without a macro... yes
+checking whether getlogin_r is declared without a macro... yes
+checking whether getpagesize is declared without a macro... yes
+checking whether getusershell is declared without a macro... yes
+checking whether setusershell is declared without a macro... yes
+checking whether endusershell is declared without a macro... yes
+checking whether group_member is declared without a macro... yes
+checking whether isatty is declared without a macro... yes
+checking whether lchown is declared without a macro... yes
+checking whether link is declared without a macro... yes
+checking whether linkat is declared without a macro... yes
+checking whether lseek is declared without a macro... yes
+checking whether pipe is declared without a macro... yes
+checking whether pipe2 is declared without a macro... yes
+checking whether pread is declared without a macro... yes
+checking whether pwrite is declared without a macro... yes
+checking whether readlink is declared without a macro... yes
+checking whether readlinkat is declared without a macro... yes
+checking whether rmdir is declared without a macro... yes
+checking whether sethostname is declared without a macro... yes
+checking whether sleep is declared without a macro... yes
+checking whether symlink is declared without a macro... yes
+checking whether symlinkat is declared without a macro... yes
+checking whether ttyname_r is declared without a macro... yes
+checking whether unlink is declared without a macro... yes
+checking whether unlinkat is declared without a macro... yes
+checking whether usleep is declared without a macro... yes
+checking for ptrdiff_t... yes
+checking for vasprintf... yes
+checking whether btowc is declared without a macro... yes
+checking whether wctob is declared without a macro... yes
+checking whether mbsinit is declared without a macro... yes
+checking whether mbrtowc is declared without a macro... yes
+checking whether mbrlen is declared without a macro... yes
+checking whether mbsrtowcs is declared without a macro... yes
+checking whether mbsnrtowcs is declared without a macro... yes
+checking whether wcrtomb is declared without a macro... yes
+checking whether wcsrtombs is declared without a macro... yes
+checking whether wcsnrtombs is declared without a macro... yes
+checking whether wcwidth is declared without a macro... yes
+checking whether wmemchr is declared without a macro... yes
+checking whether wmemcmp is declared without a macro... yes
+checking whether wmemcpy is declared without a macro... yes
+checking whether wmemmove is declared without a macro... yes
+checking whether wmemset is declared without a macro... yes
+checking whether wcslen is declared without a macro... yes
+checking whether wcsnlen is declared without a macro... yes
+checking whether wcscpy is declared without a macro... yes
+checking whether wcpcpy is declared without a macro... yes
+checking whether wcsncpy is declared without a macro... yes
+checking whether wcpncpy is declared without a macro... yes
+checking whether wcscat is declared without a macro... yes
+checking whether wcsncat is declared without a macro... yes
+checking whether wcscmp is declared without a macro... yes
+checking whether wcsncmp is declared without a macro... yes
+checking whether wcscasecmp is declared without a macro... yes
+checking whether wcsncasecmp is declared without a macro... yes
+checking whether wcscoll is declared without a macro... yes
+checking whether wcsxfrm is declared without a macro... yes
+checking whether wcsdup is declared without a macro... yes
+checking whether wcschr is declared without a macro... yes
+checking whether wcsrchr is declared without a macro... yes
+checking whether wcscspn is declared without a macro... yes
+checking whether wcsspn is declared without a macro... yes
+checking whether wcspbrk is declared without a macro... yes
+checking whether wcsstr is declared without a macro... yes
+checking whether wcstok is declared without a macro... yes
+checking whether wcswidth is declared without a macro... yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether wcrtomb return value is correct... guessing yes
+checking whether iswcntrl works... yes
+checking for towlower... yes
+checking for wctype_t... yes
+checking for wctrans_t... yes
+checking whether wctype is declared without a macro... yes
+checking whether iswctype is declared without a macro... yes
+checking whether wctrans is declared without a macro... yes
+checking whether towctrans is declared without a macro... yes
+checking for stdint.h... (cached) yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional french locale... (cached) none
+checking for a turkish Unicode locale... none
+checking whether dup2 works... yes
+checking whether fcntl is declared without a macro... yes
+checking whether openat is declared without a macro... yes
+checking whether fdopen sets errno... yes
+checking for getpagesize... yes
+checking whether getpagesize is declared... (cached) yes
+checking whether INT32_MAX < INTMAX_MAX... yes
+checking whether INT64_MAX == LONG_MAX... yes
+checking whether UINT32_MAX < UINTMAX_MAX... yes
+checking whether UINT64_MAX == ULONG_MAX... yes
+checking for setlocale... yes
+checking for uselocale... (cached) yes
+checking for pthread_rwlock_t... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking whether open recognizes a trailing slash... yes
+checking for putenv compatible with GNU and SVID... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether setenv validates arguments... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking for wchar_t... (cached) yes
+checking for wint_t... (cached) yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether symlink handles trailing slash correctly... yes
+checking for pthread_atfork... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking whether unsetenv obeys POSIX... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking whether wctob works... guessing yes
+checking whether wctob is declared... (cached) yes
+checking for sched_yield in -lrt... yes
+checking for x86_64-linux-gnu-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBXML... yes
+checking for strerror_r... yes
+checking for fsync... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating gnulib/lib/Makefile
+config.status: creating gnulib/tests/Makefile
+config.status: creating src/Makefile
+config.status: creating man/Makefile
+config.status: creating tests/Makefile
+config.status: creating examples/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/naturaldocs/Makefile
+config.status: creating augeas.pc
+config.status: creating augeas.spec
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/«PKGBUILDDIR»'
+Making all in gnulib/lib
+make[3]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+  GEN    alloca.h
+  GEN    configmake.h
+  GEN    c++defs.h
+  GEN    warn-on-use.h
+  GEN    ctype.h
+  GEN    arg-nonnull.h
+  GEN    getopt.h
+  GEN    langinfo.h
+  GEN    locale.h
+  GEN    unused-parameter.h
+  GEN    selinux/selinux.h
+  GEN    selinux/context.h
+  GEN    stdio.h
+  GEN    stdlib.h
+  GEN    string.h
+  GEN    sys/stat.h
+  GEN    sys/types.h
+  GEN    sys/wait.h
+  GEN    time.h
+  GEN    unistd.h
+  GEN    wchar.h
+  GEN    wctype.h
+/usr/bin/make  all-recursive
+make[4]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+make[5]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+  CC     localcharset.lo
+  CC     malloca.lo
+  CC     safe-alloc.lo
+  CC     strnlen1.lo
+  CC     asnprintf.lo
+  CC     getopt.lo
+  CC     getopt1.lo
+  CC     printf-args.lo
+  CC     printf-parse.lo
+  CC     strstr.lo
+  CC     vasnprintf.lo
+  CCLD   libgnu.la
+  GEN    charset.alias
+  GEN    ref-add.sed
+  GEN    ref-del.sed
+make[5]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+make[4]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+make[3]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+Making all in src
+make[3]: Entering directory `/«PKGBUILDDIR»/src'
+echo '#define DATADIR "/usr/share"' > datadir.h1
+../build/aux/move-if-change datadir.h1 datadir.h
+/usr/bin/make  all-am
+make[4]: Entering directory `/«PKGBUILDDIR»/src'
+  CC     fa.lo
+fa.c:1470:9: warning: variable 'nsigma' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+        F(state_set_push(states, s));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:31: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                              ^~~~~~
+fa.c:1470:9: note: remove the 'if' if its condition is always false
+        F(state_set_push(states, s));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1467:7: warning: variable 'nsigma' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    E(states == NULL);
+      ^~~~~~~~~~~~~~
+fa.c:47:21: note: expanded from macro 'E'
+#define E(cond) if (cond) goto error
+                    ^
+fa.c:1707:31: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                              ^~~~~~
+fa.c:1467:5: note: remove the 'if' if its condition is always false
+    E(states == NULL);
+    ^~~~~~~~~~~~~~~~~
+fa.c:47:17: note: expanded from macro 'E'
+#define E(cond) if (cond) goto error
+                ^
+fa.c:1463:5: warning: variable 'nsigma' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    F(totalize(fa));
+    ^~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:31: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                              ^~~~~~
+fa.c:1463:5: note: remove the 'if' if its condition is always false
+    F(totalize(fa));
+    ^~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1454:5: warning: variable 'nsigma' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    F(determinize(fa, NULL));
+    ^~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:31: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                              ^~~~~~
+fa.c:1454:5: note: remove the 'if' if its condition is always false
+    F(determinize(fa, NULL));
+    ^~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1474:15: note: initialize the variable 'nsigma' to silence this warning
+    int nsigma;
+              ^
+               = 0
+fa.c:1470:9: warning: variable 'nstates' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+        F(state_set_push(states, s));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:23: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                      ^~~~~~~
+fa.c:1470:9: note: remove the 'if' if its condition is always false
+        F(state_set_push(states, s));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1467:7: warning: variable 'nstates' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    E(states == NULL);
+      ^~~~~~~~~~~~~~
+fa.c:47:21: note: expanded from macro 'E'
+#define E(cond) if (cond) goto error
+                    ^
+fa.c:1707:23: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                      ^~~~~~~
+fa.c:1467:5: note: remove the 'if' if its condition is always false
+    E(states == NULL);
+    ^~~~~~~~~~~~~~~~~
+fa.c:47:17: note: expanded from macro 'E'
+#define E(cond) if (cond) goto error
+                ^
+fa.c:1463:5: warning: variable 'nstates' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    F(totalize(fa));
+    ^~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:23: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                      ^~~~~~~
+fa.c:1463:5: note: remove the 'if' if its condition is always false
+    F(totalize(fa));
+    ^~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1454:5: warning: variable 'nstates' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    F(determinize(fa, NULL));
+    ^~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:21: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                    ^~~~~~~~~~
+fa.c:1707:23: note: uninitialized use occurs here
+    for (int i=0; i < nstates*nsigma; i++) {
+                      ^~~~~~~
+fa.c:1454:5: note: remove the 'if' if its condition is always false
+    F(determinize(fa, NULL));
+    ^~~~~~~~~~~~~~~~~~~~~~~~
+fa.c:48:17: note: expanded from macro 'F'
+#define F(expr) if ((expr) < 0) goto error
+                ^
+fa.c:1472:5: note: variable 'nstates' is declared here
+    unsigned int nstates = states->used;
+    ^
+8 warnings generated.
+  CC     hash.lo
+  CC     memory.lo
+  CC     ref.lo
+  CCLD   libfa.la
+  CC     augeas.lo
+  CC     augrun.lo
+augrun.c:82:30: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+    const struct command_def const *commands[];
+                             ^
+augrun.c:517:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_mv_help[] =
+                  ^
+augrun.c:561:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_rename_help[] =
+                  ^
+augrun.c:963:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_transform_help[] =
+                  ^
+augrun.c:1060:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_ins_help[] =
+                  ^
+augrun.c:1098:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_store_help[] =
+                  ^
+augrun.c:1130:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const cmd_retrieve_help[] =
+                  ^
+augrun.c:1199:37: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const struct command_grp_def const *cmd_groups[] = {
+                                    ^
+8 warnings generated.
+  CC     pathx.lo
+pathx.c:291:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const enum type const arg_types_nodeset[] = { T_NODESET };
+                       ^
+pathx.c:292:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const enum type const arg_types_string[] = { T_STRING };
+                       ^
+pathx.c:293:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const enum type const arg_types_bool[] = { T_BOOLEAN };
+                       ^
+pathx.c:294:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const enum type const arg_types_string_string[] = { T_STRING, T_STRING };
+                       ^
+pathx.c:295:24: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const enum type const arg_types_nodeset_string[] = { T_NODESET, T_STRING };
+                       ^
+pathx.c:1616:23: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+    static const char const follow[] = "][|/=()!,";
+                      ^
+6 warnings generated.
+  CC     internal.lo
+  CC     syntax.lo
+syntax.c:71:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const char const anon_ident[] = "_";
+                  ^
+syntax.c:595:9: warning: expression result unused [-Wunused-value]
+    ref(*bnds);
+        ^~~~~
+./ref.h:52:57: note: expanded from macro 'ref'
+#define ref(s) (((s) == NULL || (s)->ref == REF_MAX) ? (s) : ((s)->ref++, (s)))
+                                                        ^
+2 warnings generated.
+  CC     parser.lo
+  CC     builtin.lo
+  CC     lens.lo
+lens.c:36:18: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+static const int const type_offs[] = {
+                 ^
+1 warning generated.
+  CC     regexp.lo
+  CC     transform.lo
+  CC     ast.lo
+  CC     get.lo
+  CC     put.lo
+  CC     info.lo
+  CC     errcode.lo
+  CC     jmt.lo
+  CC     liblexer_la-lexer.lo
+lexer.c:1475:17: warning: unused function 'yyunput' [-Wunused-function]
+    static void yyunput (int c, register char * yy_bp , yyscan_t yyscanner)
+                ^
+lexer.c:1521:16: warning: function 'input' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+    static int input  (yyscan_t yyscanner)
+               ^
+2 warnings generated.
+  CCLD   liblexer.la
+  CCLD   libaugeas.la
+  CC     augtool.o
+  CCLD   augtool
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     augparse.o
+  CCLD   augparse
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+make[4]: Leaving directory `/«PKGBUILDDIR»/src'
+make[3]: Leaving directory `/«PKGBUILDDIR»/src'
+Making all in gnulib/tests
+make[3]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+  GEN    c++defs.h
+  GEN    arg-nonnull.h
+  GEN    warn-on-use.h
+  GEN    fcntl.h
+  GEN    inttypes.h
+  GEN    unused-parameter.h
+/usr/bin/make  all-recursive
+make[4]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+Making all in .
+make[5]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[4]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[3]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+Making all in tests
+make[3]: Entering directory `/«PKGBUILDDIR»/tests'
+  CC     leak.o
+  CCLD   leak
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+make[3]: Leaving directory `/«PKGBUILDDIR»/tests'
+Making all in man
+make[3]: Entering directory `/«PKGBUILDDIR»/man'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/man'
+Making all in doc
+make[3]: Entering directory `/«PKGBUILDDIR»/doc'
+Making all in naturaldocs
+make[4]: Entering directory `/«PKGBUILDDIR»/doc/naturaldocs'
+Format lens documentation
+Finding files and detecting changes...
+Parsing 320 files...
+Building 152 files...
+Building 7 indexes...
+Updating menu...
+Updating CSS file...
+Done.
+Format C API documentation
+Finding files and detecting changes...
+Parsing 39 files...
+Building 2 files...
+Building 6 indexes...
+Updating menu...
+Updating CSS file...
+Done.
+make[4]: Leaving directory `/«PKGBUILDDIR»/doc/naturaldocs'
+make[4]: Entering directory `/«PKGBUILDDIR»/doc'
+/usr/bin/pdflatex lenses.tex
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian)
+ restricted \write18 enabled.
+entering extended mode
+(./lenses.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2009/07/02 v2.20.1
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty) (./bcprules.sty)
+No file lenses.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{/var/lib/texmf/fo
+nts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (71.31462pt too wide) in paragraph at lines 314--314
+[] 
+[4]
+Overfull \hbox (61.85109pt too wide) detected at line 346
+ [] 
+[5]
+Overfull \hbox (98.27675pt too wide) in paragraph at lines 397--397
+[] 
+[6] [7] (./lenses.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on lenses.pdf (7 pages, 179266 bytes).
+Transcript written on lenses.log.
+/usr/bin/pdflatex unambig.tex
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian)
+ restricted \write18 enabled.
+entering extended mode
+(./unambig.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2009/07/02 v2.20.1
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty) (./bcprules.sty)
+No file unambig.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Overfull \vbox (1.17886pt too high) has occurred while \output is active
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./unambig.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb>
+Output written on unambig.pdf (1 page, 147583 bytes).
+Transcript written on unambig.log.
+make[4]: Leaving directory `/«PKGBUILDDIR»/doc'
+make[3]: Leaving directory `/«PKGBUILDDIR»/doc'
+Making all in examples
+make[3]: Entering directory `/«PKGBUILDDIR»/examples'
+  CC     fadot.o
+  CCLD   fadot
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+make[3]: Leaving directory `/«PKGBUILDDIR»/examples'
+make[3]: Entering directory `/«PKGBUILDDIR»'
+make[3]: Leaving directory `/«PKGBUILDDIR»'
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+# Do non-regression tests
+/usr/bin/make check
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making check in gnulib/lib
+make[2]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+/usr/bin/make  check-recursive
+make[3]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+make[4]: Entering directory `/«PKGBUILDDIR»/gnulib/lib'
+make[4]: Nothing to be done for `check-am'.
+make[4]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+make[3]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+make[2]: Leaving directory `/«PKGBUILDDIR»/gnulib/lib'
+Making check in src
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+echo '#define DATADIR "/usr/share"' > datadir.h1
+../build/aux/move-if-change datadir.h1 datadir.h
+/usr/bin/make  check-am
+make[3]: Entering directory `/«PKGBUILDDIR»/src'
+echo '#define DATADIR "/usr/share"' > datadir.h1
+../build/aux/move-if-change datadir.h1 datadir.h
+make[3]: Leaving directory `/«PKGBUILDDIR»/src'
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+Making check in gnulib/tests
+make[2]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+/usr/bin/make  check-recursive
+make[3]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+Making check in .
+make[4]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+/usr/bin/make  libtests.a test-alloca-opt test-binary-io test-btowc test-c-ctype test-c-strcasecmp test-c-strncasecmp test-canonicalize-lgpl test-close test-ctype test-dup2 test-environ test-errno test-fcntl-h test-fdopen test-fgetc test-float test-fnmatch test-fputc test-fread test-fstat test-fwrite test-getcwd-lgpl test-getdelim test-getline test-getopt test-ignore-value test-intprops test-inttypes test-isblank test-langinfo test-locale test-localeconv test-localename test-lock test-lstat test-malloc-gnu test-malloca test-mbrtowc test-mbrtowc-w32 test-mbsinit test-mbsrtowcs test-memchr test-nl_langinfo test-open test-pathmax test-rawmemchr test-readlink test-safe-alloc test-setenv test-setlocale1 test-setlocale2 test-stat test-stdbool test-stddef test-stdint test-stdio test-stdlib test-strchrnul test-string test-strnlen test-strstr test-symlink test-sys_stat test-sys_types test-sys_wait test-thread_self test-thread_create test-time test-unistd test-unsetenv test-vasnprintf test-vasprintf test-verify test-wchar test-wcrtomb test-wcrtomb-w32 test-wctype-h
+make[5]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+  CC     c-ctype.o
+  CC     c-strcasecmp.o
+  CC     c-strncasecmp.o
+  CC     fd-hook.o
+  CC     localename.o
+  CC     glthread/lock.o
+  CC     glthread/thread.o
+In file included from glthread/thread.c:24:
+./glthread/thread.h:118:16: warning: weak identifier 'pthread_sigmask' never declared
+#  pragma weak pthread_sigmask
+               ^
+1 warning generated.
+  CC     glthread/threadlib.o
+  AR     libtests.a
+  CC     test-alloca-opt.o
+  CCLD   test-alloca-opt
+  CC     test-binary-io.o
+  CCLD   test-binary-io
+  CC     test-btowc.o
+  CCLD   test-btowc
+  CC     test-c-ctype.o
+  CCLD   test-c-ctype
+  CC     test-c-strcasecmp.o
+  CCLD   test-c-strcasecmp
+  CC     test-c-strncasecmp.o
+  CCLD   test-c-strncasecmp
+  CC     test-canonicalize-lgpl.o
+  CCLD   test-canonicalize-lgpl
+  CC     test-close.o
+  CCLD   test-close
+  CC     test-ctype.o
+  CCLD   test-ctype
+  CC     test-dup2.o
+  CCLD   test-dup2
+  CC     test-environ.o
+  CCLD   test-environ
+  CC     test-errno.o
+  CCLD   test-errno
+  CC     test-fcntl-h.o
+  CCLD   test-fcntl-h
+  CC     test-fdopen.o
+  CCLD   test-fdopen
+  CC     test-fgetc.o
+  CCLD   test-fgetc
+  CC     test-float.o
+  CCLD   test-float
+  CC     test-fnmatch.o
+  CCLD   test-fnmatch
+  CC     test-fputc.o
+  CCLD   test-fputc
+  CC     test-fread.o
+  CCLD   test-fread
+  CC     test-fstat.o
+  CCLD   test-fstat
+  CC     test-fwrite.o
+  CCLD   test-fwrite
+  CC     test-getcwd-lgpl.o
+  CCLD   test-getcwd-lgpl
+  CC     test-getdelim.o
+  CCLD   test-getdelim
+  CC     test-getline.o
+  CCLD   test-getline
+  CC     test-getopt.o
+  CCLD   test-getopt
+  CC     test-ignore-value.o
+  CCLD   test-ignore-value
+  CC     test-intprops.o
+  CCLD   test-intprops
+  CC     test-inttypes.o
+  CCLD   test-inttypes
+  CC     test-isblank.o
+  CCLD   test-isblank
+  CC     test-langinfo.o
+  CCLD   test-langinfo
+  CC     test-locale.o
+  CCLD   test-locale
+  CC     test-localeconv.o
+  CCLD   test-localeconv
+  CC     test-localename.o
+  CCLD   test-localename
+  CC     test-lock.o
+In file included from test-lock.c:91:
+./glthread/thread.h:118:16: warning: weak identifier 'pthread_sigmask' never declared
+#  pragma weak pthread_sigmask
+               ^
+1 warning generated.
+  CCLD   test-lock
+  CC     test-lstat.o
+  CCLD   test-lstat
+  CC     test-malloc-gnu.o
+  CCLD   test-malloc-gnu
+  CC     test-malloca.o
+  CCLD   test-malloca
+  CC     test-mbrtowc.o
+  CCLD   test-mbrtowc
+  CC     test-mbrtowc-w32.o
+  CCLD   test-mbrtowc-w32
+  CC     test-mbsinit.o
+  CCLD   test-mbsinit
+  CC     test-mbsrtowcs.o
+  CCLD   test-mbsrtowcs
+  CC     test-memchr.o
+  CCLD   test-memchr
+  CC     test-nl_langinfo.o
+  CCLD   test-nl_langinfo
+  CC     test-open.o
+  CCLD   test-open
+  CC     test-pathmax.o
+  CCLD   test-pathmax
+  CC     test-rawmemchr.o
+  CCLD   test-rawmemchr
+  CC     test-readlink.o
+  CCLD   test-readlink
+  CC     test-safe-alloc.o
+  CCLD   test-safe-alloc
+  CC     test-setenv.o
+  CCLD   test-setenv
+  CC     test-setlocale1.o
+  CCLD   test-setlocale1
+  CC     test-setlocale2.o
+  CCLD   test-setlocale2
+  CC     test-stat.o
+  CCLD   test-stat
+  CC     test-stdbool.o
+  CCLD   test-stdbool
+  CC     test-stddef.o
+  CCLD   test-stddef
+  CC     test-stdint.o
+  CCLD   test-stdint
+  CC     test-stdio.o
+  CCLD   test-stdio
+  CC     test-stdlib.o
+  CCLD   test-stdlib
+  CC     test-strchrnul.o
+  CCLD   test-strchrnul
+  CC     test-string.o
+  CCLD   test-string
+  CC     test-strnlen.o
+  CCLD   test-strnlen
+  CC     test-strstr.o
+  CCLD   test-strstr
+  CC     test-symlink.o
+  CCLD   test-symlink
+  CC     test-sys_stat.o
+  CCLD   test-sys_stat
+  CC     test-sys_types.o
+  CCLD   test-sys_types
+  CC     test-sys_wait.o
+test-sys_wait.c:34:11: warning: no case matching constant switch condition '0'
+  switch (0)
+          ^
+1 warning generated.
+  CCLD   test-sys_wait
+  CC     test-thread_self.o
+In file included from test-thread_self.c:21:
+./glthread/thread.h:118:16: warning: weak identifier 'pthread_sigmask' never declared
+#  pragma weak pthread_sigmask
+               ^
+1 warning generated.
+  CCLD   test-thread_self
+  CC     test-thread_create.o
+In file included from test-thread_create.c:21:
+./glthread/thread.h:118:16: warning: weak identifier 'pthread_sigmask' never declared
+#  pragma weak pthread_sigmask
+               ^
+1 warning generated.
+  CCLD   test-thread_create
+  CC     test-time.o
+  CCLD   test-time
+  CC     test-unistd.o
+  CCLD   test-unistd
+  CC     test-unsetenv.o
+  CCLD   test-unsetenv
+  CC     test-vasnprintf.o
+test-vasnprintf.c:58:46: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      ASSERT (memcmp (buf + size, "DEADBEEF" + size, 8 - size) == 0);
+                                  ~~~~~~~~~~~^~~~~~
+./macros.h:49:13: note: expanded from macro 'ASSERT'
+      if (!(expr))                                                           \
+            ^
+test-vasnprintf.c:58:46: note: use array indexing to silence this warning
+      ASSERT (memcmp (buf + size, "DEADBEEF" + size, 8 - size) == 0);
+                                             ^
+                                  &          [
+./macros.h:49:13: note: expanded from macro 'ASSERT'
+      if (!(expr))                                                           \
+            ^
+1 warning generated.
+  CCLD   test-vasnprintf
+  CC     test-vasprintf.o
+  CCLD   test-vasprintf
+  CC     test-verify.o
+  CCLD   test-verify
+  CC     test-wchar.o
+  CCLD   test-wchar
+  CC     test-wcrtomb.o
+  CCLD   test-wcrtomb
+  CC     test-wcrtomb-w32.o
+  CCLD   test-wcrtomb-w32
+  CC     test-wctype-h.o
+  CCLD   test-wctype-h
+make[5]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+/usr/bin/make  check-TESTS
+make[5]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+make[6]: Entering directory `/«PKGBUILDDIR»/gnulib/tests'
+PASS: test-alloca-opt
+PASS: test-binary-io.sh
+SKIP: test-btowc1.sh
+SKIP: test-btowc2.sh
+PASS: test-c-ctype
+PASS: test-c-strcase.sh
+PASS: test-canonicalize-lgpl
+PASS: test-close
+PASS: test-ctype
+PASS: test-dup2
+PASS: test-environ
+PASS: test-errno
+PASS: test-fcntl-h
+PASS: test-fdopen
+PASS: test-fgetc
+PASS: test-float
+PASS: test-fnmatch
+PASS: test-fputc
+PASS: test-fread
+PASS: test-fstat
+PASS: test-fwrite
+PASS: test-getcwd-lgpl
+PASS: test-getdelim
+PASS: test-getline
+PASS: test-getopt
+PASS: test-ignore-value
+PASS: test-intprops
+PASS: test-inttypes
+PASS: test-isblank
+PASS: test-langinfo
+PASS: test-locale
+PASS: test-localeconv
+PASS: test-localename
+PASS: test-lock
+PASS: test-lstat
+PASS: test-malloc-gnu
+PASS: test-malloca
+SKIP: test-mbrtowc1.sh
+SKIP: test-mbrtowc2.sh
+SKIP: test-mbrtowc3.sh
+SKIP: test-mbrtowc4.sh
+SKIP: test-mbrtowc-w32-1.sh
+SKIP: test-mbrtowc-w32-2.sh
+SKIP: test-mbrtowc-w32-3.sh
+SKIP: test-mbrtowc-w32-4.sh
+SKIP: test-mbrtowc-w32-5.sh
+SKIP: test-mbsinit.sh
+SKIP: test-mbsrtowcs1.sh
+SKIP: test-mbsrtowcs2.sh
+SKIP: test-mbsrtowcs3.sh
+SKIP: test-mbsrtowcs4.sh
+PASS: test-memchr
+PASS: test-nl_langinfo.sh
+PASS: test-open
+PASS: test-pathmax
+PASS: test-rawmemchr
+PASS: test-readlink
+PASS: test-safe-alloc
+PASS: test-setenv
+SKIP: test-setlocale1.sh
+PASS: test-setlocale2.sh
+PASS: test-stat
+PASS: test-stdbool
+PASS: test-stddef
+PASS: test-stdint
+PASS: test-stdio
+PASS: test-stdlib
+PASS: test-strchrnul
+PASS: test-string
+PASS: test-strnlen
+PASS: test-strstr
+PASS: test-symlink
+PASS: test-sys_stat
+PASS: test-sys_types
+PASS: test-sys_wait
+PASS: test-init.sh
+PASS: test-thread_self
+PASS: test-thread_create
+PASS: test-time
+PASS: test-unistd
+PASS: test-unsetenv
+PASS: test-vasnprintf
+PASS: test-vasprintf
+PASS: test-verify
+PASS: test-verify.sh
+PASS: test-wchar
+PASS: test-wcrtomb.sh
+SKIP: test-wcrtomb-w32-1.sh
+SKIP: test-wcrtomb-w32-2.sh
+SKIP: test-wcrtomb-w32-3.sh
+SKIP: test-wcrtomb-w32-4.sh
+SKIP: test-wcrtomb-w32-5.sh
+PASS: test-wctype-h
+=======================
+All 71 tests passed
+(22 tests were not run)
+=======================
+make[6]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[5]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[4]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[3]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+make[2]: Leaving directory `/«PKGBUILDDIR»/gnulib/tests'
+Making check in tests
+make[2]: Entering directory `/«PKGBUILDDIR»/tests'
+/usr/bin/make  fatest test-xpath test-load test-save test-api test-run test-interpreter.sh lens-sudoers.sh lens-access.sh lens-aliases.sh lens-anacron.sh lens-approx.sh lens-apt_update_manager.sh lens-aptpreferences.sh lens-aptconf.sh lens-aptsource.sh lens-authorized_keys.sh lens-automaster.sh lens-automounter.sh lens-avahi.sh lens-backuppchosts.sh lens-bbhosts.sh lens-build.sh lens-cachefilesd.sh lens-carbon.sh lens-cgconfig.sh lens-cgrules.sh lens-channels.sh lens-cobblersettings.sh lens-cobblermodules.sh lens-collectd.sh lens-cron.sh lens-crypttab.sh lens-cyrus_imapd.sh lens-cups.sh lens-darkice.sh lens-debctrl.sh lens-desktop.sh lens-device_map.sh lens-dhclient.sh lens-dhcpd.sh lens-dnsmasq.sh lens-dpkg.sh lens-dput.sh lens-erlang.sh lens-ethers.sh lens-exports.sh lens-fai_diskconfig.sh lens-fonts.sh lens-fstab.sh lens-fuse.sh lens-gdm.sh lens-group.sh lens-gtkbookmarks.sh lens-json.sh lens-hostname.sh lens-hosts.sh lens-hosts_access.sh lens-host_conf.sh lens-htpasswd.sh lens-httpd.sh lens-inetd.sh lens-inifile.sh lens-inittab.sh lens-inputrc.sh lens-interfaces.sh lens-iptables.sh lens-kdump.sh lens-keepalived.sh lens-krb5.sh lens-ldap.sh lens-ldif.sh lens-ldso.sh lens-lightdm.sh lens-limits.sh lens-login_defs.sh lens-logrotate.sh lens-logwatch.sh lens-lokkit.sh lens-mcollective.sh lens-mdadm_conf.sh lens-memcached.sh lens-mke2fs.sh lens-modprobe.sh lens-modules.sh lens-modules_conf.sh lens-monit.sh lens-multipath.sh lens-mysql.sh lens-nagioscfg.sh lens-nagiosobjects.sh lens-netmasks.sh lens-networkmanager.sh lens-networks.sh lens-nginx.sh lens-ntp.sh lens-nrpe.sh lens-nsswitch.sh lens-odbc.sh lens-openvpn.sh lens-pam.sh lens-pamconf.sh lens-passwd.sh lens-pbuilder.sh lens-pg_hba.sh lens-php.sh lens-phpvars.sh lens-postfix_access.sh lens-postfix_main.sh lens-postfix_master.sh lens-postfix_transport.sh lens-postfix_virtual.sh lens-postgresql.sh lens-properties.sh lens-protocols.sh lens-puppet.sh lens-puppet_auth.sh lens-puppetfileserver.sh lens-pythonpaste.sh lens-qpid.sh lens-quote.sh lens-rabbitmq.sh lens-redis.sh lens-reprepro_uploaders.sh lens-resolv.sh lens-rsyncd.sh lens-rsyslog.sh lens-rx.sh lens-samba.sh lens-securetty.sh lens-services.sh lens-shells.sh lens-shellvars.sh lens-shellvars_list.sh lens-simplelines.sh lens-simplevars.sh lens-slapd.sh lens-smbusers.sh lens-solaris_system.sh lens-soma.sh lens-spacevars.sh lens-squid.sh lens-ssh.sh lens-sshd.sh lens-sssd.sh lens-stunnel.sh lens-subversion.sh lens-sysconfig.sh lens-syslog.sh lens-sysctl.sh lens-systemd.sh lens-thttpd.sh lens-up2date.sh lens-util.sh lens-vfstab.sh lens-vmware_config.sh lens-vsftpd.sh lens-webmin.sh lens-wine.sh lens-xinetd.sh lens-xml.sh lens-xorg.sh lens-xymon.sh lens-grub.sh lens-schroot.sh lens-xendconfsxp.sh lens-yum.sh test-get.sh test-augtool.sh test-put-symlink.sh test-put-symlink-augnew.sh test-put-symlink-augsave.sh test-put-symlink-augtemp.sh test-put-mount.sh test-put-mount-augnew.sh test-put-mount-augsave.sh test-save-empty.sh test-bug-1.sh test-idempotent.sh test-preserve.sh test-events-saved.sh test-save-mode.sh test-unlink-error.sh test-augtool-empty-line.sh test-augtool-modify-root.sh
+make[3]: Entering directory `/«PKGBUILDDIR»/tests'
+  CC     fatest.o
+  CC     cutest.o
+  CC     memory.o
+  CCLD   fatest
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     test-xpath.o
+  CCLD   test-xpath
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     test-load.o
+  CCLD   test-load
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     test-save.o
+  CCLD   test-save
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     test-api.o
+  CCLD   test-api
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+  CC     test-run.o
+  CCLD   test-run
+clang: warning: argument unused during compilation: '-Wp,-D_FORTIFY_SOURCE=2'
+make[3]: Nothing to be done for `test-interpreter.sh'.
+make[3]: `lens-sudoers.sh' is up to date.
+make[3]: `lens-access.sh' is up to date.
+make[3]: `lens-aliases.sh' is up to date.
+make[3]: `lens-anacron.sh' is up to date.
+make[3]: `lens-approx.sh' is up to date.
+make[3]: `lens-apt_update_manager.sh' is up to date.
+make[3]: `lens-aptpreferences.sh' is up to date.
+make[3]: `lens-aptconf.sh' is up to date.
+make[3]: `lens-aptsource.sh' is up to date.
+make[3]: `lens-authorized_keys.sh' is up to date.
+make[3]: `lens-automaster.sh' is up to date.
+make[3]: `lens-automounter.sh' is up to date.
+make[3]: `lens-avahi.sh' is up to date.
+make[3]: `lens-backuppchosts.sh' is up to date.
+make[3]: `lens-bbhosts.sh' is up to date.
+make[3]: `lens-build.sh' is up to date.
+make[3]: `lens-cachefilesd.sh' is up to date.
+make[3]: `lens-carbon.sh' is up to date.
+make[3]: `lens-cgconfig.sh' is up to date.
+make[3]: `lens-cgrules.sh' is up to date.
+make[3]: `lens-channels.sh' is up to date.
+make[3]: `lens-cobblersettings.sh' is up to date.
+make[3]: `lens-cobblermodules.sh' is up to date.
+make[3]: `lens-collectd.sh' is up to date.
+make[3]: `lens-cron.sh' is up to date.
+make[3]: `lens-crypttab.sh' is up to date.
+make[3]: `lens-cyrus_imapd.sh' is up to date.
+make[3]: `lens-cups.sh' is up to date.
+make[3]: `lens-darkice.sh' is up to date.
+make[3]: `lens-debctrl.sh' is up to date.
+make[3]: `lens-desktop.sh' is up to date.
+make[3]: `lens-device_map.sh' is up to date.
+make[3]: `lens-dhclient.sh' is up to date.
+make[3]: `lens-dhcpd.sh' is up to date.
+make[3]: `lens-dnsmasq.sh' is up to date.
+make[3]: `lens-dpkg.sh' is up to date.
+make[3]: `lens-dput.sh' is up to date.
+make[3]: `lens-erlang.sh' is up to date.
+make[3]: `lens-ethers.sh' is up to date.
+make[3]: `lens-exports.sh' is up to date.
+make[3]: `lens-fai_diskconfig.sh' is up to date.
+make[3]: `lens-fonts.sh' is up to date.
+make[3]: `lens-fstab.sh' is up to date.
+make[3]: `lens-fuse.sh' is up to date.
+make[3]: `lens-gdm.sh' is up to date.
+make[3]: `lens-group.sh' is up to date.
+make[3]: `lens-gtkbookmarks.sh' is up to date.
+make[3]: `lens-json.sh' is up to date.
+make[3]: `lens-hostname.sh' is up to date.
+make[3]: `lens-hosts.sh' is up to date.
+make[3]: `lens-hosts_access.sh' is up to date.
+make[3]: `lens-host_conf.sh' is up to date.
+make[3]: `lens-htpasswd.sh' is up to date.
+make[3]: `lens-httpd.sh' is up to date.
+make[3]: `lens-inetd.sh' is up to date.
+make[3]: `lens-inifile.sh' is up to date.
+make[3]: `lens-inittab.sh' is up to date.
+make[3]: `lens-inputrc.sh' is up to date.
+make[3]: `lens-interfaces.sh' is up to date.
+make[3]: `lens-iptables.sh' is up to date.
+make[3]: `lens-kdump.sh' is up to date.
+make[3]: `lens-keepalived.sh' is up to date.
+make[3]: `lens-krb5.sh' is up to date.
+make[3]: `lens-ldap.sh' is up to date.
+make[3]: `lens-ldif.sh' is up to date.
+make[3]: `lens-ldso.sh' is up to date.
+make[3]: `lens-lightdm.sh' is up to date.
+make[3]: `lens-limits.sh' is up to date.
+make[3]: `lens-login_defs.sh' is up to date.
+make[3]: `lens-logrotate.sh' is up to date.
+make[3]: `lens-logwatch.sh' is up to date.
+make[3]: `lens-lokkit.sh' is up to date.
+make[3]: `lens-mcollective.sh' is up to date.
+make[3]: `lens-mdadm_conf.sh' is up to date.
+make[3]: `lens-memcached.sh' is up to date.
+make[3]: `lens-mke2fs.sh' is up to date.
+make[3]: `lens-modprobe.sh' is up to date.
+make[3]: `lens-modules.sh' is up to date.
+make[3]: `lens-modules_conf.sh' is up to date.
+make[3]: `lens-monit.sh' is up to date.
+make[3]: `lens-multipath.sh' is up to date.
+make[3]: `lens-mysql.sh' is up to date.
+make[3]: `lens-nagioscfg.sh' is up to date.
+make[3]: `lens-nagiosobjects.sh' is up to date.
+make[3]: `lens-netmasks.sh' is up to date.
+make[3]: `lens-networkmanager.sh' is up to date.
+make[3]: `lens-networks.sh' is up to date.
+make[3]: `lens-nginx.sh' is up to date.
+make[3]: `lens-ntp.sh' is up to date.
+make[3]: `lens-nrpe.sh' is up to date.
+make[3]: `lens-nsswitch.sh' is up to date.
+make[3]: `lens-odbc.sh' is up to date.
+make[3]: `lens-openvpn.sh' is up to date.
+make[3]: `lens-pam.sh' is up to date.
+make[3]: `lens-pamconf.sh' is up to date.
+make[3]: `lens-passwd.sh' is up to date.
+make[3]: `lens-pbuilder.sh' is up to date.
+make[3]: `lens-pg_hba.sh' is up to date.
+make[3]: `lens-php.sh' is up to date.
+make[3]: `lens-phpvars.sh' is up to date.
+make[3]: `lens-postfix_access.sh' is up to date.
+make[3]: `lens-postfix_main.sh' is up to date.
+make[3]: `lens-postfix_master.sh' is up to date.
+make[3]: `lens-postfix_transport.sh' is up to date.
+make[3]: `lens-postfix_virtual.sh' is up to date.
+make[3]: `lens-postgresql.sh' is up to date.
+make[3]: `lens-properties.sh' is up to date.
+make[3]: `lens-protocols.sh' is up to date.
+make[3]: `lens-puppet.sh' is up to date.
+make[3]: `lens-puppet_auth.sh' is up to date.
+make[3]: `lens-puppetfileserver.sh' is up to date.
+make[3]: `lens-pythonpaste.sh' is up to date.
+make[3]: `lens-qpid.sh' is up to date.
+make[3]: `lens-quote.sh' is up to date.
+make[3]: `lens-rabbitmq.sh' is up to date.
+make[3]: `lens-redis.sh' is up to date.
+make[3]: `lens-reprepro_uploaders.sh' is up to date.
+make[3]: `lens-resolv.sh' is up to date.
+make[3]: `lens-rsyncd.sh' is up to date.
+make[3]: `lens-rsyslog.sh' is up to date.
+make[3]: `lens-rx.sh' is up to date.
+make[3]: `lens-samba.sh' is up to date.
+make[3]: `lens-securetty.sh' is up to date.
+make[3]: `lens-services.sh' is up to date.
+make[3]: `lens-shells.sh' is up to date.
+make[3]: `lens-shellvars.sh' is up to date.
+make[3]: `lens-shellvars_list.sh' is up to date.
+make[3]: `lens-simplelines.sh' is up to date.
+make[3]: `lens-simplevars.sh' is up to date.
+make[3]: `lens-slapd.sh' is up to date.
+make[3]: `lens-smbusers.sh' is up to date.
+make[3]: `lens-solaris_system.sh' is up to date.
+make[3]: `lens-soma.sh' is up to date.
+make[3]: `lens-spacevars.sh' is up to date.
+make[3]: `lens-squid.sh' is up to date.
+make[3]: `lens-ssh.sh' is up to date.
+make[3]: `lens-sshd.sh' is up to date.
+make[3]: `lens-sssd.sh' is up to date.
+make[3]: `lens-stunnel.sh' is up to date.
+make[3]: `lens-subversion.sh' is up to date.
+make[3]: `lens-sysconfig.sh' is up to date.
+make[3]: `lens-syslog.sh' is up to date.
+make[3]: `lens-sysctl.sh' is up to date.
+make[3]: `lens-systemd.sh' is up to date.
+make[3]: `lens-thttpd.sh' is up to date.
+make[3]: `lens-up2date.sh' is up to date.
+make[3]: `lens-util.sh' is up to date.
+make[3]: `lens-vfstab.sh' is up to date.
+make[3]: `lens-vmware_config.sh' is up to date.
+make[3]: `lens-vsftpd.sh' is up to date.
+make[3]: `lens-webmin.sh' is up to date.
+make[3]: `lens-wine.sh' is up to date.
+make[3]: `lens-xinetd.sh' is up to date.
+make[3]: `lens-xml.sh' is up to date.
+make[3]: `lens-xorg.sh' is up to date.
+make[3]: `lens-xymon.sh' is up to date.
+make[3]: `lens-grub.sh' is up to date.
+make[3]: `lens-schroot.sh' is up to date.
+make[3]: `lens-xendconfsxp.sh' is up to date.
+make[3]: `lens-yum.sh' is up to date.
+make[3]: Nothing to be done for `test-get.sh'.
+make[3]: Nothing to be done for `test-augtool.sh'.
+make[3]: Nothing to be done for `test-put-symlink.sh'.
+make[3]: Nothing to be done for `test-put-symlink-augnew.sh'.
+make[3]: Nothing to be done for `test-put-symlink-augsave.sh'.
+make[3]: Nothing to be done for `test-put-symlink-augtemp.sh'.
+make[3]: Nothing to be done for `test-put-mount.sh'.
+make[3]: Nothing to be done for `test-put-mount-augnew.sh'.
+make[3]: Nothing to be done for `test-put-mount-augsave.sh'.
+make[3]: Nothing to be done for `test-save-empty.sh'.
+make[3]: Nothing to be done for `test-bug-1.sh'.
+make[3]: Nothing to be done for `test-idempotent.sh'.
+make[3]: Nothing to be done for `test-preserve.sh'.
+make[3]: Nothing to be done for `test-events-saved.sh'.
+make[3]: Nothing to be done for `test-save-mode.sh'.
+make[3]: Nothing to be done for `test-unlink-error.sh'.
+make[3]: Nothing to be done for `test-augtool-empty-line.sh'.
+make[3]: Nothing to be done for `test-augtool-modify-root.sh'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/tests'
+/usr/bin/make  check-TESTS
+make[3]: Entering directory `/«PKGBUILDDIR»/tests'
+make[4]: Entering directory `/«PKGBUILDDIR»/tests'
+PASS: test-interpreter.sh
+PASS: lens-sudoers.sh
+PASS: lens-access.sh
+PASS: lens-aliases.sh
+PASS: lens-anacron.sh
+PASS: lens-approx.sh
+PASS: lens-apt_update_manager.sh
+PASS: lens-aptpreferences.sh
+PASS: lens-aptconf.sh
+PASS: lens-aptsource.sh
+PASS: lens-authorized_keys.sh
+PASS: lens-automaster.sh
+PASS: lens-automounter.sh
+PASS: lens-avahi.sh
+PASS: lens-backuppchosts.sh
+PASS: lens-bbhosts.sh
+PASS: lens-build.sh
+PASS: lens-cachefilesd.sh
+PASS: lens-carbon.sh
+PASS: lens-cgconfig.sh
+PASS: lens-cgrules.sh
+PASS: lens-channels.sh
+PASS: lens-cobblersettings.sh
+PASS: lens-cobblermodules.sh
+PASS: lens-collectd.sh
+PASS: lens-cron.sh
+PASS: lens-crypttab.sh
+PASS: lens-cyrus_imapd.sh
+PASS: lens-cups.sh
+PASS: lens-darkice.sh
+PASS: lens-debctrl.sh
+PASS: lens-desktop.sh
+PASS: lens-device_map.sh
+PASS: lens-dhclient.sh
+PASS: lens-dhcpd.sh
+PASS: lens-dnsmasq.sh
+PASS: lens-dpkg.sh
+PASS: lens-dput.sh
+PASS: lens-erlang.sh
+PASS: lens-ethers.sh
+PASS: lens-exports.sh
+PASS: lens-fai_diskconfig.sh
+PASS: lens-fonts.sh
+PASS: lens-fstab.sh
+PASS: lens-fuse.sh
+PASS: lens-gdm.sh
+PASS: lens-group.sh
+PASS: lens-gtkbookmarks.sh
+PASS: lens-json.sh
+PASS: lens-hostname.sh
+PASS: lens-hosts.sh
+PASS: lens-hosts_access.sh
+PASS: lens-host_conf.sh
+PASS: lens-htpasswd.sh
+PASS: lens-httpd.sh
+PASS: lens-inetd.sh
+PASS: lens-inifile.sh
+PASS: lens-inittab.sh
+PASS: lens-inputrc.sh
+PASS: lens-interfaces.sh
+PASS: lens-iptables.sh
+PASS: lens-kdump.sh
+PASS: lens-keepalived.sh
+PASS: lens-krb5.sh
+PASS: lens-ldap.sh
+PASS: lens-ldif.sh
+PASS: lens-ldso.sh
+PASS: lens-lightdm.sh
+PASS: lens-limits.sh
+PASS: lens-login_defs.sh
+PASS: lens-logrotate.sh
+PASS: lens-logwatch.sh
+PASS: lens-lokkit.sh
+PASS: lens-mcollective.sh
+PASS: lens-mdadm_conf.sh
+PASS: lens-memcached.sh
+PASS: lens-mke2fs.sh
+PASS: lens-modprobe.sh
+PASS: lens-modules.sh
+PASS: lens-modules_conf.sh
+PASS: lens-monit.sh
+PASS: lens-multipath.sh
+PASS: lens-mysql.sh
+PASS: lens-nagioscfg.sh
+PASS: lens-nagiosobjects.sh
+PASS: lens-netmasks.sh
+PASS: lens-networkmanager.sh
+PASS: lens-networks.sh
+PASS: lens-nginx.sh
+PASS: lens-ntp.sh
+PASS: lens-nrpe.sh
+PASS: lens-nsswitch.sh
+PASS: lens-odbc.sh
+PASS: lens-openvpn.sh
+PASS: lens-pam.sh
+PASS: lens-pamconf.sh
+PASS: lens-passwd.sh
+PASS: lens-pbuilder.sh
+PASS: lens-pg_hba.sh
+PASS: lens-php.sh
+PASS: lens-phpvars.sh
+PASS: lens-postfix_access.sh
+PASS: lens-postfix_main.sh
+PASS: lens-postfix_master.sh
+PASS: lens-postfix_transport.sh
+PASS: lens-postfix_virtual.sh
+PASS: lens-postgresql.sh
+PASS: lens-properties.sh
+PASS: lens-protocols.sh
+PASS: lens-puppet.sh
+PASS: lens-puppet_auth.sh
+PASS: lens-puppetfileserver.sh
+PASS: lens-pythonpaste.sh
+PASS: lens-qpid.sh
+PASS: lens-quote.sh
+PASS: lens-rabbitmq.sh
+PASS: lens-redis.sh
+PASS: lens-reprepro_uploaders.sh
+PASS: lens-resolv.sh
+PASS: lens-rsyncd.sh
+PASS: lens-rsyslog.sh
+PASS: lens-rx.sh
+PASS: lens-samba.sh
+PASS: lens-securetty.sh
+PASS: lens-services.sh
+PASS: lens-shells.sh
+PASS: lens-shellvars.sh
+PASS: lens-shellvars_list.sh
+PASS: lens-simplelines.sh
+PASS: lens-simplevars.sh
+PASS: lens-slapd.sh
+PASS: lens-smbusers.sh
+PASS: lens-solaris_system.sh
+PASS: lens-soma.sh
+PASS: lens-spacevars.sh
+PASS: lens-squid.sh
+PASS: lens-ssh.sh
+PASS: lens-sshd.sh
+PASS: lens-sssd.sh
+PASS: lens-stunnel.sh
+PASS: lens-subversion.sh
+PASS: lens-sysconfig.sh
+PASS: lens-syslog.sh
+PASS: lens-sysctl.sh
+PASS: lens-systemd.sh
+PASS: lens-thttpd.sh
+PASS: lens-up2date.sh
+PASS: lens-util.sh
+PASS: lens-vfstab.sh
+PASS: lens-vmware_config.sh
+PASS: lens-vsftpd.sh
+PASS: lens-webmin.sh
+PASS: lens-wine.sh
+PASS: lens-xinetd.sh
+PASS: lens-xml.sh
+PASS: lens-xorg.sh
+PASS: lens-xymon.sh
+PASS: lens-grub.sh
+PASS: lens-schroot.sh
+PASS: lens-xendconfsxp.sh
+PASS: lens-yum.sh
+PASS: test-get.sh
+PASS: test-augtool.sh
+PASS: test-put-symlink.sh
+PASS: test-put-symlink-augnew.sh
+PASS: test-put-symlink-augsave.sh
+PASS: test-put-symlink-augtemp.sh
+SKIP: test-put-mount.sh
+SKIP: test-put-mount-augnew.sh
+SKIP: test-put-mount-augsave.sh
+PASS: test-save-empty.sh
+PASS: test-bug-1.sh
+PASS: test-idempotent.sh
+PASS: test-preserve.sh
+PASS: test-events-saved.sh
+PASS: test-save-mode.sh
+PASS: test-unlink-error.sh
+PASS: test-augtool-empty-line.sh
+PASS: test-augtool-modify-root.sh
+PASS: fatest
+PASS: test-xpath
+PASS: test-load
+PASS: test-save
+PASS: test-api
+FAIL: test-run
+========================
+1 of 182 tests failed
+(3 tests were not run)
+See tests/test-suite.log
+========================
+make[4]: *** [test-suite.log] Error 1
+make[4]: Leaving directory `/«PKGBUILDDIR»/tests'
+make[3]: *** [check-TESTS] Error 2
+make[3]: Leaving directory `/«PKGBUILDDIR»/tests'
+make[2]: *** [check-am] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/tests'
+make[1]: *** [check-recursive] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1843
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,28 +2615,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 36232
+Build-Time: 397
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 28
 Job: augeas_1.0.0-1
 Package: augeas
-Package-Time: 0
+Package-Time: 458
 Source-Version: 1.0.0-1
-Space: 0
-Status: failed
+Space: 36232
+Status: attempted
 Version: 1.0.0-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0419
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.416087s
-DC-Time-Estimation: 33.416087 versus expected 822 (r/m: 23.5989304492773 ; m: 33.416087)
+Finished at 20130131-1843
+Build needed 00:07:38, 36232k disc space
+DC-Status: Failed 460.164182s
+DC-Time-Estimation: 460.164182 versus expected 822 (r/m: 0.786318953438232 ; m: 460.164182)
