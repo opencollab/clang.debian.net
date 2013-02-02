@@ -1,12 +1,12 @@
-DC-Build-Header: libavg 1.7.1-1 / Mon Jan 28 04:03:26 +0000 2013
-DC-Task: logfile:/tmp/libavg_1.7.1-1_unstable_clang.log version:1.7.1-1 chroot:unstable modes:binary-only:clang source:libavg architecture:any esttime:
+DC-Build-Header: libavg 1.7.1-1 / Sat Feb 02 01:55:28 +0000 2013
+DC-Task: logfile:/tmp/libavg_1.7.1-1_unstable_clang.log version:1.7.1-1 modes:binary-only:clang chroot:unstable source:libavg esttime: architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang libavg_1.7.1-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-143-100.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-230-68.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ libavg 1.7.1-1 (amd64)                                     28 Jan 2013 04:03 ║
+║ libavg 1.7.1-1 (amd64)                                     02 Feb 2013 01:55 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: libavg
@@ -15,9 +15,9 @@ Source Version: 1.7.1-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/libavg-WFbADF/libavg-1.7.1' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/libavg-WFbADF' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-ac1530d4-061d-40e7-beb8-fd7022de1a1f' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/libavg-0U5tf_/libavg-1.7.1' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/libavg-0U5tf_' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-5b55b6af-86f4-4231-b991-ce2467c69b36' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (5419 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (5200 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -65,7 +65,7 @@ Need to get 6681 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main libavg 1.7.1-1 (dsc) [2287 B]
 Get:2 http://localhost/debian/ unstable/main libavg 1.7.1-1 (tar) [6668 kB]
 Get:3 http://localhost/debian/ unstable/main libavg 1.7.1-1 (diff) [10.9 kB]
-Fetched 6681 kB in 0s (8219 kB/s)
+Fetched 6681 kB in 0s (12.0 MB/s)
 Download complete and in download only mode
 
 Check arch
@@ -82,218 +82,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1307 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2074 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (4151 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:11 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (38.4 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 39s (640 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -302,32 +197,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -373,7 +255,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-1okLT6/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-tckK9Q/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -392,12 +274,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake1.10, cdbs (>= 0.4.90~), debhelper (>= 7), libavcodec-dev, libavformat-dev, libboost-python-dev (>= 1.34.1-8), libboost-thread-dev, libdc1394-22-dev, libgdk-pixbuf2.0-dev, libgraphicsmagick++1-dev, libmtdev-dev, libpango1.0-dev, librsvg2-dev, libsdl1.2-dev, libswscale-dev, libtool, libxi-dev (>= 2:1.4.1-1ubuntu1), libxml2-dev, libxxf86vm-dev, python-all-dev (>= 2.6.6-3~)
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), automake1.10, cdbs (>= 0.4.90~), debhelper (>= 7), libavcodec-dev, libavformat-dev, libboost-python-dev (>= 1.34.1-8), libboost-thread-dev, libdc1394-22-dev, libgdk-pixbuf2.0-dev, libgraphicsmagick++1-dev, libmtdev-dev, libpango1.0-dev, librsvg2-dev, libsdl1.2-dev, libswscale-dev, libtool, libxi-dev (>= 2:1.4.1-1ubuntu1), libxml2-dev, libxxf86vm-dev, python-all-dev (>= 2.6.6-3~)
-dpkg-deb: building package `sbuild-build-depends-libavg-dummy' in `/«BUILDDIR»/resolver-4aAq1d/apt_archive/sbuild-build-depends-libavg-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-libavg-dummy' in `/«BUILDDIR»/resolver-UqpYbY/apt_archive/sbuild-build-depends-libavg-dummy.deb'.
 OK
 Reading package lists...
 
@@ -409,21 +291,1786 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake1.10 autotools-dev bsdmainutils cdbs debhelper file
+  fontconfig fontconfig-config gccxml gettext gettext-base gir1.2-freedesktop
+  gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0 gir1.2-pango-1.0 gir1.2-rsvg-2.0
+  groff-base html2text intltool-debian libasound2 libasound2-dev
+  libasprintf-dev libasprintf0c2 libasyncns0 libavahi-client-dev
+  libavahi-client3 libavahi-common-data libavahi-common-dev libavahi-common3
+  libavcodec-dev libavcodec53 libavformat-dev libavformat53 libavutil-dev
+  libavutil51 libboost-date-time1.49-dev libboost-date-time1.49.0
+  libboost-python-dev libboost-python1.49-dev libboost-python1.49.0
+  libboost-serialization1.49-dev libboost-serialization1.49.0
+  libboost-thread-dev libboost-thread1.49-dev libboost-thread1.49.0
+  libboost1.49-dev libbz2-dev libcaca-dev libcaca0 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcap2 libcroco3
+  libdatrie1 libdbus-1-3 libdbus-1-dev libdc1394-22 libdc1394-22-dev
+  libdirac-encoder0 libdirectfb-1.2-9 libdirectfb-dev libdirectfb-extra
+  libdrm2 libelf1 libexif-dev libexif12 libexpat1-dev libflac8 libfontconfig1
+  libfontconfig1-dev libfreetype6 libfreetype6-dev libgcrypt11
+  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgdk-pixbuf2.0-dev
+  libgettextpo-dev libgettextpo0 libgirepository-1.0-1 libgl1-mesa-dev
+  libgl1-mesa-glx libglapi-mesa libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libglu1-mesa libglu1-mesa-dev libgnutls26 libgpg-error0
+  libgraphicsmagick++1-dev libgraphicsmagick++3 libgraphicsmagick1-dev
+  libgraphicsmagick3 libgsm1 libice-dev libice6 libicu48 libjasper-dev
+  libjasper1 libjbig-dev libjbig0 libjpeg8 libjpeg8-dev libjs-jquery libjson0
+  liblcms1 liblcms1-dev libltdl-dev libltdl7 libmagic1 libmp3lame0
+  libmtdev-dev libmtdev1 libogg0 libopenjpeg2 liborc-0.4-0 libp11-kit0
+  libpango1.0-0 libpango1.0-dev libpcre3 libpcre3-dev libpcrecpp0 libpipeline1
+  libpixman-1-0 libpixman-1-dev libpng12-0 libpng12-dev libpopt0
+  libpthread-stubs0 libpthread-stubs0-dev libpulse-dev libpulse-mainloop-glib0
+  libpulse0 libpython2.6 libpython2.7 libraw1394-11 libraw1394-dev librsvg2-2
+  librsvg2-common librsvg2-dev librtmp0 libschroedinger-1.0-0 libsdl1.2-dev
+  libsdl1.2debian libsigsegv2 libslang2-dev libsm-dev libsm6 libsndfile1
+  libspeex1 libssl-dev libswscale-dev libswscale2 libtasn1-3 libthai-data
+  libthai0 libtheora0 libtiff4 libtiff4-dev libtiffxx0c2 libtool libts-0.0-0
+  libts-dev libunistring0 libusb-1.0-0 libva1 libvorbis0a libvorbisenc2
+  libvpx1 libwmf-dev libwmf0.2-7 libwrap0 libx11-6 libx11-data libx11-dev
+  libx11-xcb1 libx264-123 libxau-dev libxau6 libxcb-glx0 libxcb-render0
+  libxcb-render0-dev libxcb-shm0 libxcb-shm0-dev libxcb1 libxcb1-dev
+  libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev libxext6 libxfixes3
+  libxft-dev libxft2 libxi-dev libxi6 libxml2 libxml2-dev libxrender-dev
+  libxrender1 libxtst6 libxvidcore4 libxxf86vm-dev libxxf86vm1 m4 man-db
+  mesa-common-dev pkg-config po-debconf python-all python-all-dev python-dev
+  python2.6 python2.6-dev python2.6-minimal python2.7-dev tsconf
+  ttf-dejavu-core x11-common x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev x11proto-render-dev x11proto-xext-dev
+  x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc wamerican wordlist
+  whois vacation devscripts dh-make gettext-doc groff libasound2-plugins
+  libasound2-doc libgsm1-dev libogg-dev libschroedinger-dev libspeex-dev
+  libtheora-dev libvorbis-dev libboost1.49-doc python3 libboost-chrono1.49-dev
+  libboost-filesystem1.49-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams1.49-dev libboost-locale1.49-dev
+  libboost-math1.49-dev libboost-mpi1.49-dev libboost-program-options1.49-dev
+  libboost-random1.49-dev libboost-regex1.49-dev libboost-signals1.49-dev
+  libboost-system1.49-dev libboost-test1.49-dev libboost-timer1.49-dev
+  libboost-wave1.49-dev xsltproc doxygen docbook-xml docbook-xsl default-jdk
+  fop libcairo2-doc rng-tools libglib2.0-doc graphicsmagick graphicsmagick-dbg
+  libice-doc libjasper-runtime liblcms-utils libtool-doc ttf-baekmuk
+  ttf-arphic-gbsn00lp ttf-arphic-bsmi00lp ttf-arphic-gkai00mp
+  ttf-arphic-bkai00mp libpango1.0-doc imagemagick pulseaudio libraw1394-doc
+  librsvg2-bin librsvg2-doc libsm-doc speex gfortran fortran95-compiler gcj
+  libwmf-doc libxcb-doc libxext-doc less www-browser libmail-box-perl
+  python2.6-doc binfmt-support
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint dbus libgl1-mesa-dri
+  shared-mime-info ghostscript gsfonts javascript-common libraw1394-tools
+  libssl-doc tcpd libx11-doc xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake1.10 autotools-dev bsdmainutils cdbs debhelper file
+  fontconfig fontconfig-config gccxml gettext gettext-base gir1.2-freedesktop
+  gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0 gir1.2-pango-1.0 gir1.2-rsvg-2.0
+  groff-base html2text intltool-debian libasound2 libasound2-dev
+  libasprintf-dev libasprintf0c2 libasyncns0 libavahi-client-dev
+  libavahi-client3 libavahi-common-data libavahi-common-dev libavahi-common3
+  libavcodec-dev libavcodec53 libavformat-dev libavformat53 libavutil-dev
+  libavutil51 libboost-date-time1.49-dev libboost-date-time1.49.0
+  libboost-python-dev libboost-python1.49-dev libboost-python1.49.0
+  libboost-serialization1.49-dev libboost-serialization1.49.0
+  libboost-thread-dev libboost-thread1.49-dev libboost-thread1.49.0
+  libboost1.49-dev libbz2-dev libcaca-dev libcaca0 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcap2 libcroco3
+  libdatrie1 libdbus-1-3 libdbus-1-dev libdc1394-22 libdc1394-22-dev
+  libdirac-encoder0 libdirectfb-1.2-9 libdirectfb-dev libdirectfb-extra
+  libdrm2 libelf1 libexif-dev libexif12 libexpat1-dev libflac8 libfontconfig1
+  libfontconfig1-dev libfreetype6 libfreetype6-dev libgcrypt11
+  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgdk-pixbuf2.0-dev
+  libgettextpo-dev libgettextpo0 libgirepository-1.0-1 libgl1-mesa-dev
+  libgl1-mesa-glx libglapi-mesa libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libglu1-mesa libglu1-mesa-dev libgnutls26 libgpg-error0
+  libgraphicsmagick++1-dev libgraphicsmagick++3 libgraphicsmagick1-dev
+  libgraphicsmagick3 libgsm1 libice-dev libice6 libicu48 libjasper-dev
+  libjasper1 libjbig-dev libjbig0 libjpeg8 libjpeg8-dev libjs-jquery libjson0
+  liblcms1 liblcms1-dev libltdl-dev libltdl7 libmagic1 libmp3lame0
+  libmtdev-dev libmtdev1 libogg0 libopenjpeg2 liborc-0.4-0 libp11-kit0
+  libpango1.0-0 libpango1.0-dev libpcre3 libpcre3-dev libpcrecpp0 libpipeline1
+  libpixman-1-0 libpixman-1-dev libpng12-0 libpng12-dev libpopt0
+  libpthread-stubs0 libpthread-stubs0-dev libpulse-dev libpulse-mainloop-glib0
+  libpulse0 libpython2.6 libpython2.7 libraw1394-11 libraw1394-dev librsvg2-2
+  librsvg2-common librsvg2-dev librtmp0 libschroedinger-1.0-0 libsdl1.2-dev
+  libsdl1.2debian libsigsegv2 libslang2-dev libsm-dev libsm6 libsndfile1
+  libspeex1 libssl-dev libswscale-dev libswscale2 libtasn1-3 libthai-data
+  libthai0 libtheora0 libtiff4 libtiff4-dev libtiffxx0c2 libtool libts-0.0-0
+  libts-dev libunistring0 libusb-1.0-0 libva1 libvorbis0a libvorbisenc2
+  libvpx1 libwmf-dev libwmf0.2-7 libwrap0 libx11-6 libx11-data libx11-dev
+  libx11-xcb1 libx264-123 libxau-dev libxau6 libxcb-glx0 libxcb-render0
+  libxcb-render0-dev libxcb-shm0 libxcb-shm0-dev libxcb1 libxcb1-dev
+  libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev libxext6 libxfixes3
+  libxft-dev libxft2 libxi-dev libxi6 libxml2 libxml2-dev libxrender-dev
+  libxrender1 libxtst6 libxvidcore4 libxxf86vm-dev libxxf86vm1 m4 man-db
+  mesa-common-dev pkg-config po-debconf python-all python-all-dev python-dev
+  python2.6 python2.6-dev python2.6-minimal python2.7-dev
+  sbuild-build-depends-libavg-dummy tsconf ttf-dejavu-core x11-common
+  x11proto-core-dev x11proto-input-dev x11proto-kb-dev x11proto-render-dev
+  x11proto-xext-dev x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev
+  zlib1g-dev
+0 upgraded, 233 newly installed, 0 to remove and 0 not upgraded.
+Need to get 119 MB/119 MB of archives.
+After this operation, 397 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:8 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:9 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:10 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:11 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:13 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:14 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:15 http://localhost/debian/ unstable/main libwrap0 amd64 7.6.q-24 [62.4 kB]
+Get:16 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:17 http://localhost/debian/ unstable/main libasound2 amd64 1.0.25-4 [461 kB]
+Get:18 http://localhost/debian/ unstable/main libasyncns0 amd64 0.8-4 [13.6 kB]
+Get:19 http://localhost/debian/ unstable/main libavahi-common-data amd64 0.6.31-1 [134 kB]
+Get:20 http://localhost/debian/ unstable/main libavahi-common3 amd64 0.6.31-1 [54.3 kB]
+Get:21 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:22 http://localhost/debian/ unstable/main libavahi-client3 amd64 0.6.31-1 [59.1 kB]
+Get:23 http://localhost/debian/ unstable/main libavutil51 amd64 6:0.8.5-1 [92.4 kB]
+Get:24 http://localhost/debian/ unstable/main libdirac-encoder0 amd64 1.0.2-6 [389 kB]
+Get:25 http://localhost/debian/ unstable/main libgsm1 amd64 1.0.13-4 [29.7 kB]
+Get:26 http://localhost/debian/ unstable/main libmp3lame0 amd64 3.99.5+repack1-3 [404 kB]
+Get:27 http://localhost/debian/ unstable/main libopenjpeg2 amd64 1.3+dfsg-4.6 [85.9 kB]
+Get:28 http://localhost/debian/ unstable/main liborc-0.4-0 amd64 1:0.4.16-2 [179 kB]
+Get:29 http://localhost/debian/ unstable/main libschroedinger-1.0-0 amd64 1.0.11-2 [330 kB]
+Get:30 http://localhost/debian/ unstable/main libspeex1 amd64 1.2~rc1-7 [60.9 kB]
+Get:31 http://localhost/debian/ unstable/main libogg0 amd64 1.3.0-4 [20.6 kB]
+Get:32 http://localhost/debian/ unstable/main libtheora0 amd64 1.1.1+dfsg.1-3.1 [398 kB]
+Get:33 http://localhost/debian/ unstable/main libva1 amd64 1.0.15-4 [40.4 kB]
+Get:34 http://localhost/debian/ unstable/main libvorbis0a amd64 1.3.2-1.3 [109 kB]
+Get:35 http://localhost/debian/ unstable/main libvorbisenc2 amd64 1.3.2-1.3 [143 kB]
+Get:36 http://localhost/debian/ unstable/main libvpx1 amd64 1.1.0-1 [290 kB]
+Get:37 http://localhost/debian/ unstable/main libx264-123 amd64 2:0.123.2189+git35cf912-1 [437 kB]
+Get:38 http://localhost/debian/ unstable/main libxvidcore4 amd64 2:1.3.2-9 [327 kB]
+Get:39 http://localhost/debian/ unstable/main libavcodec53 amd64 6:0.8.5-1 [2503 kB]
+Get:40 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:41 http://localhost/debian/ unstable/main libavformat53 amd64 6:0.8.5-1 [464 kB]
+Get:42 http://localhost/debian/ unstable/main libcaca0 amd64 0.99.beta18-1 [395 kB]
+Get:43 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:44 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:45 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:46 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:47 http://localhost/debian/ unstable/main libpixman-1-0 amd64 0.26.0-3 [427 kB]
+Get:48 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:49 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:50 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:51 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:52 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:53 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:54 http://localhost/debian/ unstable/main libxcb-render0 amd64 1.8.1-2 [18.5 kB]
+Get:55 http://localhost/debian/ unstable/main libxcb-shm0 amd64 1.8.1-2 [10.3 kB]
+Get:56 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:57 http://localhost/debian/ unstable/main libcairo2 amd64 1.12.2-3 [912 kB]
+Get:58 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:59 http://localhost/debian/ unstable/main libcairo-gobject2 amd64 1.12.2-3 [438 kB]
+Get:60 http://localhost/debian/ unstable/main libcairo-script-interpreter2 amd64 1.12.2-3 [482 kB]
+Get:61 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:62 http://localhost/debian/ unstable/main libdatrie1 amd64 0.2.5-3 [28.6 kB]
+Get:63 http://localhost/debian/ unstable/main tsconf all 1.0-11 [13.4 kB]
+Get:64 http://localhost/debian/ unstable/main libts-0.0-0 amd64 1.0-11 [29.9 kB]
+Get:65 http://localhost/debian/ unstable/main libdirectfb-1.2-9 amd64 1.2.10.0-5 [1203 kB]
+Get:66 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:67 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:68 http://localhost/debian/ unstable/main libdirectfb-extra amd64 1.2.10.0-5 [36.9 kB]
+Get:69 http://localhost/debian/ unstable/main libdrm2 amd64 2.4.40-1~deb7u2 [459 kB]
+Get:70 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:71 http://localhost/debian/ unstable/main libexif12 amd64 0.6.21-1 [686 kB]
+Get:72 http://localhost/debian/ unstable/main libflac8 amd64 1.2.1-6 [154 kB]
+Get:73 http://localhost/debian/ unstable/main libjasper1 amd64 1.900.1-14 [160 kB]
+Get:74 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:75 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:76 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-common all 2.26.1-1 [497 kB]
+Get:77 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-0 amd64 2.26.1-1 [207 kB]
+Get:78 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:79 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:80 http://localhost/debian/ unstable/main libglapi-mesa amd64 8.0.5-3 [46.6 kB]
+Get:81 http://localhost/debian/ unstable/main libx11-xcb1 amd64 2:1.5.0-1 [139 kB]
+Get:82 http://localhost/debian/ unstable/main libxcb-glx0 amd64 1.8.1-2 [32.1 kB]
+Get:83 http://localhost/debian/ unstable/main libxfixes3 amd64 1:5.0-4 [21.5 kB]
+Get:84 http://localhost/debian/ unstable/main libxdamage1 amd64 1:1.1.3-2 [14.3 kB]
+Get:85 http://localhost/debian/ unstable/main libxxf86vm1 amd64 1:1.1.2-1 [19.0 kB]
+Get:86 http://localhost/debian/ unstable/main libgl1-mesa-glx amd64 8.0.5-3 [134 kB]
+Get:87 http://localhost/debian/ unstable/main libglib2.0-data all 2.33.12+really2.32.4-5 [1607 kB]
+Get:88 http://localhost/debian/ unstable/main libglib2.0-bin amd64 2.33.12+really2.32.4-5 [868 kB]
+Get:89 http://localhost/debian/ unstable/main libglu1-mesa amd64 8.0.5-3 [190 kB]
+Get:90 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:91 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:92 http://localhost/debian/ unstable/main libicu48 amd64 4.8.1.1-10 [4741 kB]
+Get:93 http://localhost/debian/ unstable/main liblcms1 amd64 1.19.dfsg-1.2 [113 kB]
+Get:94 http://localhost/debian/ unstable/main libltdl7 amd64 2.4.2-1.2 [352 kB]
+Get:95 http://localhost/debian/ unstable/main libmtdev1 amd64 1.1.2-1 [22.6 kB]
+Get:96 http://localhost/debian/ unstable/main libthai-data all 0.1.18-2 [154 kB]
+Get:97 http://localhost/debian/ unstable/main libthai0 amd64 0.1.18-2 [42.3 kB]
+Get:98 http://localhost/debian/ unstable/main libxft2 amd64 2.3.1-1 [61.0 kB]
+Get:99 http://localhost/debian/ unstable/main fontconfig amd64 2.9.0-7.1 [348 kB]
+Get:100 http://localhost/debian/ unstable/main libpango1.0-0 amd64 1.30.0-1 [461 kB]
+Get:101 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:102 http://localhost/debian/ unstable/main libjson0 amd64 0.10-1.2 [24.2 kB]
+Get:103 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:104 http://localhost/debian/ unstable/main libsndfile1 amd64 1.0.25-5 [240 kB]
+Get:105 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:106 http://localhost/debian/ unstable/main libxtst6 amd64 2:1.2.1-1 [26.6 kB]
+Get:107 http://localhost/debian/ unstable/main libpulse0 amd64 2.0-6 [231 kB]
+Get:108 http://localhost/debian/ unstable/main libpulse-mainloop-glib0 amd64 2.0-6 [23.6 kB]
+Get:109 http://localhost/debian/ unstable/main libraw1394-11 amd64 2.0.9-1 [49.7 kB]
+Get:110 http://localhost/debian/ unstable/main librsvg2-2 amd64 2.36.1-1 [254 kB]
+Get:111 http://localhost/debian/ unstable/main libsdl1.2debian amd64 1.2.15-5 [220 kB]
+Get:112 http://localhost/debian/ unstable/main libswscale2 amd64 6:0.8.5-1 [120 kB]
+Get:113 http://localhost/debian/ unstable/main libtiffxx0c2 amd64 3.9.6-11 [63.4 kB]
+Get:114 http://localhost/debian/ unstable/main libusb-1.0-0 amd64 2:1.0.12-2 [45.3 kB]
+Get:115 http://localhost/debian/ unstable/main libwmf0.2-7 amd64 0.2.8.4-10.2 [193 kB]
+Get:116 http://localhost/debian/ unstable/main libdc1394-22 amd64 2.2.0-2 [119 kB]
+Get:117 http://localhost/debian/ unstable/main libjbig-dev amd64 2.0-2 [11.3 kB]
+Get:118 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:119 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:120 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:121 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:122 http://localhost/debian/ unstable/main python2.6-minimal amd64 2.6.8-1.1 [1547 kB]
+Get:123 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:124 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:125 http://localhost/debian/ unstable/main automake1.10 all 1:1.10.3-3 [553 kB]
+Get:126 http://localhost/debian/ unstable/main cdbs all 0.4.120 [80.4 kB]
+Get:127 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:128 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:129 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:130 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:131 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:132 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:133 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:134 http://localhost/debian/ unstable/main gccxml amd64 0.9.0+cvs20120420-4 [4337 kB]
+Get:135 http://localhost/debian/ unstable/main libgirepository-1.0-1 amd64 1.32.1-1 [107 kB]
+Get:136 http://localhost/debian/ unstable/main gir1.2-glib-2.0 amd64 1.32.1-1 [171 kB]
+Get:137 http://localhost/debian/ unstable/main gir1.2-freedesktop amd64 1.32.1-1 [21.5 kB]
+Get:138 http://localhost/debian/ unstable/main gir1.2-gdkpixbuf-2.0 amd64 2.26.1-1 [16.6 kB]
+Get:139 http://localhost/debian/ unstable/main gir1.2-pango-1.0 amd64 1.30.0-1 [151 kB]
+Get:140 http://localhost/debian/ unstable/main gir1.2-rsvg-2.0 amd64 2.36.1-1 [160 kB]
+Get:141 http://localhost/debian/ unstable/main libasound2-dev amd64 1.0.25-4 [70.3 kB]
+Get:142 http://localhost/debian/ unstable/main libavahi-common-dev amd64 0.6.31-1 [72.0 kB]
+Get:143 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:144 http://localhost/debian/ unstable/main libdbus-1-dev amd64 1.6.8-1 [246 kB]
+Get:145 http://localhost/debian/ unstable/main libavahi-client-dev amd64 0.6.31-1 [66.3 kB]
+Get:146 http://localhost/debian/ unstable/main libavutil-dev amd64 6:0.8.5-1 [133 kB]
+Get:147 http://localhost/debian/ unstable/main libavcodec-dev amd64 6:0.8.5-1 [2747 kB]
+Get:148 http://localhost/debian/ unstable/main libavformat-dev amd64 6:0.8.5-1 [550 kB]
+Get:149 http://localhost/debian/ unstable/main libboost1.49-dev amd64 1.49.0-3.1 [9203 kB]
+Get:150 http://localhost/debian/ unstable/main libboost-date-time1.49.0 amd64 1.49.0-3.1 [46.7 kB]
+Get:151 http://localhost/debian/ unstable/main libboost-serialization1.49.0 amd64 1.49.0-3.1 [212 kB]
+Get:152 http://localhost/debian/ unstable/main libboost-serialization1.49-dev amd64 1.49.0-3.1 [316 kB]
+Get:153 http://localhost/debian/ unstable/main libboost-date-time1.49-dev amd64 1.49.0-3.1 [49.5 kB]
+Get:154 http://localhost/debian/ unstable/main libboost-python1.49.0 amd64 1.49.0-3.1 [359 kB]
+Get:155 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:156 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:157 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:158 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:159 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:160 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:161 http://localhost/debian/ unstable/main python2.6 amd64 2.6.8-1.1 [2509 kB]
+Get:162 http://localhost/debian/ unstable/main libboost-python1.49-dev amd64 1.49.0-3.1 [504 kB]
+Get:163 http://localhost/debian/ unstable/main libboost-python-dev amd64 1.49.0.1 [3108 B]
+Get:164 http://localhost/debian/ unstable/main libboost-thread1.49.0 amd64 1.49.0-3.1 [61.0 kB]
+Get:165 http://localhost/debian/ unstable/main libboost-thread1.49-dev amd64 1.49.0-3.1 [67.1 kB]
+Get:166 http://localhost/debian/ unstable/main libboost-thread-dev amd64 1.49.0.1 [2736 B]
+Get:167 http://localhost/debian/ unstable/main libbz2-dev amd64 1.0.6-4 [32.8 kB]
+Get:168 http://localhost/debian/ unstable/main libpng12-dev amd64 1.2.49-3 [267 kB]
+Get:169 http://localhost/debian/ unstable/main libslang2-dev amd64 2.2.4-15 [595 kB]
+Get:170 http://localhost/debian/ unstable/main libcaca-dev amd64 0.99.beta18-1 [1005 kB]
+Get:171 http://localhost/debian/ unstable/main libfreetype6-dev amd64 2.4.9-1.1 [805 kB]
+Get:172 http://localhost/debian/ unstable/main libfontconfig1-dev amd64 2.9.0-7.1 [857 kB]
+Get:173 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:174 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:175 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:176 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:177 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:178 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:179 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:180 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:181 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:182 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:183 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:184 http://localhost/debian/ unstable/main x11proto-render-dev all 2:0.11.1-2 [20.8 kB]
+Get:185 http://localhost/debian/ unstable/main libxrender-dev amd64 1:0.9.7-1 [40.4 kB]
+Get:186 http://localhost/debian/ unstable/main libice-dev amd64 2:1.0.8-2 [74.1 kB]
+Get:187 http://localhost/debian/ unstable/main libsm-dev amd64 2:1.2.1-2 [37.0 kB]
+Get:188 http://localhost/debian/ unstable/main libpixman-1-dev amd64 0.26.0-3 [457 kB]
+Get:189 http://localhost/debian/ unstable/main libxcb-render0-dev amd64 1.8.1-2 [25.9 kB]
+Get:190 http://localhost/debian/ unstable/main libxcb-shm0-dev amd64 1.8.1-2 [11.7 kB]
+Get:191 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:192 http://localhost/debian/ unstable/main libglib2.0-dev amd64 2.33.12+really2.32.4-5 [2051 kB]
+Get:193 http://localhost/debian/ unstable/main libcairo2-dev amd64 1.12.2-3 [1160 kB]
+Get:194 http://localhost/debian/ unstable/main libjpeg8-dev amd64 8d-1 [242 kB]
+Get:195 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:196 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:197 http://localhost/debian/ unstable/main libdirectfb-dev amd64 1.2.10.0-5 [928 kB]
+Get:198 http://localhost/debian/ unstable/main libjs-jquery all 1.7.2+dfsg-1 [80.1 kB]
+Get:199 http://localhost/debian/ unstable/main libexif-dev amd64 0.6.21-1 [440 kB]
+Get:200 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-dev amd64 2.26.1-1 [59.0 kB]
+Get:201 http://localhost/debian/ unstable/main mesa-common-dev amd64 8.0.5-3 [277 kB]
+Get:202 http://localhost/debian/ unstable/main libgl1-mesa-dev amd64 8.0.5-3 [32.5 kB]
+Get:203 http://localhost/debian/ unstable/main libglu1-mesa-dev amd64 8.0.5-3 [226 kB]
+Get:204 http://localhost/debian/ unstable/main libgraphicsmagick3 amd64 1.3.16-1.1 [1320 kB]
+Get:205 http://localhost/debian/ unstable/main libgraphicsmagick++3 amd64 1.3.16-1.1 [153 kB]
+Get:206 http://localhost/debian/ unstable/main libjasper-dev amd64 1.900.1-14 [570 kB]
+Get:207 http://localhost/debian/ unstable/main liblcms1-dev amd64 1.19.dfsg-1.2 [199 kB]
+Get:208 http://localhost/debian/ unstable/main libwmf-dev amd64 0.2.8.4-10.2 [231 kB]
+Get:209 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:210 http://localhost/debian/ unstable/main libtiff4-dev amd64 3.9.6-11 [337 kB]
+Get:211 http://localhost/debian/ unstable/main libltdl-dev amd64 2.4.2-1.2 [206 kB]
+Get:212 http://localhost/debian/ unstable/main libgraphicsmagick1-dev amd64 1.3.16-1.1 [1815 kB]
+Get:213 http://localhost/debian/ unstable/main libgraphicsmagick++1-dev amd64 1.3.16-1.1 [405 kB]
+Get:214 http://localhost/debian/ unstable/main libmtdev-dev amd64 1.1.2-1 [13.7 kB]
+Get:215 http://localhost/debian/ unstable/main libxft-dev amd64 2.3.1-1 [74.5 kB]
+Get:216 http://localhost/debian/ unstable/main libpango1.0-dev amd64 1.30.0-1 [622 kB]
+Get:217 http://localhost/debian/ unstable/main libpulse-dev amd64 2.0-6 [78.5 kB]
+Get:218 http://localhost/debian/ unstable/main libpython2.6 amd64 2.6.8-1.1 [1104 kB]
+Get:219 http://localhost/debian/ unstable/main libraw1394-dev amd64 2.0.9-1 [61.8 kB]
+Get:220 http://localhost/debian/ unstable/main librsvg2-common amd64 2.36.1-1 [162 kB]
+Get:221 http://localhost/debian/ unstable/main librsvg2-dev amd64 2.36.1-1 [286 kB]
+Get:222 http://localhost/debian/ unstable/main libts-dev amd64 1.0-11 [11.7 kB]
+Get:223 http://localhost/debian/ unstable/main libsdl1.2-dev amd64 1.2.15-5 [905 kB]
+Get:224 http://localhost/debian/ unstable/main libswscale-dev amd64 6:0.8.5-1 [131 kB]
+Get:225 http://localhost/debian/ unstable/main libtool amd64 2.4.2-1.2 [621 kB]
+Get:226 http://localhost/debian/ unstable/main libxi-dev amd64 2:1.6.1-1 [249 kB]
+Get:227 http://localhost/debian/ unstable/main x11proto-xf86vidmode-dev all 2.3.1-2 [6114 B]
+Get:228 http://localhost/debian/ unstable/main libxxf86vm-dev amd64 1:1.1.2-1 [23.5 kB]
+Get:229 http://localhost/debian/ unstable/main python-all all 2.7.3-3 [876 B]
+Get:230 http://localhost/debian/ unstable/main python2.6-dev amd64 2.6.8-1.1 [4577 kB]
+Get:231 http://localhost/debian/ unstable/main python-all-dev all 2.7.3-3 [894 B]
+Get:232 http://localhost/debian/ unstable/main libdc1394-22-dev amd64 2.2.0-2 [162 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 119 MB in 5s (21.8 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libwrap0:amd64.
+Unpacking libwrap0:amd64 (from .../libwrap0_7.6.q-24_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libasound2:amd64.
+Unpacking libasound2:amd64 (from .../libasound2_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libasyncns0:amd64.
+Unpacking libasyncns0:amd64 (from .../libasyncns0_0.8-4_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Unpacking libavahi-common-data:amd64 (from .../libavahi-common-data_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Unpacking libavahi-common3:amd64 (from .../libavahi-common3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Unpacking libavahi-client3:amd64 (from .../libavahi-client3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavutil51:amd64.
+Unpacking libavutil51:amd64 (from .../libavutil51_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libdirac-encoder0:amd64.
+Unpacking libdirac-encoder0:amd64 (from .../libdirac-encoder0_1.0.2-6_amd64.deb) ...
+Selecting previously unselected package libgsm1:amd64.
+Unpacking libgsm1:amd64 (from .../libgsm1_1.0.13-4_amd64.deb) ...
+Selecting previously unselected package libmp3lame0:amd64.
+Unpacking libmp3lame0:amd64 (from .../libmp3lame0_3.99.5+repack1-3_amd64.deb) ...
+Selecting previously unselected package libopenjpeg2:amd64.
+Unpacking libopenjpeg2:amd64 (from .../libopenjpeg2_1.3+dfsg-4.6_amd64.deb) ...
+Selecting previously unselected package liborc-0.4-0:amd64.
+Unpacking liborc-0.4-0:amd64 (from .../liborc-0.4-0_1%3a0.4.16-2_amd64.deb) ...
+Selecting previously unselected package libschroedinger-1.0-0:amd64.
+Unpacking libschroedinger-1.0-0:amd64 (from .../libschroedinger-1.0-0_1.0.11-2_amd64.deb) ...
+Selecting previously unselected package libspeex1:amd64.
+Unpacking libspeex1:amd64 (from .../libspeex1_1.2~rc1-7_amd64.deb) ...
+Selecting previously unselected package libogg0:amd64.
+Unpacking libogg0:amd64 (from .../libogg0_1.3.0-4_amd64.deb) ...
+Selecting previously unselected package libtheora0:amd64.
+Unpacking libtheora0:amd64 (from .../libtheora0_1.1.1+dfsg.1-3.1_amd64.deb) ...
+Selecting previously unselected package libva1:amd64.
+Unpacking libva1:amd64 (from .../libva1_1.0.15-4_amd64.deb) ...
+Selecting previously unselected package libvorbis0a:amd64.
+Unpacking libvorbis0a:amd64 (from .../libvorbis0a_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libvorbisenc2:amd64.
+Unpacking libvorbisenc2:amd64 (from .../libvorbisenc2_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libvpx1:amd64.
+Unpacking libvpx1:amd64 (from .../libvpx1_1.1.0-1_amd64.deb) ...
+Selecting previously unselected package libx264-123:amd64.
+Unpacking libx264-123:amd64 (from .../libx264-123_2%3a0.123.2189+git35cf912-1_amd64.deb) ...
+Selecting previously unselected package libxvidcore4:amd64.
+Unpacking libxvidcore4:amd64 (from .../libxvidcore4_2%3a1.3.2-9_amd64.deb) ...
+Selecting previously unselected package libavcodec53:amd64.
+Unpacking libavcodec53:amd64 (from .../libavcodec53_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libavformat53:amd64.
+Unpacking libavformat53:amd64 (from .../libavformat53_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libcaca0:amd64.
+Unpacking libcaca0:amd64 (from .../libcaca0_0.99.beta18-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Unpacking libpixman-1-0:amd64 (from .../libpixman-1-0_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Unpacking libxcb-render0:amd64 (from .../libxcb-render0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Unpacking libxcb-shm0:amd64 (from .../libxcb-shm0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libcairo2:amd64.
+Unpacking libcairo2:amd64 (from .../libcairo2_1.12.2-3_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcairo-gobject2:amd64.
+Unpacking libcairo-gobject2:amd64 (from .../libcairo-gobject2_1.12.2-3_amd64.deb) ...
+Selecting previously unselected package libcairo-script-interpreter2:amd64.
+Unpacking libcairo-script-interpreter2:amd64 (from .../libcairo-script-interpreter2_1.12.2-3_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libdatrie1:amd64.
+Unpacking libdatrie1:amd64 (from .../libdatrie1_0.2.5-3_amd64.deb) ...
+Selecting previously unselected package tsconf.
+Unpacking tsconf (from .../archives/tsconf_1.0-11_all.deb) ...
+Selecting previously unselected package libts-0.0-0:amd64.
+Unpacking libts-0.0-0:amd64 (from .../libts-0.0-0_1.0-11_amd64.deb) ...
+Selecting previously unselected package libdirectfb-1.2-9:amd64.
+Unpacking libdirectfb-1.2-9:amd64 (from .../libdirectfb-1.2-9_1.2.10.0-5_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libdirectfb-extra:amd64.
+Unpacking libdirectfb-extra:amd64 (from .../libdirectfb-extra_1.2.10.0-5_amd64.deb) ...
+Selecting previously unselected package libdrm2:amd64.
+Unpacking libdrm2:amd64 (from .../libdrm2_2.4.40-1~deb7u2_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libexif12:amd64.
+Unpacking libexif12:amd64 (from .../libexif12_0.6.21-1_amd64.deb) ...
+Selecting previously unselected package libflac8:amd64.
+Unpacking libflac8:amd64 (from .../libflac8_1.2.1-6_amd64.deb) ...
+Selecting previously unselected package libjasper1:amd64.
+Unpacking libjasper1:amd64 (from .../libjasper1_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+Unpacking libgdk-pixbuf2.0-common (from .../libgdk-pixbuf2.0-common_2.26.1-1_all.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-0:amd64.
+Unpacking libgdk-pixbuf2.0-0:amd64 (from .../libgdk-pixbuf2.0-0_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglapi-mesa:amd64.
+Unpacking libglapi-mesa:amd64 (from .../libglapi-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Unpacking libx11-xcb1:amd64 (from .../libx11-xcb1_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-glx0:amd64.
+Unpacking libxcb-glx0:amd64 (from .../libxcb-glx0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxfixes3:amd64.
+Unpacking libxfixes3:amd64 (from .../libxfixes3_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxdamage1:amd64.
+Unpacking libxdamage1:amd64 (from .../libxdamage1_1%3a1.1.3-2_amd64.deb) ...
+Selecting previously unselected package libxxf86vm1:amd64.
+Unpacking libxxf86vm1:amd64 (from .../libxxf86vm1_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-glx:amd64.
+Unpacking libgl1-mesa-glx:amd64 (from .../libgl1-mesa-glx_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglib2.0-data.
+Unpacking libglib2.0-data (from .../libglib2.0-data_2.33.12+really2.32.4-5_all.deb) ...
+Selecting previously unselected package libglib2.0-bin.
+Unpacking libglib2.0-bin (from .../libglib2.0-bin_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa:amd64.
+Unpacking libglu1-mesa:amd64 (from .../libglu1-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libicu48:amd64.
+Unpacking libicu48:amd64 (from .../libicu48_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package liblcms1:amd64.
+Unpacking liblcms1:amd64 (from .../liblcms1_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package libltdl7:amd64.
+Unpacking libltdl7:amd64 (from .../libltdl7_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libmtdev1:amd64.
+Unpacking libmtdev1:amd64 (from .../libmtdev1_1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libthai-data.
+Unpacking libthai-data (from .../libthai-data_0.1.18-2_all.deb) ...
+Selecting previously unselected package libthai0:amd64.
+Unpacking libthai0:amd64 (from .../libthai0_0.1.18-2_amd64.deb) ...
+Selecting previously unselected package libxft2:amd64.
+Unpacking libxft2:amd64 (from .../libxft2_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpango1.0-0:amd64.
+Unpacking libpango1.0-0:amd64 (from .../libpango1.0-0_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libjson0:amd64.
+Unpacking libjson0:amd64 (from .../libjson0_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libsndfile1:amd64.
+Unpacking libsndfile1:amd64 (from .../libsndfile1_1.0.25-5_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package libxtst6:amd64.
+Unpacking libxtst6:amd64 (from .../libxtst6_2%3a1.2.1-1_amd64.deb) ...
+Selecting previously unselected package libpulse0:amd64.
+Unpacking libpulse0:amd64 (from .../libpulse0_2.0-6_amd64.deb) ...
+Selecting previously unselected package libpulse-mainloop-glib0:amd64.
+Unpacking libpulse-mainloop-glib0:amd64 (from .../libpulse-mainloop-glib0_2.0-6_amd64.deb) ...
+Selecting previously unselected package libraw1394-11:amd64.
+Unpacking libraw1394-11:amd64 (from .../libraw1394-11_2.0.9-1_amd64.deb) ...
+Selecting previously unselected package librsvg2-2:amd64.
+Unpacking librsvg2-2:amd64 (from .../librsvg2-2_2.36.1-1_amd64.deb) ...
+Selecting previously unselected package libsdl1.2debian:amd64.
+Unpacking libsdl1.2debian:amd64 (from .../libsdl1.2debian_1.2.15-5_amd64.deb) ...
+Selecting previously unselected package libswscale2:amd64.
+Unpacking libswscale2:amd64 (from .../libswscale2_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libtiffxx0c2:amd64.
+Unpacking libtiffxx0c2:amd64 (from .../libtiffxx0c2_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libusb-1.0-0:amd64.
+Unpacking libusb-1.0-0:amd64 (from .../libusb-1.0-0_2%3a1.0.12-2_amd64.deb) ...
+Selecting previously unselected package libwmf0.2-7:amd64.
+Unpacking libwmf0.2-7:amd64 (from .../libwmf0.2-7_0.2.8.4-10.2_amd64.deb) ...
+Selecting previously unselected package libdc1394-22:amd64.
+Unpacking libdc1394-22:amd64 (from .../libdc1394-22_2.2.0-2_amd64.deb) ...
+Selecting previously unselected package libjbig-dev:amd64.
+Unpacking libjbig-dev:amd64 (from .../libjbig-dev_2.0-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package python2.6-minimal.
+Unpacking python2.6-minimal (from .../python2.6-minimal_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake1.10.
+Unpacking automake1.10 (from .../automake1.10_1%3a1.10.3-3_all.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.120_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package gccxml.
+Unpacking gccxml (from .../gccxml_0.9.0+cvs20120420-4_amd64.deb) ...
+Selecting previously unselected package libgirepository-1.0-1.
+Unpacking libgirepository-1.0-1 (from .../libgirepository-1.0-1_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-glib-2.0.
+Unpacking gir1.2-glib-2.0 (from .../gir1.2-glib-2.0_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-freedesktop.
+Unpacking gir1.2-freedesktop (from .../gir1.2-freedesktop_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-gdkpixbuf-2.0.
+Unpacking gir1.2-gdkpixbuf-2.0 (from .../gir1.2-gdkpixbuf-2.0_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-pango-1.0.
+Unpacking gir1.2-pango-1.0 (from .../gir1.2-pango-1.0_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-rsvg-2.0.
+Unpacking gir1.2-rsvg-2.0 (from .../gir1.2-rsvg-2.0_2.36.1-1_amd64.deb) ...
+Selecting previously unselected package libasound2-dev:amd64.
+Unpacking libasound2-dev:amd64 (from .../libasound2-dev_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libavahi-common-dev.
+Unpacking libavahi-common-dev (from .../libavahi-common-dev_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-dev.
+Unpacking libdbus-1-dev (from .../libdbus-1-dev_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client-dev.
+Unpacking libavahi-client-dev (from .../libavahi-client-dev_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavutil-dev.
+Unpacking libavutil-dev (from .../libavutil-dev_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libavcodec-dev.
+Unpacking libavcodec-dev (from .../libavcodec-dev_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libavformat-dev.
+Unpacking libavformat-dev (from .../libavformat-dev_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libboost1.49-dev.
+Unpacking libboost1.49-dev (from .../libboost1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49.0.
+Unpacking libboost-date-time1.49.0 (from .../libboost-date-time1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49.0.
+Unpacking libboost-serialization1.49.0 (from .../libboost-serialization1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49-dev.
+Unpacking libboost-serialization1.49-dev (from .../libboost-serialization1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49-dev.
+Unpacking libboost-date-time1.49-dev (from .../libboost-date-time1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-python1.49.0.
+Unpacking libboost-python1.49.0 (from .../libboost-python1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package python2.6.
+Unpacking python2.6 (from .../python2.6_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package libboost-python1.49-dev.
+Unpacking libboost-python1.49-dev (from .../libboost-python1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-python-dev.
+Unpacking libboost-python-dev (from .../libboost-python-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49.0.
+Unpacking libboost-thread1.49.0 (from .../libboost-thread1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49-dev.
+Unpacking libboost-thread1.49-dev (from .../libboost-thread1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread-dev.
+Unpacking libboost-thread-dev (from .../libboost-thread-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libbz2-dev:amd64.
+Unpacking libbz2-dev:amd64 (from .../libbz2-dev_1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libpng12-dev.
+Unpacking libpng12-dev (from .../libpng12-dev_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libslang2-dev:amd64.
+Unpacking libslang2-dev:amd64 (from .../libslang2-dev_2.2.4-15_amd64.deb) ...
+Selecting previously unselected package libcaca-dev.
+Unpacking libcaca-dev (from .../libcaca-dev_0.99.beta18-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6-dev.
+Unpacking libfreetype6-dev (from .../libfreetype6-dev_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package libfontconfig1-dev.
+Unpacking libfontconfig1-dev (from .../libfontconfig1-dev_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package x11proto-render-dev.
+Unpacking x11proto-render-dev (from .../x11proto-render-dev_2%3a0.11.1-2_all.deb) ...
+Selecting previously unselected package libxrender-dev:amd64.
+Unpacking libxrender-dev:amd64 (from .../libxrender-dev_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libice-dev:amd64.
+Unpacking libice-dev:amd64 (from .../libice-dev_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libsm-dev:amd64.
+Unpacking libsm-dev:amd64 (from .../libsm-dev_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libpixman-1-dev.
+Unpacking libpixman-1-dev (from .../libpixman-1-dev_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libxcb-render0-dev:amd64.
+Unpacking libxcb-render0-dev:amd64 (from .../libxcb-render0-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxcb-shm0-dev:amd64.
+Unpacking libxcb-shm0-dev:amd64 (from .../libxcb-shm0-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-dev.
+Unpacking libglib2.0-dev (from .../libglib2.0-dev_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcairo2-dev.
+Unpacking libcairo2-dev (from .../libcairo2-dev_1.12.2-3_amd64.deb) ...
+Selecting previously unselected package libjpeg8-dev:amd64.
+Unpacking libjpeg8-dev:amd64 (from .../libjpeg8-dev_8d-1_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libdirectfb-dev.
+Unpacking libdirectfb-dev (from .../libdirectfb-dev_1.2.10.0-5_amd64.deb) ...
+Selecting previously unselected package libjs-jquery.
+Unpacking libjs-jquery (from .../libjs-jquery_1.7.2+dfsg-1_all.deb) ...
+Selecting previously unselected package libexif-dev.
+Unpacking libexif-dev (from .../libexif-dev_0.6.21-1_amd64.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-dev.
+Unpacking libgdk-pixbuf2.0-dev (from .../libgdk-pixbuf2.0-dev_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package mesa-common-dev.
+Unpacking mesa-common-dev (from .../mesa-common-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-dev.
+Unpacking libgl1-mesa-dev (from .../libgl1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa-dev.
+Unpacking libglu1-mesa-dev (from .../libglu1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libgraphicsmagick3.
+Unpacking libgraphicsmagick3 (from .../libgraphicsmagick3_1.3.16-1.1_amd64.deb) ...
+Selecting previously unselected package libgraphicsmagick++3.
+Unpacking libgraphicsmagick++3 (from .../libgraphicsmagick++3_1.3.16-1.1_amd64.deb) ...
+Selecting previously unselected package libjasper-dev.
+Unpacking libjasper-dev (from .../libjasper-dev_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package liblcms1-dev:amd64.
+Unpacking liblcms1-dev:amd64 (from .../liblcms1-dev_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package libwmf-dev.
+Unpacking libwmf-dev (from .../libwmf-dev_0.2.8.4-10.2_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libtiff4-dev.
+Unpacking libtiff4-dev (from .../libtiff4-dev_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libltdl-dev:amd64.
+Unpacking libltdl-dev:amd64 (from .../libltdl-dev_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libgraphicsmagick1-dev.
+Unpacking libgraphicsmagick1-dev (from .../libgraphicsmagick1-dev_1.3.16-1.1_amd64.deb) ...
+Selecting previously unselected package libgraphicsmagick++1-dev.
+Unpacking libgraphicsmagick++1-dev (from .../libgraphicsmagick++1-dev_1.3.16-1.1_amd64.deb) ...
+Selecting previously unselected package libmtdev-dev.
+Unpacking libmtdev-dev (from .../libmtdev-dev_1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libxft-dev.
+Unpacking libxft-dev (from .../libxft-dev_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package libpango1.0-dev.
+Unpacking libpango1.0-dev (from .../libpango1.0-dev_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package libpulse-dev:amd64.
+Unpacking libpulse-dev:amd64 (from .../libpulse-dev_2.0-6_amd64.deb) ...
+Selecting previously unselected package libpython2.6.
+Unpacking libpython2.6 (from .../libpython2.6_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package libraw1394-dev:amd64.
+Unpacking libraw1394-dev:amd64 (from .../libraw1394-dev_2.0.9-1_amd64.deb) ...
+Selecting previously unselected package librsvg2-common:amd64.
+Unpacking librsvg2-common:amd64 (from .../librsvg2-common_2.36.1-1_amd64.deb) ...
+Selecting previously unselected package librsvg2-dev.
+Unpacking librsvg2-dev (from .../librsvg2-dev_2.36.1-1_amd64.deb) ...
+Selecting previously unselected package libts-dev:amd64.
+Unpacking libts-dev:amd64 (from .../libts-dev_1.0-11_amd64.deb) ...
+Selecting previously unselected package libsdl1.2-dev.
+Unpacking libsdl1.2-dev (from .../libsdl1.2-dev_1.2.15-5_amd64.deb) ...
+Selecting previously unselected package libswscale-dev.
+Unpacking libswscale-dev (from .../libswscale-dev_6%3a0.8.5-1_amd64.deb) ...
+Selecting previously unselected package libtool.
+Unpacking libtool (from .../libtool_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libxi-dev.
+Unpacking libxi-dev (from .../libxi-dev_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-xf86vidmode-dev.
+Unpacking x11proto-xf86vidmode-dev (from .../x11proto-xf86vidmode-dev_2.3.1-2_all.deb) ...
+Selecting previously unselected package libxxf86vm-dev.
+Unpacking libxxf86vm-dev (from .../libxxf86vm-dev_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package python-all.
+Unpacking python-all (from .../python-all_2.7.3-3_all.deb) ...
+Selecting previously unselected package python2.6-dev.
+Unpacking python2.6-dev (from .../python2.6-dev_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package python-all-dev.
+Unpacking python-all-dev (from .../python-all-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package libdc1394-22-dev:amd64.
+Unpacking libdc1394-22-dev:amd64 (from .../libdc1394-22-dev_2.2.0-2_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-libavg-dummy.
+Unpacking sbuild-build-depends-libavg-dummy (from .../sbuild-build-depends-libavg-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libwrap0:amd64 (7.6.q-24) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libasound2:amd64 (1.0.25-4) ...
+Setting up libasyncns0:amd64 (0.8-4) ...
+Setting up libavahi-common-data:amd64 (0.6.31-1) ...
+Setting up libavahi-common3:amd64 (0.6.31-1) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libavahi-client3:amd64 (0.6.31-1) ...
+Setting up libavutil51:amd64 (6:0.8.5-1) ...
+Setting up libdirac-encoder0:amd64 (1.0.2-6) ...
+Setting up libgsm1:amd64 (1.0.13-4) ...
+Setting up libmp3lame0:amd64 (3.99.5+repack1-3) ...
+Setting up libopenjpeg2:amd64 (1.3+dfsg-4.6) ...
+Setting up liborc-0.4-0:amd64 (1:0.4.16-2) ...
+Setting up libschroedinger-1.0-0:amd64 (1.0.11-2) ...
+Setting up libspeex1:amd64 (1.2~rc1-7) ...
+Setting up libogg0:amd64 (1.3.0-4) ...
+Setting up libtheora0:amd64 (1.1.1+dfsg.1-3.1) ...
+Setting up libva1:amd64 (1.0.15-4) ...
+Setting up libvorbis0a:amd64 (1.3.2-1.3) ...
+Setting up libvorbisenc2:amd64 (1.3.2-1.3) ...
+Setting up libvpx1:amd64 (1.1.0-1) ...
+Setting up libx264-123:amd64 (2:0.123.2189+git35cf912-1) ...
+Setting up libxvidcore4:amd64 (2:1.3.2-9) ...
+Setting up libavcodec53:amd64 (6:0.8.5-1) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libavformat53:amd64 (6:0.8.5-1) ...
+Setting up libcaca0:amd64 (0.99.beta18-1) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libpixman-1-0:amd64 (0.26.0-3) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxcb-render0:amd64 (1.8.1-2) ...
+Setting up libxcb-shm0:amd64 (1.8.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libcairo2:amd64 (1.12.2-3) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcairo-gobject2:amd64 (1.12.2-3) ...
+Setting up libcairo-script-interpreter2:amd64 (1.12.2-3) ...
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libdatrie1:amd64 (0.2.5-3) ...
+Setting up tsconf (1.0-11) ...
+Setting up libts-0.0-0:amd64 (1.0-11) ...
+Setting up libdirectfb-1.2-9:amd64 (1.2.10.0-5) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libdirectfb-extra:amd64 (1.2.10.0-5) ...
+Setting up libdrm2:amd64 (2.4.40-1~deb7u2) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libexif12:amd64 (0.6.21-1) ...
+Setting up libflac8:amd64 (1.2.1-6) ...
+Setting up libjasper1:amd64 (1.900.1-14) ...
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libgdk-pixbuf2.0-common (2.26.1-1) ...
+Setting up libgdk-pixbuf2.0-0:amd64 (2.26.1-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglapi-mesa:amd64 (8.0.5-3) ...
+Setting up libx11-xcb1:amd64 (2:1.5.0-1) ...
+Setting up libxcb-glx0:amd64 (1.8.1-2) ...
+Setting up libxfixes3:amd64 (1:5.0-4) ...
+Setting up libxdamage1:amd64 (1:1.1.3-2) ...
+Setting up libxxf86vm1:amd64 (1:1.1.2-1) ...
+Setting up libgl1-mesa-glx:amd64 (8.0.5-3) ...
+Setting up libglib2.0-data (2.33.12+really2.32.4-5) ...
+Setting up libglib2.0-bin (2.33.12+really2.32.4-5) ...
+Setting up libglu1-mesa:amd64 (8.0.5-3) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libicu48:amd64 (4.8.1.1-10) ...
+Setting up liblcms1:amd64 (1.19.dfsg-1.2) ...
+Setting up libltdl7:amd64 (2.4.2-1.2) ...
+Setting up libmtdev1:amd64 (1.1.2-1) ...
+Setting up libthai-data (0.1.18-2) ...
+Setting up libthai0:amd64 (0.1.18-2) ...
+Setting up libxft2:amd64 (2.3.1-1) ...
+Setting up fontconfig (2.9.0-7.1) ...
+Regenerating fonts cache... done.
+Setting up libpango1.0-0:amd64 (1.30.0-1) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libjson0:amd64 (0.10-1.2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libsndfile1:amd64 (1.0.25-5) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up libxtst6:amd64 (2:1.2.1-1) ...
+Setting up libpulse0:amd64 (2.0-6) ...
+Setting up libpulse-mainloop-glib0:amd64 (2.0-6) ...
+Setting up libraw1394-11:amd64 (2.0.9-1) ...
+Setting up librsvg2-2:amd64 (2.36.1-1) ...
+Setting up libsdl1.2debian:amd64 (1.2.15-5) ...
+Setting up libswscale2:amd64 (6:0.8.5-1) ...
+Setting up libtiffxx0c2:amd64 (3.9.6-11) ...
+Setting up libusb-1.0-0:amd64 (2:1.0.12-2) ...
+Setting up libwmf0.2-7:amd64 (0.2.8.4-10.2) ...
+Setting up libdc1394-22:amd64 (2.2.0-2) ...
+Setting up libjbig-dev:amd64 (2.0-2) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up python2.6-minimal (2.6.8-1.1) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake1.10 (1:1.10.3-3) ...
+update-alternatives: using /usr/bin/automake-1.10 to provide /usr/bin/automake (automake) in auto mode
+Setting up cdbs (0.4.120) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up gccxml (0.9.0+cvs20120420-4) ...
+Setting up libgirepository-1.0-1 (1.32.1-1) ...
+Setting up gir1.2-glib-2.0 (1.32.1-1) ...
+Setting up gir1.2-freedesktop (1.32.1-1) ...
+Setting up gir1.2-gdkpixbuf-2.0 (2.26.1-1) ...
+Setting up gir1.2-pango-1.0 (1.30.0-1) ...
+Setting up gir1.2-rsvg-2.0 (2.36.1-1) ...
+Setting up libasound2-dev:amd64 (1.0.25-4) ...
+Setting up libavahi-common-dev (0.6.31-1) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libdbus-1-dev (1.6.8-1) ...
+Setting up libavahi-client-dev (0.6.31-1) ...
+Setting up libavutil-dev (6:0.8.5-1) ...
+Setting up libavcodec-dev (6:0.8.5-1) ...
+Setting up libavformat-dev (6:0.8.5-1) ...
+Setting up libboost1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time1.49-dev (1.49.0-3.1) ...
+Setting up libboost-python1.49.0 (1.49.0-3.1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up python2.6 (2.6.8-1.1) ...
+Setting up libboost-python1.49-dev (1.49.0-3.1) ...
+Setting up libboost-python-dev (1.49.0.1) ...
+Setting up libboost-thread1.49.0 (1.49.0-3.1) ...
+Setting up libboost-thread1.49-dev (1.49.0-3.1) ...
+Setting up libboost-thread-dev (1.49.0.1) ...
+Setting up libbz2-dev:amd64 (1.0.6-4) ...
+Setting up libpng12-dev (1.2.49-3) ...
+Setting up libslang2-dev:amd64 (2.2.4-15) ...
+Setting up libcaca-dev (0.99.beta18-1) ...
+Setting up libfreetype6-dev (2.4.9-1.1) ...
+Setting up libfontconfig1-dev (2.9.0-7.1) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up x11proto-render-dev (2:0.11.1-2) ...
+Setting up libxrender-dev:amd64 (1:0.9.7-1) ...
+Setting up libice-dev:amd64 (2:1.0.8-2) ...
+Setting up libsm-dev:amd64 (2:1.2.1-2) ...
+Setting up libpixman-1-dev (0.26.0-3) ...
+Setting up libxcb-render0-dev:amd64 (1.8.1-2) ...
+Setting up libxcb-shm0-dev:amd64 (1.8.1-2) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up libglib2.0-dev (2.33.12+really2.32.4-5) ...
+Setting up libcairo2-dev (1.12.2-3) ...
+Setting up libjpeg8-dev:amd64 (8d-1) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up libdirectfb-dev (1.2.10.0-5) ...
+Setting up libjs-jquery (1.7.2+dfsg-1) ...
+Setting up libexif-dev (0.6.21-1) ...
+Setting up libgdk-pixbuf2.0-dev (2.26.1-1) ...
+Setting up mesa-common-dev (8.0.5-3) ...
+Setting up libgl1-mesa-dev (8.0.5-3) ...
+Setting up libglu1-mesa-dev (8.0.5-3) ...
+Setting up libgraphicsmagick3 (1.3.16-1.1) ...
+Setting up libgraphicsmagick++3 (1.3.16-1.1) ...
+Setting up libjasper-dev (1.900.1-14) ...
+Setting up liblcms1-dev:amd64 (1.19.dfsg-1.2) ...
+Setting up libwmf-dev (0.2.8.4-10.2) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up libtiff4-dev (3.9.6-11) ...
+Setting up libltdl-dev:amd64 (2.4.2-1.2) ...
+Setting up libgraphicsmagick1-dev (1.3.16-1.1) ...
+Setting up libgraphicsmagick++1-dev (1.3.16-1.1) ...
+Setting up libmtdev-dev (1.1.2-1) ...
+Setting up libxft-dev (2.3.1-1) ...
+Setting up libpango1.0-dev (1.30.0-1) ...
+Setting up libpulse-dev:amd64 (2.0-6) ...
+Setting up libpython2.6 (2.6.8-1.1) ...
+Setting up libraw1394-dev:amd64 (2.0.9-1) ...
+Setting up librsvg2-common:amd64 (2.36.1-1) ...
+Setting up librsvg2-dev (2.36.1-1) ...
+Setting up libts-dev:amd64 (1.0-11) ...
+Setting up libsdl1.2-dev (1.2.15-5) ...
+Setting up libswscale-dev (6:0.8.5-1) ...
+Setting up libtool (2.4.2-1.2) ...
+Setting up libxi-dev (2:1.6.1-1) ...
+Setting up x11proto-xf86vidmode-dev (2.3.1-2) ...
+Setting up libxxf86vm-dev (1:1.1.2-1) ...
+Setting up python-all (2.7.3-3) ...
+Setting up python2.6-dev (2.6.8-1.1) ...
+Setting up python-all-dev (2.7.3-3) ...
+Setting up libdc1394-22-dev:amd64 (2.2.0-2) ...
+Setting up sbuild-build-depends-libavg-dummy (0.invalid.0) ...
+Processing triggers for libgdk-pixbuf2.0-0:amd64 ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-libavg-dummy : Depends: libboost-python-dev (>= 1.34.1-8) but it is not going to be installed
-                                     Depends: libpango1.0-dev but it is not going to be installed
-                                     Depends: librsvg2-dev but it is not going to be installed
-                                     Depends: python-all-dev (>= 2.6.6-3~) but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake1.10_1:1.10.3-3 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 cdbs_0.4.120 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig_2.9.0-7.1 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gccxml_0.9.0+cvs20120420-4 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gir1.2-freedesktop_1.32.1-1 gir1.2-gdkpixbuf-2.0_2.26.1-1 gir1.2-glib-2.0_1.32.1-1 gir1.2-pango-1.0_1.30.0-1 gir1.2-rsvg-2.0_2.36.1-1 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasound2_1.0.25-4 libasound2-dev_1.0.25-4 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libasyncns0_0.8-4 libattr1_1:2.4.46-8 libavahi-client-dev_0.6.31-1 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common-dev_0.6.31-1 libavahi-common3_0.6.31-1 libavcodec-dev_6:0.8.5-1 libavcodec53_6:0.8.5-1 libavformat-dev_6:0.8.5-1 libavformat53_6:0.8.5-1 libavutil-dev_6:0.8.5-1 libavutil51_6:0.8.5-1 libblkid1_2.20.1-5.3 libboost-date-time1.49-dev_1.49.0-3.1 libboost-date-time1.49.0_1.49.0-3.1 libboost-python-dev_1.49.0.1 libboost-python1.49-dev_1.49.0-3.1 libboost-python1.49.0_1.49.0-3.1 libboost-serialization1.49-dev_1.49.0-3.1 libboost-serialization1.49.0_1.49.0-3.1 libboost-thread-dev_1.49.0.1 libboost-thread1.49-dev_1.49.0-3.1 libboost-thread1.49.0_1.49.0-3.1 libboost1.49-dev_1.49.0-3.1 libbz2-1.0_1.0.6-4 libbz2-dev_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcaca-dev_0.99.beta18-1 libcaca0_0.99.beta18-1 libcairo-gobject2_1.12.2-3 libcairo-script-interpreter2_1.12.2-3 libcairo2_1.12.2-3 libcairo2-dev_1.12.2-3 libcap2_1:2.22-1.2 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdatrie1_0.2.5-3 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdbus-1-dev_1.6.8-1 libdc1394-22_2.2.0-2 libdc1394-22-dev_2.2.0-2 libdirac-encoder0_1.0.2-6 libdirectfb-1.2-9_1.2.10.0-5 libdirectfb-dev_1.2.10.0-5 libdirectfb-extra_1.2.10.0-5 libdpkg-perl_1.16.9 libdrm2_2.4.40-1~deb7u2 libelf1_0.153-2 libexif-dev_0.6.21-1 libexif12_0.6.21-1 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libflac8_1.2.1-6 libfontconfig1_2.9.0-7.1 libfontconfig1-dev_2.9.0-7.1 libfreetype6_2.4.9-1.1 libfreetype6-dev_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgdk-pixbuf2.0-0_2.26.1-1 libgdk-pixbuf2.0-common_2.26.1-1 libgdk-pixbuf2.0-dev_2.26.1-1 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgirepository-1.0-1_1.32.1-1 libgl1-mesa-dev_8.0.5-3 libgl1-mesa-glx_8.0.5-3 libglapi-mesa_8.0.5-3 libglib2.0-0_2.33.12+really2.32.4-5 libglib2.0-bin_2.33.12+really2.32.4-5 libglib2.0-data_2.33.12+really2.32.4-5 libglib2.0-dev_2.33.12+really2.32.4-5 libglu1-mesa_8.0.5-3 libglu1-mesa-dev_8.0.5-3 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgraphicsmagick++1-dev_1.3.16-1.1 libgraphicsmagick++3_1.3.16-1.1 libgraphicsmagick1-dev_1.3.16-1.1 libgraphicsmagick3_1.3.16-1.1 libgsm1_1.0.13-4 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libicu48_4.8.1.1-10 libitm1_4.7.2-5 libjasper-dev_1.900.1-14 libjasper1_1.900.1-14 libjbig-dev_2.0-2 libjbig0_2.0-2 libjpeg8_8d-1 libjpeg8-dev_8d-1 libjs-jquery_1.7.2+dfsg-1 libjson0_0.10-1.2 liblcms1_1.19.dfsg-1.2 liblcms1-dev_1.19.dfsg-1.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 libltdl-dev_2.4.2-1.2 libltdl7_2.4.2-1.2 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmp3lame0_3.99.5+repack1-3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmtdev-dev_1.1.2-1 libmtdev1_1.1.2-1 libncurses5_5.9-10 libncursesw5_5.9-10 libogg0_1.3.0-4 libopenjpeg2_1.3+dfsg-4.6 liborc-0.4-0_1:0.4.16-2 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpango1.0-0_1.30.0-1 libpango1.0-dev_1.30.0-1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpixman-1-0_0.26.0-3 libpixman-1-dev_0.26.0-3 libpng12-0_1.2.49-3 libpng12-dev_1.2.49-3 libpopt0_1.16-7 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpulse-dev_2.0-6 libpulse-mainloop-glib0_2.0-6 libpulse0_2.0-6 libpython2.6_2.6.8-1.1 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libraw1394-11_2.0.9-1 libraw1394-dev_2.0.9-1 libreadline6_6.2+dfsg-0.1 librsvg2-2_2.36.1-1 librsvg2-common_2.36.1-1 librsvg2-dev_2.36.1-1 librtmp0_2.4+20111222.git4e06e21-1 libschroedinger-1.0-0_1.0.11-2 libsdl1.2-dev_1.2.15-5 libsdl1.2debian_1.2.15-5 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libslang2-dev_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsndfile1_1.0.25-5 libspeex1_1.2~rc1-7 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libswscale-dev_6:0.8.5-1 libswscale2_6:0.8.5-1 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libthai-data_0.1.18-2 libthai0_0.1.18-2 libtheora0_1.1.1+dfsg.1-3.1 libtiff4_3.9.6-11 libtiff4-dev_3.9.6-11 libtiffxx0c2_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtool_2.4.2-1.2 libts-0.0-0_1.0-11 libts-dev_1.0-11 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libusb-1.0-0_2:1.0.12-2 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libva1_1.0.15-4 libvorbis0a_1.3.2-1.3 libvorbisenc2_1.3.2-1.3 libvpx1_1.1.0-1 libwmf-dev_0.2.8.4-10.2 libwmf0.2-7_0.2.8.4-10.2 libwrap0_7.6.q-24 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libx264-123_2:0.123.2189+git35cf912-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb-glx0_1.8.1-2 libxcb-render0_1.8.1-2 libxcb-render0-dev_1.8.1-2 libxcb-shm0_1.8.1-2 libxcb-shm0-dev_1.8.1-2 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfixes3_1:5.0-4 libxft-dev_2.3.1-1 libxft2_2.3.1-1 libxi-dev_2:1.6.1-1 libxi6_2:1.6.1-1 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxtst6_2:1.2.1-1 libxvidcore4_2:1.3.2-9 libxxf86vm-dev_1:1.1.2-1 libxxf86vm1_1:1.1.2-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mesa-common-dev_8.0.5-3 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-all_2.7.3-3 python-all-dev_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.6_2.6.8-1.1 python2.6-dev_2.6.8-1.1 python2.6-minimal_2.6.8-1.1 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-libavg-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tsconf_1.0-11 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-render-dev_2:0.11.1-2 x11proto-xext-dev_7.2.1-1 x11proto-xf86vidmode-dev_2.3.1-2 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Thu Jun 14 20:01:21 2012 UTC using RSA key ID 8B3C16AE
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./libavg_1.7.1-1.dsc
+dpkg-source: info: extracting libavg in libavg-1.7.1
+dpkg-source: info: unpacking libavg_1.7.1.orig.tar.gz
+dpkg-source: info: unpacking libavg_1.7.1-1.debian.tar.gz
+dpkg-source: info: applying 0001-do-not-build-tests-by-default.patch
+dpkg-source: info: applying ftbfs-gcc4.7.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-5b55b6af-86f4-4231-b991-ce2467c69b36
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package libavg
+dpkg-buildpackage: source version 1.7.1-1
+dpkg-buildpackage: source changed by Dmitrijs Ledkovs <xnox@debian.org>
+ dpkg-source --before-build libavg-1.7.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+for i in ./config.guess ./config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+dh_clean 
+rm -f debian/copyright_newhints
+rm -f debian/cdbs-install-list debian/cdbs-package-list debian/stamp-copyright-check
+rm -rf "debian/upstream-cruft"
+rm -f debian/stamp-upstream-cruft
+rm -f -r build* debian/stamp-* py-compile
+ debian/rules build-arch
+test -x debian/rules
+./bootstrap
++ set -e
+++ uname
++ [[ Linux = Darwin ]]
++ libtoolize --copy --force
+libtoolize: putting auxiliary files in `.'.
+libtoolize: copying file `./ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `m4'.
+libtoolize: copying file `m4/libtool.m4'
+libtoolize: copying file `m4/ltoptions.m4'
+libtoolize: copying file `m4/ltsugar.m4'
+libtoolize: copying file `m4/ltversion.m4'
+libtoolize: copying file `m4/lt~obsolete.m4'
++ aclocal -I m4
++ autoheader
++ automake --foreign --add-missing --copy
+src/python/Makefile.am:2: installing `./py-compile'
++ autoconf
+mkdir -p "."
+
+WARNING: copyright-check disabled - touch debian/copyright_hints to enable.
+
+touch debian/stamp-copyright-check
+touch debian/stamp-upstream-cruft
+if test -e /usr/share/misc/config.guess ; then \
+		for i in ./config.guess ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.guess $i ; \
+			fi ; \
+		done ; \
+	fi
+if test -e /usr/share/misc/config.sub ; then \
+		for i in ./config.sub ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.sub $i ; \
+			fi ; \
+		done ; \
+	fi
+mkdir build2.7
+cd build2.7 && ../configure --prefix=/usr --mandir=/usr/share/man --with-boost-thread=boost_thread-mt PYTHON=python2.7 \
+	  BOOST_PYTHON_LIBS=-lboost_python-py27
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking dependency style of g++... gcc3
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking dependency style of gcc... gcc3
+checking for library containing clock_gettime... -lrt
+checking for xml2-config... /usr/bin/xml2-config
+checking for xml2... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for PANGOFT2_CFLAGS... -pthread -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  
+checking for PANGOFT2_LIBS... -lpangoft2-1.0 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lglib-2.0  
+checking for freetype-config... /usr/bin/freetype-config
+checking for freetype... yes
+checking for GDK_PIXBUF_CFLAGS... -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  
+checking for GDK_PIXBUF_LIBS... -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0  
+checking for LIBRSVG_CFLAGS... -pthread -I/usr/include/librsvg-2.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo -I/usr/include/libpng12 -I/usr/include/pixman-1 -I/usr/include/freetype2  
+checking for LIBRSVG_LIBS... -lrsvg-2 -lm -lgio-2.0 -lgdk_pixbuf-2.0 -lcairo -lgobject-2.0 -lglib-2.0  
+checking for FONTCONFIG_CFLAGS...  
+checking for FONTCONFIG_LIBS... -lfontconfig  
+checking for FFMPEG_CFLAGS...  
+checking for FFMPEG_LIBS... -lswscale -lavformat -lavcodec -lavutil  
+checking libavformat/avformat.h usability... yes
+checking libavformat/avformat.h presence... yes
+checking for libavformat/avformat.h... yes
+checking for python version... 2.7
+checking for python platform... linux2
+checking for python script directory... ${prefix}/lib/python2.7/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.7/site-packages
+checking for headers required to compile python extensions... found
+checking for libpython2.7... found
+checking whether the compiler implements namespaces... yes
+checking whether the Boost::Thread library is available... yes
+checking for main in -lboost_thread-mt... yes
+checking for DC1394_2_CFLAGS...  
+checking for DC1394_2_LIBS... -ldc1394  
+checking for MTDEV_CFLAGS...  
+checking for MTDEV_LIBS... -lmtdev  
+checking for XI2_1_CFLAGS... 
+checking for XI2_1_LIBS... 
+checking for XI2_2_CFLAGS...  
+checking for XI2_2_LIBS... -lXi  
+checking for struct v4l2_buffer... yes
+checking linux/ppdev.h usability... yes
+checking linux/ppdev.h presence... yes
+checking for linux/ppdev.h... yes
+checking for X... libraries , headers 
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for cc_r... gcc
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for OpenGL library... -lGL
+checking for OpenGL Utility library... -lGLU
+checking for sdl-config... /usr/bin/sdl-config
+checking for SDL - version >= 1.2.10... yes
+checking for main in -lvdpau... no
+checking libavcodec/vdpau.h usability... no
+checking libavcodec/vdpau.h presence... no
+checking for libavcodec/vdpau.h... no
+checking vdpau/vdpau.h usability... no
+checking vdpau/vdpau.h presence... no
+checking for vdpau/vdpau.h... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/test/Makefile
+config.status: creating src/test/plugin/Makefile
+config.status: creating src/base/Makefile
+config.status: creating src/conradrelais/Makefile
+config.status: creating src/lmfit/Makefile
+config.status: creating src/wrapper/Makefile
+config.status: creating src/player/Makefile
+config.status: creating src/parport/Makefile
+config.status: creating src/graphics/Makefile
+config.status: creating src/python/Makefile
+config.status: creating src/imaging/Makefile
+config.status: creating src/video/Makefile
+config.status: creating src/audio/Makefile
+config.status: creating src/utils/Makefile
+config.status: creating src/anim/Makefile
+config.status: creating src/python/data/Makefile
+config.status: creating src/samples/Makefile
+config.status: creating src/python/ui/Makefile
+config.status: creating src/oscpack/Makefile
+config.status: creating man/Makefile
+config.status: creating src/avgconfig.h
+config.status: executing libtool commands
+config.status: executing depfiles commands
+touch debian/stamp-configure2.7
+mkdir build2.6
+cd build2.6 && ../configure --prefix=/usr --mandir=/usr/share/man --with-boost-thread=boost_thread-mt PYTHON=python2.6 \
+	  BOOST_PYTHON_LIBS=-lboost_python-py26
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking dependency style of g++... gcc3
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking dependency style of gcc... gcc3
+checking for library containing clock_gettime... -lrt
+checking for xml2-config... /usr/bin/xml2-config
+checking for xml2... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for PANGOFT2_CFLAGS... -pthread -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  
+checking for PANGOFT2_LIBS... -lpangoft2-1.0 -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lglib-2.0  
+checking for freetype-config... /usr/bin/freetype-config
+checking for freetype... yes
+checking for GDK_PIXBUF_CFLAGS... -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  
+checking for GDK_PIXBUF_LIBS... -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0  
+checking for LIBRSVG_CFLAGS... -pthread -I/usr/include/librsvg-2.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo -I/usr/include/libpng12 -I/usr/include/pixman-1 -I/usr/include/freetype2  
+checking for LIBRSVG_LIBS... -lrsvg-2 -lm -lgio-2.0 -lgdk_pixbuf-2.0 -lcairo -lgobject-2.0 -lglib-2.0  
+checking for FONTCONFIG_CFLAGS...  
+checking for FONTCONFIG_LIBS... -lfontconfig  
+checking for FFMPEG_CFLAGS...  
+checking for FFMPEG_LIBS... -lswscale -lavformat -lavcodec -lavutil  
+checking libavformat/avformat.h usability... yes
+checking libavformat/avformat.h presence... yes
+checking for libavformat/avformat.h... yes
+checking for python version... 2.6
+checking for python platform... linux2
+checking for python script directory... ${prefix}/lib/python2.6/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.6/site-packages
+checking for headers required to compile python extensions... found
+checking for libpython2.6... found
+checking whether the compiler implements namespaces... yes
+checking whether the Boost::Thread library is available... yes
+checking for main in -lboost_thread-mt... yes
+checking for DC1394_2_CFLAGS...  
+checking for DC1394_2_LIBS... -ldc1394  
+checking for MTDEV_CFLAGS...  
+checking for MTDEV_LIBS... -lmtdev  
+checking for XI2_1_CFLAGS... 
+checking for XI2_1_LIBS... 
+checking for XI2_2_CFLAGS...  
+checking for XI2_2_LIBS... -lXi  
+checking for struct v4l2_buffer... yes
+checking linux/ppdev.h usability... yes
+checking linux/ppdev.h presence... yes
+checking for linux/ppdev.h... yes
+checking for X... libraries , headers 
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for cc_r... gcc
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for OpenGL library... -lGL
+checking for OpenGL Utility library... -lGLU
+checking for sdl-config... /usr/bin/sdl-config
+checking for SDL - version >= 1.2.10... yes
+checking for main in -lvdpau... no
+checking libavcodec/vdpau.h usability... no
+checking libavcodec/vdpau.h presence... no
+checking for libavcodec/vdpau.h... no
+checking vdpau/vdpau.h usability... no
+checking vdpau/vdpau.h presence... no
+checking for vdpau/vdpau.h... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/test/Makefile
+config.status: creating src/test/plugin/Makefile
+config.status: creating src/base/Makefile
+config.status: creating src/conradrelais/Makefile
+config.status: creating src/lmfit/Makefile
+config.status: creating src/wrapper/Makefile
+config.status: creating src/player/Makefile
+config.status: creating src/parport/Makefile
+config.status: creating src/graphics/Makefile
+config.status: creating src/python/Makefile
+config.status: creating src/imaging/Makefile
+config.status: creating src/video/Makefile
+config.status: creating src/audio/Makefile
+config.status: creating src/utils/Makefile
+config.status: creating src/anim/Makefile
+config.status: creating src/python/data/Makefile
+config.status: creating src/samples/Makefile
+config.status: creating src/python/ui/Makefile
+config.status: creating src/oscpack/Makefile
+config.status: creating man/Makefile
+config.status: creating src/avgconfig.h
+config.status: executing libtool commands
+config.status: executing depfiles commands
+touch debian/stamp-configure2.6
+dh_auto_build --parallel -B build2.7
+make[1]: Entering directory `/«PKGBUILDDIR»/build2.7'
+Making all in src
+make[2]: Entering directory `/«PKGBUILDDIR»/build2.7/src'
+cd ../.. && /bin/bash /«PKGBUILDDIR»/missing --run autoheader
+rm -f stamp-h1
+touch ../../src/avgconfig.h.in
+cd .. && /bin/bash ./config.status src/avgconfig.h
+config.status: creating src/avgconfig.h
+config.status: src/avgconfig.h is unchanged
+make  all-recursive
+make[3]: Entering directory `/«PKGBUILDDIR»/build2.7/src'
+Making all in base
+make[4]: Entering directory `/«PKGBUILDDIR»/build2.7/src/base'
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FileHelper.lo -MD -MP -MF .deps/FileHelper.Tpo -c -o FileHelper.lo ../../../src/base/FileHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FileHelper.lo -MD -MP -MF .deps/FileHelper.Tpo -c ../../../src/base/FileHelper.cpp  -fPIC -DPIC -o .libs/FileHelper.o
+mv -f .deps/FileHelper.Tpo .deps/FileHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT CmdLine.lo -MD -MP -MF .deps/CmdLine.Tpo -c -o CmdLine.lo ../../../src/base/CmdLine.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT CmdLine.lo -MD -MP -MF .deps/CmdLine.Tpo -c ../../../src/base/CmdLine.cpp  -fPIC -DPIC -o .libs/CmdLine.o
+mv -f .deps/CmdLine.Tpo .deps/CmdLine.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Exception.lo -MD -MP -MF .deps/Exception.Tpo -c -o Exception.lo ../../../src/base/Exception.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Exception.lo -MD -MP -MF .deps/Exception.Tpo -c ../../../src/base/Exception.cpp  -fPIC -DPIC -o .libs/Exception.o
+mv -f .deps/Exception.Tpo .deps/Exception.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Logger.lo -MD -MP -MF .deps/Logger.Tpo -c -o Logger.lo ../../../src/base/Logger.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Logger.lo -MD -MP -MF .deps/Logger.Tpo -c ../../../src/base/Logger.cpp  -fPIC -DPIC -o .libs/Logger.o
+mv -f .deps/Logger.Tpo .deps/Logger.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ConfigMgr.lo -MD -MP -MF .deps/ConfigMgr.Tpo -c -o ConfigMgr.lo ../../../src/base/ConfigMgr.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ConfigMgr.lo -MD -MP -MF .deps/ConfigMgr.Tpo -c ../../../src/base/ConfigMgr.cpp  -fPIC -DPIC -o .libs/ConfigMgr.o
+mv -f .deps/ConfigMgr.Tpo .deps/ConfigMgr.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT XMLHelper.lo -MD -MP -MF .deps/XMLHelper.Tpo -c -o XMLHelper.lo ../../../src/base/XMLHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT XMLHelper.lo -MD -MP -MF .deps/XMLHelper.Tpo -c ../../../src/base/XMLHelper.cpp  -fPIC -DPIC -o .libs/XMLHelper.o
+mv -f .deps/XMLHelper.Tpo .deps/XMLHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT TimeSource.lo -MD -MP -MF .deps/TimeSource.Tpo -c -o TimeSource.lo ../../../src/base/TimeSource.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT TimeSource.lo -MD -MP -MF .deps/TimeSource.Tpo -c ../../../src/base/TimeSource.cpp  -fPIC -DPIC -o .libs/TimeSource.o
+mv -f .deps/TimeSource.Tpo .deps/TimeSource.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OSHelper.lo -MD -MP -MF .deps/OSHelper.Tpo -c -o OSHelper.lo ../../../src/base/OSHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OSHelper.lo -MD -MP -MF .deps/OSHelper.Tpo -c ../../../src/base/OSHelper.cpp  -fPIC -DPIC -o .libs/OSHelper.o
+mv -f .deps/OSHelper.Tpo .deps/OSHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ProfilingZone.lo -MD -MP -MF .deps/ProfilingZone.Tpo -c -o ProfilingZone.lo ../../../src/base/ProfilingZone.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ProfilingZone.lo -MD -MP -MF .deps/ProfilingZone.Tpo -c ../../../src/base/ProfilingZone.cpp  -fPIC -DPIC -o .libs/ProfilingZone.o
+In file included from ../../../src/base/ProfilingZone.cpp:22:
+../../../src/base/ProfilingZone.h:62:10: warning: private field 'm_bIsRegistered' is not used [-Wunused-private-field]
+    bool m_bIsRegistered;
+         ^
+1 warning generated.
+mv -f .deps/ProfilingZone.Tpo .deps/ProfilingZone.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ThreadProfiler.lo -MD -MP -MF .deps/ThreadProfiler.Tpo -c -o ThreadProfiler.lo ../../../src/base/ThreadProfiler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ThreadProfiler.lo -MD -MP -MF .deps/ThreadProfiler.Tpo -c ../../../src/base/ThreadProfiler.cpp  -fPIC -DPIC -o .libs/ThreadProfiler.o
+mv -f .deps/ThreadProfiler.Tpo .deps/ThreadProfiler.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ScopeTimer.lo -MD -MP -MF .deps/ScopeTimer.Tpo -c -o ScopeTimer.lo ../../../src/base/ScopeTimer.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ScopeTimer.lo -MD -MP -MF .deps/ScopeTimer.Tpo -c ../../../src/base/ScopeTimer.cpp  -fPIC -DPIC -o .libs/ScopeTimer.o
+mv -f .deps/ScopeTimer.Tpo .deps/ScopeTimer.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Test.lo -MD -MP -MF .deps/Test.Tpo -c -o Test.lo ../../../src/base/Test.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Test.lo -MD -MP -MF .deps/Test.Tpo -c ../../../src/base/Test.cpp  -fPIC -DPIC -o .libs/Test.o
+In file included from ../../../src/base/Test.cpp:22:
+../../../src/base/Test.h:59:10: warning: private field 'm_bOk' is not used [-Wunused-private-field]
+    bool m_bOk;
+         ^
+1 warning generated.
+mv -f .deps/Test.Tpo .deps/Test.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT TestSuite.lo -MD -MP -MF .deps/TestSuite.Tpo -c -o TestSuite.lo ../../../src/base/TestSuite.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT TestSuite.lo -MD -MP -MF .deps/TestSuite.Tpo -c ../../../src/base/TestSuite.cpp  -fPIC -DPIC -o .libs/TestSuite.o
+mv -f .deps/TestSuite.Tpo .deps/TestSuite.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ObjectCounter.lo -MD -MP -MF .deps/ObjectCounter.Tpo -c -o ObjectCounter.lo ../../../src/base/ObjectCounter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ObjectCounter.lo -MD -MP -MF .deps/ObjectCounter.Tpo -c ../../../src/base/ObjectCounter.cpp  -fPIC -DPIC -o .libs/ObjectCounter.o
+mv -f .deps/ObjectCounter.Tpo .deps/ObjectCounter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Point.lo -MD -MP -MF .deps/Point.Tpo -c -o Point.lo ../../../src/base/Point.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Point.lo -MD -MP -MF .deps/Point.Tpo -c ../../../src/base/Point.cpp  -fPIC -DPIC -o .libs/Point.o
+mv -f .deps/Point.Tpo .deps/Point.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Directory.lo -MD -MP -MF .deps/Directory.Tpo -c -o Directory.lo ../../../src/base/Directory.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Directory.lo -MD -MP -MF .deps/Directory.Tpo -c ../../../src/base/Directory.cpp  -fPIC -DPIC -o .libs/Directory.o
+mv -f .deps/Directory.Tpo .deps/Directory.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT DirEntry.lo -MD -MP -MF .deps/DirEntry.Tpo -c -o DirEntry.lo ../../../src/base/DirEntry.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT DirEntry.lo -MD -MP -MF .deps/DirEntry.Tpo -c ../../../src/base/DirEntry.cpp  -fPIC -DPIC -o .libs/DirEntry.o
+mv -f .deps/DirEntry.Tpo .deps/DirEntry.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT StringHelper.lo -MD -MP -MF .deps/StringHelper.Tpo -c -o StringHelper.lo ../../../src/base/StringHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT StringHelper.lo -MD -MP -MF .deps/StringHelper.Tpo -c ../../../src/base/StringHelper.cpp  -fPIC -DPIC -o .libs/StringHelper.o
+mv -f .deps/StringHelper.Tpo .deps/StringHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT MathHelper.lo -MD -MP -MF .deps/MathHelper.Tpo -c -o MathHelper.lo ../../../src/base/MathHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT MathHelper.lo -MD -MP -MF .deps/MathHelper.Tpo -c ../../../src/base/MathHelper.cpp  -fPIC -DPIC -o .libs/MathHelper.o
+mv -f .deps/MathHelper.Tpo .deps/MathHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GeomHelper.lo -MD -MP -MF .deps/GeomHelper.Tpo -c -o GeomHelper.lo ../../../src/base/GeomHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GeomHelper.lo -MD -MP -MF .deps/GeomHelper.Tpo -c ../../../src/base/GeomHelper.cpp  -fPIC -DPIC -o .libs/GeomHelper.o
+mv -f .deps/GeomHelper.Tpo .deps/GeomHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT CubicSpline.lo -MD -MP -MF .deps/CubicSpline.Tpo -c -o CubicSpline.lo ../../../src/base/CubicSpline.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT CubicSpline.lo -MD -MP -MF .deps/CubicSpline.Tpo -c ../../../src/base/CubicSpline.cpp  -fPIC -DPIC -o .libs/CubicSpline.o
+mv -f .deps/CubicSpline.Tpo .deps/CubicSpline.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT BezierCurve.lo -MD -MP -MF .deps/BezierCurve.Tpo -c -o BezierCurve.lo ../../../src/base/BezierCurve.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT BezierCurve.lo -MD -MP -MF .deps/BezierCurve.Tpo -c ../../../src/base/BezierCurve.cpp  -fPIC -DPIC -o .libs/BezierCurve.o
+mv -f .deps/BezierCurve.Tpo .deps/BezierCurve.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT UTF8String.lo -MD -MP -MF .deps/UTF8String.Tpo -c -o UTF8String.lo ../../../src/base/UTF8String.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT UTF8String.lo -MD -MP -MF .deps/UTF8String.Tpo -c ../../../src/base/UTF8String.cpp  -fPIC -DPIC -o .libs/UTF8String.o
+mv -f .deps/UTF8String.Tpo .deps/UTF8String.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triangle.lo -MD -MP -MF .deps/Triangle.Tpo -c -o Triangle.lo ../../../src/base/Triangle.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triangle.lo -MD -MP -MF .deps/Triangle.Tpo -c ../../../src/base/Triangle.cpp  -fPIC -DPIC -o .libs/Triangle.o
+mv -f .deps/Triangle.Tpo .deps/Triangle.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triangulate.lo -MD -MP -MF .deps/Triangulate.Tpo -c -o Triangulate.lo ../../../src/base/Triangulate.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triangulate.lo -MD -MP -MF .deps/Triangulate.Tpo -c ../../../src/base/Triangulate.cpp  -fPIC -DPIC -o .libs/Triangulate.o
+mv -f .deps/Triangulate.Tpo .deps/Triangulate.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT WideLine.lo -MD -MP -MF .deps/WideLine.Tpo -c -o WideLine.lo ../../../src/base/WideLine.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT WideLine.lo -MD -MP -MF .deps/WideLine.Tpo -c ../../../src/base/WideLine.cpp  -fPIC -DPIC -o .libs/WideLine.o
+mv -f .deps/WideLine.Tpo .deps/WideLine.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triple.lo -MD -MP -MF .deps/Triple.Tpo -c -o Triple.lo ../../../src/base/Triple.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Triple.lo -MD -MP -MF .deps/Triple.Tpo -c ../../../src/base/Triple.cpp  -fPIC -DPIC -o .libs/Triple.o
+mv -f .deps/Triple.Tpo .deps/Triple.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Backtrace.lo -MD -MP -MF .deps/Backtrace.Tpo -c -o Backtrace.lo ../../../src/base/Backtrace.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Backtrace.lo -MD -MP -MF .deps/Backtrace.Tpo -c ../../../src/base/Backtrace.cpp  -fPIC -DPIC -o .libs/Backtrace.o
+mv -f .deps/Backtrace.Tpo .deps/Backtrace.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Matrix3x4.lo -MD -MP -MF .deps/Matrix3x4.Tpo -c -o Matrix3x4.lo ../../../src/base/Matrix3x4.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Matrix3x4.lo -MD -MP -MF .deps/Matrix3x4.Tpo -c ../../../src/base/Matrix3x4.cpp  -fPIC -DPIC -o .libs/Matrix3x4.o
+mv -f .deps/Matrix3x4.Tpo .deps/Matrix3x4.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ProfilingZoneID.lo -MD -MP -MF .deps/ProfilingZoneID.Tpo -c -o ProfilingZoneID.lo ../../../src/base/ProfilingZoneID.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2 -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT ProfilingZoneID.lo -MD -MP -MF .deps/ProfilingZoneID.Tpo -c ../../../src/base/ProfilingZoneID.cpp  -fPIC -DPIC -o .libs/ProfilingZoneID.o
+mv -f .deps/ProfilingZoneID.Tpo .deps/ProfilingZoneID.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=link g++  -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe  -rdynamic -o libbase.la  FileHelper.lo CmdLine.lo Exception.lo Logger.lo ConfigMgr.lo XMLHelper.lo TimeSource.lo OSHelper.lo ProfilingZone.lo ThreadProfiler.lo ScopeTimer.lo Test.lo TestSuite.lo ObjectCounter.lo Point.lo Directory.lo DirEntry.lo StringHelper.lo MathHelper.lo GeomHelper.lo CubicSpline.lo BezierCurve.lo UTF8String.lo Triangle.lo Triangulate.lo WideLine.lo Triple.lo Backtrace.lo Matrix3x4.lo ProfilingZoneID.lo   -lrt 
+libtool: link: ar cru .libs/libbase.a .libs/FileHelper.o .libs/CmdLine.o .libs/Exception.o .libs/Logger.o .libs/ConfigMgr.o .libs/XMLHelper.o .libs/TimeSource.o .libs/OSHelper.o .libs/ProfilingZone.o .libs/ThreadProfiler.o .libs/ScopeTimer.o .libs/Test.o .libs/TestSuite.o .libs/ObjectCounter.o .libs/Point.o .libs/Directory.o .libs/DirEntry.o .libs/StringHelper.o .libs/MathHelper.o .libs/GeomHelper.o .libs/CubicSpline.o .libs/BezierCurve.o .libs/UTF8String.o .libs/Triangle.o .libs/Triangulate.o .libs/WideLine.o .libs/Triple.o .libs/Backtrace.o .libs/Matrix3x4.o .libs/ProfilingZoneID.o 
+libtool: link: ranlib .libs/libbase.a
+libtool: link: ( cd ".libs" && rm -f "libbase.la" && ln -s "../libbase.la" "libbase.la" )
+g++ -DHAVE_CONFIG_H -I. -I../../../src/base -I../../src -I.. -I/usr/include/libxml2     -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT testbase.o -MD -MP -MF .deps/testbase.Tpo -c -o testbase.o ../../../src/base/testbase.cpp
+mv -f .deps/testbase.Tpo .deps/testbase.Po
+/bin/bash ../../libtool --tag=CXX   --mode=link g++  -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -rdynamic -rdynamic -o testbase testbase.o  ./libbase.la -lboost_thread-mt  -lrt 
+libtool: link: g++ -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -rdynamic -rdynamic -o testbase testbase.o  ./.libs/libbase.a -lboost_thread-mt -lrt
+make[4]: Leaving directory `/«PKGBUILDDIR»/build2.7/src/base'
+Making all in graphics
+make[4]: Entering directory `/«PKGBUILDDIR»/build2.7/src/graphics'
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Bitmap.lo -MD -MP -MF .deps/Bitmap.Tpo -c -o Bitmap.lo ../../../src/graphics/Bitmap.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Bitmap.lo -MD -MP -MF .deps/Bitmap.Tpo -c ../../../src/graphics/Bitmap.cpp  -fPIC -DPIC -o .libs/Bitmap.o
+mv -f .deps/Bitmap.Tpo .deps/Bitmap.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filter.lo -MD -MP -MF .deps/Filter.Tpo -c -o Filter.lo ../../../src/graphics/Filter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filter.lo -MD -MP -MF .deps/Filter.Tpo -c ../../../src/graphics/Filter.cpp  -fPIC -DPIC -o .libs/Filter.o
+mv -f .deps/Filter.Tpo .deps/Filter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Pixel32.lo -MD -MP -MF .deps/Pixel32.Tpo -c -o Pixel32.lo ../../../src/graphics/Pixel32.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Pixel32.lo -MD -MP -MF .deps/Pixel32.Tpo -c ../../../src/graphics/Pixel32.cpp  -fPIC -DPIC -o .libs/Pixel32.o
+mv -f .deps/Pixel32.Tpo .deps/Pixel32.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filtergrayscale.lo -MD -MP -MF .deps/Filtergrayscale.Tpo -c -o Filtergrayscale.lo ../../../src/graphics/Filtergrayscale.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filtergrayscale.lo -MD -MP -MF .deps/Filtergrayscale.Tpo -c ../../../src/graphics/Filtergrayscale.cpp  -fPIC -DPIC -o .libs/Filtergrayscale.o
+mv -f .deps/Filtergrayscale.Tpo .deps/Filtergrayscale.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT PixelFormat.lo -MD -MP -MF .deps/PixelFormat.Tpo -c -o PixelFormat.lo ../../../src/graphics/PixelFormat.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT PixelFormat.lo -MD -MP -MF .deps/PixelFormat.Tpo -c ../../../src/graphics/PixelFormat.cpp  -fPIC -DPIC -o .libs/PixelFormat.o
+mv -f .deps/PixelFormat.Tpo .deps/PixelFormat.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filtercolorize.lo -MD -MP -MF .deps/Filtercolorize.Tpo -c -o Filtercolorize.lo ../../../src/graphics/Filtercolorize.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filtercolorize.lo -MD -MP -MF .deps/Filtercolorize.Tpo -c ../../../src/graphics/Filtercolorize.cpp  -fPIC -DPIC -o .libs/Filtercolorize.o
+mv -f .deps/Filtercolorize.Tpo .deps/Filtercolorize.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterflip.lo -MD -MP -MF .deps/Filterflip.Tpo -c -o Filterflip.lo ../../../src/graphics/Filterflip.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterflip.lo -MD -MP -MF .deps/Filterflip.Tpo -c ../../../src/graphics/Filterflip.cpp  -fPIC -DPIC -o .libs/Filterflip.o
+mv -f .deps/Filterflip.Tpo .deps/Filterflip.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterflipX.lo -MD -MP -MF .deps/FilterflipX.Tpo -c -o FilterflipX.lo ../../../src/graphics/FilterflipX.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterflipX.lo -MD -MP -MF .deps/FilterflipX.Tpo -c ../../../src/graphics/FilterflipX.cpp  -fPIC -DPIC -o .libs/FilterflipX.o
+mv -f .deps/FilterflipX.Tpo .deps/FilterflipX.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterfliprgb.lo -MD -MP -MF .deps/Filterfliprgb.Tpo -c -o Filterfliprgb.lo ../../../src/graphics/Filterfliprgb.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterfliprgb.lo -MD -MP -MF .deps/Filterfliprgb.Tpo -c ../../../src/graphics/Filterfliprgb.cpp  -fPIC -DPIC -o .libs/Filterfliprgb.o
+mv -f .deps/Filterfliprgb.Tpo .deps/Filterfliprgb.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterflipuv.lo -MD -MP -MF .deps/Filterflipuv.Tpo -c -o Filterflipuv.lo ../../../src/graphics/Filterflipuv.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterflipuv.lo -MD -MP -MF .deps/Filterflipuv.Tpo -c ../../../src/graphics/Filterflipuv.cpp  -fPIC -DPIC -o .libs/Filterflipuv.o
+mv -f .deps/Filterflipuv.Tpo .deps/Filterflipuv.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filter3x3.lo -MD -MP -MF .deps/Filter3x3.Tpo -c -o Filter3x3.lo ../../../src/graphics/Filter3x3.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filter3x3.lo -MD -MP -MF .deps/Filter3x3.Tpo -c ../../../src/graphics/Filter3x3.cpp  -fPIC -DPIC -o .libs/Filter3x3.o
+mv -f .deps/Filter3x3.Tpo .deps/Filter3x3.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT HistoryPreProcessor.lo -MD -MP -MF .deps/HistoryPreProcessor.Tpo -c -o HistoryPreProcessor.lo ../../../src/graphics/HistoryPreProcessor.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT HistoryPreProcessor.lo -MD -MP -MF .deps/HistoryPreProcessor.Tpo -c ../../../src/graphics/HistoryPreProcessor.cpp  -fPIC -DPIC -o .libs/HistoryPreProcessor.o
+mv -f .deps/HistoryPreProcessor.Tpo .deps/HistoryPreProcessor.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterHighpass.lo -MD -MP -MF .deps/FilterHighpass.Tpo -c -o FilterHighpass.lo ../../../src/graphics/FilterHighpass.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterHighpass.lo -MD -MP -MF .deps/FilterHighpass.Tpo -c ../../../src/graphics/FilterHighpass.cpp  -fPIC -DPIC -o .libs/FilterHighpass.o
+mv -f .deps/FilterHighpass.Tpo .deps/FilterHighpass.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterFastBandpass.lo -MD -MP -MF .deps/FilterFastBandpass.Tpo -c -o FilterFastBandpass.lo ../../../src/graphics/FilterFastBandpass.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterFastBandpass.lo -MD -MP -MF .deps/FilterFastBandpass.Tpo -c ../../../src/graphics/FilterFastBandpass.cpp  -fPIC -DPIC -o .libs/FilterFastBandpass.o
+mv -f .deps/FilterFastBandpass.Tpo .deps/FilterFastBandpass.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterfliprgba.lo -MD -MP -MF .deps/Filterfliprgba.Tpo -c -o Filterfliprgba.lo ../../../src/graphics/Filterfliprgba.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT Filterfliprgba.lo -MD -MP -MF .deps/Filterfliprgba.Tpo -c ../../../src/graphics/Filterfliprgba.cpp  -fPIC -DPIC -o .libs/Filterfliprgba.o
+mv -f .deps/Filterfliprgba.Tpo .deps/Filterfliprgba.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterFastDownscale.lo -MD -MP -MF .deps/FilterFastDownscale.Tpo -c -o FilterFastDownscale.lo ../../../src/graphics/FilterFastDownscale.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterFastDownscale.lo -MD -MP -MF .deps/FilterFastDownscale.Tpo -c ../../../src/graphics/FilterFastDownscale.cpp  -fPIC -DPIC -o .libs/FilterFastDownscale.o
+mv -f .deps/FilterFastDownscale.Tpo .deps/FilterFastDownscale.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterGauss.lo -MD -MP -MF .deps/FilterGauss.Tpo -c -o FilterGauss.lo ../../../src/graphics/FilterGauss.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterGauss.lo -MD -MP -MF .deps/FilterGauss.Tpo -c ../../../src/graphics/FilterGauss.cpp  -fPIC -DPIC -o .libs/FilterGauss.o
+mv -f .deps/FilterGauss.Tpo .deps/FilterGauss.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterBandpass.lo -MD -MP -MF .deps/FilterBandpass.Tpo -c -o FilterBandpass.lo ../../../src/graphics/FilterBandpass.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterBandpass.lo -MD -MP -MF .deps/FilterBandpass.Tpo -c ../../../src/graphics/FilterBandpass.cpp  -fPIC -DPIC -o .libs/FilterBandpass.o
+mv -f .deps/FilterBandpass.Tpo .deps/FilterBandpass.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterBlur.lo -MD -MP -MF .deps/FilterBlur.Tpo -c -o FilterBlur.lo ../../../src/graphics/FilterBlur.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterBlur.lo -MD -MP -MF .deps/FilterBlur.Tpo -c ../../../src/graphics/FilterBlur.cpp  -fPIC -DPIC -o .libs/FilterBlur.o
+mv -f .deps/FilterBlur.Tpo .deps/FilterBlur.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterMask.lo -MD -MP -MF .deps/FilterMask.Tpo -c -o FilterMask.lo ../../../src/graphics/FilterMask.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT FilterMask.lo -MD -MP -MF .deps/FilterMask.Tpo -c ../../../src/graphics/FilterMask.cpp  -fPIC -DPIC -o .libs/FilterMask.o
+mv -f .deps/FilterMask.Tpo .deps/FilterMask.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OGLHelper.lo -MD -MP -MF .deps/OGLHelper.Tpo -c -o OGLHelper.lo ../../../src/graphics/OGLHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OGLHelper.lo -MD -MP -MF .deps/OGLHelper.Tpo -c ../../../src/graphics/OGLHelper.cpp  -fPIC -DPIC -o .libs/OGLHelper.o
+mv -f .deps/OGLHelper.Tpo .deps/OGLHelper.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OGLShader.lo -MD -MP -MF .deps/OGLShader.Tpo -c -o OGLShader.lo ../../../src/graphics/OGLShader.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT OGLShader.lo -MD -MP -MF .deps/OGLShader.Tpo -c ../../../src/graphics/OGLShader.cpp  -fPIC -DPIC -o .libs/OGLShader.o
+mv -f .deps/OGLShader.Tpo .deps/OGLShader.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUNullFilter.lo -MD -MP -MF .deps/GPUNullFilter.Tpo -c -o GPUNullFilter.lo ../../../src/graphics/GPUNullFilter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUNullFilter.lo -MD -MP -MF .deps/GPUNullFilter.Tpo -c ../../../src/graphics/GPUNullFilter.cpp  -fPIC -DPIC -o .libs/GPUNullFilter.o
+mv -f .deps/GPUNullFilter.Tpo .deps/GPUNullFilter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUChromaKeyFilter.lo -MD -MP -MF .deps/GPUChromaKeyFilter.Tpo -c -o GPUChromaKeyFilter.lo ../../../src/graphics/GPUChromaKeyFilter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUChromaKeyFilter.lo -MD -MP -MF .deps/GPUChromaKeyFilter.Tpo -c ../../../src/graphics/GPUChromaKeyFilter.cpp  -fPIC -DPIC -o .libs/GPUChromaKeyFilter.o
+mv -f .deps/GPUChromaKeyFilter.Tpo .deps/GPUChromaKeyFilter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUHueSatFilter.lo -MD -MP -MF .deps/GPUHueSatFilter.Tpo -c -o GPUHueSatFilter.lo ../../../src/graphics/GPUHueSatFilter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUHueSatFilter.lo -MD -MP -MF .deps/GPUHueSatFilter.Tpo -c ../../../src/graphics/GPUHueSatFilter.cpp  -fPIC -DPIC -o .libs/GPUHueSatFilter.o
+mv -f .deps/GPUHueSatFilter.Tpo .deps/GPUHueSatFilter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUInvertFilter.lo -MD -MP -MF .deps/GPUInvertFilter.Tpo -c -o GPUInvertFilter.lo ../../../src/graphics/GPUInvertFilter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT GPUInvertFilter.lo -MD -MP -MF .deps/GPUInvertFilter.Tpo -c ../../../src/graphics/GPUInvertFilter.cpp  -fPIC -DPIC -o .libs/GPUInvertFilter.o
+mv -f .deps/GPUInvertFilter.Tpo .deps/GPUInvertFilter.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I..  -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include      -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT VertexArray.lo -MD -MP -MF .deps/VertexArray.Tpo -c -o VertexArray.lo ../../../src/graphics/VertexArray.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../../src/graphics -I../../src -I.. -I/usr/include/python2.7 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-invalid-offsetof -msse2 -g -O2 -Wall -pipe -MT VertexArray.lo -MD -MP -MF .deps/VertexArray.Tpo -c ../../../src/graphics/VertexArray.cpp  -fPIC -DPIC -o .libs/VertexArray.o
+In file included from ../../../src/graphics/VertexArray.cpp:24:
+../../../src/graphics/GLContext.h:54:38: error: type 'const avg::GLConfig' does not provide a call operator
+            const GLConfig& GLConfig=GLConfig(false, true, true, 1), 
+                                     ^~~~~~~~
+1 error generated.
+make[4]: *** [VertexArray.lo] Error 1
+make[4]: Leaving directory `/«PKGBUILDDIR»/build2.7/src/graphics'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/build2.7/src'
+make[2]: *** [all] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/build2.7/src'
+make[1]: *** [all-recursive] Error 1
+dh_auto_build: make -j1 returned exit code 2
+make: *** [debian/stamp-build2.7] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»/build2.7'
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0158
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -431,28 +2078,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 42344
+Build-Time: 83
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 28
 Job: libavg_1.7.1-1
 Package: libavg
-Package-Time: 0
+Package-Time: 173
 Source-Version: 1.7.1-1
-Space: 0
-Status: failed
+Space: 42344
+Status: attempted
 Version: 1.7.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0403
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.594216s
-DC-Time-Estimation: 33.594216 versus expected 1 (r/m: 32.594216 ; m: 1.0)
+Finished at 20130202-0158
+Build needed 00:02:53, 42344k disc space
+DC-Status: Failed 173.818454s
+DC-Time-Estimation: 173.818454 versus expected 1 (r/m: 172.818454 ; m: 1.0)

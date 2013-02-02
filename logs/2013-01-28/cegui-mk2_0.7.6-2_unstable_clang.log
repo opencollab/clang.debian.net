@@ -1,12 +1,12 @@
-DC-Build-Header: cegui-mk2 0.7.6-2 / Mon Jan 28 04:14:01 +0000 2013
-DC-Task: logfile:/tmp/cegui-mk2_0.7.6-2_unstable_clang.log version:0.7.6-2 chroot:unstable modes:binary-only:clang source:cegui-mk2 architecture:any esttime:1541
+DC-Build-Header: cegui-mk2 0.7.6-2 / Sat Feb 02 02:36:24 +0000 2013
+DC-Task: logfile:/tmp/cegui-mk2_0.7.6-2_unstable_clang.log version:0.7.6-2 modes:binary-only:clang chroot:unstable source:cegui-mk2 esttime:1541 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang cegui-mk2_0.7.6-2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-140-31.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-89-21.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ cegui-mk2 0.7.6-2 (amd64)                                  28 Jan 2013 04:14 ║
+║ cegui-mk2 0.7.6-2 (amd64)                                  02 Feb 2013 02:36 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: cegui-mk2
@@ -15,9 +15,9 @@ Source Version: 0.7.6-2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/cegui-mk2-llW0_o/cegui-mk2-0.7.6' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/cegui-mk2-llW0_o' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-8a3546f3-d16c-4018-8dc3-4b0d4cdb3ae5' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/cegui-mk2-aV2Ss4/cegui-mk2-0.7.6' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/cegui-mk2-aV2Ss4' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-1580bf07-9d2c-4daa-9078-109021ddb003' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (5241 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (5328 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -60,7 +60,7 @@ Need to get 20.9 MB of source archives.
 Get:1 http://localhost/debian/ unstable/main cegui-mk2 0.7.6-2 (dsc) [1772 B]
 Get:2 http://localhost/debian/ unstable/main cegui-mk2 0.7.6-2 (tar) [20.9 MB]
 Get:3 http://localhost/debian/ unstable/main cegui-mk2 0.7.6-2 (diff) [9522 B]
-Fetched 20.9 MB in 0s (21.9 MB/s)
+Fetched 20.9 MB in 0s (25.4 MB/s)
 Download complete and in download only mode
 
 Check arch
@@ -77,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1294 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2378 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (4029 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (37.4 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (6514 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -297,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -368,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-OBcvyq/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-M9lcOQ/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -387,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 6), cdbs, libtool, automake1.9, autoconf, pkg-config, libxerces-c-dev, libboost-signals-dev, libboost-regex-dev, libfreetype6-dev, liblcms1-dev, libtiff-dev, libgl1-mesa-dev, libglu1-mesa-dev, libdevil-dev, libpcre3-dev, liblua5.1-dev, lua5.1, libois-dev, libfreeimage-dev, libxcursor-dev, libxpm-dev, python-dev, libpng-dev, libmng-dev, libxxf86vm-dev, libexpat1-dev, liblua5.1-expat-dev, libxml2-dev, libsilly-dev, libogre-dev, libglew1.6-dev, libtinyxml-dev, libtolua++5.1-dev (>= 1.0.93)
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 6), cdbs, libtool, automake1.9, autoconf, pkg-config, libxerces-c-dev, libboost-signals-dev, libboost-regex-dev, libfreetype6-dev, liblcms1-dev, libtiff-dev, libgl1-mesa-dev, libglu1-mesa-dev, libdevil-dev, libpcre3-dev, liblua5.1-dev, lua5.1, libois-dev, libfreeimage-dev, libxcursor-dev, libxpm-dev, python-dev, libpng-dev, libmng-dev, libxxf86vm-dev, libexpat1-dev, liblua5.1-expat-dev, libxml2-dev, libsilly-dev, libogre-dev, libglew1.6-dev, libtinyxml-dev, libtolua++5.1-dev (>= 1.0.93)
-dpkg-deb: building package `sbuild-build-depends-cegui-mk2-dummy' in `/«BUILDDIR»/resolver-tBrFHM/apt_archive/sbuild-build-depends-cegui-mk2-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-cegui-mk2-dummy' in `/«BUILDDIR»/resolver-XGu5Cx/apt_archive/sbuild-build-depends-cegui-mk2-dummy.deb'.
 OK
 Reading package lists...
 
@@ -404,21 +286,1574 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake1.9 autotools-dev bsdmainutils cdbs debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasound2 libasprintf-dev
+  libasprintf0c2 libasyncns0 libboost-date-time1.49-dev
+  libboost-date-time1.49.0 libboost-regex-dev libboost-regex1.49-dev
+  libboost-regex1.49.0 libboost-serialization1.49-dev
+  libboost-serialization1.49.0 libboost-signals-dev libboost-signals1.49-dev
+  libboost-signals1.49.0 libboost-thread1.49-dev libboost-thread1.49.0
+  libboost1.49-dev libcaca0 libcap2 libcroco3 libdbus-1-3 libdevil-dev
+  libdevil1c2 libdirectfb-1.2-9 libdrm2 libexpat1-dev libflac8
+  libfreeimage-dev libfreeimage3 libfreetype6 libfreetype6-dev
+  libgettextpo-dev libgettextpo0 libgl1-mesa-dev libgl1-mesa-glx libglapi-mesa
+  libglew-dev libglew1.7 libglib2.0-0 libglu1-mesa libglu1-mesa-dev libice-dev
+  libice6 libicu-dev libicu48 libilmbase6 libjasper1 libjbig-dev libjbig0
+  libjpeg8 libjpeg8-dev libjson0 liblcms1 liblcms1-dev liblcms2-2 liblua5.1-0
+  liblua5.1-0-dev liblua5.1-expat-dev libmagic1 libmng-dev libmng1 libogg0
+  libogre-1.7.4 libogre-dev libois-1.3.0 libois-dev libopenexr6 libopenjpeg2
+  libpcre3 libpcre3-dev libpcrecpp0 libpipeline1 libpng12-0 libpng12-dev
+  libpopt0 libpthread-stubs0 libpthread-stubs0-dev libpulse0 libpython2.7
+  libraw5 libreadline-dev libreadline6-dev libsdl1.2debian libsigsegv2
+  libsilly libsilly-dev libsm-dev libsm6 libsndfile1 libssl-dev libtiff4
+  libtiff4-dev libtiffxx0c2 libtinfo-dev libtinyxml-dev libtinyxml2.6.2
+  libtolua++5.1-dev libtool libts-0.0-0 libunistring0 libvorbis0a
+  libvorbisenc2 libwrap0 libx11-6 libx11-data libx11-dev libx11-xcb1
+  libxau-dev libxau6 libxaw7 libxaw7-dev libxcb-glx0 libxcb1 libxcb1-dev
+  libxcursor-dev libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6
+  libxerces-c-dev libxerces-c3.1 libxext-dev libxext6 libxfixes-dev libxfixes3
+  libxi6 libxml2 libxml2-dev libxmu-dev libxmu-headers libxmu6 libxpm-dev
+  libxpm4 libxrandr2 libxrender-dev libxrender1 libxt-dev libxt6 libxtst6
+  libxxf86vm-dev libxxf86vm1 libzzip-0-13 libzzip-dev lua-expat lua-expat-dev
+  lua5.1 m4 man-db mesa-common-dev pkg-config po-debconf python-dev
+  python2.7-dev tsconf x11-common x11proto-core-dev x11proto-fixes-dev
+  x11proto-input-dev x11proto-kb-dev x11proto-render-dev x11proto-xext-dev
+  x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc automake1.9-doc
+  wamerican wordlist whois vacation devscripts dh-make gettext-doc groff
+  libasound2-plugins libboost1.49-doc libboost-chrono1.49-dev
+  libboost-filesystem1.49-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams1.49-dev libboost-locale1.49-dev
+  libboost-math1.49-dev libboost-mpi1.49-dev libboost-program-options1.49-dev
+  libboost-python1.49-dev libboost-random1.49-dev libboost-system1.49-dev
+  libboost-test1.49-dev libboost-timer1.49-dev libboost-wave1.49-dev xsltproc
+  doxygen docbook-xml docbook-xsl default-jdk fop glew-utils libice-doc
+  icu-doc libjasper-runtime liblcms-utils liblcms2-utils ogre-doc pulseaudio
+  libsilly-doc libsm-doc libtinyxml-doc libtool-doc gfortran
+  fortran95-compiler gcj libxaw-doc libxcb-doc libxerces-c-doc libxext-doc
+  libxt-doc less www-browser libmail-box-perl
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint dbus libgl1-mesa-dri
+  libglib2.0-data shared-mime-info libssl-doc libltdl-dev tcpd libx11-doc
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake1.9 autotools-dev bsdmainutils cdbs debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasound2 libasprintf-dev
+  libasprintf0c2 libasyncns0 libboost-date-time1.49-dev
+  libboost-date-time1.49.0 libboost-regex-dev libboost-regex1.49-dev
+  libboost-regex1.49.0 libboost-serialization1.49-dev
+  libboost-serialization1.49.0 libboost-signals-dev libboost-signals1.49-dev
+  libboost-signals1.49.0 libboost-thread1.49-dev libboost-thread1.49.0
+  libboost1.49-dev libcaca0 libcap2 libcroco3 libdbus-1-3 libdevil-dev
+  libdevil1c2 libdirectfb-1.2-9 libdrm2 libexpat1-dev libflac8
+  libfreeimage-dev libfreeimage3 libfreetype6 libfreetype6-dev
+  libgettextpo-dev libgettextpo0 libgl1-mesa-dev libgl1-mesa-glx libglapi-mesa
+  libglew-dev libglew1.7 libglib2.0-0 libglu1-mesa libglu1-mesa-dev libice-dev
+  libice6 libicu-dev libicu48 libilmbase6 libjasper1 libjbig-dev libjbig0
+  libjpeg8 libjpeg8-dev libjson0 liblcms1 liblcms1-dev liblcms2-2 liblua5.1-0
+  liblua5.1-0-dev liblua5.1-expat-dev libmagic1 libmng-dev libmng1 libogg0
+  libogre-1.7.4 libogre-dev libois-1.3.0 libois-dev libopenexr6 libopenjpeg2
+  libpcre3 libpcre3-dev libpcrecpp0 libpipeline1 libpng12-0 libpng12-dev
+  libpopt0 libpthread-stubs0 libpthread-stubs0-dev libpulse0 libpython2.7
+  libraw5 libreadline-dev libreadline6-dev libsdl1.2debian libsigsegv2
+  libsilly libsilly-dev libsm-dev libsm6 libsndfile1 libssl-dev libtiff4
+  libtiff4-dev libtiffxx0c2 libtinfo-dev libtinyxml-dev libtinyxml2.6.2
+  libtolua++5.1-dev libtool libts-0.0-0 libunistring0 libvorbis0a
+  libvorbisenc2 libwrap0 libx11-6 libx11-data libx11-dev libx11-xcb1
+  libxau-dev libxau6 libxaw7 libxaw7-dev libxcb-glx0 libxcb1 libxcb1-dev
+  libxcursor-dev libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6
+  libxerces-c-dev libxerces-c3.1 libxext-dev libxext6 libxfixes-dev libxfixes3
+  libxi6 libxml2 libxml2-dev libxmu-dev libxmu-headers libxmu6 libxpm-dev
+  libxpm4 libxrandr2 libxrender-dev libxrender1 libxt-dev libxt6 libxtst6
+  libxxf86vm-dev libxxf86vm1 libzzip-0-13 libzzip-dev lua-expat lua-expat-dev
+  lua5.1 m4 man-db mesa-common-dev pkg-config po-debconf python-dev
+  python2.7-dev sbuild-build-depends-cegui-mk2-dummy tsconf x11-common
+  x11proto-core-dev x11proto-fixes-dev x11proto-input-dev x11proto-kb-dev
+  x11proto-render-dev x11proto-xext-dev x11proto-xf86vidmode-dev
+  xorg-sgml-doctools xtrans-dev zlib1g-dev
+0 upgraded, 178 newly installed, 0 to remove and 0 not upgraded.
+Need to get 91.3 MB/91.3 MB of archives.
+After this operation, 337 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:8 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:9 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:10 http://localhost/debian/ unstable/main libwrap0 amd64 7.6.q-24 [62.4 kB]
+Get:11 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:12 http://localhost/debian/ unstable/main libasound2 amd64 1.0.25-4 [461 kB]
+Get:13 http://localhost/debian/ unstable/main libasyncns0 amd64 0.8-4 [13.6 kB]
+Get:14 http://localhost/debian/ unstable/main libcaca0 amd64 0.99.beta18-1 [395 kB]
+Get:15 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:16 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:17 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:18 http://localhost/debian/ unstable/main tsconf all 1.0-11 [13.4 kB]
+Get:19 http://localhost/debian/ unstable/main libts-0.0-0 amd64 1.0-11 [29.9 kB]
+Get:20 http://localhost/debian/ unstable/main libdirectfb-1.2-9 amd64 1.2.10.0-5 [1203 kB]
+Get:21 http://localhost/debian/ unstable/main libdrm2 amd64 2.4.40-1~deb7u2 [459 kB]
+Get:22 http://localhost/debian/ unstable/main libogg0 amd64 1.3.0-4 [20.6 kB]
+Get:23 http://localhost/debian/ unstable/main libflac8 amd64 1.2.1-6 [154 kB]
+Get:24 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:25 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:26 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:27 http://localhost/debian/ unstable/main libglapi-mesa amd64 8.0.5-3 [46.6 kB]
+Get:28 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:29 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:30 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:31 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:32 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:33 http://localhost/debian/ unstable/main libx11-xcb1 amd64 2:1.5.0-1 [139 kB]
+Get:34 http://localhost/debian/ unstable/main libxcb-glx0 amd64 1.8.1-2 [32.1 kB]
+Get:35 http://localhost/debian/ unstable/main libxfixes3 amd64 1:5.0-4 [21.5 kB]
+Get:36 http://localhost/debian/ unstable/main libxdamage1 amd64 1:1.1.3-2 [14.3 kB]
+Get:37 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:38 http://localhost/debian/ unstable/main libxxf86vm1 amd64 1:1.1.2-1 [19.0 kB]
+Get:39 http://localhost/debian/ unstable/main libgl1-mesa-glx amd64 8.0.5-3 [134 kB]
+Get:40 http://localhost/debian/ unstable/main libglu1-mesa amd64 8.0.5-3 [190 kB]
+Get:41 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:42 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:43 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:44 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:45 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:46 http://localhost/debian/ unstable/main libxmu6 amd64 2:1.1.1-1 [66.6 kB]
+Get:47 http://localhost/debian/ unstable/main libglew1.7 amd64 1.7.0-3 [141 kB]
+Get:48 http://localhost/debian/ unstable/main libicu48 amd64 4.8.1.1-10 [4741 kB]
+Get:49 http://localhost/debian/ unstable/main libilmbase6 amd64 1.0.1-6 [124 kB]
+Get:50 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:51 http://localhost/debian/ unstable/main libjasper1 amd64 1.900.1-14 [160 kB]
+Get:52 http://localhost/debian/ unstable/main liblcms1 amd64 1.19.dfsg-1.2 [113 kB]
+Get:53 http://localhost/debian/ unstable/main liblcms2-2 amd64 2.2+git20110628-2.2 [143 kB]
+Get:54 http://localhost/debian/ unstable/main liblua5.1-0 amd64 5.1.5-4 [180 kB]
+Get:55 http://localhost/debian/ unstable/main libmng1 amd64 1.0.10-3 [235 kB]
+Get:56 http://localhost/debian/ unstable/main libboost-thread1.49.0 amd64 1.49.0-3.1 [61.0 kB]
+Get:57 http://localhost/debian/ unstable/main libopenexr6 amd64 1.6.1-7 [249 kB]
+Get:58 http://localhost/debian/ unstable/main libopenjpeg2 amd64 1.3+dfsg-4.6 [85.9 kB]
+Get:59 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:60 http://localhost/debian/ unstable/main libraw5 amd64 0.14.6-2 [341 kB]
+Get:61 http://localhost/debian/ unstable/main libfreeimage3 amd64 3.15.1-1+b1 [838 kB]
+Get:62 http://localhost/debian/ unstable/main libxpm4 amd64 1:3.5.10-1 [49.4 kB]
+Get:63 http://localhost/debian/ unstable/main libxaw7 amd64 2:1.0.10-2 [226 kB]
+Get:64 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:65 http://localhost/debian/ unstable/main libxrandr2 amd64 2:1.3.2-2 [33.5 kB]
+Get:66 http://localhost/debian/ unstable/main libzzip-0-13 amd64 0.13.56-1.1 [55.9 kB]
+Get:67 http://localhost/debian/ unstable/main libogre-1.7.4 amd64 1.7.4+dfsg1-7 [3386 kB]
+Get:68 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:69 http://localhost/debian/ unstable/main libjson0 amd64 0.10-1.2 [24.2 kB]
+Get:70 http://localhost/debian/ unstable/main libvorbis0a amd64 1.3.2-1.3 [109 kB]
+Get:71 http://localhost/debian/ unstable/main libvorbisenc2 amd64 1.3.2-1.3 [143 kB]
+Get:72 http://localhost/debian/ unstable/main libsndfile1 amd64 1.0.25-5 [240 kB]
+Get:73 http://localhost/debian/ unstable/main libxtst6 amd64 2:1.2.1-1 [26.6 kB]
+Get:74 http://localhost/debian/ unstable/main libpulse0 amd64 2.0-6 [231 kB]
+Get:75 http://localhost/debian/ unstable/main libsdl1.2debian amd64 1.2.15-5 [220 kB]
+Get:76 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:77 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:78 http://localhost/debian/ unstable/main libtiffxx0c2 amd64 3.9.6-11 [63.4 kB]
+Get:79 http://localhost/debian/ unstable/main libxcursor1 amd64 1:1.1.13-1 [26.9 kB]
+Get:80 http://localhost/debian/ unstable/main libxerces-c3.1 amd64 3.1.1-3 [1139 kB]
+Get:81 http://localhost/debian/ unstable/main lua-expat amd64 1.2.0-5 [14.5 kB]
+Get:82 http://localhost/debian/ unstable/main lua-expat-dev amd64 1.2.0-5 [30.6 kB]
+Get:83 http://localhost/debian/ unstable/main libjbig-dev amd64 2.0-2 [11.3 kB]
+Get:84 http://localhost/debian/ unstable/main libois-1.3.0 amd64 1.3.0+dfsg0-5 [57.5 kB]
+Get:85 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:86 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:87 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:88 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:89 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:90 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:91 http://localhost/debian/ unstable/main automake1.9 all 1.9.6+nogfdl-4 [391 kB]
+Get:92 http://localhost/debian/ unstable/main cdbs all 0.4.120 [80.4 kB]
+Get:93 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:94 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:95 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:96 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:97 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:98 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:99 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:100 http://localhost/debian/ unstable/main libboost1.49-dev amd64 1.49.0-3.1 [9203 kB]
+Get:101 http://localhost/debian/ unstable/main libboost-date-time1.49.0 amd64 1.49.0-3.1 [46.7 kB]
+Get:102 http://localhost/debian/ unstable/main libboost-serialization1.49.0 amd64 1.49.0-3.1 [212 kB]
+Get:103 http://localhost/debian/ unstable/main libboost-serialization1.49-dev amd64 1.49.0-3.1 [316 kB]
+Get:104 http://localhost/debian/ unstable/main libboost-date-time1.49-dev amd64 1.49.0-3.1 [49.5 kB]
+Get:105 http://localhost/debian/ unstable/main libboost-regex1.49.0 amd64 1.49.0-3.1 [449 kB]
+Get:106 http://localhost/debian/ unstable/main libicu-dev amd64 4.8.1.1-10 [5710 kB]
+Get:107 http://localhost/debian/ unstable/main libboost-regex1.49-dev amd64 1.49.0-3.1 [661 kB]
+Get:108 http://localhost/debian/ unstable/main libboost-regex-dev amd64 1.49.0.1 [2970 B]
+Get:109 http://localhost/debian/ unstable/main libboost-signals1.49.0 amd64 1.49.0-3.1 [57.0 kB]
+Get:110 http://localhost/debian/ unstable/main libboost-signals1.49-dev amd64 1.49.0-3.1 [66.5 kB]
+Get:111 http://localhost/debian/ unstable/main libboost-signals-dev amd64 1.49.0.1 [2778 B]
+Get:112 http://localhost/debian/ unstable/main libboost-thread1.49-dev amd64 1.49.0-3.1 [67.1 kB]
+Get:113 http://localhost/debian/ unstable/main libdevil1c2 amd64 1.7.8-6.1+b1 [670 kB]
+Get:114 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:115 http://localhost/debian/ unstable/main libjpeg8-dev amd64 8d-1 [242 kB]
+Get:116 http://localhost/debian/ unstable/main libtiff4-dev amd64 3.9.6-11 [337 kB]
+Get:117 http://localhost/debian/ unstable/main liblcms1-dev amd64 1.19.dfsg-1.2 [199 kB]
+Get:118 http://localhost/debian/ unstable/main libdevil-dev amd64 1.7.8-6.1+b1 [343 kB]
+Get:119 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:120 http://localhost/debian/ unstable/main libfreeimage-dev amd64 3.15.1-1+b1 [2014 kB]
+Get:121 http://localhost/debian/ unstable/main libfreetype6-dev amd64 2.4.9-1.1 [805 kB]
+Get:122 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:123 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:124 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:125 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:126 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:127 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:128 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:129 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:130 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:131 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:132 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:133 http://localhost/debian/ unstable/main mesa-common-dev amd64 8.0.5-3 [277 kB]
+Get:134 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:135 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:136 http://localhost/debian/ unstable/main libgl1-mesa-dev amd64 8.0.5-3 [32.5 kB]
+Get:137 http://localhost/debian/ unstable/main libglu1-mesa-dev amd64 8.0.5-3 [226 kB]
+Get:138 http://localhost/debian/ unstable/main libglew-dev amd64 1.7.0-3 [144 kB]
+Get:139 http://localhost/debian/ unstable/main libice-dev amd64 2:1.0.8-2 [74.1 kB]
+Get:140 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:141 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:142 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+Get:143 http://localhost/debian/ unstable/main liblua5.1-0-dev amd64 5.1.5-4 [239 kB]
+Get:144 http://localhost/debian/ unstable/main liblua5.1-expat-dev all 1.2.0-5 [3140 B]
+Get:145 http://localhost/debian/ unstable/main libmng-dev amd64 1.0.10-3 [314 kB]
+Get:146 http://localhost/debian/ unstable/main libzzip-dev amd64 0.13.56-1.1 [146 kB]
+Get:147 http://localhost/debian/ unstable/main libsm-dev amd64 2:1.2.1-2 [37.0 kB]
+Get:148 http://localhost/debian/ unstable/main libxt-dev amd64 1:1.1.3-1 [516 kB]
+Get:149 http://localhost/debian/ unstable/main libxmu-headers all 2:1.1.1-1 [77.8 kB]
+Get:150 http://localhost/debian/ unstable/main libxmu-dev amd64 2:1.1.1-1 [74.6 kB]
+Get:151 http://localhost/debian/ unstable/main libxpm-dev amd64 1:3.5.10-1 [107 kB]
+Get:152 http://localhost/debian/ unstable/main libxaw7-dev amd64 2:1.0.10-2 [323 kB]
+Get:153 http://localhost/debian/ unstable/main libogre-dev amd64 1.7.4+dfsg1-7 [1206 kB]
+Get:154 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:155 http://localhost/debian/ unstable/main libpng12-dev amd64 1.2.49-3 [267 kB]
+Get:156 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:157 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:158 http://localhost/debian/ unstable/main libtinyxml2.6.2 amd64 2.6.2-1 [43.8 kB]
+Get:159 http://localhost/debian/ unstable/main libtinyxml-dev amd64 2.6.2-1 [63.7 kB]
+Get:160 http://localhost/debian/ unstable/main libtolua++5.1-dev amd64 1.0.93-3 [88.8 kB]
+Get:161 http://localhost/debian/ unstable/main libtool amd64 2.4.2-1.2 [621 kB]
+Get:162 http://localhost/debian/ unstable/main x11proto-render-dev all 2:0.11.1-2 [20.8 kB]
+Get:163 http://localhost/debian/ unstable/main libxrender-dev amd64 1:0.9.7-1 [40.4 kB]
+Get:164 http://localhost/debian/ unstable/main x11proto-fixes-dev all 1:5.0-2 [19.2 kB]
+Get:165 http://localhost/debian/ unstable/main libxfixes-dev amd64 1:5.0-4 [23.4 kB]
+Get:166 http://localhost/debian/ unstable/main libxcursor-dev amd64 1:1.1.13-1 [34.6 kB]
+Get:167 http://localhost/debian/ unstable/main libxerces-c-dev amd64 3.1.1-3 [2940 kB]
+Get:168 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:169 http://localhost/debian/ unstable/main x11proto-xf86vidmode-dev all 2.3.1-2 [6114 B]
+Get:170 http://localhost/debian/ unstable/main libxxf86vm-dev amd64 1:1.1.2-1 [23.5 kB]
+Get:171 http://localhost/debian/ unstable/main lua5.1 amd64 5.1.5-4 [153 kB]
+Get:172 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:173 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:174 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:175 http://localhost/debian/ unstable/main libois-dev amd64 1.3.0+dfsg0-5 [112 kB]
+Get:176 http://localhost/debian/ unstable/main libsilly amd64 0.1.0-3 [17.1 kB]
+Get:177 http://localhost/debian/ unstable/main libsilly-dev amd64 0.1.0-3 [32.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 91.3 MB in 5s (17.2 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libwrap0:amd64.
+Unpacking libwrap0:amd64 (from .../libwrap0_7.6.q-24_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libasound2:amd64.
+Unpacking libasound2:amd64 (from .../libasound2_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libasyncns0:amd64.
+Unpacking libasyncns0:amd64 (from .../libasyncns0_0.8-4_amd64.deb) ...
+Selecting previously unselected package libcaca0:amd64.
+Unpacking libcaca0:amd64 (from .../libcaca0_0.99.beta18-1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package tsconf.
+Unpacking tsconf (from .../archives/tsconf_1.0-11_all.deb) ...
+Selecting previously unselected package libts-0.0-0:amd64.
+Unpacking libts-0.0-0:amd64 (from .../libts-0.0-0_1.0-11_amd64.deb) ...
+Selecting previously unselected package libdirectfb-1.2-9:amd64.
+Unpacking libdirectfb-1.2-9:amd64 (from .../libdirectfb-1.2-9_1.2.10.0-5_amd64.deb) ...
+Selecting previously unselected package libdrm2:amd64.
+Unpacking libdrm2:amd64 (from .../libdrm2_2.4.40-1~deb7u2_amd64.deb) ...
+Selecting previously unselected package libogg0:amd64.
+Unpacking libogg0:amd64 (from .../libogg0_1.3.0-4_amd64.deb) ...
+Selecting previously unselected package libflac8:amd64.
+Unpacking libflac8:amd64 (from .../libflac8_1.2.1-6_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglapi-mesa:amd64.
+Unpacking libglapi-mesa:amd64 (from .../libglapi-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Unpacking libx11-xcb1:amd64 (from .../libx11-xcb1_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-glx0:amd64.
+Unpacking libxcb-glx0:amd64 (from .../libxcb-glx0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxfixes3:amd64.
+Unpacking libxfixes3:amd64 (from .../libxfixes3_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxdamage1:amd64.
+Unpacking libxdamage1:amd64 (from .../libxdamage1_1%3a1.1.3-2_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxxf86vm1:amd64.
+Unpacking libxxf86vm1:amd64 (from .../libxxf86vm1_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-glx:amd64.
+Unpacking libgl1-mesa-glx:amd64 (from .../libgl1-mesa-glx_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa:amd64.
+Unpacking libglu1-mesa:amd64 (from .../libglu1-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libxmu6:amd64.
+Unpacking libxmu6:amd64 (from .../libxmu6_2%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libglew1.7:amd64.
+Unpacking libglew1.7:amd64 (from .../libglew1.7_1.7.0-3_amd64.deb) ...
+Selecting previously unselected package libicu48:amd64.
+Unpacking libicu48:amd64 (from .../libicu48_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package libilmbase6:amd64.
+Unpacking libilmbase6:amd64 (from .../libilmbase6_1.0.1-6_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package libjasper1:amd64.
+Unpacking libjasper1:amd64 (from .../libjasper1_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package liblcms1:amd64.
+Unpacking liblcms1:amd64 (from .../liblcms1_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package liblcms2-2:amd64.
+Unpacking liblcms2-2:amd64 (from .../liblcms2-2_2.2+git20110628-2.2_amd64.deb) ...
+Selecting previously unselected package liblua5.1-0:amd64.
+Unpacking liblua5.1-0:amd64 (from .../liblua5.1-0_5.1.5-4_amd64.deb) ...
+Selecting previously unselected package libmng1:amd64.
+Unpacking libmng1:amd64 (from .../libmng1_1.0.10-3_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49.0.
+Unpacking libboost-thread1.49.0 (from .../libboost-thread1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libopenexr6:amd64.
+Unpacking libopenexr6:amd64 (from .../libopenexr6_1.6.1-7_amd64.deb) ...
+Selecting previously unselected package libopenjpeg2:amd64.
+Unpacking libopenjpeg2:amd64 (from .../libopenjpeg2_1.3+dfsg-4.6_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libraw5:amd64.
+Unpacking libraw5:amd64 (from .../libraw5_0.14.6-2_amd64.deb) ...
+Selecting previously unselected package libfreeimage3.
+Unpacking libfreeimage3 (from .../libfreeimage3_3.15.1-1+b1_amd64.deb) ...
+Selecting previously unselected package libxpm4:amd64.
+Unpacking libxpm4:amd64 (from .../libxpm4_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package libxaw7:amd64.
+Unpacking libxaw7:amd64 (from .../libxaw7_2%3a1.0.10-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libxrandr2:amd64.
+Unpacking libxrandr2:amd64 (from .../libxrandr2_2%3a1.3.2-2_amd64.deb) ...
+Selecting previously unselected package libzzip-0-13.
+Unpacking libzzip-0-13 (from .../libzzip-0-13_0.13.56-1.1_amd64.deb) ...
+Selecting previously unselected package libogre-1.7.4:amd64.
+Unpacking libogre-1.7.4:amd64 (from .../libogre-1.7.4_1.7.4+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libjson0:amd64.
+Unpacking libjson0:amd64 (from .../libjson0_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package libvorbis0a:amd64.
+Unpacking libvorbis0a:amd64 (from .../libvorbis0a_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libvorbisenc2:amd64.
+Unpacking libvorbisenc2:amd64 (from .../libvorbisenc2_1.3.2-1.3_amd64.deb) ...
+Selecting previously unselected package libsndfile1:amd64.
+Unpacking libsndfile1:amd64 (from .../libsndfile1_1.0.25-5_amd64.deb) ...
+Selecting previously unselected package libxtst6:amd64.
+Unpacking libxtst6:amd64 (from .../libxtst6_2%3a1.2.1-1_amd64.deb) ...
+Selecting previously unselected package libpulse0:amd64.
+Unpacking libpulse0:amd64 (from .../libpulse0_2.0-6_amd64.deb) ...
+Selecting previously unselected package libsdl1.2debian:amd64.
+Unpacking libsdl1.2debian:amd64 (from .../libsdl1.2debian_1.2.15-5_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libtiffxx0c2:amd64.
+Unpacking libtiffxx0c2:amd64 (from .../libtiffxx0c2_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libxcursor1:amd64.
+Unpacking libxcursor1:amd64 (from .../libxcursor1_1%3a1.1.13-1_amd64.deb) ...
+Selecting previously unselected package libxerces-c3.1:amd64.
+Unpacking libxerces-c3.1:amd64 (from .../libxerces-c3.1_3.1.1-3_amd64.deb) ...
+Selecting previously unselected package lua-expat:amd64.
+Unpacking lua-expat:amd64 (from .../lua-expat_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package lua-expat-dev:amd64.
+Unpacking lua-expat-dev:amd64 (from .../lua-expat-dev_1.2.0-5_amd64.deb) ...
+Selecting previously unselected package libjbig-dev:amd64.
+Unpacking libjbig-dev:amd64 (from .../libjbig-dev_2.0-2_amd64.deb) ...
+Selecting previously unselected package libois-1.3.0:amd64.
+Unpacking libois-1.3.0:amd64 (from .../libois-1.3.0_1.3.0+dfsg0-5_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake1.9.
+Unpacking automake1.9 (from .../automake1.9_1.9.6+nogfdl-4_all.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.120_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libboost1.49-dev.
+Unpacking libboost1.49-dev (from .../libboost1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49.0.
+Unpacking libboost-date-time1.49.0 (from .../libboost-date-time1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49.0.
+Unpacking libboost-serialization1.49.0 (from .../libboost-serialization1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49-dev.
+Unpacking libboost-serialization1.49-dev (from .../libboost-serialization1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49-dev.
+Unpacking libboost-date-time1.49-dev (from .../libboost-date-time1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-regex1.49.0.
+Unpacking libboost-regex1.49.0 (from .../libboost-regex1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libicu-dev.
+Unpacking libicu-dev (from .../libicu-dev_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package libboost-regex1.49-dev.
+Unpacking libboost-regex1.49-dev (from .../libboost-regex1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-regex-dev.
+Unpacking libboost-regex-dev (from .../libboost-regex-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals1.49.0.
+Unpacking libboost-signals1.49.0 (from .../libboost-signals1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals1.49-dev.
+Unpacking libboost-signals1.49-dev (from .../libboost-signals1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals-dev.
+Unpacking libboost-signals-dev (from .../libboost-signals-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49-dev.
+Unpacking libboost-thread1.49-dev (from .../libboost-thread1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libdevil1c2.
+Unpacking libdevil1c2 (from .../libdevil1c2_1.7.8-6.1+b1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libjpeg8-dev:amd64.
+Unpacking libjpeg8-dev:amd64 (from .../libjpeg8-dev_8d-1_amd64.deb) ...
+Selecting previously unselected package libtiff4-dev.
+Unpacking libtiff4-dev (from .../libtiff4-dev_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package liblcms1-dev:amd64.
+Unpacking liblcms1-dev:amd64 (from .../liblcms1-dev_1.19.dfsg-1.2_amd64.deb) ...
+Selecting previously unselected package libdevil-dev.
+Unpacking libdevil-dev (from .../libdevil-dev_1.7.8-6.1+b1_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libfreeimage-dev.
+Unpacking libfreeimage-dev (from .../libfreeimage-dev_3.15.1-1+b1_amd64.deb) ...
+Selecting previously unselected package libfreetype6-dev.
+Unpacking libfreetype6-dev (from .../libfreetype6-dev_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package mesa-common-dev.
+Unpacking mesa-common-dev (from .../mesa-common-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-dev.
+Unpacking libgl1-mesa-dev (from .../libgl1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa-dev.
+Unpacking libglu1-mesa-dev (from .../libglu1-mesa-dev_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglew-dev:amd64.
+Unpacking libglew-dev:amd64 (from .../libglew-dev_1.7.0-3_amd64.deb) ...
+Selecting previously unselected package libice-dev:amd64.
+Unpacking libice-dev:amd64 (from .../libice-dev_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package liblua5.1-0-dev:amd64.
+Unpacking liblua5.1-0-dev:amd64 (from .../liblua5.1-0-dev_5.1.5-4_amd64.deb) ...
+Selecting previously unselected package liblua5.1-expat-dev.
+Unpacking liblua5.1-expat-dev (from .../liblua5.1-expat-dev_1.2.0-5_all.deb) ...
+Selecting previously unselected package libmng-dev:amd64.
+Unpacking libmng-dev:amd64 (from .../libmng-dev_1.0.10-3_amd64.deb) ...
+Selecting previously unselected package libzzip-dev.
+Unpacking libzzip-dev (from .../libzzip-dev_0.13.56-1.1_amd64.deb) ...
+Selecting previously unselected package libsm-dev:amd64.
+Unpacking libsm-dev:amd64 (from .../libsm-dev_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxt-dev:amd64.
+Unpacking libxt-dev:amd64 (from .../libxt-dev_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libxmu-headers.
+Unpacking libxmu-headers (from .../libxmu-headers_2%3a1.1.1-1_all.deb) ...
+Selecting previously unselected package libxmu-dev:amd64.
+Unpacking libxmu-dev:amd64 (from .../libxmu-dev_2%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxpm-dev:amd64.
+Unpacking libxpm-dev:amd64 (from .../libxpm-dev_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package libxaw7-dev:amd64.
+Unpacking libxaw7-dev:amd64 (from .../libxaw7-dev_2%3a1.0.10-2_amd64.deb) ...
+Selecting previously unselected package libogre-dev.
+Unpacking libogre-dev (from .../libogre-dev_1.7.4+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libpng12-dev.
+Unpacking libpng12-dev (from .../libpng12-dev_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libtinyxml2.6.2.
+Unpacking libtinyxml2.6.2 (from .../libtinyxml2.6.2_2.6.2-1_amd64.deb) ...
+Selecting previously unselected package libtinyxml-dev.
+Unpacking libtinyxml-dev (from .../libtinyxml-dev_2.6.2-1_amd64.deb) ...
+Selecting previously unselected package libtolua++5.1-dev.
+Unpacking libtolua++5.1-dev (from .../libtolua++5.1-dev_1.0.93-3_amd64.deb) ...
+Selecting previously unselected package libtool.
+Unpacking libtool (from .../libtool_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package x11proto-render-dev.
+Unpacking x11proto-render-dev (from .../x11proto-render-dev_2%3a0.11.1-2_all.deb) ...
+Selecting previously unselected package libxrender-dev:amd64.
+Unpacking libxrender-dev:amd64 (from .../libxrender-dev_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package x11proto-fixes-dev.
+Unpacking x11proto-fixes-dev (from .../x11proto-fixes-dev_1%3a5.0-2_all.deb) ...
+Selecting previously unselected package libxfixes-dev.
+Unpacking libxfixes-dev (from .../libxfixes-dev_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxcursor-dev:amd64.
+Unpacking libxcursor-dev:amd64 (from .../libxcursor-dev_1%3a1.1.13-1_amd64.deb) ...
+Selecting previously unselected package libxerces-c-dev.
+Unpacking libxerces-c-dev (from .../libxerces-c-dev_3.1.1-3_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package x11proto-xf86vidmode-dev.
+Unpacking x11proto-xf86vidmode-dev (from .../x11proto-xf86vidmode-dev_2.3.1-2_all.deb) ...
+Selecting previously unselected package libxxf86vm-dev.
+Unpacking libxxf86vm-dev (from .../libxxf86vm-dev_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package lua5.1.
+Unpacking lua5.1 (from .../lua5.1_5.1.5-4_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package libois-dev:amd64.
+Unpacking libois-dev:amd64 (from .../libois-dev_1.3.0+dfsg0-5_amd64.deb) ...
+Selecting previously unselected package libsilly.
+Unpacking libsilly (from .../libsilly_0.1.0-3_amd64.deb) ...
+Selecting previously unselected package libsilly-dev.
+Unpacking libsilly-dev (from .../libsilly-dev_0.1.0-3_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-cegui-mk2-dummy.
+Unpacking sbuild-build-depends-cegui-mk2-dummy (from .../sbuild-build-depends-cegui-mk2-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libwrap0:amd64 (7.6.q-24) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libasound2:amd64 (1.0.25-4) ...
+Setting up libasyncns0:amd64 (0.8-4) ...
+Setting up libcaca0:amd64 (0.99.beta18-1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up tsconf (1.0-11) ...
+Setting up libts-0.0-0:amd64 (1.0-11) ...
+Setting up libdirectfb-1.2-9:amd64 (1.2.10.0-5) ...
+Setting up libdrm2:amd64 (2.4.40-1~deb7u2) ...
+Setting up libogg0:amd64 (1.3.0-4) ...
+Setting up libflac8:amd64 (1.2.1-6) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglapi-mesa:amd64 (8.0.5-3) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libx11-xcb1:amd64 (2:1.5.0-1) ...
+Setting up libxcb-glx0:amd64 (1.8.1-2) ...
+Setting up libxfixes3:amd64 (1:5.0-4) ...
+Setting up libxdamage1:amd64 (1:1.1.3-2) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxxf86vm1:amd64 (1:1.1.2-1) ...
+Setting up libgl1-mesa-glx:amd64 (8.0.5-3) ...
+Setting up libglu1-mesa:amd64 (8.0.5-3) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libxmu6:amd64 (2:1.1.1-1) ...
+Setting up libglew1.7:amd64 (1.7.0-3) ...
+Setting up libicu48:amd64 (4.8.1.1-10) ...
+Setting up libilmbase6:amd64 (1.0.1-6) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up libjasper1:amd64 (1.900.1-14) ...
+Setting up liblcms1:amd64 (1.19.dfsg-1.2) ...
+Setting up liblcms2-2:amd64 (2.2+git20110628-2.2) ...
+Setting up liblua5.1-0:amd64 (5.1.5-4) ...
+Setting up libmng1:amd64 (1.0.10-3) ...
+Setting up libboost-thread1.49.0 (1.49.0-3.1) ...
+Setting up libopenexr6:amd64 (1.6.1-7) ...
+Setting up libopenjpeg2:amd64 (1.3+dfsg-4.6) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libraw5:amd64 (0.14.6-2) ...
+Setting up libfreeimage3 (3.15.1-1+b1) ...
+Setting up libxpm4:amd64 (1:3.5.10-1) ...
+Setting up libxaw7:amd64 (2:1.0.10-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libxrandr2:amd64 (2:1.3.2-2) ...
+Setting up libzzip-0-13 (0.13.56-1.1) ...
+Setting up libogre-1.7.4:amd64 (1.7.4+dfsg1-7) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libjson0:amd64 (0.10-1.2) ...
+Setting up libvorbis0a:amd64 (1.3.2-1.3) ...
+Setting up libvorbisenc2:amd64 (1.3.2-1.3) ...
+Setting up libsndfile1:amd64 (1.0.25-5) ...
+Setting up libxtst6:amd64 (2:1.2.1-1) ...
+Setting up libpulse0:amd64 (2.0-6) ...
+Setting up libsdl1.2debian:amd64 (1.2.15-5) ...
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libtiffxx0c2:amd64 (3.9.6-11) ...
+Setting up libxcursor1:amd64 (1:1.1.13-1) ...
+Setting up libxerces-c3.1:amd64 (3.1.1-3) ...
+Setting up lua-expat:amd64 (1.2.0-5) ...
+Setting up lua-expat-dev:amd64 (1.2.0-5) ...
+Setting up libjbig-dev:amd64 (2.0-2) ...
+Setting up libois-1.3.0:amd64 (1.3.0+dfsg0-5) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake1.9 (1.9.6+nogfdl-4) ...
+update-alternatives: using /usr/bin/automake-1.9 to provide /usr/bin/automake (automake) in auto mode
+Setting up cdbs (0.4.120) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libboost1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time1.49-dev (1.49.0-3.1) ...
+Setting up libboost-regex1.49.0 (1.49.0-3.1) ...
+Setting up libicu-dev (4.8.1.1-10) ...
+Setting up libboost-regex1.49-dev (1.49.0-3.1) ...
+Setting up libboost-regex-dev (1.49.0.1) ...
+Setting up libboost-signals1.49.0 (1.49.0-3.1) ...
+Setting up libboost-signals1.49-dev (1.49.0-3.1) ...
+Setting up libboost-signals-dev (1.49.0.1) ...
+Setting up libboost-thread1.49-dev (1.49.0-3.1) ...
+Setting up libdevil1c2 (1.7.8-6.1+b1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libjpeg8-dev:amd64 (8d-1) ...
+Setting up libtiff4-dev (3.9.6-11) ...
+Setting up liblcms1-dev:amd64 (1.19.dfsg-1.2) ...
+Setting up libdevil-dev (1.7.8-6.1+b1) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libfreeimage-dev (3.15.1-1+b1) ...
+Setting up libfreetype6-dev (2.4.9-1.1) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up mesa-common-dev (8.0.5-3) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up libgl1-mesa-dev (8.0.5-3) ...
+Setting up libglu1-mesa-dev (8.0.5-3) ...
+Setting up libglew-dev:amd64 (1.7.0-3) ...
+Setting up libice-dev:amd64 (2:1.0.8-2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up liblua5.1-0-dev:amd64 (5.1.5-4) ...
+Setting up liblua5.1-expat-dev (1.2.0-5) ...
+Setting up libmng-dev:amd64 (1.0.10-3) ...
+Setting up libzzip-dev (0.13.56-1.1) ...
+Setting up libsm-dev:amd64 (2:1.2.1-2) ...
+Setting up libxt-dev:amd64 (1:1.1.3-1) ...
+Setting up libxmu-headers (2:1.1.1-1) ...
+Setting up libxmu-dev:amd64 (2:1.1.1-1) ...
+Setting up libxpm-dev:amd64 (1:3.5.10-1) ...
+Setting up libxaw7-dev:amd64 (2:1.0.10-2) ...
+Setting up libogre-dev (1.7.4+dfsg1-7) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up libpng12-dev (1.2.49-3) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libtinyxml2.6.2 (2.6.2-1) ...
+Setting up libtinyxml-dev (2.6.2-1) ...
+Setting up libtolua++5.1-dev (1.0.93-3) ...
+Setting up libtool (2.4.2-1.2) ...
+Setting up x11proto-render-dev (2:0.11.1-2) ...
+Setting up libxrender-dev:amd64 (1:0.9.7-1) ...
+Setting up x11proto-fixes-dev (1:5.0-2) ...
+Setting up libxfixes-dev (1:5.0-4) ...
+Setting up libxcursor-dev:amd64 (1:1.1.13-1) ...
+Setting up libxerces-c-dev (3.1.1-3) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up x11proto-xf86vidmode-dev (2.3.1-2) ...
+Setting up libxxf86vm-dev (1:1.1.2-1) ...
+Setting up lua5.1 (5.1.5-4) ...
+update-alternatives: using /usr/bin/lua5.1 to provide /usr/bin/lua (lua-interpreter) in auto mode
+update-alternatives: using /usr/bin/luac5.1 to provide /usr/bin/luac (lua-compiler) in auto mode
+Setting up pkg-config (0.26-1) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up libois-dev:amd64 (1.3.0+dfsg0-5) ...
+Setting up libsilly (0.1.0-3) ...
+Setting up libsilly-dev (0.1.0-3) ...
+Setting up sbuild-build-depends-cegui-mk2-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-cegui-mk2-dummy : Depends: liblua5.1-dev
-                                        Depends: python-dev but it is not going to be installed
-                                        Depends: libexpat1-dev but it is not going to be installed
-                                        Depends: libtolua++5.1-dev (>= 1.0.93) but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake1.9_1.9.6+nogfdl-4 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 cdbs_0.4.120 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasound2_1.0.25-4 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libasyncns0_0.8-4 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libboost-date-time1.49-dev_1.49.0-3.1 libboost-date-time1.49.0_1.49.0-3.1 libboost-regex-dev_1.49.0.1 libboost-regex1.49-dev_1.49.0-3.1 libboost-regex1.49.0_1.49.0-3.1 libboost-serialization1.49-dev_1.49.0-3.1 libboost-serialization1.49.0_1.49.0-3.1 libboost-signals-dev_1.49.0.1 libboost-signals1.49-dev_1.49.0-3.1 libboost-signals1.49.0_1.49.0-3.1 libboost-thread1.49-dev_1.49.0-3.1 libboost-thread1.49.0_1.49.0-3.1 libboost1.49-dev_1.49.0-3.1 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcaca0_0.99.beta18-1 libcap2_1:2.22-1.2 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdevil-dev_1.7.8-6.1+b1 libdevil1c2_1.7.8-6.1+b1 libdirectfb-1.2-9_1.2.10.0-5 libdpkg-perl_1.16.9 libdrm2_2.4.40-1~deb7u2 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libflac8_1.2.1-6 libfreeimage-dev_3.15.1-1+b1 libfreeimage3_3.15.1-1+b1 libfreetype6_2.4.9-1.1 libfreetype6-dev_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgl1-mesa-dev_8.0.5-3 libgl1-mesa-glx_8.0.5-3 libglapi-mesa_8.0.5-3 libglew-dev_1.7.0-3 libglew1.7_1.7.0-3 libglib2.0-0_2.33.12+really2.32.4-5 libglu1-mesa_8.0.5-3 libglu1-mesa-dev_8.0.5-3 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libicu-dev_4.8.1.1-10 libicu48_4.8.1.1-10 libilmbase6_1.0.1-6 libitm1_4.7.2-5 libjasper1_1.900.1-14 libjbig-dev_2.0-2 libjbig0_2.0-2 libjpeg8_8d-1 libjpeg8-dev_8d-1 libjson0_0.10-1.2 liblcms1_1.19.dfsg-1.2 liblcms1-dev_1.19.dfsg-1.2 liblcms2-2_2.2+git20110628-2.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblua5.1-0_5.1.5-4 liblua5.1-0-dev_5.1.5-4 liblua5.1-expat-dev_1.2.0-5 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmng-dev_1.0.10-3 libmng1_1.0.10-3 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libogg0_1.3.0-4 libogre-1.7.4_1.7.4+dfsg1-7 libogre-dev_1.7.4+dfsg1-7 libois-1.3.0_1.3.0+dfsg0-5 libois-dev_1.3.0+dfsg0-5 libopenexr6_1.6.1-7 libopenjpeg2_1.3+dfsg-4.6 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpng12-0_1.2.49-3 libpng12-dev_1.2.49-3 libpopt0_1.16-7 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpulse0_2.0-6 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libraw5_0.14.6-2 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 libsdl1.2debian_1.2.15-5 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libsilly_0.1.0-3 libsilly-dev_0.1.0-3 libslang2_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsndfile1_1.0.25-5 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtiff4_3.9.6-11 libtiff4-dev_3.9.6-11 libtiffxx0c2_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libtinyxml-dev_2.6.2-1 libtinyxml2.6.2_2.6.2-1 libtolua++5.1-dev_1.0.93-3 libtool_2.4.2-1.2 libts-0.0-0_1.0-11 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libvorbis0a_1.3.2-1.3 libvorbisenc2_1.3.2-1.3 libwrap0_7.6.q-24 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxaw7_2:1.0.10-2 libxaw7-dev_2:1.0.10-2 libxcb-glx0_1.8.1-2 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxcursor-dev_1:1.1.13-1 libxcursor1_1:1.1.13-1 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxerces-c-dev_3.1.1-3 libxerces-c3.1_3.1.1-3 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfixes-dev_1:5.0-4 libxfixes3_1:5.0-4 libxi6_2:1.6.1-1 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxmu-dev_2:1.1.1-1 libxmu-headers_2:1.1.1-1 libxmu6_2:1.1.1-1 libxpm-dev_1:3.5.10-1 libxpm4_1:3.5.10-1 libxrandr2_2:1.3.2-2 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxt-dev_1:1.1.3-1 libxt6_1:1.1.3-1 libxtst6_2:1.2.1-1 libxxf86vm-dev_1:1.1.2-1 libxxf86vm1_1:1.1.2-1 libzzip-0-13_0.13.56-1.1 libzzip-dev_0.13.56-1.1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 lua-expat_1.2.0-5 lua-expat-dev_1.2.0-5 lua5.1_5.1.5-4 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mesa-common-dev_8.0.5-3 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-cegui-mk2-dummy_0.invalid.0 sbuild-build-depends-core-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tsconf_1.0-11 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 x11proto-core-dev_7.0.23-1 x11proto-fixes-dev_1:5.0-2 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-render-dev_2:0.11.1-2 x11proto-xext-dev_7.2.1-1 x11proto-xf86vidmode-dev_2.3.1-2 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Mar  9 14:49:03 2012 UTC using DSA key ID 127029F1
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./cegui-mk2_0.7.6-2.dsc
+dpkg-source: info: extracting cegui-mk2 in cegui-mk2-0.7.6
+dpkg-source: info: unpacking cegui-mk2_0.7.6.orig.tar.gz
+dpkg-source: info: unpacking cegui-mk2_0.7.6-2.debian.tar.gz
+dpkg-source: info: applying 01_cegui-mk2_kfreebsd.patch
+dpkg-source: info: applying 02_addingheaderforgcc4.4.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-1580bf07-9d2c-4daa-9078-109021ddb003
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package cegui-mk2
+dpkg-buildpackage: source version 0.7.6-2
+dpkg-buildpackage: source changed by Muammar El Khatib <muammar@debian.org>
+ dpkg-source --before-build cegui-mk2-0.7.6
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C .  -k distclean
+make[1]: make[1]: Entering directory `/«PKGBUILDDIR»'
+*** No rule to make target `distclean'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: [makefile-clean] Error 2 (ignored)
+rm -f debian/stamp-autotools
+rmdir --ignore-fail-on-non-empty .
+rmdir: failed to remove '.': Invalid argument
+make: [makefile-clean] Error 1 (ignored)
+for i in ./config.guess ./config.sub  ; do \
+		if test -e $i.cdbs-orig ; then \
+			mv $i.cdbs-orig $i ; \
+		fi ; \
+	done
+dh_clean 
+rm -f ./bin/Demo6 ./bin/Demo7 ./bin/Demo8 \
+	./bin/DragDropDemo ./bin/FalagardDemo1 \
+	./bin/FirstWindow ./bin/FontDemo ./bin/Minesweeper \
+	./bin/ScrollablePaneDemo ./bin/TabControlDemo  \
+	./bin/TextDemo ./bin/TreeDemo ./bin/InventoryDemo
+rm -f ./config.log ./conftstm.o ./doc/doxygen/doxyfile
+rm -f debian/stamp-autotools-files
+ debian/rules build-arch
+test -x debian/rules
+mkdir -p "."
+/usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_DH_STRIP_ARGS is a deprecated variable
+if test -e /usr/share/misc/config.guess ; then \
+		for i in ./config.guess ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.guess $i ; \
+			fi ; \
+		done ; \
+	fi
+if test -e /usr/share/misc/config.sub ; then \
+		for i in ./config.sub ; do \
+			if ! test -e $i.cdbs-orig ; then \
+				mv $i $i.cdbs-orig ; \
+				cp --remove-destination /usr/share/misc/config.sub $i ; \
+			fi ; \
+		done ; \
+	fi
+cd . && \
+	  if ! test -f aclocal.m4 ; then touch aclocal.m4 ; fi
+touch debian/stamp-autotools-files
+chmod a+x /«PKGBUILDDIR»/./configure
+mkdir -p .
+cd . &&   CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-llua5.1 -ldl" /«PKGBUILDDIR»/./configure --build=x86_64-linux-gnu  --prefix=/usr --includedir="\${prefix}/include" --mandir="\${prefix}/share/man" --infodir="\${prefix}/share/info" --sysconfdir=/etc --localstatedir=/var --libexecdir="\${prefix}/lib/cegui-mk2" --srcdir=. --disable-maintainer-mode --disable-dependency-tracking --disable-silent-rules   --enable-lua-module=yes --enable-toluacegui=no --with-default-xml-parser=TinyXMLParser --enable-null-renderer 
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking how to create a ustar tar archive... gnutar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for g++... g++
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for style of include used by make... GNU
+checking dependency style of g++... none
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... none
+checking for doxygen... no
+checking for dot... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for dlopen in -ldl... yes
+checking for pthread_create in -lpthread... yes
+checking for freetype2... yes
+checking for pcre... yes
+checking for libxml... yes
+checking for main in -lxerces-c... yes
+checking for XML_ParserCreate in -lexpat... yes
+checking for main in -ltinyxml... yes
+configure: Default XML Parser will be: TinyXMLParser
+checking for ilLoadL in -lIL... yes
+checking for iluFlipImage in -lILU... yes
+configure: DevIL based ImageCodec module enabled.
+checking for library containing FreeImage_GetVersion... -lfreeimage
+checking FreeImage.h usability... yes
+checking FreeImage.h presence... yes
+checking for FreeImage.h... yes
+configure: FreeImage based ImageCodec module enabled.
+checking for SILLY... yes
+configure: SILLY based ImageCodec module enabled.
+checking for corona-config... no
+checking for corona - version >= 1.2.0... no
+configure: Default ImageCodec will be: DevILImageCodec
+checking for ANSI C header files... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for size_t... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for working volatile... yes
+checking for ptrdiff_t... yes
+checking for error_at_line... yes
+checking for working memcmp... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... yes
+checking for working strcoll... yes
+checking for strftime... yes
+checking for atexit... yes
+checking for floor... yes
+checking for memchr... yes
+checking for memmove... yes
+checking for memset... yes
+checking for pow... yes
+checking for regcomp... yes
+checking for setlocale... yes
+checking for sqrt... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strerror... yes
+checking for strpbrk... yes
+checking for strtoul... yes
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for library containing glInterleavedArrays... -lGL
+checking for library containing gluOrtho2D... -lGLU
+checking for library containing glutInit... no
+checking for glewInit in -lGLEW... yes
+configure: OpenGL renderer enabled
+configure: Use of OpenGL in Samples is disabled - Did not find GLUT library.
+checking for Ogre... yes
+checking for OIS... yes
+configure: Use of Ogre3D in Samples is enabled
+configure: Trying to determine OIS APIs to use
+checking for main in -lIrrlicht... no
+checking for XF86VidModeQueryVersion in -lXxf86vm... yes
+configure: Irrlicht renderer disabled
+checking for directfb... no
+configure: DirectFB renderer disabled
+checking for GTK... no
+configure: GTK2 renderer selection dialog in samples is disabled
+configure: Samples framework and applications are enabled.
+checking for Lua... no
+checking for Lua... yes
+checking for tolua_endmodule in -ltolua++... no
+checking for tolua_endmodule in -ltolua++5.1... yes
+configure: Building of Lua scripting module is enabled
+configure: Building of tolua++cegui generator tool is disabled.
+checking for python... /usr/bin/python
+checking for python version... 2.7
+checking for python platform... linux2
+checking for python script directory... ${prefix}/lib/python2.7/dist-packages
+checking for python extension module directory... ${exec_prefix}/lib/python2.7/dist-packages
+checking for python build information... 
+checking for python2.7... python2.7
+checking for main in -lpython2.7... yes
+checking python2.7/Python.h usability... yes
+checking python2.7/Python.h presence... yes
+checking for python2.7/Python.h... yes
+/«PKGBUILDDIR»/./configure: line 21161: locate: command not found
+  results of the Python check:
+    Binary:      python2.7
+    Library:     python2.7
+    Include Dir: no
+checking whether the Boost::Python library is available... no
+configure: creating ./config.status
+config.status: creating cegui/CEGUI-NULL.pc
+config.status: creating cegui/CEGUI-OGRE.pc
+config.status: creating cegui/CEGUI-OPENGL.pc
+config.status: creating cegui/CEGUI.pc
+config.status: creating cegui/CEGUI.spec
+config.status: creating cegui/Makefile
+config.status: creating cegui/include/elements/Makefile
+config.status: creating cegui/include/falagard/Makefile
+config.status: creating cegui/include/ImageCodecModules/CoronaImageCodec/Makefile
+config.status: creating cegui/include/ImageCodecModules/DevILImageCodec/Makefile
+config.status: creating cegui/include/ImageCodecModules/FreeImageImageCodec/Makefile
+config.status: creating cegui/include/ImageCodecModules/Makefile
+config.status: creating cegui/include/ImageCodecModules/SILLYImageCodec/Makefile
+config.status: creating cegui/include/ImageCodecModules/STBImageCodec/Makefile
+config.status: creating cegui/include/ImageCodecModules/TGAImageCodec/Makefile
+config.status: creating cegui/include/Makefile
+config.status: creating cegui/include/RendererModules/Direct3D10/Makefile
+config.status: creating cegui/include/RendererModules/Direct3D11/Makefile
+config.status: creating cegui/include/RendererModules/Direct3D9/Makefile
+config.status: creating cegui/include/RendererModules/DirectFB/Makefile
+config.status: creating cegui/include/RendererModules/Irrlicht/Makefile
+config.status: creating cegui/include/RendererModules/Null/Makefile
+config.status: creating cegui/include/RendererModules/Ogre/Makefile
+config.status: creating cegui/include/RendererModules/OpenGL/Makefile
+config.status: creating cegui/include/RendererModules/Makefile
+config.status: creating cegui/include/ScriptingModules/LuaScriptModule/Makefile
+config.status: creating cegui/include/ScriptingModules/LuaScriptModule/support/Makefile
+config.status: creating cegui/include/ScriptingModules/LuaScriptModule/support/tolua++/Makefile
+config.status: creating cegui/include/ScriptingModules/Makefile
+config.status: creating cegui/include/WindowRendererSets/Falagard/Makefile
+config.status: creating cegui/include/WindowRendererSets/Makefile
+config.status: creating cegui/include/XMLParserModules/ExpatParser/Makefile
+config.status: creating cegui/include/XMLParserModules/LibxmlParser/Makefile
+config.status: creating cegui/include/XMLParserModules/Makefile
+config.status: creating cegui/include/XMLParserModules/RapidXMLParser/Makefile
+config.status: creating cegui/include/XMLParserModules/TinyXMLParser/Makefile
+config.status: creating cegui/include/XMLParserModules/XercesParser/Makefile
+config.status: creating cegui/src/ImageCodecModules/CoronaImageCodec/Makefile
+config.status: creating cegui/src/ImageCodecModules/DevILImageCodec/Makefile
+config.status: creating cegui/src/ImageCodecModules/FreeImageImageCodec/Makefile
+config.status: creating cegui/src/ImageCodecModules/Makefile
+config.status: creating cegui/src/ImageCodecModules/SILLYImageCodec/Makefile
+config.status: creating cegui/src/ImageCodecModules/STBImageCodec/Makefile
+config.status: creating cegui/src/ImageCodecModules/TGAImageCodec/Makefile
+config.status: creating cegui/src/Makefile
+config.status: creating cegui/src/RendererModules/Direct3D10/Makefile
+config.status: creating cegui/src/RendererModules/Direct3D11/Makefile
+config.status: creating cegui/src/RendererModules/Direct3D9/Makefile
+config.status: creating cegui/src/RendererModules/DirectFB/Makefile
+config.status: creating cegui/src/RendererModules/Irrlicht/Makefile
+config.status: creating cegui/src/RendererModules/Null/Makefile
+config.status: creating cegui/src/RendererModules/Ogre/Makefile
+config.status: creating cegui/src/RendererModules/OpenGL/Makefile
+config.status: creating cegui/src/RendererModules/Makefile
+config.status: creating cegui/src/ScriptingModules/LuaScriptModule/Makefile
+config.status: creating cegui/src/ScriptingModules/LuaScriptModule/package/Makefile
+config.status: creating cegui/src/ScriptingModules/LuaScriptModule/support/Makefile
+config.status: creating cegui/src/ScriptingModules/LuaScriptModule/support/tolua++bin/Makefile
+config.status: creating cegui/src/ScriptingModules/LuaScriptModule/support/tolua++/Makefile
+config.status: creating cegui/src/ScriptingModules/Makefile
+config.status: creating cegui/src/ScriptingModules/PythonScriptModule/Makefile
+config.status: creating cegui/src/ScriptingModules/PythonScriptModule/bindings/Makefile
+config.status: creating cegui/src/WindowRendererSets/Falagard/Makefile
+config.status: creating cegui/src/WindowRendererSets/Makefile
+config.status: creating cegui/src/XMLParserModules/ExpatParser/Makefile
+config.status: creating cegui/src/XMLParserModules/LibxmlParser/Makefile
+config.status: creating cegui/src/XMLParserModules/Makefile
+config.status: creating cegui/src/XMLParserModules/RapidXMLParser/Makefile
+config.status: creating cegui/src/XMLParserModules/TinyXMLParser/Makefile
+config.status: creating cegui/src/XMLParserModules/XercesParser/Makefile
+config.status: creating datafiles/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/doxygen/doxyfile
+config.status: creating doc/doxygen/Makefile
+config.status: creating projects/Makefile
+config.status: creating Samples/common/include/Makefile
+config.status: creating Samples/common/Makefile
+config.status: creating Samples/common/src/Makefile
+config.status: creating Samples/Demo6/Makefile
+config.status: creating Samples/Demo7/Makefile
+config.status: creating Samples/Demo8/Makefile
+config.status: creating Samples/DragDropDemo/Makefile
+config.status: creating Samples/FalagardDemo1/Makefile
+config.status: creating Samples/FirstWindow/Makefile
+config.status: creating Samples/InventoryDemo/Makefile
+config.status: creating Samples/FontDemo/Makefile
+config.status: creating Samples/Makefile
+config.status: creating Samples/Minesweeper/Makefile
+config.status: creating Samples/ScrollablePaneDemo/Makefile
+config.status: creating Samples/TabControlDemo/Makefile
+config.status: creating Samples/TextDemo/Makefile
+config.status: creating Samples/TreeDemo/Makefile
+config.status: creating Makefile
+config.status: creating cegui/include/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-silent-rules
+
+********************************************************************************
+* Crazy Eddie's GUI System - Configuration Results Summary
+********************************************************************************
+* Library Release Version:                              0.7.6
+*
+* Code options:
+*         Building CEGUI in debug mode:                 no
+*
+* Bi-directional text support:                          no
+*
+* Building MinizipResourceProvider:                     no
+*
+* Renderer Modules:
+*         Building OpenGL Renderer:                     yes
+*             Using external GLEW library:              yes
+*         Building Ogre Renderer:                       yes
+*         Building Irrlicht Renderer:                   no
+*         Building DirectFB Renderer:                   no
+*         Building Null Renderer:                       yes
+*
+* Image Loading Codec Modules:
+*         Building Corona Image Codec:                  no
+*         Building DevIL Image Codec:                   yes
+*         Building FreeImage Image Codec:               yes
+*         Building SILLY Image Codec:                   yes
+*         Building STB Image Codec:                     yes
+*         Building TGA Image Codec:                     yes
+*
+*         Default Image Codec will be:                  DevILImageCodec
+*
+* XML Parser Modules:
+*         Building TinyXMLParser:                       yes
+*             Using external TinyXML library:           yes
+*         Building ExpatParser:                         yes
+*         Building LibXMLParser:                        yes
+*         Building XercesParser:                        yes
+*         Building RapidXMLParser:                      no
+*
+*         Default XML Parser is:                        TinyXMLParser
+*
+* Scripting:
+*         Building Lua scripting module:                yes
+*             Safety checks enabled:                    no
+*         Building tolua++cegui generator:              no
+*             Using external tolua++ library:           yes
+*
+*         Building Python extension module(s):          no
+*
+* Samples Framework:
+*         Building Samples:                             yes
+*         GTK2 based dialog for renderer selection:     no
+*         OpenGL Renderer available in samples:         no
+*         Irrlicht Renderer available in samples:       no
+*         DirectFB Renderer available in samples:       no
+*         Ogre3D Renderer available in samples:         yes
+********************************************************************************
+
+Now you can do make && make install.  Good Luck!
+
+touch debian/stamp-autotools
+/usr/bin/make  -C .  
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making all in .
+make[2]: Entering directory `/«PKGBUILDDIR»'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+Making all in cegui
+make[2]: Entering directory `/«PKGBUILDDIR»/cegui'
+Making all in .
+make[3]: Entering directory `/«PKGBUILDDIR»/cegui'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/cegui'
+Making all in src
+make[3]: Entering directory `/«PKGBUILDDIR»/cegui/src'
+Making all in .
+make[4]: Entering directory `/«PKGBUILDDIR»/cegui/src'
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIAffector.lo `test -f 'CEGUIAffector.cpp' || echo './'`CEGUIAffector.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIAffector.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIAffector.o
+In file included from CEGUIAffector.cpp:30:
+../../cegui/include/CEGUIAffector.h:220:16: warning: private field 'd_parent' is not used [-Wunused-private-field]
+    Animation* d_parent;
+               ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIAnimation.lo `test -f 'CEGUIAnimation.cpp' || echo './'`CEGUIAnimation.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIAnimation.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIAnimation.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIAnimationInstance.lo `test -f 'CEGUIAnimationInstance.cpp' || echo './'`CEGUIAnimationInstance.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIAnimationInstance.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIAnimationInstance.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIAnimationManager.lo `test -f 'CEGUIAnimationManager.cpp' || echo './'`CEGUIAnimationManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIAnimationManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIAnimationManager.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIAnimation_xmlHandler.lo `test -f 'CEGUIAnimation_xmlHandler.cpp' || echo './'`CEGUIAnimation_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIAnimation_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIAnimation_xmlHandler.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIBase.lo `test -f 'CEGUIBase.cpp' || echo './'`CEGUIBase.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIBase.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIBase.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIBasicInterpolators.lo `test -f 'CEGUIBasicInterpolators.cpp' || echo './'`CEGUIBasicInterpolators.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIBasicInterpolators.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIBasicInterpolators.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIBasicRenderedStringParser.lo `test -f 'CEGUIBasicRenderedStringParser.cpp' || echo './'`CEGUIBasicRenderedStringParser.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIBasicRenderedStringParser.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIBasicRenderedStringParser.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIBiDiVisualMapping.lo `test -f 'CEGUIBiDiVisualMapping.cpp' || echo './'`CEGUIBiDiVisualMapping.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIBiDiVisualMapping.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIBiDiVisualMapping.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIBoundSlot.lo `test -f 'CEGUIBoundSlot.cpp' || echo './'`CEGUIBoundSlot.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIBoundSlot.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIBoundSlot.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUICentredRenderedString.lo `test -f 'CEGUICentredRenderedString.cpp' || echo './'`CEGUICentredRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUICentredRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUICentredRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIChainedXMLHandler.lo `test -f 'CEGUIChainedXMLHandler.cpp' || echo './'`CEGUIChainedXMLHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIChainedXMLHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIChainedXMLHandler.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIColourRect.lo `test -f 'CEGUIColourRect.cpp' || echo './'`CEGUIColourRect.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIColourRect.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIColourRect.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIConfig_xmlHandler.lo `test -f 'CEGUIConfig_xmlHandler.cpp' || echo './'`CEGUIConfig_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIConfig_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIConfig_xmlHandler.o
+In file included from CEGUIConfig_xmlHandler.cpp:39:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookManager.h:34:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookFeel.h:35:
+In file included from ../../cegui/include/falagard/CEGUIFalPropertyDefinition.h:31:
+../../cegui/include/falagard/CEGUIFalPropertyDefinitionBase.h:81:22: warning: 'CEGUI::PropertyDefinitionBase::writeXMLToStream' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void writeXMLToStream(XMLSerializer& xml_stream) const;
+                     ^
+../../cegui/include/CEGUIProperty.h:183:18: note: hidden overloaded virtual function 'CEGUI::Property::writeXMLToStream' declared here
+    virtual void writeXMLToStream(const PropertyReceiver* receiver, XMLSerializer& xml_stream) const;
+                 ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUICoordConverter.lo `test -f 'CEGUICoordConverter.cpp' || echo './'`CEGUICoordConverter.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUICoordConverter.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUICoordConverter.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIDataContainer.lo `test -f 'CEGUIDataContainer.cpp' || echo './'`CEGUIDataContainer.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIDataContainer.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIDataContainer.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIDefaultRenderedStringParser.lo `test -f 'CEGUIDefaultRenderedStringParser.cpp' || echo './'`CEGUIDefaultRenderedStringParser.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIDefaultRenderedStringParser.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIDefaultRenderedStringParser.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIDefaultResourceProvider.lo `test -f 'CEGUIDefaultResourceProvider.cpp' || echo './'`CEGUIDefaultResourceProvider.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIDefaultResourceProvider.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIDefaultResourceProvider.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIDynamicModule.lo `test -f 'CEGUIDynamicModule.cpp' || echo './'`CEGUIDynamicModule.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIDynamicModule.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIDynamicModule.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIEvent.lo `test -f 'CEGUIEvent.cpp' || echo './'`CEGUIEvent.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIEvent.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIEvent.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIEventArgs.lo `test -f 'CEGUIEventArgs.cpp' || echo './'`CEGUIEventArgs.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIEventArgs.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIEventArgs.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIEventSet.lo `test -f 'CEGUIEventSet.cpp' || echo './'`CEGUIEventSet.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIEventSet.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIEventSet.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIEventSignal.lo `test -f 'CEGUIEventSignal.cpp' || echo './'`CEGUIEventSignal.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIEventSignal.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIEventSignal.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIEventSignalSet.lo `test -f 'CEGUIEventSignalSet.cpp' || echo './'`CEGUIEventSignalSet.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIEventSignalSet.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIEventSignalSet.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIExceptions.lo `test -f 'CEGUIExceptions.cpp' || echo './'`CEGUIExceptions.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIExceptions.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIExceptions.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFactoryModule.lo `test -f 'CEGUIFactoryModule.cpp' || echo './'`CEGUIFactoryModule.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFactoryModule.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFactoryModule.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFont.lo `test -f 'CEGUIFont.cpp' || echo './'`CEGUIFont.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFont.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFont.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFontManager.lo `test -f 'CEGUIFontManager.cpp' || echo './'`CEGUIFontManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFontManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFontManager.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFontProperties.lo `test -f 'CEGUIFontProperties.cpp' || echo './'`CEGUIFontProperties.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFontProperties.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFontProperties.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFont_xmlHandler.lo `test -f 'CEGUIFont_xmlHandler.cpp' || echo './'`CEGUIFont_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFont_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFont_xmlHandler.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIFormattedRenderedString.lo `test -f 'CEGUIFormattedRenderedString.cpp' || echo './'`CEGUIFormattedRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIFormattedRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIFormattedRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIGeometryBuffer.lo `test -f 'CEGUIGeometryBuffer.cpp' || echo './'`CEGUIGeometryBuffer.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIGeometryBuffer.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIGeometryBuffer.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIGlobalEventSet.lo `test -f 'CEGUIGlobalEventSet.cpp' || echo './'`CEGUIGlobalEventSet.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIGlobalEventSet.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIGlobalEventSet.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIGUILayout_xmlHandler.lo `test -f 'CEGUIGUILayout_xmlHandler.cpp' || echo './'`CEGUIGUILayout_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIGUILayout_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIGUILayout_xmlHandler.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIImage.lo `test -f 'CEGUIImage.cpp' || echo './'`CEGUIImage.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIImage.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIImage.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIImageCodec.lo `test -f 'CEGUIImageCodec.cpp' || echo './'`CEGUIImageCodec.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIImageCodec.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIImageCodec.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIImageset.lo `test -f 'CEGUIImageset.cpp' || echo './'`CEGUIImageset.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIImageset.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIImageset.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIImagesetManager.lo `test -f 'CEGUIImagesetManager.cpp' || echo './'`CEGUIImagesetManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIImagesetManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIImagesetManager.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIImageset_xmlHandler.lo `test -f 'CEGUIImageset_xmlHandler.cpp' || echo './'`CEGUIImageset_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIImageset_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIImageset_xmlHandler.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIJustifiedRenderedString.lo `test -f 'CEGUIJustifiedRenderedString.cpp' || echo './'`CEGUIJustifiedRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIJustifiedRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIJustifiedRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIJustifiedRenderedStringWordWrapper.lo `test -f 'CEGUIJustifiedRenderedStringWordWrapper.cpp' || echo './'`CEGUIJustifiedRenderedStringWordWrapper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIJustifiedRenderedStringWordWrapper.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIJustifiedRenderedStringWordWrapper.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUILeftAlignedRenderedString.lo `test -f 'CEGUILeftAlignedRenderedString.cpp' || echo './'`CEGUILeftAlignedRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUILeftAlignedRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUILeftAlignedRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIKeyFrame.lo `test -f 'CEGUIKeyFrame.cpp' || echo './'`CEGUIKeyFrame.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIKeyFrame.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIKeyFrame.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUILogger.lo `test -f 'CEGUILogger.cpp' || echo './'`CEGUILogger.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUILogger.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUILogger.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIMouseCursor.lo `test -f 'CEGUIMouseCursor.cpp' || echo './'`CEGUIMouseCursor.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIMouseCursor.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIMouseCursor.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUINamedXMLResourceManager.lo `test -f 'CEGUINamedXMLResourceManager.cpp' || echo './'`CEGUINamedXMLResourceManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUINamedXMLResourceManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUINamedXMLResourceManager.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIPixmapFont.lo `test -f 'CEGUIPixmapFont.cpp' || echo './'`CEGUIPixmapFont.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIPixmapFont.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIPixmapFont.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIProperty.lo `test -f 'CEGUIProperty.cpp' || echo './'`CEGUIProperty.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIProperty.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIProperty.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIPropertyHelper.lo `test -f 'CEGUIPropertyHelper.cpp' || echo './'`CEGUIPropertyHelper.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIPropertyHelper.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIPropertyHelper.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIPropertySet.lo `test -f 'CEGUIPropertySet.cpp' || echo './'`CEGUIPropertySet.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIPropertySet.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIPropertySet.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRect.lo `test -f 'CEGUIRect.cpp' || echo './'`CEGUIRect.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRect.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRect.o
+CEGUIRect.cpp:40:2: warning: field 'd_bottom' will be initialized after field 'd_left' [-Wreorder]
+        d_bottom(bottom),
+        ^
+CEGUIRect.cpp:48:5: warning: field 'd_bottom' will be initialized after field 'd_left' [-Wreorder]
+    d_bottom(pos.d_y + sz.d_height),
+    ^
+2 warnings generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderedString.lo `test -f 'CEGUIRenderedString.cpp' || echo './'`CEGUIRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderedStringComponent.lo `test -f 'CEGUIRenderedStringComponent.cpp' || echo './'`CEGUIRenderedStringComponent.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderedStringComponent.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderedStringComponent.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderedStringImageComponent.lo `test -f 'CEGUIRenderedStringImageComponent.cpp' || echo './'`CEGUIRenderedStringImageComponent.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderedStringImageComponent.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderedStringImageComponent.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderedStringTextComponent.lo `test -f 'CEGUIRenderedStringTextComponent.cpp' || echo './'`CEGUIRenderedStringTextComponent.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderedStringTextComponent.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderedStringTextComponent.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderedStringWidgetComponent.lo `test -f 'CEGUIRenderedStringWidgetComponent.cpp' || echo './'`CEGUIRenderedStringWidgetComponent.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderedStringWidgetComponent.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderedStringWidgetComponent.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderingRoot.lo `test -f 'CEGUIRenderingRoot.cpp' || echo './'`CEGUIRenderingRoot.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderingRoot.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderingRoot.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderingSurface.lo `test -f 'CEGUIRenderingSurface.cpp' || echo './'`CEGUIRenderingSurface.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderingSurface.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderingSurface.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderingWindow.lo `test -f 'CEGUIRenderingWindow.cpp' || echo './'`CEGUIRenderingWindow.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderingWindow.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderingWindow.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderEffectManager.lo `test -f 'CEGUIRenderEffectManager.cpp' || echo './'`CEGUIRenderEffectManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderEffectManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderEffectManager.o
+In file included from CEGUIRenderEffectManager.cpp:28:
+In file included from ../../cegui/include/CEGUIRenderEffectManager.h:35:
+../../cegui/include/CEGUIRenderEffectFactory.h:75:5: warning: deleting pointer to incomplete type 'CEGUI::RenderEffect' may cause undefined behaviour [-Wdelete-incomplete]
+    delete &effect;
+    ^      ~~~~~~~
+../../cegui/include/CEGUIForwardRefs.h:89:7: note: forward declaration of 'CEGUI::RenderEffect'
+class RenderEffect;
+      ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRenderQueue.lo `test -f 'CEGUIRenderQueue.cpp' || echo './'`CEGUIRenderQueue.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRenderQueue.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRenderQueue.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIRightAlignedRenderedString.lo `test -f 'CEGUIRightAlignedRenderedString.cpp' || echo './'`CEGUIRightAlignedRenderedString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIRightAlignedRenderedString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIRightAlignedRenderedString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIScheme.lo `test -f 'CEGUIScheme.cpp' || echo './'`CEGUIScheme.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIScheme.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIScheme.o
+In file included from CEGUIScheme.cpp:45:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookManager.h:34:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookFeel.h:35:
+In file included from ../../cegui/include/falagard/CEGUIFalPropertyDefinition.h:31:
+../../cegui/include/falagard/CEGUIFalPropertyDefinitionBase.h:81:22: warning: 'CEGUI::PropertyDefinitionBase::writeXMLToStream' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void writeXMLToStream(XMLSerializer& xml_stream) const;
+                     ^
+../../cegui/include/CEGUIProperty.h:183:18: note: hidden overloaded virtual function 'CEGUI::Property::writeXMLToStream' declared here
+    virtual void writeXMLToStream(const PropertyReceiver* receiver, XMLSerializer& xml_stream) const;
+                 ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUISchemeManager.lo `test -f 'CEGUISchemeManager.cpp' || echo './'`CEGUISchemeManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUISchemeManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUISchemeManager.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIScheme_xmlHandler.lo `test -f 'CEGUIScheme_xmlHandler.cpp' || echo './'`CEGUIScheme_xmlHandler.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIScheme_xmlHandler.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIScheme_xmlHandler.o
+In file included from CEGUIScheme_xmlHandler.cpp:33:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookManager.h:34:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookFeel.h:35:
+In file included from ../../cegui/include/falagard/CEGUIFalPropertyDefinition.h:31:
+../../cegui/include/falagard/CEGUIFalPropertyDefinitionBase.h:81:22: warning: 'CEGUI::PropertyDefinitionBase::writeXMLToStream' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void writeXMLToStream(XMLSerializer& xml_stream) const;
+                     ^
+../../cegui/include/CEGUIProperty.h:183:18: note: hidden overloaded virtual function 'CEGUI::Property::writeXMLToStream' declared here
+    virtual void writeXMLToStream(const PropertyReceiver* receiver, XMLSerializer& xml_stream) const;
+                 ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIScriptModule.lo `test -f 'CEGUIScriptModule.cpp' || echo './'`CEGUIScriptModule.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIScriptModule.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIScriptModule.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUISize.lo `test -f 'CEGUISize.cpp' || echo './'`CEGUISize.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUISize.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUISize.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIString.lo `test -f 'CEGUIString.cpp' || echo './'`CEGUIString.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIString.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIString.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUISubscriberSlot.lo `test -f 'CEGUISubscriberSlot.cpp' || echo './'`CEGUISubscriberSlot.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUISubscriberSlot.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUISubscriberSlot.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUISystem.lo `test -f 'CEGUISystem.cpp' || echo './'`CEGUISystem.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUISystem.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUISystem.o
+In file included from CEGUISystem.cpp:42:
+In file included from ../../cegui/include/CEGUIRenderEffectManager.h:35:
+../../cegui/include/CEGUIRenderEffectFactory.h:75:5: warning: deleting pointer to incomplete type 'CEGUI::RenderEffect' may cause undefined behaviour [-Wdelete-incomplete]
+    delete &effect;
+    ^      ~~~~~~~
+../../cegui/include/CEGUIForwardRefs.h:89:7: note: forward declaration of 'CEGUI::RenderEffect'
+class RenderEffect;
+      ^
+In file included from CEGUISystem.cpp:53:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookManager.h:34:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookFeel.h:35:
+In file included from ../../cegui/include/falagard/CEGUIFalPropertyDefinition.h:31:
+../../cegui/include/falagard/CEGUIFalPropertyDefinitionBase.h:81:22: warning: 'CEGUI::PropertyDefinitionBase::writeXMLToStream' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void writeXMLToStream(XMLSerializer& xml_stream) const;
+                     ^
+../../cegui/include/CEGUIProperty.h:183:18: note: hidden overloaded virtual function 'CEGUI::Property::writeXMLToStream' declared here
+    virtual void writeXMLToStream(const PropertyReceiver* receiver, XMLSerializer& xml_stream) const;
+                 ^
+2 warnings generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUITextUtils.lo `test -f 'CEGUITextUtils.cpp' || echo './'`CEGUITextUtils.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUITextUtils.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUITextUtils.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIWindow.lo `test -f 'CEGUIWindow.cpp' || echo './'`CEGUIWindow.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIWindow.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIWindow.o
+In file included from CEGUIWindow.cpp:45:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookManager.h:34:
+In file included from ../../cegui/include/falagard/CEGUIFalWidgetLookFeel.h:35:
+In file included from ../../cegui/include/falagard/CEGUIFalPropertyDefinition.h:31:
+../../cegui/include/falagard/CEGUIFalPropertyDefinitionBase.h:81:22: warning: 'CEGUI::PropertyDefinitionBase::writeXMLToStream' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void writeXMLToStream(XMLSerializer& xml_stream) const;
+                     ^
+../../cegui/include/CEGUIProperty.h:183:18: note: hidden overloaded virtual function 'CEGUI::Property::writeXMLToStream' declared here
+    virtual void writeXMLToStream(const PropertyReceiver* receiver, XMLSerializer& xml_stream) const;
+                 ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIWindowFactory.lo `test -f 'CEGUIWindowFactory.cpp' || echo './'`CEGUIWindowFactory.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIWindowFactory.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIWindowFactory.o
+/bin/bash ../../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2        -D_FORTIFY_SOURCE=2  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c -o libCEGUIBase_la-CEGUIWindowFactoryManager.lo `test -f 'CEGUIWindowFactoryManager.cpp' || echo './'`CEGUIWindowFactoryManager.cpp
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../../cegui/include -I../../cegui/include -I/usr/include/freetype2 -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -c CEGUIWindowFactoryManager.cpp  -fPIC -DPIC -o .libs/libCEGUIBase_la-CEGUIWindowFactoryManager.o
+In file included from CEGUIWindowFactoryManager.cpp:30:
+../../cegui/include/CEGUIWindowFactoryManager.h:486:9: error: cannot catch reference to incomplete type 'CEGUI::Exception'
+        CEGUI_CATCH (Exception&)
+        ^
+../../cegui/include/CEGUIBase.h:120:35: note: expanded from macro 'CEGUI_CATCH'
+#   define CEGUI_CATCH(e) catch (e)
+                                  ^
+../../cegui/include/CEGUIForwardRefs.h:56:7: note: forward declaration of 'CEGUI::Exception'
+class Exception;
+      ^
+1 error generated.
+make[4]: *** [libCEGUIBase_la-CEGUIWindowFactoryManager.lo] Error 1
+make[4]: Leaving directory `/«PKGBUILDDIR»/cegui/src'
+make[3]: *** [all-recursive] Error 1
+make[2]: *** [all-recursive] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [debian/stamp-makefile-build] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+make[3]: Leaving directory `/«PKGBUILDDIR»/cegui/src'
+make[2]: Leaving directory `/«PKGBUILDDIR»/cegui'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0238
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -426,28 +1861,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 134412
+Build-Time: 66
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 22
 Job: cegui-mk2_0.7.6-2
 Package: cegui-mk2
-Package-Time: 0
+Package-Time: 116
 Source-Version: 0.7.6-2
-Space: 0
-Status: failed
+Space: 134412
+Status: attempted
 Version: 0.7.6-2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0414
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 36.024984s
-DC-Time-Estimation: 36.024984 versus expected 1541 (r/m: 41.7758691023985 ; m: 36.024984)
+Finished at 20130202-0238
+Build needed 00:01:56, 134412k disc space
+DC-Status: Failed 116.641928s
+DC-Time-Estimation: 116.641928 versus expected 1541 (r/m: 12.2113728435627 ; m: 116.641928)

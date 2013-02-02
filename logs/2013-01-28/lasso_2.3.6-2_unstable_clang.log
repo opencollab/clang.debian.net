@@ -1,12 +1,12 @@
-DC-Build-Header: lasso 2.3.6-2 / Mon Jan 28 04:03:30 +0000 2013
-DC-Task: logfile:/tmp/lasso_2.3.6-2_unstable_clang.log version:2.3.6-2 chroot:unstable modes:binary-only:clang source:lasso architecture:any esttime:
+DC-Build-Header: lasso 2.3.6-2 / Sat Feb 02 01:52:33 +0000 2013
+DC-Task: logfile:/tmp/lasso_2.3.6-2_unstable_clang.log version:2.3.6-2 modes:binary-only:clang chroot:unstable source:lasso esttime: architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang lasso_2.3.6-2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-135-213.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-16-199.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ lasso 2.3.6-2 (amd64)                                      28 Jan 2013 04:03 ║
+║ lasso 2.3.6-2 (amd64)                                      02 Feb 2013 01:52 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: lasso
@@ -15,9 +15,9 @@ Source Version: 2.3.6-2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/lasso-Dx_Uqi/lasso-2.3.6' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/lasso-Dx_Uqi' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-9fd9b751-eafc-4e2d-bf86-a1daf7b2c302' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/lasso-SosSsB/lasso-2.3.6' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/lasso-SosSsB' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-325c31b3-2fa9-486e-9c05-af11638ce13b' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4945 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (4941 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -60,7 +60,7 @@ Need to get 3958 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main lasso 2.3.6-2 (dsc) [2067 B]
 Get:2 http://localhost/debian/ unstable/main lasso 2.3.6-2 (tar) [3940 kB]
 Get:3 http://localhost/debian/ unstable/main lasso 2.3.6-2 (diff) [16.2 kB]
-Fetched 3958 kB in 0s (7028 kB/s)
+Fetched 3958 kB in 0s (6429 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -77,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1319 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 2s (1967 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3891 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.9 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 9s (2655 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -297,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -368,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-iUumkI/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-C_X0rS/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -387,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5.0.37.2), libxml2-dev, libxslt1-dev, libxmlsec1-dev, libxmlsec1-openssl, libglib2.0-dev, python-all-dev (>= 2.3.5-11), libexpat1-dev, fastjar, python-central (>= 0.5), php5-dev, python-lxml, chrpath
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5.0.37.2), libxml2-dev, libxslt1-dev, libxmlsec1-dev, libxmlsec1-openssl, libglib2.0-dev, python-all-dev (>= 2.3.5-11), libexpat1-dev, fastjar, python-central (>= 0.5), php5-dev, python-lxml, chrpath
-dpkg-deb: building package `sbuild-build-depends-lasso-dummy' in `/«BUILDDIR»/resolver-RRB73Z/apt_archive/sbuild-build-depends-lasso-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-lasso-dummy' in `/«BUILDDIR»/resolver-4Ucfjz/apt_archive/sbuild-build-depends-lasso-dummy.deb'.
 OK
 Reading package lists...
 
@@ -404,19 +286,785 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf automake autotools-dev bsdmainutils chrpath debhelper fastjar file
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libelf1 libexpat1-dev libgcrypt11 libgcrypt11-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libmagic1 libnspr4 libnspr4-dev libnss3
+  libnss3-dev libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev libpcrecpp0
+  libpipeline1 libpopt0 libpython2.6 libpython2.7 libsigsegv2 libssl-dev
+  libtasn1-3 libtasn1-3-dev libtool libunistring0 libxml2 libxml2-dev
+  libxmlsec1 libxmlsec1-dev libxmlsec1-gcrypt libxmlsec1-gnutls libxmlsec1-nss
+  libxmlsec1-openssl libxslt1-dev libxslt1.1 m4 man-db php5-common php5-dev
+  pkg-config po-debconf psmisc python-all python-all-dev python-central
+  python-dev python-lxml python2.6 python2.6-dev python2.6-minimal
+  python2.7-dev shtool zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc wamerican wordlist
+  whois vacation dh-make gettext-doc groff rng-tools libgcrypt11-doc
+  libglib2.0-doc gnutls26-doc libtool-doc automaken gfortran
+  fortran95-compiler gcj less www-browser libmail-box-perl python-lxml-dbg
+  python2.6-doc binfmt-support
+Recommended packages:
+  curl wget lynx-cur autopoint shared-mime-info libssl-doc libltdl-dev
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autotools-dev bsdmainutils chrpath debhelper fastjar file
+  gettext gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libelf1 libexpat1-dev libgcrypt11 libgcrypt11-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libmagic1 libnspr4 libnspr4-dev libnss3
+  libnss3-dev libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev libpcrecpp0
+  libpipeline1 libpopt0 libpython2.6 libpython2.7 libsigsegv2 libssl-dev
+  libtasn1-3 libtasn1-3-dev libtool libunistring0 libxml2 libxml2-dev
+  libxmlsec1 libxmlsec1-dev libxmlsec1-gcrypt libxmlsec1-gnutls libxmlsec1-nss
+  libxmlsec1-openssl libxslt1-dev libxslt1.1 m4 man-db php5-common php5-dev
+  pkg-config po-debconf psmisc python-all python-all-dev python-central
+  python-dev python-lxml python2.6 python2.6-dev python2.6-minimal
+  python2.7-dev sbuild-build-depends-lasso-dummy shtool zlib1g-dev
+0 upgraded, 81 newly installed, 0 to remove and 0 not upgraded.
+Need to get 63.6 MB/63.6 MB of archives.
+After this operation, 163 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:13 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:14 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:15 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:16 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:17 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:18 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:19 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:20 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:21 http://localhost/debian/ unstable/main libglib2.0-data all 2.33.12+really2.32.4-5 [1607 kB]
+Get:22 http://localhost/debian/ unstable/main libglib2.0-bin amd64 2.33.12+really2.32.4-5 [868 kB]
+Get:23 http://localhost/debian/ unstable/main libnspr4 amd64 2:4.9.4-2 [140 kB]
+Get:24 http://localhost/debian/ unstable/main libnss3 amd64 2:3.14.1.with.ckbi.1.93-1 [1055 kB]
+Get:25 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:26 http://localhost/debian/ unstable/main libxslt1.1 amd64 1.1.26-14 [253 kB]
+Get:27 http://localhost/debian/ unstable/main psmisc amd64 22.20-1 [146 kB]
+Get:28 http://localhost/debian/ unstable/main php5-common amd64 5.4.4-12 [586 kB]
+Get:29 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:30 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:31 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:32 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:33 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:34 http://localhost/debian/ unstable/main python2.6-minimal amd64 2.6.8-1.1 [1547 kB]
+Get:35 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:36 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:37 http://localhost/debian/ unstable/main automake all 1:1.11.6-1 [607 kB]
+Get:38 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:39 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:40 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:41 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:42 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:43 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:44 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:45 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:46 http://localhost/debian/ unstable/main fastjar amd64 2:0.98-4 [90.8 kB]
+Get:47 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:48 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:49 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:50 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:51 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:52 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:53 http://localhost/debian/ unstable/main libglib2.0-dev amd64 2.33.12+really2.32.4-5 [2051 kB]
+Get:54 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:55 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:56 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:57 http://localhost/debian/ unstable/main libnspr4-dev amd64 2:4.9.4-2 [278 kB]
+Get:58 http://localhost/debian/ unstable/main libnss3-dev amd64 2:3.14.1.with.ckbi.1.93-1 [218 kB]
+Get:59 http://localhost/debian/ unstable/main python2.6 amd64 2.6.8-1.1 [2509 kB]
+Get:60 http://localhost/debian/ unstable/main libpython2.6 amd64 2.6.8-1.1 [1104 kB]
+Get:61 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:62 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:63 http://localhost/debian/ unstable/main libtool amd64 2.4.2-1.2 [621 kB]
+Get:64 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:65 http://localhost/debian/ unstable/main libxmlsec1 amd64 1.2.18-2 [171 kB]
+Get:66 http://localhost/debian/ unstable/main libxmlsec1-openssl amd64 1.2.18-2 [102 kB]
+Get:67 http://localhost/debian/ unstable/main libxmlsec1-gcrypt amd64 1.2.18-2 [74.1 kB]
+Get:68 http://localhost/debian/ unstable/main libxmlsec1-gnutls amd64 1.2.18-2 [62.5 kB]
+Get:69 http://localhost/debian/ unstable/main libxmlsec1-nss amd64 1.2.18-2 [96.6 kB]
+Get:70 http://localhost/debian/ unstable/main libxslt1-dev amd64 1.1.26-14 [651 kB]
+Get:71 http://localhost/debian/ unstable/main libxmlsec1-dev amd64 1.2.18-2 [1035 kB]
+Get:72 http://localhost/debian/ unstable/main shtool all 2.0.8-6 [159 kB]
+Get:73 http://localhost/debian/ unstable/main php5-dev amd64 5.4.4-12 [498 kB]
+Get:74 http://localhost/debian/ unstable/main python-all all 2.7.3-3 [876 B]
+Get:75 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:76 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:77 http://localhost/debian/ unstable/main python2.6-dev amd64 2.6.8-1.1 [4577 kB]
+Get:78 http://localhost/debian/ unstable/main python-all-dev all 2.7.3-3 [894 B]
+Get:79 http://localhost/debian/ unstable/main python-central all 0.6.17 [47.8 kB]
+Get:80 http://localhost/debian/ unstable/main python-lxml amd64 2.3.5-1 [1242 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 63.6 MB in 3s (18.7 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglib2.0-data.
+Unpacking libglib2.0-data (from .../libglib2.0-data_2.33.12+really2.32.4-5_all.deb) ...
+Selecting previously unselected package libglib2.0-bin.
+Unpacking libglib2.0-bin (from .../libglib2.0-bin_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libnspr4:amd64.
+Unpacking libnspr4:amd64 (from .../libnspr4_2%3a4.9.4-2_amd64.deb) ...
+Selecting previously unselected package libnss3:amd64.
+Unpacking libnss3:amd64 (from .../libnss3_2%3a3.14.1.with.ckbi.1.93-1_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Unpacking libxslt1.1:amd64 (from .../libxslt1.1_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package psmisc.
+Unpacking psmisc (from .../psmisc_22.20-1_amd64.deb) ...
+Selecting previously unselected package php5-common.
+Unpacking php5-common (from .../php5-common_5.4.4-12_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package python2.6-minimal.
+Unpacking python2.6-minimal (from .../python2.6-minimal_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.6-1_all.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package fastjar.
+Unpacking fastjar (from .../fastjar_2%3a0.98-4_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libglib2.0-dev.
+Unpacking libglib2.0-dev (from .../libglib2.0-dev_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libnspr4-dev.
+Unpacking libnspr4-dev (from .../libnspr4-dev_2%3a4.9.4-2_amd64.deb) ...
+Selecting previously unselected package libnss3-dev.
+Unpacking libnss3-dev (from .../libnss3-dev_2%3a3.14.1.with.ckbi.1.93-1_amd64.deb) ...
+Selecting previously unselected package python2.6.
+Unpacking python2.6 (from .../python2.6_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package libpython2.6.
+Unpacking libpython2.6 (from .../libpython2.6_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libtool.
+Unpacking libtool (from .../libtool_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libxmlsec1.
+Unpacking libxmlsec1 (from .../libxmlsec1_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-openssl.
+Unpacking libxmlsec1-openssl (from .../libxmlsec1-openssl_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-gcrypt.
+Unpacking libxmlsec1-gcrypt (from .../libxmlsec1-gcrypt_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-gnutls.
+Unpacking libxmlsec1-gnutls (from .../libxmlsec1-gnutls_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-nss.
+Unpacking libxmlsec1-nss (from .../libxmlsec1-nss_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxslt1-dev.
+Unpacking libxslt1-dev (from .../libxslt1-dev_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-dev.
+Unpacking libxmlsec1-dev (from .../libxmlsec1-dev_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package shtool.
+Unpacking shtool (from .../shtool_2.0.8-6_all.deb) ...
+Selecting previously unselected package php5-dev.
+Unpacking php5-dev (from .../php5-dev_5.4.4-12_amd64.deb) ...
+Selecting previously unselected package python-all.
+Unpacking python-all (from .../python-all_2.7.3-3_all.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package python2.6-dev.
+Unpacking python2.6-dev (from .../python2.6-dev_2.6.8-1.1_amd64.deb) ...
+Selecting previously unselected package python-all-dev.
+Unpacking python-all-dev (from .../python-all-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package python-central.
+Unpacking python-central (from .../python-central_0.6.17_all.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.5-1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-lasso-dummy.
+Unpacking sbuild-build-depends-lasso-dummy (from .../sbuild-build-depends-lasso-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglib2.0-data (2.33.12+really2.32.4-5) ...
+Setting up libglib2.0-bin (2.33.12+really2.32.4-5) ...
+Setting up libnspr4:amd64 (2:4.9.4-2) ...
+Setting up libnss3:amd64 (2:3.14.1.with.ckbi.1.93-1) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libxslt1.1:amd64 (1.1.26-14) ...
+Setting up psmisc (22.20-1) ...
+Setting up php5-common (5.4.4-12) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-lasso-dummy : Depends: python-all-dev (>= 2.3.5-11) but it is not going to be installed
-                                    Depends: libexpat1-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+Creating config file /etc/php5/mods-available/pdo.ini with new version
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up python2.6-minimal (2.6.8-1.1) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake (1:1.11.6-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up fastjar (2:0.98-4) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up pkg-config (0.26-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libglib2.0-dev (2.33.12+really2.32.4-5) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up libnspr4-dev (2:4.9.4-2) ...
+Setting up libnss3-dev (2:3.14.1.with.ckbi.1.93-1) ...
+Setting up python2.6 (2.6.8-1.1) ...
+Setting up libpython2.6 (2.6.8-1.1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libtool (2.4.2-1.2) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up libxmlsec1 (1.2.18-2) ...
+Setting up libxmlsec1-openssl (1.2.18-2) ...
+Setting up libxmlsec1-gcrypt (1.2.18-2) ...
+Setting up libxmlsec1-gnutls (1.2.18-2) ...
+Setting up libxmlsec1-nss (1.2.18-2) ...
+Setting up libxslt1-dev (1.1.26-14) ...
+Setting up libxmlsec1-dev (1.2.18-2) ...
+Setting up shtool (2.0.8-6) ...
+Setting up php5-dev (5.4.4-12) ...
+update-alternatives: using /usr/bin/php-config5 to provide /usr/bin/php-config (php-config) in auto mode
+update-alternatives: using /usr/bin/phpize5 to provide /usr/bin/phpize (phpize) in auto mode
+Setting up python-all (2.7.3-3) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up python2.6-dev (2.6.8-1.1) ...
+Setting up python-all-dev (2.7.3-3) ...
+Setting up python-central (0.6.17) ...
+Setting up python-lxml (2.3.5-1) ...
+Setting up sbuild-build-depends-lasso-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 automake_1:1.11.6-1 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 fastjar_2:0.98-4 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libelf1_0.153-2 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libglib2.0-bin_2.33.12+really2.32.4-5 libglib2.0-data_2.33.12+really2.32.4-5 libglib2.0-dev_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libnspr4_2:4.9.4-2 libnspr4-dev_2:4.9.4-2 libnss3_2:3.14.1.with.ckbi.1.93-1 libnss3-dev_2:3.14.1.with.ckbi.1.93-1 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libpython2.6_2.6.8-1.1 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtool_2.4.2-1.2 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxmlsec1_1.2.18-2 libxmlsec1-dev_1.2.18-2 libxmlsec1-gcrypt_1.2.18-2 libxmlsec1-gnutls_1.2.18-2 libxmlsec1-nss_1.2.18-2 libxmlsec1-openssl_1.2.18-2 libxslt1-dev_1.1.26-14 libxslt1.1_1.1.26-14 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 php5-common_5.4.4-12 php5-dev_5.4.4-12 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 psmisc_22.20-1 python_2.7.3-3 python-all_2.7.3-3 python-all-dev_2.7.3-3 python-central_0.6.17 python-dev_2.7.3-3 python-lxml_2.3.5-1 python-minimal_2.7.3-3 python2.6_2.6.8-1.1 python2.6-dev_2.6.8-1.1 python2.6-minimal_2.6.8-1.1 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-lasso-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 shtool_2.0.8-6 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Apr  3 05:24:54 2012 UTC using RSA key ID C70218D2
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./lasso_2.3.6-2.dsc
+dpkg-source: info: extracting lasso in lasso-2.3.6
+dpkg-source: info: unpacking lasso_2.3.6.orig.tar.gz
+dpkg-source: info: applying lasso_2.3.6-2.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ lasso-2.3.6/bindings/php5/wrapper_source.py
+ lasso-2.3.6/config.guess
+ lasso-2.3.6/config.sub
+ lasso-2.3.6/lasso/errors.c
+ lasso-2.3.6/lasso/errors.c.in
+ lasso-2.3.6/lasso/xml/xml.h
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-325c31b3-2fa9-486e-9c05-af11638ce13b
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package lasso
+dpkg-buildpackage: source version 2.3.6-2
+dpkg-buildpackage: source changed by Frederic Peters <fpeters@debian.org>
+ dpkg-source --before-build lasso-2.3.6
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp 
+sed -e 's/^#JAVA#.*//' < debian/control.in > debian/control
+[ ! -f Makefile ] || /usr/bin/make distclean
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+for v in 2.6; do \
+	  rm -rf bindings/python$v; \
+	done
+rm -f config.log
+dh_clean 
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+# Add here commands to configure the package.
+CFLAGS="-Wall -g -O2" ./configure --host=x86_64-linux-gnu --build=x86_64-linux-gnu --prefix=/usr --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --enable-tests=no --disable-gtk-doc --enable-perl --disable-csharp --disable-php4 --with-php5-config-dir=/etc/php5/conf.d/ --disable-java
+configure: WARNING: unrecognized options: --disable-csharp, --disable-php4
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking how to create a pax tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for x86_64-linux-gnu-gcc... x86_64-linux-gnu-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether x86_64-linux-gnu-gcc accepts -g... yes
+checking for x86_64-linux-gnu-gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of x86_64-linux-gnu-gcc... gcc3
+checking how to run the C preprocessor... x86_64-linux-gnu-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for x86_64-linux-gnu-windres... no
+checking for windres... no
+checking whether x86_64-linux-gnu-gcc and cc understand -c and -o together... yes
+checking whether build environment is sane... yes
+checking for gawk... (cached) mawk
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by x86_64-linux-gnu-gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for x86_64-linux-gnu-objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for x86_64-linux-gnu-ar... no
+checking for ar... ar
+checking for x86_64-linux-gnu-strip... no
+checking for strip... strip
+checking for x86_64-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from x86_64-linux-gnu-gcc object... ok
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if x86_64-linux-gnu-gcc supports -fno-rtti -fno-exceptions... yes
+checking for x86_64-linux-gnu-gcc option to produce PIC... -fPIC -DPIC
+checking if x86_64-linux-gnu-gcc PIC flag -fPIC -DPIC works... yes
+checking if x86_64-linux-gnu-gcc static flag -static works... yes
+checking if x86_64-linux-gnu-gcc supports -c -o file.o... yes
+checking if x86_64-linux-gnu-gcc supports -c -o file.o... (cached) yes
+checking whether the x86_64-linux-gnu-gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for supported compiler flags...  -Wall -Wextra -Wno-missing-field-initializers -Wno-unused-parameter -Wold-style-definition -Wdeclaration-after-statement -Wmissing-declarations -Wredundant-decls -Wmissing-noreturn -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Winline -Wformat-nonliteral -Wformat-security -Wswitch-enum -Wswitch-default -Winit-self -Wmissing-include-dirs -Wundef -Waggregate-return -Wmissing-format-attribute -Wnested-externs
+checking for gnutar... no
+checking for gtar... no
+checking for tar... tar
+You have no CLASSPATH, I hope it is good
+checking for gcj... no
+checking for jikes... no
+checking for guavac... no
+checking for javac... no
+checking if  works... 
+checking for kaffe... no
+checking for java... no
+checking for uudecode... no
+configure: WARNING: I have to compile Test.class from scratch
+checking for gcj... no
+checking for jikes... no
+checking for guavac... no
+checking for javac... no
+checking if  works... 
+checking if  works... 
+checking for gjavah... no
+checking for gcjh... no
+checking for javah... no
+checking for jar... jar
+checking for sed... /bin/sed
+checking if the junit.framework.Test class is available... no
+checking for junit.textui.TestRunner class... no
+checking for junit... 
+checking for perl... perl
+checking for php5... no
+checking for php... no
+checking for php-config5... php-config5
+checking for python... python
+checking for swig... no
+checking for function prototypes... yes
+checking for string.h... (cached) yes
+checking for variadic cpp macros... yes
+checking SWIG support... not present - using pre-generated interface files
+checking for Python development files... yes
+checking for XML_ParserCreate in -lexpat... yes
+checking for PHP 5 development files... yes
+checking for gacutil... no
+checking for Perl API... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for library containing gzread... -lz
+checking for x86_64-linux-gnu-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gtkdoc-check... no
+checking for gtkdoc-rebase... no
+checking for gtkdoc-mkpdf... no
+checking whether to build gtk-doc documentation... no
+checking for LASSO... yes
+checking for rest2html... no
+checking for rst2html... no
+checking for xsltproc... no
+checking for inkscape... no
+checking for debugging... no
+checking for profiling... no
+checking for pedantic... no
+checking for static linking... no
+configure: creating ./config.status
+config.status: creating lasso-src-config
+config.status: creating Makefile
+config.status: creating docs/Makefile
+config.status: creating docs/lasso-book/Makefile
+config.status: creating docs/lasso-book/figures/Makefile
+config.status: creating docs/reference/Makefile
+config.status: creating docs/reference/lasso/version.xml
+config.status: creating docs/reference/lasso/Makefile
+config.status: creating lasso/Makefile
+config.status: creating lasso/id-ff/Makefile
+config.status: creating lasso/id-wsf/Makefile
+config.status: creating lasso/saml-2.0/Makefile
+config.status: creating lasso/id-wsf-2.0/Makefile
+config.status: creating lasso/xml/Makefile
+config.status: creating lasso/xml/saml-2.0/Makefile
+config.status: creating lasso/xml/soap-1.1/Makefile
+config.status: creating lasso/xml/id-wsf-2.0/Makefile
+config.status: creating lasso/xml/ws/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/data/Makefile
+config.status: creating lasso.pc
+config.status: creating win32/Makefile
+config.status: creating win32/lasso.rc
+config.status: creating win32/msvc/Makefile
+config.status: creating win32/msvc/lasso.dsp
+config.status: creating win32/msvc/lasso_config.h
+config.status: creating win32/msvc/java/Makefile
+config.status: creating win32/msvc/php/Makefile
+config.status: creating win32/msvc/python/Makefile
+config.status: creating win32/nsis/Makefile
+config.status: creating win32/nsis/jlasso-lite.nsi
+config.status: creating win32/nsis/lasso-deps.nsi
+config.status: creating win32/nsis/lasso-full.nsi
+config.status: creating win32/nsis/lasso-lite.nsi
+config.status: creating win32/nsis/python.nsi
+config.status: creating bindings/Makefile
+config.status: creating bindings/java/Makefile
+config.status: creating bindings/python/Makefile
+config.status: creating bindings/python/tests/Makefile
+config.status: creating bindings/php5/Makefile
+config.status: creating bindings/php5/examples/Makefile
+config.status: creating bindings/php5/tests/Makefile
+config.status: creating bindings/perl/Makefile
+config.status: creating config.h
+config.status: creating lasso/lasso_config.h
+config.status: lasso/lasso_config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-csharp, --disable-php4
+=============
+Configuration
+=============
+
+Main
+----
+
+Compiler:                x86_64-linux-gnu-gcc
+CFLAGS:                   
+Install prefix:          /usr
+Debugging:               no
+Experimental ID-WSF:     no
+
+Optionals builds
+----------------
+
+Available languages:    python(2.7) php5(5.4.4-12) perl(5.14.2)
+
+Java binding:           no
+Perl binding:           yes
+PHP 5 binding:          yes
+Python binding:         yes
+
+C API references:       no
+Tests suite:            no
+
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/«PKGBUILDDIR»'
+Making all in lasso
+make[3]: Entering directory `/«PKGBUILDDIR»/lasso'
+python2.7 ./extract_types.py . 
+python2.7 ./extract_symbols.py .  > symbols.sym
+/usr/bin/make  all-recursive
+make[4]: Entering directory `/«PKGBUILDDIR»/lasso'
+Making all in xml
+make[5]: Entering directory `/«PKGBUILDDIR»/lasso/xml'
+Making all in saml-2.0
+make[6]: Entering directory `/«PKGBUILDDIR»/lasso/xml/saml-2.0'
+  CC     saml2_action.lo
+  CC     saml2_advice.lo
+  CC     saml2_assertion.lo
+  CC     saml2_attribute.lo
+  CC     saml2_attribute_statement.lo
+  CC     saml2_attribute_value.lo
+  CC     saml2_audience_restriction.lo
+  CC     saml2_authn_context.lo
+  CC     saml2_authn_statement.lo
+  CC     saml2_authz_decision_statement.lo
+  CC     saml2_base_idabstract.lo
+  CC     saml2_condition_abstract.lo
+  CC     saml2_conditions.lo
+  CC     saml2_encrypted_element.lo
+  CC     saml2_evidence.lo
+  CC     saml2_key_info_confirmation_data.lo
+  CC     saml2_name_id.lo
+  CC     saml2_one_time_use.lo
+  CC     saml2_proxy_restriction.lo
+  CC     saml2_statement_abstract.lo
+  CC     saml2_subject.lo
+  CC     saml2_subject_confirmation.lo
+  CC     saml2_subject_confirmation_data.lo
+  CC     saml2_subject_locality.lo
+  CC     samlp2_artifact_resolve.lo
+  CC     samlp2_artifact_response.lo
+  CC     samlp2_assertion_id_request.lo
+  CC     samlp2_attribute_query.lo
+  CC     samlp2_authn_query.lo
+  CC     samlp2_authn_request.lo
+  CC     samlp2_authz_decision_query.lo
+  CC     samlp2_extensions.lo
+  CC     samlp2_idp_entry.lo
+  CC     samlp2_idp_list.lo
+  CC     samlp2_logout_request.lo
+  CC     samlp2_logout_response.lo
+  CC     samlp2_manage_name_id_request.lo
+  CC     samlp2_manage_name_id_response.lo
+  CC     samlp2_name_id_mapping_request.lo
+  CC     samlp2_name_id_mapping_response.lo
+  CC     samlp2_name_id_policy.lo
+  CC     samlp2_request_abstract.lo
+  CC     samlp2_requested_authn_context.lo
+  CC     samlp2_response.lo
+  CC     samlp2_scoping.lo
+  CC     samlp2_status.lo
+  CC     samlp2_status_code.lo
+  CC     samlp2_status_detail.lo
+  CC     samlp2_status_response.lo
+  CC     samlp2_subject_query_abstract.lo
+  CC     samlp2_terminate.lo
+  CCLD   liblasso-xml-saml2.la
+make[6]: Leaving directory `/«PKGBUILDDIR»/lasso/xml/saml-2.0'
+Making all in soap-1.1
+make[6]: Entering directory `/«PKGBUILDDIR»/lasso/xml/soap-1.1'
+  CC     soap_body.lo
+  CC     soap_detail.lo
+  CC     soap_fault.lo
+  CC     soap_envelope.lo
+  CC     soap_header.lo
+  CCLD   liblasso-xml-soap11.la
+make[6]: Leaving directory `/«PKGBUILDDIR»/lasso/xml/soap-1.1'
+make[6]: Entering directory `/«PKGBUILDDIR»/lasso/xml'
+  CC     tools.lo
+tools.c:1208:76: error: expected ';' at end of declaration
+        void structuredErrorFunc (G_GNUC_UNUSED void *userData, xmlErrorPtr error) {
+                                                                                  ^
+                                                                                  ;
+1 error generated.
+make[6]: *** [tools.lo] Error 1
+make[6]: Leaving directory `/«PKGBUILDDIR»/lasso/xml'
+make[5]: *** [all-recursive] Error 1
+make[5]: Leaving directory `/«PKGBUILDDIR»/lasso/xml'
+make[4]: *** [all-recursive] Error 1
+make[3]: *** [all] Error 2
+make[4]: Leaving directory `/«PKGBUILDDIR»/lasso'
+make[3]: Leaving directory `/«PKGBUILDDIR»/lasso'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0153
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -424,28 +1072,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 28476
+Build-Time: 36
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 14
 Job: lasso_2.3.6-2
 Package: lasso
-Package-Time: 0
+Package-Time: 82
 Source-Version: 2.3.6-2
-Space: 0
-Status: failed
+Space: 28476
+Status: attempted
 Version: 2.3.6-2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0403
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.777218s
-DC-Time-Estimation: 33.777218 versus expected 1 (r/m: 32.777218 ; m: 1.0)
+Finished at 20130202-0153
+Build needed 00:01:22, 28476k disc space
+DC-Status: Failed 82.768848s
+DC-Time-Estimation: 82.768848 versus expected 1 (r/m: 81.768848 ; m: 1.0)

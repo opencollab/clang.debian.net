@@ -1,12 +1,12 @@
-DC-Build-Header: dacs 1.4.27b-2 / Mon Jan 28 03:50:58 +0000 2013
-DC-Task: logfile:/tmp/dacs_1.4.27b-2_unstable_clang.log version:1.4.27b-2 chroot:unstable modes:binary-only:clang source:dacs architecture:any esttime:
+DC-Build-Header: dacs 1.4.27b-2 / Sat Feb 02 01:53:18 +0000 2013
+DC-Task: logfile:/tmp/dacs_1.4.27b-2_unstable_clang.log version:1.4.27b-2 modes:binary-only:clang chroot:unstable source:dacs esttime: architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang dacs_1.4.27b-2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-133-184.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-119.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ dacs 1.4.27b-2 (amd64)                                     28 Jan 2013 03:50 ║
+║ dacs 1.4.27b-2 (amd64)                                     02 Feb 2013 01:53 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: dacs
@@ -15,9 +15,9 @@ Source Version: 1.4.27b-2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/dacs-MC6Xf5/dacs-1.4.27b' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/dacs-MC6Xf5' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-6937483f-7250-4103-98e3-83d50cb03e49' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/dacs-ldKoyd/dacs-1.4.27b' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/dacs-ldKoyd' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-8238b946-48e8-4727-aa44-7d5aa36614dd' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4822 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (4290 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +62,7 @@ Need to get 2717 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main dacs 1.4.27b-2 (dsc) [2227 B]
 Get:2 http://localhost/debian/ unstable/main dacs 1.4.27b-2 (tar) [2696 kB]
 Get:3 http://localhost/debian/ unstable/main dacs 1.4.27b-2 (diff) [18.7 kB]
-Fetched 2717 kB in 0s (6696 kB/s)
+Fetched 2717 kB in 0s (5039 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +79,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1317 kB/s)
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 5s (764 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3839 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:11 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:12 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.5 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 12s (2053 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +194,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +252,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-1mjn8W/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-A25LqC/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +271,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7), apache2-threaded-dev, libssl-dev, libexpat1-dev, chrpath, libsasl2-dev, libperl-dev, libldap2-dev, autotools-dev, groff-base, xsltproc, docbook-xsl, libxmlsec1-dev, libpam0g-dev
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7), apache2-threaded-dev, libssl-dev, libexpat1-dev, chrpath, libsasl2-dev, libperl-dev, libldap2-dev, autotools-dev, groff-base, xsltproc, docbook-xsl, libxmlsec1-dev, libpam0g-dev
-dpkg-deb: building package `sbuild-build-depends-dacs-dummy' in `/«BUILDDIR»/resolver-NZqWDy/apt_archive/sbuild-build-depends-dacs-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-dacs-dummy' in `/«BUILDDIR»/resolver-wXrFg3/apt_archive/sbuild-build-depends-dacs-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,19 +288,2516 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  apache2-threaded-dev apache2-utils apache2.2-bin apache2.2-common
+  autotools-dev bsdmainutils chrpath comerr-dev debhelper docbook-xsl file
+  gettext gettext-base groff-base html2text intltool-debian krb5-multidev
+  libapr1 libapr1-dev libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-dev
+  libaprutil1-ldap libasprintf-dev libasprintf0c2 libcap2 libcroco3
+  libexpat1-dev libgcrypt11 libgcrypt11-dev libgettextpo-dev libgettextpo0
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4 libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libldap-2.4-2 libldap2-dev libmagic1
+  libmysqlclient-dev libmysqlclient18 libnspr4 libnspr4-dev libnss3
+  libnss3-dev libp11-kit-dev libp11-kit0 libpam0g-dev libpcre3 libpcre3-dev
+  libpcrecpp0 libperl-dev libperl5.14 libpipeline1 libpq-dev libpq5 libprocps0
+  libsasl2-2 libsasl2-dev libsasl2-modules libsqlite3-dev libssl-dev
+  libtasn1-3 libtasn1-3-dev libunistring0 libxml2 libxml2-dev libxmlsec1
+  libxmlsec1-dev libxmlsec1-gcrypt libxmlsec1-gnutls libxmlsec1-nss
+  libxmlsec1-openssl libxslt1-dev libxslt1.1 man-db mysql-common openssl
+  po-debconf procps sgml-base uuid-dev xml-core xsltproc zlib1g-dev
+Suggested packages:
+  www-browser apache2-doc apache2-suexec apache2-suexec-custom wamerican
+  wordlist whois vacation doc-base dh-make docbook-xsl-doc-html
+  docbook-xsl-doc-pdf docbook-xsl-doc-text docbook-xsl-doc libsaxon-java
+  libxalan2-java libxslthl-java docbook-xsl-saxon fop xalan dbtoepub
+  gettext-doc groff krb5-doc rng-tools libgcrypt11-doc gnutls26-doc krb5-user
+  postgresql-doc-9.1 libsasl2-modules-otp libsasl2-modules-ldap
+  libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  libsasl2-modules-gssapi-heimdal sqlite3-doc less ca-certificates
+  libmail-box-perl sgml-base-doc
+Recommended packages:
+  ssl-cert docbook-xml curl wget lynx-cur autopoint libglib2.0-data
+  shared-mime-info krb5-locales libssl-doc libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  apache2-threaded-dev apache2-utils apache2.2-bin apache2.2-common
+  autotools-dev bsdmainutils chrpath comerr-dev debhelper docbook-xsl file
+  gettext gettext-base groff-base html2text intltool-debian krb5-multidev
+  libapr1 libapr1-dev libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-dev
+  libaprutil1-ldap libasprintf-dev libasprintf0c2 libcap2 libcroco3
+  libexpat1-dev libgcrypt11 libgcrypt11-dev libgettextpo-dev libgettextpo0
+  libglib2.0-0 libgnutls-dev libgnutls-openssl27 libgnutls26 libgnutlsxx27
+  libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgssrpc4 libk5crypto3
+  libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3
+  libkrb5-dev libkrb5support0 libldap-2.4-2 libldap2-dev libmagic1
+  libmysqlclient-dev libmysqlclient18 libnspr4 libnspr4-dev libnss3
+  libnss3-dev libp11-kit-dev libp11-kit0 libpam0g-dev libpcre3 libpcre3-dev
+  libpcrecpp0 libperl-dev libperl5.14 libpipeline1 libpq-dev libpq5 libprocps0
+  libsasl2-2 libsasl2-dev libsasl2-modules libsqlite3-dev libssl-dev
+  libtasn1-3 libtasn1-3-dev libunistring0 libxml2 libxml2-dev libxmlsec1
+  libxmlsec1-dev libxmlsec1-gcrypt libxmlsec1-gnutls libxmlsec1-nss
+  libxmlsec1-openssl libxslt1-dev libxslt1.1 man-db mysql-common openssl
+  po-debconf procps sbuild-build-depends-dacs-dummy sgml-base uuid-dev
+  xml-core xsltproc zlib1g-dev
+0 upgraded, 99 newly installed, 0 to remove and 0 not upgraded.
+Need to get 35.9 MB/35.9 MB of archives.
+After this operation, 129 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:8 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:9 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:10 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:11 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:13 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:14 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:15 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:16 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:17 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:18 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:19 http://localhost/debian/ unstable/main libgssrpc4 amd64 1.10.1+dfsg-3 [87.5 kB]
+Get:20 http://localhost/debian/ unstable/main libkadm5clnt-mit8 amd64 1.10.1+dfsg-3 [67.6 kB]
+Get:21 http://localhost/debian/ unstable/main libkdb5-6 amd64 1.10.1+dfsg-3 [66.5 kB]
+Get:22 http://localhost/debian/ unstable/main libkadm5srv-mit8 amd64 1.10.1+dfsg-3 [84.6 kB]
+Get:23 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:24 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:25 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:26 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:27 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:28 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:29 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:30 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:31 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:32 http://localhost/debian/ unstable/main mysql-common all 5.5.29+dfsg-1 [109 kB]
+Get:33 http://localhost/debian/ unstable/main libmysqlclient18 amd64 5.5.29+dfsg-1 [708 kB]
+Get:34 http://localhost/debian/ unstable/main libnspr4 amd64 2:4.9.4-2 [140 kB]
+Get:35 http://localhost/debian/ unstable/main libnss3 amd64 2:3.14.1.with.ckbi.1.93-1 [1055 kB]
+Get:36 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:37 http://localhost/debian/ unstable/main libxslt1.1 amd64 1.1.26-14 [253 kB]
+Get:38 http://localhost/debian/ unstable/main sgml-base all 1.26+nmu4 [14.6 kB]
+Get:39 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:40 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:41 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:42 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:43 http://localhost/debian/ unstable/main libapr1 amd64 1.4.6-3 [99.6 kB]
+Get:44 http://localhost/debian/ unstable/main libaprutil1 amd64 1.4.1-3 [89.8 kB]
+Get:45 http://localhost/debian/ unstable/main apache2-utils amd64 2.2.22-12 [162 kB]
+Get:46 http://localhost/debian/ unstable/main libaprutil1-dbd-sqlite3 amd64 1.4.1-3 [19.0 kB]
+Get:47 http://localhost/debian/ unstable/main libaprutil1-ldap amd64 1.4.1-3 [16.6 kB]
+Get:48 http://localhost/debian/ unstable/main apache2.2-bin amd64 2.2.22-12 [781 kB]
+Get:49 http://localhost/debian/ unstable/main apache2.2-common amd64 2.2.22-12 [290 kB]
+Get:50 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:51 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:52 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:53 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:54 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:55 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:56 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:57 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:58 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:59 http://localhost/debian/ unstable/main xml-core all 0.13+nmu2 [24.2 kB]
+Get:60 http://localhost/debian/ unstable/main docbook-xsl all 1.76.1+dfsg-1 [1643 kB]
+Get:61 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:62 http://localhost/debian/ unstable/main krb5-multidev amd64 1.10.1+dfsg-3 [153 kB]
+Get:63 http://localhost/debian/ unstable/main uuid-dev amd64 2.20.1-5.3 [72.4 kB]
+Get:64 http://localhost/debian/ unstable/main libapr1-dev amd64 1.4.6-3 [1065 kB]
+Get:65 http://localhost/debian/ unstable/main libldap2-dev amd64 2.4.31-1 [563 kB]
+Get:66 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:67 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:68 http://localhost/debian/ unstable/main libsqlite3-dev amd64 3.7.15.2-1 [589 kB]
+Get:69 http://localhost/debian/ unstable/main libpq5 amd64 9.1.7-1 [516 kB]
+Get:70 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:71 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:72 http://localhost/debian/ unstable/main libkrb5-dev amd64 1.10.1+dfsg-3 [39.6 kB]
+Get:73 http://localhost/debian/ unstable/main libpq-dev amd64 9.1.7-1 [570 kB]
+Get:74 http://localhost/debian/ unstable/main libmysqlclient-dev amd64 5.5.29+dfsg-1 [974 kB]
+Get:75 http://localhost/debian/ unstable/main libaprutil1-dev amd64 1.4.1-3 [653 kB]
+Get:76 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:77 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:78 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:79 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:80 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:81 http://localhost/debian/ unstable/main libnspr4-dev amd64 2:4.9.4-2 [278 kB]
+Get:82 http://localhost/debian/ unstable/main libnss3-dev amd64 2:3.14.1.with.ckbi.1.93-1 [218 kB]
+Get:83 http://localhost/debian/ unstable/main libpam0g-dev amd64 1.1.3-7.1 [191 kB]
+Get:84 http://localhost/debian/ unstable/main libperl5.14 amd64 5.14.2-17 [1176 B]
+Get:85 http://localhost/debian/ unstable/main libperl-dev amd64 5.14.2-17 [3321 kB]
+Get:86 http://localhost/debian/ unstable/main libsasl2-modules amd64 2.1.25.dfsg1-6 [116 kB]
+Get:87 http://localhost/debian/ unstable/main libsasl2-dev amd64 2.1.25.dfsg1-6 [361 kB]
+Get:88 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:89 http://localhost/debian/ unstable/main libxmlsec1 amd64 1.2.18-2 [171 kB]
+Get:90 http://localhost/debian/ unstable/main libxmlsec1-openssl amd64 1.2.18-2 [102 kB]
+Get:91 http://localhost/debian/ unstable/main libxmlsec1-gcrypt amd64 1.2.18-2 [74.1 kB]
+Get:92 http://localhost/debian/ unstable/main libxmlsec1-gnutls amd64 1.2.18-2 [62.5 kB]
+Get:93 http://localhost/debian/ unstable/main libxmlsec1-nss amd64 1.2.18-2 [96.6 kB]
+Get:94 http://localhost/debian/ unstable/main libxslt1-dev amd64 1.1.26-14 [651 kB]
+Get:95 http://localhost/debian/ unstable/main libxmlsec1-dev amd64 1.2.18-2 [1035 kB]
+Get:96 http://localhost/debian/ unstable/main openssl amd64 1.0.1c-4 [698 kB]
+Get:97 http://localhost/debian/ unstable/main xsltproc amd64 1.1.26-14 [117 kB]
+Get:98 http://localhost/debian/ unstable/main apache2-threaded-dev amd64 2.2.22-12 [115 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 35.9 MB in 5s (6377 kB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Unpacking libgssrpc4:amd64 (from .../libgssrpc4_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8:amd64.
+Unpacking libkadm5clnt-mit8:amd64 (from .../libkadm5clnt-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkdb5-6:amd64.
+Unpacking libkdb5-6:amd64 (from .../libkdb5-6_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8:amd64.
+Unpacking libkadm5srv-mit8:amd64 (from .../libkadm5srv-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.29+dfsg-1_all.deb) ...
+Selecting previously unselected package libmysqlclient18:amd64.
+Unpacking libmysqlclient18:amd64 (from .../libmysqlclient18_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libnspr4:amd64.
+Unpacking libnspr4:amd64 (from .../libnspr4_2%3a4.9.4-2_amd64.deb) ...
+Selecting previously unselected package libnss3:amd64.
+Unpacking libnss3:amd64 (from .../libnss3_2%3a3.14.1.with.ckbi.1.93-1_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Unpacking libxslt1.1:amd64 (from .../libxslt1.1_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package sgml-base.
+Unpacking sgml-base (from .../sgml-base_1.26+nmu4_all.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libapr1.
+Unpacking libapr1 (from .../libapr1_1.4.6-3_amd64.deb) ...
+Selecting previously unselected package libaprutil1.
+Unpacking libaprutil1 (from .../libaprutil1_1.4.1-3_amd64.deb) ...
+Selecting previously unselected package apache2-utils.
+Unpacking apache2-utils (from .../apache2-utils_2.2.22-12_amd64.deb) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3.
+Unpacking libaprutil1-dbd-sqlite3 (from .../libaprutil1-dbd-sqlite3_1.4.1-3_amd64.deb) ...
+Selecting previously unselected package libaprutil1-ldap.
+Unpacking libaprutil1-ldap (from .../libaprutil1-ldap_1.4.1-3_amd64.deb) ...
+Selecting previously unselected package apache2.2-bin.
+Unpacking apache2.2-bin (from .../apache2.2-bin_2.2.22-12_amd64.deb) ...
+Selecting previously unselected package apache2.2-common.
+Unpacking apache2.2-common (from .../apache2.2-common_2.2.22-12_amd64.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package xml-core.
+Unpacking xml-core (from .../xml-core_0.13+nmu2_all.deb) ...
+Selecting previously unselected package docbook-xsl.
+Unpacking docbook-xsl (from .../docbook-xsl_1.76.1+dfsg-1_all.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package uuid-dev.
+Unpacking uuid-dev (from .../uuid-dev_2.20.1-5.3_amd64.deb) ...
+Selecting previously unselected package libapr1-dev.
+Unpacking libapr1-dev (from .../libapr1-dev_1.4.6-3_amd64.deb) ...
+Selecting previously unselected package libldap2-dev:amd64.
+Unpacking libldap2-dev:amd64 (from .../libldap2-dev_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libsqlite3-dev.
+Unpacking libsqlite3-dev (from .../libsqlite3-dev_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libpq5.
+Unpacking libpq5 (from .../libpq5_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libpq-dev.
+Unpacking libpq-dev (from .../libpq-dev_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libmysqlclient-dev.
+Unpacking libmysqlclient-dev (from .../libmysqlclient-dev_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libaprutil1-dev.
+Unpacking libaprutil1-dev (from .../libaprutil1-dev_1.4.1-3_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libnspr4-dev.
+Unpacking libnspr4-dev (from .../libnspr4-dev_2%3a4.9.4-2_amd64.deb) ...
+Selecting previously unselected package libnss3-dev.
+Unpacking libnss3-dev (from .../libnss3-dev_2%3a3.14.1.with.ckbi.1.93-1_amd64.deb) ...
+Selecting previously unselected package libpam0g-dev:amd64.
+Unpacking libpam0g-dev:amd64 (from .../libpam0g-dev_1.1.3-7.1_amd64.deb) ...
+Selecting previously unselected package libperl5.14.
+Unpacking libperl5.14 (from .../libperl5.14_5.14.2-17_amd64.deb) ...
+Selecting previously unselected package libperl-dev.
+Unpacking libperl-dev (from .../libperl-dev_5.14.2-17_amd64.deb) ...
+Selecting previously unselected package libsasl2-modules:amd64.
+Unpacking libsasl2-modules:amd64 (from .../libsasl2-modules_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libsasl2-dev.
+Unpacking libsasl2-dev (from .../libsasl2-dev_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libxmlsec1.
+Unpacking libxmlsec1 (from .../libxmlsec1_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-openssl.
+Unpacking libxmlsec1-openssl (from .../libxmlsec1-openssl_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-gcrypt.
+Unpacking libxmlsec1-gcrypt (from .../libxmlsec1-gcrypt_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-gnutls.
+Unpacking libxmlsec1-gnutls (from .../libxmlsec1-gnutls_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-nss.
+Unpacking libxmlsec1-nss (from .../libxmlsec1-nss_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package libxslt1-dev.
+Unpacking libxslt1-dev (from .../libxslt1-dev_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package libxmlsec1-dev.
+Unpacking libxmlsec1-dev (from .../libxmlsec1-dev_1.2.18-2_amd64.deb) ...
+Selecting previously unselected package openssl.
+Unpacking openssl (from .../openssl_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package apache2-threaded-dev.
+Unpacking apache2-threaded-dev (from .../apache2-threaded-dev_2.2.22-12_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-dacs-dummy.
+Unpacking sbuild-build-depends-dacs-dummy (from .../sbuild-build-depends-dacs-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssrpc4:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5clnt-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libkdb5-6:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5srv-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up mysql-common (5.5.29+dfsg-1) ...
+Setting up libmysqlclient18:amd64 (5.5.29+dfsg-1) ...
+Setting up libnspr4:amd64 (2:4.9.4-2) ...
+Setting up libnss3:amd64 (2:3.14.1.with.ckbi.1.93-1) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libxslt1.1:amd64 (1.1.26-14) ...
+Setting up sgml-base (1.26+nmu4) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libapr1 (1.4.6-3) ...
+Setting up libaprutil1 (1.4.1-3) ...
+Setting up apache2-utils (2.2.22-12) ...
+Setting up libaprutil1-dbd-sqlite3 (1.4.1-3) ...
+Setting up libaprutil1-ldap (1.4.1-3) ...
+Setting up apache2.2-bin (2.2.22-12) ...
+Setting up apache2.2-common (2.2.22-12) ...
+Enabling site default.
+Enabling module alias.
+Enabling module autoindex.
+Enabling module dir.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module status.
+Enabling module auth_basic.
+Enabling module deflate.
+Enabling module authz_default.
+Enabling module authz_user.
+Enabling module authz_groupfile.
+Enabling module authn_file.
+Enabling module authz_host.
+Enabling module reqtimeout.
+Setting up autotools-dev (20120608.1) ...
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up xml-core (0.13+nmu2) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up krb5-multidev (1.10.1+dfsg-3) ...
+Setting up uuid-dev (2.20.1-5.3) ...
+Setting up libapr1-dev (1.4.6-3) ...
+Setting up libldap2-dev:amd64 (2.4.31-1) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up libsqlite3-dev (3.7.15.2-1) ...
+Setting up libpq5 (9.1.7-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libkrb5-dev (1.10.1+dfsg-3) ...
+Setting up libpq-dev (9.1.7-1) ...
+Setting up libmysqlclient-dev (5.5.29+dfsg-1) ...
+Setting up libaprutil1-dev (1.4.1-3) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up libnspr4-dev (2:4.9.4-2) ...
+Setting up libnss3-dev (2:3.14.1.with.ckbi.1.93-1) ...
+Setting up libpam0g-dev:amd64 (1.1.3-7.1) ...
+Setting up libperl5.14 (5.14.2-17) ...
+Setting up libperl-dev (5.14.2-17) ...
+Setting up libsasl2-modules:amd64 (2.1.25.dfsg1-6) ...
+Setting up libsasl2-dev (2.1.25.dfsg1-6) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up libxmlsec1 (1.2.18-2) ...
+Setting up libxmlsec1-openssl (1.2.18-2) ...
+Setting up libxmlsec1-gcrypt (1.2.18-2) ...
+Setting up libxmlsec1-gnutls (1.2.18-2) ...
+Setting up libxmlsec1-nss (1.2.18-2) ...
+Setting up libxslt1-dev (1.1.26-14) ...
+Setting up libxmlsec1-dev (1.2.18-2) ...
+Setting up openssl (1.0.1c-4) ...
+Setting up xsltproc (1.1.26-14) ...
+Setting up apache2-threaded-dev (2.2.22-12) ...
+Processing triggers for sgml-base ...
+Setting up docbook-xsl (1.76.1+dfsg-1) ...
+Setting up sbuild-build-depends-dacs-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-dacs-dummy : Depends: apache2-threaded-dev
-                                   Depends: libexpat1-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apache2-threaded-dev_2.2.22-12 apache2-utils_2.2.22-12 apache2.2-bin_2.2.22-12 apache2.2-common_2.2.22-12 apt_0.9.7.7 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 docbook-xsl_1.76.1+dfsg-1 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10.1+dfsg-3 libacl1_2.2.51-8 libapr1_1.4.6-3 libapr1-dev_1.4.6-3 libaprutil1_1.4.1-3 libaprutil1-dbd-sqlite3_1.4.1-3 libaprutil1-dev_1.4.1-3 libaprutil1-ldap_1.4.1-3 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcap2_1:2.22-1.2 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgssrpc4_1.10.1+dfsg-3 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkadm5clnt-mit8_1.10.1+dfsg-3 libkadm5srv-mit8_1.10.1+dfsg-3 libkdb5-6_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5-dev_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libldap2-dev_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmysqlclient-dev_5.5.29+dfsg-1 libmysqlclient18_5.5.29+dfsg-1 libncurses5_5.9-10 libncursesw5_5.9-10 libnspr4_2:4.9.4-2 libnspr4-dev_2:4.9.4-2 libnss3_2:3.14.1.with.ckbi.1.93-1 libnss3-dev_2:3.14.1.with.ckbi.1.93-1 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpam0g-dev_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libperl-dev_5.14.2-17 libperl5.14_5.14.2-17 libpipeline1_1.2.2-1 libpq-dev_9.1.7-1 libpq5_9.1.7-1 libprocps0_1:3.3.4-2 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libsasl2-2_2.1.25.dfsg1-6 libsasl2-dev_2.1.25.dfsg1-6 libsasl2-modules_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libsqlite3-dev_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxmlsec1_1.2.18-2 libxmlsec1-dev_1.2.18-2 libxmlsec1-gcrypt_1.2.18-2 libxmlsec1-gnutls_1.2.18-2 libxmlsec1-nss_1.2.18-2 libxmlsec1-openssl_1.2.18-2 libxslt1-dev_1.1.26-14 libxslt1.1_1.1.26-14 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 mysql-common_5.5.29+dfsg-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 openssl_1.0.1c-4 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-dacs-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sgml-base_1.26+nmu4 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 uuid-dev_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xml-core_0.13+nmu2 xsltproc_1.1.26-14 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Oct 22 13:04:40 2012 UTC using RSA key ID 12D2A7AE
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./dacs_1.4.27b-2.dsc
+dpkg-source: info: extracting dacs in dacs-1.4.27b
+dpkg-source: info: unpacking dacs_1.4.27b.orig.tar.bz2
+dpkg-source: info: unpacking dacs_1.4.27b-2.debian.tar.gz
+dpkg-source: info: applying ssl_hook_Fixup
+dpkg-source: info: applying libtool-shell
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-8238b946-48e8-4727-aa44-7d5aa36614dd
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package dacs
+dpkg-buildpackage: source version 1.4.27b-2
+dpkg-buildpackage: source changed by Christoph Berg <myon@debian.org>
+ dpkg-source --before-build dacs-1.4.27b
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+[ ! -f /«PKGBUILDDIR»/src/Makefile ] || /usr/bin/make -C /«PKGBUILDDIR»/src distclean
+[ ! -f /«PKGBUILDDIR»/apache/Makefile ] || /usr/bin/make -C /«PKGBUILDDIR»/apache distclean
+rm -f src/conftools/config.sub
+rm -f src/conftools/config.guess
+rm -f man/docbook-xsl
+rm -f man/*.html
+rm -f man/*.man
+rm -f man/*.[0-9]
+rm -rf /«PKGBUILDDIR»/ext_lib
+rm -rf html/handlers/dacs_pam_handler \
+	   src/.build_notes \
+	   src/.defaults \
+	   src/config.log \
+	   src/config.nice \
+	   src/configure.lineno \
+	   src/defs.mk \
+	   src/defs.vars \
+	   src/expr.loT \
+	   src/libtool \
+	   src/tests/Makefile \
+	   tools/perl/DACScheck.pm
+rm -f src/.ownername src/.groupname
+rm -f configure-stamp build-stamp
+dh_clean
+ debian/rules build-arch
+dh_testdir
+if [ ! "libdacs1" = "libdacs1" ]; then \
+	   echo "Soname bump in debian/control missing; new soname: 1" ;\
+	   exit 1 ;\
+	fi
+rm -f src/conftools/config.sub
+cp -f /usr/share/misc/config.sub src/conftools/config.sub
+rm -f src/conftools/config.guess
+cp -f /usr/share/misc/config.guess src/conftools/config.guess
+#Linking external libraries and programs
+# Apache
+touch /«PKGBUILDDIR»/ext_lib/apache/conf/httpd.conf
+set -e ;\
+	  cd src ;\
+	  unset LDFLAGS CFLAGS ;\
+	  ./configure \
+	    --prefix=/usr \
+	    --localstatedir=/var \
+	    --disable-prefix-check \
+	    --sysconfdir=/etc/dacs \
+	    --includedir=/usr/include/dacs \
+	    --disable-bdb \
+	    --enable-access-tokens \
+	    --enable-cert-auth \
+	    --disable-gdbm \
+	    --enable-unix-auth \
+	    --enable-apache-auth \
+	    --enable-native-auth \
+	    --enable-ldap-auth \
+	    --enable-cas-auth \
+	    --enable-token-auth \
+	    --enable-pam-auth \
+	    --enable-user-info \
+	    --enable-unix-roles \
+	    --enable-local-roles \
+	    --with-htdocs=/usr/share/dacs \
+	    --with-federations-root=/etc/dacs/federations \
+	    --with-dacs-log=/var/log/dacs/error_log \
+	    --with-ssl=/usr \
+	    --with-expat=/usr \
+	    --with-cgi-bin=/usr/lib/cgi-bin/dacs \
+	    --with-apxs=/usr/bin/apxs2 \
+	    --with-apache=/«PKGBUILDDIR»/ext_lib/apache \
+	    
+creating config.nice
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-unknown-linux-gnu
+configure: Standard search directories: /usr/local /usr/lib /usr/pkg /usr /var /opt /local 
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether ln -s works... yes
+checking for ranlib... ranlib
+checking host system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ln... ln
+checking for ld used by gcc... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking special compiler flags... configure: Compiler understands -Wno-pointer-sign
+configure: Loader understands -export-dynamic
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 8
+checking size of unsigned long... 8
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of size_t... 8
+checking size of void *... 8
+checking for dlopen in -ldl... yes
+checking for fetchGetHTTP in -lfetch... no
+checking for sqrt in -lm... yes
+checking for gethostbyname in -lnsl... yes
+checking for connect in -lsocket... no
+checking for XML_Parse in -lexpat... yes
+checking for readline in -lreadline... no
+checking for cap_get_proc in -lcap... no
+checking for inet_aton in -lresolv... yes
+checking for res_query in -lresolv... no
+checking for __res_query in -lresolv... yes
+checking for clock_gettime in -lrt... yes
+checking for sasl_getprop in -lsasl2... yes
+checking for tgetent in -ltermcap... no
+checking for tgetent in -ltermlib... no
+checking for ldap_bind_s in -lldap... yes
+checking for ber_str2bv in -llber... yes
+checking for library containing crypt... -lcrypt
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking paths.h usability... yes
+checking paths.h presence... yes
+checking for paths.h... yes
+checking shadow.h usability... yes
+checking shadow.h presence... yes
+checking for shadow.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for unistd.h... (cached) yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for an ANSI C-conforming const... yes
+checking for uid_t in sys/types.h... yes
+checking for inline... inline
+checking for pid_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_zone... yes
+checking for working volatile... yes
+checking for ptrdiff_t... yes
+checking for uint16_t... yes
+checking for in_port_t... no
+checking whether closedir returns void... no
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether lstat correctly handles trailing slash... yes
+checking whether lstat accepts an empty string... no
+checking whether lstat correctly handles trailing slash... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for working memcmp... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking return type of signal handlers... void
+checking whether stat accepts an empty string... no
+checking for strftime... yes
+checking for working strtod... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for atexit... yes
+checking for dirfd... yes
+checking for dlfunc... no
+checking for endgrent... yes
+checking for fchdir... yes
+checking for gethostbyaddr... yes
+checking for gethostbyname... yes
+checking for getnameinfo... yes
+checking for getpagesize... (cached) yes
+checking for getpass... yes
+checking for getpassphrase... no
+checking for getspnam... yes
+checking for clock_gettime... yes
+checking for inet_aton... yes
+checking for inet_ntoa... yes
+checking for isblank... yes
+checking for localtime... yes
+checking for lockf... yes
+checking for memchr... yes
+checking for memmove... yes
+checking for memset... yes
+checking for mkstemp... yes
+checking for mmap... yes
+checking for munmap... yes
+checking for pow... yes
+checking for putenv... yes
+checking for regcomp... yes
+checking for select... yes
+checking for setlocale... yes
+checking for socket... yes
+checking for stat... yes
+checking for strcasecmp... yes
+checking for strncasecmp... yes
+checking for strndup... yes
+checking for getmntinfo... no
+checking for getmntpt... no
+checking for mktime... yes
+checking for setenv... yes
+checking for shm_open... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strftime... (cached) yes
+checking for strlen... yes
+checking for strnlen... yes
+checking for strpbrk... yes
+checking for strrchr... yes
+checking for strsep... yes
+checking for strspn... yes
+checking for strstr... yes
+checking for strcasestr... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for sysconf... yes
+checking for system... yes
+checking for time... yes
+checking for timegm... yes
+checking for trunc... yes
+checking for tzset... yes
+checking for umask... yes
+checking for uname... yes
+checking for unlink... yes
+checking for unsetenv... yes
+checking whether byte ordering is bigendian... no
+configure: dacs_home is /usr
+configure: dacs_parent is /
+./configure: line 17529: /bin/test: No such file or directory
+checking if prefix path check is enabled... no
+checking for GNU make... make is /usr/bin/make
+checking if all authentication methods requested... no
+checking if InfoCard authentication required... no
+checking if grid authentication required... yes
+checking if generic HTTP authentication required... yes
+checking if DACS password authentication required... yes
+checking if DACS simple authentication required... yes
+checking for OpenSSL directory... /usr
+checking if X.509 client cert authentication required... yes
+checking for expat directory... /usr
+checking for Apache install directory... /«PKGBUILDDIR»/ext_lib/apache
+checking for Apache APR config program... /usr/bin/apr-1-config
+checking for Apache APR install directory... Not specified
+Note: if you are using Apache 2.2, you may need to use
+--with-apache-apr or --with-apache-apr-includes
+checking for Apache APR include directory...  -I/usr/include/apr-1.0 
+checking for Apache APR CPP definitions...  -DLINUX=2 -D_REENTRANT -D_GNU_SOURCE
+checking for Apache apxs command... /usr/bin/apxs2
+checking for Apache DACS files directory... /usr/share/dacs
+checking for Apache DACS CGI directory... /usr/lib/cgi-bin/dacs
+checking for DACS federations root directory... /etc/dacs/federations
+checking if default dacs.conf path specified... /etc/dacs/federations/dacs.conf
+checking if DACS_LOG specified... /var/log/dacs/error_log
+checking if GNU readline needed and available... no
+checking if gdbm is required... no
+checking if ndbm is required... checking for NDBM library... checking for dbm_open... no
+checking for dbm_open in -lndbm... no
+checking for dbm_open in -ldbm... no
+no
+yes
+checking if Berkeley DB required... no
+checking if SQLite required... no
+checking if Unix password authentication required... yes
+checking if Apache password authentication required... yes
+checking if native Apache authentication required... yes
+checking if NTLM authentication required... no
+checking if LDAP authentication required... yes
+checking if sasl2 library is available... -lsasl2
+checking for OpenLDAP source directory... not specified, looking for installed OpenLDAP
+checking if LDAP libldap and liblber are available... -lsasl2 -lldap -llber
+checking if LDAP header files are available... Found /usr/include/ldap.h
+checking if CAS authentication required... yes
+checking if one-time password token authentication required... yes
+checking if PAM authentication required... checking for pam_start in -lpam... yes
+yes
+checking if PAM uses pamh... yes
+checking if PAM has pam_fail_delay()... yes
+checking if developer mode enabled... no
+checking if debugging enabled... no
+checking if Java support enabled... no
+checking if user info feature enabled... yes
+checking if access token feature enabled... yes
+checking for sendmail... 
+checking for a non-sendmail mailer command... 
+checking for arguments for the mailer command... 
+checking for installed CGI executable suffix... no
+checking for fts_open... yes
+checking if included version of fts required... no
+configure: Compiler does not understand -fPIC
+checking if Unix group roles required... yes
+checking if private DACS roles required... yes
+configure: Using libraries:
+configure:     LDFLAGS =   -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib
+configure:     LIBS = -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat
+configure:     CFLAGS = -g -O2
+configure: creating ./config.status
+config.status: creating dacs_error
+config.status: creating Makefile
+config.status: creating defs.mk
+config.status: creating defs.vars
+config.status: creating ../apache/Makefile
+config.status: creating ../misc/Makefile
+config.status: creating ../cgi-bin/Makefile
+config.status: creating ../man/Makefile
+config.status: creating ../cgi-bin/native/Makefile
+config.status: creating ../cgi-bin/native/do_auth
+config.status: creating ../html/handlers/dacs_pam_handler
+config.status: creating .defaults
+config.status: creating ../tools/perl/DACScheck.pm
+config.status: creating ../tools/java/jni/Makefile
+config.status: creating ../tools/java/jni/javarun
+config.status: creating tests/Makefile
+config.status: creating ../include/dacs_config.h
+config.status: executing libtool commands
+configure: 
+configure: Please remember to use /usr/bin/make
+configure: Note: it seems that "makedepend" is unavailable
+configure: Please run "make clean" before building
+configure: ** For help, see dacs.install(7) **
+touch configure-stamp
+dh_testdir
+echo "root" > src/.ownername
+echo "www-data" > src/.groupname
+unset LDFLAGS CFLAGS && /usr/bin/make -C /«PKGBUILDDIR»/src
+make[1]: Entering directory `/«PKGBUILDDIR»/src'
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o expr.lo -c expr.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o acslib.lo -c acslib.c
+acslib.c:4697:35: warning: inequality comparison result unused [-Wunused-comparison]
+  for ((v = conf_var(CONF_RLINK)) != NULL; v != NULL; v = v->next) {
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+1 warning generated.
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o auth.lo -c auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o cgiparse.lo -c cgiparse.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o mime.lo -c mime.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o conf.lo -c conf.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o cred.lo -c cred.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o aclcheck.lo -c aclcheck.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o cookie.lo -c cookie.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o email.lo -c email.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o mkkey.lo -c mkkey.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o sslclient.lo -c sslclient.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o list_jurisdictions.lo -c list_jurisdictions.c
+gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o http.o -c http.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o http.lo -c http.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o httplib.lo -c httplib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o authlib.lo -c authlib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DWWW_MISC_DIR=\"/usr/www/misc\" -o dacslib.lo -c dacslib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o dacspasswd.lo -c dacspasswd.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o ds.lo -c ds.c
+ds.c:189:15: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+  if (ds->len < 0)
+      ~~~~~~~ ^ ~
+ds.c:311:36: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        if ((need = len + ds->len - olen) < 0) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~
+2 warnings generated.
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o ssllib.lo -c ssllib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o grouplib.lo -c grouplib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o loglib.lo -c loglib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o notices.lo -c notices.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o expr_file.lo -c expr_file.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o auth_grid.lo -c auth_grid.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o auth_token.lo -c auth_token.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o kwv.lo -c kwv.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o mkargv.lo -c mkargv.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o str.lo -c str.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o strtr.lo -c strtr.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o acs_token.lo -c acs_token.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o pamlib.lo -c pamlib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -Dmalloc=bsd_malloc -Drealloc=bsd_realloc -Dfree=bsd_free \
+		 -c malloc.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DDEFINE_MALLOC -c frame.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o var.lo -c var.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o dynload.lo -c dynload.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o simple_api.lo -c simple_api.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DLINUX=2 -D_REENTRANT -D_GNU_SOURCE -I`/usr/bin/apxs2 -q INCLUDEDIR` -I/usr/include/apr-1.0   -I/usr/include/apr-1.0  -DBUILDING_LOCAL_LDAP_AUTH  \
+		 -o version.lo -c version.c
+Use of uninitialized value $includedir in concatenation (.) or string at (eval 9) line 1.
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o netlib.lo -c netlib.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs.lo -c vfs.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o xml.lo -c xml.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o commonjson.lo -c commonjson.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o commonxml.lo -c commonxml.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o crypt-md5.lo -c crypt-md5.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o crypto.lo -c crypto.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_fs.lo -c vfs_fs.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_pseudo.lo -c vfs_pseudo.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_vfsc.lo -c vfs_vfsc.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_ndbm.lo -c vfs_ndbm.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_db.lo -c vfs_db.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_http.lo -c vfs_http.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o vfs_sqlite.lo -c vfs_sqlite.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o range.lo -c range.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o misc.lo -c misc.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o html.lo -c html.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_http_auth.lo -c local_http_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_passwd_auth.lo -c local_passwd_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_simple_auth.lo -c local_simple_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o trunc.lo -c trunc.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o auth_roles.lo -c auth_roles.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_apache_auth.lo -c local_apache_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o dacscheck.lo -c dacscheck.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o rlink.lo -c rlink.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o transform.lo -c transform.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o select_credentials.lo -c select_credentials.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o getnameinfo.lo -c getnameinfo.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_unix_auth.lo -c local_unix_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_grid_auth.lo -c local_grid_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_cas_auth.lo -c local_cas_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_token_auth.lo -c local_token_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_pam_auth.lo -c local_pam_auth.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_roles.lo -c local_roles.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o local_unix_roles.lo -c local_unix_roles.c
+/bin/bash ../src/libtool --silent --mode=compile gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -o macosx_support.lo -c macosx_support.c
+rm -f ../src/libdacs.la
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -version-info 1:0:0 -Wl,-rpath,/usr/lib -rpath /usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o ../src/libdacs.la expr.lo acslib.lo auth.lo cgiparse.lo mime.lo conf.lo cred.lo aclcheck.lo cookie.lo email.lo mkkey.lo sslclient.lo list_jurisdictions.lo http.lo httplib.lo authlib.lo dacslib.lo dacspasswd.lo ds.lo ssllib.lo grouplib.lo loglib.lo notices.lo expr_file.lo auth_grid.lo auth_token.lo kwv.lo mkargv.lo str.lo strtr.lo acs_token.lo pamlib.lo malloc.lo frame.lo var.lo dynload.lo simple_api.lo version.lo netlib.lo vfs.lo xml.lo commonjson.lo commonxml.lo crypt-md5.lo crypto.lo vfs_fs.lo vfs_pseudo.lo vfs_vfsc.lo vfs_ndbm.lo vfs_db.lo vfs_http.lo vfs_sqlite.lo range.lo misc.lo html.lo local_http_auth.lo local_passwd_auth.lo local_simple_auth.lo trunc.lo auth_roles.lo local_apache_auth.lo dacscheck.lo rlink.lo transform.lo select_credentials.lo getnameinfo.lo   local_unix_auth.lo local_grid_auth.lo  local_cas_auth.lo local_token_auth.lo local_pam_auth.lo local_roles.lo local_unix_roles.lo  macosx_support.lo
+rm -f ../src/libdacs.a
+ar crv ../src/libdacs.a expr.o acslib.o auth.o cgiparse.o mime.o conf.o cred.o aclcheck.o cookie.o mkkey.o sslclient.o list_jurisdictions.o http.o httplib.o authlib.o dacslib.o dacspasswd.o ds.o email.o ssllib.o grouplib.o html.o loglib.o notices.o expr_file.o auth_grid.o auth_token.o kwv.o mkargv.o str.o strtr.o acs_token.o pamlib.o malloc.o frame.o var.o netlib.o commonjson.o commonxml.o dynload.o simple_api.o version.o vfs.o xml.o crypt-md5.o crypto.o vfs_fs.o vfs_http.o vfs_ndbm.o vfs_vfsc.o vfs_db.o vfs_pseudo.o vfs_sqlite.o range.o auth_roles.o local_passwd_auth.o local_http_auth.o local_simple_auth.o trunc.o dacscheck.o rlink.o transform.o misc.o getnameinfo.o select_credentials.o macosx_support.o local_apache_auth.o local_unix_auth.o  local_grid_auth.o local_token_auth.o local_cas_auth.o local_roles.o local_unix_roles.o local_pam_auth.o   
+a - expr.o
+a - acslib.o
+a - auth.o
+a - cgiparse.o
+a - mime.o
+a - conf.o
+a - cred.o
+a - aclcheck.o
+a - cookie.o
+a - mkkey.o
+a - sslclient.o
+a - list_jurisdictions.o
+a - http.o
+a - httplib.o
+a - authlib.o
+a - dacslib.o
+a - dacspasswd.o
+a - ds.o
+a - email.o
+a - ssllib.o
+a - grouplib.o
+a - html.o
+a - loglib.o
+a - notices.o
+a - expr_file.o
+a - auth_grid.o
+a - auth_token.o
+a - kwv.o
+a - mkargv.o
+a - str.o
+a - strtr.o
+a - acs_token.o
+a - pamlib.o
+a - malloc.o
+a - frame.o
+a - var.o
+a - netlib.o
+a - commonjson.o
+a - commonxml.o
+a - dynload.o
+a - simple_api.o
+a - version.o
+a - vfs.o
+a - xml.o
+a - crypt-md5.o
+a - crypto.o
+a - vfs_fs.o
+a - vfs_http.o
+a - vfs_ndbm.o
+a - vfs_vfsc.o
+a - vfs_db.o
+a - vfs_pseudo.o
+a - vfs_sqlite.o
+a - range.o
+a - auth_roles.o
+a - local_passwd_auth.o
+a - local_http_auth.o
+a - local_simple_auth.o
+a - trunc.o
+a - dacscheck.o
+a - rlink.o
+a - transform.o
+a - misc.o
+a - getnameinfo.o
+a - select_credentials.o
+a - macosx_support.o
+a - local_apache_auth.o
+a - local_unix_auth.o
+a - local_grid_auth.o
+a - local_token_auth.o
+a - local_cas_auth.o
+a - local_roles.o
+a - local_unix_roles.o
+a - local_pam_auth.o
+ranlib ../src/libdacs.a
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o auth -DPROG auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o current_credentials current_credentials.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DPROG -o version version.c -DLINUX=2 -D_REENTRANT -D_GNU_SOURCE -I`/usr/bin/apxs2 -q INCLUDEDIR` -I/usr/include/apr-1.0   -I/usr/include/apr-1.0  \
+		-DBUILDING_LOCAL_LDAP_AUTH   ../src/libdacs.a -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat   
+Use of uninitialized value $includedir in concatenation (.) or string at (eval 9) line 1.
+clang: warning: argument unused during compilation: '-e xport-dynamic'
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o transform -DPROG transform.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o group group.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o list_jurisdictions -DPROG list_jurisdictions.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o signout signout.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o notices -DPROG notices.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o conf -DPROG conf.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_roles -DPROG local_roles.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_unix_roles -DPROG local_unix_roles.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacspasswd -DPROG dacspasswd.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o auth_transfer auth_transfer.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_apache_auth -DPROG local_apache_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_unix_auth -DPROG local_unix_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_passwd_auth -DPROG local_passwd_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_simple_auth -DPROG local_simple_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_http_auth -DPROG local_http_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_grid_auth -DPROG local_grid_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_token_auth -DPROG local_token_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o autologin_ssl autologin_ssl.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_native_auth local_native_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_cas_auth -DPROG local_cas_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o auth_agent auth_agent.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o select_credentials select_credentials.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o vfs -DPROG vfs.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_pam_auth -DPROG local_pam_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DBUILDING_LOCAL_LDAP_AUTH  -o local_ldap_auth.o -c local_ldap_auth.c
+gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -DBUILDING_LOCAL_LDAP_AUTH  -o dacs_ldif.o -c dacs_ldif.c
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_ldap_auth -o local_ldap_auth local_ldap_auth.o dacs_ldif.o \
+		 -lsasl2 -lldap -llber ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o local_cert_auth local_cert_auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o admin admin.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o acs acs.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o cgiparse -DPROG cgiparse.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsacl -DPROG -o dacsacl aclcheck.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacscheck -DPROG dacscheck.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacssched sched.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacscred -DPROG cred.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o http -DPROG http.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacscookie -DPROG -o dacscookie cookie.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacskey -DPROG -o dacskey mkkey.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsauth -DPROG auth.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsexpr -DPROG expr.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o sslclient -DPROG sslclient.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsgrid -DPROG -o dacsgrid auth_grid.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacstoken -DPROG -o dacstoken auth_token.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o pamd-client pamd-client.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib      -lpam
+In file included from pamd-client.c:112:
+In file included from ../include/dacs.h:51:
+In file included from ../include/local.h:49:
+../include/dacs_config.h:147:9: warning: 'HAVE_PAM_FAIL_DELAY' macro redefined
+#define HAVE_PAM_FAIL_DELAY 1
+        ^
+/usr/include/security/_pam_types.h:216:9: note: previous definition is here
+#define HAVE_PAM_FAIL_DELAY
+        ^
+1 warning generated.
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o pamd pamd.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib      -lpam
+In file included from pamd.c:224:
+In file included from ../include/dacs.h:51:
+In file included from ../include/local.h:49:
+../include/dacs_config.h:147:9: warning: 'HAVE_PAM_FAIL_DELAY' macro redefined
+#define HAVE_PAM_FAIL_DELAY 1
+        ^
+/usr/include/security/_pam_types.h:216:9: note: previous definition is here
+#define HAVE_PAM_FAIL_DELAY
+        ^
+1 warning generated.
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsemail -DPROG -o dacsemail email.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+/bin/bash ../src/libtool --silent --mode=link gcc -g -O2   -I. -I../include -I/usr/include -I/usr/include -I/usr/kerberos/include  -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -o dacsrlink -DPROG -o dacsrlink rlink.c ../src/libdacs.la -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/lib  -Wl,-rpath,/usr/lib -L/usr/kerberos/lib -export-dynamic -lpam -lcrypt -lrt -lresolv -lexpat -lnsl -lm -ldl  -lssl -lcrypto -lexpat  -Wl,-rpath,/usr/lib -rpath /usr/lib     
+make[1]: Leaving directory `/«PKGBUILDDIR»/src'
+unset LDFLAGS CFLAGS && /usr/bin/make -C /«PKGBUILDDIR»/apache tag
+make[1]: Entering directory `/«PKGBUILDDIR»/apache'
+make[2]: Entering directory `/«PKGBUILDDIR»/apache'
+/usr/bin/apxs2 -c -Wc,"-g -O2 -DDACS_VERSION -DBUILDING_MOD_AUTH_DACS=1 -I`/usr/bin/apxs2 -q INCLUDEDIR`" -Wl,"" -I ../include mod_auth_dacs.c
+Use of uninitialized value $includedir in concatenation (.) or string at (eval 9) line 1.
+Use of uninitialized value $includedir in concatenation (.) or string at (eval 9) line 1.
+/usr/share/apr-1.0/build/libtool --silent --mode=compile --tag=disable-static x86_64-linux-gnu-gcc -prefer-pic -DLINUX=2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -D_REENTRANT -I/usr/include -I/usr/include/apr-1.0 -I/usr/include/openssl -I/usr/include/xmltok -pthread  -DLINUX=2 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -D_REENTRANT -I -I. -I/usr/include -I/usr/include/apr-1.0     -I/usr/include/apache2  -I/usr/include/apr-1.0   -I/usr/include/apr-1.0 -I/usr/include -g -O2 -DDACS_VERSION -DBUILDING_MOD_AUTH_DACS=1 -I/usr/include/apache2 -I../include  -c -o mod_auth_dacs.lo mod_auth_dacs.c && touch mod_auth_dacs.slo
+/usr/share/apr-1.0/build/libtool --silent --mode=link --tag=disable-static x86_64-linux-gnu-gcc -Wl,--as-needed -Wl,-z,relro   -o mod_auth_dacs.la   -rpath /usr/lib/apache2/modules -module -avoid-version    mod_auth_dacs.lo
+make[2]: Leaving directory `/«PKGBUILDDIR»/apache'
+make[1]: Leaving directory `/«PKGBUILDDIR»/apache'
+ln -s /usr/share/xml/docbook/stylesheet/nwalsh /«PKGBUILDDIR»/man/docbook-xsl
+/usr/bin/make -B -C /«PKGBUILDDIR»/man mansrc html index
+make[1]: Entering directory `/«PKGBUILDDIR»/man'
+dacsexpr.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsexpr.1.xml:402: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsexpr.1
+dacsconf.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsconf.1.xml:164: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsconf.1
+dacscheck.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscheck.1.xml:1719: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacscheck.1
+dacsinit.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsinit.1.xml:119: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsinit.1
+dacs.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.1.xml:1704: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.1
+dacs_acs.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_acs.8.xml:2317: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_acs.8
+dacs_admin.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_admin.8.xml:224: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_admin.8
+dacs_authenticate.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_authenticate.8.xml:1368: parser error : Entity 'trade' not defined
+a Google&trade; account,
+               ^
+dacs_authenticate.8.xml:2562: parser error : Entity 'trade' not defined
+<ulink url="http://www.google.com">Google</ulink>&trade;
+                                                        ^
+dacs_authenticate.8.xml:2586: parser error : Entity 'trade' not defined
+Google&trade; provides exactly the right interface needed by systems
+             ^
+dacs_authenticate.8.xml:2589: parser error : Entity 'trade' not defined
+<ulink url="http://developer.ebay.com/developercenter/rest/">eBay</ulink>&trade;
+                                                                               ^
+dacs_authenticate.8.xml:2590: parser error : Entity 'reg' not defined
+<ulink url="http://developer.yahoo.com/auth/">Yahoo!</ulink>&reg;,
+                                                                 ^
+dacs_authenticate.8.xml:4507: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_authenticate.8
+dacs_auth_agent.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_auth_agent.8.xml:464: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_auth_agent.8
+dacs_auth_transfer.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_auth_transfer.8.xml:1483: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_auth_transfer.8
+dacsauth.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsauth.1.xml:483: parser error : Entity 'trade' not defined
+<ulink url="http://www.google.com">Google</ulink>&trade; account
+                                                        ^
+dacsauth.1.xml:714: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsauth.1
+dacssched.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacssched.1.xml:282: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacssched.1
+dacstransform.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacstransform.1.xml:200: parser error : Entity 'nbsp' not defined
+The default is "<literal>&lt;--DACS&nbsp;</literal>".
+                                         ^
+dacstransform.1.xml:377: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacstransform.1
+dacsacl.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsacl.1.xml:355: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsacl.1
+dacscookie.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscookie.1.xml:263: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacscookie.1
+dacsgrid.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsgrid.1.xml:812: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsgrid.1
+dacsemail.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsemail.1.xml:447: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsemail.1
+pamd.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+pamd.8.xml:423: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing pamd.8
+dacstoken.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacstoken.1.xml:623: parser error : Entity 'reg' not defined
+<listitem><para><ulink url="http://www.authenex.com">Authenex A-Key&reg; 3600</u
+                                                                        ^
+dacstoken.1.xml:654: parser error : Entity 'reg' not defined
+<hardware>Authenex A-Key&reg; 3600</hardware>
+                             ^
+dacstoken.1.xml:1793: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacstoken.1
+dacslist.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacslist.1.xml:188: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacslist.1
+dacsinfocard.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsinfocard.1.xml:192: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsinfocard.1
+dacs_managed_infocard.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_managed_infocard.8.xml:579: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_managed_infocard.8
+ds.3.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+ds.3.xml:609: parser error : Entity 'hellip' not defined
+<para>&hellip;</para>
+              ^
+Note: Writing ds.3
+dacs_notices.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_notices.8.xml:622: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_notices.8
+dacs_signout.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_signout.8.xml:242: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_signout.8
+dacspasswd.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacspasswd.1.xml:557: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacspasswd.1
+dacsversion.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsversion.1.xml:88: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsversion.1
+dacscred.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscred.1.xml:295: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacscred.1
+http.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+http.1.xml:560: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing http.1
+dacskey.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacskey.1.xml:290: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacskey.1
+dacsvfs.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsvfs.1.xml:354: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsvfs.1
+dacs.services.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.services.8.xml:352: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.services.8
+sslclient.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+sslclient.1.xml:492: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing sslclient.1
+autologin.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+autologin.8.xml:423: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing autologin.8
+dacs_conf.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_conf.8.xml:160: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_conf.8
+dacs_passwd.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_passwd.8.xml:289: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_passwd.8
+dacs_version.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_version.8.xml:103: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_version.8
+dacs_vfs.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_vfs.8.xml:201: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_vfs.8
+dacsrlink.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsrlink.1.xml:266: parser error : Entity 'trade' not defined
+<ulink url="http://metamark.net">Metamark Shorten&trade; Service</ulink>,
+                                                        ^
+dacsrlink.1.xml:573: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacsrlink.1
+dacs_current_credentials.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_current_credentials.8.xml:178: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_current_credentials.8
+dacs_error.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_error.8.xml:82: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_error.8
+dacs_transform.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_transform.8.xml:994: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_transform.8
+dacs_list_jurisdictions.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_list_jurisdictions.8.xml:191: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_list_jurisdictions.8
+dacs_group.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_group.8.xml:192: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_group.8
+cgiparse.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+cgiparse.8.xml:362: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing cgiparse.8
+dacs_prenv.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_prenv.8.xml:158: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_prenv.8
+dacs.acls.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.acls.5.xml:1824: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.acls.5
+dacs.conf.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.conf.5.xml:6593: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.conf.5
+dacs.exprs.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.exprs.5.xml:2981: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-b</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2986: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-c</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2991: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-d</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2996: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-e</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3000: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-f</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3005: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-g</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3010: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-k</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3015: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-p</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3020: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-r</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3025: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-s</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3030: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-u</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3035: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-w</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3040: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-x</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3045: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-L</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3050: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-O</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3055: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-G</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3060: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-S</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3065: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-nt</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:3071: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-ot</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:3077: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-ef</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:6814: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.exprs.5
+dacs.vfs.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.vfs.5.xml:124: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.vfs.5
+dacs.nat.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.nat.5.xml:979: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.nat.5
+dacs.groups.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.groups.5.xml:512: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.groups.5
+dacs.quick.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.quick.7.xml:1653: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.quick.7
+dacs.install.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.install.7.xml:2496: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.install.7
+dacs.readme.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.readme.7.xml:773: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.readme.7
+dacs.java.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.java.7.xml:112: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs.java.7
+dacs_autologin_ssl.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_autologin_ssl.8.xml:289: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_autologin_ssl.8
+dacs_uproxy.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_uproxy.8.xml:264: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_uproxy.8
+dacs_infocard.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_infocard.8.xml:458: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_infocard.8
+dacs_mex.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_mex.8.xml:134: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_mex.8
+dacs_sts.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_sts.8.xml:145: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_sts.8
+dacs_select_credentials.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_select_credentials.8.xml:271: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_select_credentials.8
+dacs_token.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_token.8.xml:370: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Note: Writing dacs_token.8
+gcc -o getNAME etc/getNAME.c
+Creating dacsexpr.1.html
+dacsexpr.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsexpr.1.xml:402: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsconf.1.html
+dacsconf.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsconf.1.xml:164: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsinit.1.html
+dacsinit.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsinit.1.xml:119: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsacl.1.html
+dacsacl.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsacl.1.xml:355: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacscookie.1.html
+dacscookie.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscookie.1.xml:263: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacslist.1.html
+dacslist.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacslist.1.xml:188: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacscred.1.html
+dacscred.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscred.1.xml:295: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacscheck.1.html
+dacscheck.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacscheck.1.xml:1719: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsinfocard.1.html
+dacsinfocard.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsinfocard.1.xml:192: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating autologin.8.html
+autologin.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+autologin.8.xml:423: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_auth_agent.8.html
+dacs_auth_agent.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_auth_agent.8.xml:464: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsemail.1.html
+dacsemail.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsemail.1.xml:447: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_infocard.8.html
+dacs_infocard.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_infocard.8.xml:458: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_mex.8.html
+dacs_mex.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_mex.8.xml:134: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_sts.8.html
+dacs_sts.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_sts.8.xml:145: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_auth_transfer.8.html
+dacs_auth_transfer.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_auth_transfer.8.xml:1483: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsauth.1.html
+dacsauth.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsauth.1.xml:483: parser error : Entity 'trade' not defined
+<ulink url="http://www.google.com">Google</ulink>&trade; account
+                                                        ^
+dacsauth.1.xml:714: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacssched.1.html
+dacssched.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacssched.1.xml:282: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsgrid.1.html
+dacsgrid.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsgrid.1.xml:812: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacstransform.1.html
+dacstransform.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacstransform.1.xml:200: parser error : Entity 'nbsp' not defined
+The default is "<literal>&lt;--DACS&nbsp;</literal>".
+                                         ^
+dacstransform.1.xml:377: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacstoken.1.html
+dacstoken.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacstoken.1.xml:623: parser error : Entity 'reg' not defined
+<listitem><para><ulink url="http://www.authenex.com">Authenex A-Key&reg; 3600</u
+                                                                        ^
+dacstoken.1.xml:654: parser error : Entity 'reg' not defined
+<hardware>Authenex A-Key&reg; 3600</hardware>
+                             ^
+dacstoken.1.xml:1793: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating pamd.8.html
+pamd.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+pamd.8.xml:423: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsrlink.1.html
+dacsrlink.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsrlink.1.xml:266: parser error : Entity 'trade' not defined
+<ulink url="http://metamark.net">Metamark Shorten&trade; Service</ulink>,
+                                                        ^
+dacsrlink.1.xml:573: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.1.html
+dacs.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.1.xml:1704: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating ds.3.html
+ds.3.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+ds.3.xml:609: parser error : Entity 'hellip' not defined
+<para>&hellip;</para>
+              ^
+Creating dacs.acls.5.html
+dacs.acls.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.acls.5.xml:1824: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.conf.5.html
+dacs.conf.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.conf.5.xml:6593: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.exprs.5.html
+dacs.exprs.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.exprs.5.xml:2981: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-b</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2986: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-c</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2991: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-d</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:2996: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-e</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3000: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-f</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3005: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-g</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3010: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-k</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3015: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-p</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3020: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-r</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3025: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-s</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3030: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-u</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3035: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-w</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3040: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-x</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3045: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-L</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3050: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-O</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3055: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-G</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3060: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-S</option>&nbsp; <replaceable>file</replaceable></para>
+                                         ^
+dacs.exprs.5.xml:3065: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-nt</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:3071: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-ot</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:3077: parser error : Entity 'nbsp' not defined
+<listitem><para><option>-ef</option>&nbsp; <replaceable>file1</replaceable> <rep
+                                          ^
+dacs.exprs.5.xml:6814: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.groups.5.html
+dacs.groups.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.groups.5.xml:512: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.nat.5.html
+dacs.nat.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.nat.5.xml:979: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.vfs.5.html
+dacs.vfs.5.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.vfs.5.xml:124: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_acs.8.html
+dacs_acs.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_acs.8.xml:2317: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_admin.8.html
+dacs_admin.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_admin.8.xml:224: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_authenticate.8.html
+dacs_authenticate.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_authenticate.8.xml:1368: parser error : Entity 'trade' not defined
+a Google&trade; account,
+               ^
+dacs_authenticate.8.xml:2562: parser error : Entity 'trade' not defined
+<ulink url="http://www.google.com">Google</ulink>&trade;
+                                                        ^
+dacs_authenticate.8.xml:2586: parser error : Entity 'trade' not defined
+Google&trade; provides exactly the right interface needed by systems
+             ^
+dacs_authenticate.8.xml:2589: parser error : Entity 'trade' not defined
+<ulink url="http://developer.ebay.com/developercenter/rest/">eBay</ulink>&trade;
+                                                                               ^
+dacs_authenticate.8.xml:2590: parser error : Entity 'reg' not defined
+<ulink url="http://developer.yahoo.com/auth/">Yahoo!</ulink>&reg;,
+                                                                 ^
+dacs_authenticate.8.xml:4507: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_conf.8.html
+dacs_conf.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_conf.8.xml:160: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_passwd.8.html
+dacs_passwd.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_passwd.8.xml:289: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_version.8.html
+dacs_version.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_version.8.xml:103: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_vfs.8.html
+dacs_vfs.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_vfs.8.xml:201: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_current_credentials.8.html
+dacs_current_credentials.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_current_credentials.8.xml:178: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_error.8.html
+dacs_error.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_error.8.xml:82: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_notices.8.html
+dacs_notices.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_notices.8.xml:622: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_signout.8.html
+dacs_signout.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_signout.8.xml:242: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacspasswd.1.html
+dacspasswd.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacspasswd.1.xml:557: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_prenv.8.html
+dacs_prenv.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_prenv.8.xml:158: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsversion.1.html
+dacsversion.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsversion.1.xml:88: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating sslclient.1.html
+sslclient.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+sslclient.1.xml:492: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating cgiparse.8.html
+cgiparse.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+cgiparse.8.xml:362: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_list_jurisdictions.8.html
+dacs_list_jurisdictions.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_list_jurisdictions.8.xml:191: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_group.8.html
+dacs_group.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_group.8.xml:192: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_transform.8.html
+dacs_transform.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_transform.8.xml:994: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating http.1.html
+http.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+http.1.xml:560: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacskey.1.html
+dacskey.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacskey.1.xml:290: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacsvfs.1.html
+dacsvfs.1.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacsvfs.1.xml:354: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.services.8.html
+dacs.services.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.services.8.xml:352: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.quick.7.html
+dacs.quick.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.quick.7.xml:1653: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.install.7.html
+dacs.install.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.install.7.xml:2496: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.readme.7.html
+dacs.readme.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.readme.7.xml:773: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs.java.7.html
+dacs.java.7.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs.java.7.xml:112: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_autologin_ssl.8.html
+dacs_autologin_ssl.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_autologin_ssl.8.xml:289: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_uproxy.8.html
+dacs_uproxy.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_uproxy.8.xml:264: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_managed_infocard.8.html
+dacs_managed_infocard.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_managed_infocard.8.xml:579: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_select_credentials.8.html
+dacs_select_credentials.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_select_credentials.8.xml:271: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+Creating dacs_token.8.html
+dacs_token.8.xml:4: warning: failed to load external entity "docbook-xml/docbookx.dtd"
+]>
+  ^
+dacs_token.8.xml:370: parser error : Entity 'copy' not defined
+<para>Copyright &copy; 2003-2012 Distributed Systems Software.
+                      ^
+gcc -o tabtr etc/tabtr.c
+make[1]: Leaving directory `/«PKGBUILDDIR»/man'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_prep
+dh_installdirs
+/usr/bin/make -C /«PKGBUILDDIR»/src install DESTDIR=/«PKGBUILDDIR»/debian/tmp
+make[1]: Entering directory `/«PKGBUILDDIR»/src'
+../src/conftools/install-sh -d /«PKGBUILDDIR»/debian/tmp/usr/lib
+cp -f ../src/libdacs.a /«PKGBUILDDIR»/debian/tmp/usr/lib
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c ../src/libdacs.la /«PKGBUILDDIR»/debian/tmp/usr/lib
+libtool: install: /usr/bin/install -c ../src/.libs/libdacs.so.1.0.0 /«PKGBUILDDIR»/debian/tmp/usr/lib/libdacs.so.1.0.0
+libtool: install: (cd /«PKGBUILDDIR»/debian/tmp/usr/lib && { ln -s -f libdacs.so.1.0.0 libdacs.so.1 || { rm -f libdacs.so.1 && ln -s libdacs.so.1.0.0 libdacs.so.1; }; })
+libtool: install: (cd /«PKGBUILDDIR»/debian/tmp/usr/lib && { ln -s -f libdacs.so.1.0.0 libdacs.so || { rm -f libdacs.so && ln -s libdacs.so.1.0.0 libdacs.so; }; })
+libtool: install: /usr/bin/install -c ../src/.libs/libdacs.lai /«PKGBUILDDIR»/debian/tmp/usr/lib/libdacs.la
+libtool: install: /usr/bin/install -c ../src/.libs/libdacs.a /«PKGBUILDDIR»/debian/tmp/usr/lib/libdacs.a
+libtool: install: chmod 644 /«PKGBUILDDIR»/debian/tmp/usr/lib/libdacs.a
+libtool: install: ranlib /«PKGBUILDDIR»/debian/tmp/usr/lib/libdacs.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib'
+../src/conftools/install-sh -d /«PKGBUILDDIR»/debian/tmp/usr/lib/perl
+../src/conftools/install-sh -d /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_authenticate
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c auth_agent /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_auth_agent
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/auth_agent /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_auth_agent
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c auth_transfer \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_auth_transfer
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/auth_transfer /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_auth_transfer
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c list_jurisdictions \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_list_jurisdictions
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/list_jurisdictions /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_list_jurisdictions
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c admin \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_admin
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/admin /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_admin
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c current_credentials \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_current_credentials
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/current_credentials /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_current_credentials
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c select_credentials \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_select_credentials
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/select_credentials /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_select_credentials
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c notices \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_notices
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/notices /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_notices
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c transform \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_transform
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/transform /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_transform
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c version \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_version
+libtool: install: /usr/bin/install -c version /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_version
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c local_roles /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_roles
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_roles /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_roles
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c group /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_group
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/group /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_group
+chmod u+s /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_group
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c signout /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_signout
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/signout /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_signout
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c vfs /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_vfs
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/vfs /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_vfs
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c conf /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_conf
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/conf /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_conf
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c autologin_ssl \
+		/«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_autologin_ssl
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/autologin_ssl /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_autologin_ssl
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacspasswd /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_passwd
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacspasswd /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_passwd
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacstoken /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_token
+libtool: install: /usr/bin/install -c dacs_error /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/dacs_error
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_pam_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_pam_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_native_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_native_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_passwd_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_passwd_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_simple_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_simple_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_http_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_http_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_grid_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_grid_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_token_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_token_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_cas_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_cas_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_apache_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_apache_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_cert_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_cert_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_ldap_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_ldap_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_unix_auth /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_unix_authenticate
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/local_unix_roles /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_unix_roles
+../src/conftools/setaccess-sh 0750 /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/*
+
+NOTES:
+* /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_unix_authenticate may need to be
+  setuid or setgid in order to check passwords:
+    chown root /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_unix_authenticate
+    chmod u+s /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_unix_authenticate
+* /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_apache_authenticate may need to be
+  setuid or setgid in order to check passwords:
+    chgrp www /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_apache_authenticate
+    chmod g+s /«PKGBUILDDIR»/debian/tmp/usr/lib/cgi-bin/dacs/local_apache_authenticate
+* /«PKGBUILDDIR»/debian/tmp/usr/sbin/pamd may need to be
+  setuid or setgid in order to check passwords:
+    chown root /«PKGBUILDDIR»/debian/tmp/usr/sbin/pamd
+    chmod u+s /«PKGBUILDDIR»/debian/tmp/usr/sbin/pamd
+../src/conftools/install-sh -d /«PKGBUILDDIR»/debian/tmp/usr/bin
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c acs /«PKGBUILDDIR»/debian/tmp/usr/bin/dacs_acs
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/acs /«PKGBUILDDIR»/debian/tmp/usr/bin/dacs_acs
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c cgiparse /«PKGBUILDDIR»/debian/tmp/usr/bin/cgiparse
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/cgiparse /«PKGBUILDDIR»/debian/tmp/usr/bin/cgiparse
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c http /«PKGBUILDDIR»/debian/tmp/usr/bin/http
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/http /«PKGBUILDDIR»/debian/tmp/usr/bin/http
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c sslclient /«PKGBUILDDIR»/debian/tmp/usr/bin/sslclient
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/sslclient /«PKGBUILDDIR»/debian/tmp/usr/bin/sslclient
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c version /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsversion
+libtool: install: /usr/bin/install -c version /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsversion
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c transform /«PKGBUILDDIR»/debian/tmp/usr/bin/dacstransform
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/transform /«PKGBUILDDIR»/debian/tmp/usr/bin/dacstransform
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsacl /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsacl
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsacl /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsacl
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacscookie /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscookie
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacscookie /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscookie
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsauth /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsauth
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsauth /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsauth
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacscheck /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscheck
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacscheck /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscheck
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacssched /«PKGBUILDDIR»/debian/tmp/usr/bin/dacssched
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacssched /«PKGBUILDDIR»/debian/tmp/usr/bin/dacssched
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacscred /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscred
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacscred /«PKGBUILDDIR»/debian/tmp/usr/bin/dacscred
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacskey /«PKGBUILDDIR»/debian/tmp/usr/bin/dacskey
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacskey /«PKGBUILDDIR»/debian/tmp/usr/bin/dacskey
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsgrid /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsgrid
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsgrid /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsgrid
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacstoken /«PKGBUILDDIR»/debian/tmp/usr/bin/dacstoken
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacstoken /«PKGBUILDDIR»/debian/tmp/usr/bin/dacstoken
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c conf /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsconf
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/conf /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsconf
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c list_jurisdictions \
+		/«PKGBUILDDIR»/debian/tmp/usr/bin/dacslist
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/list_jurisdictions /«PKGBUILDDIR»/debian/tmp/usr/bin/dacslist
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsrlink /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsrlink
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsrlink /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsrlink
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsemail /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsemail
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsemail /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsemail
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c vfs /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsvfs
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/vfs /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsvfs
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacsexpr /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsexpr
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacsexpr /«PKGBUILDDIR»/debian/tmp/usr/bin/dacsexpr
+/bin/bash ../src/libtool --mode=install /usr/bin/install -c dacspasswd /«PKGBUILDDIR»/debian/tmp/usr/bin/dacspasswd
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/dacspasswd /«PKGBUILDDIR»/debian/tmp/usr/bin/dacspasswd
+../src/conftools/install-sh -d /«PKGBUILDDIR»/debian/tmp/usr/sbin
+libtool: install: warning: `../src/libdacs.la' has not been installed in `/usr/lib'
+libtool: install: /usr/bin/install -c .libs/pamd /«PKGBUILDDIR»/debian/tmp/usr/sbin/pamd
+make[1]: *** [install] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»/src'
+make: *** [install] Error 2
+dpkg-buildpackage: error: fakeroot debian/rules binary-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0201
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -426,28 +2805,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 87672
+Build-Time: 436
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 17
 Job: dacs_1.4.27b-2
 Package: dacs
-Package-Time: 0
+Package-Time: 492
 Source-Version: 1.4.27b-2
-Space: 0
-Status: failed
+Space: 87672
+Status: attempted
 Version: 1.4.27b-2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0350
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.816602s
-DC-Time-Estimation: 33.816602 versus expected 1 (r/m: 32.816602 ; m: 1.0)
+Finished at 20130202-0201
+Build needed 00:08:12, 87672k disc space
+DC-Status: Failed 492.618343s
+DC-Time-Estimation: 492.618343 versus expected 1 (r/m: 491.618343 ; m: 1.0)
