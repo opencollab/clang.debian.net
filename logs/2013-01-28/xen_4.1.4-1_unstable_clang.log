@@ -1,0 +1,854 @@
+DC-Build-Header: xen 4.1.4-1 / Sat Feb 02 01:54:45 +0000 2013
+DC-Task: logfile:/tmp/xen_4.1.4-1_unstable_clang.log version:4.1.4-1 modes:binary-only:clang chroot:unstable source:xen esttime: architecture:any
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang xen_4.1.4-1'
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+Could not create '/sbuild-nonexistent/logs': No such file or directory
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-142-22.ec2.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ xen 4.1.4-1 (amd64)                                        02 Feb 2013 01:54 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: xen
+Version: 4.1.4-1
+Source Version: 4.1.4-1
+Distribution: unstable
+Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/xen-6kn9EO/xen-4.1.4' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/xen-6kn9EO' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-205277e8-7ba7-4b76-a3b3-879366ae3368' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Ign http://localhost unstable InRelease
+Get:1 http://localhost unstable Release.gpg [836 B]
+Get:2 http://localhost unstable Release [227 kB]
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 4s (4174 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Need to get 9913 kB of source archives.
+Get:1 http://localhost/debian/ unstable/main xen 4.1.4-1 (dsc) [2389 B]
+Get:2 http://localhost/debian/ unstable/main xen 4.1.4-1 (tar) [3152 kB]
+Get:3 http://localhost/debian/ unstable/main xen 4.1.4-1 (tar) [6619 kB]
+Get:4 http://localhost/debian/ unstable/main xen 4.1.4-1 (diff) [140 kB]
+Fetched 9913 kB in 0s (15.0 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
++ apt-get update
+Ign http://localhost unstable InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost unstable Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 2s (1686 B/s)
+Reading package lists...
++ echo 'Install of clang'
+Install of clang
++ apt-get update
+Ign http://localhost unstable InRelease
+Hit http://localhost unstable Release.gpg
+Hit http://localhost unstable Release
+Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
+Hit http://localhost unstable/main Sources
+Hit http://localhost unstable/main amd64 Packages
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+Suggested packages:
+  python-doc python-tk python2.7-doc binfmt-support
+Recommended packages:
+  llvm-3.2-dev file
+The following NEW packages will be installed:
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:11 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:12 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 25.3 MB in 42s (594 kB/s)
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libexpat1:amd64.
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libffi5:amd64.
+Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
+Selecting previously unselected package libllvm3.2:amd64.
+Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
+Selecting previously unselected package python2.7-minimal.
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python2.7.
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
+Selecting previously unselected package python.
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
+Selecting previously unselected package libclang-common-dev.
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
+Selecting previously unselected package compiler-rt.
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
+Selecting previously unselected package clang-3.2.
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
+Selecting previously unselected package clang.
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
+Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
+Setting up libffi5:amd64 (3.0.10-3) ...
+Setting up libllvm3.2:amd64 (3.2-2) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ for VERSION in '$VERSIONS'
++ rm g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ cd -
+/«BUILDDIR»
++ echo 'Block the installation of new gcc version'
+Block the installation of new gcc version
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'cpp-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'cpp-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-cE61Pg/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/706 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7), dpkg-dev (>= 1.16.0~), lsb-release, python-dev, bcc, gcc-multilib, e2fslibs-dev, iasl, ipxe-qemu, libaio-dev, libgnutls-dev, liblzma-dev, libncurses5-dev, libpci-dev, pkg-config, uuid-dev, zlib1g-dev, ocaml-nox, dh-ocaml, ocaml-findlib
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>> 7), dpkg-dev (>= 1.16.0~), lsb-release, python-dev, bcc, gcc-multilib, e2fslibs-dev, iasl, ipxe-qemu, libaio-dev, libgnutls-dev, liblzma-dev, libncurses5-dev, libpci-dev, pkg-config, uuid-dev, zlib1g-dev, ocaml-nox, dh-ocaml, ocaml-findlib
+dpkg-deb: building package `sbuild-build-depends-xen-dummy' in `/«BUILDDIR»/resolver-8pNcmM/apt_archive/sbuild-build-depends-xen-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install xen build dependencies (apt-based resolver)                          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bcc bin86 bsdmainutils comerr-dev debhelper dh-ocaml e2fslibs-dev file
+  gcc-4.7-multilib gcc-multilib gettext gettext-base groff-base html2text iasl
+  intltool-debian ipxe-qemu lib32gcc1 lib32gomp1 lib32itm1 lib32quadmath0
+  libaio-dev libaio1 libasprintf-dev libasprintf0c2 libc6-dev-i386 libc6-i386
+  libcroco3 libexpat1-dev libfindlib-ocaml libgcrypt11 libgcrypt11-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls-dev
+  libgnutls-openssl27 libgnutls26 libgnutlsxx27 libgpg-error-dev libgpg-error0
+  liblzma-dev libmagic1 libncurses5-dev libp11-kit-dev libp11-kit0 libpci-dev
+  libpci3 libpcre3 libpipeline1 libpopt0 libpython2.7 libssl-dev libtasn1-3
+  libtasn1-3-dev libtinfo-dev libunistring0 libxml2 lsb-release man-db
+  ocaml-base-nox ocaml-findlib ocaml-interp ocaml-nox pkg-config po-debconf
+  python-dev python2.7-dev uuid-dev zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation doc-base dh-make git lib32mudflap0
+  gettext-doc groff rng-tools libgcrypt11-doc gnutls26-doc liblzma-doc
+  ncurses-doc lsb less www-browser camlp4 ocaml-findlib-wizard ocaml-doc
+  libgdbm-dev tuareg-mode ocaml-mode libmail-box-perl
+Recommended packages:
+  elks-libc curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
+  libssl-doc xml-core libfindlib-ocaml-dev ledit readline-editor
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bcc bin86 bsdmainutils comerr-dev debhelper dh-ocaml e2fslibs-dev file
+  gcc-4.7-multilib gcc-multilib gettext gettext-base groff-base html2text iasl
+  intltool-debian ipxe-qemu lib32gcc1 lib32gomp1 lib32itm1 lib32quadmath0
+  libaio-dev libaio1 libasprintf-dev libasprintf0c2 libc6-dev-i386 libc6-i386
+  libcroco3 libexpat1-dev libfindlib-ocaml libgcrypt11 libgcrypt11-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls-dev
+  libgnutls-openssl27 libgnutls26 libgnutlsxx27 libgpg-error-dev libgpg-error0
+  liblzma-dev libmagic1 libncurses5-dev libp11-kit-dev libp11-kit0 libpci-dev
+  libpci3 libpcre3 libpipeline1 libpopt0 libpython2.7 libssl-dev libtasn1-3
+  libtasn1-3-dev libtinfo-dev libunistring0 libxml2 lsb-release man-db
+  ocaml-base-nox ocaml-findlib ocaml-interp ocaml-nox pkg-config po-debconf
+  python-dev python2.7-dev sbuild-build-depends-xen-dummy uuid-dev zlib1g-dev
+0 upgraded, 71 newly installed, 0 to remove and 0 not upgraded.
+Need to get 58.3 MB/58.3 MB of archives.
+After this operation, 134 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:13 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:14 http://localhost/debian/ unstable/main libpci3 amd64 1:3.1.9-6 [58.4 kB]
+Get:15 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:16 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:17 http://localhost/debian/ unstable/main libaio1 amd64 0.3.109-3 [9150 B]
+Get:18 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:19 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:20 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:21 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:22 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:23 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:24 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:25 http://localhost/debian/ unstable/main bin86 amd64 0.16.17-3.1 [101 kB]
+Get:26 http://localhost/debian/ unstable/main bcc amd64 0.16.17-3.1 [131 kB]
+Get:27 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:28 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:29 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:30 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:31 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:32 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:33 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:34 http://localhost/debian/ unstable/main libc6-i386 amd64 2.13-38 [4033 kB]
+Get:35 http://localhost/debian/ unstable/main libc6-dev-i386 amd64 2.13-38 [1586 kB]
+Get:36 http://localhost/debian/ unstable/main lib32gcc1 amd64 1:4.7.2-5 [53.2 kB]
+Get:37 http://localhost/debian/ unstable/main lib32gomp1 amd64 4.7.2-5 [29.9 kB]
+Get:38 http://localhost/debian/ unstable/main lib32itm1 amd64 4.7.2-5 [35.8 kB]
+Get:39 http://localhost/debian/ unstable/main lib32quadmath0 amd64 4.7.2-5 [198 kB]
+Get:40 http://localhost/debian/ unstable/main gcc-4.7-multilib amd64 4.7.2-5 [2576 kB]
+Get:41 http://localhost/debian/ unstable/main gcc-multilib amd64 4:4.7.2-1 [894 B]
+Get:42 http://localhost/debian/ unstable/main iasl amd64 20100528-3 [363 kB]
+Get:43 http://localhost/debian/ unstable/main ipxe-qemu all 1.0.0+git-20120202.f6840ba-3 [391 kB]
+Get:44 http://localhost/debian/ unstable/main libaio-dev amd64 0.3.109-3 [18.7 kB]
+Get:45 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:46 http://localhost/debian/ unstable/main ocaml-base-nox amd64 3.12.1-4 [663 kB]
+Get:47 http://localhost/debian/ unstable/main libfindlib-ocaml amd64 1.3.1-1 [109 kB]
+Get:48 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:49 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:50 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:51 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:52 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:53 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:54 http://localhost/debian/ unstable/main liblzma-dev amd64 5.1.1alpha+20120614-2 [277 kB]
+Get:55 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:56 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+Get:57 http://localhost/debian/ unstable/main libpci-dev amd64 1:3.1.9-6 [78.7 kB]
+Get:58 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:59 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:60 http://localhost/debian/ unstable/main lsb-release all 4.1+Debian9 [25.9 kB]
+Get:61 http://localhost/debian/ unstable/main ocaml-findlib amd64 1.3.1-1 [271 kB]
+Get:62 http://localhost/debian/ unstable/main ocaml-interp amd64 3.12.1-4 [317 kB]
+Get:63 http://localhost/debian/ unstable/main ocaml-nox amd64 3.12.1-4 [7611 kB]
+Get:64 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:65 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:66 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:67 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:68 http://localhost/debian/ unstable/main dh-ocaml all 1.0.7 [94.4 kB]
+Get:69 http://localhost/debian/ unstable/main e2fslibs-dev amd64 1.42.5-1 [245 kB]
+Get:70 http://localhost/debian/ unstable/main uuid-dev amd64 2.20.1-5.3 [72.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 58.3 MB in 3s (16.0 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpci3:amd64.
+Unpacking libpci3:amd64 (from .../libpci3_1%3a3.1.9-6_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libaio1:amd64.
+Unpacking libaio1:amd64 (from .../libaio1_0.3.109-3_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package bin86.
+Unpacking bin86 (from .../bin86_0.16.17-3.1_amd64.deb) ...
+Selecting previously unselected package bcc.
+Unpacking bcc (from .../bcc_0.16.17-3.1_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libc6-i386.
+Unpacking libc6-i386 (from .../libc6-i386_2.13-38_amd64.deb) ...
+Selecting previously unselected package libc6-dev-i386.
+Unpacking libc6-dev-i386 (from .../libc6-dev-i386_2.13-38_amd64.deb) ...
+Selecting previously unselected package lib32gcc1.
+Unpacking lib32gcc1 (from .../lib32gcc1_1%3a4.7.2-5_amd64.deb) ...
+Selecting previously unselected package lib32gomp1.
+Unpacking lib32gomp1 (from .../lib32gomp1_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package lib32itm1.
+Unpacking lib32itm1 (from .../lib32itm1_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package lib32quadmath0.
+Unpacking lib32quadmath0 (from .../lib32quadmath0_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package gcc-4.7-multilib.
+Unpacking gcc-4.7-multilib (from .../gcc-4.7-multilib_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package gcc-multilib.
+Unpacking gcc-multilib (from .../gcc-multilib_4%3a4.7.2-1_amd64.deb) ...
+Selecting previously unselected package iasl.
+Unpacking iasl (from .../iasl_20100528-3_amd64.deb) ...
+Selecting previously unselected package ipxe-qemu.
+Unpacking ipxe-qemu (from .../ipxe-qemu_1.0.0+git-20120202.f6840ba-3_all.deb) ...
+Selecting previously unselected package libaio-dev.
+Unpacking libaio-dev (from .../libaio-dev_0.3.109-3_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package ocaml-base-nox.
+Unpacking ocaml-base-nox (from .../ocaml-base-nox_3.12.1-4_amd64.deb) ...
+Selecting previously unselected package libfindlib-ocaml.
+Unpacking libfindlib-ocaml (from .../libfindlib-ocaml_1.3.1-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package liblzma-dev:amd64.
+Unpacking liblzma-dev:amd64 (from .../liblzma-dev_5.1.1alpha+20120614-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpci-dev.
+Unpacking libpci-dev (from .../libpci-dev_1%3a3.1.9-6_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package lsb-release.
+Unpacking lsb-release (from .../lsb-release_4.1+Debian9_all.deb) ...
+Selecting previously unselected package ocaml-findlib.
+Unpacking ocaml-findlib (from .../ocaml-findlib_1.3.1-1_amd64.deb) ...
+Selecting previously unselected package ocaml-interp.
+Unpacking ocaml-interp (from .../ocaml-interp_3.12.1-4_amd64.deb) ...
+Selecting previously unselected package ocaml-nox.
+Unpacking ocaml-nox (from .../ocaml-nox_3.12.1-4_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package dh-ocaml.
+Unpacking dh-ocaml (from .../dh-ocaml_1.0.7_all.deb) ...
+Selecting previously unselected package e2fslibs-dev.
+Unpacking e2fslibs-dev (from .../e2fslibs-dev_1.42.5-1_amd64.deb) ...
+Selecting previously unselected package uuid-dev.
+Unpacking uuid-dev (from .../uuid-dev_2.20.1-5.3_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-xen-dummy.
+Unpacking sbuild-build-depends-xen-dummy (from .../sbuild-build-depends-xen-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpci3:amd64 (1:3.1.9-6) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libaio1:amd64 (0.3.109-3) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up bin86 (0.16.17-3.1) ...
+Setting up bcc (0.16.17-3.1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libc6-i386 (2.13-38) ...
+Setting up libc6-dev-i386 (2.13-38) ...
+Setting up lib32gcc1 (1:4.7.2-5) ...
+Setting up lib32gomp1 (4.7.2-5) ...
+Setting up lib32itm1 (4.7.2-5) ...
+Setting up lib32quadmath0 (4.7.2-5) ...
+Setting up gcc-4.7-multilib (4.7.2-5) ...
+Setting up gcc-multilib (4:4.7.2-1) ...
+Setting up iasl (20100528-3) ...
+Setting up ipxe-qemu (1.0.0+git-20120202.f6840ba-3) ...
+Setting up libaio-dev (0.3.109-3) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up ocaml-base-nox (3.12.1-4) ...
+Setting up libfindlib-ocaml (1.3.1-1) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up liblzma-dev:amd64 (5.1.1alpha+20120614-2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up libpci-dev (1:3.1.9-6) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up lsb-release (4.1+Debian9) ...
+Setting up ocaml-findlib (1.3.1-1) ...
+Setting up ocaml-interp (3.12.1-4) ...
+Setting up ocaml-nox (3.12.1-4) ...
+Setting up pkg-config (0.26-1) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up dh-ocaml (1.0.7) ...
+Setting up e2fslibs-dev (1.42.5-1) ...
+Setting up uuid-dev (2.20.1-5.3) ...
+Setting up sbuild-build-depends-xen-dummy (0.invalid.0) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 bcc_0.16.17-3.1 bin86_0.16.17-3.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 dh-ocaml_1.0.7 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fslibs-dev_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gcc-4.7-multilib_4.7.2-5 gcc-multilib_4:4.7.2-1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 iasl_20100528-3 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 ipxe-qemu_1.0.0+git-20120202.f6840ba-3 lib32gcc1_1:4.7.2-5 lib32gomp1_4.7.2-5 lib32itm1_4.7.2-5 lib32quadmath0_4.7.2-5 libacl1_2.2.51-8 libaio-dev_0.3.109-3 libaio1_0.3.109-3 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libc6-dev-i386_2.13-38 libc6-i386_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfindlib-ocaml_1.3.1-1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma-dev_5.1.1alpha+20120614-2 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpci-dev_1:3.1.9-6 libpci3_1:3.1.9-6 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 lsb-release_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 ocaml-base-nox_3.12.1-4 ocaml-findlib_1.3.1-1 ocaml-interp_3.12.1-4 ocaml-nox_3.12.1-4 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-xen-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 uuid-dev_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Thu Jan 31 14:53:29 2013 UTC using DSA key ID 7F4E0E11
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./xen_4.1.4-1.dsc
+dpkg-source: info: extracting xen in xen-4.1.4
+dpkg-source: info: unpacking xen_4.1.4.orig.tar.gz
+dpkg-source: info: unpacking xen_4.1.4.orig-qemu.tar.gz
+dpkg-source: info: unpacking xen_4.1.4-1.debian.tar.gz
+dpkg-source: info: applying upstream-23936:cdb34816a40a-rework
+dpkg-source: info: applying upstream-23937:5173834e8476
+dpkg-source: info: applying upstream-23938:fa04fbd56521-rework
+dpkg-source: info: applying upstream-23939:51288f69523f-rework
+dpkg-source: info: applying upstream-25290:7a6dcecb1781-rework
+dpkg-source: info: applying CVE-2012-5634
+dpkg-source: info: applying CVE-2012-6075-1
+dpkg-source: info: applying CVE-2012-6075-2
+dpkg-source: info: applying upstream-23001:9eb9948904cd
+dpkg-source: info: applying upstream-23002:eb64b8f8eebb
+dpkg-source: info: applying xen-x86-interrupt-pointer-missmatch.diff
+dpkg-source: info: applying version.patch
+dpkg-source: info: applying docs-pdflatex.patch
+dpkg-source: info: applying docs-texlive.patch
+dpkg-source: info: applying tools-blktap2-link.diff
+dpkg-source: info: applying tools-blktap2-optimize.diff
+dpkg-source: info: applying tools-flask-abiname.diff
+dpkg-source: info: applying tools-libfsimage-abiname.diff
+dpkg-source: info: applying tools-libxc-abiname.diff
+dpkg-source: info: applying tools-libxl-abiname.diff
+dpkg-source: info: applying tools-libxl-link.diff
+dpkg-source: info: applying config-prefix.diff
+dpkg-source: info: applying tools-rpath.diff
+dpkg-source: info: applying tools-blktap2-prefix.diff
+dpkg-source: info: applying tools-console-prefix.diff
+dpkg-source: info: applying tools-flask-prefix.diff
+dpkg-source: info: applying tools-libfsimage-prefix.diff
+dpkg-source: info: applying tools-libfsimage-rpath.diff
+dpkg-source: info: applying tools-libxl-prefix.diff
+dpkg-source: info: applying tools-misc-prefix.diff
+dpkg-source: info: applying tools-misc-rpath.diff
+dpkg-source: info: applying tools-pygrub-prefix.diff
+dpkg-source: info: applying tools-python-prefix.diff
+dpkg-source: info: applying tools-python-rpath.diff
+dpkg-source: info: applying tools-xcutils-rpath.diff
+dpkg-source: info: applying tools-xenmon-prefix.diff
+dpkg-source: info: applying tools-xenmon-rpath.diff
+dpkg-source: info: applying tools-xenpaging-prefix.diff
+dpkg-source: info: applying tools-xenstat-prefix.diff
+dpkg-source: info: applying tools-xenstat-rpath.diff
+dpkg-source: info: applying tools-xenstore-prefix.diff
+dpkg-source: info: applying tools-xenstore-rpath.diff
+dpkg-source: info: applying tools-xentrace-prefix.diff
+dpkg-source: info: applying tools-xentrace-rpath.diff
+dpkg-source: info: applying qemu-prefix.diff
+dpkg-source: info: applying tools-python-xen-relative-path.diff
+dpkg-source: info: applying tools-misc-xend-startup.diff
+dpkg-source: info: applying tools-libxl-nopidfile.diff
+dpkg-source: info: applying tools-disable.diff
+dpkg-source: info: applying tools-examples-xend-disable-network.diff
+dpkg-source: info: applying tools-examples-xend-disable-relocation.diff
+dpkg-source: info: applying tools-firmware-etherboot-packaged.diff
+dpkg-source: info: applying qemu-disable.diff
+dpkg-source: info: applying tools-pygrub-remove-static-solaris-support.patch
+dpkg-source: info: applying tools-hotplug-install.diff
+dpkg-source: info: applying tools-include-install.diff
+dpkg-source: info: applying tools-xenmon-install.diff
+dpkg-source: info: applying tools-hotplug-udevrules.diff
+dpkg-source: info: applying tools-python-shebang.diff
+dpkg-source: info: applying tools-libxl-sxp.diff
+dpkg-source: info: applying tools-ocaml-fix-build.diff
+dpkg-source: info: applying tools-xenstore-compatibility.diff
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-205277e8-7ba7-4b76-a3b3-879366ae3368
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package xen
+dpkg-buildpackage: source version 4.1.4-1
+dpkg-buildpackage: source changed by Bastian Blank <waldi@debian.org>
+ dpkg-source --before-build xen-4.1.4
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+rm -rf debian/build debian/stamps debian/lib/python/debian_xen/*.pyc
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+/usr/bin/make -f debian/rules.gen setup_amd64
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real setup-flavour ARCH='amd64' FEATURESET='none' FLAVOUR='amd64' VERSION='4.1' XEN_ARCH='x86_64'
+dpkg-architecture: warning: specified GNU system type x86_64-linux-gnu does not match gcc system type x86_64-pc-linux-gnu, try setting a correct CC environment variable
+make[2]: Entering directory `/«PKGBUILDDIR»'
+mkdir -p debian/build/build-hypervisor_amd64_amd64
+cp -al COPYING Config.mk MAINTAINERS Makefile README buildconfigs config docs extras install.sh qemu stubdom tools unmodified_drivers xen debian/build/build-hypervisor_amd64_amd64
+echo "XEN_VENDORVERSION := " > debian/build/build-hypervisor_amd64_amd64/xen/xen-version
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real setup-arch ARCH='amd64' VERSION='4.1' XEN_ARCH='x86_64'
+dpkg-architecture: warning: specified GNU system type x86_64-linux-gnu does not match gcc system type x86_64-pc-linux-gnu, try setting a correct CC environment variable
+make[2]: Entering directory `/«PKGBUILDDIR»'
+mkdir -p debian/build/build-utils_amd64
+cp -al COPYING Config.mk MAINTAINERS Makefile README buildconfigs config docs extras install.sh qemu stubdom tools unmodified_drivers xen debian/build/build-utils_amd64
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_testdir
+/usr/bin/make -f debian/rules.gen build-arch_amd64
+make[1]: Entering directory `/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules.real build-flavour ARCH='amd64' FEATURESET='none' FLAVOUR='amd64' VERSION='4.1' XEN_ARCH='x86_64'
+dpkg-architecture: warning: specified GNU system type x86_64-linux-gnu does not match gcc system type x86_64-pc-linux-gnu, try setting a correct CC environment variable
+make[2]: Entering directory `/«PKGBUILDDIR»'
+env -u ARCH -u FLAVOUR -u VERSION -u MAKEFLAGS /usr/bin/make -C debian/build/build-hypervisor_amd64_amd64/xen \
+		XEN_COMPILE_ARCH=x86_64 \
+		XEN_TARGET_ARCH=x86_64
+make[3]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+/usr/bin/make -f Rules.mk _build
+make[4]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+/usr/bin/make -C tools
+make[5]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+[ -d figlet ] && /usr/bin/make -C figlet
+make[6]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools/figlet'
+gcc -o figlet figlet.c
+figlet.c:231:3: warning: implicit declaration of function 'close' is invalid in C99 [-Wimplicit-function-declaration]
+  close(fd);
+  ^
+figlet.c:882:15: warning: implicit declaration of function 'getopt' is invalid in C99 [-Wimplicit-function-declaration]
+  while ((c = getopt(Myargc,Myargv,"ADEXLRI:xlcrpntvm:w:d:f:C:NFskSWo"))!= -1) {
+              ^
+figlet.c:1645:12: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+    static AgetMode = 0;        /* >= 0 for displacement into argv[n], <0 EOF */
+    ~~~~~~ ^
+3 warnings generated.
+make[6]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools/figlet'
+/usr/bin/make symbols
+make[6]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+gcc -Wall -Werror -Wstrict-prototypes -O2 -fomit-frame-pointer -fno-strict-aliasing -Wdeclaration-after-statement -o symbols symbols.c
+make[6]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+make[5]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+/usr/bin/make -f /«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/Rules.mk include/xen/compile.h
+make[5]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+/usr/bin/make -C tools
+make[6]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+[ -d figlet ] && /usr/bin/make -C figlet
+make[7]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools/figlet'
+make[7]: `figlet' is up to date.
+make[7]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools/figlet'
+/usr/bin/make symbols
+make[7]: Entering directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+make[7]: `symbols' is up to date.
+make[7]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+make[6]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/tools'
+sed: -e expression #3, char 68: unterminated `s' command
+make[5]: *** [include/xen/compile.h] Error 1
+make[5]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+make[4]: *** [/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen/xen] Error 2
+make[4]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+make[3]: *** [build] Error 2
+make[3]: Leaving directory `/«PKGBUILDDIR»/debian/build/build-hypervisor_amd64_amd64/xen'
+make[2]: *** [debian/stamps/build-hypervisor_amd64_amd64] Error 2
+make[1]: *** [build-arch_amd64_none_amd64] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [debian/stamps/build-base] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0156
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Architecture: amd64
+Build-Space: 57176
+Build-Time: 5
+Distribution: unstable
+Fail-Stage: build
+Install-Time: 12
+Job: xen_4.1.4-1
+Package: xen
+Package-Time: 86
+Source-Version: 4.1.4-1
+Space: 57176
+Status: attempted
+Version: 4.1.4-1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20130202-0156
+Build needed 00:01:26, 57176k disc space
+DC-Status: Failed 87.081474s
+DC-Time-Estimation: 87.081474 versus expected 1 (r/m: 86.081474 ; m: 1.0)
