@@ -4,8 +4,8 @@ $_SERVER['HTTP_HOST']="localhost";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.1";
-$DATE_REBUILD="2012-06-23";
+$CLANG_VERSION="3.2";
+$DATE_REBUILD="2013-01-28";
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);
@@ -65,9 +65,9 @@ if ($handle) {
     }
     fclose($handle);
 }
-$query="delete from errors where clang_version=3.1  and trim(detected_error)='\n'";
+$query="delete from errors where clang_version=3.2  and trim(detected_error)='\n'";
 mysql_query($query);
-$query="delete from errors where clang_version=3.1  and trim(detected_error) like '%Dependencies installation failed%'";
+$query="delete from errors where clang_version=3.2  and trim(detected_error) like '%Dependencies installation failed%'";
 mysql_query($query);
 echo "$i lines processed\n";
 ?>

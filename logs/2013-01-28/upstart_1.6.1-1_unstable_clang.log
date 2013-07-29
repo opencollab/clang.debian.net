@@ -1,12 +1,12 @@
-DC-Build-Header: upstart 1.6.1-1 / Mon Jan 28 05:41:26 +0000 2013
-DC-Task: logfile:/tmp/upstart_1.6.1-1_unstable_clang.log version:1.6.1-1 chroot:unstable modes:binary-only:clang source:upstart architecture:any esttime:47
+DC-Build-Header: upstart 1.6.1-1 / Sat Feb 02 03:32:40 +0000 2013
+DC-Task: logfile:/tmp/upstart_1.6.1-1_unstable_clang.log version:1.6.1-1 modes:binary-only:clang chroot:unstable source:upstart esttime:47 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang upstart_1.6.1-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-130-158.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-52-139.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ upstart 1.6.1-1 (amd64)                                    28 Jan 2013 05:41 ║
+║ upstart 1.6.1-1 (amd64)                                    02 Feb 2013 03:32 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: upstart
@@ -15,9 +15,9 @@ Source Version: 1.6.1-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/upstart-_0Bdmx/upstart-1.6.1' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/upstart-_0Bdmx' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-30bb04c2-8a8d-4048-aae5-6b0d1b38d9a9' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/upstart-l0qhVE/upstart-1.6.1' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/upstart-l0qhVE' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-d42e0d9c-4fdd-4239-9e4e-7bec469c1d06' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,13 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4934 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (4999 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -67,7 +65,7 @@ Need to get 1259 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main upstart 1.6.1-1 (dsc) [2155 B]
 Get:2 http://localhost/debian/ unstable/main upstart 1.6.1-1 (tar) [1225 kB]
 Get:3 http://localhost/debian/ unstable/main upstart 1.6.1-1 (diff) [32.4 kB]
-Fetched 1259 kB in 0s (3403 kB/s)
+Fetched 1259 kB in 0s (1892 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -84,218 +82,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1323 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2693 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3946 B/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.2 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (7262 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -304,32 +197,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -375,7 +255,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-mNas9H/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-rPOkzM/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -391,15 +271,15 @@ The following NEW packages will be installed:
   sbuild-build-depends-core-dummy
 debconf: delaying package configuration, since apt-utils is not installed
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 0 B/712 B of archives.
+Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), pkg-config (>= 0.22), libnih-dev (>= 1.0.3), libnih-dbus-dev (>= 1.0.3), nih-dbus-tool (>= 1.0.3), libdbus-1-dev (>= 1.2.16), libexpat1-dev (>= 2.0.0), libudev-dev (>= 151-5), libjson0-dev (>= 0.10), dbus, bash-completion, libselinux1-dev
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 9), pkg-config (>= 0.22), libnih-dev (>= 1.0.3), libnih-dbus-dev (>= 1.0.3), nih-dbus-tool (>= 1.0.3), libdbus-1-dev (>= 1.2.16), libexpat1-dev (>= 2.0.0), libudev-dev (>= 151-5), libjson0-dev (>= 0.10), dbus, bash-completion, libselinux1-dev
-dpkg-deb: building package `sbuild-build-depends-upstart-dummy' in `/«BUILDDIR»/resolver-DO5Ls2/apt_archive/sbuild-build-depends-upstart-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-upstart-dummy' in `/«BUILDDIR»/resolver-pS2QuQ/apt_archive/sbuild-build-depends-upstart-dummy.deb'.
 OK
 Reading package lists...
 
@@ -411,21 +291,2726 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  adduser bash-completion bsdmainutils dbus debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcap2 libcroco3 libdbus-1-3 libdbus-1-dev libexpat1-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libjson0 libjson0-dev libmagic1
+  libnih-dbus-dev libnih-dbus1 libnih-dev libnih1 libpcre3 libpipeline1
+  libpopt0 libselinux1-dev libsepol1-dev libsystemd-login0 libudev-dev
+  libudev0 libunistring0 libxml2 man-db nih-dbus-tool pkg-config po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation dbus-x11 dh-make gettext-doc groff less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  adduser bash-completion bsdmainutils dbus debhelper file gettext
+  gettext-base groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcap2 libcroco3 libdbus-1-3 libdbus-1-dev libexpat1-dev
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libjson0 libjson0-dev libmagic1
+  libnih-dbus-dev libnih-dbus1 libnih-dev libnih1 libpcre3 libpipeline1
+  libpopt0 libselinux1-dev libsepol1-dev libsystemd-login0 libudev-dev
+  libudev0 libunistring0 libxml2 man-db nih-dbus-tool pkg-config po-debconf
+  sbuild-build-depends-upstart-dummy
+0 upgraded, 43 newly installed, 0 to remove and 0 not upgraded.
+Need to get 12.1 MB/12.1 MB of archives.
+After this operation, 35.0 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main libudev0 amd64 175-7.1 [126 kB]
+Get:4 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:5 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:6 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:7 http://localhost/debian/ unstable/main bash-completion all 1:2.0-1 [193 kB]
+Get:8 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:9 http://localhost/debian/ unstable/main libcap2 amd64 1:2.22-1.2 [13.6 kB]
+Get:10 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:11 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:12 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:13 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:14 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:15 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:16 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:17 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:18 http://localhost/debian/ unstable/main libjson0 amd64 0.10-1.2 [24.2 kB]
+Get:19 http://localhost/debian/ unstable/main libsystemd-login0 amd64 44-8 [28.6 kB]
+Get:20 http://localhost/debian/ unstable/main adduser all 3.113+nmu3 [264 kB]
+Get:21 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:22 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:23 http://localhost/debian/ unstable/main dbus amd64 1.6.8-1 [399 kB]
+Get:24 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:25 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:26 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:27 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:28 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:29 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:30 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:31 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:32 http://localhost/debian/ unstable/main libdbus-1-dev amd64 1.6.8-1 [246 kB]
+Get:33 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:34 http://localhost/debian/ unstable/main libnih1 amd64 1.0.3-4.1 [134 kB]
+Get:35 http://localhost/debian/ unstable/main libnih-dbus1 amd64 1.0.3-4.1 [98.6 kB]
+Get:36 http://localhost/debian/ unstable/main libnih-dev amd64 1.0.3-4.1 [170 kB]
+Get:37 http://localhost/debian/ unstable/main libnih-dbus-dev amd64 1.0.3-4.1 [109 kB]
+Get:38 http://localhost/debian/ unstable/main libsepol1-dev amd64 2.1.4-3 [199 kB]
+Get:39 http://localhost/debian/ unstable/main libselinux1-dev amd64 2.1.9-5 [172 kB]
+Get:40 http://localhost/debian/ unstable/main libudev-dev amd64 175-7.1 [63.0 kB]
+Get:41 http://localhost/debian/ unstable/main nih-dbus-tool amd64 1.0.3-4.1 [144 kB]
+Get:42 http://localhost/debian/ unstable/main libjson0-dev amd64 0.10-1.2 [96.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 12.1 MB in 1s (8883 kB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package libudev0:amd64.
+Unpacking libudev0:amd64 (from .../libudev0_175-7.1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package bash-completion.
+Unpacking bash-completion (from .../bash-completion_1%3a2.0-1_all.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libcap2:amd64.
+Unpacking libcap2:amd64 (from .../libcap2_1%3a2.22-1.2_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libjson0:amd64.
+Unpacking libjson0:amd64 (from .../libjson0_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package libsystemd-login0:amd64.
+Unpacking libsystemd-login0:amd64 (from .../libsystemd-login0_44-8_amd64.deb) ...
+Selecting previously unselected package adduser.
+Unpacking adduser (from .../adduser_3.113+nmu3_all.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package dbus.
+Unpacking dbus (from .../dbus_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-dev.
+Unpacking libdbus-1-dev (from .../libdbus-1-dev_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libnih1.
+Unpacking libnih1 (from .../libnih1_1.0.3-4.1_amd64.deb) ...
+Selecting previously unselected package libnih-dbus1.
+Unpacking libnih-dbus1 (from .../libnih-dbus1_1.0.3-4.1_amd64.deb) ...
+Selecting previously unselected package libnih-dev.
+Unpacking libnih-dev (from .../libnih-dev_1.0.3-4.1_amd64.deb) ...
+Selecting previously unselected package libnih-dbus-dev.
+Unpacking libnih-dbus-dev (from .../libnih-dbus-dev_1.0.3-4.1_amd64.deb) ...
+Selecting previously unselected package libsepol1-dev.
+Unpacking libsepol1-dev (from .../libsepol1-dev_2.1.4-3_amd64.deb) ...
+Selecting previously unselected package libselinux1-dev.
+Unpacking libselinux1-dev (from .../libselinux1-dev_2.1.9-5_amd64.deb) ...
+Selecting previously unselected package libudev-dev.
+Unpacking libudev-dev (from .../libudev-dev_175-7.1_amd64.deb) ...
+Selecting previously unselected package nih-dbus-tool.
+Unpacking nih-dbus-tool (from .../nih-dbus-tool_1.0.3-4.1_amd64.deb) ...
+Selecting previously unselected package libjson0-dev:amd64.
+Unpacking libjson0-dev:amd64 (from .../libjson0-dev_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-upstart-dummy.
+Unpacking sbuild-build-depends-upstart-dummy (from .../sbuild-build-depends-upstart-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up libudev0:amd64 (175-7.1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up bash-completion (1:2.0-1) ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libcap2:amd64 (1:2.22-1.2) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libjson0:amd64 (0.10-1.2) ...
+Setting up libsystemd-login0:amd64 (44-8) ...
+Setting up adduser (3.113+nmu3) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up dbus (1.6.8-1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libdbus-1-dev (1.6.8-1) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libnih1 (1.0.3-4.1) ...
+Setting up libnih-dbus1 (1.0.3-4.1) ...
+Setting up libnih-dev (1.0.3-4.1) ...
+Setting up libnih-dbus-dev (1.0.3-4.1) ...
+Setting up libsepol1-dev (2.1.4-3) ...
+Setting up libselinux1-dev (2.1.9-5) ...
+Setting up libudev-dev (175-7.1) ...
+Setting up nih-dbus-tool (1.0.3-4.1) ...
+Setting up libjson0-dev:amd64 (0.10-1.2) ...
+Setting up sbuild-build-depends-upstart-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-upstart-dummy : Depends: libnih-dev (>= 1.0.3) but it is not going to be installed
-                                      Depends: libnih-dbus-dev (>= 1.0.3) but it is not going to be installed
-                                      Depends: nih-dbus-tool (>= 1.0.3) but it is not going to be installed
-                                      Depends: libexpat1-dev (>= 2.0.0) but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: adduser_3.113+nmu3 apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 bash-completion_1:2.0-1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 dbus_1.6.8-1 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcap2_1:2.22-1.2 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdbus-1-dev_1.6.8-1 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libjson0_0.10-1.2 libjson0-dev_0.10-1.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libnih-dbus-dev_1.0.3-4.1 libnih-dbus1_1.0.3-4.1 libnih-dev_1.0.3-4.1 libnih1_1.0.3-4.1 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libselinux1-dev_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsepol1-dev_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libsystemd-login0_44-8 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libudev-dev_175-7.1 libudev0_175-7.1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 nih-dbus-tool_1.0.3-4.1 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-upstart-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Dec 10 09:15:54 2012 UTC using RSA key ID 21B2133D
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./upstart_1.6.1-1.dsc
+dpkg-source: info: extracting upstart in upstart-1.6.1
+dpkg-source: info: unpacking upstart_1.6.1.orig.tar.gz
+dpkg-source: info: applying upstart_1.6.1-1.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ upstart-1.6.1/Makefile.in
+ upstart-1.6.1/conf/Makefile.in
+ upstart-1.6.1/conf/rc-sysinit.conf
+ upstart-1.6.1/conf/rc.conf
+ upstart-1.6.1/config.h.in
+ upstart-1.6.1/configure
+ upstart-1.6.1/configure.ac
+ upstart-1.6.1/contrib/Makefile.in
+ upstart-1.6.1/dbus/Makefile.in
+ upstart-1.6.1/doc/Makefile.in
+ upstart-1.6.1/extra/Makefile.in
+ upstart-1.6.1/init/Makefile.am
+ upstart-1.6.1/init/Makefile.in
+ upstart-1.6.1/init/job_class.c
+ upstart-1.6.1/init/job_class.h
+ upstart-1.6.1/init/main.c
+ upstart-1.6.1/init/man/init.5
+ upstart-1.6.1/init/man/init.8
+ upstart-1.6.1/init/tests/test_job_class.c
+ upstart-1.6.1/init/tests/test_job_process.c
+ upstart-1.6.1/po/en@boldquot.po
+ upstart-1.6.1/po/en@quot.po
+ upstart-1.6.1/po/upstart.pot
+ upstart-1.6.1/scripts/Makefile.in
+ upstart-1.6.1/util/Makefile.in
+ upstart-1.6.1/util/tests/test_user_sessions.sh
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-d42e0d9c-4fdd-4239-9e4e-7bec469c1d06
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package upstart
+dpkg-buildpackage: source version 1.6.1-1
+dpkg-buildpackage: source changed by Steve Langasek <vorlon@debian.org>
+ dpkg-source --before-build upstart-1.6.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --with bash-completion
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with bash-completion
+   dh_testdir -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«PKGBUILDDIR»'
+dh_auto_configure -- --exec-prefix= --enable-selinux
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking whether make supports nested variables... yes
+checking dependency style of gcc... none
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking whether we are using the GNU C Library 2 or newer... yes
+checking for ranlib... (cached) ranlib
+checking for simple visibility declarations... yes
+checking for inline... inline
+checking for size_t... yes
+checking for stdint.h... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether integer division by zero raises SIGFPE... yes
+checking for inttypes.h... yes
+checking for unsigned long long int... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for ld used by GCC... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for pthread_rwlock_t... yes
+checking for multithread API to use... posix
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for argz_count... yes
+checking for argz_stringify... yes
+checking for argz_next... yes
+checking for __fsetlocking... yes
+checking whether feof_unlocked is declared... yes
+checking whether fgets_unlocked is declared... yes
+checking for iconv... yes
+checking for working iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for NL_LOCALE_NAME macro... yes
+checking for bison... no
+checking for long long int... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for intmax_t... yes
+checking whether printf() supports POSIX/XSI format strings... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for stdint.h... (cached) yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for ptrdiff_t... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for asprintf... yes
+checking for fwprintf... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for snprintf... yes
+checking for wcslen... yes
+checking whether _snprintf is declared... no
+checking whether _snwprintf is declared... no
+checking whether getc_unlocked is declared... yes
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... (cached) no
+checking for CFLocaleCopyCurrent... (cached) no
+checking whether included gettext is requested... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.22... yes
+checking for nih-dbus-tool... /usr/bin/nih-dbus-tool
+checking for NIH... yes
+checking for NIH_DBUS... yes
+checking for DBUS... yes
+checking for UDEV... yes
+checking for JSON... yes
+checking for SELINUX... yes
+checking valgrind/valgrind.h usability... no
+checking valgrind/valgrind.h presence... no
+checking for valgrind/valgrind.h... no
+checking for gcc option to accept ISO C99... none needed
+checking whether gcc and cc understand -c and -o together... yes
+checking size of int... 4
+checking size of uid_t... 4
+checking size of pid_t... 4
+checking size of time_t... 8
+checking size of mode_t... 4
+checking size of size_t... 8
+checking size of ssize_t... 8
+checking whether to include sbindir in PATH... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating intl/Makefile
+config.status: creating dbus/Makefile
+config.status: creating init/Makefile
+config.status: creating util/Makefile
+config.status: creating conf/Makefile
+config.status: creating extra/Makefile
+config.status: creating doc/Makefile
+config.status: creating contrib/Makefile
+config.status: creating po/Makefile.in
+config.status: creating scripts/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_auto_build -a
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make  all-recursive
+make[2]: Entering directory `/«PKGBUILDDIR»'
+Making all in intl
+make[3]: Entering directory `/«PKGBUILDDIR»/intl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/intl'
+Making all in dbus
+make[3]: Entering directory `/«PKGBUILDDIR»/dbus'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/dbus'
+Making all in init
+make[3]: Entering directory `/«PKGBUILDDIR»/init'
+  GEN    com.ubuntu.Upstart.c
+  GEN    com.ubuntu.Upstart.Job.c
+  GEN    com.ubuntu.Upstart.Instance.c
+make TERM=xterm all-am
+make[4]: Entering directory `/«PKGBUILDDIR»/init'
+  CC     main.o
+main.c:493:20: warning: unused variable 'arg' [-Wunused-variable]
+                        nih_local char *arg = NULL;
+                                        ^
+1 warning generated.
+  CC     system.o
+  CC     environ.o
+  CC     process.o
+  CC     session.o
+  CC     state.o
+  CC     job_class.o
+job_class.c:1677:19: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+                        (const Process const * const * const)class->process);
+                                       ^
+1 warning generated.
+  CC     job_process.o
+  CC     job.o
+  CC     log.o
+  CC     event.o
+  CC     event_operator.o
+  CC     blocked.o
+  CC     parse_job.o
+  CC     parse_conf.o
+  CC     conf.o
+  CC     control.o
+  CC     com.ubuntu.Upstart.o
+  CC     com.ubuntu.Upstart.Job.o
+  CC     com.ubuntu.Upstart.Instance.o
+  CCLD   init
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+make[4]: Leaving directory `/«PKGBUILDDIR»/init'
+make[3]: Leaving directory `/«PKGBUILDDIR»/init'
+Making all in util
+make[3]: Entering directory `/«PKGBUILDDIR»/util'
+  GEN    com.ubuntu.Upstart.c
+  GEN    com.ubuntu.Upstart.Job.c
+  GEN    com.ubuntu.Upstart.Instance.c
+make  all-am
+make[4]: Entering directory `/«PKGBUILDDIR»/util'
+  CC     initctl.o
+initctl.c:1338:26: warning: unused variable 'job_path' [-Wunused-variable]
+        nih_local char *        job_path = NULL;
+                                ^
+initctl.c:1339:26: warning: unused variable 'job' [-Wunused-variable]
+        nih_local NihDBusProxy *job = NULL;
+                                ^
+2 warnings generated.
+  CC     com.ubuntu.Upstart.o
+  CC     com.ubuntu.Upstart.Job.o
+  CC     com.ubuntu.Upstart.Instance.o
+  CCLD   initctl
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     reboot.o
+  CC     utmp.o
+  CCLD   reboot
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     runlevel.o
+  CCLD   runlevel
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     shutdown.o
+  CC     sysv.o
+  CCLD   shutdown
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     telinit.o
+  CCLD   telinit
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+make[4]: Leaving directory `/«PKGBUILDDIR»/util'
+make[3]: Leaving directory `/«PKGBUILDDIR»/util'
+Making all in extra
+make[3]: Entering directory `/«PKGBUILDDIR»/extra'
+  GEN    com.ubuntu.Upstart.c
+  GEN    com.ubuntu.Upstart.Job.c
+make  all-am
+make[4]: Entering directory `/«PKGBUILDDIR»/extra'
+  CC     upstart-socket-bridge.o
+upstart-socket-bridge.c:472:18: warning: unused variable 'error' [-Wunused-variable]
+        nih_local char *error = NULL;
+                        ^
+1 warning generated.
+  CC     com.ubuntu.Upstart.o
+  CC     com.ubuntu.Upstart.Job.o
+  CCLD   upstart-socket-bridge
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     upstart-udev-bridge.o
+  CCLD   upstart-udev-bridge
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+make[4]: Leaving directory `/«PKGBUILDDIR»/extra'
+make[3]: Leaving directory `/«PKGBUILDDIR»/extra'
+Making all in conf
+make[3]: Entering directory `/«PKGBUILDDIR»/conf'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/conf'
+Making all in doc
+make[3]: Entering directory `/«PKGBUILDDIR»/doc'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/doc'
+Making all in contrib
+make[3]: Entering directory `/«PKGBUILDDIR»/contrib'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/contrib'
+Making all in po
+make[3]: Entering directory `/«PKGBUILDDIR»/po'
+test ! -f ./upstart.pot || \
+	  test -z "en@quot.gmo en@boldquot.gmo" || make en@quot.gmo en@boldquot.gmo
+make[4]: Entering directory `/«PKGBUILDDIR»/po'
+rm -f en@quot.gmo && /usr/bin/msgfmt -c --statistics -o en@quot.gmo en@quot.po
+271 translated messages.
+rm -f en@boldquot.gmo && /usr/bin/msgfmt -c --statistics -o en@boldquot.gmo en@boldquot.po
+271 translated messages.
+make[4]: Leaving directory `/«PKGBUILDDIR»/po'
+touch stamp-po
+make[3]: Leaving directory `/«PKGBUILDDIR»/po'
+Making all in scripts
+make[3]: Entering directory `/«PKGBUILDDIR»/scripts'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/«PKGBUILDDIR»/scripts'
+make[3]: Entering directory `/«PKGBUILDDIR»'
+make[3]: Leaving directory `/«PKGBUILDDIR»'
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   dh_auto_test -a
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Making check in intl
+make[2]: Entering directory `/«PKGBUILDDIR»/intl'
+make[2]: Nothing to be done for `check'.
+make[2]: Leaving directory `/«PKGBUILDDIR»/intl'
+Making check in dbus
+make[2]: Entering directory `/«PKGBUILDDIR»/dbus'
+make[2]: Nothing to be done for `check'.
+make[2]: Leaving directory `/«PKGBUILDDIR»/dbus'
+Making check in init
+make[2]: Entering directory `/«PKGBUILDDIR»/init'
+make TERM=xterm check-am
+make[3]: Entering directory `/«PKGBUILDDIR»/init'
+make TERM=xterm test_system test_environ test_process test_job_class test_job_process test_job test_log test_state test_event test_event_operator test_blocked test_parse_job test_parse_conf test_conf test_control
+make[4]: Entering directory `/«PKGBUILDDIR»/init'
+  CC     test_system.o
+tests/test_system.c:44:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid1) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:47:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid2) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:72:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid1) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:75:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid2) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:100:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid1) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:103:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid2) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_system.c:106:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD (pid3) {
+        ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+7 warnings generated.
+  CCLD   test_system
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_environ.o
+  CCLD   test_environ
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_process.o
+  CC     test_util.o
+  CCLD   test_process
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_job_class.o
+  CCLD   test_job_class
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_job_process.o
+tests/test_job_process.c:5183:19: warning: unused variable 'home' [-Wunused-variable]
+        nih_local char  *home = NULL;
+                         ^
+tests/test_job_process.c:5317:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (job->pid[PROCESS_MAIN]) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:5367:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD_WAIT (job->pid[PROCESS_MAIN], wait_fd) {
+                ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_job_process.c:7757:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:7830:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:7901:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:7971:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8046:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8110:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8158:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8206:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8254:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8304:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8355:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8431:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8502:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job_process.c:8557:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+17 warnings generated.
+  CCLD   test_job_process
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_job.o
+tests/test_job.c:2960:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (job->pid[PROCESS_MAIN]) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job.c:7261:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_job.c:7251:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (parent_pid, child_wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+3 warnings generated.
+  CCLD   test_job
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_log.o
+  CCLD   test_log
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_state.o
+tests/test_state.c:1032:57: warning: duplicate 'const' declaration specifier [-Wduplicate-decl-specifier]
+        json_processes = process_serialise_all ((const Process const * const * const)foo->process);
+                                                               ^
+tests/test_state.c:1763:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_state.c:2590:20: warning: unused variable 'array' [-Wunused-variable]
+        nih_local char  **array = NULL;
+                          ^
+tests/test_state.c:2591:20: warning: unused variable 'new_array' [-Wunused-variable]
+        nih_local char  **new_array = NULL;
+                          ^
+4 warnings generated.
+  CCLD   test_state
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_event.o
+  CCLD   test_event
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_event_operator.o
+  CCLD   test_event_operator
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_blocked.o
+  CCLD   test_blocked
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_parse_job.o
+  CCLD   test_parse_job
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_parse_conf.o
+  CCLD   test_parse_conf
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_conf.o
+  CCLD   test_conf
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+  CC     test_control.o
+tests/test_control.c:174:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_control.c:244:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_control.c:459:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_control.c:544:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_control.c:651:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+tests/test_control.c:712:2: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+        TEST_CHILD_WAIT (pid, wait_fd) {
+        ^
+/usr/include/nih/test_process.h:105:6: note: expanded from macro 'TEST_CHILD_WAIT'
+                        } else
+                          ^
+6 warnings generated.
+  CCLD   test_control
+clang: warning: argument unused during compilation: '--param ssp-buffer-size=4'
+make[4]: Leaving directory `/«PKGBUILDDIR»/init'
+make TERM=xterm check-TESTS
+make[4]: Entering directory `/«PKGBUILDDIR»/init'
+Testing system_kill()
+...with TERM signal
+...with KILL signal
+...with no group leader
+PASS: test_system
+Testing environ_add()
+...with empty table
+...with new variable
+...with new variable from environment
+...with new variable unset in environment
+...with replacement variable
+...with replacement variable from environment
+...with replacement variable unset in environment
+...with new variable but no replace
+...with existing variable
+...with existing variable from environment
+...with existing variable unset in environment
+Testing environ_append()
+...with new entries
+...with replacement entries
+...with preserve existing entries
+Testing environ_set()
+Testing environ_lookup()
+...with empty table
+...with key to be found
+...with key not found
+...with key that is prefix of another
+...with longer key
+Testing environ_get()
+...with empty table
+...with key to be found
+...with key not found
+...with key that is prefix of another
+Testing environ_getn()
+...with empty table
+...with key to be found
+...with key not found
+...with key that is prefix of another
+...with longer key
+Testing environ_all_valid()
+...with valid table
+...with empty table
+...with missing equals
+Testing environ_expand()
+...with no expansion
+...with simple expansion
+...with simple expansion of smaller value
+...with simple expansion of same size value
+...with multiple simple expansions
+...with simple bracketed expression
+...with multiple simple bracketed expression
+...with simple expression inside bracketed expression
+...with bracketed expression inside bracketed expression
+...with bracketed default expression
+...with bracketed default expression for set variable
+...with bracketed default expression for null variable
+...with bracketed default or null expression
+...with bracketed default or null expression for set variable
+...with bracketed default or null expression for null variable
+...with bracketed alternate expression
+...with bracketed alternate expression for set variable
+...with bracketed alternate expression for null variable
+...with bracketed alternate or null expression
+...with bracketed alternate or null expression for set variable
+...with bracketed alternate or null expression for null variable
+...with references in bracketed expression argument
+...with dollar sign in whitespace
+...with bracketed dollar sign
+...with simple expansion of unknown variable
+...with bracketed expansion of unknown variable
+...with expansion of unknown variable within expression name
+...with expansion of unknown variable within expression argument
+...with unknown operator in expression
+...with missing close brace after expression
+PASS: test_environ
+Testing process_new()
+Testing process_name()
+...with main process
+...with pre-start process
+...with post-start process
+...with pre-stop process
+...with post-stop process
+...with invalid process
+Testing process_from_name()
+...with main process
+...with pre-start process
+...with post-start process
+...with pre-stop process
+...with post-stop process
+...with invalid process
+PASS: test_process
+Testing job_class_new()
+Testing job_class_consider()
+...with no registered class and best class
+...with no registered class and not best class
+...with registered class that cannot be replaced
+...with replacable registered class and best class
+...with replacable registered class and not best class
+Testing job_class_reconsider()
+...with registered best class
+...with registered not best class
+...with registered not best class that can't be replaced
+...with unregistered class
+...with no registered class
+...with no classes to replace it
+Testing job_class_register()
+...with signal emission
+...without signal emission
+Testing job_class_unregister()
+Testing job_class_environment()
+...with no configured environment
+...with configured environment
+...with configuration overriding built-ins
+Testing job_class_get_instance()
+...with running job
+...with unknown job
+...with environment
+...with invalid environment
+Testing job_class_get_instance_by_name()
+...with known job
+...with singleton job
+...with unknown instance
+Testing job_class_get_all_instances()
+...with active instances
+...with no instances
+Testing job_class_start()
+...with new job
+...with no wait
+...with stopping job
+...with starting job
+...with environment
+...with invalid environment
+Testing job_class_stop()
+...with running job
+...with no wait
+...with stopping job
+...with unknown job
+...with environment
+...with invalid environment
+Testing job_class_restart()
+...with running job
+...with no wait
+...with stopping job
+...with unknown job
+...with environment
+...with invalid environment
+Testing job_class_get_name()
+Testing job_class_get_description()
+...with description
+...with no description
+Testing job_class_get_author()
+...with author
+...with no author
+Testing job_class_get_version()
+...with version
+...with no version
+Testing job_class_get_start_on()
+...with event tree
+...with no events
+Testing job_class_get_stop_on()
+...with event tree
+...with no events
+Testing job_class_get_emits()
+...with events
+...with no events
+PASS: test_job_class
+
+
+INFO: Running tests in pty since environment does not provide needed controlling terminal
+
+
+Testing job_process_run()
+...with simple command
+...with shell command
+...with small script
+...with small script and trailing newlines
+...with script that will fail
+...with environment of unnamed instance
+...with environment of named instance
+...with environment for pre-stop
+...with environment for post-stop
+...with long script
+...with non-daemon job
+...with script for daemon job
+...with daemon job
+...with forking job
+...with no such file
+...ensure sane fds with no console, no script
+...ensure sane fds with no console, and script
+...ensure sane fds with console log, no script
+...ensure sane fds with console log, and script
+...ensure that no log file written for single-line no-output script
+...ensure that no log file written for single-line no-output command
+...ensure that no log file written for CONSOLE_NONE
+...ensure that no log file written for multi-line no-output script
+...with single-line script that writes 1 line to stdout
+...with single-line script that is killed
+...with single-line command that is killed
+...with multi-line script that is killed
+...with single-line script that writes 1 byte and is killed
+...with multi-line script that writes 1 byte and is killed
+...with single-line command that writes 1 line to stdout
+...with multi-line script that writes 1 line to stdout
+...with instance job and single-line script that writes 1 line to stdout
+...with single-line script that writes >1 lines to stdout
+...with single-line command that writes >1 lines to stdout
+...with multi-line script that writes >1 lines to stdout
+...with single-line script that writes 1 line to stderr
+...with single-line command that writes 1 line to stderr
+...with multi-line script that writes 1 line to stderr
+...with single-line script that writes >1 lines to stderr
+...with single-line command that writes >1 lines to stderr
+...with multi-line script that writes >1 lines to stderr
+...with single-line script that writes 1 line to stdout then 1 line to stderr
+...with single-line script that writes 1 line to stderr then 1 line to stdout
+...with single-line command that writes to stdout and stderr
+...with single-line script running an invalid command
+...with single-line command running an invalid command
+...with single-line command running an invalid command, then a 1-line post-stop script
+...with single-line command running an invalid command, then a 2-line post-stop script
+...with single-line command running an invalid command, then a post-stop command
+...with single-line command running an invalid command, then an invalid post-stop command
+...with single-line command running a valid command, then a 1-line invalid post-stop command
+...with multi-line script running an invalid command
+...with multi-line script that writes 1 line to stdout then 1 line to stderr
+...with multi-line script that writes 1 line to stderr then 1 line to stdout
+...with single line command writing fast and exiting
+...with single line command writing lots of data fast and exiting
+...with log object freed on process exit
+...with setuid me
+...with multiple processes and log
+Testing job_process_spawn()
+...with simple job
+...with no console
+...with console logging
+...with working directory
+...with environment
+...with non-daemon job
+...with daemon job
+...with no such file
+...with no such file, no shell and console log
+...with debug enabled
+...ensure sane fds with no console
+...ensure sane fds with console log
+...ensure multi process output logged
+...simple test
+...with single-line script and 'console log'
+...with multi-line script and 'console log'
+...read single null byte with 'console log'
+...read data from forked process
+...read data from daemon process
+...WARNING: FIXME: test 'when no free ptys' disabled due to kernel bug
+Testing job_process_log_path()
+...with system job with simple name
+...with system job containing illegal path characters
+...with system job with named instance
+...with system job with named instance and illegal path characters
+...with subverted logdir and system job with named instance and illegal path characters
+Testing job_process_kill()
+...with easily killed process
+...with hard to kill process
+Testing job_process_handler()
+...with unknown pid
+...with running process
+...with kill timer
+...with restarting process
+...with pre-start process
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+test: Temporary process spawn error: Cannot allocate memory
+...with failed pre-start process
+...with killed pre-start process
+...with respawn of running service process
+...with respawn of running task process
+...with too many respawns of running process
+...with normal exit of running respawn process
+...with respawn of service process and zero exit code
+...with respawn of task process and zero exit code
+...with abnormal exit of running process
+...with killed running process
+...with normal exit of running process
+...with normal signal killed running process
+...with running task and zero exit
+...with post-stop process
+...with failed post-stop process
+...with stopping task failure after failure
+...with post-start process
+...with running process in post-start state
+...with running process while post-start running
+...with running then post-start process
+...with failed running then post-start process
+...with respawn of running while post-start process
+...with pre-stop process
+...with running process in pre-stop state
+...with running process while pre-stop running
+...with respawn of running while pre-stop process
+...with running process while stopping
+...with stopped non-main process
+...with stopped main process outside of spawned
+...with stopped main process for non-wait job
+...with stopped main process but wrong signal
+...with stopped main process waiting in spawned
+...with signal delivered to traced process
+...with trapped new traced process
+...with trapped new traced process
+...with second child of daemon process
+...with first child of forking process
+...with fork notification before child
+...with child notification before parent
+...with exec call by initial process
+...with exec call by process after fork
+Testing job_process_handler()
+...with LOGIN_PROCESS utmp entry
+...with USER_PROCESS utmp entry
+...with multiple entries with same ut_id
+Testing job_process_find()
+...with pid we expect to find
+...with pre-start pid we expect to find
+...with post-start pid we expect to find
+...with pre-stop pid we expect to find
+...with post-stop pid we expect to find
+...with pid we do not expect to find
+...with no pids in job table
+...with no instances
+...with empty job table
+PASS: test_job_process
+Testing job_new()
+...with no name
+...with name given
+...with D-Bus connection
+Testing job_register()
+...with signal emission
+...without signal emission
+Testing job_change_goal()
+...with waiting job
+...with stopping job
+...with running job and start
+...with running job and stop
+...with running job and no process
+...with starting job
+...with waiting job
+Testing job_change_state()
+...waiting to starting
+...waiting to starting for named instance
+...waiting to starting with export
+...starting to pre-start
+...starting to pre-start without process
+...starting to pre-start for failed process
+...pre-start to spawned
+...pre-start to spawned for named instance
+...pre-start to spawned with export
+...pre-start to spawned without process
+...pre-start to spawned for failed process
+...pre-start to spawned for waiting job
+...spawned to post-start
+...spawned to post-start without process
+...spawned to post-start for failed process
+...post-start to running for service
+...post-start to running for task
+...running to pre-stop
+...running to pre-stop without process
+...running to pre-stop for named instance
+...running to pre-stop with export
+...running to pre-stop for failed process
+...running to stopping
+...running to stopping for named instance
+...running to stopping with export
+...running to stopping for killed process
+...running to stopping for unknown signal
+...pre-stop to running
+...pre-stop to stopping
+...stopping to killed
+...stopping to killed without process
+...killed to post-stop
+...killed to post-stop without process
+...killed to post-stop for failed process
+...post-stop to waiting
+...post-stop to waiting for named instance
+...post-stop to waiting with export
+...post-stop to waiting with d-bus connection
+...post-stop to starting
+...post-stop to starting without new environment
+...post-stop to waiting for replaced job
+...post-stop to waiting for still active job
+...post-stop to waiting for deleted job
+Testing job_next_state()
+...with waiting job and a goal of start
+...with starting job and a goal of stop
+...with starting job and a goal of start
+...with pre-start job and a goal of stop
+...with pre-start job and a goal of start
+...with spawned job and a goal of stop
+...with spawned job and a goal of start
+...with post-start job and a goal of stop
+...with post-start job and a goal of start
+...with post-start job and a goal of respawn
+...with running job and a goal of stop
+...with dead running job and a goal of stop
+...with running job and a goal of start
+...with pre-stop job and a goal of start
+...with pre-stop job and a goal of stop
+...with post-start job and a goal of respawn
+...with stopping job and a goal of start
+...with stopping job and a goal of stop
+...with killed job and a goal of start
+...with killed job and a goal of stop
+...with post-stop job and a goal of start
+...with post-stop job and a goal of stop
+Testing job_failed()
+...with no current failure
+...with previous failure
+Testing job_finished()
+...with blocked events
+...with blocked events and failure
+...without blocked events
+Testing job_emit_event()
+...with singleton in starting state
+...with instance in starting state
+...with singleton in running state
+...with instance in running state
+...with non-failed singleton in stopping state
+...with non-failed instance in stopping state
+...with failed singleton in stopping state
+...with failed instance in stopping state
+...with killed singleton in stopping state
+...with killed instance in stopping state
+...with unknown killed singleton in stopping state
+...with unknown killed instance in stopping state
+...with unstarted singleton in stopping state
+...with unstarted instance in stopping state
+...with failed respawn singleton in stopping state
+...with failed respawn instance in stopping state
+...with non-failed singleton in stopped state
+...with non-failed instance in waiting state
+...with failed singleton in waiting state
+...with failed instance in waiting state
+...with killed singleton in waiting state
+...with killed instance in waiting state
+...with unknown killed singleton in waiting state
+...with unknown killed instance in waiting state
+...with unstarted singleton in waiting state
+...with unstarted instance in waiting state
+...with failed respawn singleton in waiting state
+...with failed respawn instance in waiting state
+Testing job_name()
+...with non-instance job
+...with instance job
+...with multiple calls
+Testing job_goal_name()
+...with stop goal
+...with start goal
+...with respawn goal
+...with invalid goal
+Testing job_goal_from_name()
+...with stop goal
+...with start goal
+...with respawn goal
+...with invalid goal
+Testing job_state_name()
+...with waiting state
+...with starting state
+...with pre-start state
+...with spawned state
+...with post-start state
+...with running state
+...with pre-stop state
+...with stopping state
+...with killed state
+...with post-stop state
+...with invalid state
+Testing job_state_from_name()
+...with waiting state
+...with starting state
+...with pre-start state
+...with spawned state
+...with post-start state
+...with running state
+...with pre-stop state
+...with stopping state
+...with killed state
+...with post-stop state
+...with invalid state
+Testing job_start()
+...with stopping job
+...with no wait
+...with starting job
+Testing job_stop()
+...with running job
+...with no wait
+...with stopping job
+Testing job_restart()
+...with running job
+...with no wait
+...with stopping job
+Testing job_get_name()
+...with instance name
+...with no instance name
+Testing job_get_goal()
+Testing job_get_state()
+Testing job_get_processes()
+...with no processes
+...with pre-start process
+...with post-start process and no main process
+...with main process
+...with main process and post-start process
+...with main process and pre-stop process
+...with pre-stop process and no main process
+...with post-stop process
+Testing job_deserialise() ptrace handling
+PASS: test_job
+Testing log_new()
+...object checks with uid 0
+...ensure logging disallowed for uid >0
+...parent check
+...writing a new log file with uid 0
+...same logger appending to file with uid 0
+...different logger appending to file with uid 0
+...ensure logging resumes when file made accessible with uid 0
+...ensure logger flushes cached data on request
+...ensure logger flushes when destroyed with uid 0
+...ensure log written when directory created accessible with uid 0
+...ensure remainder of log written when file deleted with uid 0
+...writing 1 null with uid 0
+...writing >1 null with uid 0
+...writing 1 non-printable only with uid 0
+...writing >1 non-printable only with uid 0
+...with very long relative path and uid 0
+...with overly long relative path and uid 0
+...with very long absolute path and uid 0
+...with overly long absolute path and uid 0
+Testing log_destroy()
+...ensure log fd closed with uid 0
+...ensure path and io elements freed with uid 0
+...ensure unflushed data freed with uid 0
+...ensure watch freed when log destroyed
+PASS: test_log
+Testing basic types
+...32-bit integer serialisation and deserialisation
+...64-bit integer serialisation and deserialisation
+...string serialisation and deserialisation
+...strict string serialisation and deserialisation
+...32-bit object integer serialisation and deserialisation
+...64-bit object integer serialisation and deserialisation
+...empty object string array serialisation and deserialisation
+...object string array serialisation and deserialisation
+...empty object env array serialisation and deserialisation
+...object env array serialisation and deserialisation
+Testing clean_args()
+...no arguments
+...1 argument
+...non-cleanable arguments
+...mostly cleanable arguments
+...only cleanable arguments
+...lots of arguments
+Testing stateful re-exec enums
+...BlockedType
+...ProcessType
+...ConsoleType
+...ExpectType
+Testing integer array serialisation and deserialisation
+...explicit 32-bit integer array
+...implicit 32-bit integer array
+...explicit 64-bit integer array
+...implicit 64-bit integer array
+...implicit native integer array
+Testing string array serialisation and deserialisation
+...serialisation of empty array
+...deserialisation of empty array
+...serialisation of array with single nul string
+...deserialisation of array with single nul string
+...serialisation of non-empty array
+...deserialisation of non-empty array
+...serialisation of non-empty environment array
+...deserialisation of non-empty environment array
+Testing hex data encoding
+...serialisation
+...deserialisation
+Testing rlimit encoding
+...single rlimit serialisation and deserialisation
+...rlimits array serialisation and deserialisation
+Testing Session serialisation and deserialisation
+...Session serialisation
+...Session deserialisation
+Testing Process serialisation and deserialisation
+...single Process serialisation and deserialisation
+...Process serialisation with no script and command
+...Process deserialisation with no script and command
+...Process serialisation with script and command
+...Process deserialisation with script and command
+...array of Processes serialisation and deserialisation
+Testing Blocked serialisation and deserialisation
+...BLOCKED_JOB serialisation and deserialisation
+...BLOCKED_EVENT serialisation and deserialisation
+...BLOCKED_JOB with JSON session object
+...ensure BLOCKED_JOB with non-NULL session is ignored
+...event blocking a job
+...job blocking an event
+Testing Event serialisation and deserialisation
+...without event environment
+...with event environment
+...with progress values
+...with various fd values
+...with env+session
+Testing Log serialisation and deserialisation
+...with uid 0
+...with unflushed data
+Testing Job serialisation and deserialisation
+...basic job
+Testing JobClass serialisation and deserialisation
+...JobClass with no Jobs
+...JobClass with 1 Job
+...JobClass with >1 Jobs
+Testing upgrade tests
+...with data file 'upstart-1.6.json'
+PASS: test_state
+Testing event_new()
+Testing event_block()
+Testing event_unblock()
+Testing event_poll()
+...with unblocked pending event
+...with unblocked handling event
+...with blocked handling event
+...with finished event
+Testing event_pending()
+Testing event_pending_handle_jobs()
+...with non-matching event for start
+...with partial matching event to start
+...with matching events to start
+...with environment in start event
+...with restart of stopping job
+...with already running job
+...with instance name
+...with restart of existing instance
+...with error in instance name
+...with non-matching event for stop
+...with matching event to stop
+...with environment in stop event
+...with stop of restarting job
+...with already stopping job
+...with environment expansion in stop event
+Testing event_finished()
+...with non-failed event
+...with failed event
+...with failed failed event
+...with non-blocked stopping job
+...with non-blocked starting job
+...with stopping job but wrong event
+...with starting job but wrong event
+...with stopping job
+...with starting job
+PASS: test_event
+Testing event_operator_new()
+...with EVENT_MATCH
+...with EVENT_MATCH and environment
+...with EVENT_OR
+Testing event_operator_copy()
+...with EVENT_OR
+...with EVENT_MATCH and no environment or event
+...with EVENT_MATCH and environment
+...with EVENT_MATCH and referenced event
+...with children
+Testing event_operator_destroy()
+...with referenced event
+...without referenced event
+Testing event_operator_update()
+...with EVENT_OR and both children FALSE
+...with EVENT_OR and only left child TRUE
+...with EVENT_OR and only right child TRUE
+...with EVENT_OR and both children TRUE
+...with EVENT_AND and both children FALSE
+...with EVENT_AND and only left child TRUE
+...with EVENT_AND and only right child TRUE
+...with EVENT_AND and both children TRUE
+Testing event_operator_match()
+...with different name events
+...with same name events
+...with same environment lists
+...with environment lists and wrong values
+...with environment lists and wrong values negated
+...with environment lists and correct values negated
+...with shorter environment list in operator
+...with matching value lists
+...with non-matching value lists
+...with shorter value list in operator
+...with shorter list in event
+...with different order environment lists
+...with value list and variable list
+...with unknown variable in operator
+...with globs in operator environment
+...with globs in operator value
+...with variable reference in operator
+...with unknown variable reference in operator
+Testing event_operator_handle()
+...with non-matching event
+...with matching event
+...with duplicate matching event
+...with matching event and complete expression
+...with environment
+Testing event_operator_environment()
+...with environment table
+...with environment variable for event list
+...with no matches
+Testing event_operator_events()
+...with matches in tree
+...with no matches
+Testing event_operator_reset()
+Testing event_operator_serialisation()
+...with simple operator
+...with or operator
+...with and operator
+...with complex operator
+...with complex operator (2)
+...with complex operator (3)
+...with complex operator (4)
+PASS: test_event_operator
+Testing blocked_new()
+...with job
+...with event
+...with D-Bus EmitEvent method
+...with D-Bus Instance.Start method
+...with D-Bus Instance.Stop method
+...with D-Bus Instance.Restart method
+...with D-Bus Job.Start method
+...with D-Bus Job.Stop method
+...with D-Bus Job.Restart method
+PASS: test_blocked
+Testing parse_job()
+...with simple job file
+...with missing exec and script
+...with non-NULL update parameter (override)
+Testing stanza_instance()
+...with argument
+...with multiple stanzas
+...with extra argument
+...with missing argument
+Testing stanza_description()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_version()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_author()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_env()
+...with single argument
+...with repeated stanzas
+...with missing argument
+...with extra argument
+Testing stanza_export()
+...with single argument
+...with multiple arguments
+...with multiple stanzas
+...with missing argument
+Testing stanza_start()
+...with event name
+...with event name and arguments
+...with event name and various arguments
+...with operator and two events
+...with operator and two events with arguments
+...with multiple operators
+...with parentheses
+...with nested parentheses
+...with multiple on stanzas
+...with missing argument
+...with unknown argument
+...with on and missing argument
+...with operator at start of expression
+...with operator at end of expression
+...with consecutive operators
+...with operator at start of group
+...with operator at end of group
+...with missing open paren
+...with missing close paren
+...with group immediately after event
+...with event immediately after group
+...with positional arguments after name-based ones
+Testing stanza_stop()
+...with event name
+...with event name and arguments
+...with event name and various arguments
+...with operator and two events
+...with operator and two events with arguments
+...with multiple operators
+...with parentheses
+...with nested parentheses
+...with multiple on stanzas
+...with missing argument
+...with unknown argument
+...with on and missing argument
+...with operator at start of expression
+...with operator at end of expression
+...with consecutive operators
+...with operator at start of group
+...with operator at end of group
+...with missing open paren
+...with missing close paren
+...with group immediately after event
+...with event immediately after group
+...with positional arguments after name-based ones
+Testing stanza_emits()
+...with single argument
+...with multiple arguments
+...with multiple stanzas
+...with missing argument
+Testing stanza_manual()
+...manual_stanza before start on
+...manual stanza after start on
+Testing stanza_exec()
+...with arguments
+...with duplicates
+...with exec following script
+...with no arguments
+Testing stanza_script()
+...with block
+...with multiple blocks
+...with script following exec
+...with argument
+Testing stanza_pre_start()
+...with exec and command
+...with multiple exec
+...with script and block
+...with multiple script
+...with script following exec
+...with exec following script
+...with exec but no command
+...with argument to script
+...with unknown argument
+...with missing argument
+Testing stanza_post_start()
+...with exec and command
+...with multiple exec
+...with script and block
+...with multiple script
+...with script following exec
+...with exec following script
+...with exec but no command
+...with argument to script
+...with unknown argument
+...with missing argument
+Testing stanza_pre_stop()
+...with exec and command
+...with multiple exec
+...with script and block
+...with multiple script
+...with script following exec
+...with exec following script
+...with exec but no command
+...with argument to script
+...with unknown argument
+...with missing argument
+Testing stanza_post_stop()
+...with exec and command
+...with multiple exec
+...with script and block
+...with multiple script
+...with script following exec
+...with exec following script
+...with exec but no command
+...with argument to script
+...with unknown argument
+...with missing argument
+Testing stanza_expect()
+...with stop argument
+...with daemon argument
+...with fork argument
+...with none argument
+...with multiple for stanzas
+...with missing argument
+...with unknown argument
+...with extra argument
+Testing stanza_task()
+...with no arguments
+...with multiple stanzas
+...with arguments
+Testing stanza_kill()
+...with timeout and single argument
+...with signal and single argument
+...with signal and single numeric argument
+...with multiple timeout and single argument stanzas
+...with multiple signal and single argument stanzas
+...with missing argument
+...with unknown second argument
+...with timeout and missing argument
+...with signal and missing argument
+...with timeout and non-integer argument
+...with timeout and too-large argument
+...with timeout and alphanumeric argument
+...with timeout and negative argument
+...with signal and unknown signal argument
+...with timeout and extra argument
+...with signal and extra argument
+Testing stanza_respawn()
+...with no argument
+...with multiple no argument stanzas
+...with limit and two arguments
+...with limit and unlimited
+...with multiple limit and two argument stanzas
+...with limit and missing second argument
+...with limit and missing arguments
+...with limit and non-integer interval argument
+...with limit and too-large interval argument
+...with limit and non-integer limit argument
+...with limit and too-large limit argument
+...with limit and alphanumeric interval argument
+...with limit and alphanumeric limit argument
+...with limit and negative interval argument
+...with limit and negative interval argument
+...with extra argument to limit
+...with unknown argument to limit
+Testing stanza_normal()
+...with single argument
+...with single argument containing signal name
+...with multiple arguments
+...with multiple stanzas
+...with missing argument
+...with non-integer argument
+...with alphanumeric argument
+...with negative argument
+...with unknown argument
+...with missing exit
+Testing stanza_console()
+...with none argument
+...with output argument
+...with owner argument
+...with log argument
+...with multiple stanzas
+...with unknown argument
+...with argument
+...with missing argument
+Testing stanza_umask()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with non-octal argument
+...with non-integer argument
+...with alphanumeric argument
+...with negative argument
+...with extra argument
+Testing stanza_nice()
+...with positive argument
+...with negative argument
+...with multiple stanzas
+...with missing argument
+...with overly large argument
+...with overly small argument
+...with non-integer argument
+...with alphanumeric argument
+...with extra argument
+Testing stanza_oom()
+...with positive argument
+...with positive score argument
+...with negative argument
+...with negative score argument
+...with never argument
+...with never score argument
+...with multiple stanzas
+...with multiple score stanzas
+...with an oom overriding an oom score stanza
+...with an oom score overriding an oom stanza
+...with missing argument
+...with missing score argument
+...with overly large argument
+...with overly large score argument
+...with overly small argument
+...with overly small score argument
+...with non-integer argument
+...with non-integer score argument
+...with alphanumeric argument
+...with alphanumeric score argument
+...with extra argument
+...with extra score argument
+Testing stanza_limit()
+...with as limit
+...with core limit
+...with cpu limit
+...with data limit
+...with fsize limit
+...with memlock limit
+...with msgqueue limit
+...with nice limit
+...with nofile limit
+...with nproc limit
+...with rss limit
+...with rtprio limit
+...with sigpending limit
+...with stack limit
+...with multiple limits
+...with multiple of a single limit
+...with unlimited hard limit
+...with unlimited soft limit
+...with missing hard limit
+...with missing soft limit
+...with unknown resource type
+...with missing resource type
+...with non-integer hard value argument
+...with non-integer soft value argument
+...with too-large hard value argument
+...with too-large soft value argument
+...with alphanumeric hard value argument
+...with alphanumeric soft value argument
+...with extra argument
+Testing stanza_chroot()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_chdir()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_setuid()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_setgid()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+Testing stanza_usage()
+...with single argument
+...with multiple stanzas
+...with missing argument
+...with extra argument
+PASS: test_parse_job
+Testing parse_conf()
+...with simple file
+PASS: test_parse_conf
+Testing conf_source_new()
+Testing conf_file_new()
+Testing conf_source_reload() with job directory
+...with new job directory
+...with new file in directory (direct write)
+...with modified job (direct write)
+...with modified job (atomic rename)
+...with deleted job
+...with modification to running job
+...with modification to replacement for running job
+...with deletion of replacement for running job
+...with deletion of running job
+...with error after modification of job
+...with parse error after modification of job
+...with error parsing job
+...with job parse error
+...with non-existant directory
+...with deletion of top-level directory
+...without .conf extension only
+...with literal .conf file
+...with new job directory but no inotify
+...with reload of job directory
+...with error parsing job without inotify
+...with job parse error without inotify
+...with non-existant directory and no inotify
+...with reload of deleted directory
+...without .conf extension only
+...with literal .conf file
+Testing conf_source_reload() with config directory
+...with new conf directory
+...with new file in directory
+...with modified file in directory
+...with deleted file
+...with error after modification of file
+...with parse error after modification of file
+...with error parsing file
+...with non-existant directory
+...with deletion of top-level directory
+...with new conf directory but no inotify
+...with reload of conf directory
+...with error parsing file without inotify
+...with parse error without inotify
+...with non-existant directory and no inotify
+...with reload of deleted directory
+Testing conf_source_reload() with configuration file
+...with new conf file
+...with new file alongside conf file
+...with modification to file alongside conf file
+...with modification (direct write)
+...with modification (atomic rename)
+...with deletion
+...with creation (direct write)
+...with creation (atomic rename)
+...with error after modification
+...with parse error after modification
+...with physical error parsing file
+...with parse error
+...with non-existant file
+...with deletion of parent directory
+...with new conf file but no inotify
+...with reload of conf file
+...with error parsing file without inotify
+...with parse error without inotify
+...with non-existant conf file and no inotify
+...with reload of deleted conf file
+Testing conf_source_reload()
+Testing toggle_conf_name() changing conf to override
+...changing override to conf
+Testing override files
+...with pre-override environment (conf with no override before watch)
+...with pre-override environment (conf with no override after watch)
+...ensure lone override ignored before watch
+...ensure lone override ignored after watch
+...create conf, watch, then create/modify/delete override
+...create watch, conf, then create/modify/delete override
+...create override, watch, then create/modify/delete conf
+...create watch, override, then create/modify/delete conf
+...create override, watch, conf, then modify/delete override
+...create watch, override, conf, then modify/delete override
+...create both conf+override files, watch, then modify/delete conf
+...create both conf+override files, watch, then modify/delete override
+...create conf, watch, then create invalid override, delete override
+...ensure override ignored for CONF_FILE
+...both conf+override files with no inotify support
+Testing conf_file_destroy()
+...with not-current job
+...with stopped job
+...with running job
+Testing conf_select_job()
+...with one file
+...with multiple files
+...with file but no attached job
+...with no match
+PASS: test_conf
+Testing control_server_open()
+...with expected success
+...with already listening
+Testing control_server_connect()
+...with no jobs
+...with existing jobs
+Testing control_server_close()
+Testing control_bus_open()
+...with system bus
+...with existing jobs
+...with disconnect during registration
+...with our name already taken
+...with no system bus
+Testing control_bus_close()
+Testing control_disconnected()
+Testing control_reload_configuration()
+Testing control_get_job_by_name()
+...with known job
+...with unknown job
+...with illegal job name
+Testing control_get_all_jobs()
+...with registered jobs
+...with no registered jobs
+Testing control_emit_event()
+...with empty environment list
+...with environment list
+...with no wait
+...with failed event
+...with empty name
+...with missing equals in environment list
+Testing control_get_version()
+Testing control_get_log_priority()
+...with fatal
+...with error
+...with warn
+...with message
+...with info
+...with debug
+Testing control_set_log_priority()
+...with fatal
+...with error
+...with warn
+...with message
+...with info
+...with debug
+...with unknown string
+PASS: test_control
+===================
+All 15 tests passed
+===================
+make[4]: Leaving directory `/«PKGBUILDDIR»/init'
+make[3]: Leaving directory `/«PKGBUILDDIR»/init'
+make[2]: Leaving directory `/«PKGBUILDDIR»/init'
+Making check in util
+make[2]: Entering directory `/«PKGBUILDDIR»/util'
+make  check-am
+make[3]: Entering directory `/«PKGBUILDDIR»/util'
+make  test_initctl test_utmp test_sysv test_telinit
+make[4]: Entering directory `/«PKGBUILDDIR»/util'
+  CC     test_initctl-test_initctl.o
+tests/test_initctl.c:765:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:1008:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:1251:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:1480:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:1723:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:1967:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:2211:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:2455:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:2715:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:2974:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:3218:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:3345:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:3435:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:3669:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:3588:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:3999:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:3916:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:4331:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:4250:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:4691:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:4586:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:4941:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:5013:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:5124:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:5470:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:5360:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:5716:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:5602:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:5962:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:5852:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:6207:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:6102:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:6342:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:6414:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:6522:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:6669:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:7026:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:6945:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:7356:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:7273:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:7688:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:7607:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8048:34: error: expected ';' at end of declaration
+                                void hup_handler (int signum) { _exit (0); }
+                                                             ^
+                                                             ;
+tests/test_initctl.c:7943:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8298:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8370:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8481:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8717:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (proc_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8721:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8918:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (proc_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:8922:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9128:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (proc_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9132:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9331:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9403:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9602:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:9916:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:10240:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:10556:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:10721:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:10793:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:10901:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:11107:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:11107:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:11123:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:11123:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:11211:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        _START_UPSTART (upstart_pid, confdir, logdir);
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:11211:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        _START_UPSTART (upstart_pid, confdir, logdir);
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:11387:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:11387:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:11850:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:11850:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:12332:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:12332:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+tests/test_initctl.c:12459:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:13290:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:13633:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:13748:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:13838:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:13934:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14027:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14180:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14256:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14370:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14467:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14591:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14688:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14790:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14862:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                TEST_CHILD (server_pid) {
+                ^
+/usr/include/nih/test_process.h:67:6: note: expanded from macro 'TEST_CHILD'
+                        } else
+                          ^
+tests/test_initctl.c:14980:2: warning: unused variable 'conf_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:120:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *conf_opts = NULL;                          \
+                          ^
+tests/test_initctl.c:14980:2: warning: unused variable 'log_opts' [-Wunused-variable]
+        START_UPSTART (upstart_pid);
+        ^
+tests/test_initctl.c:169:2: note: expanded from macro 'START_UPSTART'
+        _START_UPSTART (pid, NULL, NULL)
+        ^
+tests/test_initctl.c:121:20: note: expanded from macro '_START_UPSTART'
+        nih_local char   *log_opts = NULL;                           \
+                          ^
+79 warnings and 12 errors generated.
+make[4]: *** [test_initctl-test_initctl.o] Error 1
+make[4]: Leaving directory `/«PKGBUILDDIR»/util'
+make[3]: *** [check-am] Error 2
+make[3]: Leaving directory `/«PKGBUILDDIR»/util'
+make[2]: *** [check] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/util'
+make[1]: *** [check-recursive] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_auto_test: make -j1 check returned exit code 2
+make: *** [build-arch] Error 29
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0334
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -433,27 +3018,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 29536
+Build-Time: 92
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 12
 Job: upstart_1.6.1-1
 Package: upstart
-Package-Time: 0
+Package-Time: 128
 Source-Version: 1.6.1-1
-Space: 0
-Status: failed
+Space: 29536
+Status: attempted
 Version: 1.6.1-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0541
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.784762s
+Finished at 20130202-0334
+Build needed 00:02:08, 29536k disc space
+DC-Status: Failed 128.586847s
+DC-Time-Estimation: 128.586847 versus expected 47 (r/m: 1.73589036170213 ; m: 47.0)

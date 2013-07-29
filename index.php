@@ -3,8 +3,8 @@ include("config.inc.php");
 include("listErrors.php");
 $keyGET=mysql_real_escape_string($_GET['key']);
 $versionGET=mysql_real_escape_string($_GET['version']);
-if (!$versionGET || ($versionGET!="2.9" && $versionGET="3.0" && $versionGET="3.1")) {
-        $versionGET="3.1";
+if (!$versionGET || ($versionGET!="2.9" && $versionGET="3.0" && $versionGET="3.1" && $versionGET="3.2")) {
+        $versionGET="3.2";
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +21,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET="3.0" && $versionGET="3.1
 <h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
 <div id="body">
 
-    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>, <a href="http://www.scilab-enterprises.com/">Scilab Enterprises</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1).<br />
+    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>, <a href="http://www.scilab-enterprises.com/">Scilab Enterprises</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1), January 28th 2013 (clang 3.2).<br />
 
 
 <h1>Presentation</h1>
@@ -65,6 +65,8 @@ The full list of all the results with logs are available at the following URL:<b
 <a href="/status.php?version=3.0">clang 3.0</a> (January 2012)</li>
 <li>
 <a href="/status.php?version=3.1">clang 3.1</a> (June 2012)</li>
+<li>
+<a href="/status.php?version=3.2">clang 3.2</a> (January 2013)</li>
 </ul>
 <br />
     Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
@@ -109,7 +111,7 @@ However, from Debian's point of view, one important step would be to make sure t
 <h1>Annexes</h1>
 <h2>Rebuild</h2>
     The 2.9 and 3.0 rebuild itself have been done on a cluster called Grid 5000.<br />
-    3.1 rebuild has been done on EC2, the Amazon cloud, sponsoring Debian.<br />
+    3.1 and 3.2 rebuilds have been done on EC2, the Amazon cloud, sponsoring Debian.<br />
 <br />
 Each packages in the Debian archive has been rebuild with the chroot described further. <br />
      For each packages failing to build from the source with clang, the package has been rebuild with a "normal" Debian sid chroot. If working, we considered that it was due to a clang bug. Otherwise, the package is not listed in this list.<br />
@@ -170,6 +172,8 @@ echo "Check if gcc, g++ & cpp are actually clang"
 gcc --version|grep clang > /dev/null || exit 1
 
 </pre>
+The same procedure has been used for the 3.2 rebuild except that the clang packages have been rebuild for unstable (instead of the experimental packages).
+
 
 <h2>Acknowledgments</h2>
 Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience (especially since I did a few screw up :p).<br />

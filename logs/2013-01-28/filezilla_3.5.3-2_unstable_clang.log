@@ -1,12 +1,12 @@
-DC-Build-Header: filezilla 3.5.3-2 / Mon Jan 28 04:13:07 +0000 2013
-DC-Task: logfile:/tmp/filezilla_3.5.3-2_unstable_clang.log version:3.5.3-2 chroot:unstable modes:binary-only:clang source:filezilla architecture:any esttime:1561
+DC-Build-Header: filezilla 3.5.3-2 / Thu Jan 31 18:22:47 +0000 2013
+DC-Task: logfile:/tmp/filezilla_3.5.3-2_unstable_clang.log version:3.5.3-2 modes:binary-only:clang chroot:unstable source:filezilla esttime:1561 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang filezilla_3.5.3-2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-46.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-16-100.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ filezilla 3.5.3-2 (amd64)                                  28 Jan 2013 04:13 ║
+║ filezilla 3.5.3-2 (amd64)                                  31 Jan 2013 18:22 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: filezilla
@@ -15,9 +15,9 @@ Source Version: 3.5.3-2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/filezilla-Brsqyp/filezilla-3.5.3' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/filezilla-Brsqyp' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-64a1da01-c562-473e-bf8b-f61c07cb50b1' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/filezilla-Q1dJNM/filezilla-3.5.3' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/filezilla-Q1dJNM' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-ea9b1300-5da0-48b9-aeb1-8d1a22bc90a7' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,12 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4936 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (4980 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +60,7 @@ Need to get 3379 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main filezilla 3.5.3-2 (dsc) [2120 B]
 Get:2 http://localhost/debian/ unstable/main filezilla 3.5.3-2 (tar) [3367 kB]
 Get:3 http://localhost/debian/ unstable/main filezilla 3.5.3-2 (diff) [10.7 kB]
-Fetched 3379 kB in 0s (4778 kB/s)
+Fetched 3379 kB in 0s (7962 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1316 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2666 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3955 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.2 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (7025 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-y_R7bD/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-Bzg5m8/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7.0.50~), autotools-dev, pkg-config, libwxgtk2.8-dev (>= 2.8.6) | libwxgtk-dev (>= 2.8.6), wx-common, libgtk2.0-dev, libidn11-dev, gettext, libgnutls-dev (>= 2.8.3), imagemagick, libdbus-1-dev, libtinyxml-dev, libsqlite3-dev
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 7.0.50~), autotools-dev, pkg-config, libwxgtk2.8-dev (>= 2.8.6), wx-common, libgtk2.0-dev, libidn11-dev, gettext, libgnutls-dev (>= 2.8.3), imagemagick, libdbus-1-dev, libtinyxml-dev, libsqlite3-dev
-dpkg-deb: building package `sbuild-build-depends-filezilla-dummy' in `/«BUILDDIR»/resolver-vKbKHa/apt_archive/sbuild-build-depends-filezilla-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-filezilla-dummy' in `/«BUILDDIR»/resolver-xvzF5H/apt_archive/sbuild-build-depends-filezilla-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +286,2078 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autotools-dev bsdmainutils debhelper file fontconfig fontconfig-config
+  gettext gettext-base gir1.2-atk-1.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0
+  gir1.2-glib-2.0 gir1.2-pango-1.0 groff-base hicolor-icon-theme html2text
+  imagemagick imagemagick-common intltool-debian libasprintf-dev
+  libasprintf0c2 libatk1.0-0 libatk1.0-data libatk1.0-dev libavahi-client3
+  libavahi-common-data libavahi-common3 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcroco3 libcups2
+  libdatrie1 libdbus-1-3 libdbus-1-dev libdrm2 libelf1 libexpat1-dev
+  libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev libgcrypt11
+  libgcrypt11-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgdk-pixbuf2.0-dev libgettextpo-dev libgettextpo0 libgirepository-1.0-1
+  libgl1-mesa-glx libglapi-mesa libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libglu1-mesa libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgtk2.0-0
+  libgtk2.0-common libgtk2.0-dev libice-dev libice6 libidn11 libidn11-dev
+  libjasper1 libjbig0 libjpeg8 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 liblcms2-2 liblqr-1-0 libltdl7 libmagic1 libmagickcore5
+  libmagickwand5 libp11-kit-dev libp11-kit0 libpango1.0-0 libpango1.0-dev
+  libpcre3 libpcre3-dev libpcrecpp0 libpipeline1 libpixman-1-0 libpixman-1-dev
+  libpng12-0 libpng12-dev libpopt0 libpthread-stubs0 libpthread-stubs0-dev
+  libsm-dev libsm6 libsqlite3-dev libtasn1-3 libtasn1-3-dev libthai-data
+  libthai0 libtiff4 libtinyxml-dev libtinyxml2.6.2 libunistring0
+  libwxbase2.8-0 libwxbase2.8-dev libwxgtk2.8-0 libwxgtk2.8-dev libx11-6
+  libx11-data libx11-dev libx11-xcb1 libxau-dev libxau6 libxcb-glx0
+  libxcb-render0 libxcb-render0-dev libxcb-shm0 libxcb-shm0-dev libxcb1
+  libxcb1-dev libxcomposite-dev libxcomposite1 libxcursor-dev libxcursor1
+  libxdamage-dev libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev libxext6
+  libxfixes-dev libxfixes3 libxft-dev libxft2 libxi-dev libxi6 libxinerama-dev
+  libxinerama1 libxml2 libxml2-utils libxrandr-dev libxrandr2 libxrender-dev
+  libxrender1 libxt6 libxxf86vm1 man-db pkg-config po-debconf shared-mime-info
+  ttf-dejavu-core wx-common wx2.8-headers x11-common x11proto-composite-dev
+  x11proto-core-dev x11proto-damage-dev x11proto-fixes-dev x11proto-input-dev
+  x11proto-kb-dev x11proto-randr-dev x11proto-render-dev x11proto-xext-dev
+  x11proto-xinerama-dev xorg-sgml-doctools xtrans-dev zlib1g-dev
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff imagemagick-doc
+  autotrace cups-bsd lpr lprng enscript ffmpeg gimp gnuplot grads hp2xx
+  html2ps libwmf-bin mplayer povray radiance sane-utils texlive-base-bin
+  transfig xdg-utils libcairo2-doc cups-common rng-tools libgcrypt11-doc
+  libglib2.0-doc gnutls26-doc krb5-doc krb5-user librsvg2-common gvfs
+  libgtk2.0-doc libice-doc libjasper-runtime liblcms2-utils ttf-baekmuk
+  ttf-arphic-gbsn00lp ttf-arphic-bsmi00lp ttf-arphic-gkai00mp
+  ttf-arphic-bkai00mp libpango1.0-doc libsm-doc sqlite3-doc libtinyxml-doc
+  wx2.8-doc libgnomeprintui2.2-0 libgl1-mesa-dev libgl-dev xlibmesa-glu-dev
+  libglu-dev libxcb-doc libxext-doc less www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libmagickcore5-extra ghostscript netpbm
+  ufraw-batch dbus libgl1-mesa-dri libgtk2.0-bin krb5-locales gsfonts
+  libx11-doc xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  autotools-dev bsdmainutils debhelper file fontconfig fontconfig-config
+  gettext gettext-base gir1.2-atk-1.0 gir1.2-freedesktop gir1.2-gdkpixbuf-2.0
+  gir1.2-glib-2.0 gir1.2-pango-1.0 groff-base hicolor-icon-theme html2text
+  imagemagick imagemagick-common intltool-debian libasprintf-dev
+  libasprintf0c2 libatk1.0-0 libatk1.0-data libatk1.0-dev libavahi-client3
+  libavahi-common-data libavahi-common3 libcairo-gobject2
+  libcairo-script-interpreter2 libcairo2 libcairo2-dev libcroco3 libcups2
+  libdatrie1 libdbus-1-3 libdbus-1-dev libdrm2 libelf1 libexpat1-dev
+  libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev libgcrypt11
+  libgcrypt11-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgdk-pixbuf2.0-dev libgettextpo-dev libgettextpo0 libgirepository-1.0-1
+  libgl1-mesa-glx libglapi-mesa libglib2.0-0 libglib2.0-bin libglib2.0-data
+  libglib2.0-dev libglu1-mesa libgnutls-dev libgnutls-openssl27 libgnutls26
+  libgnutlsxx27 libgpg-error-dev libgpg-error0 libgssapi-krb5-2 libgtk2.0-0
+  libgtk2.0-common libgtk2.0-dev libice-dev libice6 libidn11 libidn11-dev
+  libjasper1 libjbig0 libjpeg8 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 liblcms2-2 liblqr-1-0 libltdl7 libmagic1 libmagickcore5
+  libmagickwand5 libp11-kit-dev libp11-kit0 libpango1.0-0 libpango1.0-dev
+  libpcre3 libpcre3-dev libpcrecpp0 libpipeline1 libpixman-1-0 libpixman-1-dev
+  libpng12-0 libpng12-dev libpopt0 libpthread-stubs0 libpthread-stubs0-dev
+  libsm-dev libsm6 libsqlite3-dev libtasn1-3 libtasn1-3-dev libthai-data
+  libthai0 libtiff4 libtinyxml-dev libtinyxml2.6.2 libunistring0
+  libwxbase2.8-0 libwxbase2.8-dev libwxgtk2.8-0 libwxgtk2.8-dev libx11-6
+  libx11-data libx11-dev libx11-xcb1 libxau-dev libxau6 libxcb-glx0
+  libxcb-render0 libxcb-render0-dev libxcb-shm0 libxcb-shm0-dev libxcb1
+  libxcb1-dev libxcomposite-dev libxcomposite1 libxcursor-dev libxcursor1
+  libxdamage-dev libxdamage1 libxdmcp-dev libxdmcp6 libxext-dev libxext6
+  libxfixes-dev libxfixes3 libxft-dev libxft2 libxi-dev libxi6 libxinerama-dev
+  libxinerama1 libxml2 libxml2-utils libxrandr-dev libxrandr2 libxrender-dev
+  libxrender1 libxt6 libxxf86vm1 man-db pkg-config po-debconf
+  sbuild-build-depends-filezilla-dummy shared-mime-info ttf-dejavu-core
+  wx-common wx2.8-headers x11-common x11proto-composite-dev x11proto-core-dev
+  x11proto-damage-dev x11proto-fixes-dev x11proto-input-dev x11proto-kb-dev
+  x11proto-randr-dev x11proto-render-dev x11proto-xext-dev
+  x11proto-xinerama-dev xorg-sgml-doctools xtrans-dev zlib1g-dev
+0 upgraded, 176 newly installed, 0 to remove and 0 not upgraded.
+Need to get 58.7 MB/58.7 MB of archives.
+After this operation, 195 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:13 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:14 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:15 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:16 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:17 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:18 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:19 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:20 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:21 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:22 http://localhost/debian/ unstable/main imagemagick-common all 8:6.7.7.10-5 [128 kB]
+Get:23 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:24 http://localhost/debian/ unstable/main libatk1.0-data all 2.4.0-2 [240 kB]
+Get:25 http://localhost/debian/ unstable/main libatk1.0-0 amd64 2.4.0-2 [95.1 kB]
+Get:26 http://localhost/debian/ unstable/main libavahi-common-data amd64 0.6.31-1 [134 kB]
+Get:27 http://localhost/debian/ unstable/main libavahi-common3 amd64 0.6.31-1 [54.3 kB]
+Get:28 http://localhost/debian/ unstable/main libdbus-1-3 amd64 1.6.8-1 [173 kB]
+Get:29 http://localhost/debian/ unstable/main libavahi-client3 amd64 0.6.31-1 [59.1 kB]
+Get:30 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:31 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:32 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:33 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:34 http://localhost/debian/ unstable/main libpixman-1-0 amd64 0.26.0-3 [427 kB]
+Get:35 http://localhost/debian/ unstable/main libpng12-0 amd64 1.2.49-3 [190 kB]
+Get:36 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:37 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:38 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:39 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:40 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:41 http://localhost/debian/ unstable/main libxcb-render0 amd64 1.8.1-2 [18.5 kB]
+Get:42 http://localhost/debian/ unstable/main libxcb-shm0 amd64 1.8.1-2 [10.3 kB]
+Get:43 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:44 http://localhost/debian/ unstable/main libcairo2 amd64 1.12.2-2.1 [912 kB]
+Get:45 http://localhost/debian/ unstable/main libcairo-gobject2 amd64 1.12.2-2.1 [438 kB]
+Get:46 http://localhost/debian/ unstable/main libcairo-script-interpreter2 amd64 1.12.2-2.1 [482 kB]
+Get:47 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:48 http://localhost/debian/ unstable/main libcups2 amd64 1.5.3-2.14 [255 kB]
+Get:49 http://localhost/debian/ unstable/main libdatrie1 amd64 0.2.5-3 [28.6 kB]
+Get:50 http://localhost/debian/ unstable/main libdrm2 amd64 2.4.40-1~deb7u2 [459 kB]
+Get:51 http://localhost/debian/ unstable/main libelf1 amd64 0.153-2 [304 kB]
+Get:52 http://localhost/debian/ unstable/main libjpeg8 amd64 8d-1 [134 kB]
+Get:53 http://localhost/debian/ unstable/main libjasper1 amd64 1.900.1-14 [160 kB]
+Get:54 http://localhost/debian/ unstable/main libjbig0 amd64 2.0-2 [32.2 kB]
+Get:55 http://localhost/debian/ unstable/main libtiff4 amd64 3.9.6-11 [202 kB]
+Get:56 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-common all 2.26.1-1 [497 kB]
+Get:57 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-0 amd64 2.26.1-1 [207 kB]
+Get:58 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:59 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:60 http://localhost/debian/ unstable/main libglapi-mesa amd64 8.0.5-3 [46.6 kB]
+Get:61 http://localhost/debian/ unstable/main libx11-xcb1 amd64 2:1.5.0-1 [139 kB]
+Get:62 http://localhost/debian/ unstable/main libxcb-glx0 amd64 1.8.1-2 [32.1 kB]
+Get:63 http://localhost/debian/ unstable/main libxfixes3 amd64 1:5.0-4 [21.5 kB]
+Get:64 http://localhost/debian/ unstable/main libxdamage1 amd64 1:1.1.3-2 [14.3 kB]
+Get:65 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:66 http://localhost/debian/ unstable/main libxxf86vm1 amd64 1:1.1.2-1 [19.0 kB]
+Get:67 http://localhost/debian/ unstable/main libgl1-mesa-glx amd64 8.0.5-3 [134 kB]
+Get:68 http://localhost/debian/ unstable/main libglib2.0-data all 2.33.12+really2.32.4-5 [1607 kB]
+Get:69 http://localhost/debian/ unstable/main libglib2.0-bin amd64 2.33.12+really2.32.4-5 [868 kB]
+Get:70 http://localhost/debian/ unstable/main libglu1-mesa amd64 8.0.5-3 [190 kB]
+Get:71 http://localhost/debian/ unstable/main libgtk2.0-common all 2.24.10-2 [3081 kB]
+Get:72 http://localhost/debian/ unstable/main libthai-data all 0.1.18-2 [154 kB]
+Get:73 http://localhost/debian/ unstable/main libthai0 amd64 0.1.18-2 [42.3 kB]
+Get:74 http://localhost/debian/ unstable/main libxft2 amd64 2.3.1-1 [61.0 kB]
+Get:75 http://localhost/debian/ unstable/main fontconfig amd64 2.9.0-7.1 [348 kB]
+Get:76 http://localhost/debian/ unstable/main libpango1.0-0 amd64 1.30.0-1 [461 kB]
+Get:77 http://localhost/debian/ unstable/main libxcomposite1 amd64 1:0.4.3-2 [16.6 kB]
+Get:78 http://localhost/debian/ unstable/main libxcursor1 amd64 1:1.1.13-1 [26.9 kB]
+Get:79 http://localhost/debian/ unstable/main libxi6 amd64 2:1.6.1-1 [75.0 kB]
+Get:80 http://localhost/debian/ unstable/main libxinerama1 amd64 2:1.1.2-1 [16.8 kB]
+Get:81 http://localhost/debian/ unstable/main libxrandr2 amd64 2:1.3.2-2 [33.5 kB]
+Get:82 http://localhost/debian/ unstable/main shared-mime-info amd64 1.0-1+b1 [595 kB]
+Get:83 http://localhost/debian/ unstable/main libgtk2.0-0 amd64 2.24.10-2 [2200 kB]
+Get:84 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:85 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:86 http://localhost/debian/ unstable/main liblcms2-2 amd64 2.2+git20110628-2.2 [143 kB]
+Get:87 http://localhost/debian/ unstable/main liblqr-1-0 amd64 0.4.1-2 [29.9 kB]
+Get:88 http://localhost/debian/ unstable/main libltdl7 amd64 2.4.2-1.2 [352 kB]
+Get:89 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:90 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:91 http://localhost/debian/ unstable/main libmagickcore5 amd64 8:6.7.7.10-5 [2083 kB]
+Get:92 http://localhost/debian/ unstable/main libmagickwand5 amd64 8:6.7.7.10-5 [462 kB]
+Get:93 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:94 http://localhost/debian/ unstable/main libwxbase2.8-0 amd64 2.8.12.1-12 [678 kB]
+Get:95 http://localhost/debian/ unstable/main libwxgtk2.8-0 amd64 2.8.12.1-12 [3411 kB]
+Get:96 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:97 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:98 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:99 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:100 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:101 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:102 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:103 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:104 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:105 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:106 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:107 http://localhost/debian/ unstable/main libgirepository-1.0-1 amd64 1.32.1-1 [107 kB]
+Get:108 http://localhost/debian/ unstable/main gir1.2-glib-2.0 amd64 1.32.1-1 [171 kB]
+Get:109 http://localhost/debian/ unstable/main gir1.2-atk-1.0 amd64 2.4.0-2 [64.7 kB]
+Get:110 http://localhost/debian/ unstable/main gir1.2-freedesktop amd64 1.32.1-1 [21.5 kB]
+Get:111 http://localhost/debian/ unstable/main gir1.2-gdkpixbuf-2.0 amd64 2.26.1-1 [16.6 kB]
+Get:112 http://localhost/debian/ unstable/main gir1.2-pango-1.0 amd64 1.30.0-1 [151 kB]
+Get:113 http://localhost/debian/ unstable/main hicolor-icon-theme all 0.12-1 [11.7 kB]
+Get:114 http://localhost/debian/ unstable/main imagemagick amd64 8:6.7.7.10-5 [285 kB]
+Get:115 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:116 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:117 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:118 http://localhost/debian/ unstable/main libglib2.0-dev amd64 2.33.12+really2.32.4-5 [2051 kB]
+Get:119 http://localhost/debian/ unstable/main libatk1.0-dev amd64 2.4.0-2 [117 kB]
+Get:120 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:121 http://localhost/debian/ unstable/main libfreetype6-dev amd64 2.4.9-1.1 [805 kB]
+Get:122 http://localhost/debian/ unstable/main libfontconfig1-dev amd64 2.9.0-7.1 [857 kB]
+Get:123 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:124 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:125 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:126 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:127 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:128 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:129 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:130 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:131 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:132 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:133 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:134 http://localhost/debian/ unstable/main x11proto-render-dev all 2:0.11.1-2 [20.8 kB]
+Get:135 http://localhost/debian/ unstable/main libxrender-dev amd64 1:0.9.7-1 [40.4 kB]
+Get:136 http://localhost/debian/ unstable/main libpng12-dev amd64 1.2.49-3 [267 kB]
+Get:137 http://localhost/debian/ unstable/main libice-dev amd64 2:1.0.8-2 [74.1 kB]
+Get:138 http://localhost/debian/ unstable/main libsm-dev amd64 2:1.2.1-2 [37.0 kB]
+Get:139 http://localhost/debian/ unstable/main libpixman-1-dev amd64 0.26.0-3 [457 kB]
+Get:140 http://localhost/debian/ unstable/main libxcb-render0-dev amd64 1.8.1-2 [25.9 kB]
+Get:141 http://localhost/debian/ unstable/main libxcb-shm0-dev amd64 1.8.1-2 [11.7 kB]
+Get:142 http://localhost/debian/ unstable/main libcairo2-dev amd64 1.12.2-2.1 [1162 kB]
+Get:143 http://localhost/debian/ unstable/main libdbus-1-dev amd64 1.6.8-1 [246 kB]
+Get:144 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:145 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:146 http://localhost/debian/ unstable/main libgdk-pixbuf2.0-dev amd64 2.26.1-1 [59.0 kB]
+Get:147 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:148 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:149 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:150 http://localhost/debian/ unstable/main libxft-dev amd64 2.3.1-1 [74.5 kB]
+Get:151 http://localhost/debian/ unstable/main libpango1.0-dev amd64 1.30.0-1 [622 kB]
+Get:152 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:153 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:154 http://localhost/debian/ unstable/main x11proto-xinerama-dev all 1.2.1-2 [4938 B]
+Get:155 http://localhost/debian/ unstable/main libxinerama-dev amd64 2:1.1.2-1 [18.9 kB]
+Get:156 http://localhost/debian/ unstable/main libxi-dev amd64 2:1.6.1-1 [249 kB]
+Get:157 http://localhost/debian/ unstable/main x11proto-randr-dev all 1.3.2-2 [40.0 kB]
+Get:158 http://localhost/debian/ unstable/main libxrandr-dev amd64 2:1.3.2-2 [41.9 kB]
+Get:159 http://localhost/debian/ unstable/main x11proto-fixes-dev all 1:5.0-2 [19.2 kB]
+Get:160 http://localhost/debian/ unstable/main libxfixes-dev amd64 1:5.0-4 [23.4 kB]
+Get:161 http://localhost/debian/ unstable/main libxcursor-dev amd64 1:1.1.13-1 [34.6 kB]
+Get:162 http://localhost/debian/ unstable/main x11proto-composite-dev all 1:0.4.2-2 [15.3 kB]
+Get:163 http://localhost/debian/ unstable/main libxcomposite-dev amd64 1:0.4.3-2 [20.2 kB]
+Get:164 http://localhost/debian/ unstable/main x11proto-damage-dev all 1:1.2.1-2 [11.8 kB]
+Get:165 http://localhost/debian/ unstable/main libxdamage-dev amd64 1:1.1.3-2 [14.0 kB]
+Get:166 http://localhost/debian/ unstable/main libxml2-utils amd64 2.8.0+dfsg1-7 [96.2 kB]
+Get:167 http://localhost/debian/ unstable/main libgtk2.0-dev amd64 2.24.10-2 [2999 kB]
+Get:168 http://localhost/debian/ unstable/main libidn11-dev amd64 1.25-2 [664 kB]
+Get:169 http://localhost/debian/ unstable/main libsqlite3-dev amd64 3.7.15.2-1 [589 kB]
+Get:170 http://localhost/debian/ unstable/main libtinyxml2.6.2 amd64 2.6.2-1 [43.8 kB]
+Get:171 http://localhost/debian/ unstable/main libtinyxml-dev amd64 2.6.2-1 [63.7 kB]
+Get:172 http://localhost/debian/ unstable/main wx2.8-headers amd64 2.8.12.1-12 [1556 kB]
+Get:173 http://localhost/debian/ unstable/main libwxbase2.8-dev amd64 2.8.12.1-12 [107 kB]
+Get:174 http://localhost/debian/ unstable/main wx-common amd64 2.8.12.1-12 [129 kB]
+Get:175 http://localhost/debian/ unstable/main libwxgtk2.8-dev amd64 2.8.12.1-12 [107 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 58.7 MB in 2s (23.8 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package imagemagick-common.
+Unpacking imagemagick-common (from .../imagemagick-common_8%3a6.7.7.10-5_all.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libatk1.0-data.
+Unpacking libatk1.0-data (from .../libatk1.0-data_2.4.0-2_all.deb) ...
+Selecting previously unselected package libatk1.0-0:amd64.
+Unpacking libatk1.0-0:amd64 (from .../libatk1.0-0_2.4.0-2_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Unpacking libavahi-common-data:amd64 (from .../libavahi-common-data_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Unpacking libavahi-common3:amd64 (from .../libavahi-common3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Unpacking libdbus-1-3:amd64 (from .../libdbus-1-3_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Unpacking libavahi-client3:amd64 (from .../libavahi-client3_0.6.31-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Unpacking libpixman-1-0:amd64 (from .../libpixman-1-0_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libpng12-0:amd64.
+Unpacking libpng12-0:amd64 (from .../libpng12-0_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Unpacking libxcb-render0:amd64 (from .../libxcb-render0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Unpacking libxcb-shm0:amd64 (from .../libxcb-shm0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libcairo2:amd64.
+Unpacking libcairo2:amd64 (from .../libcairo2_1.12.2-2.1_amd64.deb) ...
+Selecting previously unselected package libcairo-gobject2:amd64.
+Unpacking libcairo-gobject2:amd64 (from .../libcairo-gobject2_1.12.2-2.1_amd64.deb) ...
+Selecting previously unselected package libcairo-script-interpreter2:amd64.
+Unpacking libcairo-script-interpreter2:amd64 (from .../libcairo-script-interpreter2_1.12.2-2.1_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libcups2:amd64.
+Unpacking libcups2:amd64 (from .../libcups2_1.5.3-2.14_amd64.deb) ...
+Selecting previously unselected package libdatrie1:amd64.
+Unpacking libdatrie1:amd64 (from .../libdatrie1_0.2.5-3_amd64.deb) ...
+Selecting previously unselected package libdrm2:amd64.
+Unpacking libdrm2:amd64 (from .../libdrm2_2.4.40-1~deb7u2_amd64.deb) ...
+Selecting previously unselected package libelf1:amd64.
+Unpacking libelf1:amd64 (from .../libelf1_0.153-2_amd64.deb) ...
+Selecting previously unselected package libjpeg8:amd64.
+Unpacking libjpeg8:amd64 (from .../libjpeg8_8d-1_amd64.deb) ...
+Selecting previously unselected package libjasper1:amd64.
+Unpacking libjasper1:amd64 (from .../libjasper1_1.900.1-14_amd64.deb) ...
+Selecting previously unselected package libjbig0:amd64.
+Unpacking libjbig0:amd64 (from .../libjbig0_2.0-2_amd64.deb) ...
+Selecting previously unselected package libtiff4:amd64.
+Unpacking libtiff4:amd64 (from .../libtiff4_3.9.6-11_amd64.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+Unpacking libgdk-pixbuf2.0-common (from .../libgdk-pixbuf2.0-common_2.26.1-1_all.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-0:amd64.
+Unpacking libgdk-pixbuf2.0-0:amd64 (from .../libgdk-pixbuf2.0-0_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libglapi-mesa:amd64.
+Unpacking libglapi-mesa:amd64 (from .../libglapi-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Unpacking libx11-xcb1:amd64 (from .../libx11-xcb1_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxcb-glx0:amd64.
+Unpacking libxcb-glx0:amd64 (from .../libxcb-glx0_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxfixes3:amd64.
+Unpacking libxfixes3:amd64 (from .../libxfixes3_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxdamage1:amd64.
+Unpacking libxdamage1:amd64 (from .../libxdamage1_1%3a1.1.3-2_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxxf86vm1:amd64.
+Unpacking libxxf86vm1:amd64 (from .../libxxf86vm1_1%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-glx:amd64.
+Unpacking libgl1-mesa-glx:amd64 (from .../libgl1-mesa-glx_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libglib2.0-data.
+Unpacking libglib2.0-data (from .../libglib2.0-data_2.33.12+really2.32.4-5_all.deb) ...
+Selecting previously unselected package libglib2.0-bin.
+Unpacking libglib2.0-bin (from .../libglib2.0-bin_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libglu1-mesa:amd64.
+Unpacking libglu1-mesa:amd64 (from .../libglu1-mesa_8.0.5-3_amd64.deb) ...
+Selecting previously unselected package libgtk2.0-common.
+Unpacking libgtk2.0-common (from .../libgtk2.0-common_2.24.10-2_all.deb) ...
+Selecting previously unselected package libthai-data.
+Unpacking libthai-data (from .../libthai-data_0.1.18-2_all.deb) ...
+Selecting previously unselected package libthai0:amd64.
+Unpacking libthai0:amd64 (from .../libthai0_0.1.18-2_amd64.deb) ...
+Selecting previously unselected package libxft2:amd64.
+Unpacking libxft2:amd64 (from .../libxft2_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libpango1.0-0:amd64.
+Unpacking libpango1.0-0:amd64 (from .../libpango1.0-0_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package libxcomposite1:amd64.
+Unpacking libxcomposite1:amd64 (from .../libxcomposite1_1%3a0.4.3-2_amd64.deb) ...
+Selecting previously unselected package libxcursor1:amd64.
+Unpacking libxcursor1:amd64 (from .../libxcursor1_1%3a1.1.13-1_amd64.deb) ...
+Selecting previously unselected package libxi6:amd64.
+Unpacking libxi6:amd64 (from .../libxi6_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package libxinerama1:amd64.
+Unpacking libxinerama1:amd64 (from .../libxinerama1_2%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libxrandr2:amd64.
+Unpacking libxrandr2:amd64 (from .../libxrandr2_2%3a1.3.2-2_amd64.deb) ...
+Selecting previously unselected package shared-mime-info.
+Unpacking shared-mime-info (from .../shared-mime-info_1.0-1+b1_amd64.deb) ...
+Selecting previously unselected package libgtk2.0-0:amd64.
+Unpacking libgtk2.0-0:amd64 (from .../libgtk2.0-0_2.24.10-2_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package liblcms2-2:amd64.
+Unpacking liblcms2-2:amd64 (from .../liblcms2-2_2.2+git20110628-2.2_amd64.deb) ...
+Selecting previously unselected package liblqr-1-0:amd64.
+Unpacking liblqr-1-0:amd64 (from .../liblqr-1-0_0.4.1-2_amd64.deb) ...
+Selecting previously unselected package libltdl7:amd64.
+Unpacking libltdl7:amd64 (from .../libltdl7_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libmagickcore5:amd64.
+Unpacking libmagickcore5:amd64 (from .../libmagickcore5_8%3a6.7.7.10-5_amd64.deb) ...
+Selecting previously unselected package libmagickwand5:amd64.
+Unpacking libmagickwand5:amd64 (from .../libmagickwand5_8%3a6.7.7.10-5_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libwxbase2.8-0:amd64.
+Unpacking libwxbase2.8-0:amd64 (from .../libwxbase2.8-0_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxgtk2.8-0:amd64.
+Unpacking libwxgtk2.8-0:amd64 (from .../libwxgtk2.8-0_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libgirepository-1.0-1.
+Unpacking libgirepository-1.0-1 (from .../libgirepository-1.0-1_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-glib-2.0.
+Unpacking gir1.2-glib-2.0 (from .../gir1.2-glib-2.0_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-atk-1.0.
+Unpacking gir1.2-atk-1.0 (from .../gir1.2-atk-1.0_2.4.0-2_amd64.deb) ...
+Selecting previously unselected package gir1.2-freedesktop.
+Unpacking gir1.2-freedesktop (from .../gir1.2-freedesktop_1.32.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-gdkpixbuf-2.0.
+Unpacking gir1.2-gdkpixbuf-2.0 (from .../gir1.2-gdkpixbuf-2.0_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package gir1.2-pango-1.0.
+Unpacking gir1.2-pango-1.0 (from .../gir1.2-pango-1.0_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package hicolor-icon-theme.
+Unpacking hicolor-icon-theme (from .../hicolor-icon-theme_0.12-1_all.deb) ...
+Selecting previously unselected package imagemagick.
+Unpacking imagemagick (from .../imagemagick_8%3a6.7.7.10-5_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libglib2.0-dev.
+Unpacking libglib2.0-dev (from .../libglib2.0-dev_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libatk1.0-dev.
+Unpacking libatk1.0-dev (from .../libatk1.0-dev_2.4.0-2_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libfreetype6-dev.
+Unpacking libfreetype6-dev (from .../libfreetype6-dev_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package libfontconfig1-dev.
+Unpacking libfontconfig1-dev (from .../libfontconfig1-dev_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package x11proto-render-dev.
+Unpacking x11proto-render-dev (from .../x11proto-render-dev_2%3a0.11.1-2_all.deb) ...
+Selecting previously unselected package libxrender-dev:amd64.
+Unpacking libxrender-dev:amd64 (from .../libxrender-dev_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libpng12-dev.
+Unpacking libpng12-dev (from .../libpng12-dev_1.2.49-3_amd64.deb) ...
+Selecting previously unselected package libice-dev:amd64.
+Unpacking libice-dev:amd64 (from .../libice-dev_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libsm-dev:amd64.
+Unpacking libsm-dev:amd64 (from .../libsm-dev_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libpixman-1-dev.
+Unpacking libpixman-1-dev (from .../libpixman-1-dev_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libxcb-render0-dev:amd64.
+Unpacking libxcb-render0-dev:amd64 (from .../libxcb-render0-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libxcb-shm0-dev:amd64.
+Unpacking libxcb-shm0-dev:amd64 (from .../libxcb-shm0-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libcairo2-dev.
+Unpacking libcairo2-dev (from .../libcairo2-dev_1.12.2-2.1_amd64.deb) ...
+Selecting previously unselected package libdbus-1-dev.
+Unpacking libdbus-1-dev (from .../libdbus-1-dev_1.6.8-1_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-dev.
+Unpacking libgdk-pixbuf2.0-dev (from .../libgdk-pixbuf2.0-dev_2.26.1-1_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libxft-dev.
+Unpacking libxft-dev (from .../libxft-dev_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package libpango1.0-dev.
+Unpacking libpango1.0-dev (from .../libpango1.0-dev_1.30.0-1_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package x11proto-xinerama-dev.
+Unpacking x11proto-xinerama-dev (from .../x11proto-xinerama-dev_1.2.1-2_all.deb) ...
+Selecting previously unselected package libxinerama-dev:amd64.
+Unpacking libxinerama-dev:amd64 (from .../libxinerama-dev_2%3a1.1.2-1_amd64.deb) ...
+Selecting previously unselected package libxi-dev.
+Unpacking libxi-dev (from .../libxi-dev_2%3a1.6.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-randr-dev.
+Unpacking x11proto-randr-dev (from .../x11proto-randr-dev_1.3.2-2_all.deb) ...
+Selecting previously unselected package libxrandr-dev.
+Unpacking libxrandr-dev (from .../libxrandr-dev_2%3a1.3.2-2_amd64.deb) ...
+Selecting previously unselected package x11proto-fixes-dev.
+Unpacking x11proto-fixes-dev (from .../x11proto-fixes-dev_1%3a5.0-2_all.deb) ...
+Selecting previously unselected package libxfixes-dev.
+Unpacking libxfixes-dev (from .../libxfixes-dev_1%3a5.0-4_amd64.deb) ...
+Selecting previously unselected package libxcursor-dev:amd64.
+Unpacking libxcursor-dev:amd64 (from .../libxcursor-dev_1%3a1.1.13-1_amd64.deb) ...
+Selecting previously unselected package x11proto-composite-dev.
+Unpacking x11proto-composite-dev (from .../x11proto-composite-dev_1%3a0.4.2-2_all.deb) ...
+Selecting previously unselected package libxcomposite-dev.
+Unpacking libxcomposite-dev (from .../libxcomposite-dev_1%3a0.4.3-2_amd64.deb) ...
+Selecting previously unselected package x11proto-damage-dev.
+Unpacking x11proto-damage-dev (from .../x11proto-damage-dev_1%3a1.2.1-2_all.deb) ...
+Selecting previously unselected package libxdamage-dev.
+Unpacking libxdamage-dev (from .../libxdamage-dev_1%3a1.1.3-2_amd64.deb) ...
+Selecting previously unselected package libxml2-utils.
+Unpacking libxml2-utils (from .../libxml2-utils_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libgtk2.0-dev.
+Unpacking libgtk2.0-dev (from .../libgtk2.0-dev_2.24.10-2_amd64.deb) ...
+Selecting previously unselected package libidn11-dev.
+Unpacking libidn11-dev (from .../libidn11-dev_1.25-2_amd64.deb) ...
+Selecting previously unselected package libsqlite3-dev.
+Unpacking libsqlite3-dev (from .../libsqlite3-dev_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libtinyxml2.6.2.
+Unpacking libtinyxml2.6.2 (from .../libtinyxml2.6.2_2.6.2-1_amd64.deb) ...
+Selecting previously unselected package libtinyxml-dev.
+Unpacking libtinyxml-dev (from .../libtinyxml-dev_2.6.2-1_amd64.deb) ...
+Selecting previously unselected package wx2.8-headers.
+Unpacking wx2.8-headers (from .../wx2.8-headers_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxbase2.8-dev.
+Unpacking libwxbase2.8-dev (from .../libwxbase2.8-dev_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package wx-common.
+Unpacking wx-common (from .../wx-common_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package libwxgtk2.8-dev.
+Unpacking libwxgtk2.8-dev (from .../libwxgtk2.8-dev_2.8.12.1-12_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-filezilla-dummy.
+Unpacking sbuild-build-depends-filezilla-dummy (from .../sbuild-build-depends-filezilla-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up imagemagick-common (8:6.7.7.10-5) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libatk1.0-data (2.4.0-2) ...
+Setting up libatk1.0-0:amd64 (2.4.0-2) ...
+Setting up libavahi-common-data:amd64 (0.6.31-1) ...
+Setting up libavahi-common3:amd64 (0.6.31-1) ...
+Setting up libdbus-1-3:amd64 (1.6.8-1) ...
+Setting up libavahi-client3:amd64 (0.6.31-1) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libpixman-1-0:amd64 (0.26.0-3) ...
+Setting up libpng12-0:amd64 (1.2.49-3) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxcb-render0:amd64 (1.8.1-2) ...
+Setting up libxcb-shm0:amd64 (1.8.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libcairo2:amd64 (1.12.2-2.1) ...
+Setting up libcairo-gobject2:amd64 (1.12.2-2.1) ...
+Setting up libcairo-script-interpreter2:amd64 (1.12.2-2.1) ...
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libcups2:amd64 (1.5.3-2.14) ...
+Setting up libdatrie1:amd64 (0.2.5-3) ...
+Setting up libdrm2:amd64 (2.4.40-1~deb7u2) ...
+Setting up libelf1:amd64 (0.153-2) ...
+Setting up libjpeg8:amd64 (8d-1) ...
+Setting up libjasper1:amd64 (1.900.1-14) ...
+Setting up libjbig0:amd64 (2.0-2) ...
+Setting up libtiff4:amd64 (3.9.6-11) ...
+Setting up libgdk-pixbuf2.0-common (2.26.1-1) ...
+Setting up libgdk-pixbuf2.0-0:amd64 (2.26.1-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libglapi-mesa:amd64 (8.0.5-3) ...
+Setting up libx11-xcb1:amd64 (2:1.5.0-1) ...
+Setting up libxcb-glx0:amd64 (1.8.1-2) ...
+Setting up libxfixes3:amd64 (1:5.0-4) ...
+Setting up libxdamage1:amd64 (1:1.1.3-2) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxxf86vm1:amd64 (1:1.1.2-1) ...
+Setting up libgl1-mesa-glx:amd64 (8.0.5-3) ...
+Setting up libglib2.0-data (2.33.12+really2.32.4-5) ...
+Setting up libglib2.0-bin (2.33.12+really2.32.4-5) ...
+Setting up libglu1-mesa:amd64 (8.0.5-3) ...
+Setting up libgtk2.0-common (2.24.10-2) ...
+Setting up libthai-data (0.1.18-2) ...
+Setting up libthai0:amd64 (0.1.18-2) ...
+Setting up libxft2:amd64 (2.3.1-1) ...
+Setting up fontconfig (2.9.0-7.1) ...
+Regenerating fonts cache... done.
+Setting up libpango1.0-0:amd64 (1.30.0-1) ...
+Setting up libxcomposite1:amd64 (1:0.4.3-2) ...
+Setting up libxcursor1:amd64 (1:1.1.13-1) ...
+Setting up libxi6:amd64 (2:1.6.1-1) ...
+Setting up libxinerama1:amd64 (2:1.1.2-1) ...
+Setting up libxrandr2:amd64 (2:1.3.2-2) ...
+Setting up shared-mime-info (1.0-1+b1) ...
+Setting up libgtk2.0-0:amd64 (2.24.10-2) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up liblcms2-2:amd64 (2.2+git20110628-2.2) ...
+Setting up liblqr-1-0:amd64 (0.4.1-2) ...
+Setting up libltdl7:amd64 (2.4.2-1.2) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libmagickcore5:amd64 (8:6.7.7.10-5) ...
+Setting up libmagickwand5:amd64 (8:6.7.7.10-5) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libwxbase2.8-0:amd64 (2.8.12.1-12) ...
+Setting up libwxgtk2.8-0:amd64 (2.8.12.1-12) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libgirepository-1.0-1 (1.32.1-1) ...
+Setting up gir1.2-glib-2.0 (1.32.1-1) ...
+Setting up gir1.2-atk-1.0 (2.4.0-2) ...
+Setting up gir1.2-freedesktop (1.32.1-1) ...
+Setting up gir1.2-gdkpixbuf-2.0 (2.26.1-1) ...
+Setting up gir1.2-pango-1.0 (1.30.0-1) ...
+Setting up hicolor-icon-theme (0.12-1) ...
+Setting up imagemagick (8:6.7.7.10-5) ...
+update-alternatives: using /usr/bin/compare.im6 to provide /usr/bin/compare (compare) in auto mode
+update-alternatives: using /usr/bin/animate.im6 to provide /usr/bin/animate (animate) in auto mode
+update-alternatives: using /usr/bin/convert.im6 to provide /usr/bin/convert (convert) in auto mode
+update-alternatives: using /usr/bin/composite.im6 to provide /usr/bin/composite (composite) in auto mode
+update-alternatives: using /usr/bin/conjure.im6 to provide /usr/bin/conjure (conjure) in auto mode
+update-alternatives: using /usr/bin/import.im6 to provide /usr/bin/import (import) in auto mode
+update-alternatives: using /usr/bin/identify.im6 to provide /usr/bin/identify (identify) in auto mode
+update-alternatives: using /usr/bin/stream.im6 to provide /usr/bin/stream (stream) in auto mode
+update-alternatives: using /usr/bin/display.im6 to provide /usr/bin/display (display) in auto mode
+update-alternatives: using /usr/bin/montage.im6 to provide /usr/bin/montage (montage) in auto mode
+update-alternatives: using /usr/bin/mogrify.im6 to provide /usr/bin/mogrify (mogrify) in auto mode
+Setting up pkg-config (0.26-1) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libglib2.0-dev (2.33.12+really2.32.4-5) ...
+Setting up libatk1.0-dev (2.4.0-2) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libfreetype6-dev (2.4.9-1.1) ...
+Setting up libfontconfig1-dev (2.9.0-7.1) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up x11proto-render-dev (2:0.11.1-2) ...
+Setting up libxrender-dev:amd64 (1:0.9.7-1) ...
+Setting up libpng12-dev (1.2.49-3) ...
+Setting up libice-dev:amd64 (2:1.0.8-2) ...
+Setting up libsm-dev:amd64 (2:1.2.1-2) ...
+Setting up libpixman-1-dev (0.26.0-3) ...
+Setting up libxcb-render0-dev:amd64 (1.8.1-2) ...
+Setting up libxcb-shm0-dev:amd64 (1.8.1-2) ...
+Setting up libcairo2-dev (1.12.2-2.1) ...
+Setting up libdbus-1-dev (1.6.8-1) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up libgdk-pixbuf2.0-dev (2.26.1-1) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up libxft-dev (2.3.1-1) ...
+Setting up libpango1.0-dev (1.30.0-1) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up x11proto-xinerama-dev (1.2.1-2) ...
+Setting up libxinerama-dev:amd64 (2:1.1.2-1) ...
+Setting up libxi-dev (2:1.6.1-1) ...
+Setting up x11proto-randr-dev (1.3.2-2) ...
+Setting up libxrandr-dev (2:1.3.2-2) ...
+Setting up x11proto-fixes-dev (1:5.0-2) ...
+Setting up libxfixes-dev (1:5.0-4) ...
+Setting up libxcursor-dev:amd64 (1:1.1.13-1) ...
+Setting up x11proto-composite-dev (1:0.4.2-2) ...
+Setting up libxcomposite-dev (1:0.4.3-2) ...
+Setting up x11proto-damage-dev (1:1.2.1-2) ...
+Setting up libxdamage-dev (1:1.1.3-2) ...
+Setting up libxml2-utils (2.8.0+dfsg1-7) ...
+Setting up libgtk2.0-dev (2.24.10-2) ...
+Setting up libidn11-dev (1.25-2) ...
+Setting up libsqlite3-dev (3.7.15.2-1) ...
+Setting up libtinyxml2.6.2 (2.6.2-1) ...
+Setting up libtinyxml-dev (2.6.2-1) ...
+Setting up wx2.8-headers (2.8.12.1-12) ...
+Setting up libwxbase2.8-dev (2.8.12.1-12) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/wx/config/base-unicode-release-2.8 to provide /usr/bin/wx-config (wx-config) in auto mode
+Setting up wx-common (2.8.12.1-12) ...
+Setting up libwxgtk2.8-dev (2.8.12.1-12) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/wx/config/gtk2-unicode-release-2.8 to provide /usr/bin/wx-config (wx-config) in auto mode
+Setting up sbuild-build-depends-filezilla-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-filezilla-dummy : Depends: libgtk2.0-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig_2.9.0-7.1 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gir1.2-atk-1.0_2.4.0-2 gir1.2-freedesktop_1.32.1-1 gir1.2-gdkpixbuf-2.0_2.26.1-1 gir1.2-glib-2.0_1.32.1-1 gir1.2-pango-1.0_1.30.0-1 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hicolor-icon-theme_0.12-1 hostname_3.12 html2text_1.3.2a-15 imagemagick_8:6.7.7.10-5 imagemagick-common_8:6.7.7.10-5 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libatk1.0-0_2.4.0-2 libatk1.0-data_2.4.0-2 libatk1.0-dev_2.4.0-2 libattr1_1:2.4.46-8 libavahi-client3_0.6.31-1 libavahi-common-data_0.6.31-1 libavahi-common3_0.6.31-1 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libcairo-gobject2_1.12.2-2.1 libcairo-script-interpreter2_1.12.2-2.1 libcairo2_1.12.2-2.1 libcairo2-dev_1.12.2-2.1 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libcups2_1.5.3-2.14 libdatrie1_0.2.5-3 libdb5.1_5.1.29-5 libdbus-1-3_1.6.8-1 libdbus-1-dev_1.6.8-1 libdpkg-perl_1.16.9 libdrm2_2.4.40-1~deb7u2 libelf1_0.153-2 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfontconfig1-dev_2.9.0-7.1 libfreetype6_2.4.9-1.1 libfreetype6-dev_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgdk-pixbuf2.0-0_2.26.1-1 libgdk-pixbuf2.0-common_2.26.1-1 libgdk-pixbuf2.0-dev_2.26.1-1 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgirepository-1.0-1_1.32.1-1 libgl1-mesa-glx_8.0.5-3 libglapi-mesa_8.0.5-3 libglib2.0-0_2.33.12+really2.32.4-5 libglib2.0-bin_2.33.12+really2.32.4-5 libglib2.0-data_2.33.12+really2.32.4-5 libglib2.0-dev_2.33.12+really2.32.4-5 libglu1-mesa_8.0.5-3 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgtk2.0-0_2.24.10-2 libgtk2.0-common_2.24.10-2 libgtk2.0-dev_2.24.10-2 libice-dev_2:1.0.8-2 libice6_2:1.0.8-2 libidn11_1.25-2 libidn11-dev_1.25-2 libitm1_4.7.2-5 libjasper1_1.900.1-14 libjbig0_2.0-2 libjpeg8_8d-1 libk5crypto3_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 liblcms2-2_2.2+git20110628-2.2 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblqr-1-0_0.4.1-2 libltdl7_2.4.2-1.2 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmagickcore5_8:6.7.7.10-5 libmagickwand5_8:6.7.7.10-5 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpango1.0-0_1.30.0-1 libpango1.0-dev_1.30.0-1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libpipeline1_1.2.2-1 libpixman-1-0_0.26.0-3 libpixman-1-dev_0.26.0-3 libpng12-0_1.2.49-3 libpng12-dev_1.2.49-3 libpopt0_1.16-7 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsm-dev_2:1.2.1-2 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libsqlite3-dev_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libthai-data_0.1.18-2 libthai0_0.1.18-2 libtiff4_3.9.6-11 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtinyxml-dev_2.6.2-1 libtinyxml2.6.2_2.6.2-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libwxbase2.8-0_2.8.12.1-12 libwxbase2.8-dev_2.8.12.1-12 libwxgtk2.8-0_2.8.12.1-12 libwxgtk2.8-dev_2.8.12.1-12 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libx11-xcb1_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxcb-glx0_1.8.1-2 libxcb-render0_1.8.1-2 libxcb-render0-dev_1.8.1-2 libxcb-shm0_1.8.1-2 libxcb-shm0-dev_1.8.1-2 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxcomposite-dev_1:0.4.3-2 libxcomposite1_1:0.4.3-2 libxcursor-dev_1:1.1.13-1 libxcursor1_1:1.1.13-1 libxdamage-dev_1:1.1.3-2 libxdamage1_1:1.1.3-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfixes-dev_1:5.0-4 libxfixes3_1:5.0-4 libxft-dev_2.3.1-1 libxft2_2.3.1-1 libxi-dev_2:1.6.1-1 libxi6_2:1.6.1-1 libxinerama-dev_2:1.1.2-1 libxinerama1_2:1.1.2-1 libxml2_2.8.0+dfsg1-7 libxml2-utils_2.8.0+dfsg1-7 libxrandr-dev_2:1.3.2-2 libxrandr2_2:1.3.2-2 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxt6_1:1.1.3-1 libxxf86vm1_1:1.1.2-1 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-filezilla-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 shared-mime-info_1.0-1+b1 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 wx-common_2.8.12.1-12 wx2.8-headers_2.8.12.1-12 x11-common_1:7.7+1 x11proto-composite-dev_1:0.4.2-2 x11proto-core-dev_7.0.23-1 x11proto-damage-dev_1:1.2.1-2 x11proto-fixes-dev_1:5.0-2 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-randr-dev_1.3.2-2 x11proto-render-dev_2:0.11.1-2 x11proto-xext-dev_7.2.1-1 x11proto-xinerama-dev_1.2.1-2 xorg-sgml-doctools_1:1.10-1 xtrans-dev_1.2.7-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Jun 29 14:47:39 2012 UTC using RSA key ID 8B78A5C2
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./filezilla_3.5.3-2.dsc
+dpkg-source: info: extracting filezilla in filezilla-3.5.3
+dpkg-source: info: unpacking filezilla_3.5.3.orig.tar.bz2
+dpkg-source: info: unpacking filezilla_3.5.3-2.debian.tar.gz
+dpkg-source: info: applying 01_remove-xdg-check.patch
+dpkg-source: info: applying 02_fix-ftbfs.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-ea9b1300-5da0-48b9-aeb1-8d1a22bc90a7
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package filezilla
+dpkg-buildpackage: source version 3.5.3-2
+dpkg-buildpackage: source changed by Adrien Cunin <adri2000@ubuntu.com>
+ dpkg-source --before-build filezilla-3.5.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh  clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ debian/rules build-arch
+dh  build-arch
+   dh_testdir -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/«PKGBUILDDIR»'
+touch configure.in # make sure configure has a more recent
+touch configure    # timestamp than configure.in
+dh_auto_configure -- --disable-autoupdatecheck --with-dbus
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for g++... g++
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for style of include used by make... GNU
+checking dependency style of g++... none
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... none
+checking whether gcc and cc understand -c and -o together... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether g++ accepts -g... (cached) yes
+checking dependency style of g++... (cached) none
+checking how to run the C++ preprocessor... g++ -E
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether compiler supports -std=gnu++0x... yes
+checking for whether we can include <unordered_map>... yes
+checking for wx-config... /usr/bin/wx-config
+checking for wxWidgets version >= 2.8.12 (--unicode=yes --universal=no)... yes (version 2.8.12)
+checking for wxWidgets static library... no
+checking positional printf argument support in wxWidgets... yes
+checking system type for sftp stub... unix
+checking for utmpx.h... yes
+checking for sys/select.h... yes
+checking for library containing socket... none required
+checking for library containing getaddrinfo... none required
+checking for library containing in6addr_loopback... none required
+checking for getaddrinfo... yes
+checking for ptsname... yes
+checking for setresuid... yes
+checking for strsignal... yes
+checking for updwtmpx... yes
+checking for gettimeofday... yes
+checking for ftime... yes
+checking for in6addr_loopback... yes
+checking for in6addr_any... yes
+checking whether to use windres... no
+checking idna.h usability... yes
+checking idna.h presence... yes
+checking for idna.h... yes
+checking for stringprep_check_version in -lidn... yes
+checking whether to use BinReloc... yes
+checking whether to use precompiled headers... no
+checking for cppunit-config... no
+checking for Cppunit - version >= 1.10.2... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBGNUTLS... yes
+checking tinyxml.h usability... no
+checking tinyxml.h presence... yes
+configure: WARNING: tinyxml.h: present but cannot be compiled
+configure: WARNING: tinyxml.h:     check for missing prerequisite headers?
+configure: WARNING: tinyxml.h: see the Autoconf documentation
+configure: WARNING: tinyxml.h:     section "Present But Cannot Be Compiled"
+configure: WARNING: tinyxml.h: proceeding with the compiler's result
+configure: WARNING:     ## ---------------------------------------------- ##
+configure: WARNING:     ## Report this to tim.kosse@filezilla-project.org ##
+configure: WARNING:     ## ---------------------------------------------- ##
+checking for tinyxml.h... no
+configure: error: tinyxml.h not found. If you do not have TinyXML installed as system library, you can use the copy of TinyXML distributed with FileZilla by passing --with-tinyxml=builtin as argument to configure.
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by FileZilla configure 3.5.3, which was
+generated by GNU Autoconf 2.67.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --libexecdir=${prefix}/lib/filezilla --disable-maintainer-mode --disable-dependency-tracking --disable-autoupdatecheck --with-dbus
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = ip-10-159-16-100
+uname -m = x86_64
+uname -r = 2.6.32-5-xen-amd64
+uname -s = Linux
+uname -v = #1 SMP Sun Sep 23 13:49:30 UTC 2012
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2753: checking for a BSD-compatible install
+configure:2821: result: /usr/bin/install -c
+configure:2832: checking whether build environment is sane
+configure:2882: result: yes
+configure:3023: checking for a thread-safe mkdir -p
+configure:3062: result: /bin/mkdir -p
+configure:3075: checking for gawk
+configure:3105: result: no
+configure:3075: checking for mawk
+configure:3091: found /usr/bin/mawk
+configure:3102: result: mawk
+configure:3113: checking whether make sets $(MAKE)
+configure:3135: result: yes
+configure:3220: checking build system type
+configure:3234: result: x86_64-pc-linux-gnu
+configure:3254: checking host system type
+configure:3267: result: x86_64-pc-linux-gnu
+configure:3346: checking for g++
+configure:3362: found /usr/bin/g++
+configure:3373: result: g++
+configure:3400: checking for C++ compiler version
+configure:3409: g++ --version >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:3420: $? = 0
+configure:3409: g++ -v >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:3420: $? = 0
+configure:3409: g++ -V >&5
+clang: error: argument to '-V' is missing (expected 1 value)
+clang: error: no input files
+configure:3420: $? = 1
+configure:3409: g++ -qversion >&5
+clang: error: no input files
+configure:3420: $? = 1
+configure:3440: checking whether the C++ compiler works
+configure:3462: g++    conftest.cpp  >&5
+configure:3466: $? = 0
+configure:3514: result: yes
+configure:3517: checking for C++ compiler default output file name
+configure:3519: result: a.out
+configure:3525: checking for suffix of executables
+configure:3532: g++ -o conftest    conftest.cpp  >&5
+configure:3536: $? = 0
+configure:3558: result: 
+configure:3580: checking whether we are cross compiling
+configure:3588: g++ -o conftest    conftest.cpp  >&5
+configure:3592: $? = 0
+configure:3599: ./conftest
+configure:3603: $? = 0
+configure:3618: result: no
+configure:3623: checking for suffix of object files
+configure:3645: g++ -c   conftest.cpp >&5
+configure:3649: $? = 0
+configure:3670: result: o
+configure:3674: checking whether we are using the GNU C++ compiler
+configure:3693: g++ -c   conftest.cpp >&5
+configure:3693: $? = 0
+configure:3702: result: yes
+configure:3711: checking whether g++ accepts -g
+configure:3731: g++ -c -g  conftest.cpp >&5
+configure:3731: $? = 0
+configure:3772: result: yes
+configure:3806: checking for style of include used by make
+configure:3834: result: GNU
+configure:3859: checking dependency style of g++
+configure:3969: result: none
+configure:4032: checking for gcc
+configure:4048: found /usr/bin/gcc
+configure:4059: result: gcc
+configure:4288: checking for C compiler version
+configure:4297: gcc --version >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:4308: $? = 0
+configure:4297: gcc -v >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:4308: $? = 0
+configure:4297: gcc -V >&5
+clang: error: argument to '-V' is missing (expected 1 value)
+clang: error: no input files
+configure:4308: $? = 1
+configure:4297: gcc -qversion >&5
+clang: error: no input files
+configure:4308: $? = 1
+configure:4312: checking whether we are using the GNU C compiler
+configure:4331: gcc -c   conftest.c >&5
+configure:4331: $? = 0
+configure:4340: result: yes
+configure:4349: checking whether gcc accepts -g
+configure:4369: gcc -c -g  conftest.c >&5
+configure:4369: $? = 0
+configure:4410: result: yes
+configure:4427: checking for gcc option to accept ISO C89
+configure:4491: gcc  -c -g -O2  conftest.c >&5
+configure:4491: $? = 0
+configure:4504: result: none needed
+configure:4526: checking dependency style of gcc
+configure:4636: result: none
+configure:4652: checking whether gcc and cc understand -c and -o together
+configure:4683: gcc -c conftest.c -o conftest2.o >&5
+configure:4687: $? = 0
+configure:4693: gcc -c conftest.c -o conftest2.o >&5
+configure:4697: $? = 0
+configure:4708: cc -c conftest.c >&5
+configure:4712: $? = 0
+configure:4720: cc -c conftest.c -o conftest2.o >&5
+configure:4724: $? = 0
+configure:4730: cc -c conftest.c -o conftest2.o >&5
+configure:4734: $? = 0
+configure:4752: result: yes
+configure:4803: checking for a sed that does not truncate output
+configure:4867: result: /bin/sed
+configure:4885: checking for grep that handles long lines and -e
+configure:4943: result: /bin/grep
+configure:4948: checking for egrep
+configure:5010: result: /bin/grep -E
+configure:5015: checking for fgrep
+configure:5077: result: /bin/grep -F
+configure:5112: checking for ld used by gcc
+configure:5179: result: /usr/bin/ld
+configure:5186: checking if the linker (/usr/bin/ld) is GNU ld
+configure:5201: result: yes
+configure:5213: checking for BSD- or MS-compatible name lister (nm)
+configure:5262: result: /usr/bin/nm -B
+configure:5380: checking the name lister (/usr/bin/nm -B) interface
+configure:5387: gcc -c -g -O2  conftest.c >&5
+configure:5390: /usr/bin/nm -B "conftest.o"
+configure:5393: output
+0000000000000000 B some_variable
+configure:5400: result: BSD nm
+configure:5403: checking whether ln -s works
+configure:5407: result: yes
+configure:5415: checking the maximum length of command line arguments
+configure:5535: result: 3458764513820540925
+configure:5552: checking whether the shell understands some XSI constructs
+configure:5562: result: yes
+configure:5566: checking whether the shell understands "+="
+configure:5572: result: yes
+configure:5607: checking for /usr/bin/ld option to reload object files
+configure:5614: result: -r
+configure:5683: checking for objdump
+configure:5699: found /usr/bin/objdump
+configure:5710: result: objdump
+configure:5742: checking how to recognize dependent libraries
+configure:5938: result: pass_all
+configure:5998: checking for ar
+configure:6014: found /usr/bin/ar
+configure:6025: result: ar
+configure:6103: checking for strip
+configure:6119: found /usr/bin/strip
+configure:6130: result: strip
+configure:6202: checking for ranlib
+configure:6218: found /usr/bin/ranlib
+configure:6229: result: ranlib
+configure:6319: checking command to parse /usr/bin/nm -B output from gcc object
+configure:6437: gcc -c -g -O2  conftest.c >&5
+configure:6440: $? = 0
+configure:6444: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' \> conftest.nm
+configure:6447: $? = 0
+configure:6501: gcc -o conftest -g -O2   conftest.c conftstm.o >&5
+configure:6504: $? = 0
+configure:6542: result: ok
+configure:6638: gcc -c -g -O2  conftest.c >&5
+configure:6641: $? = 0
+configure:7351: checking how to run the C preprocessor
+configure:7382: gcc -E  conftest.c
+configure:7382: $? = 0
+configure:7396: gcc -E  conftest.c
+conftest.c:11:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
+configure:7396: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "FileZilla"
+| #define PACKAGE_TARNAME "filezilla"
+| #define PACKAGE_VERSION "3.5.3"
+| #define PACKAGE_STRING "FileZilla 3.5.3"
+| #define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "filezilla"
+| #define VERSION "3.5.3"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:7421: result: gcc -E
+configure:7441: gcc -E  conftest.c
+configure:7441: $? = 0
+configure:7455: gcc -E  conftest.c
+conftest.c:11:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
+configure:7455: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "FileZilla"
+| #define PACKAGE_TARNAME "filezilla"
+| #define PACKAGE_VERSION "3.5.3"
+| #define PACKAGE_STRING "FileZilla 3.5.3"
+| #define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "filezilla"
+| #define VERSION "3.5.3"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:7484: checking for ANSI C header files
+configure:7504: gcc -c -g -O2  conftest.c >&5
+configure:7504: $? = 0
+configure:7577: gcc -o conftest -g -O2   conftest.c  >&5
+configure:7577: $? = 0
+configure:7577: ./conftest
+configure:7577: $? = 0
+configure:7588: result: yes
+configure:7601: checking for sys/types.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for sys/stat.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for stdlib.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for string.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for memory.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for strings.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for inttypes.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for stdint.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7601: checking for unistd.h
+configure:7601: gcc -c -g -O2  conftest.c >&5
+configure:7601: $? = 0
+configure:7601: result: yes
+configure:7615: checking for dlfcn.h
+configure:7615: gcc -c -g -O2  conftest.c >&5
+configure:7615: $? = 0
+configure:7615: result: yes
+configure:7740: checking for C++ compiler version
+configure:7749: g++ --version >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:7760: $? = 0
+configure:7749: g++ -v >&5
+Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+configure:7760: $? = 0
+configure:7749: g++ -V >&5
+clang: error: argument to '-V' is missing (expected 1 value)
+clang: error: no input files
+configure:7760: $? = 1
+configure:7749: g++ -qversion >&5
+clang: error: no input files
+configure:7760: $? = 1
+configure:7764: checking whether we are using the GNU C++ compiler
+configure:7792: result: yes
+configure:7801: checking whether g++ accepts -g
+configure:7862: result: yes
+configure:7887: checking dependency style of g++
+configure:7997: result: none
+configure:8020: checking how to run the C++ preprocessor
+configure:8047: g++ -E  conftest.cpp
+configure:8047: $? = 0
+configure:8061: g++ -E  conftest.cpp
+conftest.cpp:22:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
+configure:8061: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "FileZilla"
+| #define PACKAGE_TARNAME "filezilla"
+| #define PACKAGE_VERSION "3.5.3"
+| #define PACKAGE_STRING "FileZilla 3.5.3"
+| #define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "filezilla"
+| #define VERSION "3.5.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:8086: result: g++ -E
+configure:8106: g++ -E  conftest.cpp
+configure:8106: $? = 0
+configure:8120: g++ -E  conftest.cpp
+conftest.cpp:22:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
+configure:8120: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "FileZilla"
+| #define PACKAGE_TARNAME "filezilla"
+| #define PACKAGE_VERSION "3.5.3"
+| #define PACKAGE_STRING "FileZilla 3.5.3"
+| #define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "filezilla"
+| #define VERSION "3.5.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:8326: checking for objdir
+configure:8341: result: .libs
+configure:8633: checking if gcc supports -fno-rtti -fno-exceptions
+configure:8651: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
+configure:8655: $? = 0
+configure:8668: result: yes
+configure:8688: checking for gcc option to produce PIC
+configure:8960: result: -fPIC -DPIC
+configure:8972: checking if gcc PIC flag -fPIC -DPIC works
+configure:8990: gcc -c -g -O2  -fPIC -DPIC -DPIC conftest.c >&5
+configure:8994: $? = 0
+configure:9007: result: yes
+configure:9031: checking if gcc static flag -static works
+configure:9059: result: yes
+configure:9074: checking if gcc supports -c -o file.o
+configure:9095: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
+configure:9099: $? = 0
+configure:9121: result: yes
+configure:9129: checking if gcc supports -c -o file.o
+configure:9176: result: yes
+configure:9209: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:10200: result: yes
+configure:10237: checking whether -lc should be explicitly linked in
+configure:10242: gcc -c -g -O2  conftest.c >&5
+configure:10245: $? = 0
+configure:10260: gcc -shared conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
+configure:10263: $? = 0
+configure:10275: result: no
+configure:10439: checking dynamic linker characteristics
+configure:10872: gcc -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.c  >&5
+configure:10872: $? = 0
+configure:11102: result: GNU/Linux ld.so
+configure:11204: checking how to hardcode library paths into programs
+configure:11229: result: immediate
+configure:11749: checking whether stripping libraries is possible
+configure:11754: result: yes
+configure:11789: checking if libtool supports shared libraries
+configure:11791: result: yes
+configure:11794: checking whether to build shared libraries
+configure:11815: result: yes
+configure:11818: checking whether to build static libraries
+configure:11822: result: yes
+configure:11972: checking for ld used by g++
+configure:12039: result: /usr/bin/ld -m elf_x86_64
+configure:12046: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
+configure:12061: result: yes
+configure:12116: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:13029: result: yes
+configure:13057: g++ -c -g -O2  conftest.cpp >&5
+configure:13060: $? = 0
+configure:13242: checking for g++ option to produce PIC
+configure:13559: result: -fPIC -DPIC
+configure:13568: checking if g++ PIC flag -fPIC -DPIC works
+configure:13586: g++ -c -g -O2  -fPIC -DPIC -DPIC conftest.cpp >&5
+configure:13590: $? = 0
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --libexecdir=${prefix}/lib/filezilla --disable-maintainer-mode --disable-dependency-tracking --disable-autoupdatecheck --with-dbus returned exit code 1
+make[1]: *** [override_dh_auto_configure] Error 25
+configure:13603: result: yes
+configure:13624: checking if g++ static flag -static works
+configure:13652: result: yes
+configure:13664: checking if g++ supports -c -o file.o
+make: configure:13685: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
+*** [build-arch] Error 2
+configure:13689: $? = 0
+configure:13711: result: yes
+configure:13716: checking if g++ supports -c -o file.o
+configure:13763: result: yes
+configure:13793: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:13822: result: yes
+configure:13959: checking dynamic linker characteristics
+configure:14340: g++ -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.cpp  >&5
+configure:14340: $? = 0
+configure:14570: result: GNU/Linux ld.so
+configure:14621: checking how to hardcode library paths into programs
+configure:14646: result: immediate
+configure:14846: checking whether compiler supports -std=gnu++0x
+configure:14868: g++ -c -g -O2 -Wall -g -fexceptions -std=gnu++0x  conftest.cpp >&5
+configure:14868: $? = 0
+configure:14870: result: yes
+configure:14923: checking for whether we can include <unordered_map>
+configure:14951: g++ -E  -std=gnu++0x conftest.cpp
+configure:14951: $? = 0
+configure:14954: result: yes
+configure:15147: checking for wx-config
+configure:15166: found /usr/bin/wx-config
+configure:15179: result: /usr/bin/wx-config
+configure:15197: checking for wxWidgets version >= 2.8.12 (--unicode=yes --universal=no)
+configure:15241: result: yes (version 2.8.12)
+configure:15245: checking for wxWidgets static library
+configure:15249: result: no
+configure:15381: checking positional printf argument support in wxWidgets
+configure:15399: g++ -E  -I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-release-2.8 -I/usr/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ conftest.cpp
+configure:15399: $? = 0
+configure:15400: result: yes
+configure:15502: checking system type for sftp stub
+configure:15506: result: unix
+configure:15515: checking for utmpx.h
+configure:15515: gcc -c -g -O2 -Wall -g -fexceptions  conftest.c >&5
+configure:15515: $? = 0
+configure:15515: result: yes
+configure:15515: checking for sys/select.h
+configure:15515: gcc -c -g -O2 -Wall -g -fexceptions  conftest.c >&5
+configure:15515: $? = 0
+configure:15515: result: yes
+configure:15529: checking for library containing socket
+configure:15560: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15560: $? = 0
+configure:15577: result: none required
+configure:15585: checking for library containing getaddrinfo
+configure:15616: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15616: $? = 0
+configure:15633: result: none required
+configure:15641: checking for library containing in6addr_loopback
+configure:15672: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15672: $? = 0
+configure:15689: result: none required
+configure:15701: checking for getaddrinfo
+configure:15701: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15701: $? = 0
+configure:15701: result: yes
+configure:15701: checking for ptsname
+configure:15701: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15701: $? = 0
+configure:15701: result: yes
+configure:15701: checking for setresuid
+configure:15701: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15701: $? = 0
+configure:15701: result: yes
+configure:15701: checking for strsignal
+configure:15701: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15701: $? = 0
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+configure:15701: result: yes
+configure:15701: checking for updwtmpx
+configure:15701: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15701: $? = 0
+configure:15701: result: yes
+configure:15713: checking for gettimeofday
+configure:15713: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15713: $? = 0
+configure:15713: result: yes
+configure:15713: checking for ftime
+configure:15713: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15713: $? = 0
+configure:15713: result: yes
+configure:15725: checking for in6addr_loopback
+configure:15725: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15725: $? = 0
+configure:15725: result: yes
+configure:15725: checking for in6addr_any
+configure:15725: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c  >&5
+configure:15725: $? = 0
+configure:15725: result: yes
+configure:15760: checking whether to use windres
+configure:15826: result: no
+configure:15897: checking idna.h usability
+configure:15897: gcc -c -g -O2 -Wall -g -fexceptions  conftest.c >&5
+configure:15897: $? = 0
+configure:15897: result: yes
+configure:15897: checking idna.h presence
+configure:15897: gcc -E  conftest.c
+configure:15897: $? = 0
+configure:15897: result: yes
+configure:15897: checking for idna.h
+configure:15897: result: yes
+configure:15920: checking for stringprep_check_version in -lidn
+configure:15945: gcc -o conftest -g -O2 -Wall -g -fexceptions   conftest.c -lidn   >&5
+configure:15945: $? = 0
+configure:15954: result: yes
+configure:15972: checking whether to use BinReloc
+configure:15982: result: yes
+configure:15988: checking whether to use precompiled headers
+configure:16024: result: no
+configure:16065: checking for cppunit-config
+configure:16096: result: no
+configure:16106: checking for Cppunit - version >= 1.10.2
+configure:16110: result: no
+configure:16266: checking for pkg-config
+configure:16284: found /usr/bin/pkg-config
+configure:16296: result: /usr/bin/pkg-config
+configure:16321: checking pkg-config is at least version 0.9.0
+configure:16324: result: yes
+configure:16335: checking for LIBGNUTLS
+configure:16342: $PKG_CONFIG --exists --print-errors "gnutls >= 2.8.3"
+configure:16345: $? = 0
+configure:16358: $PKG_CONFIG --exists --print-errors "gnutls >= 2.8.3"
+configure:16361: $? = 0
+configure:16840: result: yes
+configure:16883: checking tinyxml.h usability
+configure:16883: g++ -c -g -O2 -Wall -g -fexceptions -std=gnu++0x  conftest.cpp >&5
+In file included from conftest.cpp:74:
+In file included from /usr/include/tinyxml.h:51:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/string:41:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/char_traits.h:40:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/stl_algobase.h:65:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/stl_pair.h:61:
+In file included from /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/bits/move.h:57:
+/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../../include/c++/4.7/type_traits:256:39: error: use of undeclared identifier '__float128'
+    struct __is_floating_point_helper<__float128>
+                                      ^
+1 error generated.
+configure:16883: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "FileZilla"
+| #define PACKAGE_TARNAME "filezilla"
+| #define PACKAGE_VERSION "3.5.3"
+| #define PACKAGE_STRING "FileZilla 3.5.3"
+| #define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "filezilla"
+| #define VERSION "3.5.3"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DLFCN_H 1
+| #define LT_OBJDIR ".libs/"
+| #define USED_HOST "x86_64-pc-linux-gnu"
+| #define USED_BUILD "x86_64-pc-linux-gnu"
+| #define USED_CXXFLAGS "-g -O2 -Wall -g -fexceptions -std=gnu++0x"
+| #define USED_COMPILER "Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)"
+| #define HAVE_UTMPX_H 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_PTSNAME 1
+| #define HAVE_SETRESUID 1
+| #define HAVE_STRSIGNAL 1
+| #define HAVE_UPDWTMPX 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_FTIME 1
+| #define HAVE_IN6ADDR_LOOPBACK 1
+| #define HAVE_IN6ADDR_ANY 1
+| #define ENABLE_BINRELOC 1
+| #define FZ_MANUALUPDATECHECK 1
+| #define FZ_AUTOUPDATECHECK 0
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <tinyxml.h>
+configure:16883: result: no
+configure:16883: checking tinyxml.h presence
+configure:16883: g++ -E  conftest.cpp
+configure:16883: $? = 0
+configure:16883: result: yes
+configure:16883: WARNING: tinyxml.h: present but cannot be compiled
+configure:16883: WARNING: tinyxml.h:     check for missing prerequisite headers?
+configure:16883: WARNING: tinyxml.h: see the Autoconf documentation
+configure:16883: WARNING: tinyxml.h:     section "Present But Cannot Be Compiled"
+configure:16883: WARNING: tinyxml.h: proceeding with the compiler's result
+configure:16883: checking for tinyxml.h
+configure:16883: result: no
+configure:16889: error: tinyxml.h not found. If you do not have TinyXML installed as system library, you can use the copy of TinyXML distributed with FileZilla by passing --with-tinyxml=builtin as argument to configure.
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_c_compiler_gnu=yes
+ac_cv_cxx_compiler_gnu=yes
+ac_cv_env_CCC_set=
+ac_cv_env_CCC_value=
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=
+ac_cv_env_CFLAGS_value=
+ac_cv_env_CPPFLAGS_set=
+ac_cv_env_CPPFLAGS_value=
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_CXXCPP_set=
+ac_cv_env_CXXCPP_value=
+ac_cv_env_CXXFLAGS_set=
+ac_cv_env_CXXFLAGS_value=
+ac_cv_env_CXX_set=
+ac_cv_env_CXX_value=
+ac_cv_env_LDFLAGS_set=
+ac_cv_env_LDFLAGS_value=
+ac_cv_env_LIBDBUS_CFLAGS_set=
+ac_cv_env_LIBDBUS_CFLAGS_value=
+ac_cv_env_LIBDBUS_LIBS_set=
+ac_cv_env_LIBDBUS_LIBS_value=
+ac_cv_env_LIBGNUTLS_CFLAGS_set=
+ac_cv_env_LIBGNUTLS_CFLAGS_value=
+ac_cv_env_LIBGNUTLS_LIBS_set=
+ac_cv_env_LIBGNUTLS_LIBS_value=
+ac_cv_env_LIBGTK_CFLAGS_set=
+ac_cv_env_LIBGTK_CFLAGS_value=
+ac_cv_env_LIBGTK_LIBS_set=
+ac_cv_env_LIBGTK_LIBS_value=
+ac_cv_env_LIBSQLITE3_CFLAGS_set=
+ac_cv_env_LIBSQLITE3_CFLAGS_value=
+ac_cv_env_LIBSQLITE3_LIBS_set=
+ac_cv_env_LIBSQLITE3_LIBS_value=
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_PKG_CONFIG_set=
+ac_cv_env_PKG_CONFIG_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=
+ac_cv_env_host_alias_value=
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func_ftime=yes
+ac_cv_func_getaddrinfo=yes
+ac_cv_func_gettimeofday=yes
+ac_cv_func_in6addr_any=yes
+ac_cv_func_in6addr_loopback=yes
+ac_cv_func_ptsname=yes
+ac_cv_func_setresuid=yes
+ac_cv_func_strsignal=yes
+ac_cv_func_updwtmpx=yes
+ac_cv_header_dlfcn_h=yes
+ac_cv_header_idna_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_select_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_tinyxml_h=no
+ac_cv_header_unistd_h=yes
+ac_cv_header_utmpx_h=yes
+ac_cv_host=x86_64-pc-linux-gnu
+ac_cv_lib_idn_stringprep_check_version=yes
+ac_cv_objext=o
+ac_cv_path_CPPUNIT_CONFIG=no
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_FGREP='/bin/grep -F'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_SED=/bin/sed
+ac_cv_path_WX_CONFIG_PATH=/usr/bin/wx-config
+ac_cv_path_ac_pt_PKG_CONFIG=/usr/bin/pkg-config
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_AWK=mawk
+ac_cv_prog_CPP='gcc -E'
+ac_cv_prog_CXXCPP='g++ -E'
+ac_cv_prog_ac_ct_AR=ar
+ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_ac_ct_CXX=g++
+ac_cv_prog_ac_ct_OBJDUMP=objdump
+ac_cv_prog_ac_ct_RANLIB=ranlib
+ac_cv_prog_ac_ct_STRIP=strip
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_cc_gcc_c_o=yes
+ac_cv_prog_cxx_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_search_getaddrinfo='none required'
+ac_cv_search_in6addr_loopback='none required'
+ac_cv_search_socket='none required'
+am_cv_CC_dependencies_compiler_type=none
+am_cv_CXX_dependencies_compiler_type=none
+lt_cv_deplibs_check_method=pass_all
+lt_cv_file_magic_cmd='$MAGIC_CMD'
+lt_cv_file_magic_test_file=
+lt_cv_ld_reload_flag=-r
+lt_cv_nm_interface='BSD nm'
+lt_cv_objdir=.libs
+lt_cv_path_LD=/usr/bin/ld
+lt_cv_path_LDCXX='/usr/bin/ld -m elf_x86_64'
+lt_cv_path_NM='/usr/bin/nm -B'
+lt_cv_prog_compiler_c_o=yes
+lt_cv_prog_compiler_c_o_CXX=yes
+lt_cv_prog_compiler_pic_works=yes
+lt_cv_prog_compiler_pic_works_CXX=yes
+lt_cv_prog_compiler_rtti_exceptions=yes
+lt_cv_prog_compiler_static_works=yes
+lt_cv_prog_compiler_static_works_CXX=yes
+lt_cv_prog_gnu_ld=yes
+lt_cv_prog_gnu_ldcxx=yes
+lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p'\'''
+lt_cv_sys_global_symbol_to_c_name_address='sed -n -e '\''s/^: \([^ ]*\) $/  {\"\1\", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW]* \([^ ]*\) \([^ ]*\)$/  {"\2", (void *) \&\2},/p'\'''
+lt_cv_sys_global_symbol_to_c_name_address_lib_prefix='sed -n -e '\''s/^: \([^ ]*\) $/  {\"\1\", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW]* \([^ ]*\) \(lib[^ ]*\)$/  {"\2", (void *) \&\2},/p'\'' -e '\''s/^[ABCDGIRSTW]* \([^ ]*\) \([^ ]*\)$/  {"lib\2", (void *) \&\2},/p'\'''
+lt_cv_sys_global_symbol_to_cdecl='sed -n -e '\''s/^T .* \(.*\)$/extern int \1();/p'\'' -e '\''s/^[ABCDGIRSTW]* .* \(.*\)$/extern char \1;/p'\'''
+lt_cv_sys_max_cmd_len=3458764513820540925
+pkg_cv_LIBGNUTLS_CFLAGS='-I/usr/include/p11-kit-1  '
+pkg_cv_LIBGNUTLS_LIBS='-lgnutls  '
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ACLOCAL='${SHELL} /«PKGBUILDDIR»/config/missing --run aclocal-1.11'
+AMDEPBACKSLASH=''
+AMDEP_FALSE=''
+AMDEP_TRUE='#'
+AMTAR='${SHELL} /«PKGBUILDDIR»/config/missing --run tar'
+AR='ar'
+AUTOCONF='${SHELL} /«PKGBUILDDIR»/config/missing --run autoconf'
+AUTOHEADER='${SHELL} /«PKGBUILDDIR»/config/missing --run autoheader'
+AUTOMAKE='${SHELL} /«PKGBUILDDIR»/config/missing --run automake-1.11'
+AWK='mawk'
+CC='gcc'
+CCDEPMODE='depmode=none'
+CFLAGS='-g -O2 -Wall -g -fexceptions'
+CPP='gcc -E'
+CPPFLAGS=''
+CPPUNIT_CFLAGS=''
+CPPUNIT_CONFIG='no'
+CPPUNIT_LIBS=''
+CXX='g++'
+CXXCPP='g++ -E'
+CXXDEPMODE='depmode=none'
+CXXFLAGS='-g -O2 -Wall -g -fexceptions -std=gnu++0x'
+CYGPATH_W='echo'
+DEFS=''
+DEPDIR='.deps'
+DSYMUTIL=''
+DUMPBIN=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+ENABLE_PRECOMP_FALSE=''
+ENABLE_PRECOMP_TRUE=''
+EXEEXT=''
+FGREP='/bin/grep -F'
+FILEZILLA_LINGUAS=''
+FILEZILLA_LINGUAS_MO=''
+FILEZILLA_LINGUAS_PO=''
+FILEZILLA_LINGUAS_PO_NEW=''
+GREP='/bin/grep'
+HAS_CPPUNIT_FALSE=''
+HAS_CPPUNIT_TRUE=''
+HAVE_DBUS_FALSE=''
+HAVE_DBUS_TRUE=''
+HAVE_LIBTINYXML_FALSE=''
+HAVE_LIBTINYXML_TRUE=''
+IDN_LIB='-lidn'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
+LD='/usr/bin/ld -m elf_x86_64'
+LDFLAGS=''
+LIBDBUS_CFLAGS=''
+LIBDBUS_LIBS=''
+LIBGNUTLS_CFLAGS='-I/usr/include/p11-kit-1  '
+LIBGNUTLS_CONFIG=''
+LIBGNUTLS_LIBS='-lgnutls  '
+LIBGTK_CFLAGS=''
+LIBGTK_LIBS=''
+LIBOBJS=''
+LIBS=''
+LIBSQLITE3_CFLAGS=''
+LIBSQLITE3_LIBS=''
+LIBTOOL='$(SHELL) $(top_builddir)/libtool'
+LIPO=''
+LN_S='ln -s'
+LOCALES_FALSE=''
+LOCALES_ONLY_FALSE=''
+LOCALES_ONLY_TRUE=''
+LOCALES_TRUE=''
+LTLIBOBJS=''
+MACAPPBUNDLE_FALSE=''
+MACAPPBUNDLE_TRUE=''
+MAKEINFO='${SHELL} /«PKGBUILDDIR»/config/missing --run makeinfo'
+MAKENSISSCRIPT_FALSE=''
+MAKENSISSCRIPT_TRUE=''
+MINGW_FALSE=''
+MINGW_TRUE=''
+MKDIR_P='/bin/mkdir -p'
+NM='/usr/bin/nm -B'
+NMEDIT=''
+OBJDUMP='objdump'
+OBJEXT='o'
+OTOOL64=''
+OTOOL=''
+PACKAGE='filezilla'
+PACKAGE_BUGREPORT='tim.kosse@filezilla-project.org'
+PACKAGE_NAME='FileZilla'
+PACKAGE_STRING='FileZilla 3.5.3'
+PACKAGE_TARNAME='filezilla'
+PACKAGE_URL=''
+PACKAGE_VERSION='3.5.3'
+PACKAGE_VERSION_MAJOR='3'
+PACKAGE_VERSION_MICRO='3'
+PACKAGE_VERSION_MINOR='5'
+PACKAGE_VERSION_NANO='0'
+PATH_SEPARATOR=':'
+PKG_CONFIG='/usr/bin/pkg-config'
+RANLIB='ranlib'
+SED='/bin/sed'
+SET_MAKE=''
+SFTP_MINGW_FALSE=''
+SFTP_MINGW_TRUE=''
+SFTP_UNIX_FALSE=''
+SFTP_UNIX_TRUE=''
+SHELL='/bin/bash'
+STRIP='strip'
+TINYXML_LIBS=''
+USE_BINRELOC_FALSE=''
+USE_BINRELOC_TRUE=''
+USE_RESOURCEFILE_FALSE=''
+USE_RESOURCEFILE_TRUE=''
+VERSION='3.5.3'
+WINDRES=''
+WINDRESFLAGS=''
+WXRC=''
+WX_CFLAGS='-I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-release-2.8 -I/usr/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread'
+WX_CFLAGS_ONLY='-pthread'
+WX_CONFIG_PATH='/usr/bin/wx-config'
+WX_CONFIG_WITH_ARGS='/usr/bin/wx-config  --unicode=yes --universal=no aui,xrc,adv,core,xml,net,base'
+WX_CPPFLAGS='-I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-release-2.8 -I/usr/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__'
+WX_CXXFLAGS='-I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-release-2.8 -I/usr/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread'
+WX_CXXFLAGS_ONLY=''
+WX_LIBS='-L/usr/lib/x86_64-linux-gnu -pthread   -L/usr/lib/x86_64-linux-gnu   -lwx_gtk2u_aui-2.8 -lwx_gtk2u_xrc-2.8 -lwx_gtk2u_adv-2.8 -lwx_gtk2u_core-2.8 -lwx_baseu_xml-2.8 -lwx_baseu_net-2.8 -lwx_baseu-2.8 '
+WX_LIBS_STATIC=''
+WX_RESCOMP=''
+WX_VERSION='2.8.12'
+ac_ct_CC='gcc'
+ac_ct_CXX='g++'
+ac_ct_DUMPBIN=''
+am__EXEEXT_FALSE=''
+am__EXEEXT_TRUE=''
+am__fastdepCC_FALSE=''
+am__fastdepCC_TRUE='#'
+am__fastdepCXX_FALSE=''
+am__fastdepCXX_TRUE='#'
+am__include='include'
+am__isrc=''
+am__leading_dot='.'
+am__quote=''
+am__tar='${AMTAR} chof - "$$tardir"'
+am__untar='${AMTAR} xf -'
+bindir='${exec_prefix}/bin'
+build='x86_64-pc-linux-gnu'
+build_alias='x86_64-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host='x86_64-pc-linux-gnu'
+host_alias=''
+host_cpu='x86_64'
+host_os='linux-gnu'
+host_vendor='pc'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+install_sh='${SHELL} /«PKGBUILDDIR»/config/install-sh'
+libdir='${exec_prefix}/lib'
+libexecdir='${prefix}/lib/filezilla'
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+lt_ECHO='echo'
+mandir='${prefix}/share/man'
+mkdir_p='/bin/mkdir -p'
+msgfmt=''
+msgmerge=''
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc'
+target_alias=''
+xdgopen=''
+xgettext=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "FileZilla"
+#define PACKAGE_TARNAME "filezilla"
+#define PACKAGE_VERSION "3.5.3"
+#define PACKAGE_STRING "FileZilla 3.5.3"
+#define PACKAGE_BUGREPORT "tim.kosse@filezilla-project.org"
+#define PACKAGE_URL ""
+#define PACKAGE "filezilla"
+#define VERSION "3.5.3"
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_DLFCN_H 1
+#define LT_OBJDIR ".libs/"
+#define USED_HOST "x86_64-pc-linux-gnu"
+#define USED_BUILD "x86_64-pc-linux-gnu"
+#define USED_CXXFLAGS "-g -O2 -Wall -g -fexceptions -std=gnu++0x"
+#define USED_COMPILER "Debian clang version 3.2-2 (tags/RELEASE_32/final) (based on LLVM 3.2)"
+#define HAVE_UTMPX_H 1
+#define HAVE_SYS_SELECT_H 1
+#define HAVE_GETADDRINFO 1
+#define HAVE_PTSNAME 1
+#define HAVE_SETRESUID 1
+#define HAVE_STRSIGNAL 1
+#define HAVE_UPDWTMPX 1
+#define HAVE_GETTIMEOFDAY 1
+#define HAVE_FTIME 1
+#define HAVE_IN6ADDR_LOOPBACK 1
+#define HAVE_IN6ADDR_ANY 1
+#define ENABLE_BINRELOC 1
+#define FZ_MANUALUPDATECHECK 1
+#define FZ_AUTOUPDATECHECK 0
+
+configure: exit 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1823
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,28 +2365,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 23856
+Build-Time: 8
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 19
 Job: filezilla_3.5.3-2
 Package: filezilla
-Package-Time: 0
+Package-Time: 51
 Source-Version: 3.5.3-2
-Space: 0
-Status: failed
+Space: 23856
+Status: attempted
 Version: 3.5.3-2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0413
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.75751s
-DC-Time-Estimation: 33.75751 versus expected 1561 (r/m: 45.2415622479265 ; m: 33.75751)
+Finished at 20130131-1823
+Build needed 00:00:51, 23856k disc space
+DC-Status: Failed 52.367453s
+DC-Time-Estimation: 52.367453 versus expected 1561 (r/m: 28.8085912255461 ; m: 52.367453)

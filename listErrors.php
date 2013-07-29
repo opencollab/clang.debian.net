@@ -28,7 +28,7 @@ $known_errors= Array(
 
         Array("key" => "CONFLICTING_TYPE", "dsc" => "Conflicting types", "msg" => "error: conflicting types for", "nb" => 0),
         Array("key" => "WRONG_MAIN_DECLARATION", "dsc" => "Wrong main declaration", "msg" => Array("first parameter of 'main' (argument count) must be of type 'int'","error: second parameter of 'main'","too many parameters (4) for 'main'","error: C++ requires a type specifier for all"), "nb" => 0),
-        Array("key" => "EMPTY_BODY", "dsc" => "Empty body declaration", "msg" => "if statement has empty body", "nb" => 0),
+        Array("key" => "EMPTY_BODY", "dsc" => "Empty body declaration", "msg" => Array("if statement has empty body","for loop has empty body","while loop has empty body"), "nb" => 0),
         Array("key" => "EXPECTED_SEMILON", "dsc" => "No support of nested C function", "msg" => "error: expected ';' at end of declaration", "nb" => 0),
         Array("key" => "CONFIGURE_FAILED", "dsc" => "Configure failed", "msg" => Array("compiler cannot create executables", "does not preserve whitespace with or without -traditional","fatal error: 'ac_nonexistent.h' file not found"), "nb" => 0),
         Array("key" => "FILE_NOT_FOUND", "dsc" => "Some headers could not be found", "msg" => "file not found", "nb" => 0),
@@ -79,7 +79,9 @@ $known_errors= Array(
         Array("key" => "EXPLICIT_SPECIALIZATION", "dsc" => "Explicit Specialization after instantiation", "msg" => Array("error: explicit specialization of"), "nb" => 0),
         Array("key" => "ELAB_TYPE_REFER_TO_TYPEDEF", "dsc" => "Elaborated type refers to a typedef", "msg" => Array("elaborated type refers to a typedef"), "nb" => 0),
 
-
+        Array("key" => "EXPRESSION_RESULT_UNUSED", "dsc" => "Expression result unused", "msg" => Array("expression result unused"), "nb" => 0),
+        Array("key" => "CANNOT_COMBINE_WITH_PREV_DECL", "dsc" => "Cannot combine with previous declaration specifier", "msg" => Array("cannot combine with previous"), "nb" => 0),
+        Array("key" => "VARIABLE_UNINITIALIZED_HERE", "dsc" => "Variable is uninitialized when used here", "msg" => Array("is uninitialized when used here"), "nb" => 0),
 
         Array("key" => "PARAMETER_WITHOUT_TYPE", "dsc" => "Parameter list without types not allowed", "msg" => Array("parameter list without types is only allowed in a function definition"), "nb" => 0),
 
@@ -88,6 +90,12 @@ $known_errors= Array(
         Array("key" => "UNUSED_ARG", "dsc" => "Argument unused caused failure", "msg" => Array("argument unused during compilation: '--param ssp-buffer-size=4'","argument unused during compilation: "), "nb" => 0),
 
         Array("key" => "BUILD_DEP", "dsc" => "Build dependency issue", "msg" => Array("unsatisfiable build-dependencies","build-dependency not installable"), "nb" => 0),
+
+        Array("key" => "UNKNOW_WARNING_OPTION", "dsc" => "Unknown warning option", "msg" => Array("unknown warning option"), "nb" => 0),
+
+        Array("key" => "CANNOT_FIND_LIB", "dsc" => "Could not find a library", "msg" => Array("ld: cannot find -l"), "nb" => 0),
+
+        Array("key" => "SOMETIMES_UNINITIALIZED", "dsc" => "Potential usage of an uninitialized variable", "msg" => Array("-Wsometimes-uninitialized"), "nb" => 0),
 
         Array("key" => "CANNOT_INIT_ELEM", "dsc" => "Cannot initialize a element", "msg" => Array("cannot initialize a variable of type","cannot initialize a parameter of type","cannot initialize return object of type","cannot initialize return object of type"), "nb" => 0),
 
@@ -110,7 +118,6 @@ function parse_error($version)
     $nbTotal=mysql_num_rows($result);
 
     while ($row = mysql_fetch_object($result)) {
-
         $set=false;
         $totalFailed++;
         get_key_clang($known_errors, $row->detected_error);

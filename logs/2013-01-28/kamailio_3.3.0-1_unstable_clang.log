@@ -1,12 +1,12 @@
-DC-Build-Header: kamailio 3.3.0-1 / Mon Jan 28 03:51:05 +0000 2013
-DC-Task: logfile:/tmp/kamailio_3.3.0-1_unstable_clang.log version:3.3.0-1 chroot:unstable modes:binary-only:clang source:kamailio architecture:any esttime:
+DC-Build-Header: kamailio 3.3.0-1 / Sat Feb 02 01:53:22 +0000 2013
+DC-Task: logfile:/tmp/kamailio_3.3.0-1_unstable_clang.log version:3.3.0-1 modes:binary-only:clang chroot:unstable source:kamailio esttime: architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang kamailio_3.3.0-1'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-0-71.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-230-68.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ kamailio 3.3.0-1 (amd64)                                   28 Jan 2013 03:51 ║
+║ kamailio 3.3.0-1 (amd64)                                   02 Feb 2013 01:53 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: kamailio
@@ -15,9 +15,9 @@ Source Version: 3.3.0-1
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/kamailio-6jQ4M3/kamailio-3.3.0' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/kamailio-6jQ4M3' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-2121a485-54a9-495f-9a16-4ff15eeadc5f' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/kamailio-f_j5Q3/kamailio-3.3.0' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/kamailio-f_j5Q3' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-09d68ebe-efac-486a-a162-21d52fd55c82' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4595 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (5468 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +62,7 @@ Need to get 7536 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main kamailio 3.3.0-1 (dsc) [4456 B]
 Get:2 http://localhost/debian/ unstable/main kamailio 3.3.0-1 (tar) [7497 kB]
 Get:3 http://localhost/debian/ unstable/main kamailio 3.3.0-1 (diff) [35.2 kB]
-Fetched 7536 kB in 0s (10.8 MB/s)
+Fetched 7536 kB in 0s (12.7 MB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +79,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1248 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2026 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3816 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:10 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:11 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:12 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (33.7 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 1min 4s (392 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +194,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +252,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-_xuih0/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-m33MtJ/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +271,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison, debhelper (>= 9), docbook-xml, dpkg-dev (>= 1.16.1.1), flex, libconfuse-dev, libcurl4-gnutls-dev, libdb-dev (>= 4.6.19), libevent-dev, libexpat1-dev, libgeoip-dev (>= 1.4.5), libjson0-dev, libldap2-dev, liblua5.1-0-dev, libmemcache-dev, libmono-2.0-dev, libmysqlclient-dev, libncurses5-dev, libpcre3-dev, libperl-dev, libpq-dev, libradiusclient-ng-dev, libreadline-dev, libsasl2-dev, libsnmp-dev, libsqlite3-dev, libxml2-dev, libxmlrpc-c3-dev, libhiredis-dev (>= 0.10.0), python, python-dev, unixodbc-dev, xsltproc
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison, debhelper (>= 9), docbook-xml, dpkg-dev (>= 1.16.1.1), flex, libconfuse-dev, libcurl4-gnutls-dev, libdb-dev (>= 4.6.19), libevent-dev, libexpat1-dev, libgeoip-dev (>= 1.4.5), libjson0-dev, libldap2-dev, liblua5.1-0-dev, libmemcache-dev, libmono-2.0-dev, libmysqlclient-dev, libncurses5-dev, libpcre3-dev, libperl-dev, libpq-dev, libradiusclient-ng-dev, libreadline-dev, libsasl2-dev, libsnmp-dev, libsqlite3-dev, libxml2-dev, libxmlrpc-c3-dev, libhiredis-dev (>= 0.10.0), python, python-dev, unixodbc-dev, xsltproc
-dpkg-deb: building package `sbuild-build-depends-kamailio-dummy' in `/«BUILDDIR»/resolver-5fmEoA/apt_archive/sbuild-build-depends-kamailio-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-kamailio-dummy' in `/«BUILDDIR»/resolver-MaQtc8/apt_archive/sbuild-build-depends-kamailio-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,22 +288,1202 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bison bsdmainutils comerr-dev debhelper docbook-xml file flex geoip-bin
+  gettext gettext-base groff-base html2text intltool-debian krb5-multidev
+  libasprintf-dev libasprintf0c2 libbison-dev libconfuse-common libconfuse-dev
+  libconfuse0 libcroco3 libcurl3 libcurl3-gnutls libcurl4-gnutls-dev libdb-dev
+  libdb5.1-dev libevent-2.0-5 libevent-core-2.0-5 libevent-dev
+  libevent-extra-2.0-5 libevent-openssl-2.0-5 libevent-pthreads-2.0-5
+  libexpat1-dev libgcrypt11 libgcrypt11-dev libgeoip-dev libgeoip1
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls-dev
+  libgnutls-openssl27 libgnutls26 libgnutlsxx27 libgpg-error-dev libgpg-error0
+  libgssapi-krb5-2 libgssrpc4 libhiredis-dev libhiredis0.10 libidn11
+  libidn11-dev libjson0 libjson0-dev libk5crypto3 libkadm5clnt-mit8
+  libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3 libkrb5-dev
+  libkrb5support0 libldap-2.4-2 libldap2-dev libltdl-dev libltdl7 liblua5.1-0
+  liblua5.1-0-dev libmagic1 libmemcache-dev libmemcache0 libmono-2.0-1
+  libmono-2.0-dev libmysqlclient-dev libmysqlclient18 libncurses5-dev libodbc1
+  libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev libpcrecpp0 libperl-dev
+  libperl5.14 libpipeline1 libpopt0 libpq-dev libpq5 libprocps0 libpython2.7
+  libradiusclient-ng-dev libradiusclient-ng2 libreadline-dev libreadline6-dev
+  librtmp-dev librtmp0 libsasl2-2 libsasl2-dev libsasl2-modules libsensors4
+  libsensors4-dev libsigsegv2 libsnmp-base libsnmp-dev libsnmp-perl libsnmp15
+  libsqlite3-dev libssh2-1 libssh2-1-dev libssl-dev libtasn1-3 libtasn1-3-dev
+  libtinfo-dev libunistring0 libwrap0 libwrap0-dev libxml2 libxml2-dev
+  libxmlrpc-c++4 libxmlrpc-c++4-dev libxmlrpc-c3-dev libxmlrpc-core-c3
+  libxmlrpc-core-c3-dev libxslt1.1 m4 man-db mysql-common odbcinst
+  odbcinst1debian2 pkg-config po-debconf procps python-dev python2.7-dev
+  sgml-base sgml-data unixodbc unixodbc-dev xml-core xsltproc zlib1g-dev
+Suggested packages:
+  bison-doc wamerican wordlist whois vacation doc-base dh-make docbook
+  docbook-dsssl docbook-xsl docbook-defguide gettext-doc groff krb5-doc
+  libcurl3-dbg db5.1-doc rng-tools libgcrypt11-doc gnutls26-doc krb5-user
+  libtool-doc memcached ncurses-doc libmyodbc odbc-postgresql tdsodbc
+  unixodbc-bin postgresql-doc-9.1 libsasl2-modules-otp libsasl2-modules-ldap
+  libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  libsasl2-modules-gssapi-heimdal lm-sensors snmp-mibs-downloader sqlite3-doc
+  xmlrpc-api-utils less www-browser libmail-box-perl sgml-base-doc perlsgml
+  w3-recs opensp libxml2-utils
+Recommended packages:
+  curl wget lynx-cur autopoint ca-certificates geoip-database libglib2.0-data
+  shared-mime-info krb5-locales libtool libssl-doc tcpd libmail-sendmail-perl
+  psmisc
+The following NEW packages will be installed:
+  bison bsdmainutils comerr-dev debhelper docbook-xml file flex geoip-bin
+  gettext gettext-base groff-base html2text intltool-debian krb5-multidev
+  libasprintf-dev libasprintf0c2 libbison-dev libconfuse-common libconfuse-dev
+  libconfuse0 libcroco3 libcurl3 libcurl3-gnutls libcurl4-gnutls-dev libdb-dev
+  libdb5.1-dev libevent-2.0-5 libevent-core-2.0-5 libevent-dev
+  libevent-extra-2.0-5 libevent-openssl-2.0-5 libevent-pthreads-2.0-5
+  libexpat1-dev libgcrypt11 libgcrypt11-dev libgeoip-dev libgeoip1
+  libgettextpo-dev libgettextpo0 libglib2.0-0 libgnutls-dev
+  libgnutls-openssl27 libgnutls26 libgnutlsxx27 libgpg-error-dev libgpg-error0
+  libgssapi-krb5-2 libgssrpc4 libhiredis-dev libhiredis0.10 libidn11
+  libidn11-dev libjson0 libjson0-dev libk5crypto3 libkadm5clnt-mit8
+  libkadm5srv-mit8 libkdb5-6 libkeyutils1 libkrb5-3 libkrb5-dev
+  libkrb5support0 libldap-2.4-2 libldap2-dev libltdl-dev libltdl7 liblua5.1-0
+  liblua5.1-0-dev libmagic1 libmemcache-dev libmemcache0 libmono-2.0-1
+  libmono-2.0-dev libmysqlclient-dev libmysqlclient18 libncurses5-dev libodbc1
+  libp11-kit-dev libp11-kit0 libpcre3 libpcre3-dev libpcrecpp0 libperl-dev
+  libperl5.14 libpipeline1 libpopt0 libpq-dev libpq5 libprocps0 libpython2.7
+  libradiusclient-ng-dev libradiusclient-ng2 libreadline-dev libreadline6-dev
+  librtmp-dev librtmp0 libsasl2-2 libsasl2-dev libsasl2-modules libsensors4
+  libsensors4-dev libsigsegv2 libsnmp-base libsnmp-dev libsnmp-perl libsnmp15
+  libsqlite3-dev libssh2-1 libssh2-1-dev libssl-dev libtasn1-3 libtasn1-3-dev
+  libtinfo-dev libunistring0 libwrap0 libwrap0-dev libxml2 libxml2-dev
+  libxmlrpc-c++4 libxmlrpc-c++4-dev libxmlrpc-c3-dev libxmlrpc-core-c3
+  libxmlrpc-core-c3-dev libxslt1.1 m4 man-db mysql-common odbcinst
+  odbcinst1debian2 pkg-config po-debconf procps python-dev python2.7-dev
+  sbuild-build-depends-kamailio-dummy sgml-base sgml-data unixodbc
+  unixodbc-dev xml-core xsltproc zlib1g-dev
+0 upgraded, 142 newly installed, 0 to remove and 0 not upgraded.
+Need to get 70.2 MB/70.2 MB of archives.
+After this operation, 171 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:4 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:5 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:6 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:7 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:8 http://localhost/debian/ unstable/main libevent-2.0-5 amd64 2.0.19-stable-3 [172 kB]
+Get:9 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:10 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:11 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:12 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:13 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:14 http://localhost/debian/ unstable/main libgnutls-openssl27 amd64 2.12.20-3 [221 kB]
+Get:15 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:16 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:17 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:18 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:19 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:20 http://localhost/debian/ unstable/main libgssrpc4 amd64 1.10.1+dfsg-3 [87.5 kB]
+Get:21 http://localhost/debian/ unstable/main libidn11 amd64 1.25-2 [178 kB]
+Get:22 http://localhost/debian/ unstable/main libkadm5clnt-mit8 amd64 1.10.1+dfsg-3 [67.6 kB]
+Get:23 http://localhost/debian/ unstable/main libkdb5-6 amd64 1.10.1+dfsg-3 [66.5 kB]
+Get:24 http://localhost/debian/ unstable/main libkadm5srv-mit8 amd64 1.10.1+dfsg-3 [84.6 kB]
+Get:25 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:26 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:27 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:28 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:29 http://localhost/debian/ unstable/main libwrap0 amd64 7.6.q-24 [62.4 kB]
+Get:30 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:31 http://localhost/debian/ unstable/main sgml-base all 1.26+nmu4 [14.6 kB]
+Get:32 http://localhost/debian/ unstable/main xml-core all 0.13+nmu2 [24.2 kB]
+Get:33 http://localhost/debian/ unstable/main sgml-data all 2.0.8 [284 kB]
+Get:34 http://localhost/debian/ unstable/main docbook-xml all 4.5-7.1 [345 kB]
+Get:35 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:36 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:37 http://localhost/debian/ unstable/main flex amd64 2.5.35-10.1 [332 kB]
+Get:38 http://localhost/debian/ unstable/main libconfuse-common all 2.7-4 [7322 B]
+Get:39 http://localhost/debian/ unstable/main libconfuse0 amd64 2.7-4 [28.1 kB]
+Get:40 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:41 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:42 http://localhost/debian/ unstable/main librtmp0 amd64 2.4+20111222.git4e06e21-1 [62.3 kB]
+Get:43 http://localhost/debian/ unstable/main libssh2-1 amd64 1.4.2-1.1 [133 kB]
+Get:44 http://localhost/debian/ unstable/main libcurl3 amd64 7.28.0-3 [331 kB]
+Get:45 http://localhost/debian/ unstable/main libcurl3-gnutls amd64 7.28.0-3 [322 kB]
+Get:46 http://localhost/debian/ unstable/main libevent-core-2.0-5 amd64 2.0.19-stable-3 [120 kB]
+Get:47 http://localhost/debian/ unstable/main libevent-extra-2.0-5 amd64 2.0.19-stable-3 [102 kB]
+Get:48 http://localhost/debian/ unstable/main libevent-openssl-2.0-5 amd64 2.0.19-stable-3 [52.0 kB]
+Get:49 http://localhost/debian/ unstable/main libevent-pthreads-2.0-5 amd64 2.0.19-stable-3 [44.3 kB]
+Get:50 http://localhost/debian/ unstable/main libgeoip1 amd64 1.4.8+dfsg-4 [122 kB]
+Get:51 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:52 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:53 http://localhost/debian/ unstable/main libhiredis0.10 amd64 0.11.0-2 [24.6 kB]
+Get:54 http://localhost/debian/ unstable/main libltdl7 amd64 2.4.2-1.2 [352 kB]
+Get:55 http://localhost/debian/ unstable/main liblua5.1-0 amd64 5.1.5-4 [180 kB]
+Get:56 http://localhost/debian/ unstable/main mysql-common all 5.5.29+dfsg-1 [109 kB]
+Get:57 http://localhost/debian/ unstable/main libmysqlclient18 amd64 5.5.29+dfsg-1 [708 kB]
+Get:58 http://localhost/debian/ unstable/main libodbc1 amd64 2.2.14p2-5 [252 kB]
+Get:59 http://localhost/debian/ unstable/main libpcrecpp0 amd64 1:8.31-2 [128 kB]
+Get:60 http://localhost/debian/ unstable/main libsensors4 amd64 1:3.3.2-2 [54.9 kB]
+Get:61 http://localhost/debian/ unstable/main libxslt1.1 amd64 1.1.26-14 [253 kB]
+Get:62 http://localhost/debian/ unstable/main odbcinst amd64 2.2.14p2-5 [40.6 kB]
+Get:63 http://localhost/debian/ unstable/main odbcinst1debian2 amd64 2.2.14p2-5 [80.5 kB]
+Get:64 http://localhost/debian/ unstable/main libgnutlsxx27 amd64 2.12.20-3 [222 kB]
+Get:65 http://localhost/debian/ unstable/main libjson0 amd64 0.10-1.2 [24.2 kB]
+Get:66 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:67 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:68 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:69 http://localhost/debian/ unstable/main libbison-dev amd64 2:2.5.dfsg-3 [289 kB]
+Get:70 http://localhost/debian/ unstable/main bison amd64 2:2.5.dfsg-3 [688 kB]
+Get:71 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:72 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:73 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:74 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:75 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:76 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:77 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:78 http://localhost/debian/ unstable/main geoip-bin amd64 1.4.8+dfsg-4 [65.9 kB]
+Get:79 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:80 http://localhost/debian/ unstable/main krb5-multidev amd64 1.10.1+dfsg-3 [153 kB]
+Get:81 http://localhost/debian/ unstable/main libconfuse-dev amd64 2.7-4 [110 kB]
+Get:82 http://localhost/debian/ unstable/main libgpg-error-dev amd64 1.10-3.1 [43.0 kB]
+Get:83 http://localhost/debian/ unstable/main libgcrypt11-dev amd64 1.5.0-3 [402 kB]
+Get:84 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:85 http://localhost/debian/ unstable/main libtasn1-3-dev amd64 2.13-2 [389 kB]
+Get:86 http://localhost/debian/ unstable/main libp11-kit-dev amd64 0.12-3 [67.8 kB]
+Get:87 http://localhost/debian/ unstable/main libgnutls-dev amd64 2.12.20-3 [747 kB]
+Get:88 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:89 http://localhost/debian/ unstable/main libidn11-dev amd64 1.25-2 [664 kB]
+Get:90 http://localhost/debian/ unstable/main libkrb5-dev amd64 1.10.1+dfsg-3 [39.6 kB]
+Get:91 http://localhost/debian/ unstable/main libldap2-dev amd64 2.4.31-1 [563 kB]
+Get:92 http://localhost/debian/ unstable/main librtmp-dev amd64 2.4+20111222.git4e06e21-1 [72.8 kB]
+Get:93 http://localhost/debian/ unstable/main libssh2-1-dev amd64 1.4.2-1.1 [311 kB]
+Get:94 http://localhost/debian/ unstable/main libcurl4-gnutls-dev amd64 7.28.0-3 [1269 kB]
+Get:95 http://localhost/debian/ unstable/main libevent-dev amd64 2.0.19-stable-3 [386 kB]
+Get:96 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:97 http://localhost/debian/ unstable/main libgeoip-dev amd64 1.4.8+dfsg-4 [209 kB]
+Get:98 http://localhost/debian/ unstable/main libhiredis-dev amd64 0.11.0-2 [38.2 kB]
+Get:99 http://localhost/debian/ unstable/main libltdl-dev amd64 2.4.2-1.2 [206 kB]
+Get:100 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:101 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:102 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+Get:103 http://localhost/debian/ unstable/main liblua5.1-0-dev amd64 5.1.5-4 [239 kB]
+Get:104 http://localhost/debian/ unstable/main libmemcache0 amd64 1.4.0.rc2-1 [53.6 kB]
+Get:105 http://localhost/debian/ unstable/main libmemcache-dev amd64 1.4.0.rc2-1 [70.6 kB]
+Get:106 http://localhost/debian/ unstable/main libmono-2.0-1 amd64 2.10.8.1-7 [1374 kB]
+Get:107 http://localhost/debian/ unstable/main libmono-2.0-dev amd64 2.10.8.1-7 [1826 kB]
+Get:108 http://localhost/debian/ unstable/main libmysqlclient-dev amd64 5.5.29+dfsg-1 [974 kB]
+Get:109 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+Get:110 http://localhost/debian/ unstable/main libpcre3-dev amd64 1:8.31-2 [356 kB]
+Get:111 http://localhost/debian/ unstable/main libperl5.14 amd64 5.14.2-17 [1176 B]
+Get:112 http://localhost/debian/ unstable/main libperl-dev amd64 5.14.2-17 [3321 kB]
+Get:113 http://localhost/debian/ unstable/main libpq5 amd64 9.1.7-1 [516 kB]
+Get:114 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:115 http://localhost/debian/ unstable/main libpq-dev amd64 9.1.7-1 [570 kB]
+Get:116 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:117 http://localhost/debian/ unstable/main libradiusclient-ng2 amd64 0.5.6-1.1 [39.9 kB]
+Get:118 http://localhost/debian/ unstable/main libradiusclient-ng-dev amd64 0.5.6-1.1 [56.8 kB]
+Get:119 http://localhost/debian/ unstable/main libsasl2-modules amd64 2.1.25.dfsg1-6 [116 kB]
+Get:120 http://localhost/debian/ unstable/main libsasl2-dev amd64 2.1.25.dfsg1-6 [361 kB]
+Get:121 http://localhost/debian/ unstable/main libsnmp-base all 5.4.3~dfsg-2.7 [1101 kB]
+Get:122 http://localhost/debian/ unstable/main libsnmp15 amd64 5.4.3~dfsg-2.7 [2247 kB]
+Get:123 http://localhost/debian/ unstable/main libsnmp-perl amd64 5.4.3~dfsg-2.7 [129 kB]
+Get:124 http://localhost/debian/ unstable/main libwrap0-dev amd64 7.6.q-24 [25.4 kB]
+Get:125 http://localhost/debian/ unstable/main libsensors4-dev amd64 1:3.3.2-2 [63.6 kB]
+Get:126 http://localhost/debian/ unstable/main libsnmp-dev amd64 5.4.3~dfsg-2.7 [1829 kB]
+Get:127 http://localhost/debian/ unstable/main libsqlite3-dev amd64 3.7.15.2-1 [589 kB]
+Get:128 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:129 http://localhost/debian/ unstable/main libxmlrpc-core-c3 amd64 1.16.33-3.2 [186 kB]
+Get:130 http://localhost/debian/ unstable/main libxmlrpc-c++4 amd64 1.16.33-3.2 [153 kB]
+Get:131 http://localhost/debian/ unstable/main libxmlrpc-core-c3-dev amd64 1.16.33-3.2 [282 kB]
+Get:132 http://localhost/debian/ unstable/main libxmlrpc-c++4-dev amd64 1.16.33-3.2 [194 kB]
+Get:133 http://localhost/debian/ unstable/main libxmlrpc-c3-dev all 1.16.33-3.2 [6962 B]
+Get:134 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:135 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:136 http://localhost/debian/ unstable/main unixodbc amd64 2.2.14p2-5 [53.1 kB]
+Get:137 http://localhost/debian/ unstable/main xsltproc amd64 1.1.26-14 [117 kB]
+Get:138 http://localhost/debian/ unstable/main libdb5.1-dev amd64 5.1.29-5 [882 kB]
+Get:139 http://localhost/debian/ unstable/main libdb-dev amd64 5.1.6 [2240 B]
+Get:140 http://localhost/debian/ unstable/main libjson0-dev amd64 0.10-1.2 [96.4 kB]
+Get:141 http://localhost/debian/ unstable/main unixodbc-dev amd64 2.2.14p2-5 [367 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 70.2 MB in 6s (11.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libevent-2.0-5:amd64.
+Unpacking libevent-2.0-5:amd64 (from .../libevent-2.0-5_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Unpacking libgnutls-openssl27:amd64 (from .../libgnutls-openssl27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Unpacking libgssrpc4:amd64 (from .../libgssrpc4_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libidn11:amd64.
+Unpacking libidn11:amd64 (from .../libidn11_1.25-2_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8:amd64.
+Unpacking libkadm5clnt-mit8:amd64 (from .../libkadm5clnt-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkdb5-6:amd64.
+Unpacking libkdb5-6:amd64 (from .../libkdb5-6_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8:amd64.
+Unpacking libkadm5srv-mit8:amd64 (from .../libkadm5srv-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libwrap0:amd64.
+Unpacking libwrap0:amd64 (from .../libwrap0_7.6.q-24_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package sgml-base.
+Unpacking sgml-base (from .../sgml-base_1.26+nmu4_all.deb) ...
+Selecting previously unselected package xml-core.
+Unpacking xml-core (from .../xml-core_0.13+nmu2_all.deb) ...
+Selecting previously unselected package sgml-data.
+Unpacking sgml-data (from .../sgml-data_2.0.8_all.deb) ...
+Processing triggers for mime-support ...
+Setting up sgml-base (1.26+nmu4) ...
+Setting up xml-core (0.13+nmu2) ...
+Processing triggers for sgml-base ...
+Selecting previously unselected package docbook-xml.
+(Reading database ... 15713 files and directories currently installed.)
+Unpacking docbook-xml (from .../docbook-xml_4.5-7.1_all.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package flex.
+Unpacking flex (from .../flex_2.5.35-10.1_amd64.deb) ...
+Selecting previously unselected package libconfuse-common.
+Unpacking libconfuse-common (from .../libconfuse-common_2.7-4_all.deb) ...
+Selecting previously unselected package libconfuse0:amd64.
+Unpacking libconfuse0:amd64 (from .../libconfuse0_2.7-4_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package librtmp0:amd64.
+Unpacking librtmp0:amd64 (from .../librtmp0_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1:amd64.
+Unpacking libssh2-1:amd64 (from .../libssh2-1_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl3:amd64.
+Unpacking libcurl3:amd64 (from .../libcurl3_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Unpacking libcurl3-gnutls:amd64 (from .../libcurl3-gnutls_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libevent-core-2.0-5:amd64.
+Unpacking libevent-core-2.0-5:amd64 (from .../libevent-core-2.0-5_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libevent-extra-2.0-5:amd64.
+Unpacking libevent-extra-2.0-5:amd64 (from .../libevent-extra-2.0-5_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libevent-openssl-2.0-5:amd64.
+Unpacking libevent-openssl-2.0-5:amd64 (from .../libevent-openssl-2.0-5_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libevent-pthreads-2.0-5:amd64.
+Unpacking libevent-pthreads-2.0-5:amd64 (from .../libevent-pthreads-2.0-5_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libgeoip1:amd64.
+Unpacking libgeoip1:amd64 (from .../libgeoip1_1.4.8+dfsg-4_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libhiredis0.10:amd64.
+Unpacking libhiredis0.10:amd64 (from .../libhiredis0.10_0.11.0-2_amd64.deb) ...
+Selecting previously unselected package libltdl7:amd64.
+Unpacking libltdl7:amd64 (from .../libltdl7_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package liblua5.1-0:amd64.
+Unpacking liblua5.1-0:amd64 (from .../liblua5.1-0_5.1.5-4_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.29+dfsg-1_all.deb) ...
+Selecting previously unselected package libmysqlclient18:amd64.
+Unpacking libmysqlclient18:amd64 (from .../libmysqlclient18_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libodbc1:amd64.
+Unpacking libodbc1:amd64 (from .../libodbc1_2.2.14p2-5_amd64.deb) ...
+Selecting previously unselected package libpcrecpp0:amd64.
+Unpacking libpcrecpp0:amd64 (from .../libpcrecpp0_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libsensors4:amd64.
+Unpacking libsensors4:amd64 (from .../libsensors4_1%3a3.3.2-2_amd64.deb) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Unpacking libxslt1.1:amd64 (from .../libxslt1.1_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package odbcinst.
+Unpacking odbcinst (from .../odbcinst_2.2.14p2-5_amd64.deb) ...
+Selecting previously unselected package odbcinst1debian2:amd64.
+Unpacking odbcinst1debian2:amd64 (from .../odbcinst1debian2_2.2.14p2-5_amd64.deb) ...
+Selecting previously unselected package libgnutlsxx27:amd64.
+Unpacking libgnutlsxx27:amd64 (from .../libgnutlsxx27_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libjson0:amd64.
+Unpacking libjson0:amd64 (from .../libjson0_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libbison-dev:amd64.
+Unpacking libbison-dev:amd64 (from .../libbison-dev_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package bison.
+Unpacking bison (from .../bison_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package geoip-bin.
+Unpacking geoip-bin (from .../geoip-bin_1.4.8+dfsg-4_amd64.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libconfuse-dev.
+Unpacking libconfuse-dev (from .../libconfuse-dev_2.7-4_amd64.deb) ...
+Selecting previously unselected package libgpg-error-dev.
+Unpacking libgpg-error-dev (from .../libgpg-error-dev_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11-dev.
+Unpacking libgcrypt11-dev (from .../libgcrypt11-dev_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libtasn1-3-dev.
+Unpacking libtasn1-3-dev (from .../libtasn1-3-dev_2.13-2_amd64.deb) ...
+Selecting previously unselected package libp11-kit-dev.
+Unpacking libp11-kit-dev (from .../libp11-kit-dev_0.12-3_amd64.deb) ...
+Selecting previously unselected package libgnutls-dev.
+Unpacking libgnutls-dev (from .../libgnutls-dev_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libidn11-dev.
+Unpacking libidn11-dev (from .../libidn11-dev_1.25-2_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libldap2-dev:amd64.
+Unpacking libldap2-dev:amd64 (from .../libldap2-dev_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package librtmp-dev.
+Unpacking librtmp-dev (from .../librtmp-dev_2.4+20111222.git4e06e21-1_amd64.deb) ...
+Selecting previously unselected package libssh2-1-dev.
+Unpacking libssh2-1-dev (from .../libssh2-1-dev_1.4.2-1.1_amd64.deb) ...
+Selecting previously unselected package libcurl4-gnutls-dev.
+Unpacking libcurl4-gnutls-dev (from .../libcurl4-gnutls-dev_7.28.0-3_amd64.deb) ...
+Selecting previously unselected package libevent-dev.
+Unpacking libevent-dev (from .../libevent-dev_2.0.19-stable-3_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libgeoip-dev.
+Unpacking libgeoip-dev (from .../libgeoip-dev_1.4.8+dfsg-4_amd64.deb) ...
+Selecting previously unselected package libhiredis-dev:amd64.
+Unpacking libhiredis-dev:amd64 (from .../libhiredis-dev_0.11.0-2_amd64.deb) ...
+Selecting previously unselected package libltdl-dev:amd64.
+Unpacking libltdl-dev:amd64 (from .../libltdl-dev_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package liblua5.1-0-dev:amd64.
+Unpacking liblua5.1-0-dev:amd64 (from .../liblua5.1-0-dev_5.1.5-4_amd64.deb) ...
+Selecting previously unselected package libmemcache0.
+Unpacking libmemcache0 (from .../libmemcache0_1.4.0.rc2-1_amd64.deb) ...
+Selecting previously unselected package libmemcache-dev.
+Unpacking libmemcache-dev (from .../libmemcache-dev_1.4.0.rc2-1_amd64.deb) ...
+Selecting previously unselected package libmono-2.0-1.
+Unpacking libmono-2.0-1 (from .../libmono-2.0-1_2.10.8.1-7_amd64.deb) ...
+Selecting previously unselected package libmono-2.0-dev.
+Unpacking libmono-2.0-dev (from .../libmono-2.0-dev_2.10.8.1-7_amd64.deb) ...
+Selecting previously unselected package libmysqlclient-dev.
+Unpacking libmysqlclient-dev (from .../libmysqlclient-dev_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Unpacking libpcre3-dev:amd64 (from .../libpcre3-dev_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libperl5.14.
+Unpacking libperl5.14 (from .../libperl5.14_5.14.2-17_amd64.deb) ...
+Selecting previously unselected package libperl-dev.
+Unpacking libperl-dev (from .../libperl-dev_5.14.2-17_amd64.deb) ...
+Selecting previously unselected package libpq5.
+Unpacking libpq5 (from .../libpq5_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package libpq-dev.
+Unpacking libpq-dev (from .../libpq-dev_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libradiusclient-ng2.
+Unpacking libradiusclient-ng2 (from .../libradiusclient-ng2_0.5.6-1.1_amd64.deb) ...
+Selecting previously unselected package libradiusclient-ng-dev.
+Unpacking libradiusclient-ng-dev (from .../libradiusclient-ng-dev_0.5.6-1.1_amd64.deb) ...
+Selecting previously unselected package libsasl2-modules:amd64.
+Unpacking libsasl2-modules:amd64 (from .../libsasl2-modules_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libsasl2-dev.
+Unpacking libsasl2-dev (from .../libsasl2-dev_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libsnmp-base.
+Unpacking libsnmp-base (from .../libsnmp-base_5.4.3~dfsg-2.7_all.deb) ...
+Selecting previously unselected package libsnmp15.
+Unpacking libsnmp15 (from .../libsnmp15_5.4.3~dfsg-2.7_amd64.deb) ...
+Selecting previously unselected package libsnmp-perl.
+Unpacking libsnmp-perl (from .../libsnmp-perl_5.4.3~dfsg-2.7_amd64.deb) ...
+Selecting previously unselected package libwrap0-dev:amd64.
+Unpacking libwrap0-dev:amd64 (from .../libwrap0-dev_7.6.q-24_amd64.deb) ...
+Selecting previously unselected package libsensors4-dev.
+Unpacking libsensors4-dev (from .../libsensors4-dev_1%3a3.3.2-2_amd64.deb) ...
+Selecting previously unselected package libsnmp-dev.
+Unpacking libsnmp-dev (from .../libsnmp-dev_5.4.3~dfsg-2.7_amd64.deb) ...
+Selecting previously unselected package libsqlite3-dev.
+Unpacking libsqlite3-dev (from .../libsqlite3-dev_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3.
+Unpacking libxmlrpc-core-c3 (from .../libxmlrpc-core-c3_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-c++4.
+Unpacking libxmlrpc-c++4 (from .../libxmlrpc-c++4_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3-dev.
+Unpacking libxmlrpc-core-c3-dev (from .../libxmlrpc-core-c3-dev_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-c++4-dev.
+Unpacking libxmlrpc-c++4-dev (from .../libxmlrpc-c++4-dev_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-c3-dev.
+Unpacking libxmlrpc-c3-dev (from .../libxmlrpc-c3-dev_1.16.33-3.2_all.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package unixodbc.
+Unpacking unixodbc (from .../unixodbc_2.2.14p2-5_amd64.deb) ...
+Selecting previously unselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.26-14_amd64.deb) ...
+Selecting previously unselected package libdb5.1-dev.
+Unpacking libdb5.1-dev (from .../libdb5.1-dev_5.1.29-5_amd64.deb) ...
+Selecting previously unselected package libdb-dev:amd64.
+Unpacking libdb-dev:amd64 (from .../libdb-dev_5.1.6_amd64.deb) ...
+Selecting previously unselected package libjson0-dev:amd64.
+Unpacking libjson0-dev:amd64 (from .../libjson0-dev_0.10-1.2_amd64.deb) ...
+Selecting previously unselected package unixodbc-dev.
+Unpacking unixodbc-dev (from .../unixodbc-dev_2.2.14p2-5_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-kamailio-dummy.
+Unpacking sbuild-build-depends-kamailio-dummy (from .../sbuild-build-depends-kamailio-dummy.deb) ...
+Processing triggers for sgml-base ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libevent-2.0-5:amd64 (2.0.19-stable-3) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libgnutls-openssl27:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssrpc4:amd64 (1.10.1+dfsg-3) ...
+Setting up libidn11:amd64 (1.25-2) ...
+Setting up libkadm5clnt-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libkdb5-6:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5srv-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libwrap0:amd64 (7.6.q-24) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up sgml-data (2.0.8) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up flex (2.5.35-10.1) ...
+Setting up libconfuse-common (2.7-4) ...
+Setting up libconfuse0:amd64 (2.7-4) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up librtmp0:amd64 (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1:amd64 (1.4.2-1.1) ...
+Setting up libcurl3:amd64 (7.28.0-3) ...
+Setting up libcurl3-gnutls:amd64 (7.28.0-3) ...
+Setting up libevent-core-2.0-5:amd64 (2.0.19-stable-3) ...
+Setting up libevent-extra-2.0-5:amd64 (2.0.19-stable-3) ...
+Setting up libevent-openssl-2.0-5:amd64 (2.0.19-stable-3) ...
+Setting up libevent-pthreads-2.0-5:amd64 (2.0.19-stable-3) ...
+Setting up libgeoip1:amd64 (1.4.8+dfsg-4) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libhiredis0.10:amd64 (0.11.0-2) ...
+Setting up libltdl7:amd64 (2.4.2-1.2) ...
+Setting up liblua5.1-0:amd64 (5.1.5-4) ...
+Setting up mysql-common (5.5.29+dfsg-1) ...
+Setting up libmysqlclient18:amd64 (5.5.29+dfsg-1) ...
+Setting up libodbc1:amd64 (2.2.14p2-5) ...
+Setting up libpcrecpp0:amd64 (1:8.31-2) ...
+Setting up libsensors4:amd64 (1:3.3.2-2) ...
+Setting up libxslt1.1:amd64 (1.1.26-14) ...
+Setting up libgnutlsxx27:amd64 (2.12.20-3) ...
+Setting up libjson0:amd64 (0.10-1.2) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libbison-dev:amd64 (2:2.5.dfsg-3) ...
+Setting up bison (2:2.5.dfsg-3) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up geoip-bin (1.4.8+dfsg-4) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up krb5-multidev (1.10.1+dfsg-3) ...
+Setting up libconfuse-dev (2.7-4) ...
+Setting up libgpg-error-dev (1.10-3.1) ...
+Setting up libgcrypt11-dev (1.5.0-3) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libtasn1-3-dev (2.13-2) ...
+Setting up libp11-kit-dev (0.12-3) ...
+Setting up libgnutls-dev (2.12.20-3) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libidn11-dev (1.25-2) ...
+Setting up libkrb5-dev (1.10.1+dfsg-3) ...
+Setting up libldap2-dev:amd64 (2.4.31-1) ...
+Setting up librtmp-dev (2.4+20111222.git4e06e21-1) ...
+Setting up libssh2-1-dev (1.4.2-1.1) ...
+Setting up libcurl4-gnutls-dev (7.28.0-3) ...
+Setting up libevent-dev (2.0.19-stable-3) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libgeoip-dev (1.4.8+dfsg-4) ...
+Setting up libhiredis-dev:amd64 (0.11.0-2) ...
+Setting up libltdl-dev:amd64 (2.4.2-1.2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up liblua5.1-0-dev:amd64 (5.1.5-4) ...
+Setting up libmemcache0 (1.4.0.rc2-1) ...
+Setting up libmemcache-dev (1.4.0.rc2-1) ...
+Setting up libmono-2.0-1 (2.10.8.1-7) ...
+Setting up libmono-2.0-dev (2.10.8.1-7) ...
+Setting up libmysqlclient-dev (5.5.29+dfsg-1) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up libpcre3-dev:amd64 (1:8.31-2) ...
+Setting up libperl5.14 (5.14.2-17) ...
+Setting up libperl-dev (5.14.2-17) ...
+Setting up libpq5 (9.1.7-1) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up libpq-dev (9.1.7-1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libradiusclient-ng2 (0.5.6-1.1) ...
+Setting up libradiusclient-ng-dev (0.5.6-1.1) ...
+Setting up libsasl2-modules:amd64 (2.1.25.dfsg1-6) ...
+Setting up libsasl2-dev (2.1.25.dfsg1-6) ...
+Setting up libsnmp-base (5.4.3~dfsg-2.7) ...
+Setting up libsnmp15 (5.4.3~dfsg-2.7) ...
+Setting up libsnmp-perl (5.4.3~dfsg-2.7) ...
+Setting up libwrap0-dev:amd64 (7.6.q-24) ...
+Setting up libsensors4-dev (1:3.3.2-2) ...
+Setting up libsnmp-dev (5.4.3~dfsg-2.7) ...
+Setting up libsqlite3-dev (3.7.15.2-1) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up libxmlrpc-core-c3 (1.16.33-3.2) ...
+Setting up libxmlrpc-c++4 (1.16.33-3.2) ...
+Setting up libxmlrpc-core-c3-dev (1.16.33-3.2) ...
+Setting up libxmlrpc-c++4-dev (1.16.33-3.2) ...
+Setting up libxmlrpc-c3-dev (1.16.33-3.2) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up xsltproc (1.1.26-14) ...
+Setting up libdb5.1-dev (5.1.29-5) ...
+Setting up libdb-dev:amd64 (5.1.6) ...
+Setting up libjson0-dev:amd64 (0.10-1.2) ...
+Processing triggers for sgml-base ...
+Setting up docbook-xml (4.5-7.1) ...
+Processing triggers for sgml-base ...
+Setting up odbcinst1debian2:amd64 (2.2.14p2-5) ...
+Setting up unixodbc (2.2.14p2-5) ...
+Setting up unixodbc-dev (2.2.14p2-5) ...
+Setting up sbuild-build-depends-kamailio-dummy (0.invalid.0) ...
+Setting up odbcinst (2.2.14p2-5) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-kamailio-dummy : Depends: libexpat1-dev but it is not going to be installed
-                                       Depends: liblua5.1-0-dev but it is not going to be installed
-                                       Depends: libncurses5-dev but it is not going to be installed
-                                       Depends: libreadline-dev but it is not going to be installed
-                                       Depends: python-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bison_2:2.5.dfsg-3 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 docbook-xml_4.5-7.1 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 flex_2.5.35-10.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 geoip-bin_1.4.8+dfsg-4 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10.1+dfsg-3 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libbison-dev_2:2.5.dfsg-3 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libconfuse-common_2.7-4 libconfuse-dev_2.7-4 libconfuse0_2.7-4 libcroco3_0.6.6-2 libcurl3_7.28.0-3 libcurl3-gnutls_7.28.0-3 libcurl4-gnutls-dev_7.28.0-3 libdb-dev_5.1.6 libdb5.1_5.1.29-5 libdb5.1-dev_5.1.29-5 libdpkg-perl_1.16.9 libevent-2.0-5_2.0.19-stable-3 libevent-core-2.0-5_2.0.19-stable-3 libevent-dev_2.0.19-stable-3 libevent-extra-2.0-5_2.0.19-stable-3 libevent-openssl-2.0-5_2.0.19-stable-3 libevent-pthreads-2.0-5_2.0.19-stable-3 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgcrypt11-dev_1.5.0-3 libgdbm3_1.8.3-11 libgeoip-dev_1.4.8+dfsg-4 libgeoip1_1.4.8+dfsg-4 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls-dev_2.12.20-3 libgnutls-openssl27_2.12.20-3 libgnutls26_2.12.20-3 libgnutlsxx27_2.12.20-3 libgomp1_4.7.2-5 libgpg-error-dev_1.10-3.1 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgssrpc4_1.10.1+dfsg-3 libhiredis-dev_0.11.0-2 libhiredis0.10_0.11.0-2 libidn11_1.25-2 libidn11-dev_1.25-2 libitm1_4.7.2-5 libjson0_0.10-1.2 libjson0-dev_0.10-1.2 libk5crypto3_1.10.1+dfsg-3 libkadm5clnt-mit8_1.10.1+dfsg-3 libkadm5srv-mit8_1.10.1+dfsg-3 libkdb5-6_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5-dev_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libldap2-dev_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 libltdl-dev_2.4.2-1.2 libltdl7_2.4.2-1.2 liblua5.1-0_5.1.5-4 liblua5.1-0-dev_5.1.5-4 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmemcache-dev_1.4.0.rc2-1 libmemcache0_1.4.0.rc2-1 libmono-2.0-1_2.10.8.1-7 libmono-2.0-dev_2.10.8.1-7 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmysqlclient-dev_5.5.29+dfsg-1 libmysqlclient18_5.5.29+dfsg-1 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libodbc1_2.2.14p2-5 libp11-kit-dev_0.12-3 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpcre3-dev_1:8.31-2 libpcrecpp0_1:8.31-2 libperl-dev_5.14.2-17 libperl5.14_5.14.2-17 libpipeline1_1.2.2-1 libpopt0_1.16-7 libpq-dev_9.1.7-1 libpq5_9.1.7-1 libprocps0_1:3.3.4-2 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libradiusclient-ng-dev_0.5.6-1.1 libradiusclient-ng2_0.5.6-1.1 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 librtmp-dev_2.4+20111222.git4e06e21-1 librtmp0_2.4+20111222.git4e06e21-1 libsasl2-2_2.1.25.dfsg1-6 libsasl2-dev_2.1.25.dfsg1-6 libsasl2-modules_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsensors4_1:3.3.2-2 libsensors4-dev_1:3.3.2-2 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsnmp-base_5.4.3~dfsg-2.7 libsnmp-dev_5.4.3~dfsg-2.7 libsnmp-perl_5.4.3~dfsg-2.7 libsnmp15_5.4.3~dfsg-2.7 libsqlite3-0_3.7.15.2-1 libsqlite3-dev_3.7.15.2-1 libss2_1.42.5-1 libssh2-1_1.4.2-1.1 libssh2-1-dev_1.4.2-1.1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtasn1-3-dev_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libwrap0_7.6.q-24 libwrap0-dev_7.6.q-24 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libxmlrpc-c++4_1.16.33-3.2 libxmlrpc-c++4-dev_1.16.33-3.2 libxmlrpc-c3-dev_1.16.33-3.2 libxmlrpc-core-c3_1.16.33-3.2 libxmlrpc-core-c3-dev_1.16.33-3.2 libxslt1.1_1.1.26-14 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 mysql-common_5.5.29+dfsg-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 odbcinst_2.2.14p2-5 odbcinst1debian2_2.2.14p2-5 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-kamailio-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sgml-base_1.26+nmu4 sgml-data_2.0.8 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 unixodbc_2.2.14p2-5 unixodbc-dev_2.2.14p2-5 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xml-core_0.13+nmu2 xsltproc_1.1.26-14 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sat Jun 30 11:27:48 2012 UTC using DSA key ID 437D328B
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./kamailio_3.3.0-1.dsc
+dpkg-source: info: extracting kamailio in kamailio-3.3.0
+dpkg-source: info: unpacking kamailio_3.3.0.orig.tar.gz
+dpkg-source: info: unpacking kamailio_3.3.0-1.debian.tar.gz
+dpkg-source: info: applying upstream/0001-dialog-k-proper-unlock-of-profile-for-mi-list-comman.patch
+dpkg-source: info: applying upstream/0002-modules_k-presence_xml-Xcap-auth-reason-when-user-de.patch
+dpkg-source: info: applying multiarch_support.patch
+dpkg-source: info: applying no_INSTALL_file.patch
+dpkg-source: info: applying hardening_flags.patch
+dpkg-source: info: applying plumb_md5.patch
+dpkg-source: info: applying plumb_md5_fixes.patch
+dpkg-source: info: applying fix_export.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-09d68ebe-efac-486a-a162-21d52fd55c82
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package kamailio
+dpkg-buildpackage: source version 3.3.0-1
+dpkg-buildpackage: source changed by Tzafrir Cohen <tzafrir@debian.org>
+ dpkg-source --before-build kamailio-3.3.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+if [ -r debian/kambdb_recover ]; then \
+		mv debian/kambdb_recover utils/db_berkeley/;\
+	fi
+rm -f build-stamp configure-stamp
+# Add here commands to clean up after the build process.
+/usr/bin/make maintainer-clean
+Makefile.defs:331: Unknown compiler gcc\; supported compilers: gcc, sun cc, intel icc 
+make[1]: Entering directory `/«PKGBUILDDIR»'
+target architecture <x86_64>, host architecture <x86_64>
+Makefile.defs:996: You are using an old and unsupported gcc version  (unknown), compile at your own risk!
+LIBDIR <lib/x86_64-linux-gnu>
+rm -f TAGS tags *.dbg .*.swp
+rm -f app_lua.d app_lua.d app_lua.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f app_mono.d app_mono.d app_mono.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f app_python.d app_python.d app_python.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f async.d async.d async.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f auth.d auth.d auth.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f auth_identity.d auth_identity.d auth_identity.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f avpops.d avpops.d avpops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f blst.d blst.d blst.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f carrierroute.d carrierroute.d carrierroute.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f cfg_db.d cfg_db.d cfg_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f cfg_rpc.d cfg_rpc.d cfg_rpc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f counters.d counters.d counters.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f ctl.d ctl.d ctl.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_berkeley.d db_berkeley.d db_berkeley.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_cassandra.d db_cassandra.d db_cassandra.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_flatstore.d db_flatstore.d db_flatstore.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_mysql.d db_mysql.d db_mysql.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_postgres.d db_postgres.d db_postgres.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f debugger.d debugger.d debugger.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f dialplan.d dialplan.d dialplan.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f enum.d enum.d enum.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f geoip.d geoip.d geoip.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f ipops.d ipops.d ipops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f iptrtpproxy.d iptrtpproxy.d iptrtpproxy.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f json.d json.d json.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f jsonrpc-c.d jsonrpc-c.d jsonrpc-c.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f lcr.d lcr.d lcr.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f malloc_test.d malloc_test.d malloc_test.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f matrix.d matrix.d matrix.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mediaproxy.d mediaproxy.d mediaproxy.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mi_rpc.d mi_rpc.d mi_rpc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mqueue.d mqueue.d mqueue.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f msrp.d msrp.d msrp.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mtree.d mtree.d mtree.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f ndb_redis.d ndb_redis.d ndb_redis.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pdb.d pdb.d pdb.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f peering.d peering.d peering.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pipelimit.d pipelimit.d pipelimit.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f prefix_route.d prefix_route.d prefix_route.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f ratelimit.d ratelimit.d ratelimit.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f rtpproxy.d rtpproxy.d rtpproxy.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sanity.d sanity.d sanity.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sdpops.d sdpops.d sdpops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sipcapture.d sipcapture.d sipcapture.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sl.d sl.d sl.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sms.d sms.d sms.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f textopsx.d textopsx.d textopsx.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f tls.d tls.d tls.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f tm.d tm.d tm.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f tmrec.d tmrec.d tmrec.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f topoh.d topoh.d topoh.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f utils.d utils.d utils.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xhttp.d xhttp.d xhttp.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xhttp_rpc.d xhttp_rpc.d xhttp_rpc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xmlops.d xmlops.d xmlops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xmlrpc.d xmlrpc.d xmlrpc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f acc_syslog.d acc_syslog.d acc_syslog.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f auth_db.d auth_db.d auth_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f avp.d avp.d avp.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f avp_db.d avp_db.d avp_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_ops.d db_ops.d db_ops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f dispatcher.d dispatcher.d dispatcher.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f domain.d domain.d domain.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f exec.d exec.d exec.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f gflags.d gflags.d gflags.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f maxfwd.d maxfwd.d maxfwd.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f msilo.d msilo.d msilo.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f nathelper.d nathelper.d nathelper.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f options.d options.d options.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pdt.d pdt.d pdt.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f permissions.d permissions.d permissions.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pike.d pike.d pike.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f print.d print.d print.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f registrar.d registrar.d registrar.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f rr.d rr.d rr.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f speeddial.d speeddial.d speeddial.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f textops.d textops.d textops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f timer.d timer.d timer.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uac.d uac.d uac.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uri.d uri.d uri.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uri_db.d uri_db.d uri_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f usrloc.d usrloc.d usrloc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xlog.d xlog.d xlog.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f acc.d acc.d acc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f alias_db.d alias_db.d alias_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f auth_db.d auth_db.d auth_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f auth_diameter.d auth_diameter.d auth_diameter.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f benchmark.d benchmark.d benchmark.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f call_control.d call_control.d call_control.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f cfgutils.d cfgutils.d cfgutils.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_cluster.d db_cluster.d db_cluster.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f db_text.d db_text.d db_text.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f dialog.d dialog.d dialog.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f dispatcher.d dispatcher.d dispatcher.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f diversion.d diversion.d diversion.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f dmq.d dmq.d dmq.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f domain.d domain.d domain.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f domainpolicy.d domainpolicy.d domainpolicy.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f drouting.d drouting.d drouting.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f exec.d exec.d exec.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f group.d group.d group.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f htable.d htable.d htable.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f imc.d imc.d imc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f kex.d kex.d kex.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f maxfwd.d maxfwd.d maxfwd.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mi_datagram.d mi_datagram.d mi_datagram.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f mi_fifo.d mi_fifo.d mi_fifo.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f msilo.d msilo.d msilo.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f nat_traversal.d nat_traversal.d nat_traversal.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f nathelper.d nathelper.d nathelper.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f p_usrloc.d p_usrloc.d p_usrloc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f path.d path.d path.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pdt.d pdt.d pdt.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f permissions.d permissions.d permissions.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pike.d pike.d pike.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f presence_profile.d presence_profile.d presence_profile.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pua_mi.d pua_mi.d pua_mi.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f pv.d pv.d pv.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f qos.d qos.d qos.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f registrar.d registrar.d registrar.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f rr.d rr.d rr.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f rtimer.d rtimer.d rtimer.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f siptrace.d siptrace.d siptrace.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f siputils.d siputils.d siputils.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f speeddial.d speeddial.d speeddial.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sqlops.d sqlops.d sqlops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f sst.d sst.d sst.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f statistics.d statistics.d statistics.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f textops.d textops.d textops.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f tmx.d tmx.d tmx.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uac.d uac.d uac.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uac_redirect.d uac_redirect.d uac_redirect.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f uri_db.d uri_db.d uri_db.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f userblacklist.d userblacklist.d userblacklist.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f usrloc.d usrloc.d usrloc.d *~
+rm -f TAGS tags *.dbg .*.swp
+rm -f xlog.d xlog.d xlog.d *~
+Makefile:4: ../../config.mak: No such file or directory
+make[2]: *** No rule to make target `../../config.mak'.  Stop.
+/usr/bin/make --no-print-directory -C lib maintainer-clean
+Making maintainer-clean in binrpc
+Making maintainer-clean in cds
+Making maintainer-clean in kcore
+Making maintainer-clean in kmi
+Making maintainer-clean in presence
+Making maintainer-clean in print
+Making maintainer-clean in shm_regex
+Making maintainer-clean in srdb1
+Making maintainer-clean in srdb2
+Making maintainer-clean in srutils
+Making maintainer-clean in trie
+Making maintainer-clean in xcap
+rm -f config.mak
+rm -f modules.lst
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+# Add here commands to configure the package.
+/usr/bin/make FLAVOUR=kamailio cfg prefix=/usr cfg_prefix=/«PKGBUILDDIR»/debian/kamailio \
+			cfg_target=/etc/kamailio/ \
+			basedir=/«PKGBUILDDIR»/debian/kamailio \
+			skip_modules=" bdb dbtext oracle pa iptrtpproxy mi_xmlrpc purple" \
+			CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security" CPPFLAGS="-D_FORTIFY_SOURCE=2" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security" FFLAGS="-g -O2" LDFLAGS="-Wl,-z,relro"  \
+			group_include="kstandard"
+make[1]: Entering directory `/«PKGBUILDDIR»'
+Makefile.defs:331: Unknown compiler gcc\; supported compilers: gcc, sun cc, intel icc 
+target architecture <x86_64>, host architecture <x86_64>
+Makefile.defs:996: You are using an old and unsupported gcc version  (unknown), compile at your own risk!
+LIBDIR <lib/x86_64-linux-gnu>
+making config...
+rm -f modules.lst
+/usr/bin/make --no-print-directory modules.lst
+saving modules list...
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+touch configure-stamp
+dh_testdir
+# Add here commands to compile the package.
+if [ ! -r debian/kambdb_recover ]; then \
+		mv utils/db_berkeley/kambdb_recover debian/;\
+	fi
+/usr/bin/make all
+make[1]: Entering directory `/«PKGBUILDDIR»'
+generating autover.h ...
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Entering directory `/«PKGBUILDDIR»'
+CC (gcc) [kamailio]		action.o
+CC (gcc) [kamailio]		atomic_ops.o
+CC (gcc) [kamailio]		basex.o
+CC (gcc) [kamailio]		bit_count.o
+CC (gcc) [kamailio]		bit_scan.o
+CC (gcc) [kamailio]		cfg_core.o
+CC (gcc) [kamailio]		cfg_parser.o
+CC (gcc) [kamailio]		core_cmd.o
+CC (gcc) [kamailio]		counters.o
+CC (gcc) [kamailio]		crc.o
+CC (gcc) [kamailio]		daemonize.o
+CC (gcc) [kamailio]		data_lump.o
+CC (gcc) [kamailio]		data_lump_rpl.o
+CC (gcc) [kamailio]		dns_cache.o
+dns_cache.c:3891:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%sname: %s", SPACE_FORMAT, e->name);
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3892:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%stype: %s", SPACE_FORMAT, print_type(e->type));
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3893:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%ssize (bytes): %d", SPACE_FORMAT,
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3895:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%sreference counter: %d", SPACE_FORMAT,
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3898:8: error: no member named '__printf_chk' in 'struct rpc'
+                rpc->printf(ctx, "%spermanent: yes", SPACE_FORMAT);
+                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3900:8: error: no member named '__printf_chk' in 'struct rpc'
+                rpc->printf(ctx, "%spermanent: no", SPACE_FORMAT);
+                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3901:8: error: no member named '__printf_chk' in 'struct rpc'
+                rpc->printf(ctx, "%sexpires in (s): %d", SPACE_FORMAT, expires);
+                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3903:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%slast used (s): %d", SPACE_FORMAT,
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3905:7: error: no member named '__printf_chk' in 'struct rpc'
+        rpc->printf(ctx, "%snegative entry: %s", SPACE_FORMAT,
+        ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3913:12: error: no member named '__printf_chk' in 'struct rpc'
+                                  rpc->printf(ctx, "%srr ip: %s", SPACE_FORMAT,
+                                  ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3916:12: error: no member named '__printf_chk' in 'struct rpc'
+                                  rpc->printf(ctx, "%srr ip: <error: bad rr>", 
+                                  ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3921:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr name: %s", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3923:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr port: %d", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3925:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr priority: %d", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3927:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr weight: %d", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3931:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr order: %d", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3933:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr preference: %d", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3937:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr flags: %.*s", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+dns_cache.c:3941:10: error: no member named '__printf_chk' in 'struct rpc'
+                                rpc->printf(ctx, "%srr service: %.*s", SPACE_FORMAT,
+                                ~~~  ^
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:3: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make[1]: *** [dns_cache.o] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0155
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -429,28 +1491,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 43340
+Build-Time: 16
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 22
 Job: kamailio_3.3.0-1
 Package: kamailio
-Package-Time: 0
+Package-Time: 126
 Source-Version: 3.3.0-1
-Space: 0
-Status: failed
+Space: 43340
+Status: attempted
 Version: 3.3.0-1
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0351
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 35.554662s
-DC-Time-Estimation: 35.554662 versus expected 1 (r/m: 34.554662 ; m: 1.0)
+Finished at 20130202-0155
+Build needed 00:02:06, 43340k disc space
+DC-Status: Failed 126.057644s
+DC-Time-Estimation: 126.057644 versus expected 1 (r/m: 125.057644 ; m: 1.0)

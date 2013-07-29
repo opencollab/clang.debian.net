@@ -1,12 +1,12 @@
-DC-Build-Header: pcp 3.6.5 / Mon Jan 28 04:24:13 +0000 2013
-DC-Task: logfile:/tmp/pcp_3.6.5_unstable_clang.log version:3.6.5 chroot:unstable modes:binary-only:clang source:pcp architecture:any esttime:568
+DC-Build-Header: pcp 3.6.5 / Thu Jan 31 18:36:46 +0000 2013
+DC-Task: logfile:/tmp/pcp_3.6.5_unstable_clang.log version:3.6.5 modes:binary-only:clang chroot:unstable source:pcp esttime:568 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang pcp_3.6.5'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-157-2-66.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-3-95.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ pcp 3.6.5 (amd64)                                          28 Jan 2013 04:24 ║
+║ pcp 3.6.5 (amd64)                                          31 Jan 2013 18:36 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: pcp
@@ -15,9 +15,9 @@ Source Version: 3.6.5
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/pcp-L3v4_a/pcp-3.6.5' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/pcp-L3v4_a' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-e9a750f4-bb79-4c1f-aeb3-d6bc92cceccf' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/pcp-MLHrlH/pcp-3.6.5' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/pcp-MLHrlH' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-323a9b97-3c33-4bfc-8241-2be48ef233ae' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4702 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (4957 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -61,7 +57,7 @@ Reading state information...
 Need to get 2524 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main pcp 3.6.5 (dsc) [2028 B]
 Get:2 http://localhost/debian/ unstable/main pcp 3.6.5 (tar) [2522 kB]
-Fetched 2524 kB in 0s (6396 kB/s)
+Fetched 2524 kB in 0s (7767 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -78,218 +74,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1305 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2679 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3883 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.3 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (6785 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -298,32 +189,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -369,7 +247,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-ftwO4e/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-ZXvlLu/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -388,12 +266,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison, flex, gawk, procps, debhelper (>= 5), perl (>= 5.6), libreadline-dev | libreadline5-dev | libreadline-gplv2-dev, chrpath
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), bison, flex, gawk, procps, debhelper (>= 5), perl (>= 5.6), libreadline-dev, chrpath
-dpkg-deb: building package `sbuild-build-depends-pcp-dummy' in `/«BUILDDIR»/resolver-JFQrSo/apt_archive/sbuild-build-depends-pcp-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-pcp-dummy' in `/«BUILDDIR»/resolver-5Dj8Sz/apt_archive/sbuild-build-depends-pcp-dummy.deb'.
 OK
 Reading package lists...
 
@@ -405,18 +283,2033 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bison bsdmainutils chrpath debhelper file flex gawk gettext gettext-base
+  groff-base html2text intltool-debian libasprintf-dev libasprintf0c2
+  libbison-dev libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1
+  libpcre3 libpipeline1 libprocps0 libreadline-dev libreadline6-dev
+  libsigsegv2 libtinfo-dev libunistring0 libxml2 m4 man-db po-debconf procps
+Suggested packages:
+  bison-doc wamerican wordlist whois vacation dh-make gawk-doc gettext-doc
+  groff less www-browser libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  bison bsdmainutils chrpath debhelper file flex gawk gettext gettext-base
+  groff-base html2text intltool-debian libasprintf-dev libasprintf0c2
+  libbison-dev libcroco3 libgettextpo-dev libgettextpo0 libglib2.0-0 libmagic1
+  libpcre3 libpipeline1 libprocps0 libreadline-dev libreadline6-dev
+  libsigsegv2 libtinfo-dev libunistring0 libxml2 m4 man-db po-debconf procps
+  sbuild-build-depends-pcp-dummy
+0 upgraded, 34 newly installed, 0 to remove and 0 not upgraded.
+Need to get 12.3 MB/12.3 MB of archives.
+After this operation, 33.7 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libprocps0 amd64 1:3.3.4-2 [58.6 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:8 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:9 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:10 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:11 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:12 http://localhost/debian/ unstable/main flex amd64 2.5.35-10.1 [332 kB]
+Get:13 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:14 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:15 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:16 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:17 http://localhost/debian/ unstable/main procps amd64 1:3.3.4-2 [259 kB]
+Get:18 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:19 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:20 http://localhost/debian/ unstable/main libbison-dev amd64 2:2.5.dfsg-3 [289 kB]
+Get:21 http://localhost/debian/ unstable/main bison amd64 2:2.5.dfsg-3 [688 kB]
+Get:22 http://localhost/debian/ unstable/main chrpath amd64 0.13-2 [13.9 kB]
+Get:23 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:24 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:25 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:26 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:27 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:28 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:29 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:30 http://localhost/debian/ unstable/main gawk amd64 1:4.0.1+dfsg-2 [972 kB]
+Get:31 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:32 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:33 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 12.3 MB in 0s (21.3 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libprocps0:amd64.
+Unpacking libprocps0:amd64 (from .../libprocps0_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package flex.
+Unpacking flex (from .../flex_2.5.35-10.1_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package procps.
+Unpacking procps (from .../procps_1%3a3.3.4-2_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libbison-dev:amd64.
+Unpacking libbison-dev:amd64 (from .../libbison-dev_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package bison.
+Unpacking bison (from .../bison_2%3a2.5.dfsg-3_amd64.deb) ...
+Selecting previously unselected package chrpath.
+Unpacking chrpath (from .../chrpath_0.13-2_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package gawk.
+Unpacking gawk (from .../gawk_1%3a4.0.1+dfsg-2_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-pcp-dummy.
+Unpacking sbuild-build-depends-pcp-dummy (from .../sbuild-build-depends-pcp-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libprocps0:amd64 (1:3.3.4-2) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up flex (2.5.35-10.1) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up procps (1:3.3.4-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libbison-dev:amd64 (2:2.5.dfsg-3) ...
+Setting up bison (2:2.5.dfsg-3) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up chrpath (0.13-2) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up gawk (1:4.0.1+dfsg-2) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up sbuild-build-depends-pcp-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-pcp-dummy : Depends: libreadline-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bison_2:2.5.dfsg-3 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 chrpath_0.13-2 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 flex_2.5.35-10.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gawk_1:4.0.1+dfsg-2 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libbison-dev_2:2.5.dfsg-3 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libprocps0_1:3.3.4-2 libquadmath0_4.7.2-5 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 procps_1:3.3.4-2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-pcp-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Aug 14 02:01:18 2012 UTC using DSA key ID 74886B63
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./pcp_3.6.5.dsc
+dpkg-source: info: extracting pcp in pcp-3.6.5
+dpkg-source: info: unpacking pcp_3.6.5.tar.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-323a9b97-3c33-4bfc-8241-2be48ef233ae
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package pcp
+dpkg-buildpackage: source version 3.6.5
+dpkg-buildpackage: source changed by Nathan Scott <nathans@debian.org>
+ dpkg-source --before-build pcp-3.6.5
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+== dpkg-buildpackage: clean
+test -f debian/rules
+rm -f built .census
+/usr/bin/make realclean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -rf debian/pcp debian/libpcp3 debian/libpcp3-dev debian/libpcp-pmda-perl debian/libpcp-import-perl debian/libpcp-logsummary-perl debian/libpcp-mmv-perl debian/libpcp-pmda3 debian/libpcp-pmda3-dev debian/libpcp-trace2 debian/libpcp-trace2-dev debian/libpcp-gui2 debian/libpcp-gui2-dev debian/libpcp-import1 debian/libpcp-import1-dev debian/libpcp-mmv1 debian/libpcp-mmv1-dev debian/pcp-import-sar2pcp debian/pcp-import-mrtg2pcp debian/pcp-import-sheet2pcp debian/pcp-import-iostat2pcp 
+rm -f debian/*substvars debian/files* debian/*.debhelper
+ debian/rules build-arch
+== dpkg-buildpackage: configure
+test -f debian/rules
+export DEBUG=-DNDEBUG AWK=gawk; /usr/bin/make configure_pcp
+make[1]: Entering directory `/«PKGBUILDDIR»'
+./configure
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+Building on x86_64-unknown-linux for x86_64-unknown-linux
+Build: os=linux cpu=x86_64
+Target: os=linux cpu=x86_64
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+configure: Compiling with gcc -fstack-protector-all et al.
+configure: Compiling with gcc pie et al.
+configure: creating ./config.status
+config.status: creating src/include/pcp/platform_defs.h
+config.status: creating src/include/pcp/platform_header.h
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking for gmake... no
+checking for GNU make elsewhere... /usr/bin/make
+checking how to run the C preprocessor... gcc -E
+checking for ld... /usr/bin/ld
+checking for gtar... no
+checking for tar... /bin/tar
+checking for gzip... /bin/gzip
+checking for bzip2... /bin/bzip2
+checking for lzma... /usr/bin/lzma
+checking for xz... /usr/bin/xz
+checking for PackageMaker...  no
+checking for hdiutil... no
+checking for mkinstallp... no
+checking for pkgmk... no
+checking for dlltool... no
+checking for rpmbuild... no
+checking for rpm... no
+checking for pod2man... /usr/bin/pod2man
+checking if ExtUtils::MakeMaker is installed...  yes
+checking for true... /bin/true
+checking for makedepend... /bin/true
+checking for md5sum... /usr/bin/md5sum
+checking for dpkg... /usr/bin/dpkg
+checking for makepkg... no
+checking whether ln -s works... yes
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for bison... bison -y
+checking if yacc is executable...  yes
+checking if lex is executable...  yes
+checking for sed... /bin/sed
+checking for echo... /bin/echo
+checking where unix-like sort(1) lives... /usr/bin/sort
+checking if echo uses -n or backslash-c to suppress newlines...  -n
+checking for ps style... SysV
+checking for /proc ... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for strings.h... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for unistd.h... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking dl.h usability... no
+checking dl.h presence... no
+checking for dl.h... no
+checking ieeefp.h usability... no
+checking ieeefp.h presence... no
+checking for ieeefp.h... no
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/timeb.h usability... yes
+checking sys/timeb.h presence... yes
+checking for sys/timeb.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/sysinfo.h usability... yes
+checking sys/sysinfo.h presence... yes
+checking for sys/sysinfo.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking standards.h usability... no
+checking standards.h presence... no
+checking for standards.h... no
+checking sys/byteorder.h usability... no
+checking sys/byteorder.h presence... no
+checking for sys/byteorder.h... no
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking values.h usability... yes
+checking values.h presence... yes
+checking for values.h... yes
+checking libgen.h usability... yes
+checking libgen.h presence... yes
+checking for libgen.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking for stdint.h... (cached) yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking regex.h usability... yes
+checking regex.h presence... yes
+checking for regex.h... yes
+checking for sys/wait.h... (cached) yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking sys/termios.h usability... yes
+checking sys/termios.h presence... yes
+checking for sys/termios.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking for winsock2.h... no
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking for ws2tcpip.h... no
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for iptypes.h... no
+checking for sys/endian.h ... no
+checking for machine/endian.h ... no
+checking for sys/endian.h (IRIX variant) ... no
+checking for an ANSI C-conforming const... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for inline... inline
+checking for regcomp in -lregex... no
+checking return type of signal handlers... void
+checking for wait3 that fills in rusage... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for mktime... yes
+checking for nanosleep... yes
+checking for unsetenv... yes
+checking for gethostname... yes
+checking for select... yes
+checking for socket... yes
+checking for uname... yes
+checking for syslog... yes
+checking for __clone... yes
+checking for pipe2... yes
+checking for fcntl... yes
+checking for ioctl... yes
+checking for prctl... yes
+checking for setlinebuf... yes
+checking for waitpid... yes
+checking for atexit... yes
+checking for kill... yes
+checking for chown... yes
+checking for getcwd... yes
+checking for scandir... yes
+checking for mkstemp... yes
+checking for getpwnam... yes
+checking for brk... yes
+checking for sbrk... yes
+checking for memalign... yes
+checking for valloc... yes
+checking for signal... yes
+checking for sighold... yes
+checking for sigrelse... yes
+checking for tcgetattr... yes
+checking for regex... no
+checking for regcmp... no
+checking for regexec... yes
+checking for regcomp... yes
+checking for strtod... yes
+checking for strtol... yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for sysinfo... yes
+checking for backtrace... yes
+checking for __int32_t... yes
+checking for __uint32_t... yes
+checking for __int64_t... yes
+checking for __uint64_t... yes
+checking for uint_t... no
+checking for __psint_t ... no
+checking for ptrdiff_t ... yes
+checking for socklen_t ... yes
+checking for PR_TERMCHILD constants in sys/prctl.h... no
+checking for PR_SET_PDEATHSIG constants in sys/prctl.h... yes
+checking whether termios.h defines TIOCGWINSZ... no
+checking whether sys/ioctl.h defines TIOCGWINSZ... yes
+checking if linker supports -rdynamic... no
+checking whether const arg for scandir() select method... no
+checking whether struct dirent has a d_off field... no
+checking if getopt() needs $POSIXLY_CORRECT... yes
+checking if printf %p produces 0x prefix... yes
+checking printf type for pid_t... "d"
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_t in pthread.h... yes
+checking where pthread_create() is defined... libpthread
+checking printf type for pthread_t... "lu"
+checking if compiler supports __thread... yes
+checking for pthread_barrier_t in pthread.h... yes
+checking sizeof long... 8
+checking sizeof pointer... 8
+checking sizeof int... 4
+checking if bit fields allocated left-to-right... no
+checking for basename... yes
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking for flog10... no
+checking for flog10 in -lm... no
+checking for fpclassify()... no
+checking for fpclassify() with -lm... yes
+checking for X... no
+checking for X11 app-defaults directory... 
+checking for xconfirm... /usr/bin/pmconfirm
+checking for FNDELAY in fcntl.h... yes
+checking for struct timespec in time.h... yes
+checking for altzone in time.h... no
+checking if strftime knows about %z... yes
+checking if strerror_r returns char *... yes
+checking for readline... no
+checking for readline in -lreadline... yes
+checking for git... no
+configure: creating ./config.status
+config.status: creating src/include/pcp/platform_defs.h
+config.status: creating src/include/builddefs
+config.status: creating src/include/pcp.conf
+config.status: creating pcp.lsm
+config.status: creating src/include/pcp/platform_header.h
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+touch .census
+== dpkg-buildpackage: build
+/usr/bin/make default
+make[1]: Entering directory `/«PKGBUILDDIR»'
+=== src ===
+make[2]: Entering directory `/«PKGBUILDDIR»/src'
+=== include ===
+sed -e 's;^include .*pcp.conf;include $(PCP_DIR)/etc/pcp.conf;' \
+	    -e 's;^BUILDRULES.*=.*buildrules;BUILDRULES = $\(PCP_INC_DIR\)/buildrules;' \
+	    -e 's;^INSTALL_SH.*=.*install-sh;INSTALL_SH = $\(PCP_BINADM_DIR\)/install-sh;' \
+	    -e 's;^GENPMDA.*=.*genpmda;GENPMDA = $\(PCP_BIN_DIR\)/genpmda;' \
+	        < builddefs > builddefs.install
+=== pcp ===
+./mk_pmdbg
+=== libpcp ===
+=== src ===
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o connect.o connect.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o context.o context.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o desc.o desc.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o err.o err.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o fetch.o fetch.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o freeresult.o freeresult.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o help.o help.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o instance.o instance.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_desc.o p_desc.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_error.o p_error.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_fetch.o p_fetch.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_instance.o p_instance.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_profile.o p_profile.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_result.o p_result.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_text.o p_text.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_pmns.o p_pmns.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_creds.o p_creds.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o pdu.o pdu.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o pdubuf.o pdubuf.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o pmns.o pmns.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o profile.o profile.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o store.o store.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o units.o units.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o util.o util.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o ipc.o ipc.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o sortinst.o sortinst.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o logmeta.o logmeta.c
+logmeta.c:297:10: warning: variable 'allinbuf' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+            if (numinst > 0) {
+                ^~~~~~~~~~~
+logmeta.c:327:79: note: uninitialized use occurs here
+            if ((sts = addindom(lcp, indom, when, numinst, instlist, namelist, tbuf, allinbuf)) < 0) {
+                                                                                     ^~~~~~~~
+logmeta.c:297:6: note: remove the 'if' if its condition is always true
+            if (numinst > 0) {
+            ^~~~~~~~~~~~~~~~~
+logmeta.c:266:20: note: initialize the variable 'allinbuf' to silence this warning
+            int                 allinbuf;
+                                        ^
+                                         = 0
+1 warning generated.
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o logportmap.o logportmap.c
+logportmap.c:145:31: warning: incompatible pointer types passing 'int (*)(struct dirent *)' to parameter of type 'int (*)(const struct dirent *)' [-Wincompatible-pointer-types]
+    nf = scandir(dir, &files, scanfn, alphasort);
+                              ^~~~~~
+/usr/include/dirent.h:254:13: note: passing argument to parameter '__selector' here
+                    int (*__selector) (__const struct dirent *),
+                          ^
+1 warning generated.
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o logutil.o logutil.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o tz.o tz.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o interp.o interp.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o checksum.o checksum.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o rtime.o rtime.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o tv.o tv.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o spec.o spec.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o fetchlocal.o fetchlocal.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o optfetch.o optfetch.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o AF.o AF.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o stuffvalue.o stuffvalue.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o endian.o endian.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o config.o config.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o access.o access.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o auxconnect.o auxconnect.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_lcontrol.o p_lcontrol.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_lrequest.o p_lrequest.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o p_lstatus.o p_lstatus.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o logconnect.o logconnect.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o logcontrol.o logcontrol.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o connectlocal.o connectlocal.c
+connectlocal.c:334:34: warning: implicit truncation from 'int' to bitfield changes value from -3 to 253 [-Wconstant-conversion]
+        dp->dispatch.comm.pmapi_version = ~PMAPI_VERSION;
+                                        ^ ~~~~~~~~~~~~~~
+1 warning generated.
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o derive.o derive.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o derive_fetch.o derive_fetch.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o events.o events.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o lock.o lock.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o hash.o hash.c
+gcc  -fpic -fno-strict-aliasing -D_GNU_SOURCE -fstack-protector-all -D_FORTIFY_SOURCE=2 -DLIBPCP_INTERNAL '-DEXEC_SUFFIX=""' '-DDSO_SUFFIX="so"' -Wall -g -DPCP_DEBUG -DPCP_VERSION=\"3.6.5\" -I../../../src/include -I../../../src/include/pcp   -c -o fault.o fault.c
+ar cr libpcp.a connect.o context.o desc.o err.o fetch.o freeresult.o help.o instance.o p_desc.o p_error.o p_fetch.o p_instance.o p_profile.o p_result.o p_text.o p_pmns.o p_creds.o pdu.o pdubuf.o pmns.o profile.o store.o units.o util.o ipc.o sortinst.o logmeta.o logportmap.o logutil.o tz.o interp.o checksum.o rtime.o tv.o spec.o fetchlocal.o optfetch.o AF.o stuffvalue.o endian.o config.o access.o auxconnect.o p_lcontrol.o p_lrequest.o p_lstatus.o logconnect.o logcontrol.o connectlocal.o derive.o derive_fetch.o events.o lock.o hash.o fault.o
+gcc   -Wall -L../../../src/libpcp/src -L../../../src/libpcp_pmda/src  -shared -Wl,-soname,libpcp.so.3 -o libpcp.so.3  connect.o context.o desc.o err.o fetch.o freeresult.o help.o instance.o p_desc.o p_error.o p_fetch.o p_instance.o p_profile.o p_result.o p_text.o p_pmns.o p_creds.o pdu.o pdubuf.o pmns.o profile.o store.o units.o util.o ipc.o sortinst.o logmeta.o logportmap.o logutil.o tz.o interp.o checksum.o rtime.o tv.o spec.o fetchlocal.o optfetch.o AF.o stuffvalue.o endian.o config.o access.o auxconnect.o p_lcontrol.o p_lrequest.o p_lstatus.o logconnect.o logcontrol.o connectlocal.o derive.o derive_fetch.o events.o lock.o hash.o fault.o    -lm -lpthread  -ldl 
+./check-statics
+access.o: r .L.str : Error: additional symbol
+access.o: r .L.str1 : Error: additional symbol
+access.o: r .L.str10 : Error: additional symbol
+access.o: r .L.str11 : Error: additional symbol
+access.o: r .L.str12 : Error: additional symbol
+access.o: r .L.str13 : Error: additional symbol
+access.o: r .L.str14 : Error: additional symbol
+access.o: r .L.str15 : Error: additional symbol
+access.o: r .L.str16 : Error: additional symbol
+access.o: r .L.str17 : Error: additional symbol
+access.o: r .L.str18 : Error: additional symbol
+access.o: r .L.str19 : Error: additional symbol
+access.o: r .L.str2 : Error: additional symbol
+access.o: r .L.str20 : Error: additional symbol
+access.o: r .L.str3 : Error: additional symbol
+access.o: r .L.str4 : Error: additional symbol
+access.o: r .L.str5 : Error: additional symbol
+access.o: r .L.str6 : Error: additional symbol
+access.o: r .L.str7 : Error: additional symbol
+access.o: r .L.str8 : Error: additional symbol
+access.o: r .L.str9 : Error: additional symbol
+AF.o: r .L.str : Error: additional symbol
+AF.o: r .L.str1 : Error: additional symbol
+AF.o: r .L.str2 : Error: additional symbol
+AF.o: r .L.str3 : Error: additional symbol
+AF.o: r .L.str4 : Error: additional symbol
+AF.o: r .L.str5 : Error: additional symbol
+AF.o: r .L.str6 : Error: additional symbol
+auxconnect.o: first_time.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+auxconnect.o: pmcd_port.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+auxconnect.o: r .L.str : Error: additional symbol
+auxconnect.o: r .L.str1 : Error: additional symbol
+auxconnect.o: r .L.str10 : Error: additional symbol
+auxconnect.o: r .L.str11 : Error: additional symbol
+auxconnect.o: r .L.str12 : Error: additional symbol
+auxconnect.o: r .L.str13 : Error: additional symbol
+auxconnect.o: r .L.str2 : Error: additional symbol
+auxconnect.o: r .L.str3 : Error: additional symbol
+auxconnect.o: r .L.str4 : Error: additional symbol
+auxconnect.o: r .L.str5 : Error: additional symbol
+auxconnect.o: r .L.str6 : Error: additional symbol
+auxconnect.o: r .L.str7 : Error: additional symbol
+auxconnect.o: r .L.str8 : Error: additional symbol
+auxconnect.o: r .L.str9 : Error: additional symbol
+auxconnect.o: r .L__pmCreateSocket.nolinger : Error: additional symbol
+auxconnect.o: d __pmAuxConnectPMCD.first_time : Error: additional symbol
+auxconnect.o: b __pmAuxConnectPMCD.pmcd_port : Error: additional symbol
+auxconnect.o: d __pmConnectTimeout.first_time : Error: additional symbol
+config.o: state.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+config.o: r .L.str : Error: additional symbol
+config.o: r .L.str1 : Error: additional symbol
+config.o: r .L.str10 : Error: additional symbol
+config.o: r .L.str11 : Error: additional symbol
+config.o: r .L.str12 : Error: additional symbol
+config.o: r .L.str13 : Error: additional symbol
+config.o: r .L.str14 : Error: additional symbol
+config.o: r .L.str15 : Error: additional symbol
+config.o: r .L.str2 : Error: additional symbol
+config.o: r .L.str3 : Error: additional symbol
+config.o: r .L.str4 : Error: additional symbol
+config.o: r .L.str5 : Error: additional symbol
+config.o: r .L.str6 : Error: additional symbol
+config.o: r .L.str7 : Error: additional symbol
+config.o: r .L.str8 : Error: additional symbol
+config.o: r .L.str9 : Error: additional symbol
+config.o: b pmGetConfig.state : Error: additional symbol
+connectlocal.o: atexit_installed.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+connectlocal.o: buffer.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+connectlocal.o: r .L.str : Error: additional symbol
+connectlocal.o: r .L.str1 : Error: additional symbol
+connectlocal.o: r .L.str10 : Error: additional symbol
+connectlocal.o: r .L.str11 : Error: additional symbol
+connectlocal.o: r .L.str12 : Error: additional symbol
+connectlocal.o: r .L.str13 : Error: additional symbol
+connectlocal.o: r .L.str14 : Error: additional symbol
+connectlocal.o: r .L.str15 : Error: additional symbol
+connectlocal.o: r .L.str16 : Error: additional symbol
+connectlocal.o: r .L.str17 : Error: additional symbol
+connectlocal.o: r .L.str18 : Error: additional symbol
+connectlocal.o: r .L.str19 : Error: additional symbol
+connectlocal.o: r .L.str2 : Error: additional symbol
+connectlocal.o: r .L.str20 : Error: additional symbol
+connectlocal.o: r .L.str21 : Error: additional symbol
+connectlocal.o: r .L.str22 : Error: additional symbol
+connectlocal.o: r .L.str23 : Error: additional symbol
+connectlocal.o: r .L.str24 : Error: additional symbol
+connectlocal.o: r .L.str25 : Error: additional symbol
+connectlocal.o: r .L.str26 : Error: additional symbol
+connectlocal.o: r .L.str27 : Error: additional symbol
+connectlocal.o: r .L.str28 : Error: additional symbol
+connectlocal.o: r .L.str29 : Error: additional symbol
+connectlocal.o: r .L.str3 : Error: additional symbol
+connectlocal.o: r .L.str30 : Error: additional symbol
+connectlocal.o: r .L.str31 : Error: additional symbol
+connectlocal.o: r .L.str32 : Error: additional symbol
+connectlocal.o: r .L.str33 : Error: additional symbol
+connectlocal.o: r .L.str34 : Error: additional symbol
+connectlocal.o: r .L.str35 : Error: additional symbol
+connectlocal.o: r .L.str36 : Error: additional symbol
+connectlocal.o: r .L.str37 : Error: additional symbol
+connectlocal.o: r .L.str38 : Error: additional symbol
+connectlocal.o: r .L.str39 : Error: additional symbol
+connectlocal.o: r .L.str4 : Error: additional symbol
+connectlocal.o: r .L.str40 : Error: additional symbol
+connectlocal.o: r .L.str41 : Error: additional symbol
+connectlocal.o: r .L.str42 : Error: additional symbol
+connectlocal.o: r .L.str43 : Error: additional symbol
+connectlocal.o: r .L.str44 : Error: additional symbol
+connectlocal.o: r .L.str45 : Error: additional symbol
+connectlocal.o: r .L.str46 : Error: additional symbol
+connectlocal.o: r .L.str47 : Error: additional symbol
+connectlocal.o: r .L.str48 : Error: additional symbol
+connectlocal.o: r .L.str5 : Error: additional symbol
+connectlocal.o: r .L.str6 : Error: additional symbol
+connectlocal.o: r .L.str7 : Error: additional symbol
+connectlocal.o: r .L.str8 : Error: additional symbol
+connectlocal.o: r .L.str9 : Error: additional symbol
+connectlocal.o: b __pmConnectLocal.atexit_installed : Error: additional symbol
+connectlocal.o: b __pmSpecLocalPMDA.buffer : Error: additional symbol
+connect.o: first_time.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+connect.o: proxy.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+connect.o: proxy_port.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+connect.o: r .L.str : Error: additional symbol
+connect.o: r .L.str1 : Error: additional symbol
+connect.o: r .L.str10 : Error: additional symbol
+connect.o: r .L.str11 : Error: additional symbol
+connect.o: r .L.str12 : Error: additional symbol
+connect.o: r .L.str13 : Error: additional symbol
+connect.o: r .L.str14 : Error: additional symbol
+connect.o: r .L.str15 : Error: additional symbol
+connect.o: r .L.str16 : Error: additional symbol
+connect.o: r .L.str17 : Error: additional symbol
+connect.o: r .L.str18 : Error: additional symbol
+connect.o: r .L.str19 : Error: additional symbol
+connect.o: r .L.str2 : Error: additional symbol
+connect.o: r .L.str20 : Error: additional symbol
+connect.o: r .L.str21 : Error: additional symbol
+connect.o: r .L.str22 : Error: additional symbol
+connect.o: r .L.str23 : Error: additional symbol
+connect.o: r .L.str24 : Error: additional symbol
+connect.o: r .L.str3 : Error: additional symbol
+connect.o: r .L.str4 : Error: additional symbol
+connect.o: r .L.str5 : Error: additional symbol
+connect.o: r .L.str6 : Error: additional symbol
+connect.o: r .L.str7 : Error: additional symbol
+connect.o: r .L.str8 : Error: additional symbol
+connect.o: r .L.str9 : Error: additional symbol
+connect.o: d __pmConnectPMCD.first_time : Error: additional symbol
+connect.o: b __pmConnectPMCD.proxy : Error: additional symbol
+connect.o: d __pmConnectPMCD.proxy_port : Error: additional symbol
+connect.o: d load_pmcd_ports.first_time : Error: additional symbol
+context.o: r .L.str : Error: additional symbol
+context.o: r .L.str1 : Error: additional symbol
+context.o: r .L.str10 : Error: additional symbol
+context.o: r .L.str11 : Error: additional symbol
+context.o: r .L.str12 : Error: additional symbol
+context.o: r .L.str13 : Error: additional symbol
+context.o: r .L.str14 : Error: additional symbol
+context.o: r .L.str15 : Error: additional symbol
+context.o: r .L.str16 : Error: additional symbol
+context.o: r .L.str17 : Error: additional symbol
+context.o: r .L.str18 : Error: additional symbol
+context.o: r .L.str19 : Error: additional symbol
+context.o: r .L.str2 : Error: additional symbol
+context.o: r .L.str20 : Error: additional symbol
+context.o: r .L.str21 : Error: additional symbol
+context.o: r .L.str22 : Error: additional symbol
+context.o: r .L.str23 : Error: additional symbol
+context.o: r .L.str24 : Error: additional symbol
+context.o: r .L.str25 : Error: additional symbol
+context.o: r .L.str26 : Error: additional symbol
+context.o: r .L.str27 : Error: additional symbol
+context.o: r .L.str28 : Error: additional symbol
+context.o: r .L.str29 : Error: additional symbol
+context.o: r .L.str3 : Error: additional symbol
+context.o: r .L.str30 : Error: additional symbol
+context.o: r .L.str31 : Error: additional symbol
+context.o: r .L.str32 : Error: additional symbol
+context.o: r .L.str33 : Error: additional symbol
+context.o: r .L.str34 : Error: additional symbol
+context.o: r .L.str35 : Error: additional symbol
+context.o: r .L.str36 : Error: additional symbol
+context.o: r .L.str37 : Error: additional symbol
+context.o: r .L.str38 : Error: additional symbol
+context.o: r .L.str39 : Error: additional symbol
+context.o: r .L.str4 : Error: additional symbol
+context.o: r .L.str44 : Error: additional symbol
+context.o: r .L.str45 : Error: additional symbol
+context.o: r .L.str46 : Error: additional symbol
+context.o: r .L.str5 : Error: additional symbol
+context.o: r .L.str6 : Error: additional symbol
+context.o: r .L.str7 : Error: additional symbol
+context.o: r .L.str8 : Error: additional symbol
+context.o: r .L.str9 : Error: additional symbol
+context.o: r .LpmDestroyContext.dolinger : Error: additional symbol
+derive_fetch.o: r .L.str : Error: additional symbol
+derive_fetch.o: r .L.str1 : Error: additional symbol
+derive_fetch.o: r .L.str10 : Error: additional symbol
+derive_fetch.o: r .L.str11 : Error: additional symbol
+derive_fetch.o: r .L.str12 : Error: additional symbol
+derive_fetch.o: r .L.str13 : Error: additional symbol
+derive_fetch.o: r .L.str14 : Error: additional symbol
+derive_fetch.o: r .L.str15 : Error: additional symbol
+derive_fetch.o: r .L.str16 : Error: additional symbol
+derive_fetch.o: r .L.str17 : Error: additional symbol
+derive_fetch.o: r .L.str18 : Error: additional symbol
+derive_fetch.o: r .L.str19 : Error: additional symbol
+derive_fetch.o: r .L.str2 : Error: additional symbol
+derive_fetch.o: r .L.str20 : Error: additional symbol
+derive_fetch.o: r .L.str21 : Error: additional symbol
+derive_fetch.o: r .L.str22 : Error: additional symbol
+derive_fetch.o: r .L.str23 : Error: additional symbol
+derive_fetch.o: r .L.str24 : Error: additional symbol
+derive_fetch.o: r .L.str25 : Error: additional symbol
+derive_fetch.o: r .L.str26 : Error: additional symbol
+derive_fetch.o: r .L.str27 : Error: additional symbol
+derive_fetch.o: r .L.str28 : Error: additional symbol
+derive_fetch.o: r .L.str29 : Error: additional symbol
+derive_fetch.o: r .L.str3 : Error: additional symbol
+derive_fetch.o: r .L.str30 : Error: additional symbol
+derive_fetch.o: r .L.str31 : Error: additional symbol
+derive_fetch.o: r .L.str32 : Error: additional symbol
+derive_fetch.o: r .L.str33 : Error: additional symbol
+derive_fetch.o: r .L.str34 : Error: additional symbol
+derive_fetch.o: r .L.str35 : Error: additional symbol
+derive_fetch.o: r .L.str36 : Error: additional symbol
+derive_fetch.o: r .L.str37 : Error: additional symbol
+derive_fetch.o: r .L.str38 : Error: additional symbol
+derive_fetch.o: r .L.str39 : Error: additional symbol
+derive_fetch.o: r .L.str4 : Error: additional symbol
+derive_fetch.o: r .L.str40 : Error: additional symbol
+derive_fetch.o: r .L.str41 : Error: additional symbol
+derive_fetch.o: r .L.str5 : Error: additional symbol
+derive_fetch.o: r .L.str6 : Error: additional symbol
+derive_fetch.o: r .L.str7 : Error: additional symbol
+derive_fetch.o: r .L.str8 : Error: additional symbol
+derive_fetch.o: r .L.str9 : Error: additional symbol
+derive_fetch.o: r .LCPI7_0 : Error: additional symbol
+derive_fetch.o: r .LCPI7_1 : Error: additional symbol
+derive_fetch.o: r .L__PRETTY_FUNCTION__.eval_expr : Error: additional symbol
+derive_fetch.o: r .L__PRETTY_FUNCTION__.free_ivlist : Error: additional symbol
+derive_fetch.o: r .L__PRETTY_FUNCTION__.get_pmids : Error: additional symbol
+derive.o: pmid.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+derive.o: r .L.str : Error: additional symbol
+derive.o: r .L.str1 : Error: additional symbol
+derive.o: r .L.str10 : Error: additional symbol
+derive.o: r .L.str100 : Error: additional symbol
+derive.o: r .L.str101 : Error: additional symbol
+derive.o: r .L.str109 : Error: additional symbol
+derive.o: r .L.str11 : Error: additional symbol
+derive.o: r .L.str110 : Error: additional symbol
+derive.o: r .L.str111 : Error: additional symbol
+derive.o: r .L.str112 : Error: additional symbol
+derive.o: r .L.str113 : Error: additional symbol
+derive.o: r .L.str114 : Error: additional symbol
+derive.o: r .L.str115 : Error: additional symbol
+derive.o: r .L.str116 : Error: additional symbol
+derive.o: r .L.str12 : Error: additional symbol
+derive.o: r .L.str13 : Error: additional symbol
+derive.o: r .L.str14 : Error: additional symbol
+derive.o: r .L.str15 : Error: additional symbol
+derive.o: r .L.str16 : Error: additional symbol
+derive.o: r .L.str17 : Error: additional symbol
+derive.o: r .L.str18 : Error: additional symbol
+derive.o: r .L.str19 : Error: additional symbol
+derive.o: r .L.str2 : Error: additional symbol
+derive.o: r .L.str20 : Error: additional symbol
+derive.o: r .L.str21 : Error: additional symbol
+derive.o: r .L.str22 : Error: additional symbol
+derive.o: r .L.str23 : Error: additional symbol
+derive.o: r .L.str24 : Error: additional symbol
+derive.o: r .L.str25 : Error: additional symbol
+derive.o: r .L.str26 : Error: additional symbol
+derive.o: r .L.str27 : Error: additional symbol
+derive.o: r .L.str28 : Error: additional symbol
+derive.o: r .L.str29 : Error: additional symbol
+derive.o: r .L.str3 : Error: additional symbol
+derive.o: r .L.str30 : Error: additional symbol
+derive.o: r .L.str31 : Error: additional symbol
+derive.o: r .L.str32 : Error: additional symbol
+derive.o: r .L.str33 : Error: additional symbol
+derive.o: r .L.str34 : Error: additional symbol
+derive.o: r .L.str35 : Error: additional symbol
+derive.o: r .L.str36 : Error: additional symbol
+derive.o: r .L.str37 : Error: additional symbol
+derive.o: r .L.str38 : Error: additional symbol
+derive.o: r .L.str39 : Error: additional symbol
+derive.o: r .L.str4 : Error: additional symbol
+derive.o: r .L.str40 : Error: additional symbol
+derive.o: r .L.str41 : Error: additional symbol
+derive.o: r .L.str42 : Error: additional symbol
+derive.o: r .L.str43 : Error: additional symbol
+derive.o: r .L.str44 : Error: additional symbol
+derive.o: r .L.str45 : Error: additional symbol
+derive.o: r .L.str46 : Error: additional symbol
+derive.o: r .L.str47 : Error: additional symbol
+derive.o: r .L.str48 : Error: additional symbol
+derive.o: r .L.str49 : Error: additional symbol
+derive.o: r .L.str5 : Error: additional symbol
+derive.o: r .L.str50 : Error: additional symbol
+derive.o: r .L.str51 : Error: additional symbol
+derive.o: r .L.str52 : Error: additional symbol
+derive.o: r .L.str53 : Error: additional symbol
+derive.o: r .L.str54 : Error: additional symbol
+derive.o: r .L.str55 : Error: additional symbol
+derive.o: r .L.str56 : Error: additional symbol
+derive.o: r .L.str57 : Error: additional symbol
+derive.o: r .L.str58 : Error: additional symbol
+derive.o: r .L.str59 : Error: additional symbol
+derive.o: r .L.str6 : Error: additional symbol
+derive.o: r .L.str60 : Error: additional symbol
+derive.o: r .L.str61 : Error: additional symbol
+derive.o: r .L.str62 : Error: additional symbol
+derive.o: r .L.str63 : Error: additional symbol
+derive.o: r .L.str64 : Error: additional symbol
+derive.o: r .L.str65 : Error: additional symbol
+derive.o: r .L.str66 : Error: additional symbol
+derive.o: r .L.str67 : Error: additional symbol
+derive.o: r .L.str68 : Error: additional symbol
+derive.o: r .L.str69 : Error: additional symbol
+derive.o: r .L.str7 : Error: additional symbol
+derive.o: r .L.str70 : Error: additional symbol
+derive.o: r .L.str71 : Error: additional symbol
+derive.o: r .L.str72 : Error: additional symbol
+derive.o: r .L.str73 : Error: additional symbol
+derive.o: r .L.str74 : Error: additional symbol
+derive.o: r .L.str75 : Error: additional symbol
+derive.o: r .L.str76 : Error: additional symbol
+derive.o: r .L.str77 : Error: additional symbol
+derive.o: r .L.str78 : Error: additional symbol
+derive.o: r .L.str79 : Error: additional symbol
+derive.o: r .L.str8 : Error: additional symbol
+derive.o: r .L.str80 : Error: additional symbol
+derive.o: r .L.str81 : Error: additional symbol
+derive.o: r .L.str82 : Error: additional symbol
+derive.o: r .L.str83 : Error: additional symbol
+derive.o: r .L.str84 : Error: additional symbol
+derive.o: r .L.str85 : Error: additional symbol
+derive.o: r .L.str86 : Error: additional symbol
+derive.o: r .L.str87 : Error: additional symbol
+derive.o: r .L.str88 : Error: additional symbol
+derive.o: r .L.str89 : Error: additional symbol
+derive.o: r .L.str9 : Error: additional symbol
+derive.o: r .L.str90 : Error: additional symbol
+derive.o: r .L.str91 : Error: additional symbol
+derive.o: r .L.str92 : Error: additional symbol
+derive.o: r .L.str93 : Error: additional symbol
+derive.o: r .L__PRETTY_FUNCTION__.__dmchildren : Error: additional symbol
+derive.o: r .L__PRETTY_FUNCTION__.__dmopencontext : Error: additional symbol
+derive.o: r .L__PRETTY_FUNCTION__.bind_expr : Error: additional symbol
+derive.o: r .L__PRETTY_FUNCTION__.check_expr : Error: additional symbol
+derive.o: r .L__PRETTY_FUNCTION__.parse : Error: additional symbol
+derive.o: b pmRegisterDerived.pmid : Error: additional symbol
+desc.o: r .L.str : Error: additional symbol
+desc.o: r .L.str1 : Error: additional symbol
+desc.o: r .L.str2 : Error: additional symbol
+err.o: unknown.[0-9]*: Warning: exceptioned symbol (type=[bd]) no longer present
+err.o: errmsg.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+err.o: r .L.str : Error: additional symbol
+err.o: r .L.str1 : Error: additional symbol
+err.o: r .L.str2 : Error: additional symbol
+err.o: r .L.str3 : Error: additional symbol
+err.o: b pmErrStr.errmsg : Error: additional symbol
+err.o: d pmErrStr_r.first : Error: additional symbol
+err.o: b pmErrStr_r.unknown : Error: additional symbol
+events.o: first.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+events.o: name_flags.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+events.o: name_missed.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+events.o: pmid_flags.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+events.o: pmid_missed.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+events.o: r .L.str : Error: additional symbol
+events.o: r .L.str1 : Error: additional symbol
+events.o: r .L.str10 : Error: additional symbol
+events.o: r .L.str11 : Error: additional symbol
+events.o: r .L.str12 : Error: additional symbol
+events.o: r .L.str13 : Error: additional symbol
+events.o: r .L.str14 : Error: additional symbol
+events.o: r .L.str15 : Error: additional symbol
+events.o: r .L.str16 : Error: additional symbol
+events.o: r .L.str17 : Error: additional symbol
+events.o: r .L.str18 : Error: additional symbol
+events.o: r .L.str19 : Error: additional symbol
+events.o: r .L.str2 : Error: additional symbol
+events.o: r .L.str20 : Error: additional symbol
+events.o: r .L.str21 : Error: additional symbol
+events.o: r .L.str22 : Error: additional symbol
+events.o: r .L.str23 : Error: additional symbol
+events.o: r .L.str24 : Error: additional symbol
+events.o: r .L.str25 : Error: additional symbol
+events.o: r .L.str26 : Error: additional symbol
+events.o: r .L.str27 : Error: additional symbol
+events.o: r .L.str28 : Error: additional symbol
+events.o: r .L.str3 : Error: additional symbol
+events.o: r .L.str31 : Error: additional symbol
+events.o: r .L.str32 : Error: additional symbol
+events.o: r .L.str33 : Error: additional symbol
+events.o: r .L.str34 : Error: additional symbol
+events.o: r .L.str35 : Error: additional symbol
+events.o: r .L.str36 : Error: additional symbol
+events.o: r .L.str37 : Error: additional symbol
+events.o: r .L.str4 : Error: additional symbol
+events.o: r .L.str5 : Error: additional symbol
+events.o: r .L.str6 : Error: additional symbol
+events.o: r .L.str7 : Error: additional symbol
+events.o: r .L.str8 : Error: additional symbol
+events.o: r .L.str9 : Error: additional symbol
+events.o: d pmUnpackEventRecords.first : Error: additional symbol
+events.o: d pmUnpackEventRecords.name_flags : Error: additional symbol
+events.o: d pmUnpackEventRecords.name_missed : Error: additional symbol
+events.o: b pmUnpackEventRecords.pmid_flags : Error: additional symbol
+events.o: b pmUnpackEventRecords.pmid_missed : Error: additional symbol
+fault.o: r .L.str : Error: additional symbol
+fault.o: r .L.str1 : Error: additional symbol
+fetchlocal.o: splitlist.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+fetchlocal.o: splitmax.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+fetchlocal.o: r .L.str : Error: additional symbol
+fetchlocal.o: r .L.str1 : Error: additional symbol
+fetchlocal.o: r .L.str2 : Error: additional symbol
+fetchlocal.o: r .L.str3 : Error: additional symbol
+fetchlocal.o: b __pmFetchLocal.splitlist : Error: additional symbol
+fetchlocal.o: b __pmFetchLocal.splitmax : Error: additional symbol
+fetch.o: r .L.str : Error: additional symbol
+fetch.o: r .L.str1 : Error: additional symbol
+fetch.o: r .L.str2 : Error: additional symbol
+fetch.o: r .L.str3 : Error: additional symbol
+fetch.o: r .L.str4 : Error: additional symbol
+fetch.o: r .L.str5 : Error: additional symbol
+fetch.o: r .L.str6 : Error: additional symbol
+fetch.o: r .L.str7 : Error: additional symbol
+fetch.o: r .L.str8 : Error: additional symbol
+fetch.o: r .L.str9 : Error: additional symbol
+freeresult.o: r .L.str : Error: additional symbol
+freeresult.o: r .L.str1 : Error: additional symbol
+freeresult.o: r .L.str2 : Error: additional symbol
+freeresult.o: r .L.str3 : Error: additional symbol
+help.o: r .L.str : Error: additional symbol
+help.o: r .L.str1 : Error: additional symbol
+help.o: r .L.str2 : Error: additional symbol
+instance.o: r .L.str : Error: additional symbol
+instance.o: r .L.str1 : Error: additional symbol
+instance.o: r .L.str2 : Error: additional symbol
+instance.o: r .L.str3 : Error: additional symbol
+instance.o: r .L.str4 : Error: additional symbol
+instance.o: r .L.str5 : Error: additional symbol
+instance.o: r .L.str6 : Error: additional symbol
+interp.o: dowrap.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+interp.o: round_robin.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+interp.o: r .L.str : Error: additional symbol
+interp.o: r .L.str1 : Error: additional symbol
+interp.o: r .L.str10 : Error: additional symbol
+interp.o: r .L.str11 : Error: additional symbol
+interp.o: r .L.str12 : Error: additional symbol
+interp.o: r .L.str13 : Error: additional symbol
+interp.o: r .L.str14 : Error: additional symbol
+interp.o: r .L.str15 : Error: additional symbol
+interp.o: r .L.str16 : Error: additional symbol
+interp.o: r .L.str17 : Error: additional symbol
+interp.o: r .L.str18 : Error: additional symbol
+interp.o: r .L.str19 : Error: additional symbol
+interp.o: r .L.str2 : Error: additional symbol
+interp.o: r .L.str20 : Error: additional symbol
+interp.o: r .L.str21 : Error: additional symbol
+interp.o: r .L.str22 : Error: additional symbol
+interp.o: r .L.str23 : Error: additional symbol
+interp.o: r .L.str24 : Error: additional symbol
+interp.o: r .L.str25 : Error: additional symbol
+interp.o: r .L.str26 : Error: additional symbol
+interp.o: r .L.str27 : Error: additional symbol
+interp.o: r .L.str28 : Error: additional symbol
+interp.o: r .L.str29 : Error: additional symbol
+interp.o: r .L.str3 : Error: additional symbol
+interp.o: r .L.str30 : Error: additional symbol
+interp.o: r .L.str31 : Error: additional symbol
+interp.o: r .L.str32 : Error: additional symbol
+interp.o: r .L.str33 : Error: additional symbol
+interp.o: r .L.str34 : Error: additional symbol
+interp.o: r .L.str35 : Error: additional symbol
+interp.o: r .L.str36 : Error: additional symbol
+interp.o: r .L.str37 : Error: additional symbol
+interp.o: r .L.str38 : Error: additional symbol
+interp.o: r .L.str39 : Error: additional symbol
+interp.o: r .L.str4 : Error: additional symbol
+interp.o: r .L.str40 : Error: additional symbol
+interp.o: r .L.str41 : Error: additional symbol
+interp.o: r .L.str42 : Error: additional symbol
+interp.o: r .L.str43 : Error: additional symbol
+interp.o: r .L.str44 : Error: additional symbol
+interp.o: r .L.str45 : Error: additional symbol
+interp.o: r .L.str46 : Error: additional symbol
+interp.o: r .L.str47 : Error: additional symbol
+interp.o: r .L.str48 : Error: additional symbol
+interp.o: r .L.str49 : Error: additional symbol
+interp.o: r .L.str5 : Error: additional symbol
+interp.o: r .L.str50 : Error: additional symbol
+interp.o: r .L.str51 : Error: additional symbol
+interp.o: r .L.str6 : Error: additional symbol
+interp.o: r .L.str7 : Error: additional symbol
+interp.o: r .L.str8 : Error: additional symbol
+interp.o: r .L.str9 : Error: additional symbol
+interp.o: r .LCPI1_0 : Error: additional symbol
+interp.o: r .LCPI1_1 : Error: additional symbol
+interp.o: r .LCPI1_2 : Error: additional symbol
+interp.o: r .LCPI1_3 : Error: additional symbol
+interp.o: r .LCPI1_4 : Error: additional symbol
+interp.o: r .LCPI1_5 : Error: additional symbol
+interp.o: r .L__PRETTY_FUNCTION__.__pmLogFetchInterp : Error: additional symbol
+interp.o: r .L__PRETTY_FUNCTION__.cache_read : Error: additional symbol
+interp.o: r .L__PRETTY_FUNCTION__.do_roll : Error: additional symbol
+interp.o: d __pmLogFetchInterp.dowrap : Error: additional symbol
+interp.o: d cache_read.round_robin : Error: additional symbol
+ipc.o: r .L.str : Error: additional symbol
+ipc.o: r .L.str1 : Error: additional symbol
+ipc.o: r .L.str2 : Error: additional symbol
+ipc.o: r .L.str3 : Error: additional symbol
+ipc.o: r .L.str4 : Error: additional symbol
+ipc.o: r .L.str5 : Error: additional symbol
+ipc.o: r .L.str6 : Error: additional symbol
+ipc.o: r .L.str7 : Error: additional symbol
+lock.o: r .L.str : Error: additional symbol
+lock.o: r .L.str1 : Error: additional symbol
+lock.o: r .L.str2 : Error: additional symbol
+lock.o: r .L.str3 : Error: additional symbol
+lock.o: r .L.str4 : Error: additional symbol
+lock.o: b __pmInitLocks.done : Error: additional symbol
+lock.o: b __pmInitLocks.init : Error: additional symbol
+logconnect.o: done_default.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+logconnect.o: timeout.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+logconnect.o: r .L.str : Error: additional symbol
+logconnect.o: r .L.str1 : Error: additional symbol
+logconnect.o: r .L.str10 : Error: additional symbol
+logconnect.o: r .L.str11 : Error: additional symbol
+logconnect.o: r .L.str12 : Error: additional symbol
+logconnect.o: r .L.str13 : Error: additional symbol
+logconnect.o: r .L.str14 : Error: additional symbol
+logconnect.o: r .L.str15 : Error: additional symbol
+logconnect.o: r .L.str16 : Error: additional symbol
+logconnect.o: r .L.str2 : Error: additional symbol
+logconnect.o: r .L.str3 : Error: additional symbol
+logconnect.o: r .L.str4 : Error: additional symbol
+logconnect.o: r .L.str5 : Error: additional symbol
+logconnect.o: r .L.str6 : Error: additional symbol
+logconnect.o: r .L.str7 : Error: additional symbol
+logconnect.o: r .L.str8 : Error: additional symbol
+logconnect.o: r .L.str9 : Error: additional symbol
+logconnect.o: b __pmLoggerTimeout.done_default : Error: additional symbol
+logconnect.o: b __pmLoggerTimeout.timeout : Error: additional symbol
+logmeta.o: r .L.str : Error: additional symbol
+logmeta.o: r .L.str1 : Error: additional symbol
+logmeta.o: r .L.str10 : Error: additional symbol
+logmeta.o: r .L.str11 : Error: additional symbol
+logmeta.o: r .L.str12 : Error: additional symbol
+logmeta.o: r .L.str13 : Error: additional symbol
+logmeta.o: r .L.str14 : Error: additional symbol
+logmeta.o: r .L.str15 : Error: additional symbol
+logmeta.o: r .L.str16 : Error: additional symbol
+logmeta.o: r .L.str17 : Error: additional symbol
+logmeta.o: r .L.str18 : Error: additional symbol
+logmeta.o: r .L.str19 : Error: additional symbol
+logmeta.o: r .L.str2 : Error: additional symbol
+logmeta.o: r .L.str20 : Error: additional symbol
+logmeta.o: r .L.str21 : Error: additional symbol
+logmeta.o: r .L.str22 : Error: additional symbol
+logmeta.o: r .L.str23 : Error: additional symbol
+logmeta.o: r .L.str3 : Error: additional symbol
+logmeta.o: r .L.str4 : Error: additional symbol
+logmeta.o: r .L.str5 : Error: additional symbol
+logmeta.o: r .L.str6 : Error: additional symbol
+logmeta.o: r .L.str7 : Error: additional symbol
+logmeta.o: r .L.str8 : Error: additional symbol
+logmeta.o: r .L.str9 : Error: additional symbol
+logportmap.o: r .L.str : Error: additional symbol
+logportmap.o: r .L.str1 : Error: additional symbol
+logportmap.o: r .L.str10 : Error: additional symbol
+logportmap.o: r .L.str11 : Error: additional symbol
+logportmap.o: r .L.str12 : Error: additional symbol
+logportmap.o: r .L.str13 : Error: additional symbol
+logportmap.o: r .L.str14 : Error: additional symbol
+logportmap.o: r .L.str15 : Error: additional symbol
+logportmap.o: r .L.str16 : Error: additional symbol
+logportmap.o: r .L.str17 : Error: additional symbol
+logportmap.o: r .L.str2 : Error: additional symbol
+logportmap.o: r .L.str3 : Error: additional symbol
+logportmap.o: r .L.str4 : Error: additional symbol
+logportmap.o: r .L.str5 : Error: additional symbol
+logportmap.o: r .L.str6 : Error: additional symbol
+logportmap.o: r .L.str7 : Error: additional symbol
+logportmap.o: r .L.str8 : Error: additional symbol
+logportmap.o: r .L.str9 : Error: additional symbol
+logutil.o: tbuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+logutil.o: r .L.str : Error: additional symbol
+logutil.o: r .L.str1 : Error: additional symbol
+logutil.o: r .L.str10 : Error: additional symbol
+logutil.o: r .L.str100 : Error: additional symbol
+logutil.o: r .L.str101 : Error: additional symbol
+logutil.o: r .L.str102 : Error: additional symbol
+logutil.o: r .L.str103 : Error: additional symbol
+logutil.o: r .L.str104 : Error: additional symbol
+logutil.o: r .L.str105 : Error: additional symbol
+logutil.o: r .L.str11 : Error: additional symbol
+logutil.o: r .L.str12 : Error: additional symbol
+logutil.o: r .L.str13 : Error: additional symbol
+logutil.o: r .L.str14 : Error: additional symbol
+logutil.o: r .L.str15 : Error: additional symbol
+logutil.o: r .L.str16 : Error: additional symbol
+logutil.o: r .L.str17 : Error: additional symbol
+logutil.o: r .L.str18 : Error: additional symbol
+logutil.o: r .L.str19 : Error: additional symbol
+logutil.o: r .L.str2 : Error: additional symbol
+logutil.o: r .L.str20 : Error: additional symbol
+logutil.o: r .L.str21 : Error: additional symbol
+logutil.o: r .L.str22 : Error: additional symbol
+logutil.o: r .L.str23 : Error: additional symbol
+logutil.o: r .L.str24 : Error: additional symbol
+logutil.o: r .L.str25 : Error: additional symbol
+logutil.o: r .L.str26 : Error: additional symbol
+logutil.o: r .L.str27 : Error: additional symbol
+logutil.o: r .L.str28 : Error: additional symbol
+logutil.o: r .L.str29 : Error: additional symbol
+logutil.o: r .L.str3 : Error: additional symbol
+logutil.o: r .L.str30 : Error: additional symbol
+logutil.o: r .L.str31 : Error: additional symbol
+logutil.o: r .L.str32 : Error: additional symbol
+logutil.o: r .L.str33 : Error: additional symbol
+logutil.o: r .L.str34 : Error: additional symbol
+logutil.o: r .L.str35 : Error: additional symbol
+logutil.o: r .L.str36 : Error: additional symbol
+logutil.o: r .L.str37 : Error: additional symbol
+logutil.o: r .L.str38 : Error: additional symbol
+logutil.o: r .L.str39 : Error: additional symbol
+logutil.o: r .L.str4 : Error: additional symbol
+logutil.o: r .L.str40 : Error: additional symbol
+logutil.o: r .L.str41 : Error: additional symbol
+logutil.o: r .L.str42 : Error: additional symbol
+logutil.o: r .L.str43 : Error: additional symbol
+logutil.o: r .L.str44 : Error: additional symbol
+logutil.o: r .L.str45 : Error: additional symbol
+logutil.o: r .L.str46 : Error: additional symbol
+logutil.o: r .L.str47 : Error: additional symbol
+logutil.o: r .L.str48 : Error: additional symbol
+logutil.o: r .L.str49 : Error: additional symbol
+logutil.o: r .L.str5 : Error: additional symbol
+logutil.o: r .L.str50 : Error: additional symbol
+logutil.o: r .L.str51 : Error: additional symbol
+logutil.o: r .L.str52 : Error: additional symbol
+logutil.o: r .L.str53 : Error: additional symbol
+logutil.o: r .L.str54 : Error: additional symbol
+logutil.o: r .L.str55 : Error: additional symbol
+logutil.o: r .L.str56 : Error: additional symbol
+logutil.o: r .L.str57 : Error: additional symbol
+logutil.o: r .L.str58 : Error: additional symbol
+logutil.o: r .L.str59 : Error: additional symbol
+logutil.o: r .L.str6 : Error: additional symbol
+logutil.o: r .L.str60 : Error: additional symbol
+logutil.o: r .L.str61 : Error: additional symbol
+logutil.o: r .L.str62 : Error: additional symbol
+logutil.o: r .L.str63 : Error: additional symbol
+logutil.o: r .L.str64 : Error: additional symbol
+logutil.o: r .L.str65 : Error: additional symbol
+logutil.o: r .L.str66 : Error: additional symbol
+logutil.o: r .L.str67 : Error: additional symbol
+logutil.o: r .L.str68 : Error: additional symbol
+logutil.o: r .L.str69 : Error: additional symbol
+logutil.o: r .L.str7 : Error: additional symbol
+logutil.o: r .L.str70 : Error: additional symbol
+logutil.o: r .L.str71 : Error: additional symbol
+logutil.o: r .L.str72 : Error: additional symbol
+logutil.o: r .L.str73 : Error: additional symbol
+logutil.o: r .L.str74 : Error: additional symbol
+logutil.o: r .L.str75 : Error: additional symbol
+logutil.o: r .L.str76 : Error: additional symbol
+logutil.o: r .L.str77 : Error: additional symbol
+logutil.o: r .L.str78 : Error: additional symbol
+logutil.o: r .L.str79 : Error: additional symbol
+logutil.o: r .L.str8 : Error: additional symbol
+logutil.o: r .L.str80 : Error: additional symbol
+logutil.o: r .L.str81 : Error: additional symbol
+logutil.o: r .L.str82 : Error: additional symbol
+logutil.o: r .L.str83 : Error: additional symbol
+logutil.o: r .L.str84 : Error: additional symbol
+logutil.o: r .L.str85 : Error: additional symbol
+logutil.o: r .L.str86 : Error: additional symbol
+logutil.o: r .L.str87 : Error: additional symbol
+logutil.o: r .L.str88 : Error: additional symbol
+logutil.o: r .L.str9 : Error: additional symbol
+logutil.o: r .L.str94 : Error: additional symbol
+logutil.o: r .L.str95 : Error: additional symbol
+logutil.o: r .L.str96 : Error: additional symbol
+logutil.o: r .L.str97 : Error: additional symbol
+logutil.o: r .L.str98 : Error: additional symbol
+logutil.o: r .L.str99 : Error: additional symbol
+logutil.o: r .L__PRETTY_FUNCTION__.__pmGetArchiveEnd : Error: additional symbol
+logutil.o: r .L__PRETTY_FUNCTION__.__pmLogFetch : Error: additional symbol
+logutil.o: r .L__PRETTY_FUNCTION__.__pmLogPutIndex : Error: additional symbol
+logutil.o: r .L__PRETTY_FUNCTION__.__pmLogRead : Error: additional symbol
+logutil.o: r .L__PRETTY_FUNCTION__.__pmLogSetTime : Error: additional symbol
+logutil.o: b __pmLogName.tbuf : Error: additional symbol
+optfetch.o: r .L.str : Error: additional symbol
+optfetch.o: r .L.str1 : Error: additional symbol
+optfetch.o: r .L.str10 : Error: additional symbol
+optfetch.o: r .L.str11 : Error: additional symbol
+optfetch.o: r .L.str12 : Error: additional symbol
+optfetch.o: r .L.str13 : Error: additional symbol
+optfetch.o: r .L.str14 : Error: additional symbol
+optfetch.o: r .L.str15 : Error: additional symbol
+optfetch.o: r .L.str16 : Error: additional symbol
+optfetch.o: r .L.str17 : Error: additional symbol
+optfetch.o: r .L.str18 : Error: additional symbol
+optfetch.o: r .L.str19 : Error: additional symbol
+optfetch.o: r .L.str2 : Error: additional symbol
+optfetch.o: r .L.str20 : Error: additional symbol
+optfetch.o: r .L.str21 : Error: additional symbol
+optfetch.o: r .L.str22 : Error: additional symbol
+optfetch.o: r .L.str23 : Error: additional symbol
+optfetch.o: r .L.str24 : Error: additional symbol
+optfetch.o: r .L.str25 : Error: additional symbol
+optfetch.o: r .L.str26 : Error: additional symbol
+optfetch.o: r .L.str27 : Error: additional symbol
+optfetch.o: r .L.str28 : Error: additional symbol
+optfetch.o: r .L.str29 : Error: additional symbol
+optfetch.o: r .L.str3 : Error: additional symbol
+optfetch.o: r .L.str30 : Error: additional symbol
+optfetch.o: r .L.str4 : Error: additional symbol
+optfetch.o: r .L.str5 : Error: additional symbol
+optfetch.o: r .L.str6 : Error: additional symbol
+optfetch.o: r .L.str7 : Error: additional symbol
+optfetch.o: r .L.str8 : Error: additional symbol
+optfetch.o: r .L.str9 : Error: additional symbol
+optfetch.o: r .L__PRETTY_FUNCTION__.__pmOptFetchAdd : Error: additional symbol
+p_creds.o: r .L.str : Error: additional symbol
+p_creds.o: r .L.str1 : Error: additional symbol
+pdubuf.o: r .L.str : Error: additional symbol
+pdubuf.o: r .L.str1 : Error: additional symbol
+pdubuf.o: r .L.str10 : Error: additional symbol
+pdubuf.o: r .L.str11 : Error: additional symbol
+pdubuf.o: r .L.str2 : Error: additional symbol
+pdubuf.o: r .L.str3 : Error: additional symbol
+pdubuf.o: r .L.str4 : Error: additional symbol
+pdubuf.o: r .L.str5 : Error: additional symbol
+pdubuf.o: r .L.str6 : Error: additional symbol
+pdubuf.o: r .L.str7 : Error: additional symbol
+pdubuf.o: r .L.str8 : Error: additional symbol
+pdubuf.o: r .L.str9 : Error: additional symbol
+pdubuf.o: r .L__PRETTY_FUNCTION__.__pmPinPDUBuf : Error: additional symbol
+pdubuf.o: r .L__PRETTY_FUNCTION__.__pmUnpinPDUBuf : Error: additional symbol
+pdu.o: done_default.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pdu.o: tbuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pdu.o: maxsize.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+pdu.o: r .L.str : Error: additional symbol
+pdu.o: r .L.str1 : Error: additional symbol
+pdu.o: r .L.str10 : Error: additional symbol
+pdu.o: r .L.str11 : Error: additional symbol
+pdu.o: r .L.str12 : Error: additional symbol
+pdu.o: r .L.str13 : Error: additional symbol
+pdu.o: r .L.str14 : Error: additional symbol
+pdu.o: r .L.str15 : Error: additional symbol
+pdu.o: r .L.str16 : Error: additional symbol
+pdu.o: r .L.str17 : Error: additional symbol
+pdu.o: r .L.str18 : Error: additional symbol
+pdu.o: r .L.str19 : Error: additional symbol
+pdu.o: r .L.str2 : Error: additional symbol
+pdu.o: r .L.str20 : Error: additional symbol
+pdu.o: r .L.str21 : Error: additional symbol
+pdu.o: r .L.str22 : Error: additional symbol
+pdu.o: r .L.str23 : Error: additional symbol
+pdu.o: r .L.str24 : Error: additional symbol
+pdu.o: r .L.str25 : Error: additional symbol
+pdu.o: r .L.str26 : Error: additional symbol
+pdu.o: r .L.str27 : Error: additional symbol
+pdu.o: r .L.str28 : Error: additional symbol
+pdu.o: r .L.str29 : Error: additional symbol
+pdu.o: r .L.str3 : Error: additional symbol
+pdu.o: r .L.str30 : Error: additional symbol
+pdu.o: r .L.str31 : Error: additional symbol
+pdu.o: r .L.str32 : Error: additional symbol
+pdu.o: r .L.str33 : Error: additional symbol
+pdu.o: r .L.str34 : Error: additional symbol
+pdu.o: r .L.str35 : Error: additional symbol
+pdu.o: r .L.str36 : Error: additional symbol
+pdu.o: r .L.str37 : Error: additional symbol
+pdu.o: r .L.str38 : Error: additional symbol
+pdu.o: r .L.str39 : Error: additional symbol
+pdu.o: r .L.str4 : Error: additional symbol
+pdu.o: r .L.str40 : Error: additional symbol
+pdu.o: r .L.str41 : Error: additional symbol
+pdu.o: r .L.str42 : Error: additional symbol
+pdu.o: r .L.str5 : Error: additional symbol
+pdu.o: r .L.str6 : Error: additional symbol
+pdu.o: r .L.str7 : Error: additional symbol
+pdu.o: r .L.str8 : Error: additional symbol
+pdu.o: r .L.str9 : Error: additional symbol
+pdu.o: b __pmDefaultRequestTimeout.done_default : Error: additional symbol
+pdu.o: d __pmGetPDU.maxsize : Error: additional symbol
+pdu.o: b __pmPDUTypeStr.tbuf : Error: additional symbol
+p_error.o: r .L.str : Error: additional symbol
+p_error.o: r .L.str1 : Error: additional symbol
+p_error.o: r .L.str2 : Error: additional symbol
+profile.o: r .L.str : Error: additional symbol
+profile.o: r .L.str1 : Error: additional symbol
+profile.o: r .L.str10 : Error: additional symbol
+profile.o: r .L.str11 : Error: additional symbol
+profile.o: r .L.str2 : Error: additional symbol
+profile.o: r .L.str3 : Error: additional symbol
+profile.o: r .L.str4 : Error: additional symbol
+profile.o: r .L.str5 : Error: additional symbol
+profile.o: r .L.str6 : Error: additional symbol
+profile.o: r .L.str7 : Error: additional symbol
+profile.o: r .L.str8 : Error: additional symbol
+profile.o: r .L.str9 : Error: additional symbol
+p_lcontrol.o: r .L.str : Error: additional symbol
+p_lcontrol.o: r .L.str1 : Error: additional symbol
+p_lrequest.o: r .L.str : Error: additional symbol
+p_lrequest.o: r .L.str1 : Error: additional symbol
+p_lstatus.o: r .L.str : Error: additional symbol
+p_lstatus.o: r .L.str1 : Error: additional symbol
+pmns.o: fin.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pmns.o: first.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+pmns.o: last_pmns_location.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+pmns.o: lp.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pmns.o: repname.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pmns.o: locerr.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+pmns.o: r .L.str : Error: additional symbol
+pmns.o: r .L.str1 : Error: additional symbol
+pmns.o: r .L.str10 : Error: additional symbol
+pmns.o: r .L.str11 : Error: additional symbol
+pmns.o: r .L.str12 : Error: additional symbol
+pmns.o: r .L.str13 : Error: additional symbol
+pmns.o: r .L.str14 : Error: additional symbol
+pmns.o: r .L.str15 : Error: additional symbol
+pmns.o: r .L.str16 : Error: additional symbol
+pmns.o: r .L.str17 : Error: additional symbol
+pmns.o: r .L.str18 : Error: additional symbol
+pmns.o: r .L.str19 : Error: additional symbol
+pmns.o: r .L.str2 : Error: additional symbol
+pmns.o: r .L.str20 : Error: additional symbol
+pmns.o: r .L.str21 : Error: additional symbol
+pmns.o: r .L.str22 : Error: additional symbol
+pmns.o: r .L.str23 : Error: additional symbol
+pmns.o: r .L.str24 : Error: additional symbol
+pmns.o: r .L.str25 : Error: additional symbol
+pmns.o: r .L.str26 : Error: additional symbol
+pmns.o: r .L.str27 : Error: additional symbol
+pmns.o: r .L.str28 : Error: additional symbol
+pmns.o: r .L.str29 : Error: additional symbol
+pmns.o: r .L.str3 : Error: additional symbol
+pmns.o: r .L.str30 : Error: additional symbol
+pmns.o: r .L.str31 : Error: additional symbol
+pmns.o: r .L.str32 : Error: additional symbol
+pmns.o: r .L.str33 : Error: additional symbol
+pmns.o: r .L.str34 : Error: additional symbol
+pmns.o: r .L.str35 : Error: additional symbol
+pmns.o: r .L.str36 : Error: additional symbol
+pmns.o: r .L.str37 : Error: additional symbol
+pmns.o: r .L.str38 : Error: additional symbol
+pmns.o: r .L.str39 : Error: additional symbol
+pmns.o: r .L.str4 : Error: additional symbol
+pmns.o: r .L.str40 : Error: additional symbol
+pmns.o: r .L.str41 : Error: additional symbol
+pmns.o: r .L.str42 : Error: additional symbol
+pmns.o: r .L.str43 : Error: additional symbol
+pmns.o: r .L.str44 : Error: additional symbol
+pmns.o: r .L.str45 : Error: additional symbol
+pmns.o: r .L.str46 : Error: additional symbol
+pmns.o: r .L.str47 : Error: additional symbol
+pmns.o: r .L.str48 : Error: additional symbol
+pmns.o: r .L.str49 : Error: additional symbol
+pmns.o: r .L.str5 : Error: additional symbol
+pmns.o: r .L.str50 : Error: additional symbol
+pmns.o: r .L.str51 : Error: additional symbol
+pmns.o: r .L.str52 : Error: additional symbol
+pmns.o: r .L.str53 : Error: additional symbol
+pmns.o: r .L.str54 : Error: additional symbol
+pmns.o: r .L.str55 : Error: additional symbol
+pmns.o: r .L.str56 : Error: additional symbol
+pmns.o: r .L.str57 : Error: additional symbol
+pmns.o: r .L.str58 : Error: additional symbol
+pmns.o: r .L.str59 : Error: additional symbol
+pmns.o: r .L.str6 : Error: additional symbol
+pmns.o: r .L.str60 : Error: additional symbol
+pmns.o: r .L.str61 : Error: additional symbol
+pmns.o: r .L.str62 : Error: additional symbol
+pmns.o: r .L.str63 : Error: additional symbol
+pmns.o: r .L.str64 : Error: additional symbol
+pmns.o: r .L.str65 : Error: additional symbol
+pmns.o: r .L.str66 : Error: additional symbol
+pmns.o: r .L.str67 : Error: additional symbol
+pmns.o: r .L.str68 : Error: additional symbol
+pmns.o: r .L.str69 : Error: additional symbol
+pmns.o: r .L.str7 : Error: additional symbol
+pmns.o: r .L.str70 : Error: additional symbol
+pmns.o: r .L.str71 : Error: additional symbol
+pmns.o: r .L.str72 : Error: additional symbol
+pmns.o: r .L.str73 : Error: additional symbol
+pmns.o: r .L.str74 : Error: additional symbol
+pmns.o: r .L.str75 : Error: additional symbol
+pmns.o: r .L.str76 : Error: additional symbol
+pmns.o: r .L.str77 : Error: additional symbol
+pmns.o: r .L.str78 : Error: additional symbol
+pmns.o: r .L.str79 : Error: additional symbol
+pmns.o: r .L.str8 : Error: additional symbol
+pmns.o: r .L.str80 : Error: additional symbol
+pmns.o: r .L.str81 : Error: additional symbol
+pmns.o: r .L.str82 : Error: additional symbol
+pmns.o: r .L.str83 : Error: additional symbol
+pmns.o: r .L.str84 : Error: additional symbol
+pmns.o: r .L.str85 : Error: additional symbol
+pmns.o: r .L.str86 : Error: additional symbol
+pmns.o: r .L.str87 : Error: additional symbol
+pmns.o: r .L.str88 : Error: additional symbol
+pmns.o: r .L.str89 : Error: additional symbol
+pmns.o: r .L.str9 : Error: additional symbol
+pmns.o: r .L.str90 : Error: additional symbol
+pmns.o: r .L.str91 : Error: additional symbol
+pmns.o: r .L.str92 : Error: additional symbol
+pmns.o: r .L.str93 : Error: additional symbol
+pmns.o: r .L.str94 : Error: additional symbol
+pmns.o: r .L.str95 : Error: additional symbol
+pmns.o: r .L.str96 : Error: additional symbol
+pmns.o: r .L.str97 : Error: additional symbol
+pmns.o: r .L.str98 : Error: additional symbol
+pmns.o: r .L.str99 : Error: additional symbol
+pmns.o: r .L__PRETTY_FUNCTION__.pmGetChildrenStatus : Error: additional symbol
+pmns.o: r .L__PRETTY_FUNCTION__.pmLookupName : Error: additional symbol
+pmns.o: b getfname.repname : Error: additional symbol
+pmns.o: b lex.fin : Error: additional symbol
+pmns.o: d lex.first : Error: additional symbol
+pmns.o: b lex.lp : Error: additional symbol
+pmns.o: d pmGetPMNSLocation.last_pmns_location : Error: additional symbol
+pmns.o: b pmPMNSLocationStr.locerr : Error: additional symbol
+p_pmns.o: r .L.str : Error: additional symbol
+p_pmns.o: r .L.str1 : Error: additional symbol
+p_pmns.o: r .L.str10 : Error: additional symbol
+p_pmns.o: r .L.str11 : Error: additional symbol
+p_pmns.o: r .L.str12 : Error: additional symbol
+p_pmns.o: r .L.str13 : Error: additional symbol
+p_pmns.o: r .L.str14 : Error: additional symbol
+p_pmns.o: r .L.str15 : Error: additional symbol
+p_pmns.o: r .L.str2 : Error: additional symbol
+p_pmns.o: r .L.str3 : Error: additional symbol
+p_pmns.o: r .L.str4 : Error: additional symbol
+p_pmns.o: r .L.str5 : Error: additional symbol
+p_pmns.o: r .L.str6 : Error: additional symbol
+p_pmns.o: r .L.str7 : Error: additional symbol
+p_pmns.o: r .L.str8 : Error: additional symbol
+p_pmns.o: r .L.str9 : Error: additional symbol
+profile.o: r .L.str : Error: additional symbol
+profile.o: r .L.str1 : Error: additional symbol
+profile.o: r .L.str10 : Error: additional symbol
+profile.o: r .L.str11 : Error: additional symbol
+profile.o: r .L.str2 : Error: additional symbol
+profile.o: r .L.str3 : Error: additional symbol
+profile.o: r .L.str4 : Error: additional symbol
+profile.o: r .L.str5 : Error: additional symbol
+profile.o: r .L.str6 : Error: additional symbol
+profile.o: r .L.str7 : Error: additional symbol
+profile.o: r .L.str8 : Error: additional symbol
+profile.o: r .L.str9 : Error: additional symbol
+rtime.o: r .L.str : Error: additional symbol
+rtime.o: r .L.str1 : Error: additional symbol
+rtime.o: r .L.str18 : Error: additional symbol
+rtime.o: r .L.str19 : Error: additional symbol
+rtime.o: r .L.str2 : Error: additional symbol
+rtime.o: r .L.str3 : Error: additional symbol
+rtime.o: r .L.str4 : Error: additional symbol
+spec.o: r .L.str : Error: additional symbol
+spec.o: r .L.str1 : Error: additional symbol
+spec.o: r .L.str10 : Error: additional symbol
+spec.o: r .L.str11 : Error: additional symbol
+spec.o: r .L.str12 : Error: additional symbol
+spec.o: r .L.str13 : Error: additional symbol
+spec.o: r .L.str14 : Error: additional symbol
+spec.o: r .L.str15 : Error: additional symbol
+spec.o: r .L.str2 : Error: additional symbol
+spec.o: r .L.str3 : Error: additional symbol
+spec.o: r .L.str4 : Error: additional symbol
+spec.o: r .L.str5 : Error: additional symbol
+spec.o: r .L.str6 : Error: additional symbol
+spec.o: r .L.str7 : Error: additional symbol
+spec.o: r .L.str8 : Error: additional symbol
+spec.o: r .L.str9 : Error: additional symbol
+store.o: r .L.str : Error: additional symbol
+store.o: r .L.str1 : Error: additional symbol
+store.o: r .L.str2 : Error: additional symbol
+tv.o: r .LCPI0_0 : Error: additional symbol
+tv.o: r .LCPI1_0 : Error: additional symbol
+tv.o: r .LCPI2_0 : Error: additional symbol
+tv.o: r .LCPI3_0 : Error: additional symbol
+tz.o: tzbuffer.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+tz.o: r .L.str : Error: additional symbol
+tz.o: r .L.str1 : Error: additional symbol
+tz.o: r .L.str10 : Error: additional symbol
+tz.o: r .L.str11 : Error: additional symbol
+tz.o: r .L.str12 : Error: additional symbol
+tz.o: r .L.str13 : Error: additional symbol
+tz.o: r .L.str2 : Error: additional symbol
+tz.o: r .L.str3 : Error: additional symbol
+tz.o: r .L.str4 : Error: additional symbol
+tz.o: r .L.str5 : Error: additional symbol
+tz.o: r .L.str6 : Error: additional symbol
+tz.o: r .L.str7 : Error: additional symbol
+tz.o: r .L.str8 : Error: additional symbol
+tz.o: r .L.str9 : Error: additional symbol
+tz.o: b __pmTimezone.tzbuffer : Error: additional symbol
+units.o: abuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+units.o: tbuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+units.o: ubuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+units.o: r .L.str : Error: additional symbol
+units.o: r .L.str1 : Error: additional symbol
+units.o: r .L.str10 : Error: additional symbol
+units.o: r .L.str11 : Error: additional symbol
+units.o: r .L.str12 : Error: additional symbol
+units.o: r .L.str13 : Error: additional symbol
+units.o: r .L.str14 : Error: additional symbol
+units.o: r .L.str15 : Error: additional symbol
+units.o: r .L.str16 : Error: additional symbol
+units.o: r .L.str17 : Error: additional symbol
+units.o: r .L.str18 : Error: additional symbol
+units.o: r .L.str19 : Error: additional symbol
+units.o: r .L.str2 : Error: additional symbol
+units.o: r .L.str20 : Error: additional symbol
+units.o: r .L.str21 : Error: additional symbol
+units.o: r .L.str22 : Error: additional symbol
+units.o: r .L.str23 : Error: additional symbol
+units.o: r .L.str24 : Error: additional symbol
+units.o: r .L.str25 : Error: additional symbol
+units.o: r .L.str26 : Error: additional symbol
+units.o: r .L.str27 : Error: additional symbol
+units.o: r .L.str28 : Error: additional symbol
+units.o: r .L.str29 : Error: additional symbol
+units.o: r .L.str3 : Error: additional symbol
+units.o: r .L.str30 : Error: additional symbol
+units.o: r .L.str31 : Error: additional symbol
+units.o: r .L.str32 : Error: additional symbol
+units.o: r .L.str33 : Error: additional symbol
+units.o: r .L.str34 : Error: additional symbol
+units.o: r .L.str35 : Error: additional symbol
+units.o: r .L.str36 : Error: additional symbol
+units.o: r .L.str37 : Error: additional symbol
+units.o: r .L.str38 : Error: additional symbol
+units.o: r .L.str39 : Error: additional symbol
+units.o: r .L.str4 : Error: additional symbol
+units.o: r .L.str40 : Error: additional symbol
+units.o: r .L.str41 : Error: additional symbol
+units.o: r .L.str42 : Error: additional symbol
+units.o: r .L.str43 : Error: additional symbol
+units.o: r .L.str44 : Error: additional symbol
+units.o: r .L.str45 : Error: additional symbol
+units.o: r .L.str46 : Error: additional symbol
+units.o: r .L.str47 : Error: additional symbol
+units.o: r .L.str48 : Error: additional symbol
+units.o: r .L.str49 : Error: additional symbol
+units.o: r .L.str5 : Error: additional symbol
+units.o: r .L.str50 : Error: additional symbol
+units.o: r .L.str6 : Error: additional symbol
+units.o: r .L.str7 : Error: additional symbol
+units.o: r .L.str8 : Error: additional symbol
+units.o: r .L.str9 : Error: additional symbol
+units.o: r .LCPI7_0 : Error: additional symbol
+units.o: r .LCPI7_1 : Error: additional symbol
+units.o: r .LCPI7_2 : Error: additional symbol
+units.o: r .LCPI7_3 : Error: additional symbol
+units.o: r .LCPI7_4 : Error: additional symbol
+units.o: r .LCPI7_5 : Error: additional symbol
+units.o: b pmAtomStr.abuf : Error: additional symbol
+units.o: b pmTypeStr.tbuf : Error: additional symbol
+units.o: b pmUnitsStr.ubuf : Error: additional symbol
+util.o: idbuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: indombuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: ebuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: nbuf.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: errtype.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+util.o: first.[0-9]*: Warning: exceptioned symbol (type=d) no longer present
+util.o: last.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: sum.[0-9]*: Warning: exceptioned symbol (type=b) no longer present
+util.o: r .L.str : Error: additional symbol
+util.o: r .L.str1 : Error: additional symbol
+util.o: r .L.str10 : Error: additional symbol
+util.o: r .L.str100 : Error: additional symbol
+util.o: r .L.str101 : Error: additional symbol
+util.o: r .L.str102 : Error: additional symbol
+util.o: r .L.str103 : Error: additional symbol
+util.o: r .L.str104 : Error: additional symbol
+util.o: r .L.str105 : Error: additional symbol
+util.o: r .L.str106 : Error: additional symbol
+util.o: r .L.str107 : Error: additional symbol
+util.o: r .L.str108 : Error: additional symbol
+util.o: r .L.str109 : Error: additional symbol
+util.o: r .L.str11 : Error: additional symbol
+util.o: r .L.str110 : Error: additional symbol
+util.o: r .L.str111 : Error: additional symbol
+util.o: r .L.str112 : Error: additional symbol
+util.o: r .L.str113 : Error: additional symbol
+util.o: r .L.str114 : Error: additional symbol
+util.o: r .L.str115 : Error: additional symbol
+util.o: r .L.str116 : Error: additional symbol
+util.o: r .L.str117 : Error: additional symbol
+util.o: r .L.str118 : Error: additional symbol
+util.o: r .L.str119 : Error: additional symbol
+util.o: r .L.str12 : Error: additional symbol
+util.o: r .L.str120 : Error: additional symbol
+util.o: r .L.str13 : Error: additional symbol
+util.o: r .L.str14 : Error: additional symbol
+util.o: r .L.str145 : Error: additional symbol
+util.o: r .L.str146 : Error: additional symbol
+util.o: r .L.str147 : Error: additional symbol
+util.o: r .L.str148 : Error: additional symbol
+util.o: r .L.str149 : Error: additional symbol
+util.o: r .L.str15 : Error: additional symbol
+util.o: r .L.str150 : Error: additional symbol
+util.o: r .L.str151 : Error: additional symbol
+util.o: r .L.str152 : Error: additional symbol
+util.o: r .L.str153 : Error: additional symbol
+util.o: r .L.str154 : Error: additional symbol
+util.o: r .L.str16 : Error: additional symbol
+util.o: r .L.str17 : Error: additional symbol
+util.o: r .L.str18 : Error: additional symbol
+util.o: r .L.str19 : Error: additional symbol
+util.o: r .L.str2 : Error: additional symbol
+util.o: r .L.str20 : Error: additional symbol
+util.o: r .L.str21 : Error: additional symbol
+util.o: r .L.str22 : Error: additional symbol
+util.o: r .L.str23 : Error: additional symbol
+util.o: r .L.str24 : Error: additional symbol
+util.o: r .L.str25 : Error: additional symbol
+util.o: r .L.str26 : Error: additional symbol
+util.o: r .L.str27 : Error: additional symbol
+util.o: r .L.str28 : Error: additional symbol
+util.o: r .L.str29 : Error: additional symbol
+util.o: r .L.str3 : Error: additional symbol
+util.o: r .L.str30 : Error: additional symbol
+util.o: r .L.str31 : Error: additional symbol
+util.o: r .L.str32 : Error: additional symbol
+util.o: r .L.str33 : Error: additional symbol
+util.o: r .L.str34 : Error: additional symbol
+util.o: r .L.str35 : Error: additional symbol
+util.o: r .L.str36 : Error: additional symbol
+util.o: r .L.str37 : Error: additional symbol
+util.o: r .L.str38 : Error: additional symbol
+util.o: r .L.str39 : Error: additional symbol
+util.o: r .L.str4 : Error: additional symbol
+util.o: r .L.str40 : Error: additional symbol
+util.o: r .L.str41 : Error: additional symbol
+util.o: r .L.str42 : Error: additional symbol
+util.o: r .L.str43 : Error: additional symbol
+util.o: r .L.str44 : Error: additional symbol
+util.o: r .L.str45 : Error: additional symbol
+util.o: r .L.str46 : Error: additional symbol
+util.o: r .L.str47 : Error: additional symbol
+util.o: r .L.str48 : Error: additional symbol
+util.o: r .L.str49 : Error: additional symbol
+util.o: r .L.str5 : Error: additional symbol
+util.o: r .L.str50 : Error: additional symbol
+util.o: r .L.str51 : Error: additional symbol
+util.o: r .L.str52 : Error: additional symbol
+util.o: r .L.str53 : Error: additional symbol
+util.o: r .L.str54 : Error: additional symbol
+util.o: r .L.str55 : Error: additional symbol
+util.o: r .L.str56 : Error: additional symbol
+util.o: r .L.str57 : Error: additional symbol
+util.o: r .L.str58 : Error: additional symbol
+util.o: r .L.str59 : Error: additional symbol
+util.o: r .L.str6 : Error: additional symbol
+util.o: r .L.str60 : Error: additional symbol
+util.o: r .L.str61 : Error: additional symbol
+util.o: r .L.str62 : Error: additional symbol
+util.o: r .L.str63 : Error: additional symbol
+util.o: r .L.str64 : Error: additional symbol
+util.o: r .L.str65 : Error: additional symbol
+util.o: r .L.str66 : Error: additional symbol
+util.o: r .L.str67 : Error: additional symbol
+util.o: r .L.str68 : Error: additional symbol
+util.o: r .L.str69 : Error: additional symbol
+util.o: r .L.str7 : Error: additional symbol
+util.o: r .L.str70 : Error: additional symbol
+util.o: r .L.str71 : Error: additional symbol
+util.o: r .L.str72 : Error: additional symbol
+util.o: r .L.str73 : Error: additional symbol
+util.o: r .L.str74 : Error: additional symbol
+util.o: r .L.str75 : Error: additional symbol
+util.o: r .L.str76 : Error: additional symbol
+util.o: r .L.str77 : Error: additional symbol
+util.o: r .L.str78 : Error: additional symbol
+util.o: r .L.str79 : Error: additional symbol
+util.o: r .L.str8 : Error: additional symbol
+util.o: r .L.str80 : Error: additional symbol
+util.o: r .L.str81 : Error: additional symbol
+util.o: r .L.str82 : Error: additional symbol
+util.o: r .L.str83 : Error: additional symbol
+util.o: r .L.str84 : Error: additional symbol
+util.o: r .L.str85 : Error: additional symbol
+util.o: r .L.str86 : Error: additional symbol
+util.o: r .L.str87 : Error: additional symbol
+util.o: r .L.str88 : Error: additional symbol
+util.o: r .L.str89 : Error: additional symbol
+util.o: r .L.str9 : Error: additional symbol
+util.o: r .L.str90 : Error: additional symbol
+util.o: r .L.str91 : Error: additional symbol
+util.o: r .L.str92 : Error: additional symbol
+util.o: r .L.str93 : Error: additional symbol
+util.o: r .L.str94 : Error: additional symbol
+util.o: r .L.str95 : Error: additional symbol
+util.o: r .L.str96 : Error: additional symbol
+util.o: r .L.str97 : Error: additional symbol
+util.o: r .L.str98 : Error: additional symbol
+util.o: r .L.str99 : Error: additional symbol
+util.o: r .LCPI16_0 : Error: additional symbol
+util.o: r .LCPI16_1 : Error: additional symbol
+util.o: r .LCPI16_2 : Error: additional symbol
+util.o: r .LCPI16_3 : Error: additional symbol
+util.o: r .LCPI26_0 : Error: additional symbol
+util.o: d __pmEventTrace.first : Error: additional symbol
+util.o: b __pmEventTrace.last : Error: additional symbol
+util.o: b __pmEventTrace.sum : Error: additional symbol
+util.o: d __pmPrintDesc.unknownVal : Error: additional symbol
+util.o: b __pmProcessDataSize.base : Error: additional symbol
+util.o: b pmEventFlagsStr.ebuf : Error: additional symbol
+util.o: b pmIDStr.idbuf : Error: additional symbol
+util.o: b pmInDomStr.indombuf : Error: additional symbol
+util.o: b pmNumberStr.nbuf : Error: additional symbol
+util.o: d pmfstate.errtype : Error: additional symbol
+util.o: r .L.str : Error: additional symbol
+util.o: r .L.str1 : Error: additional symbol
+util.o: r .L.str10 : Error: additional symbol
+util.o: r .L.str100 : Error: additional symbol
+util.o: r .L.str101 : Error: additional symbol
+util.o: r .L.str102 : Error: additional symbol
+util.o: r .L.str103 : Error: additional symbol
+util.o: r .L.str104 : Error: additional symbol
+util.o: r .L.str105 : Error: additional symbol
+util.o: r .L.str106 : Error: additional symbol
+util.o: r .L.str107 : Error: additional symbol
+util.o: r .L.str108 : Error: additional symbol
+util.o: r .L.str109 : Error: additional symbol
+util.o: r .L.str11 : Error: additional symbol
+util.o: r .L.str110 : Error: additional symbol
+util.o: r .L.str111 : Error: additional symbol
+util.o: r .L.str112 : Error: additional symbol
+util.o: r .L.str113 : Error: additional symbol
+util.o: r .L.str114 : Error: additional symbol
+util.o: r .L.str115 : Error: additional symbol
+util.o: r .L.str116 : Error: additional symbol
+util.o: r .L.str117 : Error: additional symbol
+util.o: r .L.str118 : Error: additional symbol
+util.o: r .L.str119 : Error: additional symbol
+util.o: r .L.str12 : Error: additional symbol
+util.o: r .L.str120 : Error: additional symbol
+util.o: r .L.str13 : Error: additional symbol
+util.o: r .L.str14 : Error: additional symbol
+util.o: r .L.str145 : Error: additional symbol
+util.o: r .L.str146 : Error: additional symbol
+util.o: r .L.str147 : Error: additional symbol
+util.o: r .L.str148 : Error: additional symbol
+util.o: r .L.str149 : Error: additional symbol
+util.o: r .L.str15 : Error: additional symbol
+util.o: r .L.str150 : Error: additional symbol
+util.o: r .L.str151 : Error: additional symbol
+util.o: r .L.str152 : Error: additional symbol
+util.o: r .L.str153 : Error: additional symbol
+util.o: r .L.str154 : Error: additional symbol
+util.o: r .L.str16 : Error: additional symbol
+util.o: r .L.str17 : Error: additional symbol
+util.o: r .L.str18 : Error: additional symbol
+util.o: r .L.str19 : Error: additional symbol
+util.o: r .L.str2 : Error: additional symbol
+util.o: r .L.str20 : Error: additional symbol
+util.o: r .L.str21 : Error: additional symbol
+util.o: r .L.str22 : Error: additional symbol
+util.o: r .L.str23 : Error: additional symbol
+util.o: r .L.str24 : Error: additional symbol
+util.o: r .L.str25 : Error: additional symbol
+util.o: r .L.str26 : Error: additional symbol
+util.o: r .L.str27 : Error: additional symbol
+util.o: r .L.str28 : Error: additional symbol
+util.o: r .L.str29 : Error: additional symbol
+util.o: r .L.str3 : Error: additional symbol
+util.o: r .L.str30 : Error: additional symbol
+util.o: r .L.str31 : Error: additional symbol
+util.o: r .L.str32 : Error: additional symbol
+util.o: r .L.str33 : Error: additional symbol
+util.o: r .L.str34 : Error: additional symbol
+util.o: r .L.str35 : Error: additional symbol
+util.o: r .L.str36 : Error: additional symbol
+util.o: r .L.str37 : Error: additional symbol
+util.o: r .L.str38 : Error: additional symbol
+util.o: r .L.str39 : Error: additional symbol
+util.o: r .L.str4 : Error: additional symbol
+util.o: r .L.str40 : Error: additional symbol
+util.o: r .L.str41 : Error: additional symbol
+util.o: r .L.str42 : Error: additional symbol
+util.o: r .L.str43 : Error: additional symbol
+util.o: r .L.str44 : Error: additional symbol
+util.o: r .L.str45 : Error: additional symbol
+util.o: r .L.str46 : Error: additional symbol
+util.o: r .L.str47 : Error: additional symbol
+util.o: r .L.str48 : Error: additional symbol
+util.o: r .L.str49 : Error: additional symbol
+util.o: r .L.str5 : Error: additional symbol
+util.o: r .L.str50 : Error: additional symbol
+util.o: r .L.str51 : Error: additional symbol
+util.o: r .L.str52 : Error: additional symbol
+util.o: r .L.str53 : Error: additional symbol
+util.o: r .L.str54 : Error: additional symbol
+util.o: r .L.str55 : Error: additional symbol
+util.o: r .L.str56 : Error: additional symbol
+util.o: r .L.str57 : Error: additional symbol
+util.o: r .L.str58 : Error: additional symbol
+util.o: r .L.str59 : Error: additional symbol
+util.o: r .L.str6 : Error: additional symbol
+util.o: r .L.str60 : Error: additional symbol
+util.o: r .L.str61 : Error: additional symbol
+util.o: r .L.str62 : Error: additional symbol
+util.o: r .L.str63 : Error: additional symbol
+util.o: r .L.str64 : Error: additional symbol
+util.o: r .L.str65 : Error: additional symbol
+util.o: r .L.str66 : Error: additional symbol
+util.o: r .L.str67 : Error: additional symbol
+util.o: r .L.str68 : Error: additional symbol
+util.o: r .L.str69 : Error: additional symbol
+util.o: r .L.str7 : Error: additional symbol
+util.o: r .L.str70 : Error: additional symbol
+util.o: r .L.str71 : Error: additional symbol
+util.o: r .L.str72 : Error: additional symbol
+util.o: r .L.str73 : Error: additional symbol
+util.o: r .L.str74 : Error: additional symbol
+util.o: r .L.str75 : Error: additional symbol
+util.o: r .L.str76 : Error: additional symbol
+util.o: r .L.str77 : Error: additional symbol
+util.o: r .L.str78 : Error: additional symbol
+util.o: r .L.str79 : Error: additional symbol
+util.o: r .L.str8 : Error: additional symbol
+util.o: r .L.str80 : Error: additional symbol
+util.o: r .L.str81 : Error: additional symbol
+util.o: r .L.str82 : Error: additional symbol
+util.o: r .L.str83 : Error: additional symbol
+util.o: r .L.str84 : Error: additional symbol
+util.o: r .L.str85 : Error: additional symbol
+util.o: r .L.str86 : Error: additional symbol
+util.o: r .L.str87 : Error: additional symbol
+util.o: r .L.str88 : Error: additional symbol
+util.o: r .L.str89 : Error: additional symbol
+util.o: r .L.str9 : Error: additional symbol
+util.o: r .L.str90 : Error: additional symbol
+util.o: r .L.str91 : Error: additional symbol
+util.o: r .L.str92 : Error: additional symbol
+util.o: r .L.str93 : Error: additional symbol
+util.o: r .L.str94 : Error: additional symbol
+util.o: r .L.str95 : Error: additional symbol
+util.o: r .L.str96 : Error: additional symbol
+util.o: r .L.str97 : Error: additional symbol
+util.o: r .L.str98 : Error: additional symbol
+util.o: r .L.str99 : Error: additional symbol
+util.o: r .LCPI16_0 : Error: additional symbol
+util.o: r .LCPI16_1 : Error: additional symbol
+util.o: r .LCPI16_2 : Error: additional symbol
+util.o: r .LCPI16_3 : Error: additional symbol
+util.o: r .LCPI26_0 : Error: additional symbol
+util.o: d __pmEventTrace.first : Error: additional symbol
+util.o: b __pmEventTrace.last : Error: additional symbol
+util.o: b __pmEventTrace.sum : Error: additional symbol
+util.o: d __pmPrintDesc.unknownVal : Error: additional symbol
+util.o: b __pmProcessDataSize.base : Error: additional symbol
+util.o: b pmEventFlagsStr.ebuf : Error: additional symbol
+util.o: b pmIDStr.idbuf : Error: additional symbol
+util.o: b pmInDomStr.indombuf : Error: additional symbol
+util.o: b pmNumberStr.nbuf : Error: additional symbol
+util.o: d pmfstate.errtype : Error: additional symbol
+make[4]: *** [check.done] Error 1
+make[3]: *** [default] Error 2
+make[2]: *** [default_pcp] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/src'
+make[1]: *** [default_pcp] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [built] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1837
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -424,28 +2317,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 19936
+Build-Time: 24
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 7
 Job: pcp_3.6.5
 Package: pcp
-Package-Time: 0
+Package-Time: 55
 Source-Version: 3.6.5
-Space: 0
-Status: failed
+Space: 19936
+Status: attempted
 Version: 3.6.5
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0424
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.115927s
-DC-Time-Estimation: 34.115927 versus expected 568 (r/m: 15.6491152358252 ; m: 34.115927)
+Finished at 20130131-1837
+Build needed 00:00:55, 19936k disc space
+DC-Status: Failed 55.767078s
+DC-Time-Estimation: 55.767078 versus expected 568 (r/m: 9.18522074977642 ; m: 55.767078)

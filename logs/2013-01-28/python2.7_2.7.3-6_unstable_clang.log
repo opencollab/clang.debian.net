@@ -1,12 +1,12 @@
-DC-Build-Header: python2.7 2.7.3-6 / Mon Jan 28 03:51:38 +0000 2013
-DC-Task: logfile:/tmp/python2.7_2.7.3-6_unstable_clang.log version:2.7.3-6 chroot:unstable modes:binary-only:clang source:python2.7 architecture:any esttime:
+DC-Build-Header: python2.7 2.7.3-6 / Sat Feb 02 01:51:08 +0000 2013
+DC-Task: logfile:/tmp/python2.7_2.7.3-6_unstable_clang.log version:2.7.3-6 modes:binary-only:clang chroot:unstable source:python2.7 esttime: architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang python2.7_2.7.3-6'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-130-15.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-119.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ python2.7 2.7.3-6 (amd64)                                  28 Jan 2013 03:51 ║
+║ python2.7 2.7.3-6 (amd64)                                  02 Feb 2013 01:51 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: python2.7
@@ -15,9 +15,9 @@ Source Version: 2.7.3-6
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/python2.7-ClSo0X/python2.7-2.7.3' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/python2.7-ClSo0X' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-423fd4c2-dba0-4652-b615-1e135a0256ae' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/python2.7-50Muok/python2.7-2.7.3' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/python2.7-50Muok' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-3278b29b-f56c-4409-9aee-8e07dd866dc1' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4930 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (4904 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -65,7 +65,7 @@ Need to get 14.8 MB of source archives.
 Get:1 http://localhost/debian/ unstable/main python2.7 2.7.3-6 (dsc) [2057 B]
 Get:2 http://localhost/debian/ unstable/main python2.7 2.7.3-6 (tar) [14.2 MB]
 Get:3 http://localhost/debian/ unstable/main python2.7 2.7.3-6 (diff) [536 kB]
-Fetched 14.8 MB in 0s (16.4 MB/s)
+Fetched 14.8 MB in 0s (17.6 MB/s)
 Download complete and in download only mode
 
 Check arch
@@ -82,218 +82,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1250 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2023 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable InRelease
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3954 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.2 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 36s (688 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -302,32 +197,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -373,7 +255,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-AAokcQ/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-54QBNN/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -392,14 +274,14 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), quilt, autoconf, lsb-release, sharutils, libreadline-dev, libtinfo-dev, libncursesw5-dev (>= 5.3), tk8.5-dev, blt-dev (>= 2.4z), libssl-dev, zlib1g-dev, libbz2-dev, libexpat1-dev (>= 2.1), libbluetooth-dev, locales, libsqlite3-dev, libffi-dev (>= 3.0.5), libgpm2, mime-support, netbase, bzip2, libdb5.1-dev, libgdbm-dev, gdb, python, help2man, xvfb, xauth
 Merged Build-Conflicts: autoconf2.13, python-cxx-dev, python-xml, python2.7-xml, tcl8.4-dev, tk8.4-dev
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), quilt, autoconf, lsb-release, sharutils, libreadline-dev, libtinfo-dev, libncursesw5-dev (>= 5.3), tk8.5-dev, blt-dev (>= 2.4z), libssl-dev, zlib1g-dev, libbz2-dev, libexpat1-dev (>= 2.1), libbluetooth-dev, locales, libsqlite3-dev, libffi-dev (>= 3.0.5), libgpm2, mime-support, netbase, bzip2, libdb5.1-dev, libgdbm-dev, gdb, python, help2man, xvfb, xauth
 Filtered Build-Conflicts: autoconf2.13, python-cxx-dev, python-xml, python2.7-xml, tcl8.4-dev, tk8.4-dev
-dpkg-deb: building package `sbuild-build-depends-python2.7-dummy' in `/«BUILDDIR»/resolver-_TzadK/apt_archive/sbuild-build-depends-python2.7-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-python2.7-dummy' in `/«BUILDDIR»/resolver-oDfoBU/apt_archive/sbuild-build-depends-python2.7-dummy.deb'.
 OK
 Reading package lists...
 
@@ -411,25 +293,2227 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autoconf blt blt-dev bsdmainutils debhelper diffstat file fontconfig-config
+  gdb gdbserver gettext gettext-base groff-base help2man html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libaudit0 libbluetooth-dev
+  libbluetooth3 libbz2-dev libcroco3 libdb5.1-dev libexpat1-dev libffi-dev
+  libfontconfig1 libfontconfig1-dev libfontenc1 libfreetype6 libfreetype6-dev
+  libgcrypt11 libgdbm-dev libgettextpo-dev libgettextpo0 libglib2.0-0
+  libgpg-error0 libice6 libmagic1 libncursesw5-dev libpcre3 libpipeline1
+  libpixman-1-0 libpopt0 libpthread-stubs0 libpthread-stubs0-dev libpython2.7
+  libreadline-dev libreadline6-dev libsigsegv2 libsm6 libsqlite3-dev
+  libssl-dev libtinfo-dev libunistring0 libx11-6 libx11-data libx11-dev
+  libxau-dev libxau6 libxaw7 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxfont1 libxft-dev libxft2 libxkbfile1 libxml2
+  libxmu6 libxmuu1 libxpm4 libxrender-dev libxrender1 libxss-dev libxss1
+  libxt6 locales lsb-release m4 man-db netbase pkg-config po-debconf quilt
+  sharutils tcl8.5 tcl8.5-dev tk8.5 tk8.5-dev ttf-dejavu-core x11-common
+  x11-xkb-utils x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  x11proto-render-dev x11proto-scrnsaver-dev x11proto-xext-dev xauth xkb-data
+  xorg-sgml-doctools xserver-common xtrans-dev xvfb zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc libtool blt-demo
+  wamerican wordlist whois vacation dh-make gdb-doc gettext-doc groff
+  db5.1-doc rng-tools ncurses-doc sqlite3-doc libxcb-doc libxext-doc lsb less
+  www-browser libmail-box-perl procmail graphviz default-mta
+  mail-transport-agent bsd-mailx mailx tcl-tclreadline tcl8.5-doc tk8.5-doc
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint libglib2.0-data
+  shared-mime-info libssl-doc libx11-doc xml-core ifupdown
+  libmail-sendmail-perl xterm x-terminal-emulator xfonts-base
+The following NEW packages will be installed:
+  autoconf blt blt-dev bsdmainutils debhelper diffstat file fontconfig-config
+  gdb gdbserver gettext gettext-base groff-base help2man html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libaudit0 libbluetooth-dev
+  libbluetooth3 libbz2-dev libcroco3 libdb5.1-dev libexpat1-dev libffi-dev
+  libfontconfig1 libfontconfig1-dev libfontenc1 libfreetype6 libfreetype6-dev
+  libgcrypt11 libgdbm-dev libgettextpo-dev libgettextpo0 libglib2.0-0
+  libgpg-error0 libice6 libmagic1 libncursesw5-dev libpcre3 libpipeline1
+  libpixman-1-0 libpopt0 libpthread-stubs0 libpthread-stubs0-dev libpython2.7
+  libreadline-dev libreadline6-dev libsigsegv2 libsm6 libsqlite3-dev
+  libssl-dev libtinfo-dev libunistring0 libx11-6 libx11-data libx11-dev
+  libxau-dev libxau6 libxaw7 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+  libxext-dev libxext6 libxfont1 libxft-dev libxft2 libxkbfile1 libxml2
+  libxmu6 libxmuu1 libxpm4 libxrender-dev libxrender1 libxss-dev libxss1
+  libxt6 locales lsb-release m4 man-db netbase pkg-config po-debconf quilt
+  sbuild-build-depends-python2.7-dummy sharutils tcl8.5 tcl8.5-dev tk8.5
+  tk8.5-dev ttf-dejavu-core x11-common x11-xkb-utils x11proto-core-dev
+  x11proto-input-dev x11proto-kb-dev x11proto-render-dev
+  x11proto-scrnsaver-dev x11proto-xext-dev xauth xkb-data xorg-sgml-doctools
+  xserver-common xtrans-dev xvfb zlib1g-dev
+0 upgraded, 110 newly installed, 0 to remove and 0 not upgraded.
+Need to get 46.5 MB/46.5 MB of archives.
+After this operation, 132 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:10 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:11 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:12 http://localhost/debian/ unstable/main libbluetooth3 amd64 4.99-2 [88.3 kB]
+Get:13 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:14 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:15 http://localhost/debian/ unstable/main libfreetype6 amd64 2.4.9-1.1 [451 kB]
+Get:16 http://localhost/debian/ unstable/main ttf-dejavu-core all 2.33-3 [1021 kB]
+Get:17 http://localhost/debian/ unstable/main fontconfig-config all 2.9.0-7.1 [233 kB]
+Get:18 http://localhost/debian/ unstable/main libfontconfig1 amd64 2.9.0-7.1 [300 kB]
+Get:19 http://localhost/debian/ unstable/main libfontenc1 amd64 1:1.1.1-1 [24.3 kB]
+Get:20 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:21 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:22 http://localhost/debian/ unstable/main x11-common all 1:7.7+1 [278 kB]
+Get:23 http://localhost/debian/ unstable/main libice6 amd64 2:1.0.8-2 [63.1 kB]
+Get:24 http://localhost/debian/ unstable/main libpixman-1-0 amd64 0.26.0-3 [427 kB]
+Get:25 http://localhost/debian/ unstable/main libsm6 amd64 2:1.2.1-2 [34.2 kB]
+Get:26 http://localhost/debian/ unstable/main libxau6 amd64 1:1.0.7-1 [18.8 kB]
+Get:27 http://localhost/debian/ unstable/main libxdmcp6 amd64 1:1.1.1-1 [26.3 kB]
+Get:28 http://localhost/debian/ unstable/main libxcb1 amd64 1.8.1-2 [50.1 kB]
+Get:29 http://localhost/debian/ unstable/main libx11-data all 2:1.5.0-1 [189 kB]
+Get:30 http://localhost/debian/ unstable/main libx11-6 amd64 2:1.5.0-1 [901 kB]
+Get:31 http://localhost/debian/ unstable/main libxext6 amd64 2:1.3.1-2 [55.3 kB]
+Get:32 http://localhost/debian/ unstable/main libxt6 amd64 1:1.1.3-1 [211 kB]
+Get:33 http://localhost/debian/ unstable/main libxmu6 amd64 2:1.1.1-1 [66.6 kB]
+Get:34 http://localhost/debian/ unstable/main libxpm4 amd64 1:3.5.10-1 [49.4 kB]
+Get:35 http://localhost/debian/ unstable/main libxaw7 amd64 2:1.0.10-2 [226 kB]
+Get:36 http://localhost/debian/ unstable/main libxrender1 amd64 1:0.9.7-1 [32.2 kB]
+Get:37 http://localhost/debian/ unstable/main libxft2 amd64 2.3.1-1 [61.0 kB]
+Get:38 http://localhost/debian/ unstable/main libxkbfile1 amd64 1:1.0.8-1 [81.6 kB]
+Get:39 http://localhost/debian/ unstable/main libxmuu1 amd64 2:1.1.1-1 [23.6 kB]
+Get:40 http://localhost/debian/ unstable/main libxss1 amd64 1:1.2.2-1 [17.5 kB]
+Get:41 http://localhost/debian/ unstable/main netbase all 5.0 [20.1 kB]
+Get:42 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:43 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:44 http://localhost/debian/ unstable/main locales all 2.13-38 [5712 kB]
+Get:45 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:46 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:47 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:48 http://localhost/debian/ unstable/main tcl8.5 amd64 8.5.11-2 [1627 kB]
+Get:49 http://localhost/debian/ unstable/main tk8.5 amd64 8.5.11-2 [1189 kB]
+Get:50 http://localhost/debian/ unstable/main blt amd64 2.4z-5 [1725 kB]
+Get:51 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:52 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:53 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:54 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:55 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:56 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:57 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:58 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:59 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:60 http://localhost/debian/ unstable/main gdbserver amd64 7.4.1+dfsg-0.1 [135 kB]
+Get:61 http://localhost/debian/ unstable/main gdb amd64 7.4.1+dfsg-0.1 [2430 kB]
+Get:62 http://localhost/debian/ unstable/main help2man amd64 1.41.1 [101 kB]
+Get:63 http://localhost/debian/ unstable/main libaudit0 amd64 1:1.7.18-1.1 [68.2 kB]
+Get:64 http://localhost/debian/ unstable/main libbz2-dev amd64 1.0.6-4 [32.8 kB]
+Get:65 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:66 http://localhost/debian/ unstable/main libffi-dev amd64 3.0.10-3 [116 kB]
+Get:67 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:68 http://localhost/debian/ unstable/main libfreetype6-dev amd64 2.4.9-1.1 [805 kB]
+Get:69 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:70 http://localhost/debian/ unstable/main libfontconfig1-dev amd64 2.9.0-7.1 [857 kB]
+Get:71 http://localhost/debian/ unstable/main libgdbm-dev amd64 1.8.3-11 [37.9 kB]
+Get:72 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:73 http://localhost/debian/ unstable/main libncursesw5-dev amd64 5.9-10 [257 kB]
+Get:74 http://localhost/debian/ unstable/main libpthread-stubs0 amd64 0.3-3 [3228 B]
+Get:75 http://localhost/debian/ unstable/main libpthread-stubs0-dev amd64 0.3-3 [3998 B]
+Get:76 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:77 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+Get:78 http://localhost/debian/ unstable/main libsqlite3-dev amd64 3.7.15.2-1 [589 kB]
+Get:79 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:80 http://localhost/debian/ unstable/main xorg-sgml-doctools all 1:1.10-1 [24.1 kB]
+Get:81 http://localhost/debian/ unstable/main x11proto-core-dev all 7.0.23-1 [774 kB]
+Get:82 http://localhost/debian/ unstable/main libxau-dev amd64 1:1.0.7-1 [21.7 kB]
+Get:83 http://localhost/debian/ unstable/main libxdmcp-dev amd64 1:1.1.1-1 [42.3 kB]
+Get:84 http://localhost/debian/ unstable/main x11proto-input-dev all 2.2-1 [172 kB]
+Get:85 http://localhost/debian/ unstable/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:86 http://localhost/debian/ unstable/main xtrans-dev all 1.2.7-1 [112 kB]
+Get:87 http://localhost/debian/ unstable/main libxcb1-dev amd64 1.8.1-2 [88.1 kB]
+Get:88 http://localhost/debian/ unstable/main libx11-dev amd64 2:1.5.0-1 [1037 kB]
+Get:89 http://localhost/debian/ unstable/main x11proto-xext-dev all 7.2.1-1 [273 kB]
+Get:90 http://localhost/debian/ unstable/main libxext-dev amd64 2:1.3.1-2 [115 kB]
+Get:91 http://localhost/debian/ unstable/main libxfont1 amd64 1:1.4.5-2 [162 kB]
+Get:92 http://localhost/debian/ unstable/main x11proto-render-dev all 2:0.11.1-2 [20.8 kB]
+Get:93 http://localhost/debian/ unstable/main libxrender-dev amd64 1:0.9.7-1 [40.4 kB]
+Get:94 http://localhost/debian/ unstable/main libxft-dev amd64 2.3.1-1 [74.5 kB]
+Get:95 http://localhost/debian/ unstable/main x11proto-scrnsaver-dev all 1.2.2-1 [25.0 kB]
+Get:96 http://localhost/debian/ unstable/main libxss-dev amd64 1:1.2.2-1 [22.8 kB]
+Get:97 http://localhost/debian/ unstable/main lsb-release all 4.1+Debian9 [25.9 kB]
+Get:98 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+Get:99 http://localhost/debian/ unstable/main sharutils amd64 1:4.11.1-1 [195 kB]
+Get:100 http://localhost/debian/ unstable/main tcl8.5-dev amd64 8.5.11-2 [1089 kB]
+Get:101 http://localhost/debian/ unstable/main tk8.5-dev amd64 8.5.11-2 [1008 kB]
+Get:102 http://localhost/debian/ unstable/main x11-xkb-utils amd64 7.7~1 [199 kB]
+Get:103 http://localhost/debian/ unstable/main xauth amd64 1:1.0.7-1 [37.2 kB]
+Get:104 http://localhost/debian/ unstable/main xkb-data all 2.5.1-3 [645 kB]
+Get:105 http://localhost/debian/ unstable/main xserver-common all 2:1.12.4-4 [1396 kB]
+Get:106 http://localhost/debian/ unstable/main xvfb amd64 2:1.12.4-4 [925 kB]
+Get:107 http://localhost/debian/ unstable/main blt-dev amd64 2.4z-5 [1531 kB]
+Get:108 http://localhost/debian/ unstable/main libbluetooth-dev amd64 4.99-2 [120 kB]
+Get:109 http://localhost/debian/ unstable/main libdb5.1-dev amd64 5.1.29-5 [882 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 46.5 MB in 10s (4644 kB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libbluetooth3:amd64.
+Unpacking libbluetooth3:amd64 (from .../libbluetooth3_4.99-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libfreetype6:amd64.
+Unpacking libfreetype6:amd64 (from .../libfreetype6_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package ttf-dejavu-core.
+Unpacking ttf-dejavu-core (from .../ttf-dejavu-core_2.33-3_all.deb) ...
+Selecting previously unselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.9.0-7.1_all.deb) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Unpacking libfontconfig1:amd64 (from .../libfontconfig1_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libfontenc1:amd64.
+Unpacking libfontenc1:amd64 (from .../libfontenc1_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package x11-common.
+Unpacking x11-common (from .../x11-common_1%3a7.7+1_all.deb) ...
+Selecting previously unselected package libice6:amd64.
+Unpacking libice6:amd64 (from .../libice6_2%3a1.0.8-2_amd64.deb) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Unpacking libpixman-1-0:amd64 (from .../libpixman-1-0_0.26.0-3_amd64.deb) ...
+Selecting previously unselected package libsm6:amd64.
+Unpacking libsm6:amd64 (from .../libsm6_2%3a1.2.1-2_amd64.deb) ...
+Selecting previously unselected package libxau6:amd64.
+Unpacking libxau6:amd64 (from .../libxau6_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Unpacking libxdmcp6:amd64 (from .../libxdmcp6_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxcb1:amd64.
+Unpacking libxcb1:amd64 (from .../libxcb1_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-data.
+Unpacking libx11-data (from .../libx11-data_2%3a1.5.0-1_all.deb) ...
+Selecting previously unselected package libx11-6:amd64.
+Unpacking libx11-6:amd64 (from .../libx11-6_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package libxext6:amd64.
+Unpacking libxext6:amd64 (from .../libxext6_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxt6:amd64.
+Unpacking libxt6:amd64 (from .../libxt6_1%3a1.1.3-1_amd64.deb) ...
+Selecting previously unselected package libxmu6:amd64.
+Unpacking libxmu6:amd64 (from .../libxmu6_2%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxpm4:amd64.
+Unpacking libxpm4:amd64 (from .../libxpm4_1%3a3.5.10-1_amd64.deb) ...
+Selecting previously unselected package libxaw7:amd64.
+Unpacking libxaw7:amd64 (from .../libxaw7_2%3a1.0.10-2_amd64.deb) ...
+Selecting previously unselected package libxrender1:amd64.
+Unpacking libxrender1:amd64 (from .../libxrender1_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libxft2:amd64.
+Unpacking libxft2:amd64 (from .../libxft2_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package libxkbfile1:amd64.
+Unpacking libxkbfile1:amd64 (from .../libxkbfile1_1%3a1.0.8-1_amd64.deb) ...
+Selecting previously unselected package libxmuu1:amd64.
+Unpacking libxmuu1:amd64 (from .../libxmuu1_2%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package libxss1:amd64.
+Unpacking libxss1:amd64 (from .../libxss1_1%3a1.2.2-1_amd64.deb) ...
+Selecting previously unselected package netbase.
+Unpacking netbase (from .../archives/netbase_5.0_all.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package locales.
+Unpacking locales (from .../locales_2.13-38_all.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package tcl8.5.
+Unpacking tcl8.5 (from .../tcl8.5_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package tk8.5.
+Unpacking tk8.5 (from .../tk8.5_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package blt.
+Unpacking blt (from .../archives/blt_2.4z-5_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package gdbserver.
+Unpacking gdbserver (from .../gdbserver_7.4.1+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package gdb.
+Unpacking gdb (from .../gdb_7.4.1+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package help2man.
+Unpacking help2man (from .../help2man_1.41.1_amd64.deb) ...
+Selecting previously unselected package libaudit0.
+Unpacking libaudit0 (from .../libaudit0_1%3a1.7.18-1.1_amd64.deb) ...
+Selecting previously unselected package libbz2-dev:amd64.
+Unpacking libbz2-dev:amd64 (from .../libbz2-dev_1.0.6-4_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package libffi-dev:amd64.
+Unpacking libffi-dev:amd64 (from .../libffi-dev_3.0.10-3_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libfreetype6-dev.
+Unpacking libfreetype6-dev (from .../libfreetype6-dev_2.4.9-1.1_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libfontconfig1-dev.
+Unpacking libfontconfig1-dev (from .../libfontconfig1-dev_2.9.0-7.1_amd64.deb) ...
+Selecting previously unselected package libgdbm-dev.
+Unpacking libgdbm-dev (from .../libgdbm-dev_1.8.3-11_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncursesw5-dev.
+Unpacking libncursesw5-dev (from .../libncursesw5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0:amd64.
+Unpacking libpthread-stubs0:amd64 (from .../libpthread-stubs0_0.3-3_amd64.deb) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Unpacking libpthread-stubs0-dev:amd64 (from .../libpthread-stubs0-dev_0.3-3_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libsqlite3-dev.
+Unpacking libsqlite3-dev (from .../libsqlite3-dev_3.7.15.2-1_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Unpacking xorg-sgml-doctools (from .../xorg-sgml-doctools_1%3a1.10-1_all.deb) ...
+Selecting previously unselected package x11proto-core-dev.
+Unpacking x11proto-core-dev (from .../x11proto-core-dev_7.0.23-1_all.deb) ...
+Selecting previously unselected package libxau-dev:amd64.
+Unpacking libxau-dev:amd64 (from .../libxau-dev_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Unpacking libxdmcp-dev:amd64 (from .../libxdmcp-dev_1%3a1.1.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-input-dev.
+Unpacking x11proto-input-dev (from .../x11proto-input-dev_2.2-1_all.deb) ...
+Selecting previously unselected package x11proto-kb-dev.
+Unpacking x11proto-kb-dev (from .../x11proto-kb-dev_1.0.6-2_all.deb) ...
+Selecting previously unselected package xtrans-dev.
+Unpacking xtrans-dev (from .../xtrans-dev_1.2.7-1_all.deb) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Unpacking libxcb1-dev:amd64 (from .../libxcb1-dev_1.8.1-2_amd64.deb) ...
+Selecting previously unselected package libx11-dev:amd64.
+Unpacking libx11-dev:amd64 (from .../libx11-dev_2%3a1.5.0-1_amd64.deb) ...
+Selecting previously unselected package x11proto-xext-dev.
+Unpacking x11proto-xext-dev (from .../x11proto-xext-dev_7.2.1-1_all.deb) ...
+Selecting previously unselected package libxext-dev:amd64.
+Unpacking libxext-dev:amd64 (from .../libxext-dev_2%3a1.3.1-2_amd64.deb) ...
+Selecting previously unselected package libxfont1.
+Unpacking libxfont1 (from .../libxfont1_1%3a1.4.5-2_amd64.deb) ...
+Selecting previously unselected package x11proto-render-dev.
+Unpacking x11proto-render-dev (from .../x11proto-render-dev_2%3a0.11.1-2_all.deb) ...
+Selecting previously unselected package libxrender-dev:amd64.
+Unpacking libxrender-dev:amd64 (from .../libxrender-dev_1%3a0.9.7-1_amd64.deb) ...
+Selecting previously unselected package libxft-dev.
+Unpacking libxft-dev (from .../libxft-dev_2.3.1-1_amd64.deb) ...
+Selecting previously unselected package x11proto-scrnsaver-dev.
+Unpacking x11proto-scrnsaver-dev (from .../x11proto-scrnsaver-dev_1.2.2-1_all.deb) ...
+Selecting previously unselected package libxss-dev:amd64.
+Unpacking libxss-dev:amd64 (from .../libxss-dev_1%3a1.2.2-1_amd64.deb) ...
+Selecting previously unselected package lsb-release.
+Unpacking lsb-release (from .../lsb-release_4.1+Debian9_all.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package sharutils.
+Unpacking sharutils (from .../sharutils_1%3a4.11.1-1_amd64.deb) ...
+Selecting previously unselected package tcl8.5-dev.
+Unpacking tcl8.5-dev (from .../tcl8.5-dev_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package tk8.5-dev.
+Unpacking tk8.5-dev (from .../tk8.5-dev_8.5.11-2_amd64.deb) ...
+Selecting previously unselected package x11-xkb-utils.
+Unpacking x11-xkb-utils (from .../x11-xkb-utils_7.7~1_amd64.deb) ...
+Selecting previously unselected package xauth.
+Unpacking xauth (from .../xauth_1%3a1.0.7-1_amd64.deb) ...
+Selecting previously unselected package xkb-data.
+Unpacking xkb-data (from .../xkb-data_2.5.1-3_all.deb) ...
+Selecting previously unselected package xserver-common.
+Unpacking xserver-common (from .../xserver-common_2%3a1.12.4-4_all.deb) ...
+Selecting previously unselected package xvfb.
+Unpacking xvfb (from .../xvfb_2%3a1.12.4-4_amd64.deb) ...
+Selecting previously unselected package blt-dev.
+Unpacking blt-dev (from .../blt-dev_2.4z-5_amd64.deb) ...
+Selecting previously unselected package libbluetooth-dev.
+Unpacking libbluetooth-dev (from .../libbluetooth-dev_4.99-2_amd64.deb) ...
+Selecting previously unselected package libdb5.1-dev.
+Unpacking libdb5.1-dev (from .../libdb5.1-dev_5.1.29-5_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-python2.7-dummy.
+Unpacking sbuild-build-depends-python2.7-dummy (from .../sbuild-build-depends-python2.7-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libbluetooth3:amd64 (4.99-2) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libfreetype6:amd64 (2.4.9-1.1) ...
+Setting up ttf-dejavu-core (2.33-3) ...
+Setting up fontconfig-config (2.9.0-7.1) ...
+Setting up libfontconfig1:amd64 (2.9.0-7.1) ...
+Setting up libfontenc1:amd64 (1:1.1.1-1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up x11-common (1:7.7+1) ...
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libice6:amd64 (2:1.0.8-2) ...
+Setting up libpixman-1-0:amd64 (0.26.0-3) ...
+Setting up libsm6:amd64 (2:1.2.1-2) ...
+Setting up libxau6:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.1-1) ...
+Setting up libxcb1:amd64 (1.8.1-2) ...
+Setting up libx11-data (2:1.5.0-1) ...
+Setting up libx11-6:amd64 (2:1.5.0-1) ...
+Setting up libxext6:amd64 (2:1.3.1-2) ...
+Setting up libxt6:amd64 (1:1.1.3-1) ...
+Setting up libxmu6:amd64 (2:1.1.1-1) ...
+Setting up libxpm4:amd64 (1:3.5.10-1) ...
+Setting up libxaw7:amd64 (2:1.0.10-2) ...
+Setting up libxrender1:amd64 (1:0.9.7-1) ...
+Setting up libxft2:amd64 (2.3.1-1) ...
+Setting up libxkbfile1:amd64 (1:1.0.8-1) ...
+Setting up libxmuu1:amd64 (2:1.1.1-1) ...
+Setting up libxss1:amd64 (1:1.2.2-1) ...
+Setting up netbase (5.0) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up locales (2.13-38) ...
+Generating locales (this might take a while)...
+Generation complete.
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up autoconf (2.69-1) ...
+Setting up tcl8.5 (8.5.11-2) ...
+update-alternatives: using /usr/bin/tclsh8.5 to provide /usr/bin/tclsh (tclsh) in auto mode
+Setting up tk8.5 (8.5.11-2) ...
+update-alternatives: using /usr/bin/wish8.5 to provide /usr/bin/wish (wish) in auto mode
+Setting up blt (2.4z-5) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up gdbserver (7.4.1+dfsg-0.1) ...
+Setting up gdb (7.4.1+dfsg-0.1) ...
+Setting up help2man (1.41.1) ...
+Setting up libaudit0 (1:1.7.18-1.1) ...
+Setting up libbz2-dev:amd64 (1.0.6-4) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up libffi-dev:amd64 (3.0.10-3) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libfreetype6-dev (2.4.9-1.1) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libfontconfig1-dev (2.9.0-7.1) ...
+Setting up libgdbm-dev (1.8.3-11) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncursesw5-dev (5.9-10) ...
+Setting up libpthread-stubs0:amd64 (0.3-3) ...
+Setting up libpthread-stubs0-dev:amd64 (0.3-3) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libsqlite3-dev (3.7.15.2-1) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up xorg-sgml-doctools (1:1.10-1) ...
+Setting up x11proto-core-dev (7.0.23-1) ...
+Setting up libxau-dev:amd64 (1:1.0.7-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.1-1) ...
+Setting up x11proto-input-dev (2.2-1) ...
+Setting up x11proto-kb-dev (1.0.6-2) ...
+Setting up xtrans-dev (1.2.7-1) ...
+Setting up libxcb1-dev:amd64 (1.8.1-2) ...
+Setting up libx11-dev:amd64 (2:1.5.0-1) ...
+Setting up x11proto-xext-dev (7.2.1-1) ...
+Setting up libxext-dev:amd64 (2:1.3.1-2) ...
+Setting up libxfont1 (1:1.4.5-2) ...
+Setting up x11proto-render-dev (2:0.11.1-2) ...
+Setting up libxrender-dev:amd64 (1:0.9.7-1) ...
+Setting up libxft-dev (2.3.1-1) ...
+Setting up x11proto-scrnsaver-dev (1.2.2-1) ...
+Setting up libxss-dev:amd64 (1:1.2.2-1) ...
+Setting up lsb-release (4.1+Debian9) ...
+Setting up quilt (0.60-7) ...
+Setting up sharutils (1:4.11.1-1) ...
+Setting up tcl8.5-dev (8.5.11-2) ...
+Setting up tk8.5-dev (8.5.11-2) ...
+Setting up x11-xkb-utils (7.7~1) ...
+Setting up xauth (1:1.0.7-1) ...
+Setting up xkb-data (2.5.1-3) ...
+Setting up xserver-common (2:1.12.4-4) ...
+Setting up xvfb (2:1.12.4-4) ...
+Setting up blt-dev (2.4z-5) ...
+Setting up libbluetooth-dev (4.99-2) ...
+Setting up libdb5.1-dev (5.1.29-5) ...
+Setting up sbuild-build-depends-python2.7-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-python2.7-dummy : Depends: libreadline-dev but it is not going to be installed
-                                        Depends: libtinfo-dev but it is not going to be installed
-                                        Depends: libncursesw5-dev (>= 5.3) but it is not going to be installed
-                                        Depends: tk8.5-dev but it is not going to be installed
-                                        Depends: blt-dev (>= 2.4z) but it is not going to be installed
-                                        Depends: libexpat1-dev (>= 2.1) but it is not going to be installed
-                                        Depends: locales
-                                        Depends: gdb but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autoconf_2.69-1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 blt_2.4z-5 blt-dev_2.4z-5 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 fontconfig-config_2.9.0-7.1 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gdb_7.4.1+dfsg-0.1 gdbserver_7.4.1+dfsg-0.1 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 help2man_1.41.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libaudit0_1:1.7.18-1.1 libblkid1_2.20.1-5.3 libbluetooth-dev_4.99-2 libbluetooth3_4.99-2 libbz2-1.0_1.0.6-4 libbz2-dev_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdb5.1-dev_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi-dev_3.0.10-3 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libfontconfig1_2.9.0-7.1 libfontconfig1-dev_2.9.0-7.1 libfontenc1_1:1.1.1-1 libfreetype6_2.4.9-1.1 libfreetype6-dev_2.4.9-1.1 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm-dev_1.8.3-11 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libice6_2:1.0.8-2 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libncursesw5-dev_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpixman-1-0_0.26.0-3 libpopt0_1.16-7 libpthread-stubs0_0.3-3 libpthread-stubs0-dev_0.3-3 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsm6_2:1.2.1-2 libsqlite3-0_3.7.15.2-1 libsqlite3-dev_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libx11-6_2:1.5.0-1 libx11-data_2:1.5.0-1 libx11-dev_2:1.5.0-1 libxau-dev_1:1.0.7-1 libxau6_1:1.0.7-1 libxaw7_2:1.0.10-2 libxcb1_1.8.1-2 libxcb1-dev_1.8.1-2 libxdmcp-dev_1:1.1.1-1 libxdmcp6_1:1.1.1-1 libxext-dev_2:1.3.1-2 libxext6_2:1.3.1-2 libxfont1_1:1.4.5-2 libxft-dev_2.3.1-1 libxft2_2.3.1-1 libxkbfile1_1:1.0.8-1 libxml2_2.8.0+dfsg1-7 libxmu6_2:1.1.1-1 libxmuu1_2:1.1.1-1 libxpm4_1:3.5.10-1 libxrender-dev_1:0.9.7-1 libxrender1_1:0.9.7-1 libxss-dev_1:1.2.2-1 libxss1_1:1.2.2-1 libxt6_1:1.1.3-1 linux-libc-dev_3.2.35-2 locales_2.13-38 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 lsb-release_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 netbase_5.0 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-python2.7-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sharutils_1:4.11.1-1 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tcl8.5_8.5.11-2 tcl8.5-dev_8.5.11-2 tk8.5_8.5.11-2 tk8.5-dev_8.5.11-2 ttf-dejavu-core_2.33-3 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 x11-common_1:7.7+1 x11-xkb-utils_7.7~1 x11proto-core-dev_7.0.23-1 x11proto-input-dev_2.2-1 x11proto-kb-dev_1.0.6-2 x11proto-render-dev_2:0.11.1-2 x11proto-scrnsaver-dev_1.2.2-1 x11proto-xext-dev_7.2.1-1 xauth_1:1.0.7-1 xkb-data_2.5.1-3 xorg-sgml-doctools_1:1.10-1 xserver-common_2:1.12.4-4 xtrans-dev_1.2.7-1 xvfb_2:1.12.4-4 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Jan  2 14:39:01 2013 UTC using DSA key ID 0F932C9C
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./python2.7_2.7.3-6.dsc
+dpkg-source: info: extracting python2.7 in python2.7-2.7.3
+dpkg-source: info: unpacking python2.7_2.7.3.orig.tar.gz
+dpkg-source: info: applying python2.7_2.7.3-6.diff.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-3278b29b-f56c-4409-9aee-8e07dd866dc1
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package python2.7
+dpkg-buildpackage: source version 2.7.3-6
+dpkg-buildpackage: source changed by Matthias Klose <doko@debian.org>
+ dpkg-source --before-build python2.7-2.7.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+sed -e "s/@PVER@/python2.7/g" \
+	    -e "s/@VER@/2.7/g" \
+	    -e "s/@PYSTDDEP@//g" \
+	    -e "s/@PRIO@/optional/g" \
+	    -e "s/@MINPRIO@/optional/g" \
+		debian/control.in > debian/control.tmp
+[ -e debian/control ] \
+	  && cmp -s debian/control debian/control.tmp \
+	  && rm -f debian/control.tmp && exit 0; \
+	  mv debian/control.tmp debian/control
+dh_testdir
+dh_testroot
+/usr/bin/make -f debian/rules unpatch
+make[1]: Entering directory `/«PKGBUILDDIR»'
+QUILT_PATCHES=debian/patches quilt pop -a -R || test $? = 2
+No patch removed
+rm -f stamps/stamp-patch debian/patches/series
+rm -rf configure autom4te.cache
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -rf stamps .pc
+rm -f debian/test_results
+/usr/bin/make -C Doc clean
+make[1]: Entering directory `/«PKGBUILDDIR»/Doc'
+rm -rf build/*
+rm -rf tools/sphinx
+rm -rf tools/pygments
+rm -rf tools/jinja2
+rm -rf tools/docutils
+make[1]: Leaving directory `/«PKGBUILDDIR»/Doc'
+sed 's/^@/#/' Makefile.pre.in | /usr/bin/make -f - srcdir=. distclean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+find . -name '*.py[co]' -exec rm -f {} ';'
+find . -name '*.[oa]' -exec rm -f {} ';'
+find . -name '*.s[ol]' -exec rm -f {} ';'
+find . -name '*.so.[0-9]*.[0-9]*' -exec rm -f {} ';'
+find build -name 'fficonfig.h' -exec rm -f {} ';' || true
+find: `build': No such file or directory
+find build -name 'fficonfig.py' -exec rm -f {} ';' || true
+find: `build': No such file or directory
+rm -f Lib/lib2to3/*Grammar*.pickle
+find . -name '*.gc??' -exec rm -f {} ';'
+rm -f python@BUILDEXEEXT@ Parser/pgen@EXEEXT@ @LIBRARY@ @LDLIBRARY@ @DLLLIBRARY@ \
+		tags TAGS Parser/pgen.stamp \
+		config.cache config.log pyconfig.h Modules/config.c
+rm -rf build platform
+rm -rf @PYTHONFRAMEWORKDIR@
+for file in Lib/test/data/* ; do \
+	    if test "$file" != "Lib/test/data/README"; then rm "$file"; fi; \
+	done
+rm -f core Makefile Makefile.pre config.status \
+		Modules/Setup Modules/Setup.local Modules/Setup.config \
+		Modules/ld_so_aix Modules/python.exp Misc/python.pc
+rm -f python*-gdb.py
+find . '(' -name '*.fdc' -o -name '*~' \
+			   -o -name '[@,#]*' -o -name '*.old' \
+			   -o -name '*.orig' -o -name '*.rej' \
+			   -o -name '*.bak' ')' \
+			   -exec rm -f {} ';'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+rm -rf Lib/test/db_home
+rm -rf /«PKGBUILDDIR»/build-static /«PKGBUILDDIR»/build-shared /«PKGBUILDDIR»/build-debug /«PKGBUILDDIR»/build-shdebug
+find -name '*.py[co]' | xargs -r rm -f
+rm -f Lib/lib2to3/*.pickle
+rm -rf locales
+rm -rf debian/tmp-dbg
+for f in debian/*.in; do \
+	  f2=`echo $f | sed "s,PVER,python2.7,g;s/@VER@/2.7/g;s,\.in$,,"`; \
+	  if [ $f2 != debian/control ] && [ $f2 != debian/source.lintian-overrides ]; then \
+	    rm -f $f2; \
+	  fi; \
+	done
+dh_clean
+ debian/rules build-arch
+cpp -E \
+	  -DDebian \
+	   \
+	  -DWITH_FPECTL \
+	  -Darch_os_linux -Darch_amd64 \
+	  -o - debian/patches/series.in \
+	  | egrep -v '^(#.*|$)' > debian/patches/series
+clang: warning: argument unused during compilation: '-E'
+dh_testdir
+QUILT_PATCHES=debian/patches quilt push -a || test $? = 2
+Applying patch hg-updates.diff
+patching file Doc/c-api/buffer.rst
+patching file Doc/c-api/memory.rst
+patching file Doc/c-api/objbuffer.rst
+patching file Doc/c-api/typeobj.rst
+patching file Doc/distutils/apiref.rst
+patching file Doc/distutils/sourcedist.rst
+patching file Doc/distutils/uploading.rst
+patching file Doc/extending/newtypes.rst
+patching file Doc/faq/design.rst
+patching file Doc/faq/library.rst
+patching file Doc/glossary.rst
+patching file Doc/howto/advocacy.rst
+patching file Doc/howto/argparse.rst
+patching file Doc/howto/cporting.rst
+patching file Doc/howto/curses.rst
+patching file Doc/howto/index.rst
+patching file Doc/howto/logging-cookbook.rst
+patching file Doc/howto/logging.rst
+patching file Doc/howto/pyporting.rst
+patching file Doc/howto/regex.rst
+patching file Doc/howto/sockets.rst
+patching file Doc/howto/sorting.rst
+patching file Doc/howto/urllib2.rst
+patching file Doc/includes/sqlite3/execute_1.py
+patching file Doc/includes/sqlite3/execute_2.py
+patching file Doc/includes/sqlite3/executemany_2.py
+patching file Doc/includes/sqlite3/rowclass.py
+patching file Doc/includes/sqlite3/text_factory.py
+patching file Doc/library/2to3.rst
+patching file Doc/library/__future__.rst
+patching file Doc/library/_winreg.rst
+patching file Doc/library/al.rst
+patching file Doc/library/anydbm.rst
+patching file Doc/library/archiving.rst
+patching file Doc/library/argparse.rst
+patching file Doc/library/basehttpserver.rst
+patching file Doc/library/bastion.rst
+patching file Doc/library/bdb.rst
+patching file Doc/library/binascii.rst
+patching file Doc/library/bisect.rst
+patching file Doc/library/bsddb.rst
+patching file Doc/library/bz2.rst
+patching file Doc/library/carbon.rst
+patching file Doc/library/cd.rst
+patching file Doc/library/cgi.rst
+patching file Doc/library/cgihttpserver.rst
+patching file Doc/library/collections.rst
+patching file Doc/library/commands.rst
+patching file Doc/library/compiler.rst
+patching file Doc/library/configparser.rst
+patching file Doc/library/cookie.rst
+patching file Doc/library/cookielib.rst
+patching file Doc/library/copy_reg.rst
+patching file Doc/library/csv.rst
+patching file Doc/library/datetime.rst
+patching file Doc/library/dbhash.rst
+patching file Doc/library/dbm.rst
+patching file Doc/library/decimal.rst
+patching file Doc/library/difflib.rst
+patching file Doc/library/dircache.rst
+patching file Doc/library/dl.rst
+patching file Doc/library/docxmlrpcserver.rst
+patching file Doc/library/dumbdbm.rst
+patching file Doc/library/dummy_thread.rst
+patching file Doc/library/email.charset.rst
+patching file Doc/library/email.encoders.rst
+patching file Doc/library/email.errors.rst
+patching file Doc/library/email.generator.rst
+patching file Doc/library/email.header.rst
+patching file Doc/library/email.iterators.rst
+patching file Doc/library/email.message.rst
+patching file Doc/library/email.mime.rst
+patching file Doc/library/email.parser.rst
+patching file Doc/library/email.util.rst
+patching file Doc/library/filecmp.rst
+patching file Doc/library/fl.rst
+patching file Doc/library/fm.rst
+patching file Doc/library/formatter.rst
+patching file Doc/library/fpectl.rst
+patching file Doc/library/fpformat.rst
+patching file Doc/library/functions.rst
+patching file Doc/library/gdbm.rst
+patching file Doc/library/gl.rst
+patching file Doc/library/gzip.rst
+patching file Doc/library/htmllib.rst
+patching file Doc/library/httplib.rst
+patching file Doc/library/imageop.rst
+patching file Doc/library/imgfile.rst
+patching file Doc/library/imp.rst
+patching file Doc/library/imputil.rst
+patching file Doc/library/io.rst
+patching file Doc/library/itertools.rst
+patching file Doc/library/jpeg.rst
+patching file Doc/library/json.rst
+patching file Doc/library/locale.rst
+patching file Doc/library/logging.config.rst
+patching file Doc/library/logging.handlers.rst
+patching file Doc/library/logging.rst
+patching file Doc/library/macostools.rst
+patching file Doc/library/mailbox.rst
+patching file Doc/library/markup.rst
+patching file Doc/library/mhlib.rst
+patching file Doc/library/multiprocessing.rst
+patching file Doc/library/mutex.rst
+patching file Doc/library/new.rst
+patching file Doc/library/os.path.rst
+patching file Doc/library/os.rst
+patching file Doc/library/ossaudiodev.rst
+patching file Doc/library/parser.rst
+patching file Doc/library/pickletools.rst
+patching file Doc/library/plistlib.rst
+patching file Doc/library/profile.rst
+patching file Doc/library/pyclbr.rst
+patching file Doc/library/queue.rst
+patching file Doc/library/random.rst
+patching file Doc/library/re.rst
+patching file Doc/library/repr.rst
+patching file Doc/library/rexec.rst
+patching file Doc/library/rfc822.rst
+patching file Doc/library/robotparser.rst
+patching file Doc/library/scrolledtext.rst
+patching file Doc/library/sgmllib.rst
+patching file Doc/library/shelve.rst
+patching file Doc/library/shutil.rst
+patching file Doc/library/simplehttpserver.rst
+patching file Doc/library/simplexmlrpcserver.rst
+patching file Doc/library/socket.rst
+patching file Doc/library/socketserver.rst
+patching file Doc/library/sqlite3.rst
+patching file Doc/library/statvfs.rst
+patching file Doc/library/stdtypes.rst
+patching file Doc/library/string.rst
+patching file Doc/library/struct.rst
+patching file Doc/library/subprocess.rst
+patching file Doc/library/sunaudio.rst
+patching file Doc/library/sys.rst
+patching file Doc/library/sysconfig.rst
+patching file Doc/library/syslog.rst
+patching file Doc/library/tarfile.rst
+patching file Doc/library/test.rst
+patching file Doc/library/textwrap.rst
+patching file Doc/library/thread.rst
+patching file Doc/library/threading.rst
+patching file Doc/library/time.rst
+patching file Doc/library/timeit.rst
+patching file Doc/library/tix.rst
+patching file Doc/library/tkinter.rst
+patching file Doc/library/tokenize.rst
+patching file Doc/library/trace.rst
+patching file Doc/library/ttk.rst
+patching file Doc/library/unittest.rst
+patching file Doc/library/urllib.rst
+patching file Doc/library/urllib2.rst
+patching file Doc/library/urlparse.rst
+patching file Doc/library/user.rst
+patching file Doc/library/userdict.rst
+patching file Doc/library/warnings.rst
+patching file Doc/library/webbrowser.rst
+patching file Doc/library/whichdb.rst
+patching file Doc/library/wsgiref.rst
+patching file Doc/library/xml.dom.minidom.rst
+patching file Doc/library/xmlrpclib.rst
+patching file Doc/library/zipfile.rst
+patching file Doc/library/zlib.rst
+patching file Doc/reference/compound_stmts.rst
+patching file Doc/reference/datamodel.rst
+patching file Doc/reference/expressions.rst
+patching file Doc/reference/simple_stmts.rst
+patching file Doc/tools/sphinxext/download.html
+patching file Doc/tools/sphinxext/indexsidebar.html
+patching file Doc/tutorial/classes.rst
+patching file Doc/tutorial/controlflow.rst
+patching file Doc/tutorial/datastructures.rst
+patching file Doc/tutorial/errors.rst
+patching file Doc/tutorial/inputoutput.rst
+patching file Doc/tutorial/modules.rst
+patching file Doc/using/cmdline.rst
+patching file Doc/using/unix.rst
+patching file Include/node.h
+patching file Include/patchlevel.h
+patching file Include/pyport.h
+patching file Lib/BaseHTTPServer.py
+patching file Lib/CGIHTTPServer.py
+patching file Lib/Cookie.py
+patching file Lib/HTMLParser.py
+patching file Lib/SimpleXMLRPCServer.py
+patching file Lib/SocketServer.py
+patching file Lib/__future__.py
+patching file Lib/_pyio.py
+patching file Lib/_strptime.py
+patching file Lib/_weakrefset.py
+patching file Lib/argparse.py
+patching file Lib/asyncore.py
+patching file Lib/bdb.py
+patching file Lib/cmd.py
+patching file Lib/collections.py
+patching file Lib/compiler/consts.py
+patching file Lib/compiler/pycodegen.py
+patching file Lib/compiler/symbols.py
+patching file Lib/cookielib.py
+patching file Lib/ctypes/test/test_bitfields.py
+patching file Lib/ctypes/test/test_numbers.py
+patching file Lib/distutils/command/bdist_rpm.py
+patching file Lib/distutils/config.py
+patching file Lib/distutils/dir_util.py
+patching file Lib/distutils/tests/test_bdist_dumb.py
+patching file Lib/distutils/tests/test_bdist_msi.py
+patching file Lib/distutils/tests/test_bdist_rpm.py
+patching file Lib/distutils/tests/test_dir_util.py
+patching file Lib/distutils/tests/test_install.py
+patching file Lib/distutils/tests/test_sdist.py
+patching file Lib/doctest.py
+patching file Lib/email/_parseaddr.py
+patching file Lib/email/generator.py
+patching file Lib/email/test/test_email.py
+patching file Lib/glob.py
+patching file Lib/hashlib.py
+patching file Lib/httplib.py
+patching file Lib/idlelib/CallTipWindow.py
+patching file Lib/idlelib/CallTips.py
+patching file Lib/idlelib/EditorWindow.py
+patching file Lib/idlelib/IOBinding.py
+patching file Lib/idlelib/NEWS.txt
+patching file Lib/idlelib/PyShell.py
+patching file Lib/idlelib/ReplaceDialog.py
+patching file Lib/idlelib/configDialog.py
+patching file Lib/idlelib/configHandler.py
+patching file Lib/idlelib/macosxSupport.py
+patching file Lib/idlelib/run.py
+patching file Lib/io.py
+patching file Lib/json/__init__.py
+patching file Lib/json/decoder.py
+patching file Lib/json/encoder.py
+patching file Lib/json/tool.py
+patching file Lib/keyword.py
+patching file Lib/lib-tk/Tkinter.py
+patching file Lib/lib-tk/tkSimpleDialog.py
+patching file Lib/lib-tk/ttk.py
+patching file Lib/locale.py
+patching file Lib/logging/__init__.py
+patching file Lib/logging/handlers.py
+patching file Lib/mailbox.py
+patching file Lib/mimetypes.py
+patching file Lib/multiprocessing/connection.py
+patching file Lib/multiprocessing/dummy/__init__.py
+patching file Lib/multiprocessing/forking.py
+patching file Lib/multiprocessing/pool.py
+patching file Lib/multiprocessing/process.py
+patching file Lib/numbers.py
+patching file Lib/posixpath.py
+patching file Lib/pyclbr.py
+patching file Lib/pydoc.py
+patching file Lib/rlcompleter.py
+patching file Lib/shutil.py
+patching file Lib/subprocess.py
+patching file Lib/symbol.py
+patching file Lib/tarfile.py
+patching file Lib/telnetlib.py
+patching file Lib/test/crashers/buffer_mutate.py
+patching file Lib/test/crashers/decref_before_assignment.py
+patching file Lib/test/mp_fork_bomb.py
+patching file Lib/test/regrtest.py
+patching file Lib/test/script_helper.py
+patching file Lib/test/sha256.pem
+patching file Lib/test/symlink_support.py
+patching file Lib/test/test_argparse.py
+patching file Lib/test/test_array.py
+patching file Lib/test/test_ast.py
+patching file Lib/test/test_asyncore.py
+patching file Lib/test/test_bigmem.py
+patching file Lib/test/test_bisect.py
+patching file Lib/test/test_cgi.py
+patching file Lib/test/test_class.py
+patching file Lib/test/test_cmd.py
+patching file Lib/test/test_cmd_line_script.py
+patching file Lib/test/test_codecs.py
+patching file Lib/test/test_cookie.py
+patching file Lib/test/test_deque.py
+patching file Lib/test/test_descr.py
+patching file Lib/test/test_dict.py
+patching file Lib/test/test_file2k.py
+patching file Lib/test/test_fileio.py
+patching file Lib/test/test_fractions.py
+patching file Lib/test/test_gdb.py
+patching file Lib/test/test_hashlib.py
+patching file Lib/test/test_htmlparser.py
+patching file Lib/test/test_httplib.py
+patching file Lib/test/test_httpservers.py
+patching file Lib/test/test_import.py
+patching file Lib/test/test_io.py
+patching file Lib/test/test_logging.py
+patching file Lib/test/test_mailbox.py
+patching file Lib/test/test_memoryio.py
+patching file Lib/test/test_multiprocessing.py
+patching file Lib/test/test_optparse.py
+patching file Lib/test/test_parser.py
+patching file Lib/test/test_pdb.py
+patching file Lib/test/test_posix.py
+patching file Lib/test/test_posixpath.py
+patching file Lib/test/test_pyclbr.py
+patching file Lib/test/test_pydoc.py
+patching file Lib/test/test_queue.py
+patching file Lib/test/test_random.py
+patching file Lib/test/test_re.py
+patching file Lib/test/test_readline.py
+patching file Lib/test/test_repr.py
+patching file Lib/test/test_shutil.py
+patching file Lib/test/test_socketserver.py
+patching file Lib/test/test_ssl.py
+patching file Lib/test/test_strptime.py
+patching file Lib/test/test_struct.py
+patching file Lib/test/test_subprocess.py
+patching file Lib/test/test_support.py
+patching file Lib/test/test_sys.py
+patching file Lib/test/test_sys_settrace.py
+patching file Lib/test/test_tarfile.py
+patching file Lib/test/test_telnetlib.py
+patching file Lib/test/test_thread.py
+patching file Lib/test/test_threading.py
+patching file Lib/test/test_tokenize.py
+patching file Lib/test/test_tools.py
+patching file Lib/test/test_urllib2.py
+patching file Lib/test/test_urlparse.py
+patching file Lib/test/test_weakref.py
+patching file Lib/test/test_weakset.py
+patching file Lib/test/test_winreg.py
+patching file Lib/test/test_zipfile.py
+patching file Lib/textwrap.py
+patching file Lib/threading.py
+patching file Lib/token.py
+patching file Lib/tokenize.py
+patching file Lib/unittest/case.py
+patching file Lib/unittest/test/test_skipping.py
+patching file Lib/urllib.py
+patching file Lib/urllib2.py
+patching file Lib/urlparse.py
+patching file Lib/zipfile.py
+patching file Mac/README
+patching file Makefile.pre.in
+patching file Misc/ACKS
+patching file Misc/NEWS
+patching file Misc/README.OpenBSD
+patching file Misc/python.man
+patching file Modules/_bisectmodule.c
+patching file Modules/_collectionsmodule.c
+patching file Modules/_ctypes/cfield.c
+patching file Modules/_hashopenssl.c
+patching file Modules/_io/_iomodule.c
+patching file Modules/_io/_iomodule.h
+patching file Modules/_io/bufferedio.c
+patching file Modules/_io/bytesio.c
+patching file Modules/_io/fileio.c
+patching file Modules/_io/textio.c
+patching file Modules/_json.c
+patching file Modules/_multiprocessing/socket_connection.c
+patching file Modules/_multiprocessing/win32_functions.c
+patching file Modules/_randommodule.c
+patching file Modules/_sqlite/connection.c
+patching file Modules/_struct.c
+patching file Modules/arraymodule.c
+patching file Modules/errnomodule.c
+patching file Modules/gcmodule.c
+patching file Modules/getaddrinfo.c
+patching file Modules/getnameinfo.c
+patching file Modules/main.c
+patching file Modules/md5module.c
+patching file Modules/parsermodule.c
+patching file Modules/socketmodule.c
+patching file Modules/threadmodule.c
+patching file Objects/abstract.c
+patching file Objects/bytearrayobject.c
+patching file Objects/classobject.c
+patching file Objects/descrobject.c
+patching file Objects/dictobject.c
+patching file Objects/fileobject.c
+patching file Objects/frameobject.c
+patching file Objects/genobject.c
+patching file Objects/object.c
+patching file Objects/stringobject.c
+patching file Objects/typeobject.c
+patching file Objects/unicodeobject.c
+patching file PC/VC6/bz2.dsp
+patching file PC/VC6/pythoncore.dsp
+patching file PC/VC6/readme.txt
+patching file PC/VS7.1/pythoncore.vcproj
+patching file PC/VS8.0/bz2.vcproj
+patching file PC/VS8.0/pyproject.vsprops
+patching file PC/VS8.0/pythoncore.vcproj
+patching file PC/_subprocess.c
+patching file PC/pyconfig.h
+patching file PCbuild/build_ssl.py
+patching file PCbuild/bz2.vcproj
+patching file PCbuild/pginstrument.vsprops
+patching file PCbuild/pyproject.vsprops
+patching file PCbuild/readme.txt
+patching file Parser/myreadline.c
+patching file Parser/node.c
+patching file Parser/parsetok.c
+patching file Python/bltinmodule.c
+patching file Python/compile.c
+patching file Python/future.c
+patching file Python/getargs.c
+patching file Python/import.c
+patching file Python/peephole.c
+patching file Python/pystate.c
+patching file Python/pythonrun.c
+patching file Python/thread.c
+patching file README
+patching file Tools/buildbot/build-amd64.bat
+patching file Tools/buildbot/external-common.bat
+patching file Tools/buildbot/test-amd64.bat
+patching file Tools/buildbot/test.bat
+patching file Tools/scripts/byext.py
+patching file configure.ac
+patching file configure.in
+patching file pyconfig.h.in
+patching file setup.py
+
+Applying patch revert-sizeof-methods.diff
+patching file Include/node.h
+patching file Lib/test/test_array.py
+patching file Lib/test/test_deque.py
+patching file Lib/test/test_io.py
+patching file Lib/test/test_memoryio.py
+patching file Lib/test/test_parser.py
+patching file Lib/test/test_struct.py
+patching file Lib/test/test_support.py
+patching file Lib/test/test_sys.py
+patching file Misc/ACKS
+patching file Misc/NEWS
+patching file Modules/arraymodule.c
+patching file Modules/_collectionsmodule.c
+patching file Modules/_io/bufferedio.c
+patching file Modules/_io/bytesio.c
+patching file Modules/parsermodule.c
+patching file Modules/_struct.c
+patching file Parser/node.c
+
+Applying patch revert-issue14635.diff
+patching file Lib/telnetlib.py
+patching file Lib/test/test_telnetlib.py
+patching file Misc/ACKS
+patching file Misc/NEWS
+
+Applying patch makeflags.diff
+patching file Makefile.pre.in
+
+Applying patch issue9374-followup.diff
+patching file Lib/urlparse.py
+
+Applying patch setup-modules-heapq.diff
+patching file Modules/Setup.dist
+
+Applying patch issue9189.diff
+patching file Lib/sysconfig.py
+patching file Makefile.pre.in
+patching file Modules/makesetup
+patching file configure.ac
+patching file Lib/distutils/sysconfig.py
+
+Applying patch issue15340.diff
+patching file Python/random.c
+
+Applying patch issue15847.diff
+patching file Lib/argparse.py
+patching file Lib/test/test_argparse.py
+Hunk #1 succeeded at 4438 (offset -48 lines).
+
+Applying patch deb-setup.diff
+patching file setup.py
+Hunk #1 succeeded at 371 (offset 3 lines).
+
+Applying patch deb-locations.diff
+patching file Demo/tkinter/guido/ManPage.py
+patching file Demo/tkinter/guido/tkman.py
+patching file Misc/python.man
+Hunk #1 succeeded at 338 (offset 15 lines).
+patching file Tools/faqwiz/faqconf.py
+patching file Tools/webchecker/webchecker.py
+
+Applying patch site-locations.diff
+patching file Lib/site.py
+
+Applying patch distutils-install-layout.diff
+patching file Doc/install/index.rst
+patching file Lib/distutils/command/install.py
+patching file Lib/distutils/command/install_egg_info.py
+patching file Lib/distutils/sysconfig.py
+patching file Lib/site.py
+patching file Lib/sysconfig.py
+patching file Lib/test/test_site.py
+patching file Lib/test/test_sysconfig.py
+patching file Lib/distutils/tests/test_install.py
+patching file Lib/pydoc.py
+
+Applying patch locale-module.diff
+patching file Lib/locale.py
+Hunk #1 succeeded at 1528 (offset 8 lines).
+
+Applying patch distutils-link.diff
+patching file Lib/distutils/unixccompiler.py
+
+Applying patch distutils-sysconfig.diff
+patching file Lib/distutils/sysconfig.py
+
+Applying patch test-sundry.diff
+patching file Lib/test/test_sundry.py
+
+Applying patch tkinter-import.diff
+patching file Lib/lib-tk/Tkinter.py
+
+Applying patch link-opt.diff
+patching file configure.ac
+
+Applying patch debug-build.diff
+patching file Lib/distutils/command/build.py
+patching file Lib/distutils/sysconfig.py
+Hunk #2 succeeded at 254 (offset 38 lines).
+patching file Lib/sysconfig.py
+Hunk #1 succeeded at 328 (offset 29 lines).
+Hunk #2 succeeded at 413 (offset 29 lines).
+patching file Makefile.pre.in
+Hunk #3 succeeded at 436 (offset 5 lines).
+Hunk #4 succeeded at 1005 (offset 13 lines).
+patching file Misc/python-config.in
+patching file Python/dynload_shlib.c
+patching file Python/sysmodule.c
+Hunk #1 succeeded at 1506 (offset 2 lines).
+patching file configure.ac
+patching file Lib/distutils/tests/test_build_ext.py
+Hunk #1 succeeded at 288 (offset 1 line).
+Hunk #2 succeeded at 297 (offset 1 line).
+patching file Lib/distutils/tests/test_build.py
+
+Applying patch hotshot-import.diff
+patching file Lib/hotshot/stats.py
+
+Applying patch webbrowser.diff
+patching file Lib/webbrowser.py
+
+Applying patch linecache.diff
+patching file Lib/linecache.py
+
+Applying patch doc-nodownload.diff
+patching file Doc/Makefile
+
+Applying patch profiled-build.diff
+patching file Makefile.pre.in
+Hunk #1 succeeded at 389 (offset 1 line).
+
+Applying patch no-zip-on-sys.path.diff
+patching file Modules/getpath.c
+
+Applying patch platform-lsbrelease.diff
+patching file Lib/platform.py
+
+Applying patch bdist-wininst-notfound.diff
+patching file Lib/distutils/command/bdist_wininst.py
+
+Applying patch setup-modules-ssl.diff
+patching file Modules/Setup.dist
+Hunk #1 succeeded at 212 (offset 1 line).
+Hunk #2 succeeded at 255 (offset 1 line).
+
+Applying patch makesetup-bashism.diff
+patching file Modules/makesetup
+
+Applying patch hurd-broken-poll.diff
+patching file Modules/selectmodule.c
+
+Applying patch hurd-disable-nonworking-constants.diff
+patching file Modules/posixmodule.c
+Hunk #1 succeeded at 9107 (offset -86 lines).
+patching file Modules/socketmodule.c
+
+Applying patch enable-fpectl.diff
+patching file setup.py
+Hunk #1 succeeded at 1287 (offset 11 lines).
+
+Applying patch statvfs-f_flag-constants.diff
+patching file Modules/posixmodule.c
+Hunk #1 succeeded at 9215 (offset -86 lines).
+
+Applying patch issue9012a.diff
+patching file Modules/Setup.dist
+
+Applying patch link-system-expat.diff
+patching file Modules/Setup.dist
+Hunk #1 succeeded at 181 (offset 1 line).
+Hunk #2 succeeded at 472 (offset 1 line).
+
+Applying patch plat-gnukfreebsd.diff
+patching file Lib/plat-gnukfreebsd7/IN.py
+patching file Lib/plat-gnukfreebsd7/TYPES.py
+patching file Lib/plat-gnukfreebsd7/DLFCN.py
+patching file Lib/plat-gnukfreebsd8/IN.py
+patching file Lib/plat-gnukfreebsd8/TYPES.py
+patching file Lib/plat-gnukfreebsd8/DLFCN.py
+
+Applying patch link-whole-archive.diff
+patching file Makefile.pre.in
+Hunk #1 succeeded at 407 (offset 1 line).
+
+Applying patch bsddb-libpath.diff
+patching file setup.py
+Hunk #1 succeeded at 984 (offset 7 lines).
+
+Applying patch disable-sem-check.diff
+patching file configure.ac
+
+Applying patch ncursesw-incdir.diff
+patching file setup.py
+Hunk #1 succeeded at 1262 (offset 11 lines).
+Hunk #2 succeeded at 1293 (offset 11 lines).
+patching file configure.ac
+Hunk #3 succeeded at 4127 (offset 1 line).
+Hunk #4 succeeded at 4183 (offset 1 line).
+
+Applying patch multiprocessing-typos.diff
+patching file Modules/_multiprocessing/multiprocessing.c
+patching file Lib/multiprocessing/synchronize.py
+
+Applying patch ctypes-arm.diff
+patching file Lib/ctypes/util.py
+Hunk #1 succeeded at 184 (offset -22 lines).
+
+Applying patch db5.1.diff
+patching file setup.py
+Hunk #1 succeeded at 806 (offset 7 lines).
+Hunk #2 succeeded at 828 (offset 7 lines).
+patching file Lib/bsddb/__init__.py
+patching file Lib/bsddb/test/test_all.py
+patching file Lib/bsddb/test/test_associate.py
+patching file Lib/bsddb/test/test_basics.py
+patching file Lib/bsddb/test/test_compat.py
+patching file Lib/bsddb/test/test_db.py
+patching file Lib/bsddb/test/test_dbenv.py
+patching file Lib/bsddb/test/test_dbtables.py
+patching file Lib/bsddb/test/test_distributed_transactions.py
+patching file Lib/bsddb/test/test_get_none.py
+patching file Lib/bsddb/test/test_join.py
+patching file Lib/bsddb/test/test_lock.py
+patching file Lib/bsddb/test/test_misc.py
+patching file Lib/bsddb/test/test_queue.py
+patching file Lib/bsddb/test/test_recno.py
+patching file Modules/_bsddb.c
+patching file Modules/bsddb.h
+
+Applying patch lto-link-flags.diff
+patching file Makefile.pre.in
+Hunk #2 succeeded at 405 (offset 1 line).
+
+Applying patch disable-ssl-cert-tests.diff
+patching file Lib/test/test_ssl.py
+
+Applying patch xdg-gvfs-open.diff
+patching file Lib/webbrowser.py
+
+Applying patch sqlite-rpath.diff
+patching file setup.py
+Hunk #1 succeeded at 1113 (offset 7 lines).
+
+Applying patch do-not-italicize-punctuation.patch
+patching file Misc/python.man
+Hunk #1 succeeded at 290 (offset 47 lines).
+Hunk #2 succeeded at 302 (offset 47 lines).
+Hunk #3 succeeded at 316 (offset 47 lines).
+Hunk #4 succeeded at 382 (offset 47 lines).
+
+Applying patch sysconfigdata.diff
+patching file Lib/sysconfig.py
+patching file Makefile.pre.in
+
+Now at patch sysconfigdata.diff
+rm -rf autom4te.cache configure
+autoconf
+mkdir -p stamps
+echo ""; echo "Patches applied in this version:" > stamps/pxx
+
+for i in $(cat debian/patches/series); do \
+	  echo ""; echo "$i:"; \
+	  sed -n 's/^# *DP: */  /p' debian/patches/$i; \
+	done >> stamps/pxx
+mv stamps/pxx stamps/stamp-patch
+rm -rf /«PKGBUILDDIR»/build-static
+mkdir -p /«PKGBUILDDIR»/build-static
+cd /«PKGBUILDDIR»/build-static && \
+	  CC="gcc" CFLAGS="-D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security " LDFLAGS="-Wl,-z,relro" \
+	    ../configure \
+		--prefix=/usr --enable-ipv6 --enable-unicode=ucs4 --with-dbmliborder=bdb:gdbm --with-system-expat --with-system-ffi --with-fpectl
+checking for --enable-universalsdk... no
+checking for --with-universal-archs... 32-bit
+checking MACHDEP... linux2
+checking EXTRAPLATDIR... 
+checking machine type as reported by uname -m... x86_64
+checking for --without-gcc... no
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+configure: WARNING:
+
+  By default, distutils will build C++ extension modules with "g++".
+  If this is not intended, then set CXX on the configure command line.
+  
+checking for gcc option to accept ISO C89... none needed
+checking for --with-cxx-main=<compiler>... no
+checking for g++... g++
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for --with-suffix... 
+checking for case-insensitive build directory... no
+checking LIBRARY... libpython$(VERSION)$(DEBUG_EXT).a
+checking LINKCC... $(PURIFY) $(MAINCC)
+checking for GNU ld... yes
+checking for --enable-shared... no
+checking for --enable-profiling... 
+checking LDLIBRARY... libpython$(VERSION)$(DEBUG_EXT).a
+checking for ranlib... ranlib
+checking for ar... ar
+checking for svnversion... not-found
+checking for hg... not-found
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for --with-pydebug... no
+checking whether gcc accepts -fno-strict-aliasing... yes
+checking whether gcc accepts -OPT:Olimit=0... no
+checking whether gcc accepts -Olimit 1500... no
+checking whether gcc supports ParseTuple __format__... no
+checking whether pthreads are available without options... no
+checking whether gcc accepts -Kpthread... no
+checking whether gcc accepts -Kthread... no
+checking whether gcc accepts -pthread... yes
+checking whether g++ also accepts flags for thread support... yes
+checking for ANSI C header files... (cached) yes
+checking asm/types.h usability... yes
+checking asm/types.h presence... yes
+checking for asm/types.h... yes
+checking conio.h usability... no
+checking conio.h presence... no
+checking for conio.h... no
+checking curses.h usability... yes
+checking curses.h presence... yes
+checking for curses.h... yes
+checking direct.h usability... no
+checking direct.h presence... no
+checking for direct.h... no
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking for grp.h... yes
+checking ieeefp.h usability... no
+checking ieeefp.h presence... no
+checking for ieeefp.h... no
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking ncurses.h usability... yes
+checking ncurses.h presence... yes
+checking for ncurses.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking process.h usability... no
+checking process.h presence... no
+checking for process.h... no
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking shadow.h usability... yes
+checking shadow.h presence... yes
+checking for shadow.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking for stdint.h... (cached) yes
+checking stropts.h usability... yes
+checking stropts.h presence... yes
+checking for stropts.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking thread.h usability... no
+checking thread.h presence... no
+checking for thread.h... no
+checking for unistd.h... (cached) yes
+checking utime.h usability... yes
+checking utime.h presence... yes
+checking for utime.h... yes
+checking sys/audioio.h usability... no
+checking sys/audioio.h presence... no
+checking for sys/audioio.h... no
+checking sys/bsdtty.h usability... no
+checking sys/bsdtty.h presence... no
+checking for sys/bsdtty.h... no
+checking sys/epoll.h usability... yes
+checking sys/epoll.h presence... yes
+checking for sys/epoll.h... yes
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking for sys/event.h... no
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/loadavg.h usability... no
+checking sys/loadavg.h presence... no
+checking for sys/loadavg.h... no
+checking sys/lock.h usability... no
+checking sys/lock.h presence... no
+checking for sys/lock.h... no
+checking sys/mkdev.h usability... no
+checking sys/mkdev.h presence... no
+checking for sys/mkdev.h... no
+checking sys/modem.h usability... no
+checking sys/modem.h presence... no
+checking for sys/modem.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/poll.h usability... yes
+checking sys/poll.h presence... yes
+checking for sys/poll.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/termio.h usability... no
+checking sys/termio.h presence... no
+checking for sys/termio.h... no
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking sys/utsname.h usability... yes
+checking sys/utsname.h presence... yes
+checking for sys/utsname.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking pty.h usability... yes
+checking pty.h presence... yes
+checking for pty.h... yes
+checking libutil.h usability... no
+checking libutil.h presence... no
+checking for libutil.h... no
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking netpacket/packet.h usability... yes
+checking netpacket/packet.h presence... yes
+checking for netpacket/packet.h... yes
+checking sysexits.h usability... yes
+checking sysexits.h presence... yes
+checking for sysexits.h... yes
+checking bluetooth.h usability... no
+checking bluetooth.h presence... no
+checking for bluetooth.h... no
+checking bluetooth/bluetooth.h usability... yes
+checking bluetooth/bluetooth.h presence... yes
+checking for bluetooth/bluetooth.h... yes
+checking linux/tipc.h usability... yes
+checking linux/tipc.h presence... yes
+checking for linux/tipc.h... yes
+checking spawn.h usability... yes
+checking spawn.h presence... yes
+checking for spawn.h... yes
+checking util.h usability... no
+checking util.h presence... no
+checking for util.h... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking whether sys/types.h defines makedev... yes
+checking for term.h... yes
+checking for linux/netlink.h... yes
+checking for clock_t in time.h... yes
+checking for makedev... yes
+checking Solaris LFS bug... no
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for uid_t in sys/types.h... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for ssize_t... yes
+checking size of int... 4
+checking size of long... 8
+checking size of void *... 8
+checking size of short... 2
+checking size of float... 4
+checking size of double... 8
+checking size of fpos_t... 16
+checking size of size_t... 8
+checking size of pid_t... 4
+checking for long long support... yes
+checking size of long long... 8
+checking for long double support... yes
+checking size of long double... 16
+checking for _Bool support... yes
+checking size of _Bool... 1
+checking for uintptr_t... yes
+checking size of uintptr_t... 8
+checking size of off_t... 8
+checking whether to enable large file support... no
+checking size of time_t... 8
+checking for pthread_t... yes
+checking size of pthread_t... 8
+checking for --enable-toolbox-glue... no
+checking for --enable-framework... no
+checking for dyld... no
+checking SO... .so
+checking LDSHARED... $(CC) -shared -Wl,-O1 -Wl,-Bsymbolic-functions
+checking CCSHARED... -fPIC
+checking LINKFORSHARED... -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
+checking CFLAGSFORSHARED... 
+checking SHLIBS... $(LIBS)
+checking for dlopen in -ldl... yes
+checking for shl_load in -ldld... no
+checking for library containing sem_init... -lpthread
+checking for textdomain in -lintl... no
+checking for t_open in -lnsl... no
+checking for socket in -lsocket... no
+checking for --with-libs... no
+checking for pkg-config... /usr/bin/pkg-config
+checking for --with-system-expat... yes
+checking for --with-system-ffi... yes
+checking for --with-dbmliborder... bdb:gdbm
+checking for --with-signal-module... yes
+checking for --with-dec-threads... no
+checking for --with-threads... yes
+checking if PTHREAD_SCOPE_SYSTEM is supported... yes
+checking for pthread_sigmask... yes
+checking if --enable-ipv6 is specified... yes
+checking ipv6 stack type... linux-glibc
+checking for OSX 10.5 SDK or later... no
+checking for --with-doc-strings... yes
+checking for --with-tsc... no
+checking for --with-pymalloc... yes
+checking for --with-valgrind... no
+checking for --with-wctype-functions... no
+checking for dlopen... yes
+checking DYNLOADFILE... dynload_shlib.o
+checking MACHDEP_OBJS... MACHDEP_OBJS
+checking for alarm... yes
+checking for setitimer... yes
+checking for getitimer... yes
+checking for bind_textdomain_codeset... yes
+checking for chown... yes
+checking for clock... yes
+checking for confstr... yes
+checking for ctermid... yes
+checking for execv... yes
+checking for fchmod... yes
+checking for fchown... yes
+checking for fork... yes
+checking for fpathconf... yes
+checking for ftime... yes
+checking for ftruncate... yes
+checking for gai_strerror... yes
+checking for getgroups... yes
+checking for getlogin... yes
+checking for getloadavg... yes
+checking for getpeername... yes
+checking for getpgid... yes
+checking for getpid... yes
+checking for getpriority... yes
+checking for getresuid... yes
+checking for getresgid... yes
+checking for getpwent... yes
+checking for getspnam... yes
+checking for getspent... yes
+checking for getsid... yes
+checking for getwd... yes
+checking for initgroups... yes
+checking for kill... yes
+checking for killpg... yes
+checking for lchmod... no
+checking for lchown... yes
+checking for lstat... yes
+checking for mkfifo... yes
+checking for mknod... yes
+checking for mktime... yes
+checking for mremap... yes
+checking for nice... yes
+checking for pathconf... yes
+checking for pause... yes
+checking for plock... no
+checking for poll... yes
+checking for pthread_init... no
+checking for putenv... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for select... yes
+checking for sem_open... yes
+checking for sem_timedwait... yes
+checking for sem_getvalue... yes
+checking for sem_unlink... yes
+checking for setegid... yes
+checking for seteuid... yes
+checking for setgid... yes
+checking for setlocale... yes
+checking for setregid... yes
+checking for setreuid... yes
+checking for setsid... yes
+checking for setpgid... yes
+checking for setpgrp... yes
+checking for setuid... yes
+checking for setvbuf... yes
+checking for snprintf... yes
+checking for setlocale... (cached) yes
+checking for setregid... (cached) yes
+checking for setreuid... (cached) yes
+checking for setresuid... yes
+checking for setresgid... yes
+checking for setsid... (cached) yes
+checking for setpgid... (cached) yes
+checking for setpgrp... (cached) yes
+checking for setuid... (cached) yes
+checking for setvbuf... (cached) yes
+checking for snprintf... (cached) yes
+checking for sigaction... yes
+checking for siginterrupt... yes
+checking for sigrelse... yes
+checking for strftime... yes
+checking for sysconf... yes
+checking for tcgetpgrp... yes
+checking for tcsetpgrp... yes
+checking for tempnam... yes
+checking for timegm... yes
+checking for times... yes
+checking for tmpfile... yes
+checking for tmpnam... yes
+checking for tmpnam_r... yes
+checking for truncate... yes
+checking for uname... yes
+checking for unsetenv... yes
+checking for utimes... yes
+checking for waitpid... yes
+checking for wait3... yes
+checking for wait4... yes
+checking for wcscoll... yes
+checking for _getpty... no
+checking for chroot... yes
+checking for link... yes
+checking for symlink... yes
+checking for fchdir... yes
+checking for fsync... yes
+checking for fdatasync... yes
+checking for epoll... yes
+checking for kqueue... no
+checking for ctermid_r... no
+checking for flock declaration... yes
+checking for flock... yes
+checking for getpagesize... yes
+checking for broken unsetenv... no
+checking for true... true
+checking for inet_aton in -lc... yes
+checking for chflags... no
+checking for lchflags... no
+checking for inflateCopy in -lz... yes
+checking for hstrerror... yes
+checking for inet_aton... yes
+checking for inet_pton... yes
+checking for setgroups... yes
+checking for openpty... no
+checking for openpty in -lutil... yes
+checking for forkpty... yes
+checking for memmove... yes
+checking for fseek64... no
+checking for fseeko... yes
+checking for fstatvfs... yes
+checking for ftell64... no
+checking for ftello... yes
+checking for statvfs... yes
+checking for dup2... yes
+checking for getcwd... yes
+checking for strdup... yes
+checking for getpgrp... yes
+checking for setpgrp... (cached) yes
+checking for gettimeofday... yes
+checking for major... yes
+checking for getaddrinfo... yes
+checking getaddrinfo bug... no
+checking for getnameinfo... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_zone... yes
+checking for struct stat.st_rdev... yes
+checking for struct stat.st_blksize... yes
+checking for struct stat.st_flags... no
+checking for struct stat.st_gen... no
+checking for struct stat.st_birthtime... no
+checking for struct stat.st_blocks... yes
+checking for time.h that defines altzone... no
+checking whether sys/select.h and sys/time.h may both be included... yes
+checking for addrinfo... yes
+checking for sockaddr_storage... yes
+checking whether char is unsigned... no
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking for working signed char... yes
+checking for prototypes... yes
+checking for variable length prototypes and stdarg.h... yes
+checking for socketpair... yes
+checking if sockaddr has sa_len member... no
+checking whether va_list is an array... yes
+checking for gethostbyname_r... yes
+checking gethostbyname_r with 6 args... yes
+checking for __fpu_control... yes
+checking for --with-fpectl... yes
+checking for --with-libm=STRING... default LIBM="-lm"
+checking for --with-libc=STRING... default LIBC=""
+checking whether C doubles are little-endian IEEE 754 binary64... yes
+checking whether C doubles are big-endian IEEE 754 binary64... no
+checking whether C doubles are ARM mixed-endian IEEE 754 binary64... no
+checking whether we can use gcc inline assembler to get and set x87 control word... yes
+checking for x87-style double rounding... no
+checking whether tanh preserves the sign of zero... yes
+checking for acosh... yes
+checking for asinh... yes
+checking for atanh... yes
+checking for copysign... yes
+checking for erf... yes
+checking for erfc... yes
+checking for expm1... yes
+checking for finite... yes
+checking for gamma... yes
+checking for hypot... yes
+checking for lgamma... yes
+checking for log1p... yes
+checking for round... yes
+checking for tgamma... yes
+checking whether isinf is declared... yes
+checking whether isnan is declared... yes
+checking whether isfinite is declared... yes
+checking whether POSIX semaphores are enabled... yes
+checking for broken sem_getvalue... no
+checking digit size for Python's longs... no value specified
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking size of wchar_t... 4
+checking for UCS-4 tcl... no
+checking whether wchar_t is signed... yes
+checking what type to use for unicode... no type found
+checking whether byte ordering is bigendian... no
+checking whether right shift extends the sign bit... yes
+checking for getc_unlocked() and friends... yes
+checking how to link readline libs... -lreadline
+checking for rl_callback_handler_install in -lreadline... yes
+checking for rl_pre_input_hook in -lreadline... yes
+checking for rl_completion_display_matches_hook in -lreadline... yes
+checking for rl_completion_matches in -lreadline... yes
+checking for broken nice()... no
+checking for broken poll()... no
+checking for struct tm.tm_zone... (cached) yes
+checking for working tzset()... yes
+checking for tv_nsec in struct stat... yes
+checking for tv_nsec2 in struct stat... no
+checking whether mvwdelch is an expression... yes
+checking whether WINDOW has _flags... yes
+checking for is_term_resized... yes
+checking for resize_term... yes
+checking for resizeterm... yes
+checking for /dev/ptmx... yes
+checking for /dev/ptc... no
+checking for %lld and %llu printf() format support... yes
+checking for %zd printf() format support... yes
+checking for socklen_t... yes
+checking for build directories... done
+configure: creating ./config.status
+config.status: creating Makefile.pre
+config.status: creating Modules/Setup.config
+config.status: creating Misc/python.pc
+config.status: creating Modules/ld_so_aix
+config.status: creating pyconfig.h
+creating Modules/Setup
+creating Modules/Setup.local
+creating Makefile
+egrep "^#($(awk -v ORS='|' '$2 ~ /^extension$/ {print $1}' debian/PVER-minimal.README.Debian.in)XX)" Modules/Setup.dist | sed -e 's/^#//' -e 's/-Wl,-Bdynamic//;s/-Wl,-Bstatic//' >> /«PKGBUILDDIR»/build-static/Modules/Setup.local
+: # unconditionally run makesetup
+cd /«PKGBUILDDIR»/build-static && ../Modules/makesetup -c ../Modules/config.c.in -s Modules Modules/Setup.config Modules/Setup.local Modules/Setup
+mv /«PKGBUILDDIR»/build-static/config.c /«PKGBUILDDIR»/build-static/Modules/
+: # and fix the timestamps
+/usr/bin/make -C /«PKGBUILDDIR»/build-static Makefile Modules/config.c
+make[1]: Entering directory `/«PKGBUILDDIR»/build-static'
+make[1]: `Makefile' is up to date.
+make[1]: `Modules/config.c' is up to date.
+make[1]: Leaving directory `/«PKGBUILDDIR»/build-static'
+: # apply workaround for missing os.fsync
+sed 's/HAVE_SYNC/HAVE_FSYNC/g' /«PKGBUILDDIR»/build-static/pyconfig.h > /«PKGBUILDDIR»/build-static/pyconfig.h.new
+touch -r /«PKGBUILDDIR»/build-static/pyconfig.h /«PKGBUILDDIR»/build-static/pyconfig.h.new
+mv -f /«PKGBUILDDIR»/build-static/pyconfig.h.new /«PKGBUILDDIR»/build-static/pyconfig.h
+touch stamps/stamp-configure-static
+dh_testdir
+/usr/bin/make  -C /«PKGBUILDDIR»/build-static \
+		EXTRA_CFLAGS="-g -flto -fuse-linker-plugin" \
+		PROFILE_TASK='../Lib/test/regrtest.py -x test_bsddb3 test_compiler test_cprofile test_dbm_dumb test_dbm_ndbm test_distutils test_gdb test_io test_linuxaudiodev test_multiprocessing test_ossaudiodev test_platform test_pydoc test_socketserver test_subprocess test_sundry test_thread test_threaded_import test_threadedtempfile test_threading test_threading_local test_threadsignals test_xmlrpc test_zipfile' profile-opt
+make[1]: Entering directory `/«PKGBUILDDIR»/build-static'
+Building with support for profile generation:
+/usr/bin/make clean
+make[2]: Entering directory `/«PKGBUILDDIR»/build-static'
+find .. -name '*.py[co]' -exec rm -f {} ';'
+find . -name '*.[oa]' -exec rm -f {} ';'
+find . -name '*.s[ol]' -exec rm -f {} ';'
+find . -name '*.so.[0-9]*.[0-9]*' -exec rm -f {} ';'
+find build -name 'fficonfig.h' -exec rm -f {} ';' || true
+find: `build': No such file or directory
+find build -name 'fficonfig.py' -exec rm -f {} ';' || true
+find: `build': No such file or directory
+rm -f Lib/lib2to3/*Grammar*.pickle
+make[2]: Leaving directory `/«PKGBUILDDIR»/build-static'
+/usr/bin/make build_all_generate_profile
+make[2]: Entering directory `/«PKGBUILDDIR»/build-static'
+/usr/bin/make all PY_CFLAGS="-fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate" LIBS="-lpthread -ldl  -lutil -lgcov"
+make[3]: Entering directory `/«PKGBUILDDIR»/build-static'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Modules/python.o ../Modules/python.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/acceler.o ../Parser/acceler.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/grammar1.o ../Parser/grammar1.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/listnode.o ../Parser/listnode.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/node.o ../Parser/node.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Parser/node.c:94:31: warning: comparison of constant 461168601842738790 with expression of type 'int' is always false [-Wtautological-constant-out-of-range-compare]
+        if (required_capacity > PY_SIZE_MAX / sizeof(node)) {
+            ~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/parser.o ../Parser/parser.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/parsetok.o ../Parser/parsetok.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/bitset.o ../Parser/bitset.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/metagrammar.o ../Parser/metagrammar.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/firstsets.o ../Parser/firstsets.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/grammar.o ../Parser/grammar.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/pgen.o ../Parser/pgen.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/myreadline.o ../Parser/myreadline.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/tokenizer.o ../Parser/tokenizer.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/abstract.o ../Objects/abstract.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/boolobject.o ../Objects/boolobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/bufferobject.o ../Objects/bufferobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/bytes_methods.o ../Objects/bytes_methods.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/bytearrayobject.o ../Objects/bytearrayobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/capsule.o ../Objects/capsule.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/cellobject.o ../Objects/cellobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/classobject.o ../Objects/classobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/classobject.c:2259:23: warning: expression result unused [-Wunused-value]
+        PyObject_INIT(im, &PyMethod_Type);
+                      ^~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/cobject.o ../Objects/cobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/codeobject.o ../Objects/codeobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/complexobject.o ../Objects/complexobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/complexobject.c:238:19: warning: expression result unused [-Wunused-value]
+    PyObject_INIT(op, &PyComplex_Type);
+                  ^~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/descrobject.o ../Objects/descrobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/enumobject.o ../Objects/enumobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/exceptions.o ../Objects/exceptions.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/genobject.o ../Objects/genobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/fileobject.o ../Objects/fileobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/floatobject.o ../Objects/floatobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/floatobject.c:152:19: warning: expression result unused [-Wunused-value]
+    PyObject_INIT(op, &PyFloat_Type);
+                  ^~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/frameobject.o ../Objects/frameobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/funcobject.o ../Objects/funcobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/intobject.o ../Objects/intobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/intobject.c:110:19: warning: expression result unused [-Wunused-value]
+    PyObject_INIT(v, &PyInt_Type);
+                  ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+../Objects/intobject.c:1444:23: warning: expression result unused [-Wunused-value]
+        PyObject_INIT(v, &PyInt_Type);
+                      ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+2 warnings generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/iterobject.o ../Objects/iterobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/listobject.o ../Objects/listobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/longobject.o ../Objects/longobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/dictobject.o ../Objects/dictobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/memoryobject.o ../Objects/memoryobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/memoryobject.c:181:20: warning: comparison of constant 1152921504606846975 with expression of type 'int' is always false [-Wtautological-constant-out-of-range-compare]
+    if (view->ndim > PY_SSIZE_T_MAX / sizeof(Py_ssize_t)) {
+        ~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/methodobject.o ../Objects/methodobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/methodobject.c:23:23: warning: expression result unused [-Wunused-value]
+        PyObject_INIT(op, &PyCFunction_Type);
+                      ^~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/moduleobject.o ../Objects/moduleobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/object.o ../Objects/object.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/obmalloc.o ../Objects/obmalloc.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/rangeobject.o ../Objects/rangeobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/setobject.o ../Objects/setobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/sliceobject.o ../Objects/sliceobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/stringobject.o ../Objects/stringobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/stringobject.c:91:23: warning: expression result unused [-Wunused-value]
+    PyObject_INIT_VAR(op, &PyString_Type, size);
+                      ^~
+../Include/objimpl.h:166:44: note: expanded from macro 'PyObject_INIT_VAR'
+    ( Py_SIZE(op) = (size), PyObject_INIT((op), (typeobj)) )
+                                           ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+../Objects/stringobject.c:146:23: warning: expression result unused [-Wunused-value]
+    PyObject_INIT_VAR(op, &PyString_Type, size);
+                      ^~
+../Include/objimpl.h:166:44: note: expanded from macro 'PyObject_INIT_VAR'
+    ( Py_SIZE(op) = (size), PyObject_INIT((op), (typeobj)) )
+                                           ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+../Objects/stringobject.c:1059:23: warning: expression result unused [-Wunused-value]
+    PyObject_INIT_VAR(op, &PyString_Type, size);
+                      ^~
+../Include/objimpl.h:166:44: note: expanded from macro 'PyObject_INIT_VAR'
+    ( Py_SIZE(op) = (size), PyObject_INIT((op), (typeobj)) )
+                                           ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+../Objects/stringobject.c:1101:23: warning: expression result unused [-Wunused-value]
+    PyObject_INIT_VAR(op, &PyString_Type, size);
+                      ^~
+../Include/objimpl.h:166:44: note: expanded from macro 'PyObject_INIT_VAR'
+    ( Py_SIZE(op) = (size), PyObject_INIT((op), (typeobj)) )
+                                           ^
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+4 warnings generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/structseq.o ../Objects/structseq.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/tupleobject.o ../Objects/tupleobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/typeobject.o ../Objects/typeobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/typeobject.c:766:23: warning: expression result unused [-Wunused-value]
+        PyObject_INIT(obj, type);
+                      ^~~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/weakrefobject.o ../Objects/weakrefobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/weakrefobject.c:177:23: warning: data argument not used by format string [-Wformat-extra-args]
+                      name);
+                      ^
+1 warning generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/unicodeobject.o ../Objects/unicodeobject.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Objects/unicodeobject.c:337:23: warning: expression result unused [-Wunused-value]
+        PyObject_INIT(unicode, &PyUnicode_Type);
+                      ^~~~~~~
+../Include/objimpl.h:164:69: note: expanded from macro 'PyObject_INIT'
+    ( Py_TYPE(op) = (typeobj), _Py_NewReference((PyObject *)(op)), (op) )
+                                                                    ^
+../Objects/unicodeobject.c:3397:31: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+            *p > unimax || *p < 0 ||
+                           ~~ ^ ~
+2 warnings generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Objects/unicodectype.o ../Objects/unicodectype.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Python/_warnings.o ../Python/_warnings.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Python/Python-ast.o ../Python/Python-ast.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Python/asdl.o ../Python/asdl.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+../Python/asdl.c:12:30: warning: comparison of constant 2305843009213693951 with expression of type 'int' is always false [-Wtautological-constant-out-of-range-compare]
+        (size && ((size - 1) > (PY_SIZE_MAX / sizeof(void *))))) {
+                  ~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Python/asdl.c:43:30: warning: comparison of constant 2305843009213693951 with expression of type 'int' is always false [-Wtautological-constant-out-of-range-compare]
+        (size && ((size - 1) > (PY_SIZE_MAX / sizeof(void *))))) {
+                  ~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Python/mysnprintf.o ../Python/mysnprintf.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Python/pyctype.o ../Python/pyctype.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/tokenizer_pgen.o ../Parser/tokenizer_pgen.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/printgrammar.o ../Parser/printgrammar.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -c -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security   -g -flto -fuse-linker-plugin -fprofile-generate -I. -IInclude -I../Include    -DPy_BUILD_CORE -o Parser/pgenmain.o ../Parser/pgenmain.c
+clang: warning: argument unused during compilation: '-fuse-linker-plugin'
+clang: warning: argument unused during compilation: '-fprofile-generate'
+gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -Wl,-z,relro   Parser/acceler.o Parser/grammar1.o Parser/listnode.o Parser/node.o Parser/parser.o Parser/parsetok.o Parser/bitset.o Parser/metagrammar.o Parser/firstsets.o Parser/grammar.o Parser/pgen.o Objects/obmalloc.o Python/mysnprintf.o Python/pyctype.o Parser/tokenizer_pgen.o Parser/printgrammar.o Parser/pgenmain.o -lpthread -ldl  -lutil -lgcov -o Parser/pgen
+Parser/acceler.o: file not recognized: File format not recognized
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[3]: *** [Parser/pgen] Error 1
+make[3]: Leaving directory `/«PKGBUILDDIR»/build-static'
+make[2]: *** [build_all_generate_profile] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»/build-static'
+make[1]: *** [profile-opt] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»/build-static'
+make: *** [stamps/stamp-build-static] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0153
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -437,28 +2521,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 97060
+Build-Time: 46
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 22
 Job: python2.7_2.7.3-6
 Package: python2.7
-Package-Time: 0
+Package-Time: 128
 Source-Version: 2.7.3-6
-Space: 0
-Status: failed
+Space: 97060
+Status: attempted
 Version: 2.7.3-6
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0351
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.057434s
-DC-Time-Estimation: 34.057434 versus expected 1 (r/m: 33.057434 ; m: 1.0)
+Finished at 20130202-0153
+Build needed 00:02:08, 97060k disc space
+DC-Status: Failed 129.589523s
+DC-Time-Estimation: 129.589523 versus expected 1 (r/m: 128.589523 ; m: 1.0)

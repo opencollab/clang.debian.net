@@ -1,12 +1,12 @@
-DC-Build-Header: t-coffee 9.02.r1228-2 / Mon Jan 28 04:33:26 +0000 2013
-DC-Task: logfile:/tmp/t-coffee_9.02.r1228-2_unstable_clang.log version:9.02.r1228-2 chroot:unstable modes:binary-only:clang source:t-coffee architecture:any esttime:326
+DC-Build-Header: t-coffee 9.02.r1228-2 / Thu Jan 31 18:41:58 +0000 2013
+DC-Task: logfile:/tmp/t-coffee_9.02.r1228-2_unstable_clang.log version:9.02.r1228-2 modes:binary-only:clang chroot:unstable source:t-coffee esttime:326 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang t-coffee_9.02.r1228-2'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-128-142.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-28-131-190.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ t-coffee 9.02.r1228-2 (amd64)                              28 Jan 2013 04:33 ║
+║ t-coffee 9.02.r1228-2 (amd64)                              31 Jan 2013 18:41 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: t-coffee
@@ -15,9 +15,9 @@ Source Version: 9.02.r1228-2
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/t-coffee-zZueQP/t-coffee-9.02.r1228' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/t-coffee-zZueQP' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-a43b8296-f1b9-4404-9d5f-83832057b13c' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/t-coffee-VX0BYi/t-coffee-9.02.r1228' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/t-coffee-VX0BYi' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-9d3380fd-4221-46fd-b3b5-51d7599157cb' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4841 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5423 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -64,7 +60,7 @@ Need to get 3373 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main t-coffee 9.02.r1228-2 (dsc) [2241 B]
 Get:2 http://localhost/debian/ unstable/main t-coffee 9.02.r1228-2 (tar) [3364 kB]
 Get:3 http://localhost/debian/ unstable/main t-coffee 9.02.r1228-2 (diff) [7372 B]
-Fetched 3373 kB in 0s (8704 kB/s)
+Fetched 3373 kB in 0s (7354 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -81,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main Sources/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main Sources
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1327 kB/s)
+Fetched 3970 B in 1s (2659 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main Sources/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3984 B/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:6 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:7 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.1 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (6653 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -301,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -372,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-9nDOLL/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-hH6VIB/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -388,15 +266,15 @@ The following NEW packages will be installed:
   sbuild-build-depends-core-dummy
 debconf: delaying package configuration, since apt-utils is not installed
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 0 B/712 B of archives.
+Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), cdbs, quilt, gfortran
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), cdbs, quilt, gfortran
-dpkg-deb: building package `sbuild-build-depends-t-coffee-dummy' in `/«BUILDDIR»/resolver-bK3str/apt_archive/sbuild-build-depends-t-coffee-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-t-coffee-dummy' in `/«BUILDDIR»/resolver-p1G0Wi/apt_archive/sbuild-build-depends-t-coffee-dummy.deb'.
 OK
 Reading package lists...
 
@@ -408,18 +286,2944 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bsdmainutils cdbs debhelper diffstat file gettext gettext-base gfortran
+  gfortran-4.7 groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libgettextpo-dev libgettextpo0 libgfortran3
+  libglib2.0-0 libmagic1 libpcre3 libpipeline1 libunistring0 libxml2 man-db
+  po-debconf quilt
+Suggested packages:
+  wamerican wordlist whois vacation devscripts dh-make gettext-doc
+  gfortran-multilib gfortran-doc gfortran-4.7-multilib gfortran-4.7-doc
+  libgfortran3-dbg groff less www-browser libmail-box-perl procmail graphviz
+  default-mta mail-transport-agent
+Recommended packages:
+  autotools-dev curl wget lynx-cur autopoint libglib2.0-data shared-mime-info
+  xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils cdbs debhelper diffstat file gettext gettext-base gfortran
+  gfortran-4.7 groff-base html2text intltool-debian libasprintf-dev
+  libasprintf0c2 libcroco3 libgettextpo-dev libgettextpo0 libgfortran3
+  libglib2.0-0 libmagic1 libpcre3 libpipeline1 libunistring0 libxml2 man-db
+  po-debconf quilt sbuild-build-depends-t-coffee-dummy
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 16.1 MB/16.1 MB of archives.
+After this operation, 44.8 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main libgfortran3 amd64 4.7.2-5 [351 kB]
+Get:14 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:15 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:16 http://localhost/debian/ unstable/main cdbs all 0.4.120 [80.4 kB]
+Get:17 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:18 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:19 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:20 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:21 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:22 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:23 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:24 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:25 http://localhost/debian/ unstable/main gfortran-4.7 amd64 4.7.2-5 [6173 kB]
+Get:26 http://localhost/debian/ unstable/main gfortran amd64 4:4.7.2-1 [1130 B]
+Get:27 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 16.1 MB in 0s (31.3 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgfortran3:amd64.
+Unpacking libgfortran3:amd64 (from .../libgfortran3_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package cdbs.
+Unpacking cdbs (from .../archives/cdbs_0.4.120_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package gfortran-4.7.
+Unpacking gfortran-4.7 (from .../gfortran-4.7_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package gfortran.
+Unpacking gfortran (from .../gfortran_4%3a4.7.2-1_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-t-coffee-dummy.
+Unpacking sbuild-build-depends-t-coffee-dummy (from .../sbuild-build-depends-t-coffee-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libgfortran3:amd64 (4.7.2-5) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up cdbs (0.4.120) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up gfortran-4.7 (4.7.2-5) ...
+Setting up gfortran (4:4.7.2-1) ...
+update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode
+Setting up quilt (0.60-7) ...
+Setting up sbuild-build-depends-t-coffee-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-t-coffee-dummy : Depends: gfortran but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 cdbs_0.4.120 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gfortran_4:4.7.2-1 gfortran-4.7_4.7.2-5 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgfortran3_4.7.2-5 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-t-coffee-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Mar  2 05:20:45 2012 UTC using RSA key ID 2295D502
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./t-coffee_9.02.r1228-2.dsc
+dpkg-source: info: extracting t-coffee in t-coffee-9.02.r1228
+dpkg-source: info: unpacking t-coffee_9.02.r1228.orig.tar.gz
+dpkg-source: info: unpacking t-coffee_9.02.r1228-2.debian.tar.gz
+dpkg-source: info: applying probconsrna.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-9d3380fd-4221-46fd-b3b5-51d7599157cb
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package t-coffee
+dpkg-buildpackage: source version 9.02.r1228-2
+dpkg-buildpackage: source changed by Charles Plessy <plessy@debian.org>
+ dpkg-source --before-build t-coffee-9.02.r1228
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: make[1]: Entering directory `/«PKGBUILDDIR»'
+*** No rule to make target `clean'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: [makefile-clean] Error 2 (ignored)
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+if [ -d "." ]; then \
+	  cd . && QUILT_PATCHES=/«PKGBUILDDIR»/debian/patches quilt --quiltrc /dev/null pop -a -R || test $? = 2 ; \
+	fi
+Removing patch probconsrna.patch
+Restoring t_coffee_source/define_header.h
+
+No patches applied
+rm -rf ./.pc
+rm -f debian/stamp-patch*
+dh_clean 
+dh_clean  t_coffee_source/*.o t_coffee_source/t_coffee bin/t_coffee example/t_coffee.log bin/t_coffee
+chmod 644 example/*
+ debian/rules build-arch
+test -x debian/rules
+mkdir -p "."
+/usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_COMPRESS_EXCLUDE is a deprecated variable
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+cd . && QUILT_PATCHES=/«PKGBUILDDIR»/debian/patches quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch probconsrna.patch
+patching file t_coffee_source/define_header.h
+Hunk #1 succeeded at 592 (offset 3 lines).
+
+Now at patch probconsrna.patch
+touch debian/stamp-patched
+/usr/bin/make -f debian/rules update-config
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make[1]: Nothing to be done for `update-config'.
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -C t_coffee_source -i USER_BIN=../bin/ FCC="gfortran -g -O2" all
+make[1]: Entering directory `/«PKGBUILDDIR»/t_coffee_source'
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_constraints_list.o util_constraints_list.c
+util_constraints_list.c:135:10: warning: unused variable 'fp' [-Wunused-variable]
+                        FILE *fp;
+                              ^
+util_constraints_list.c:136:20: warning: unused variable 't' [-Wunused-variable]
+                        int done, todo, t;
+                                        ^
+util_constraints_list.c:88:6: warning: unused variable 'cseq' [-Wunused-variable]
+        int cseq, seq, nlines;
+            ^
+util_constraints_list.c:88:12: warning: unused variable 'seq' [-Wunused-variable]
+        int cseq, seq, nlines;
+                  ^
+util_constraints_list.c:81:8: warning: unused variable 'b' [-Wunused-variable]
+        int a,b;
+              ^
+util_constraints_list.c:87:24: warning: unused variable 'submited' [-Wunused-variable]
+        int nproc, max_nproc, submited;
+                              ^
+util_constraints_list.c:88:17: warning: unused variable 'nlines' [-Wunused-variable]
+        int cseq, seq, nlines;
+                       ^
+util_constraints_list.c:89:6: warning: unused variable 'n_aln' [-Wunused-variable]
+        int n_aln;
+            ^
+util_constraints_list.c:193:8: warning: unused variable 'b' [-Wunused-variable]
+        int a,b;
+              ^
+util_constraints_list.c:331:8: warning: unused variable 'b' [-Wunused-variable]
+        int a,b, n;
+              ^
+util_constraints_list.c:331:11: warning: unused variable 'n' [-Wunused-variable]
+        int a,b, n;
+                 ^
+util_constraints_list.c:435:21: warning: unused variable 'n_new_elements' [-Wunused-variable]
+        int n_elements_in, n_new_elements;
+                           ^
+util_constraints_list.c:512:16: warning: unused variable 'log_output' [-Wunused-variable]
+                static char *log_output;
+                             ^
+util_constraints_list.c:513:14: warning: unused variable 'log' [-Wunused-variable]
+                static int log;
+                           ^
+util_constraints_list.c:535:13: warning: unused variable 'log' [-Wunused-variable]
+        static int log;
+                   ^
+util_constraints_list.c:608:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            chdir (tdir);
+            ^~~~~  ~~~~
+util_constraints_list.c:611:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            chdir (cdir);
+            ^~~~~  ~~~~
+util_constraints_list.c:584:13: warning: unused variable 'log' [-Wunused-variable]
+        static int log;
+                   ^
+util_constraints_list.c:583:15: warning: unused variable 'l' [-Wunused-variable]
+        static char *l;
+                     ^
+util_constraints_list.c:800:14: warning: unused variable 'y' [-Wunused-variable]
+      int x, y, n;
+             ^
+util_constraints_list.c:801:12: warning: unused variable 'used' [-Wunused-variable]
+      int *used;
+           ^
+util_constraints_list.c:1033:6: warning: unused variable 'n' [-Wunused-variable]
+        int n=0, a, ml1=0, ml2=0, ml3=0;
+            ^
+util_constraints_list.c:1034:6: warning: unused variable 'status' [-Wunused-variable]
+        int status;
+            ^
+util_constraints_list.c:1177:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets ( line,LONG_STRING, fp);
+                ^~~~~   ~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:1219:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets ( line,LONG_STRING, fp);
+                ^~~~~   ~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:1333:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util_constraints_list.c:1388:8: warning: unused variable 'nl' [-Wunused-variable]
+                        int nl;
+                            ^
+util_constraints_list.c:1376:6: warning: unused variable 'a' [-Wunused-variable]
+        int a, b, c,e,tot;
+            ^
+util_constraints_list.c:1409:55: error: non-void function 'safe_dump_constraint_list' should return a value [-Wreturn-type]
+        if (!CL || !CL->S || !CL->residue_index || CL->ne==0)return;
+                                                             ^
+util_constraints_list.c:1468:8: warning: unused variable 'c' [-Wunused-variable]
+        int b,c,l,s1,r1,s2,r2,w2,n;
+              ^
+util_constraints_list.c:1468:10: warning: unused variable 'l' [-Wunused-variable]
+        int b,c,l,s1,r1,s2,r2,w2,n;
+                ^
+util_constraints_list.c:1504:21: warning: unused variable 'entry' [-Wunused-variable]
+        static CLIST_TYPE *entry;
+                           ^
+util_constraints_list.c:1505:12: warning: unused variable 'c' [-Wunused-variable]
+        int a, b, c, s1, s2, r1, r2;
+                  ^
+util_constraints_list.c:1505:19: warning: unused variable 's2' [-Wunused-variable]
+        int a, b, c, s1, s2, r1, r2;
+                         ^
+util_constraints_list.c:1505:27: warning: unused variable 'r2' [-Wunused-variable]
+        int a, b, c, s1, s2, r1, r2;
+                                 ^
+util_constraints_list.c:1607:6: warning: unused variable 'v' [-Wunused-variable]
+        int v;
+            ^
+util_constraints_list.c:1860:8: warning: unused variable 'r' [-Wunused-variable]
+  int *r= CL->residue_index[s1][r1];
+       ^
+util_constraints_list.c:1962:7: warning: unused variable 'from' [-Wunused-variable]
+        int *from, *to;
+             ^
+util_constraints_list.c:1962:14: warning: unused variable 'to' [-Wunused-variable]
+        int *from, *to;
+                    ^
+util_constraints_list.c:1982:6: warning: unused variable 'a' [-Wunused-variable]
+        int a, *from, *to;
+            ^
+util_constraints_list.c:1982:10: warning: unused variable 'from' [-Wunused-variable]
+        int a, *from, *to;
+                ^
+util_constraints_list.c:1982:17: warning: unused variable 'to' [-Wunused-variable]
+        int a, *from, *to;
+                       ^
+util_constraints_list.c:2009:7: warning: unused variable 's2' [-Wunused-variable]
+  int s2=entry[SEQ2];
+      ^
+util_constraints_list.c:2011:7: warning: unused variable 'r2' [-Wunused-variable]
+  int r2=entry[R2];
+      ^
+util_constraints_list.c:2065:9: warning: implicit declaration of function 'constraint_list2max' is invalid in C99 [-Wimplicit-function-declaration]
+        return constraint_list2max (CL);
+               ^
+util_constraints_list.c:2085:6: warning: unused variable 'a' [-Wunused-variable]
+        int a, b, c;
+            ^
+util_constraints_list.c:2085:9: warning: unused variable 'b' [-Wunused-variable]
+        int a, b, c;
+               ^
+util_constraints_list.c:2085:12: warning: unused variable 'c' [-Wunused-variable]
+        int a, b, c;
+                  ^
+util_constraints_list.c:2086:13: warning: unused variable 'tp' [-Wunused-variable]
+        CLIST_TYPE tp;
+                   ^
+util_constraints_list.c:2094:6: warning: unused variable 'max' [-Wunused-variable]
+        int max=0;
+            ^
+util_constraints_list.c:2096:6: warning: unused variable 'b' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+            ^
+util_constraints_list.c:2096:8: warning: unused variable 'l' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+              ^
+util_constraints_list.c:2096:16: warning: unused variable 's2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                      ^
+util_constraints_list.c:2096:19: warning: unused variable 'r2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                         ^
+util_constraints_list.c:2096:22: warning: unused variable 'w2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                            ^
+util_constraints_list.c:2608:14: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        if ( c=='C')fscanf( fp, "PU %d\n", &cpu);
+                    ^~~~~~  ~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:2707:6: warning: unused variable 'a' [-Wunused-variable]
+        int a;
+            ^
+util_constraints_list.c:2841:72: warning: data argument not used by format string [-Wformat-extra-args]
+                                x=sscanf (buf, "%s %d %d %d %d %d",arg, &length, &r1,&r2,&we,&cons,&misc);
+                                               ~~~~~~~~~~~~~~~~~~~                                 ^
+util_constraints_list.c:2800:6: warning: unused variable 'a' [-Wunused-variable]
+        int a;
+            ^
+util_constraints_list.c:2905:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf (fp, "%*s %d %*s\n", &l);
+                ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:2961:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fgets (line , 200 , fp);
+                        ^~~~~  ~~~~~~~~~~~~~~~
+util_constraints_list.c:2936:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s %d %s\n", name, &seq_len, sequence);
+                ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:2900:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf (fp, "%d\n", &max_nseq);
+        ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:2930:14: warning: unused variable 'value' [-Wunused-variable]
+        char *tag, *value;
+                    ^
+util_constraints_list.c:3255:28: warning: unused variable 'w2' [-Wunused-variable]
+        int a, b, s1, s2, r1, r2, w2,x1, x2;
+                                  ^
+util_constraints_list.c:3255:31: warning: unused variable 'x1' [-Wunused-variable]
+        int a, b, s1, s2, r1, r2, w2,x1, x2;
+                                     ^
+util_constraints_list.c:3255:35: warning: unused variable 'x2' [-Wunused-variable]
+        int a, b, s1, s2, r1, r2, w2,x1, x2;
+                                         ^
+util_constraints_list.c:3386:11: warning: unused variable 'ts' [-Wunused-variable]
+                                                int ts,tr;
+                                                    ^
+util_constraints_list.c:3386:14: warning: unused variable 'tr' [-Wunused-variable]
+                                                int ts,tr;
+                                                       ^
+util_constraints_list.c:3428:7: warning: expression result unused [-Wunused-value]
+  if (!CL->multi_thread, "relax")njobs=1;
+      ^~~~~~~~~~~~~~~~~
+util_constraints_list.c:3451:7: warning: unused variable 'np' [-Wunused-variable]
+  int np;
+      ^
+util_constraints_list.c:3563:7: warning: unused variable 'L' [-Wunused-variable]
+        int *L;
+             ^
+util_constraints_list.c:3564:6: warning: unused variable 'chunck' [-Wunused-variable]
+        int chunck=500;
+            ^
+util_constraints_list.c:3565:6: warning: unused variable 'max' [-Wunused-variable]
+        int max=500;
+            ^
+util_constraints_list.c:3566:6: warning: unused variable 'n' [-Wunused-variable]
+        int n=0;
+            ^
+util_constraints_list.c:3629:6: warning: unused variable 'a' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+            ^
+util_constraints_list.c:3629:9: warning: unused variable 's1' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+               ^
+util_constraints_list.c:3629:13: warning: unused variable 's2' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+                   ^
+util_constraints_list.c:3629:17: warning: unused variable 'r1' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+                       ^
+util_constraints_list.c:3629:21: warning: unused variable 'r2' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+                           ^
+util_constraints_list.c:3629:24: warning: unused variable 'n' [-Wunused-variable]
+        int a, s1, s2, r1, r2,n;
+                              ^
+util_constraints_list.c:3630:6: warning: unused variable 'score' [-Wunused-variable]
+        int score;
+            ^
+util_constraints_list.c:3631:6: warning: unused variable 'thr' [-Wunused-variable]
+        int thr;
+            ^
+util_constraints_list.c:3632:6: warning: unused variable 'chunk' [-Wunused-variable]
+        int chunk, npid, job,pid;
+            ^
+util_constraints_list.c:3632:13: warning: unused variable 'npid' [-Wunused-variable]
+        int chunk, npid, job,pid;
+                   ^
+util_constraints_list.c:3632:19: warning: unused variable 'job' [-Wunused-variable]
+        int chunk, npid, job,pid;
+                         ^
+util_constraints_list.c:3632:23: warning: unused variable 'pid' [-Wunused-variable]
+        int chunk, npid, job,pid;
+                             ^
+util_constraints_list.c:3633:8: warning: unused variable 'fp' [-Wunused-variable]
+        FILE *fp;
+              ^
+util_constraints_list.c:3634:9: warning: unused variable 'pid_tmpfile' [-Wunused-variable]
+        char **pid_tmpfile;
+               ^
+util_constraints_list.c:3635:8: warning: unused variable 'pid_list' [-Wunused-variable]
+        int * pid_list;
+              ^
+util_constraints_list.c:3636:6: warning: unused variable 'in' [-Wunused-variable]
+        int in;
+            ^
+util_constraints_list.c:3771:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fscanf (fp, "%d ", &CL->residue_index[s][r][a+WE]);
+                                ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util_constraints_list.c:3729:6: warning: unused variable 'thr' [-Wunused-variable]
+        int thr=10;
+            ^
+util_constraints_list.c:3730:20: warning: unused variable 'l' [-Wunused-variable]
+        int s,r,a,t_s,t_r,l;
+                          ^
+util_constraints_list.c:3784:8: warning: unused variable 'l' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+              ^
+util_constraints_list.c:3804:6: warning: unused variable 'b' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+            ^
+util_constraints_list.c:3804:8: warning: unused variable 'l' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+              ^
+util_constraints_list.c:3804:16: warning: unused variable 's2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                      ^
+util_constraints_list.c:3804:19: warning: unused variable 'r2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                         ^
+util_constraints_list.c:3804:22: warning: unused variable 'w2' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+                            ^
+util_constraints_list.c:3858:8: warning: unused variable 'l' [-Wunused-variable]
+        int b,l,s1,r1,s2,r2,w2;
+              ^
+util_constraints_list.c:3882:14: warning: unused variable 'buf' [-Wunused-variable]
+        static int *buf;
+                    ^
+util_constraints_list.c:3883:13: warning: unused variable 'bs' [-Wunused-variable]
+        static int bs;
+                   ^
+util_constraints_list.c:4135:10: warning: unused variable 'lw' [-Wunused-variable]
+                        float lw;
+                              ^
+util_constraints_list.c:4058:12: warning: unused variable 's' [-Wunused-variable]
+        char *p, *s;
+                  ^
+util_constraints_list.c:4196:6: warning: unused variable 'max' [-Wunused-variable]
+        int max=0;
+            ^
+util_constraints_list.c:4289:12: warning: unused variable 's2' [-Wunused-variable]
+        int s1,r1,s2,r2,l,a,b;
+                  ^
+util_constraints_list.c:4289:15: warning: unused variable 'r2' [-Wunused-variable]
+        int s1,r1,s2,r2,l,a,b;
+                     ^
+util_constraints_list.c:4289:18: warning: unused variable 'l' [-Wunused-variable]
+        int s1,r1,s2,r2,l,a,b;
+                        ^
+util_constraints_list.c:4289:22: warning: unused variable 'b' [-Wunused-variable]
+        int s1,r1,s2,r2,l,a,b;
+                            ^
+util_constraints_list.c:4538:8: warning: unused variable 'w' [-Wunused-variable]
+        float w;
+              ^
+util_constraints_list.c:4540:6: warning: unused variable 'sA' [-Wunused-variable]
+        int sA, sB;
+            ^
+util_constraints_list.c:4540:10: warning: unused variable 'sB' [-Wunused-variable]
+        int sA, sB;
+                ^
+util_constraints_list.c:4541:12: warning: unused variable 'b' [-Wunused-variable]
+        int s,r,a,b;
+                  ^
+util_constraints_list.c:4564:8: warning: unused variable 'a' [-Wunused-variable]
+  int *a;
+       ^
+util_constraints_list.c:4942:6: warning: unused variable 'a' [-Wunused-variable]
+        int a,b,c,d,e,n1,n2, ne,s1,r1,s2,r2,w2;
+            ^
+util_constraints_list.c:4942:23: warning: unused variable 'ne' [-Wunused-variable]
+        int a,b,c,d,e,n1,n2, ne,s1,r1,s2,r2,w2;
+                             ^
+util_constraints_list.c:6502:24: warning: unused variable 'r2' [-Wunused-variable]
+  int  bs,a,b,s1,s2,r1,r2;
+                       ^
+117 warnings and 1 error generated.
+make[1]: [util_constraints_list.o] Error 1 (ignored)
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_job_handling.o util_job_handling.c
+In file included from util_job_handling.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dps.o util_dps.c
+In file included from util_dps.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_domain_constraints_list.o util_domain_constraints_list.c
+util_domain_constraints_list.c:26:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+         while (e=extract_entry (CL))
+                ~^~~~~~~~~~~~~~~~~~~
+util_domain_constraints_list.c:26:11: note: place parentheses around the assignment to silence this warning
+         while (e=extract_entry (CL))
+                 ^
+                (                   )
+util_domain_constraints_list.c:26:11: note: use '==' to turn this assignment into an equality comparison
+         while (e=extract_entry (CL))
+                 ^
+                 ==
+util_domain_constraints_list.c:20:7: warning: unused variable 'a' [-Wunused-variable]
+         int a;
+             ^
+In file included from util_domain_constraints_list.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+3 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_analyse_constraints_list.o util_analyse_constraints_list.c
+In file included from util_analyse_constraints_list.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_aln_analyze.o util_aln_analyze.c
+util_aln_analyze.c:687:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util_aln_analyze.c:3514:22: warning: unused variable 'f' [-Wunused-variable]
+  int a, b, c, d, e, f;
+                     ^
+util_aln_analyze.c:3515:9: warning: unused variable 's1' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+        ^
+util_aln_analyze.c:3515:14: warning: unused variable 's2' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+             ^
+util_aln_analyze.c:3515:19: warning: unused variable 's3' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                  ^
+util_aln_analyze.c:3515:23: warning: unused variable 's4' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                      ^
+util_aln_analyze.c:3515:27: warning: unused variable 's5' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                          ^
+util_aln_analyze.c:3515:32: warning: unused variable 'n1' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                               ^
+util_aln_analyze.c:3515:37: warning: unused variable 'n2' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                                    ^
+util_aln_analyze.c:3515:42: warning: unused variable 'n3' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                                         ^
+util_aln_analyze.c:3515:47: warning: unused variable 'n4' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                                              ^
+util_aln_analyze.c:3515:52: warning: unused variable 'n5' [-Wunused-variable]
+  char *s1, *s2, *s3,*s4,*s5, *n1, *n2, *n3, *n4, *n5;
+                                                   ^
+util_aln_analyze.c:3516:7: warning: unused variable 'max' [-Wunused-variable]
+  int max=0;;
+      ^
+util_aln_analyze.c:3518:7: warning: unused variable 'score' [-Wunused-variable]
+  int score;
+      ^
+util_aln_analyze.c:3625:9: warning: unused variable 'n1' [-Wunused-variable]
+  float n1, n11;
+        ^
+util_aln_analyze.c:3625:13: warning: unused variable 'n11' [-Wunused-variable]
+  float n1, n11;
+            ^
+util_aln_analyze.c:3626:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c, tot=0, n=0;
+            ^
+util_aln_analyze.c:4168:4: warning: variable 't' is uninitialized when used here [-Wuninitialized]
+          t++;
+          ^
+util_aln_analyze.c:4057:61: note: initialize the variable 't' to silence this warning
+  float n11, n10, n01, n00, n, sn2, prediction,sp, n1, n0, t, entropy, Delta;
+                                                            ^
+                                                             = 0.0
+util_aln_analyze.c:4245:15: warning: unused variable 'cx' [-Wunused-variable]
+  int l, a,ax,cx, b;
+              ^
+util_aln_analyze.c:4454:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util_aln_analyze.c:4888:36: warning: operator '?:' has lower precedence than '-'; '-' will be evaluated first [-Wparentheses]
+              valP=matP[p][res]-(sar=='I')?1:0;
+                   ~~~~~~~~~~~~~~~~~~~~~~~^
+util_aln_analyze.c:4888:36: note: place parentheses around the '-' expression to silence this warning
+              valP=matP[p][res]-(sar=='I')?1:0;
+                                          ^
+                   (                      )
+util_aln_analyze.c:4888:36: note: place parentheses around the '?:' expression to evaluate it first
+              valP=matP[p][res]-(sar=='I')?1:0;
+                                          ^
+                                (             )
+util_aln_analyze.c:4891:36: warning: operator '?:' has lower precedence than '-'; '-' will be evaluated first [-Wparentheses]
+              valN=matN[p][res]-(sar=='O')?1:0;
+                   ~~~~~~~~~~~~~~~~~~~~~~~^
+util_aln_analyze.c:4891:36: note: place parentheses around the '-' expression to silence this warning
+              valN=matN[p][res]-(sar=='O')?1:0;
+                                          ^
+                   (                      )
+util_aln_analyze.c:4891:36: note: place parentheses around the '?:' expression to evaluate it first
+              valN=matN[p][res]-(sar=='O')?1:0;
+                                          ^
+                                (             )
+In file included from util_aln_analyze.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+23 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o aln_convertion_util.o aln_convertion_util.c
+aln_convertion_util.c:196:9: warning: unused variable 'list' [-Wunused-variable]
+  int **list;
+        ^
+aln_convertion_util.c:197:7: warning: unused variable 'ncomp' [-Wunused-variable]
+  int ncomp=0, nwatson=0;
+      ^
+aln_convertion_util.c:197:16: warning: unused variable 'nwatson' [-Wunused-variable]
+  int ncomp=0, nwatson=0;
+               ^
+aln_convertion_util.c:190:18: warning: unused variable 'p2' [-Wunused-variable]
+  int a,b,c,d,p1,p2;
+                 ^
+aln_convertion_util.c:194:7: warning: unused variable 'max' [-Wunused-variable]
+  int max, p,k;
+      ^
+aln_convertion_util.c:190:15: warning: unused variable 'p1' [-Wunused-variable]
+  int a,b,c,d,p1,p2;
+              ^
+aln_convertion_util.c:194:12: warning: unused variable 'p' [-Wunused-variable]
+  int max, p,k;
+           ^
+aln_convertion_util.c:190:13: warning: unused variable 'd' [-Wunused-variable]
+  int a,b,c,d,p1,p2;
+            ^
+aln_convertion_util.c:194:14: warning: unused variable 'k' [-Wunused-variable]
+  int max, p,k;
+             ^
+aln_convertion_util.c:190:11: warning: unused variable 'c' [-Wunused-variable]
+  int a,b,c,d,p1,p2;
+          ^
+aln_convertion_util.c:195:7: warning: unused variable 'minseq' [-Wunused-variable]
+  int minseq=3;
+      ^
+aln_convertion_util.c:192:7: warning: unused variable 'watson' [-Wunused-variable]
+  int watson, comp,tot;
+      ^
+aln_convertion_util.c:192:15: warning: unused variable 'comp' [-Wunused-variable]
+  int watson, comp,tot;
+              ^
+aln_convertion_util.c:192:20: warning: unused variable 'tot' [-Wunused-variable]
+  int watson, comp,tot;
+                   ^
+aln_convertion_util.c:193:9: warning: unused variable 'compmat' [-Wunused-variable]
+  int **compmat;
+        ^
+aln_convertion_util.c:191:7: warning: unused variable 'r1' [-Wunused-variable]
+  int r1, rr1, r2, rr2;
+      ^
+aln_convertion_util.c:198:15: warning: unused variable 'fold_l' [-Wunused-variable]
+  int cons_l, fold_l;
+              ^
+aln_convertion_util.c:191:11: warning: unused variable 'rr1' [-Wunused-variable]
+  int r1, rr1, r2, rr2;
+          ^
+aln_convertion_util.c:191:16: warning: unused variable 'r2' [-Wunused-variable]
+  int r1, rr1, r2, rr2;
+               ^
+aln_convertion_util.c:191:20: warning: unused variable 'rr2' [-Wunused-variable]
+  int r1, rr1, r2, rr2;
+                   ^
+aln_convertion_util.c:292:9: warning: unused variable 'compmat' [-Wunused-variable]
+  int **compmat;
+        ^
+aln_convertion_util.c:293:12: warning: unused variable 'p' [-Wunused-variable]
+  int max, p,k;
+           ^
+aln_convertion_util.c:289:10: warning: unused variable 'b' [-Wunused-variable]
+   int a,b,c,d,p1,p2,s;
+         ^
+aln_convertion_util.c:293:14: warning: unused variable 'k' [-Wunused-variable]
+  int max, p,k;
+             ^
+aln_convertion_util.c:294:7: warning: unused variable 'minseq' [-Wunused-variable]
+  int minseq=3;
+      ^
+aln_convertion_util.c:289:22: warning: unused variable 's' [-Wunused-variable]
+   int a,b,c,d,p1,p2,s;
+                     ^
+aln_convertion_util.c:296:16: warning: unused variable 'nwatson' [-Wunused-variable]
+  int ncomp=0, nwatson=0, nneutral=0, ncomp_wc=0;
+               ^
+aln_convertion_util.c:296:7: warning: unused variable 'ncomp' [-Wunused-variable]
+  int ncomp=0, nwatson=0, nneutral=0, ncomp_wc=0;
+      ^
+aln_convertion_util.c:296:39: warning: unused variable 'ncomp_wc' [-Wunused-variable]
+  int ncomp=0, nwatson=0, nneutral=0, ncomp_wc=0;
+                                      ^
+aln_convertion_util.c:296:27: warning: unused variable 'nneutral' [-Wunused-variable]
+  int ncomp=0, nwatson=0, nneutral=0, ncomp_wc=0;
+                          ^
+aln_convertion_util.c:297:7: warning: unused variable 'cons_l' [-Wunused-variable]
+  int cons_l, fold_l;
+      ^
+aln_convertion_util.c:297:15: warning: unused variable 'fold_l' [-Wunused-variable]
+  int cons_l, fold_l;
+              ^
+aln_convertion_util.c:501:13: warning: unused variable 'p' [-Wunused-variable]
+  int a, b, p;
+            ^
+aln_convertion_util.c:659:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c, nr;
+            ^
+aln_convertion_util.c:1296:3: error: non-void function 'set_blast_default_values' should return a value [-Wreturn-type]
+  return;
+  ^
+aln_convertion_util.c:1398:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c,r;
+            ^
+aln_convertion_util.c:1754:16: warning: unused variable 'len' [-Wunused-variable]
+                unsigned int len;
+                             ^
+aln_convertion_util.c:2112:13: warning: unused variable 'pos' [-Wunused-variable]
+  int a, b, pos, len;
+            ^
+aln_convertion_util.c:2112:18: warning: unused variable 'len' [-Wunused-variable]
+  int a, b, pos, len;
+                 ^
+aln_convertion_util.c:2113:13: warning: unused variable 'S' [-Wunused-variable]
+  Sequence *S;
+            ^
+aln_convertion_util.c:2247:7: warning: unused variable 'unalign' [-Wunused-variable]
+  int unalign=0;
+      ^
+aln_convertion_util.c:4085:12: warning: unused variable 's' [-Wunused-variable]
+        int n, a, s;
+                  ^
+aln_convertion_util.c:5449:11: warning: unused variable 'z' [-Wunused-variable]
+      int z, i;
+          ^
+aln_convertion_util.c:5551:9: warning: unused variable 'x' [-Wunused-variable]
+          char x[299];
+               ^
+aln_convertion_util.c:5558:11: warning: unused variable 'z' [-Wunused-variable]
+      int z;
+          ^
+aln_convertion_util.c:6510:9: warning: unused variable 'buf' [-Wunused-variable]
+  char *buf;
+        ^
+aln_convertion_util.c:6511:10: warning: unused variable 'a' [-Wunused-variable]
+  int l, a, b, c;
+         ^
+aln_convertion_util.c:6511:16: warning: unused variable 'c' [-Wunused-variable]
+  int l, a, b, c;
+               ^
+aln_convertion_util.c:6533:9: warning: unused variable 'buf' [-Wunused-variable]
+  char *buf;
+        ^
+aln_convertion_util.c:6534:7: warning: unused variable 'l' [-Wunused-variable]
+  int l, a, b, c;
+      ^
+aln_convertion_util.c:6534:13: warning: unused variable 'b' [-Wunused-variable]
+  int l, a, b, c;
+            ^
+aln_convertion_util.c:6534:16: warning: unused variable 'c' [-Wunused-variable]
+  int l, a, b, c;
+               ^
+aln_convertion_util.c:6705:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+         fgets ( line, VERY_LONG_STRING,fp);
+         ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
+aln_convertion_util.c:6728:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+             fgets ( line, VERY_LONG_STRING,fp);
+             ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
+aln_convertion_util.c:6724:25: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+         if ( c=='#' || c=='!')fgets ( line, VERY_LONG_STRING,fp);
+                               ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
+aln_convertion_util.c:8459:16: warning: unused variable 'd' [-Wunused-variable]
+  int a, b, c, d, dim;
+               ^
+aln_convertion_util.c:9561:7: warning: unused variable 'maxnseq' [-Wunused-variable]
+  int maxnseq, nseq_ratio, nc;
+      ^
+aln_convertion_util.c:9561:16: warning: unused variable 'nseq_ratio' [-Wunused-variable]
+  int maxnseq, nseq_ratio, nc;
+               ^
+aln_convertion_util.c:9561:28: warning: unused variable 'nc' [-Wunused-variable]
+  int maxnseq, nseq_ratio, nc;
+                           ^
+aln_convertion_util.c:9562:7: warning: unused variable 'new_nseq' [-Wunused-variable]
+  int new_nseq;
+      ^
+aln_convertion_util.c:9563:16: warning: unused variable 'k' [-Wunused-variable]
+  int a, s, n, k;
+               ^
+aln_convertion_util.c:9566:7: warning: unused variable 'outlayers' [-Wunused-variable]
+  int outlayers;
+      ^
+aln_convertion_util.c:9567:7: warning: unused variable 'direction' [-Wunused-variable]
+  int direction=1;//remove the higher than
+      ^
+aln_convertion_util.c:9568:7: warning: unused variable 'coverage' [-Wunused-variable]
+  int coverage=0; //remove based on coverage
+      ^
+aln_convertion_util.c:9667:9: warning: unused variable 'b' [-Wunused-variable]
+  int a,b;
+        ^
+aln_convertion_util.c:9701:13: warning: unused variable 'gs' [-Wunused-variable]
+  int a, b, gs,ba;
+            ^
+aln_convertion_util.c:9852:11: warning: unused variable 'n2' [-Wunused-variable]
+      int n2=0;
+          ^
+aln_convertion_util.c:9855:12: warning: unused variable 'tmpfile' [-Wunused-variable]
+      char tmpfile[100];
+           ^
+aln_convertion_util.c:9827:16: warning: unused variable 'file2' [-Wunused-variable]
+  static char *file2;
+               ^
+aln_convertion_util.c:9829:7: warning: unused variable 'count' [-Wunused-variable]
+  int count=0;
+      ^
+aln_convertion_util.c:9900:9: warning: unused variable 'b' [-Wunused-variable]
+  int a,b, *gs;
+        ^
+aln_convertion_util.c:9901:9: warning: unused variable 'sd' [-Wunused-variable]
+  int **sd;
+        ^
+aln_convertion_util.c:10178:11: warning: unused variable 'b' [-Wunused-variable]
+      int b;
+          ^
+aln_convertion_util.c:10071:9: warning: unused variable 'b' [-Wunused-variable]
+  int a,b, s, n, k;
+        ^
+aln_convertion_util.c:11766:17: warning: unused variable 'entry' [-Wunused-variable]
+           static int *entry;
+                       ^
+aln_convertion_util.c:12465:11: warning: unused variable 'v' [-Wunused-variable]
+      int v;
+          ^
+aln_convertion_util.c:12257:32: warning: unused variable 'G1' [-Wunused-variable]
+  int S, M1, M2, m1, m2,B1, B2,G1,G2, K;
+                               ^
+aln_convertion_util.c:12257:35: warning: unused variable 'G2' [-Wunused-variable]
+  int S, M1, M2, m1, m2,B1, B2,G1,G2, K;
+                                  ^
+aln_convertion_util.c:12254:7: warning: unused variable 'T0' [-Wunused-variable]
+  int T0, T1,T2;
+      ^
+aln_convertion_util.c:12252:16: warning: unused variable 'd' [-Wunused-variable]
+  int a, b, c, d, l, id;
+               ^
+aln_convertion_util.c:12257:39: warning: unused variable 'K' [-Wunused-variable]
+  int S, M1, M2, m1, m2,B1, B2,G1,G2, K;
+                                      ^
+aln_convertion_util.c:12262:7: warning: unused variable 'model_type' [-Wunused-variable]
+  int model_type=1;
+      ^
+aln_convertion_util.c:12253:19: warning: unused variable 'e1' [-Wunused-variable]
+  int c1, c2, e0, e1,tb, obs;
+                  ^
+aln_convertion_util.c:12253:15: warning: unused variable 'e0' [-Wunused-variable]
+  int c1, c2, e0, e1,tb, obs;
+              ^
+aln_convertion_util.c:12485:15: warning: unused variable 'e0' [-Wunused-variable]
+  int c1, c2, e0, e1,tb, obs;
+              ^
+aln_convertion_util.c:12485:19: warning: unused variable 'e1' [-Wunused-variable]
+  int c1, c2, e0, e1,tb, obs;
+                  ^
+aln_convertion_util.c:12484:16: warning: unused variable 'd' [-Wunused-variable]
+  int a, b, c, d, l, id;
+               ^
+aln_convertion_util.c:12489:26: warning: unused variable 'K' [-Wunused-variable]
+  int S, M1, M2, m1, m2, K;
+                         ^
+aln_convertion_util.c:12486:7: warning: unused variable 'T0' [-Wunused-variable]
+  int T0, T1,T2;
+      ^
+aln_convertion_util.c:12766:13: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                      r[n][alp[c1]][alp[c2]]++;
+                          ^~~~~~~~
+aln_convertion_util.c:12766:22: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                      r[n][alp[c1]][alp[c2]]++;
+                                   ^~~~~~~~
+aln_convertion_util.c:12681:29: warning: unused variable 'result' [-Wunused-variable]
+  float sp, sn, sen2, best, result;
+                            ^
+aln_convertion_util.c:12678:7: warning: unused variable 'T' [-Wunused-variable]
+  int T, N;
+      ^
+aln_convertion_util.c:12678:10: warning: unused variable 'N' [-Wunused-variable]
+  int T, N;
+         ^
+aln_convertion_util.c:12682:7: warning: unused variable 'print' [-Wunused-variable]
+  int print=1;
+      ^
+aln_convertion_util.c:12840:35: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          if (buf[b]=='b' || buf[b]=='o' && c>=1)buf2[c-1]=tolower(buf2[c-1]);
+                          ~~ ~~~~~~~~~~~~^~~~~~~
+aln_convertion_util.c:12840:35: note: place parentheses around the '&&' expression to silence this warning
+          if (buf[b]=='b' || buf[b]=='o' && c>=1)buf2[c-1]=tolower(buf2[c-1]);
+                                         ^
+                             (                  )
+aln_convertion_util.c:12872:12: warning: unused variable 'a' [-Wunused-variable]
+  int tot, a, b,c, s1,s2, ng, g;
+           ^
+96 warnings and 1 error generated.
+make[1]: [aln_convertion_util.o] Error 1 (ignored)
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_declare.o util_declare.c
+util_declare.c:52:11: warning: unused variable 'c' [-Wunused-variable]
+  int a,b,c;
+          ^
+util_declare.c:154:12: warning: unused variable 'b' [-Wunused-variable]
+    int a, b;
+           ^
+util_declare.c:365:9: warning: unused variable 'a' [-Wunused-variable]
+    int a, b;
+        ^
+util_declare.c:365:12: warning: unused variable 'b' [-Wunused-variable]
+    int a, b;
+           ^
+util_declare.c:682:18: warning: unused variable 'len' [-Wunused-variable]
+                                unsigned int len;
+                                             ^
+util_declare.c:685:18: warning: unused variable 'i' [-Wunused-variable]
+                                unsigned int i;
+                                             ^
+In file included from util_declare.c:11:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+7 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o hsearch.o hsearch.c
+In file included from hsearch.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o random.o random.c
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_make_tree.o util_make_tree.c
+util_make_tree.c:32:9: warning: unused variable 'fp' [-Wunused-variable]
+  FILE *fp;
+        ^
+util_make_tree.c:40:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util_make_tree.c:1311:11: warning: unused variable 'window' [-Wunused-variable]
+      int window=10;
+          ^
+util_make_tree.c:1326:11: warning: unused variable 'window' [-Wunused-variable]
+      int window=10;
+          ^
+util_make_tree.c:1571:11: warning: unused variable 'd' [-Wunused-variable]
+      int d;
+          ^
+util_make_tree.c:1529:14: warning: unused variable 'A' [-Wunused-variable]
+  Alignment *A;
+             ^
+util_make_tree.c:1607:9: warning: unused variable 'b' [-Wunused-variable]
+  int a,b;
+        ^
+In file included from util_make_tree.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+util_make_tree.c:1252:12: warning: unused variable 'count' [-Wunused-variable]
+static int count;
+           ^
+9 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util.o util.c
+In file included from util.c:22:
+./perl_header_lib.h:8430:16: warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+\n    $id=~s/[|<A6>_]//g;\n    return $id;\n  }\nsub \
+               ^~~~
+util.c:202:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fread( rra, size, len,fp); /*rra=ra[--l]*/
+            ^~~~~  ~~~~~~~~~~~~~~~~~
+util.c:207:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fread( rra, size, len,fp); /*rra=ra[ir]*/
+            ^~~~~  ~~~~~~~~~~~~~~~~~
+util.c:210:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fread( rrb, size, len,fp); /*rrb=ra[0]*/
+            ^~~~~  ~~~~~~~~~~~~~~~~~
+util.c:232:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                  fread (ra_j_1, size, len, fp);
+                  ^~~~~  ~~~~~~~~~~~~~~~~~~~~~
+util.c:227:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+               fread (ra_j, size, len, fp);
+               ^~~~~  ~~~~~~~~~~~~~~~~~~~
+util.c:341:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+             fread ( key2, el_size, entry_len,fp);
+             ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util.c:567:10: warning: unused variable 'd' [-Wunused-variable]
+          int c,d;
+                ^
+util.c:762:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fscanf ( fp, "%d",&list[n[0]++]);
+                        ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~
+util.c:821:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf ( fp, "%s %s\n", s1, s2);
+      ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~
+util.c:1215:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf(fp, "%d ", &array[a][b]);
+        ^~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util.c:1212:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf(fp, "%d ", &len2);
+      ^~~~~~ ~~~~~~~~~~~~~~~~
+util.c:1216:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf (fp, "\n");
+      ^~~~~~  ~~~~~~~~
+util.c:1208:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+  fscanf (fp, "%d\n", &len);
+  ^~~~~~  ~~~~~~~~~~~~~~~~
+util.c:1788:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:1864:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf (fp, "%d", &r);
+      ^~~~~~  ~~~~~~~~~~~~
+util.c:2074:27: warning: variable 'string' is uninitialized when used here [-Wuninitialized]
+  if ((string=file2string(string)))
+                          ^~~~~~
+util.c:2069:15: note: initialize the variable 'string' to silence this warning
+  char *string;
+              ^
+               = NULL
+util.c:3684:9: warning: unused variable 'flag' [-Wunused-variable]
+  FILE *flag;
+        ^
+util.c:3759:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+util.c:3777:16: warning: unused variable 'tmpdir' [-Wunused-variable]
+  char static *tmpdir;
+               ^
+util.c:3778:16: warning: unused variable 'cdir' [-Wunused-variable]
+  char static *cdir;
+               ^
+util.c:4001:12: warning: variable 'r' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+  else if (action== LSET || action == LRESET)
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util.c:4021:10: note: uninitialized use occurs here
+  return r;
+         ^
+util.c:4001:8: note: remove the 'if' if its condition is always true
+  else if (action== LSET || action == LRESET)
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util.c:3967:10: note: initialize the variable 'r' to silence this warning
+  char *r;
+         ^
+          = NULL
+util.c:4215:7: warning: implicit declaration of function 'wait' is invalid in C99 [-Wimplicit-function-declaration]
+      wait((pid_t*)-1);
+      ^
+util.c:4264:5: warning: implicit declaration of function 'waitpid' is invalid in C99 [-Wimplicit-function-declaration]
+  p=waitpid (p, status, options);
+    ^
+util.c:4333:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:4396:8: warning: variable 'n' is uninitialized when used here [-Wuninitialized]
+              n++;
+              ^
+util.c:4372:8: note: initialize the variable 'n' to silence this warning
+  int n;
+       ^
+        = 0
+util.c:4709:12: warning: unused variable 'buf' [-Wunused-variable]
+      char buf[1000];
+           ^
+util.c:4998:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf (fp, "%s\n",list[n]);
+      ^~~~~~  ~~~~~~~~~~~~~~~~~~
+util.c:5346:41: warning: if statement has empty body [-Wempty-body]
+  else if ((proxy=getenv ("ALL_PROXY")));//id
+                                        ^
+util.c:5346:41: note: put the semicolon on a separate line to silence this warning
+util.c:6662:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets ( line, VERY_LONG_STRING,fp);
+        ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
+util.c:6682:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fscanf ( fp, "%s", string);
+                        ^~~~~~   ~~~~~~~~~~~~~~~~
+util.c:6918:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                  fgets ( line, lline,fp);
+                  ^~~~~   ~~~~~~~~~~~~~~
+util.c:6948:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                  fgets ( line, lline,fp);
+                  ^~~~~   ~~~~~~~~~~~~~~
+util.c:7035:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+  fscanf ( fp, "Version_%f", &new_version);
+  ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util.c:7123:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+util.c:7390:7: warning: unused variable 'dir_sep' [-Wunused-variable]
+  int dir_sep='/';
+      ^
+util.c:7392:6: warning: unused variable 'a' [-Wunused-variable]
+ int a, buf;
+     ^
+util.c:7392:9: warning: unused variable 'buf' [-Wunused-variable]
+ int a, buf;
+        ^
+util.c:8348:13: warning: variable 'start' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+         else if ( mode==NO_OVERLAP)
+                   ^~~~~~~~~~~~~~~~
+util.c:8353:10: note: uninitialized use occurs here
+         for (a=start; a<alp_size[f]; a++)
+                ^~~~~
+util.c:8348:8: note: remove the 'if' if its condition is always true
+         else if ( mode==NO_OVERLAP)
+              ^~~~~~~~~~~~~~~~~~~~~~
+util.c:8320:15: note: initialize the variable 'start' to silence this warning
+     int start;
+              ^
+               = 0
+util.c:8505:7: warning: variable 'out_argv' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+  if (in_argv)
+      ^~~~~~~
+util.c:8514:46: note: uninitialized use occurs here
+  if ( name_is_in_list ( "-no_error_report", out_argv, in_argc[0], 100)!=-1)no_error_report=1;
+                                             ^~~~~~~~
+util.c:8505:3: note: remove the 'if' if its condition is always true
+  if (in_argv)
+  ^~~~~~~~~~~~
+util.c:8469:18: note: initialize the variable 'out_argv' to silence this warning
+  char **out_argv;
+                 ^
+                  = NULL
+util.c:8505:7: warning: variable 's' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+  if (in_argv)
+      ^~~~~~~
+util.c:8533:18: note: uninitialized use occurs here
+  string_putenv (s); //let Command line update go through
+                 ^
+util.c:8505:3: note: remove the 'if' if its condition is always true
+  if (in_argv)
+  ^~~~~~~~~~~~
+util.c:8466:10: note: initialize the variable 's' to silence this warning
+  char *s;
+         ^
+          = NULL
+util.c:8629:9: warning: unused variable 'tmp' [-Wunused-variable]
+  char *tmp;
+        ^
+util.c:8883:20: warning: unused variable 'sdata' [-Wunused-variable]
+  double **data, **sdata;
+                   ^
+util.c:8886:10: warning: unused variable 'b' [-Wunused-variable]
+  int a, b;
+         ^
+util.c:8892:7: warning: unused variable 'scan' [-Wunused-variable]
+  int scan=0;
+      ^
+util.c:8930:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+util.c:8971:18: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      if ( buf[0]='#')
+           ~~~~~~^~~~
+util.c:8971:18: note: place parentheses around the assignment to silence this warning
+      if ( buf[0]='#')
+                 ^
+           (         )
+util.c:8971:18: note: use '==' to turn this assignment into an equality comparison
+      if ( buf[0]='#')
+                 ^
+                 ==
+util.c:8990:6: warning: expression result unused [-Wunused-value]
+  n[0];
+  ~ ~^
+util.c:8947:12: warning: unused variable 'data' [-Wunused-variable]
+  double **data;
+           ^
+util.c:9017:18: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+      if ( buf[0]='#')
+           ~~~~~~^~~~
+util.c:9017:18: note: place parentheses around the assignment to silence this warning
+      if ( buf[0]='#')
+                 ^
+           (         )
+util.c:9017:18: note: use '==' to turn this assignment into an equality comparison
+      if ( buf[0]='#')
+                 ^
+                 ==
+util.c:9003:11: warning: unused variable 'c' [-Wunused-variable]
+  int a,b,c,p;
+          ^
+util.c:9318:10: warning: unused variable 'cscore' [-Wunused-variable]
+  double cscore=0;
+         ^
+In file included from util.c:19:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+util.c:74:13: warning: unused function 'exchange' [-Wunused-function]
+static void exchange(void *a, void *b, size_t size) {
+            ^
+util.c:4874:12: warning: unused variable 'n_warning' [-Wunused-variable]
+static int n_warning;
+           ^
+util.c:4875:15: warning: unused variable 'warning_list' [-Wunused-variable]
+static char **warning_list;
+              ^
+util.c:7669:15: warning: unused variable 'EXP_UNDERFLOW_THRESHOLD' [-Wunused-variable]
+static double EXP_UNDERFLOW_THRESHOLD = -4.60f;
+              ^
+util.c:7672:15: warning: unused variable 'LOG_ONE' [-Wunused-variable]
+static double LOG_ONE = 0.0f;
+              ^
+58 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o reformat_struc.o reformat_struc.c
+reformat_struc.c:307:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+               fscanf (fp, "%*s %*s %c %*c %d %*f %*f %*f\n",&res,&res_num);
+               ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat_struc.c:344:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+               fscanf (fp, "%*s %s %s %*c %d %f %f %f\n",A->type, A->res,&A->res_num, &A->x, &A->y, &A->z);
+               ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat_struc.c:299:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%*s" );
+        ^~~~~~   ~~~~~~~~~
+reformat_struc.c:301:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%*s" );
+        ^~~~~~   ~~~~~~~~~
+reformat_struc.c:334:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%*s" );
+        ^~~~~~   ~~~~~~~~~
+reformat_struc.c:336:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%*s" );
+        ^~~~~~   ~~~~~~~~~
+In file included from reformat_struc.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+7 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o reformat.o reformat.c
+reformat.c:1272:13: warning: implicit declaration of function 'is_stockholm_aln' is invalid in C99 [-Wimplicit-function-declaration]
+       if ( is_stockholm_aln (file))sprintf (format, "stockholm_aln");
+            ^
+reformat.c:1275:27: warning: implicit declaration of function 'fast_format_determination' is invalid in C99 [-Wimplicit-function-declaration]
+           else if (format_val = fast_format_determination(file))
+                                 ^
+reformat.c:1275:25: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+           else if (format_val = fast_format_determination(file))
+                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:1275:25: note: place parentheses around the assignment to silence this warning
+           else if (format_val = fast_format_determination(file))
+                               ^
+                    (                                           )
+reformat.c:1275:25: note: use '==' to turn this assignment into an equality comparison
+           else if (format_val = fast_format_determination(file))
+                               ^
+                               ==
+reformat.c:1416:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf ( fp, "%d", &result);
+      ^~~~~~   ~~~~~~~~~~~~~~~~~
+reformat.c:1454:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+  fscanf ( fp, "\n%s\n", buf);
+  ^~~~~~   ~~~~~~~~~~~~~~~~~
+reformat.c:1531:11: warning: unused variable 'command' [-Wunused-variable]
+     char command[1000];
+          ^
+reformat.c:1606:12: warning: if statement has empty body [-Wempty-body]
+        if (!name);
+                  ^
+reformat.c:1606:12: note: put the semicolon on a separate line to silence this warning
+reformat.c:1890:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+    fscanf (fp , "%s", buf);
+    ^~~~~~  ~~~~~~~~~~~~~~
+reformat.c:1993:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+reformat.c:3051:6: warning: implicit declaration of function 'output_header_mat' is invalid in C99 [-Wimplicit-function-declaration]
+            output_header_mat(D1->M, out_file);
+            ^
+reformat.c:3165:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s", buf2);
+                ^~~~~~   ~~~~~~~~~~~~~~
+reformat.c:3180:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s",W->seq_name[a]);
+                ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3182:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s", buf2);
+                ^~~~~~   ~~~~~~~~~~~~~~
+reformat.c:3193:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "\n");
+                ^~~~~~   ~~~~~~~~
+reformat.c:3158:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%s", buf2);
+        ^~~~~~   ~~~~~~~~~~~~~~
+reformat.c:3174:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%s", buf2);
+        ^~~~~~   ~~~~~~~~~~~~~~
+reformat.c:3469:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%d %d %d %c %c %f\n", &(ST)->list[a][0],&(ST)->list[a][1],&(ST)->list[a][2], &x, &y, &f);
+                ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3466:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf ( fp, "%c\n%d\n",&x, &(ST)->tot_list);
+        ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3525:30: warning: variable 'b' is uninitialized when used here [-Wuninitialized]
+  for ( n[0]=0,a=1; a<l; a++,b++)
+                             ^
+reformat.c:3519:11: note: initialize the variable 'b' to silence this warning
+  int a, b, l;
+          ^
+           = 0
+reformat.c:3666:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s %d", name, &len);
+                ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3692:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                    fscanf ( fp, " %*c %c %*f %*f %*f\n",&(S->seq[S->nseq][a]));
+                    ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3687:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%s %d\n",S->name[S->nseq], &(S->len[S->nseq]));
+                ^~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:3729:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fscanf (fp, "%s",name);
+                        ^~~~~~  ~~~~~~~~~~~~~
+reformat.c:3804:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        {fscanf (fp, "%s",name);
+                         ^~~~~~  ~~~~~~~~~~~~~
+reformat.c:4545:11: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                        al_test[allowed[i]] = 1;
+                               ^~~~~~~~~~~
+reformat.c:4589:17: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                                        if (al_test[*tmp])
+                                                   ^~~~~
+reformat.c:4531:9: warning: unused variable 'name' [-Wunused-variable]
+                char *name;
+                      ^
+reformat.c:4965:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets (buf, LONG_STRING, fp);
+        ^~~~~  ~~~~~~~~~~~~~~~~~~~~
+reformat.c:4984:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets (buf, LONG_STRING, fp);
+        ^~~~~  ~~~~~~~~~~~~~~~~~~~~
+reformat.c:5003:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fscanf (fp, "%s", name);
+        ^~~~~~  ~~~~~~~~~~~~~~
+reformat.c:5158:25: warning: if statement has empty body [-Wempty-body]
+    if ( !isblanc (buf));
+                        ^
+reformat.c:5158:25: note: put the semicolon on a separate line to silence this warning
+reformat.c:5356:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                {fscanf (fp, "%*d >%s", name[nseq++]);
+                 ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:5405:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(buf, VERY_LONG_STRING, fp);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:5427:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(buf, VERY_LONG_STRING, fp);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:5625:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+    fscanf ( fp, "%s",string);
+    ^~~~~~   ~~~~~~~~~~~~~~~
+reformat.c:5790:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf (fp, "%s %d", name,&i);
+      ^~~~~~  ~~~~~~~~~~~~~~~~~~~~
+reformat.c:6801:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+reformat.c:7214:12: warning: unused variable 'nibit' [-Wunused-variable]
+            float nibit=(float)log(ibit/(B->len_aln*B->nseq));
+                  ^
+reformat.c:8624:13: warning: variable 'nf' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+  else if ( mode == 4) nf=6;
+            ^~~~~~~~~
+reformat.c:8626:15: note: uninitialized use occurs here
+  for (a=0; a<nf; a++)
+              ^~
+reformat.c:8624:8: note: remove the 'if' if its condition is always true
+  else if ( mode == 4) nf=6;
+       ^~~~~~~~~~~~~~~~
+reformat.c:8617:9: note: initialize the variable 'nf' to silence this warning
+  int nf;
+        ^
+         = 0
+reformat.c:10271:12: warning: unused variable 'r2' [-Wunused-variable]
+  char r1, r2;
+           ^
+reformat.c:10687:17: warning: unused variable 's2' [-Wunused-variable]
+               int s1, s2,r1,r2;
+                       ^
+reformat.c:10687:23: warning: unused variable 'r2' [-Wunused-variable]
+               int s1, s2,r1,r2;
+                             ^
+reformat.c:10682:9: warning: unused variable 'l' [-Wunused-variable]
+           int l;
+               ^
+reformat.c:10747:5: warning: implicit declaration of function 'redundate' is invalid in C99 [-Wimplicit-function-declaration]
+           redundate (D1->S, D2->T,seq, tree);
+           ^
+reformat.c:10763:5: warning: implicit declaration of function 'tree2nnode_unresolved' is invalid in C99 [-Wimplicit-function-declaration]
+           tree2nnode_unresolved (D1->T, l);
+           ^
+reformat.c:11572:10: warning: unused variable 'p1' [-Wunused-variable]
+           int  p1,p2,p3,f, t;
+                ^
+reformat.c:11572:13: warning: unused variable 'p2' [-Wunused-variable]
+           int  p1,p2,p3,f, t;
+                   ^
+reformat.c:11572:16: warning: unused variable 'p3' [-Wunused-variable]
+           int  p1,p2,p3,f, t;
+                      ^
+reformat.c:11575:10: warning: unused variable 'clean_mode' [-Wunused-variable]
+           char clean_mode[100];
+                ^
+reformat.c:12270:22: warning: unused variable 'sn' [-Wunused-variable]
+           float *re, tre=0,sn, tsn=0, sp, tsp=0;
+                            ^
+reformat.c:12270:33: warning: unused variable 'sp' [-Wunused-variable]
+           float *re, tre=0,sn, tsn=0, sp, tsp=0;
+                                       ^
+reformat.c:12272:11: warning: unused variable 'fp' [-Wunused-variable]
+           FILE *fp;
+                 ^
+reformat.c:12273:10: warning: unused variable 'fname' [-Wunused-variable]
+           char fname [100];
+                ^
+reformat.c:12523:51: warning: array subscript is of type 'char' [-Wchar-subscripts]
+  for (a=0; a<strlen (BLAST_AA_ALPHABET); a++)balp[BLAST_AA_ALPHABET[a]]=a;
+                                                  ^~~~~~~~~~~~~~~~~~~~~
+reformat.c:12725:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fgets ( sbuf, VERY_LONG_STRING, fp);
+            ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+reformat.c:12748:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf ( fp, "%d ", &value);
+                ^~~~~~   ~~~~~~~~~~~~~~~~~
+reformat.c:12735:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fscanf ( fp, "%s ", buf);
+            ^~~~~~   ~~~~~~~~~~~~~~
+reformat.c:12775:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fscanf(fp, "\n");
+            ^~~~~~ ~~~~~~~~
+reformat.c:12814:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+reformat.c:12887:48: warning: if statement has empty body [-Wempty-body]
+            if ( sscanf (sbuf, "ALPHABET=%s", alp)==1);
+                                                      ^
+reformat.c:12887:48: note: put the semicolon on a separate line to silence this warning
+reformat.c:12886:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fgets ( sbuf, VERY_LONG_STRING, fp);
+            ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from reformat.c:9:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+62 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o aln_compare.o aln_compare.c
+aln_compare.c:494:20: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+              while (entry=extract_entry (CL_A))
+                     ~~~~~^~~~~~~~~~~~~~~~~~~~~
+aln_compare.c:494:20: note: place parentheses around the assignment to silence this warning
+              while (entry=extract_entry (CL_A))
+                          ^
+                     (                         )
+aln_compare.c:494:20: note: use '==' to turn this assignment into an equality comparison
+              while (entry=extract_entry (CL_A))
+                          ^
+                          ==
+aln_compare.c:496:9: warning: unused variable 'd' [-Wunused-variable]
+                  int d;
+                      ^
+aln_compare.c:497:16: warning: unused variable 'c' [-Wunused-variable]
+                  static int c;
+                             ^
+aln_compare.c:535:20: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+              while (entry=extract_entry (CL_A))
+                     ~~~~~^~~~~~~~~~~~~~~~~~~~~
+aln_compare.c:535:20: note: place parentheses around the assignment to silence this warning
+              while (entry=extract_entry (CL_A))
+                          ^
+                     (                         )
+aln_compare.c:535:20: note: use '==' to turn this assignment into an equality comparison
+              while (entry=extract_entry (CL_A))
+                          ^
+                          ==
+aln_compare.c:643:21: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+               while (entry=extract_entry (CL_A))
+                      ~~~~~^~~~~~~~~~~~~~~~~~~~~
+aln_compare.c:643:21: note: place parentheses around the assignment to silence this warning
+               while (entry=extract_entry (CL_A))
+                           ^
+                      (                         )
+aln_compare.c:643:21: note: use '==' to turn this assignment into an equality comparison
+               while (entry=extract_entry (CL_A))
+                           ^
+                           ==
+aln_compare.c:737:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+           while (entry=extract_entry (CL_A))
+                  ~~~~~^~~~~~~~~~~~~~~~~~~~~
+aln_compare.c:737:17: note: place parentheses around the assignment to silence this warning
+           while (entry=extract_entry (CL_A))
+                       ^
+                  (                         )
+aln_compare.c:737:17: note: use '==' to turn this assignment into an equality comparison
+           while (entry=extract_entry (CL_A))
+                       ^
+                       ==
+aln_compare.c:18:6: warning: unused variable 'ik' [-Wunused-variable]
+        int ik =0;
+            ^
+In file included from aln_compare.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+8 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o io_func.o io_func.c
+io_func.c:428:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                      fscanf ( fp, "\n");
+                      ^~~~~~   ~~~~~~~~
+io_func.c:625:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                 fscanf (fp, "%s %f %f %f", html_code[class], &ps_code[class][0], &ps_code[class][1],&ps_code[class][2]);
+                 ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+io_func.c:1038:17: warning: unused variable 'l' [-Wunused-variable]
+    int a, b, c,l;
+                ^
+In file included from io_func.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+4 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o pb_util_read_sequence.o pb_util_read_sequence.c
+pb_util_read_sequence.c:82:25: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        for(i=1;i<seqno;i++) fgets(line,MAXLINE+1,fin);
+                                             ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:123:25: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        for(i=1;i<seqno;i++) fgets(line,MAXLINE+1,fin);
+                                             ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:118:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line,MAXLINE+1,fin);      /* read the title line...ignore it */
+        ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:157:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fgets(line,MAXLINE+1,fin);
+                                ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:167:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fgets(line,MAXLINE+1,fin);
+                                ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:187:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fgets(line,MAXLINE+1,fin);
+                                ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:223:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fgets(line,MAXLINE+1,fin);
+                                ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:254:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                        fgets(line,MAXLINE+1,fin);
+                                        ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:196:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fgets(line,MAXLINE+1,fin);
+                        ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_sequence.c:460:16: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                                if(( *line == '%' ) )
+                                     ~~~~~~^~~~~~
+pb_util_read_sequence.c:460:16: note: remove extraneous parentheses around the comparison to silence this warning
+                                if(( *line == '%' ) )
+                                   ~       ^      ~
+pb_util_read_sequence.c:460:16: note: use '=' to turn this equality comparison into an assignment
+                                if(( *line == '%' ) )
+                                           ^~
+                                           =
+pb_util_read_sequence.c:462:22: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                                else if (( *line == '#') )
+                                           ~~~~~~^~~~~~
+pb_util_read_sequence.c:462:22: note: remove extraneous parentheses around the comparison to silence this warning
+                                else if (( *line == '#') )
+                                         ~       ^     ~
+pb_util_read_sequence.c:462:22: note: use '=' to turn this equality comparison into an assignment
+                                else if (( *line == '#') )
+                                                 ^~
+                                                 =
+In file included from pb_util_read_sequence.c:9:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+12 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o pb_util_read_seq_util.o pb_util_read_seq_util.c
+pb_util_read_seq_util.c:244:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(outstr, 100, stdin);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~
+pb_util_read_seq_util.c:255:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, MAXLINE, stdin);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~
+pb_util_read_seq_util.c:280:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, MAXLINE, stdin);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~
+pb_util_read_seq_util.c:302:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                system(line);
+                ^~~~~~ ~~~~
+In file included from pb_util_read_seq_util.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+5 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o tree_util.o tree_util.c
+tree_util.c:1080:7: warning: unused variable 'a' [-Wunused-variable]
+  int a;
+      ^
+tree_util.c:1079:7: warning: unused variable 'n' [-Wunused-variable]
+  int n;
+      ^
+tree_util.c:1183:23: warning: implicit conversion from 'double' to 'int' changes value from 1.0E-4 to 0 [-Wliteral-conversion]
+  reset_boot_tree (RT,0.0001);
+  ~~~~~~~~~~~~~~~     ^~~~~~
+tree_util.c:2782:10: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf(fp,"%f",&dist);
+                ^~~~~~ ~~~~~~~~~~~~~
+tree_util.c:2790:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            fscanf(fp,"%f",&bootstrap);
+            ^~~~~~ ~~~~~~~~~~~~~~~~~~
+tree_util.c:4003:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4219:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4322:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4672:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4756:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4761:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c;
+            ^
+tree_util.c:4804:13: warning: unused variable 'b' [-Wunused-variable]
+  int n, a, b, c,d, **r, **order;
+            ^
+tree_util.c:4804:16: warning: unused variable 'c' [-Wunused-variable]
+  int n, a, b, c,d, **r, **order;
+               ^
+tree_util.c:4804:18: warning: unused variable 'd' [-Wunused-variable]
+  int n, a, b, c,d, **r, **order;
+                 ^
+tree_util.c:4829:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree_util.c:4833:12: warning: unused variable 'c' [-Wunused-variable]
+  int a,b, c, d, ****dist, i;
+           ^
+tree_util.c:4833:15: warning: unused variable 'd' [-Wunused-variable]
+  int a,b, c, d, ****dist, i;
+              ^
+tree_util.c:4832:12: warning: unused variable 'T' [-Wunused-variable]
+  NT_node *T;
+           ^
+tree_util.c:4833:22: warning: unused variable 'dist' [-Wunused-variable]
+  int a,b, c, d, ****dist, i;
+                     ^
+tree_util.c:4833:28: warning: unused variable 'i' [-Wunused-variable]
+  int a,b, c, d, ****dist, i;
+                           ^
+tree_util.c:4879:9: warning: unused variable 'score0' [-Wunused-variable]
+  float score0=0, score1=0;
+        ^
+tree_util.c:4879:19: warning: unused variable 'score1' [-Wunused-variable]
+  float score0=0, score1=0;
+                  ^
+tree_util.c:5018:8: warning: unused variable 'cov' [-Wunused-variable]
+   int cov=100;
+       ^
+tree_util.c:5205:9: warning: unused variable 'fp' [-Wunused-variable]
+  FILE *fp;
+        ^
+tree_util.c:5228:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c, n, i;
+            ^
+25 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_graph_maln.o util_graph_maln.c
+util_graph_maln.c:37:20: warning: unused variable 'CL' [-Wunused-variable]
+  Constraint_list *CL;
+                   ^
+util_graph_maln.c:35:7: warning: unused variable 'a' [-Wunused-variable]
+  int a,start;
+      ^
+util_graph_maln.c:34:14: warning: unused variable 'G' [-Wunused-variable]
+  CL_node ***G;
+             ^
+util_graph_maln.c:36:15: warning: unused variable 'entry' [-Wunused-variable]
+  CLIST_TYPE *entry=NULL;
+              ^
+util_graph_maln.c:35:9: warning: unused variable 'start' [-Wunused-variable]
+  int a,start;
+        ^
+In file included from util_graph_maln.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+6 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_clean_maln.o util_dp_clean_maln.c
+In file included from util_dp_clean_maln.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_ssec_pwaln.o util_dp_ssec_pwaln.c
+In file included from util_dp_ssec_pwaln.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_sim.o util_dp_sim.c
+In file included from util_dp_sim.c:6:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_mm_nw.o util_dp_mm_nw.c
+In file included from util_dp_mm_nw.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_gotoh_nw.o util_dp_gotoh_nw.c
+util_dp_gotoh_nw.c:928:11: warning: unused variable 'fop2' [-Wunused-variable]
+                                  int fop2;
+                                      ^
+util_dp_gotoh_nw.c:787:6: warning: unused variable 'ibit' [-Wunused-variable]
+        int ibit=0;
+            ^
+util_dp_gotoh_nw.c:1294:11: warning: variable 'S' is uninitialized when used here [-Wuninitialized]
+      if (S->seq[li[a]][i-1]==S->seq[li[a]][i-1])t++;
+          ^
+util_dp_gotoh_nw.c:1286:14: note: initialize the variable 'S' to silence this warning
+  Sequence *S;
+             ^
+              = NULL
+util_dp_gotoh_nw.c:1362:9: warning: unused variable 'pos' [-Wunused-variable]
+  int **pos;
+        ^
+util_dp_gotoh_nw.c:1361:9: warning: unused variable 'list' [-Wunused-variable]
+  int **list;
+        ^
+util_dp_gotoh_nw.c:1360:10: warning: unused variable 'n' [-Wunused-variable]
+  int  a,n, p1, p2, l1, l2;
+         ^
+util_dp_gotoh_nw.c:1504:7: warning: unused variable 'k' [-Wunused-variable]
+  int k=0;
+      ^
+util_dp_gotoh_nw.c:1502:7: warning: unused variable 'max_n' [-Wunused-variable]
+  int max_n;
+      ^
+util_dp_gotoh_nw.c:1511:7: warning: unused variable 'nt' [-Wunused-variable]
+  int nt=0;
+      ^
+util_dp_gotoh_nw.c:1510:7: warning: unused variable 'ns' [-Wunused-variable]
+  int ns=0;
+      ^
+util_dp_gotoh_nw.c:1671:37: warning: unused variable 'avg' [-Wunused-variable]
+  float nscore, score, tot, filter, avg=0, new=0;
+                                    ^
+util_dp_gotoh_nw.c:1671:44: warning: unused variable 'new' [-Wunused-variable]
+  float nscore, score, tot, filter, avg=0, new=0;
+                                           ^
+util_dp_gotoh_nw.c:1803:14: warning: unused variable 'a' [-Wunused-variable]
+  int score, a;
+             ^
+util_dp_gotoh_nw.c:1902:7: warning: unused variable 'nomatch' [-Wunused-variable]
+  int nomatch;
+      ^
+util_dp_gotoh_nw.c:2176:14: warning: unused variable 'a' [-Wunused-variable]
+  int score, a;
+             ^
+util_dp_gotoh_nw.c:2204:32: warning: unused variable 'cr2' [-Wunused-variable]
+  int s1, s2,s, cs1, cs2, cr1, cr2,l,ll;
+                               ^
+util_dp_gotoh_nw.c:2306:7: warning: unused variable 'si' [-Wunused-variable]
+  int si, r1,r2,t_s, t_r,t_w, t_s2, t_r2, t_w2, s1, s2;
+      ^
+util_dp_gotoh_nw.c:2312:44: warning: unused variable 'new' [-Wunused-variable]
+  float nscore, score, tot, filter, avg=0, new=0;
+                                           ^
+util_dp_gotoh_nw.c:2312:37: warning: unused variable 'avg' [-Wunused-variable]
+  float nscore, score, tot, filter, avg=0, new=0;
+                                    ^
+util_dp_gotoh_nw.c:2594:6: warning: implicit declaration of function 'tolower' is invalid in C99 [-Wimplicit-function-declaration]
+          r=tolower(A->seq_al[b][a]);
+            ^
+util_dp_gotoh_nw.c:2626:7: warning: variable 'li' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+  if (seq)li=strlen (seq);
+      ^~~
+util_dp_gotoh_nw.c:2628:7: note: uninitialized use occurs here
+  if (li>max_i ||lj>max_j|| !seq)
+      ^~
+util_dp_gotoh_nw.c:2626:3: note: remove the 'if' if its condition is always true
+  if (seq)li=strlen (seq);
+  ^~~~~~~~
+util_dp_gotoh_nw.c:2621:9: note: initialize the variable 'li' to silence this warning
+  int li, i, j,l;
+        ^
+         = 0
+In file included from util_dp_gotoh_nw.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+22 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_suboptimal_nw.o util_dp_suboptimal_nw.c
+util_dp_suboptimal_nw.c:200:6: warning: implicit declaration of function 'idscore_pairseq' is invalid in C99 [-Wimplicit-function-declaration]
+  id=idscore_pairseq(seqI,seqJ,-12, -1, CL->M, "idmat");
+     ^
+util_dp_suboptimal_nw.c:616:3: warning: implicit declaration of function 'proba_pair_wise' is invalid in C99 [-Wimplicit-function-declaration]
+  proba_pair_wise (NULL, NULL, NULL, NULL);
+  ^
+util_dp_suboptimal_nw.c:896:14: warning: unused variable 'gtp' [-Wunused-variable]
+  static int gtp=0;
+             ^
+util_dp_suboptimal_nw.c:1108:16: warning: unused variable 'k' [-Wunused-variable]
+  int ij, i, j,k, I, J, s1, s2;
+               ^
+util_dp_suboptimal_nw.c:1112:7: warning: unused variable 'sim' [-Wunused-variable]
+  int sim;
+      ^
+util_dp_suboptimal_nw.c:1668:15: warning: unused variable 'c' [-Wunused-variable]
+    int a, b, c, l;
+              ^
+In file included from util_dp_suboptimal_nw.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+util_dp_suboptimal_nw.c:15:14: warning: unused variable 'EXP_UNDERFLOW_THRESHOLD' [-Wunused-variable]
+static float EXP_UNDERFLOW_THRESHOLD = -4.60f;
+             ^
+util_dp_suboptimal_nw.c:16:14: warning: unused variable 'LOG_UNDERFLOW_THRESHOLD' [-Wunused-variable]
+static float LOG_UNDERFLOW_THRESHOLD = 7.50f;
+             ^
+util_dp_suboptimal_nw.c:21:14: warning: unused variable 'DNAinitDistrib2Default' [-Wunused-variable]
+static float DNAinitDistrib2Default[] ={ 0.9588437676f, 0.0205782652f, 0.0205782652f }; 
+             ^
+util_dp_suboptimal_nw.c:28:14: warning: unused variable 'DNAemitPairsDefault' [-Wunused-variable]
+static float DNAemitPairsDefault[6][6] = {
+             ^
+util_dp_suboptimal_nw.c:38:14: warning: unused variable 'RNAinitDistrib2Default' [-Wunused-variable]
+static float RNAinitDistrib2Default[] = { 0.9615409374f, 0.0000004538f, 0.0000004538f, 0.0192291681f, 0.0192291681f };
+             ^
+12 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_cdna_fasta_nw.o util_dp_cdna_fasta_nw.c
+util_dp_cdna_fasta_nw.c:262:132: warning: operator '?:' has lower precedence than '+'; '+' will be evaluated first [-Wparentheses]
+                else if ( type==M->INSERTION && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                              ~~~~~~~~~~~~~~~~~~~^
+util_dp_cdna_fasta_nw.c:262:132: note: place parentheses around the '+' expression to silence this warning
+                else if ( type==M->INSERTION && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                                                 ^
+                                                                                                                              (                  )
+util_dp_cdna_fasta_nw.c:262:132: note: place parentheses around the '?:' expression to evaluate it first
+                else if ( type==M->INSERTION && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                                                 ^
+                                                                                                                                (                           )
+util_dp_cdna_fasta_nw.c:264:132: warning: operator '?:' has lower precedence than '+'; '+' will be evaluated first [-Wparentheses]
+                else if ( type==M->DELETION  && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                              ~~~~~~~~~~~~~~~~~~~^
+util_dp_cdna_fasta_nw.c:264:132: note: place parentheses around the '+' expression to silence this warning
+                else if ( type==M->DELETION  && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                                                 ^
+                                                                                                                              (                  )
+util_dp_cdna_fasta_nw.c:264:132: note: place parentheses around the '?:' expression to evaluate it first
+                else if ( type==M->DELETION  && deltatype==1)M->model[a][M->END]=M->model[M->START][a]=(M->TG_MODE==0)?M->gop:0+(M->F_TG_MODE==0)?M->f_gop:0;
+                                                                                                                                                 ^
+                                                                                                                                (                           )
+In file included from util_dp_cdna_fasta_nw.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+3 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_generic_fasta_nw.o util_dp_generic_fasta_nw.c
+In file included from util_dp_generic_fasta_nw.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_fasta_nw.o util_dp_fasta_nw.c
+util_dp_fasta_nw.c:471:15: warning: unused variable 'c' [-Wunused-variable]
+    int a, b, c, d;
+              ^
+util_dp_fasta_nw.c:471:18: warning: unused variable 'd' [-Wunused-variable]
+    int a, b, c, d;
+                 ^
+util_dp_fasta_nw.c:1779:14: warning: array subscript is of type 'char' [-Wchar-subscripts]
+          if (!h->hl[r])  h->hl[r]=vcalloc (1, sizeof (hseq));
+                    ^~
+util_dp_fasta_nw.c:1779:25: warning: array subscript is of type 'char' [-Wchar-subscripts]
+          if (!h->hl[r])  h->hl[r]=vcalloc (1, sizeof (hseq));
+                               ^~
+util_dp_fasta_nw.c:1780:11: warning: array subscript is of type 'char' [-Wchar-subscripts]
+          h=h->hl[r];
+                 ^~
+In file included from util_dp_fasta_nw.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+6 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_fasta_sw.o util_dp_fasta_sw.c
+In file included from util_dp_fasta_sw.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_gotoh_sw.o util_dp_gotoh_sw.c
+util_dp_gotoh_sw.c:365:8: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                   fread ( &k, sizeof (TRACE_TYPE), 1, long_trace);
+                                   ^~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from util_dp_gotoh_sw.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+2 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_est.o util_dp_est.c
+In file included from util_dp_est.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_domain_dp_drivers.o util_domain_dp_drivers.c
+util_domain_dp_drivers.c:564:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+   while (entry=extract_entry (CL))
+          ~~~~~^~~~~~~~~~~~~~~~~~~
+util_domain_dp_drivers.c:564:16: note: place parentheses around the assignment to silence this warning
+   while (entry=extract_entry (CL))
+               ^
+          (                       )
+util_domain_dp_drivers.c:564:16: note: use '==' to turn this assignment into an equality comparison
+   while (entry=extract_entry (CL))
+               ^
+               ==
+util_domain_dp_drivers.c:545:7: warning: unused variable 'a' [-Wunused-variable]
+  int a;
+      ^
+In file included from util_domain_dp_drivers.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+3 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_dp_drivers.o util_dp_drivers.c
+util_dp_drivers.c:29:27: warning: unused variable 'w2' [-Wunused-variable]
+  int a,b, s1, s2, r1, r2,w2;
+                          ^
+util_dp_drivers.c:29:16: warning: unused variable 's2' [-Wunused-variable]
+  int a,b, s1, s2, r1, r2,w2;
+               ^
+util_dp_drivers.c:29:24: warning: unused variable 'r2' [-Wunused-variable]
+  int a,b, s1, s2, r1, r2,w2;
+                       ^
+util_dp_drivers.c:30:25: warning: unused variable 'RCL' [-Wunused-variable]
+  Constraint_list *CL, *RCL;
+                        ^
+util_dp_drivers.c:942:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            atoi(strtok (seq,SEPARATORS));
+            ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:970:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            atoi(strtok (seq,SEPARATORS));
+            ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1011:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1065:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          fgets (buf2, 10000, fp);
+          ^~~~~  ~~~~~~~~~~~~~~~
+util_dp_drivers.c:1001:25: warning: unused variable 'c' [-Wunused-variable]
+          int r1, r2, s1, s2,a,c;
+                               ^
+util_dp_drivers.c:1119:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1154:9: warning: variable 'param' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+          if ( M->param)
+               ^~~~~~~~
+util_dp_drivers.c:1162:193: note: uninitialized use occurs here
+          sprintf ( command, "tc_generic_method.pl -mode=profile_pair -method=%s %s%s %s%s %s%s -param=%s -tmpdir=%s", M->executable2,M->in_flag,prf1_file, M->in_flag2,prf2_file,M->out_flag, result, param, get_tmp_4_tcoffee());
+                                                                                                                                                                                                       ^~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:40:7: note: expanded from macro 'sprintf'
+                           __VA_ARGS__)
+                           ^
+util_dp_drivers.c:1154:4: note: remove the 'if' if its condition is always true
+          if ( M->param)
+          ^~~~~~~~~~~~~~
+util_dp_drivers.c:1110:15: note: initialize the variable 'param' to silence this warning
+          char *param;
+                     ^
+                      = NULL
+util_dp_drivers.c:1214:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1274:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1413:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1488:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          atoi(strtok (seq,SEPARATORS));
+          ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1611:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                getcwd (cdir, sizeof(char)*1000);
+                ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1612:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                chdir (get_cache_dir());
+                ^~~~~  ~~~~~~~~~~~~~~~
+util_dp_drivers.c:1621:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                chdir (cdir);
+                ^~~~~  ~~~~
+util_dp_drivers.c:1647:12: warning: implicit declaration of function 'isalpha' is invalid in C99 [-Wimplicit-function-declaration]
+                    if (!isalpha(r1) || !isalpha(r2))continue;
+                         ^
+util_dp_drivers.c:1560:6: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+            atoi(strtok (seq,SEPARATORS));
+            ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:1555:12: warning: unused variable 'string1' [-Wunused-variable]
+            char *string1, *string2, *string3, *string4, *string5;
+                  ^
+util_dp_drivers.c:1555:22: warning: unused variable 'string2' [-Wunused-variable]
+            char *string1, *string2, *string3, *string4, *string5;
+                            ^
+util_dp_drivers.c:1555:32: warning: unused variable 'string3' [-Wunused-variable]
+            char *string1, *string2, *string3, *string4, *string5;
+                                      ^
+util_dp_drivers.c:1555:42: warning: unused variable 'string4' [-Wunused-variable]
+            char *string1, *string2, *string3, *string4, *string5;
+                                                ^
+util_dp_drivers.c:1555:52: warning: unused variable 'string5' [-Wunused-variable]
+            char *string1, *string2, *string3, *string4, *string5;
+                                                          ^
+util_dp_drivers.c:1665:10: warning: variable 'sap_lib' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+            if (tot>0)
+                ^~~~~
+util_dp_drivers.c:1703:15: note: uninitialized use occurs here
+            vremove (sap_lib);
+                     ^~~~~~~
+util_dp_drivers.c:1665:6: note: remove the 'if' if its condition is always true
+            if (tot>0)
+            ^~~~~~~~~~
+util_dp_drivers.c:1549:19: note: initialize the variable 'sap_lib' to silence this warning
+            char *sap_lib,  *tmp_name, *tmp_name1, *tmp_name2;
+                         ^
+                          = NULL
+util_dp_drivers.c:1735:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        atoi(strtok (seq,SEPARATORS));
+        ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+util_dp_drivers.c:2552:12: warning: unused variable 'p' [-Wunused-variable]
+  int  a,b,p,n,g;
+           ^
+util_dp_drivers.c:2552:14: warning: unused variable 'n' [-Wunused-variable]
+  int  a,b,p,n,g;
+             ^
+util_dp_drivers.c:2553:9: warning: unused variable 'gc' [-Wunused-variable]
+  int **gc;
+        ^
+util_dp_drivers.c:2607:12: warning: unused variable 'n' [-Wunused-variable]
+  int  a,p,n,g;
+           ^
+util_dp_drivers.c:2608:9: warning: unused variable 'gc' [-Wunused-variable]
+  int **gc;
+        ^
+util_dp_drivers.c:3162:10: warning: implicit declaration of function 'sa_align_groups' is invalid in C99 [-Wimplicit-function-declaration]
+  while (sa_align_groups (A,CL,used,0,50)!=-1);
+         ^
+util_dp_drivers.c:3152:7: warning: unused variable 'a' [-Wunused-variable]
+  int a,g=0;
+      ^
+util_dp_drivers.c:3174:10: warning: unused variable 'next' [-Wunused-variable]
+  int a, next, id, cov;
+         ^
+util_dp_drivers.c:3225:14: warning: implicit declaration of function 'tolower' is invalid in C99 [-Wimplicit-function-declaration]
+      int r1=tolower(s1[a]);
+             ^
+util_dp_drivers.c:3241:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c,n;
+            ^
+util_dp_drivers.c:3274:9: warning: unused variable 'g' [-Wunused-variable]
+  int a,g=0;
+        ^
+util_dp_drivers.c:3306:7: warning: variable 'g0' is uninitialized when used here [-Wuninitialized]
+  if (g0==-1) return -1;
+      ^~
+util_dp_drivers.c:3293:15: note: initialize the variable 'g0' to silence this warning
+  int s0,s1,g0, g1,a,id,cov;
+              ^
+               = 0
+util_dp_drivers.c:3339:12: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  static **sim2;
+  ~~~~~~   ^
+util_dp_drivers.c:3337:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c, bsim;
+            ^
+util_dp_drivers.c:3339:12: warning: unused variable 'sim2' [-Wunused-variable]
+  static **sim2;
+           ^
+util_dp_drivers.c:3597:7: warning: unused variable 'a' [-Wunused-variable]
+  int a;
+      ^
+util_dp_drivers.c:3739:11: warning: variable 'pid2' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+      if (pid1==0)
+          ^~~~~~~
+util_dp_drivers.c:3765:17: note: uninitialized use occurs here
+      vwaitpid (pid2, &s, 0);
+                ^~~~
+util_dp_drivers.c:3739:7: note: remove the 'if' if its condition is always false
+      if (pid1==0)
+      ^~~~~~~~~~~~
+util_dp_drivers.c:3733:24: note: initialize the variable 'pid2' to silence this warning
+      int s, pid1, pid2;
+                       ^
+                        = 0
+util_dp_drivers.c:4681:7: warning: unused variable 'mode' [-Wunused-variable]
+  int mode=1;
+      ^
+util_dp_drivers.c:4783:17: warning: unused variable 'd' [-Wunused-variable]
+      int a,b,c,d,s,ss,g,p,l,ml;
+                ^
+util_dp_drivers.c:4771:13: warning: unused variable 'a' [-Wunused-variable]
+  int score,a;
+            ^
+util_dp_drivers.c:5726:7: warning: unused variable 'a' [-Wunused-variable]
+  int a;
+      ^
+util_dp_drivers.c:5739:11: error: non-void function 'rec_tree_aln_N' should return a value [-Wreturn-type]
+  if (!P) return;
+          ^
+48 warnings and 1 error generated.
+make[1]: [util_dp_drivers.o] Error 1 (ignored)
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o util_domain_dp.o util_domain_dp.c
+In file included from util_domain_dp.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o CUSTOM_evaluate_for_struc.o CUSTOM_evaluate_for_struc.c
+In file included from CUSTOM_evaluate_for_struc.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o evaluate_for_struc.o evaluate_for_struc.c
+evaluate_for_struc.c:91:8: warning: unused variable 'strike' [-Wunused-variable]
+        char *strike;
+              ^
+evaluate_for_struc.c:1651:6: warning: variable 'sum2' is uninitialized when used here [-Wuninitialized]
+            sum2+=residues[s1][s2][pos[s1][col1]-1][4];
+            ^~~~
+evaluate_for_struc.c:1614:57: note: initialize the variable 'sum2' to silence this warning
+  float nirmsd, min_nirmsd,max_nirmsd,ref_sum, sum, sum2;
+                                                        ^
+                                                         = 0.0
+evaluate_for_struc.c:2348:13: warning: unused variable 'tree' [-Wunused-variable]
+             int w,tree, cont;
+                   ^
+evaluate_for_struc.c:2217:9: warning: unused variable 'nrapdb' [-Wunused-variable]
+         float nrapdb, rapdb;
+               ^
+evaluate_for_struc.c:2217:17: warning: unused variable 'rapdb' [-Wunused-variable]
+         float nrapdb, rapdb;
+                       ^
+evaluate_for_struc.c:2207:24: warning: unused variable 'n' [-Wunused-variable]
+         int a, b, ncol, npos,n;
+                              ^
+evaluate_for_struc.c:2219:12: warning: unused variable 'T0' [-Wunused-variable]
+         NT_node *T0,*T1,*T2,*PT, *POS;
+                  ^
+evaluate_for_struc.c:2188:19: warning: unused variable 'c' [-Wunused-variable]
+       int **pos, c;
+                  ^
+evaluate_for_struc.c:2209:7: warning: unused variable 'wd1' [-Wunused-variable]
+         int wd1, wd2;
+             ^
+evaluate_for_struc.c:2209:12: warning: unused variable 'wd2' [-Wunused-variable]
+         int wd1, wd2;
+                  ^
+evaluate_for_struc.c:2210:7: warning: unused variable 'in_bubble' [-Wunused-variable]
+         int in_bubble=0;
+             ^
+evaluate_for_struc.c:2196:9: warning: unused variable 'min' [-Wunused-variable]
+         float min, max;
+               ^
+evaluate_for_struc.c:2196:14: warning: unused variable 'max' [-Wunused-variable]
+         float min, max;
+                    ^
+evaluate_for_struc.c:2192:13: warning: unused variable 'distances' [-Wunused-variable]
+         float ****distances;
+                   ^
+evaluate_for_struc.c:2205:14: warning: unused variable 'pdb_param' [-Wunused-variable]
+         Pdb_param *pdb_param;
+                    ^
+evaluate_for_struc.c:2237:7: warning: unused variable 'proceed' [-Wunused-variable]
+         int proceed=1;
+             ^
+evaluate_for_struc.c:2216:7: warning: unused variable 'print_rapdb' [-Wunused-variable]
+         int print_rapdb;
+             ^
+evaluate_for_struc.c:2563:10: warning: unused variable 'b' [-Wunused-variable]
+  int a, b;
+         ^
+In file included from evaluate_for_struc.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+19 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o evaluate_for_domain.o evaluate_for_domain.c
+In file included from evaluate_for_domain.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o evaluate_dirichlet.o evaluate_dirichlet.c
+evaluate_dirichlet.c:297:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fscanf(fp, "%f", &f);
+                        ^~~~~~ ~~~~~~~~~~~~
+evaluate_dirichlet.c:291:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf(fp, "%f\n", &f);
+                ^~~~~~ ~~~~~~~~~~~~~~
+evaluate_dirichlet.c:293:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf(fp, "%f", &f);
+                ^~~~~~ ~~~~~~~~~~~~
+evaluate_dirichlet.c:300:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fscanf(fp, "\n");
+                ^~~~~~ ~~~~~~~~
+In file included from evaluate_dirichlet.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+5 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o evaluate.o evaluate.c
+evaluate.c:165:19: warning: unused variable 'i' [-Wunused-variable]
+  int a, b, c, r, i;
+                  ^
+evaluate.c:165:13: warning: unused variable 'c' [-Wunused-variable]
+  int a, b, c, r, i;
+            ^
+evaluate.c:749:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                  fscanf (fp, "%d ", &res);
+                  ^~~~~~  ~~~~~~~~~~~~~~~
+evaluate.c:754:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                  fscanf (fp, "%f %f", &sseq, &mseq);
+                  ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~
+evaluate.c:759:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          fscanf (fp, "%f %f", &sseq, &mseq);
+          ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~
+evaluate.c:1135:13: warning: if statement has empty body [-Wempty-body]
+      if (w);free_int (w, -1);
+            ^
+evaluate.c:1135:13: note: put the semicolon on a separate line to silence this warning
+evaluate.c:1126:10: warning: unused variable 'count' [-Wunused-variable]
+  float *count;
+         ^
+evaluate.c:1117:20: warning: unused variable 'i' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+                   ^
+evaluate.c:1118:7: warning: unused variable 'avg' [-Wunused-variable]
+  int avg, min_avg, best_cycle;
+      ^
+evaluate.c:1125:14: warning: unused variable 'A' [-Wunused-variable]
+  Alignment *A;
+             ^
+evaluate.c:1117:14: warning: unused variable 'b' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+             ^
+evaluate.c:1118:12: warning: unused variable 'min_avg' [-Wunused-variable]
+  int avg, min_avg, best_cycle;
+           ^
+evaluate.c:1117:16: warning: unused variable 'c' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+               ^
+evaluate.c:1123:32: warning: unused variable 'acc' [-Wunused-variable]
+  float nsd, best_score,score, acc;
+                               ^
+evaluate.c:1120:9: warning: unused variable 'fp' [-Wunused-variable]
+  FILE *fp;
+        ^
+evaluate.c:1117:18: warning: unused variable 'l' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+                 ^
+evaluate.c:1214:10: warning: unused variable 'b' [-Wunused-variable]
+  int a, b;
+         ^
+evaluate.c:1230:10: warning: unused variable 'b' [-Wunused-variable]
+  int a, b;
+         ^
+evaluate.c:1241:10: warning: unused variable 'sum' [-Wunused-variable]
+  double sum=0, sum2=0, zscore=0, zsum2=0;
+         ^
+evaluate.c:1241:17: warning: unused variable 'sum2' [-Wunused-variable]
+  double sum=0, sum2=0, zscore=0, zsum2=0;
+                ^
+evaluate.c:1242:10: warning: unused variable 'b' [-Wunused-variable]
+  int a, b;
+         ^
+evaluate.c:1285:13: warning: if statement has empty body [-Wempty-body]
+      if (w);free_int (w, -1);
+            ^
+evaluate.c:1285:13: note: put the semicolon on a separate line to silence this warning
+evaluate.c:1284:11: warning: unused variable 't' [-Wunused-variable]
+      int t;
+          ^
+evaluate.c:1272:27: warning: unused variable 'fp' [-Wunused-variable]
+  char **pred_list; FILE *fp;
+                          ^
+evaluate.c:1270:18: warning: unused variable 'l' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+                 ^
+evaluate.c:1270:20: warning: unused variable 'i' [-Wunused-variable]
+  int **w, a,b,c,l,i;
+                   ^
+evaluate.c:1992:30: warning: unused variable 'b2' [-Wunused-variable]
+  char name [1000], b1[100], b2[100];
+                             ^
+evaluate.c:2540:8: warning: unused variable 'nclean' [-Wunused-variable]
+          int nclean;
+              ^
+evaluate.c:3452:7: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                  aa[r]+=pr[a][b+1];
+                    ^~
+evaluate.c:3453:17: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                  if (a==2){aa[r]*=aa[r];}
+                              ^~
+evaluate.c:3453:24: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                  if (a==2){aa[r]*=aa[r];}
+                                     ^~
+evaluate.c:3454:11: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                  if (aa[r]>score)score=aa[r];
+                        ^~
+evaluate.c:3454:29: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                  if (aa[r]>score)score=aa[r];
+                                          ^~
+evaluate.c:3461:10: warning: unused variable 'r' [-Wunused-variable]
+                  char r=tolower (pr[a][b]);
+                       ^
+evaluate.c:3433:14: warning: unused variable 'r' [-Wunused-variable]
+          int a, b, r;
+                    ^
+evaluate.c:4849:9: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+               fscanf (fp, "%f %c %*s",&v1, &c1 );
+               ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~
+evaluate.c:5063:6: warning: variable 'score' is uninitialized when used here [-Wuninitialized]
+            score+=(v1-v2)*(v1-v2);
+            ^~~~~
+evaluate.c:5041:34: note: initialize the variable 'score' to silence this warning
+  int a,b,c, tot=0, v1, v2, score;
+                                 ^
+                                  = 0
+In file included from evaluate.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+38 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o showpair.o showpair.c
+In file included from showpair.c:6:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o fsa_dp.o fsa_dp.c
+In file included from fsa_dp.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o pavie_dp.o pavie_dp.c
+pavie_dp.c:101:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+          fscanf (fp, "%s\n",mat_list[nch++]);
+          ^~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+pavie_dp.c:1053:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      system  (command);
+      ^~~~~~   ~~~~~~~
+pavie_dp.c:1055:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      system (command);
+      ^~~~~~  ~~~~~~~
+pavie_dp.c:1118:58: warning: operator '?:' has lower precedence than '*'; '*' will be evaluated first [-Wparentheses]
+          gap_inY= F[i-1][j]   + (CL->M[x[i-1]-'A'][gap]*(j==YL)?factor:1);
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+pavie_dp.c:1118:58: note: place parentheses around the '*' expression to silence this warning
+          gap_inY= F[i-1][j]   + (CL->M[x[i-1]-'A'][gap]*(j==YL)?factor:1);
+                                                                ^
+                                  (                             )
+pavie_dp.c:1118:58: note: place parentheses around the '?:' expression to evaluate it first
+          gap_inY= F[i-1][j]   + (CL->M[x[i-1]-'A'][gap]*(j==YL)?factor:1);
+                                                                ^
+                                                         (               )
+pavie_dp.c:1119:58: warning: operator '?:' has lower precedence than '*'; '*' will be evaluated first [-Wparentheses]
+          gap_inX= F[i][j-1]   + (CL->M[y[j-1]-'A'][gap]*(i==XL)?factor:1);
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+pavie_dp.c:1119:58: note: place parentheses around the '*' expression to silence this warning
+          gap_inX= F[i][j-1]   + (CL->M[y[j-1]-'A'][gap]*(i==XL)?factor:1);
+                                                                ^
+                                  (                             )
+pavie_dp.c:1119:58: note: place parentheses around the '?:' expression to evaluate it first
+          gap_inX= F[i][j-1]   + (CL->M[y[j-1]-'A'][gap]*(i==XL)?factor:1);
+                                                                ^
+                                                         (               )
+pavie_dp.c:1339:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fscanf (fp, "%s", mat);
+      ^~~~~~  ~~~~~~~~~~~~~
+In file included from pavie_dp.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+7 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o dev1.o dev1.c
+dev1.c:76:9: warning: implicit declaration of function 'tolower' is invalid in C99 [-Wimplicit-function-declaration]
+                                        r1=tolower(A->seq_al[k][i]);
+                                           ^
+dev1.c:29:6: warning: unused variable 'itmpScore' [-Wunused-variable]
+        int itmpScore;
+            ^
+In file included from dev1.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+3 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o dev2.o dev2.c
+In file included from dev2.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o dev3.o dev3.c
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o dev4.o dev4.c
+In file included from dev4.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o fastal.o fastal.c
+fastal.c:1965:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                system(blast_command);
+                ^~~~~~ ~~~~~~~~~~~~~
+fastal.c:1969:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, 300, diag_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:1970:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, 300, diag_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:1971:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, 300, diag_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:1913:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(blast_command);
+        ^~~~~~ ~~~~~~~~~~~~~
+fastal.c:1918:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:1919:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:1920:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+fastal.c:2104:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(blast_command);
+        ^~~~~~ ~~~~~~~~~~~~~
+fastal.c:2251:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(blast_command);
+        ^~~~~~ ~~~~~~~~~~~~~
+fastal.c:3042:8: warning: unused variable 'num' [-Wunused-variable]
+                        int num = 0;
+                            ^
+fastal.c:3193:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets (line, LINE_LENGTH , seq_file);
+        ^~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3344:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH , profile_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3315:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, profile_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3318:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, profile_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3321:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, profile_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3323:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, profile_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3325:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, profile_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3494:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets (line, LINE_LENGTH , sequence_file);
+        ^~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3567:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3569:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3571:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3573:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3635:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(aligned_sequence, alignment_length+3, edit_seq_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fastal.c:3786:3: warning: implicit declaration of function 'complete_agreement_score' is invalid in C99 [-Wimplicit-function-declaration]
+                complete_agreement_score(arguments.aln2test, arguments.aln_ref);
+                ^
+fastal.c:3793:3: warning: implicit declaration of function 'compute_ref_alignments' is invalid in C99 [-Wimplicit-function-declaration]
+                compute_ref_alignments(arguments.sequence_file, arguments.aln_ref, arguments.num_ref_aln, arguments.num_seq_in_ref);
+                ^
+In file included from fastal.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+27 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o parttree.o parttree.c
+parttree.c:675:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fgets(line, 500, aln_f);
+                        ^~~~~ ~~~~~~~~~~~~~~~~
+parttree.c:669:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, 500, aln_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~
+parttree.c:833:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, tables_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:822:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, tables_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:877:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, ktup_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:886:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, ktup_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:865:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, ktup_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:880:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, ktup_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:936:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, ktup_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+parttree.c:925:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, ktup_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from parttree.c:10:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+11 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o tree.o tree.c
+In file included from tree.c:7:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o diagonal.o diagonal.c
+diagonal.c:284:27: warning: implicit declaration of function 'toupper' is invalid in C99 [-Wimplicit-function-declaration]
+                                list[list_pos][2] = M[toupper(seq1[tmpx-1])-'A'][toupper(seq2[tmpy-1])-'A'];
+                                                      ^
+diagonal.c:218:6: warning: unused variable 'tmpy_value' [-Wunused-variable]
+        int tmpy_value;
+            ^
+diagonal.c:217:6: warning: unused variable 'tmpy_pos' [-Wunused-variable]
+        int tmpy_pos;
+            ^
+diagonal.c:408:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(blast_command);
+        ^~~~~~ ~~~~~~~~~~~~~
+diagonal.c:413:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+diagonal.c:414:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+diagonal.c:415:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, 300, diag_f);
+        ^~~~~ ~~~~~~~~~~~~~~~~~
+diagonal.c:398:7: warning: unused variable 'blast_command2' [-Wunused-variable]
+        char blast_command2[200];
+             ^
+In file included from diagonal.c:5:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+9 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o fastal_opt_parsing.o fastal_opt_parsing.c
+fastal_opt_parsing.c:13:29: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+        if (arguments->tree_method == "parttree")
+                                   ^  ~~~~~~~~~~
+1 warning generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o scoring.o scoring.c
+scoring.c:50:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, alignment_file);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:56:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, alignment_file);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:52:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, alignment_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:177:6: warning: unused variable 'chunk' [-Wunused-variable]
+        int chunk = 500;
+            ^
+scoring.c:359:4: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                        fgets(line, LINE_LENGTH, seq_file);
+                        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:373:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                system(aln_command);
+                ^~~~~~ ~~~~~~~~~~~
+scoring.c:326:9: warning: unused variable 'j' [-Wunused-variable]
+        int i, j, k, tmp, already, num_already;
+               ^
+scoring.c:464:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH, seq_f);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:478:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(command);
+        ^~~~~~ ~~~~~~~
+scoring.c:560:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, result);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:561:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, result);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:562:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH, result);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+scoring.c:578:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+complete_agreement_score(char *aln_file_name, const char *ref_directory)
+^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from scoring.c:11:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+14 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o iteration.o iteration.c
+iteration.c:28:22: warning: array subscript is of type 'char' [-Wchar-subscripts]
+                        ++(prf_in[char2pos[*seq]][++i]);
+                                          ^~~~~
+iteration.c:155:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , alignment_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:150:6: warning: unused variable 'i' [-Wunused-variable]
+        int i,j;
+            ^
+iteration.c:150:8: warning: unused variable 'j' [-Wunused-variable]
+        int i,j;
+              ^
+iteration.c:387:22: warning: implicit declaration of function 'gotoh_dyn' is invalid in C99 [-Wimplicit-function-declaration]
+                alignment_length = gotoh_dyn(profiles, param, method_arguments_p, 0, edit_file, profile_file, 0);
+                                   ^
+iteration.c:411:7: warning: implicitly declaring library function 'strcmp' with type 'int (const char *, const char *)'
+        if (!strcmp(param->method, "fast"))
+             ^
+iteration.c:411:7: note: please include the header <string.h> or explicitly provide a declaration for 'strcmp'
+iteration.c:417:3: warning: implicit declaration of function 'free_nw' is invalid in C99 [-Wimplicit-function-declaration]
+                free_nw((Nw_param*)method_arguments_p, alphabet_size);
+                ^
+iteration.c:280:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(line, LINE_LENGTH , alignment_file);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:405:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        system(command);
+        ^~~~~~ ~~~~~~~
+iteration.c:329:10: warning: unused variable 'p' [-Wunused-variable]
+                double p;
+                       ^
+iteration.c:261:6: warning: unused variable 'it_counter' [-Wunused-variable]
+        int it_counter = 0;
+            ^
+iteration.c:327:10: warning: unused variable 'entrop' [-Wunused-variable]
+                double entrop = 0;
+                       ^
+iteration.c:328:10: warning: unused variable 'last' [-Wunused-variable]
+                double last = 0;
+                       ^
+iteration.c:325:10: warning: unused variable 'max_entrop' [-Wunused-variable]
+                double max_entrop = 0;
+                       ^
+iteration.c:505:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                                fgets(alnline, ALNLINE_LENGTH, old_aln_file);
+                                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:471:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(alnline, ALNLINE_LENGTH , old_aln_file);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:474:3: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+                fgets(alnline, ALNLINE_LENGTH , old_aln_file);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:431:6: warning: unused variable 'i' [-Wunused-variable]
+        int i;
+            ^
+iteration.c:533:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:535:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:537:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iteration.c:539:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        fgets(line, LINE_LENGTH , edit_file);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from iteration.c:8:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+23 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -D_FORTIFY_SOURCE=2  -c -o t_coffee.o t_coffee.c
+t_coffee.c:4184:14: warning: unused variable 'j' [-Wunused-variable]
+                       int j;
+                           ^
+t_coffee.c:386:8: warning: unused variable 'tmp_4_tcoffee' [-Wunused-variable]
+        char *tmp_4_tcoffee;
+              ^
+t_coffee.c:5343:10: warning: implicit declaration of function 'fastal_main' is invalid in C99 [-Wimplicit-function-declaration]
+                return fastal_main(argc, argv);
+                       ^
+t_coffee.c:5414:12: warning: unused variable 's1' [-Wunused-variable]
+   int a,b,s1, n, i;
+           ^
+t_coffee.c:5414:16: warning: unused variable 'n' [-Wunused-variable]
+   int a,b,s1, n, i;
+               ^
+t_coffee.c:5414:19: warning: unused variable 'i' [-Wunused-variable]
+   int a,b,s1, n, i;
+                  ^
+t_coffee.c:5415:10: warning: unused variable 'fp' [-Wunused-variable]
+   FILE *fp;
+         ^
+t_coffee.c:5416:8: warning: unused variable 'trim_mode' [-Wunused-variable]
+   int trim_mode=2;
+       ^
+t_coffee.c:5608:8: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+static max_nseq;
+~~~~~~ ^
+t_coffee.c:5609:8: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+static cur_nseq;
+~~~~~~ ^
+t_coffee.c:5695:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+t_coffee.c:5679:15: warning: variable 'A' is uninitialized when used here [-Wuninitialized]
+        max_kmcoffee=A->nseq;
+                     ^
+t_coffee.c:5631:14: note: initialize the variable 'A' to silence this warning
+        Alignment *A;
+                    ^
+                     = NULL
+t_coffee.c:5904:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+t_coffee.c:6021:8: warning: unused variable 'buf' [-Wunused-variable]
+  char buf [10000];
+       ^
+In file included from t_coffee.c:9:
+./io_lib_header.h:971:16: warning: unused function 'compute_std_tree' [-Wunused-function]
+static NT_node compute_std_tree (Alignment *A, int n, char **arg_list);
+               ^
+t_coffee.c:5301:6: warning: unused function 'test' [-Wunused-function]
+void test ()
+     ^
+t_coffee.c:32:14: warning: unused function 'get_rmcoffee_defaults_old' [-Wunused-function]
+static char *get_rmcoffee_defaults_old(char *buf, char *type);//Original R-Coffee Paper
+             ^
+t_coffee.c:33:14: warning: unused function 'get_rcoffee_defaults_old' [-Wunused-function]
+static char *get_rcoffee_defaults_old(char *buf, char *type);//Original R-Coffee Paper
+             ^
+t_coffee.c:5082:7: warning: unused function 'get_cdna_defaults' [-Wunused-function]
+char *get_cdna_defaults(char *buf, char *type)
+      ^
+t_coffee.c:5610:12: warning: unused variable 'kmk' [-Wunused-variable]
+static int kmk;
+           ^
+20 warnings generated.
+cc -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -o t_coffee util_constraints_list.o util_job_handling.o util_dps.o util_domain_constraints_list.o util_analyse_constraints_list.o util_aln_analyze.o aln_convertion_util.o util_declare.o hsearch.o random.o util_make_tree.o util.o reformat_struc.o reformat.o aln_compare.o io_func.o pb_util_read_sequence.o pb_util_read_seq_util.o tree_util.o util_graph_maln.o util_dp_clean_maln.o util_dp_ssec_pwaln.o util_dp_sim.o util_dp_mm_nw.o util_dp_gotoh_nw.o util_dp_suboptimal_nw.o util_dp_cdna_fasta_nw.o util_dp_generic_fasta_nw.o util_dp_fasta_nw.o util_dp_fasta_sw.o util_dp_gotoh_sw.o util_dp_est.o util_domain_dp_drivers.o util_dp_drivers.o util_domain_dp.o CUSTOM_evaluate_for_struc.o evaluate_for_struc.o evaluate_for_domain.o evaluate_dirichlet.o evaluate.o showpair.o fsa_dp.o pavie_dp.o dev1.o dev2.o dev3.o dev4.o fastal.o parttree.o tree.o diagonal.o fastal_opt_parsing.o scoring.o iteration.o t_coffee.o  -lm
+clang: error: no such file or directory: 'util_constraints_list.o'
+clang: error: no such file or directory: 'aln_convertion_util.o'
+clang: error: no such file or directory: 'util_dp_drivers.o'
+make[1]: [t_coffee] Error 1 (ignored)
+gfortran -g -O2 TMalign.f -o TMalign
+make[1]: Leaving directory `/«PKGBUILDDIR»/t_coffee_source'
+touch debian/stamp-makefile-build
+DEB_MAKE_CHECK_TARGET unset, not running checks
+ fakeroot debian/rules binary-arch
+test -x debian/rules
+dh_testroot
+dh_prep 
+dh_installdirs -A 
+mkdir -p "."
+/usr/share/cdbs/1/rules/buildcore.mk:109: WARNING:  DEB_COMPRESS_EXCLUDE is a deprecated variable
+DEB_MAKE_CHECK_TARGET unset, not running checks
+DEB_MAKE_INSTALL_TARGET unset, skipping default makefile.mk common-install target
+Adding cdbs dependencies to debian/t-coffee.substvars
+dh_installdirs -pt-coffee 
+dh_installdocs -pt-coffee 
+dh_installexamples -pt-coffee 
+dh_installman -pt-coffee  
+dh_installinfo -pt-coffee  
+dh_installmenu -pt-coffee 
+dh_installcron -pt-coffee 
+dh_installinit -pt-coffee  
+dh_installdebconf -pt-coffee 
+dh_installemacsen -pt-coffee   
+dh_installcatalogs -pt-coffee 
+dh_installpam -pt-coffee 
+dh_installlogrotate -pt-coffee 
+dh_installlogcheck -pt-coffee 
+dh_installchangelogs -pt-coffee  
+dh_installudev -pt-coffee 
+dh_lintian -pt-coffee 
+dh_bugfiles -pt-coffee 
+dh_install -pt-coffee  
+cp: cannot stat 'debian/tmp/t_coffee_source/t_coffee': No such file or directory
+dh_install: cp -a debian/tmp/t_coffee_source/t_coffee debian/t-coffee//usr/bin/ returned exit code 1
+make: *** [binary-install/t-coffee] Error 2
+dpkg-buildpackage: error: fakeroot debian/rules binary-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1843
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -427,28 +3231,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 23056
+Build-Time: 37
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 6
 Job: t-coffee_9.02.r1228-2
 Package: t-coffee
-Package-Time: 0
+Package-Time: 70
 Source-Version: 9.02.r1228-2
-Space: 0
-Status: failed
+Space: 23056
+Status: attempted
 Version: 9.02.r1228-2
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0433
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.481622s
-DC-Time-Estimation: 33.481622 versus expected 326 (r/m: 8.73668479979853 ; m: 33.481622)
+Finished at 20130131-1843
+Build needed 00:01:10, 23056k disc space
+DC-Status: Failed 70.53771s
+DC-Time-Estimation: 70.53771 versus expected 326 (r/m: 3.62164138869833 ; m: 70.53771)

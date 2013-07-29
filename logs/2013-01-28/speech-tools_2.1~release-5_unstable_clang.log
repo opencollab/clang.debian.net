@@ -1,12 +1,12 @@
-DC-Build-Header: speech-tools 1:2.1~release-5 / Mon Jan 28 04:31:03 +0000 2013
-DC-Task: logfile:/tmp/speech-tools_2.1~release-5_unstable_clang.log version:1:2.1~release-5 chroot:unstable modes:binary-only:clang source:speech-tools architecture:any esttime:365
+DC-Build-Header: speech-tools 1:2.1~release-5 / Thu Jan 31 18:40:25 +0000 2013
+DC-Task: logfile:/tmp/speech-tools_2.1~release-5_unstable_clang.log version:1:2.1~release-5 modes:binary-only:clang chroot:unstable source:speech-tools esttime:365 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang speech-tools_1:2.1~release-5'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-129-15.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-159-16-100.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ speech-tools 1:2.1~release-5 (amd64)                       28 Jan 2013 04:31 ║
+║ speech-tools 1:2.1~release-5 (amd64)                       31 Jan 2013 18:40 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: speech-tools
@@ -15,9 +15,9 @@ Source Version: 1:2.1~release-5
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/speech-tools-tAIR62/speech-tools-2.1~release' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/speech-tools-tAIR62' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-bd43f221-d593-4ddd-94b3-e82eaa474cbe' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/speech-tools-v9lRGJ/speech-tools-2.1~release' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/speech-tools-v9lRGJ' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-057131ed-82be-40b5-b989-546ce4f89de8' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 3s (4783 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5046 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -64,7 +60,7 @@ Need to get 1721 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main speech-tools 1:2.1~release-5 (dsc) [2206 B]
 Get:2 http://localhost/debian/ unstable/main speech-tools 1:2.1~release-5 (tar) [1682 kB]
 Get:3 http://localhost/debian/ unstable/main speech-tools 1:2.1~release-5 (diff) [36.7 kB]
-Fetched 1721 kB in 0s (4510 kB/s)
+Fetched 1721 kB in 0s (5639 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -81,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1254 kB/s)
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2262 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3697 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (35.2 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 8s (2958 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -301,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -372,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-bKvCX3/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-HgR2dc/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -391,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), autotools-dev, gawk | awk, libesd0-dev, libncurses5-dev, quilt (>= 0.40), hardening-wrapper
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 8), autotools-dev, gawk, libesd0-dev, libncurses5-dev, quilt (>= 0.40), hardening-wrapper
-dpkg-deb: building package `sbuild-build-depends-speech-tools-dummy' in `/«BUILDDIR»/resolver-bJyPCK/apt_archive/sbuild-build-depends-speech-tools-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-speech-tools-dummy' in `/«BUILDDIR»/resolver-eaO6Gx/apt_archive/sbuild-build-depends-speech-tools-dummy.deb'.
 OK
 Reading package lists...
 
@@ -408,18 +286,2330 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  autotools-dev bsdmainutils debhelper diffstat esound-common file gawk
+  gettext gettext-base groff-base hardening-wrapper html2text intltool-debian
+  libasound2 libasprintf-dev libasprintf0c2 libaudiofile-dev libaudiofile1
+  libcroco3 libesd0 libesd0-dev libgettextpo-dev libgettextpo0 libglib2.0-0
+  libmagic1 libncurses5-dev libpcre3 libpipeline1 libpopt0 libsigsegv2
+  libtinfo-dev libunistring0 libxml2 man-db pkg-config po-debconf quilt
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gawk-doc gettext-doc groff
+  libasound2-plugins pulseaudio-esound-compat ncurses-doc less www-browser
+  libmail-box-perl procmail graphviz default-mta mail-transport-agent
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autotools-dev bsdmainutils debhelper diffstat esound-common file gawk
+  gettext gettext-base groff-base hardening-wrapper html2text intltool-debian
+  libasound2 libasprintf-dev libasprintf0c2 libaudiofile-dev libaudiofile1
+  libcroco3 libesd0 libesd0-dev libgettextpo-dev libgettextpo0 libglib2.0-0
+  libmagic1 libncurses5-dev libpcre3 libpipeline1 libpopt0 libsigsegv2
+  libtinfo-dev libunistring0 libxml2 man-db pkg-config po-debconf quilt
+  sbuild-build-depends-speech-tools-dummy
+0 upgraded, 38 newly installed, 0 to remove and 0 not upgraded.
+Need to get 11.8 MB/11.8 MB of archives.
+After this operation, 33.0 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:8 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:9 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:10 http://localhost/debian/ unstable/main libasound2 amd64 1.0.25-4 [461 kB]
+Get:11 http://localhost/debian/ unstable/main libaudiofile1 amd64 0.3.4-2 [97.8 kB]
+Get:12 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:13 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:14 http://localhost/debian/ unstable/main esound-common all 0.2.41-10 [46.0 kB]
+Get:15 http://localhost/debian/ unstable/main libesd0 amd64 0.2.41-10+b1 [20.2 kB]
+Get:16 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:17 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:18 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:19 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:20 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:21 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:22 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:23 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:24 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:25 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:26 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:27 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:28 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:29 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:30 http://localhost/debian/ unstable/main gawk amd64 1:4.0.1+dfsg-2 [972 kB]
+Get:31 http://localhost/debian/ unstable/main hardening-wrapper amd64 2.3 [13.6 kB]
+Get:32 http://localhost/debian/ unstable/main libaudiofile-dev amd64 0.3.4-2 [44.9 kB]
+Get:33 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:34 http://localhost/debian/ unstable/main libesd0-dev amd64 0.2.41-10+b1 [29.0 kB]
+Get:35 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:36 http://localhost/debian/ unstable/main libncurses5-dev amd64 5.9-10 [223 kB]
+Get:37 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 11.8 MB in 0s (23.6 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libasound2:amd64.
+Unpacking libasound2:amd64 (from .../libasound2_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libaudiofile1:amd64.
+Unpacking libaudiofile1:amd64 (from .../libaudiofile1_0.3.4-2_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package esound-common.
+Unpacking esound-common (from .../esound-common_0.2.41-10_all.deb) ...
+Selecting previously unselected package libesd0:amd64.
+Unpacking libesd0:amd64 (from .../libesd0_0.2.41-10+b1_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package gawk.
+Unpacking gawk (from .../gawk_1%3a4.0.1+dfsg-2_amd64.deb) ...
+Selecting previously unselected package hardening-wrapper.
+Unpacking hardening-wrapper (from .../hardening-wrapper_2.3_amd64.deb) ...
+Adding 'diversion of /usr/bin/gcc-4.2 to /usr/bin/gcc-4.2.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.2 to /usr/bin/g++-4.2.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.3 to /usr/bin/gcc-4.3.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.3 to /usr/bin/g++-4.3.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.4 to /usr/bin/gcc-4.4.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.4 to /usr/bin/g++-4.4.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.5 to /usr/bin/gcc-4.5.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.5 to /usr/bin/g++-4.5.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.6 to /usr/bin/gcc-4.6.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.6 to /usr/bin/g++-4.6.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.7 to /usr/bin/gcc-4.7.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.7 to /usr/bin/g++-4.7.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/gcc-4.8 to /usr/bin/gcc-4.8.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/g++-4.8 to /usr/bin/g++-4.8.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/ld.bfd to /usr/bin/ld.bfd.real by hardening-wrapper'
+Adding 'diversion of /usr/bin/ld.gold to /usr/bin/ld.gold.real by hardening-wrapper'
+Selecting previously unselected package libaudiofile-dev:amd64.
+Unpacking libaudiofile-dev:amd64 (from .../libaudiofile-dev_0.3.4-2_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libesd0-dev:amd64.
+Unpacking libesd0-dev:amd64 (from .../libesd0-dev_0.2.41-10+b1_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libncurses5-dev.
+Unpacking libncurses5-dev (from .../libncurses5-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-speech-tools-dummy.
+Unpacking sbuild-build-depends-speech-tools-dummy (from .../sbuild-build-depends-speech-tools-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libasound2:amd64 (1.0.25-4) ...
+Setting up libaudiofile1:amd64 (0.3.4-2) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up esound-common (0.2.41-10) ...
+Setting up libesd0:amd64 (0.2.41-10+b1) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up gawk (1:4.0.1+dfsg-2) ...
+Setting up hardening-wrapper (2.3) ...
+Setting up libaudiofile-dev:amd64 (0.3.4-2) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libesd0-dev:amd64 (0.2.41-10+b1) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libncurses5-dev (5.9-10) ...
+Setting up quilt (0.60-7) ...
+Setting up sbuild-build-depends-speech-tools-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-speech-tools-dummy : Depends: libncurses5-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 esound-common_0.2.41-10 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gawk_1:4.0.1+dfsg-2 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hardening-wrapper_2.3 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasound2_1.0.25-4 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libaudiofile-dev_0.3.4-2 libaudiofile1_0.3.4-2 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libesd0_0.2.41-10+b1 libesd0-dev_0.2.41-10+b1 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncurses5-dev_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 quilt_0.60-7 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-speech-tools-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sun Jan 20 00:26:43 2013 UTC using RSA key ID 41F1B757
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./speech-tools_2.1~release-5.dsc
+dpkg-source: info: extracting speech-tools in speech-tools-2.1~release
+dpkg-source: info: unpacking speech-tools_2.1~release.orig.tar.gz
+dpkg-source: info: unpacking speech-tools_2.1~release-5.debian.tar.gz
+dpkg-source: info: applying audio_esd.cc.diff
+dpkg-source: info: applying audio_gen_audio.cc.diff
+dpkg-source: info: applying config_compilers_gcc_defaults.mak.diff
+dpkg-source: info: applying config_config.diff
+dpkg-source: info: applying config_config.in.diff
+dpkg-source: info: applying config_modules_esd_audio.mak.diff
+dpkg-source: info: applying config_project.mak.diff
+dpkg-source: info: applying config_rules_bin_process.mak.diff
+dpkg-source: info: applying config_rules_library.mak.diff
+dpkg-source: info: applying config_rules_targets.mak.diff
+dpkg-source: info: applying config_system.sh.diff
+dpkg-source: info: applying configure.in.diff
+dpkg-source: info: applying include_EST_cutils.h.diff
+dpkg-source: info: applying include_EST_dynamic_model.h.diff
+dpkg-source: info: applying include_EST_TIterator.h.diff
+dpkg-source: info: applying include_EST_wave_aux.h.diff
+dpkg-source: info: applying lib_siod_siod.scm.diff
+dpkg-source: info: applying main_siod_main.cc.diff
+dpkg-source: info: applying main_xml_parser_main.cc.diff
+dpkg-source: info: applying Makefile.diff
+dpkg-source: info: applying siod_slib.cc.diff
+dpkg-source: info: applying speech_class_EST_wave_aux.cc.diff
+dpkg-source: info: applying speech_class_EST_WaveFile.cc.diff
+dpkg-source: info: applying speech_class_EST_WaveFile.h.diff
+dpkg-source: info: applying speech_class_EST_wave_io.cc.diff
+dpkg-source: info: applying speech_class_EST_wave_utils.cc.diff
+dpkg-source: info: applying speech_class_waveP.h.diff
+dpkg-source: info: applying testsuite_correct_ch_wave_script.out.diff
+dpkg-source: info: applying utils_Makefile.diff
+dpkg-source: info: applying utils_EST_cutils.c.diff
+dpkg-source: info: applying copyright_4clausefix.diff
+dpkg-source: info: applying fmt.diff
+dpkg-source: info: applying lintianspell.diff
+dpkg-source: info: applying unqualifiedmethods.diff
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-057131ed-82be-40b5-b989-546ce4f89de8
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package speech-tools
+dpkg-buildpackage: source version 1:2.1~release-5
+dpkg-buildpackage: source changed by Peter Drysdale <drysdalepete@gmail.com>
+ dpkg-source --before-build speech-tools-2.1~release
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_testdir
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+/usr/bin/make clean SYSTEM_TYPE=unknown_DebianGNULinux
+Check system type
+Remake modincludes.inc
+	ESD_AUDIO
+		config/modules/esd_audio.mak
+	NATIVE_AUDIO
+		ok
+	EDITLINE
+		config/modules/editline.mak
+	SIOD
+		siod/siod.mak
+	WAGON
+		stats/wagon/wagon.mak
+	SCFG
+		grammar/scfg/scfg.mak
+	WFST
+		grammar/wfst/wfst.mak
+	OLS
+		stats/ols.mak
+	RXP
+		rxp/rxp.mak
+	LINUX16_AUDIO
+		config/modules/linux16_audio.mak
+make[2]: Entering directory `/«PKGBUILDDIR»'
+/bin/rm -fr        Build.trace Test.trace Templates.DB make.depend .buildlib* *~
+clean in ./include
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/unix
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/win32
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/sigpr
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/ling_class
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/instantiate
+/bin/rm -fr         make.depend .buildlib* *~
+clean in include/rxp
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./audio
+/bin/rm -fr gen_audio.o nas.o esd.o sun16audio.o mplayer.o win32audio.o irixaudio.o os2audio.o macosxaudio.o linux_sound.o      make.depend .buildlib* *~
+clean in ./utils
+/bin/rm -fr cmd_line.o util_io.o filetrans.o cmd_line_aux.o EST_swapping.o EST_Server.o EST_FringeServer.o est_file.o EST_ServiceTable.o EST_cutils.o EST_error.o walloc.o system_specific_unix.o      make.depend .buildlib* *~
+clean in ./base_class
+/bin/rm -fr EST_UList.o EST_Option.o EST_StringTrie.o EST_Token.o vec_mat_aux.o EST_Pathname_unix.o THash_aux.o EST_FMatrix.o EST_Complex.o EST_Val.o EST_matrix_support.o rateconv.o EST_IMatrix.o EST_SMatrix.o EST_DMatrix.o vec_mat_aux_d.o EST_FeatureData.o EST_slist_aux.o EST_svec_aux.o EST_ilist_aux.o EST_features_aux.o EST_features_io.o vec_mat_aux_i.o EST_Featured.o EST_Features.o      make.depend .buildlib* *~
+clean in base_class/string
+/bin/rm -fr EST_String.o EST_Regex.o EST_Chunk.o regexp.o regerror.o regsub.o EST_strcasecmp.o      make.depend .buildlib* *~
+clean in base_class/inst_tmpl
+/bin/rm -fr list_i_t.o list_si_t.o list_f_t.o list_d_t.o list_c_t.o list_s_t.o list_val_t.o list_li_t.o list_vs_t.o list_vi_t.o matrix_i_t.o matrix_si_t.o matrix_f_t.o matrix_d_t.o matrix_s_t.o matrix_val_t.o vector_i_t.o vector_si_t.o vector_f_t.o vector_d_t.o vector_c_t.o vector_s_t.o vector_val_t.o vector_ls_t.o vector_fvector_t.o vector_fmatrix_t.o vector_dvector_t.o vector_dmatrix_t.o kvl_fi_t.o kvl_ii_t.o kvl_sd_t.o kvl_sf_t.o kvl_ss_t.o kvl_si_t.o kvl_sv_t.o kvl_rs_t.o kvl_vpi_t.o hash_fi_t.o hash_ii_t.o hash_sd_t.o hash_sf_t.o hash_ss_t.o hash_si_t.o hash_sv_t.o hash_iv_t.o hash_sfmp_t.o hash_srp.o tbuffer_t.o deq_s_t.o deq_i_t.o      make.depend .buildlib* *~
+clean in ./ling_class
+/bin/rm -fr EST_Item.o EST_Item_Content.o item_aux.o EST_relation_aux.o EST_relation_track.o relation_io.o EST_relation_compare.o standard_feature_functions.o EST_Relation_mls.o EST_item_aux.o EST_item_content_aux.o EST_Relation.o EST_UtteranceFile.o genxml.o EST_utterance_aux.o ling_class_init.o ling_t.o EST_Utterance.o item_feats.o apml.o solexml.o EST_FeatureFunctionPackage.o EST_FeatureFunctionContext.o      make.depend .buildlib* *~
+clean in ./speech_class
+/bin/rm -fr EST_Wave.o EST_track_aux.o EST_wave_temp.o EST_wave_cuts.o ssff.o esps_io.o esps_utils.o EST_wave_io.o EST_wave_utils.o EST_TrackMap.o EST_Track.o wave_t.o track_t.o EST_wave_aux.o EST_TrackFile.o EST_WaveFile.o      make.depend .buildlib* *~
+clean in ./sigpr
+/bin/rm -fr EST_Window.o delta.o filter.o sigpr_frame.o sigpr_utt.o pitchmark.o spectrogram.o misc.o fft.o      make.depend .buildlib* *~
+clean in sigpr/pda
+/bin/rm -fr pcb_smoother.o smooth_pda.o pda.o srpd1.3.o       make.depend .buildlib* *~
+clean in ./stats
+/bin/rm -fr EST_cluster.o EST_multistats.o confusion.o EST_Discrete.o EST_DProbDist.o EST_ols.o EST_viterbi.o dynamic_program.o       make.depend .buildlib* *~
+clean in stats/kalman_filter
+/bin/rm -fr EST_kalman.o       make.depend .buildlib* *~
+clean in stats/wagon
+/bin/rm -fr dlist.o wagon_aux.o wagonint.o wagon.o       make.depend .buildlib* *~
+clean in stats/wagon
+/bin/rm -fr dlist.o wagon_aux.o wagonint.o wagon.o       make.depend .buildlib* *~
+clean in ./grammar
+/bin/rm -fr         make.depend .buildlib* *~
+clean in grammar/ngram
+/bin/rm -fr lattice_t.o EST_Ngrammar.o ngrammar_io.o ngrammar_aux.o ngrammar_utils.o EST_lattice.o EST_lattice_io.o freqsmooth.o EST_PST.o       make.depend .buildlib* *~
+clean in grammar/scfg
+/bin/rm -fr EST_SCFG.o EST_SCFG_inout.o EST_SCFG_Chart.o       make.depend .buildlib* *~
+clean in grammar/wfst
+/bin/rm -fr EST_WFST.o wfst_regex.o wfst_ops.o wfst_transduce.o kkcompile.o wfst_aux.o ltscompile.o rgcompile.o tlcompile.o wfst_train.o       make.depend .buildlib* *~
+clean in grammar/scfg
+/bin/rm -fr EST_SCFG.o EST_SCFG_inout.o EST_SCFG_Chart.o       make.depend .buildlib* *~
+clean in grammar/wfst
+/bin/rm -fr EST_WFST.o wfst_regex.o wfst_ops.o wfst_transduce.o kkcompile.o wfst_aux.o ltscompile.o rgcompile.o tlcompile.o wfst_train.o       make.depend .buildlib* *~
+clean in ./intonation
+/bin/rm -fr         make.depend .buildlib* *~
+clean in intonation/tilt
+/bin/rm -fr tilt_analysis.o tilt_synthesis.o tilt_utils.o       make.depend .buildlib* *~
+clean in ./lib
+/bin/rm -fr        libestools.a libestbase.a libeststring.a libeststring.so* libestbase.so* libestools.so* est.jar est_program_makefile est_mainline make.depend .buildlib* *~
+clean in lib/example_data
+/bin/rm -fr         make.depend .buildlib* *~
+clean in lib/siod
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./main
+/bin/rm -fr ch_lab_main.o ch_track_main.o ch_wave_main.o na_play_main.o na_record_main.o sigfilter_main.o sig2fv_main.o spectgen_main.o pda_main.o pitchmark_main.o ngram_test_main.o ngram_build_main.o tilt_synthesis_main.o tilt_analysis_main.o viterbi_main.o dp_main.o bcat_main.o ch_utt_main.o fringe_client_main.o design_filter_main.o align_main.o siod_main.o wagon_main.o wagon_test_main.o scfg_make_main.o scfg_train_main.o scfg_test_main.o scfg_parse_main.o wfst_build_main.o wfst_run_main.o wfst_train_main.o ols_main.o ols_test_main.o xml_parser_main.o wagon_main.o wagon_test_main.o ols_main.o ols_test_main.o scfg_make_main.o scfg_train_main.o scfg_test_main.o scfg_parse_main.o wfst_build_main.o wfst_run_main.o wfst_train_main.o siod_main.o xml_parser_main.o  ch_lab ch_track ch_wave na_play na_record sigfilter sig2fv spectgen pda pitchmark ngram_test ngram_build tilt_synthesis tilt_analysis viterbi dp bcat ch_utt fringe_client design_filter align siod wagon wagon_test scfg_make scfg_train scfg_test scfg_parse wfst_build wfst_run wfst_train ols ols_test xml_parser  ch_lab.mak ch_track.mak ch_wave.mak na_play.mak na_record.mak sigfilter.mak sig2fv.mak spectgen.mak pda.mak pitchmark.mak ngram_test.mak ngram_build.mak tilt_synthesis.mak tilt_analysis.mak viterbi.mak dp.mak bcat.mak ch_utt.mak fringe_client.mak design_filter.mak align.mak siod.mak wagon.mak wagon_test.mak scfg_make.mak scfg_train.mak scfg_test.mak scfg_parse.mak wfst_build.mak wfst_run.mak wfst_train.mak ols.mak ols_test.mak xml_parser.mak   make.depend .buildlib* *~
+clean in ./scripts
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./testsuite
+/bin/rm -fr xml_example.o string_example.o hash_example.o pathname_example.o track_example.o token_example.o complex_example.o list_example.o kvl_example.o handle_example.o named_enum_example.o deq_example.o ling_example.o feature_example.o xml_regression.o string_regression.o hash_regression.o pathname_regression.o track_regression.o token_regression.o complex_regression.o list_regression.o kvl_regression.o handle_regression.o named_enum_regression.o deq_regression.o ling_regression.o feature_regression.o  xml_example string_example hash_example pathname_example track_example token_example complex_example list_example kvl_example handle_example named_enum_example deq_example ling_example feature_example xml_regression string_regression hash_regression pathname_regression track_regression token_regression complex_regression list_regression kvl_regression handle_regression named_enum_regression deq_regression ling_regression feature_regression xml_example.mak string_example.mak hash_example.mak pathname_example.mak track_example.mak token_example.mak complex_example.mak list_example.mak kvl_example.mak handle_example.mak named_enum_example.mak deq_example.mak ling_example.mak feature_example.mak xml_regression.mak string_regression.mak hash_regression.mak pathname_regression.mak track_regression.mak token_regression.mak complex_regression.mak list_regression.mak kvl_regression.mak handle_regression.mak named_enum_regression.mak deq_regression.mak ling_regression.mak feature_regression.mak  tmp make.depend .buildlib* *~
+clean in testsuite/correct
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./bin
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./siod
+/bin/rm -fr slib.o slib_core.o slib_doc.o slib_file.o slib_format.o slib_list.o slib_math.o slib_sys.o slib_server.o slib_str.o slib_xtr.o slib_repl.o siod_fringe.o siod_server.o io.o trace.o EST_SiodServer.o siod.o siod_est.o siodeditline.o el_complete.o editline.o el_sys_unix.o       make.depend .buildlib* *~
+clean in ./java
+/bin/rm -fr        basic_version_build make.depend .buildlib* *~
+clean in java/common
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/common/cstr
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/common/cstr/awt
+/bin/rm -fr    ScrollWindow.class ImageCanvas.class XColor.class ColorSelection.class     make.depend .buildlib* *~
+clean in java/common/cstr/util
+/bin/rm -fr    SparseArray.class LongHash.class Featured.class Named.class Keyed.class TraceStream.class Trace.class Painter.class ImagePainter.class PaintPainter.class PaintCache.class BadValueException.class EnumValues.class Enum.class     make.depend .buildlib* *~
+clean in java/common/cstr/est
+/bin/rm -fr    SocketsFile.class ServerConnection.class     make.depend .buildlib* *~
+clean in java/common/cstr/est/awt
+/bin/rm -fr    Item_Content_Window.class WaveImageSource.class     make.depend .buildlib* *~
+clean in java/common/cstr/testPrograms
+/bin/rm -fr    WaveTest.class PlayWave.class     make.depend .buildlib* *~
+clean in java/basic_version
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/basic_version/cstr
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/basic_version/cstr/est
+/bin/rm -fr    Wave.class Item_Content.class Item.class Features.class SocketsFile.class ServerConnection.class     make.depend .buildlib* *~
+clean in java/cpp_version
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/cpp_version/cstr
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/cpp_version/cstr/est
+/bin/rm -fr    Wave.class Track.class Utterance.class Relation.class Item.class Item_Content.class Sigpr.class Features.class TrackFileFormat.class UtteranceFileFormat.class ServerConnection.class SocketsFile.class     make.depend .buildlib* *~
+clean in java/media_version
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/media_version/cstr
+/bin/rm -fr         make.depend .buildlib* *~
+clean in java/media_version/cstr/est
+/bin/rm -fr    Wave.class WaveDataSource.class Item_Content.class Item.class Features.class SocketsFile.class ServerConnection.class     make.depend .buildlib* *~
+clean in ./rxp
+/bin/rm -fr charset.o dtd.o string16.o url.o ctype16.o input.o stdio16.o system.o xmlparser.o XML_Parser.o       make.depend .buildlib* *~
+clean in ./wrappers
+/bin/rm -fr         make.depend .buildlib* *~
+clean in wrappers/interface
+/bin/rm -fr         make.depend .buildlib* *~
+clean in wrappers/interface/python
+/bin/rm -fr         make.depend .buildlib* *~
+clean in wrappers/interface/perl5
+/bin/rm -fr         make.depend .buildlib* *~
+clean in wrappers/python
+/bin/rm -fr EST_FVector_wrap.o EST_Wave_wrap.o EST_Track_wrap.o EST_SignalProc_wrap.o EST_pitchmark_wrap.o EST_Utterance_wrap.o EST_Relation_wrap.o EST_Item_wrap.o EST_Ngrammar_wrap.o     EST_FVector.pyc EST_Wave.pyc EST_Track.pyc EST_SignalProc.pyc EST_pitchmark.pyc EST_Utterance.pyc EST_Relation.pyc EST_Item.pyc EST_Ngrammar.pyc _EST_FVector.so _EST_Wave.so _EST_Track.so _EST_SignalProc.so _EST_pitchmark.so _EST_Utterance.so _EST_Relation.so _EST_Item.so _EST_Ngrammar.so make.depend .buildlib* *~
+clean in wrappers/perl5
+/bin/rm -fr EST_Utterance_wrap.o EST_Relation_wrap.o EST_Item_wrap.o EST_Wave_wrap.o EST_Track_wrap.o     EST_Utterance.so EST_Relation.so EST_Item.so EST_Wave.so EST_Track.so make.depend .buildlib* *~
+clean in ./config
+/bin/rm -fr         make.depend .buildlib* *~
+clean in config/systems
+/bin/rm -fr         make.depend .buildlib* *~
+clean in config/compilers
+/bin/rm -fr         make.depend .buildlib* *~
+clean in config/rules
+/bin/rm -fr         make.depend .buildlib* *~
+clean in config/configs
+/bin/rm -fr         make.depend .buildlib* *~
+clean in config/modules
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./doc
+/bin/rm -fr        *.aux *.cp *.fn *.ky *.log *.pg *.toc *.tp *.vr make.depend .buildlib* *~
+clean in doc/man
+/bin/rm -fr         make.depend .buildlib* *~
+clean in doc/arch_doc
+/bin/rm -fr         make.depend .buildlib* *~
+clean in ./siod
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- siodeditline.c el_complete.c editline.c el_sys_unix.c slib.cc slib_core.cc slib_doc.cc slib_file.cc slib_format.cc slib_list.cc slib_math.cc slib_sys.cc slib_server.cc slib_str.cc slib_xtr.cc slib_repl.cc siod_fringe.cc siod_server.cc io.cc trace.cc EST_SiodServer.cc siod.cc siod_est.cc 
+/bin/rm -fr slib.o slib_core.o slib_doc.o slib_file.o slib_format.o slib_list.o slib_math.o slib_sys.o slib_server.o slib_str.o slib_xtr.o slib_repl.o siod_fringe.o siod_server.o io.o trace.o EST_SiodServer.o siod.o siod_est.o siodeditline.o el_complete.o editline.o el_sys_unix.o       make.depend .buildlib* *~
+clean in ./rxp
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- charset.c dtd.c string16.c url.c ctype16.c input.c stdio16.c system.c xmlparser.c XML_Parser.cc 
+/bin/rm -fr charset.o dtd.o string16.o url.o ctype16.o input.o stdio16.o system.o xmlparser.o XML_Parser.o       make.depend .buildlib* *~
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+   debian/rules override_dh_clean
+make[1]: Entering directory `/«PKGBUILDDIR»'
+find -name make.depend -print0 | xargs -0r rm -f
+find -name make.include -print0 | xargs -0r rm -f
+find bin/ \( -name SCCS -o -name RCS -o -name CVS \) -prune \
+	     -o -type f ! -name Makefile -print0 | xargs -0r rm -f
+rm -f config/modincludes.inc config/system.mak config.log \
+	      config.status config.cache libestools.so
+rm -f lib/libestools.so*
+rm -f config.sub config.guess
+dh_clean
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+ debian/rules build-arch
+dh build-arch
+   dh_testdir -a
+   debian/rules override_dh_auto_build
+make[1]: Entering directory `/«PKGBUILDDIR»'
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+/usr/bin/make PROJECT_VERSION=2.1 PROJECT_MAJOR_VERSION=2.1
+Check system type
+Remake modincludes.inc
+	ESD_AUDIO
+		config/modules/esd_audio.mak
+	NATIVE_AUDIO
+		ok
+	EDITLINE
+		config/modules/editline.mak
+	SIOD
+		siod/siod.mak
+	WAGON
+		stats/wagon/wagon.mak
+	SCFG
+		grammar/scfg/scfg.mak
+	WFST
+		grammar/wfst/wfst.mak
+	OLS
+		stats/ols.mak
+	RXP
+		rxp/rxp.mak
+	LINUX16_AUDIO
+		config/modules/linux16_audio.mak
+make[2]: Entering directory `/«PKGBUILDDIR»'
+Making in directory ./siod ...
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- siodeditline.c el_complete.c editline.c el_sys_unix.c slib.cc slib_core.cc slib_doc.cc slib_file.cc slib_format.cc slib_list.cc slib_math.cc slib_sys.cc slib_server.cc slib_str.cc slib_xtr.cc slib_repl.cc siod_fringe.cc siod_server.cc io.cc trace.cc EST_SiodServer.cc siod.cc siod_est.cc 
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib.cc:89:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib.cc:89:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib.cc:89:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib.cc:89:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+slib.cc:1219:24: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+   if (((*ptr).gc_mark == 0))
+        ~~~~~~~~~~~~~~~^~~~
+slib.cc:1219:24: note: remove extraneous parentheses around the comparison to silence this warning
+   if (((*ptr).gc_mark == 0))
+       ~               ^   ~
+slib.cc:1219:24: note: use '=' to turn this equality comparison into an assignment
+   if (((*ptr).gc_mark == 0))
+                       ^~
+                       =
+6 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_core.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_core.cc:12:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_core.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_core.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_core.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_doc.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_doc.cc:13:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_doc.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_doc.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_doc.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+slib_doc.cc:164:12: warning: explicitly assigning a variable of type 'int' to itself [-Wself-assign]
+            state = state;
+            ~~~~~ ^ ~~~~~
+6 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_file.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_file.cc:12:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_file.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_file.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_file.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_format.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_format.cc:47:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_format.cc:47:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_format.cc:47:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_format.cc:47:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_list.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_list.cc:12:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_list.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_list.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_list.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_math.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_math.cc:12:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_math.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_math.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_math.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_sys.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_sys.cc:12:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_sys.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_sys.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_sys.cc:12:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+slib_sys.cc:36:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+    system(get_c_string(name));
+    ^~~~~~ ~~~~~~~~~~~~~~~~~~
+slib_sys.cc:57:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        chdir(home);
+        ^~~~~ ~~~~
+slib_sys.cc:62:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        chdir(get_c_string(leval(car(args),env)));
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_server.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_server.cc:12:
+In file included from ../include/EST_io_aux.h:46:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_server.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_server.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_server.cc:13:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+slib_server.cc:43:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        write(siod_server_socket,"LP\n",3);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+slib_server.cc:61:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+        write(siod_server_socket,"ER\n",3);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+slib_server.cc:73:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+    write(siod_server_socket,"OK\n",3);
+    ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_str.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_str.cc:19:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_str.cc:19:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_str.cc:19:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_str.cc:19:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_xtr.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_xtr.cc:18:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_xtr.cc:18:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_xtr.cc:18:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_xtr.cc:18:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+slib_xtr.cc:345:2: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+ fread(&i,sizeof(long),1,f);
+ ^~~~~ ~~~~~~~~~~~~~~~~~~~
+slib_xtr.cc:462:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fread(&tmp->storage_as.flonum.data,
+      ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+slib_xtr.cc:471:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fread(tkbuffer,len,1,f);
+      ^~~~~ ~~~~~~~~~~~~~~~~
+slib_xtr.cc:523:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fread(ptr->storage_as.string.data,len,1,f);
+      ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+slib_xtr.cc:533:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fread(ptr->storage_as.double_array.data,sizeof(double),len,f);
+      ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+slib_xtr.cc:543:7: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+      fread(ptr->storage_as.long_array.data,sizeof(long),len,f);
+      ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+11 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include slib_repl.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from slib_repl.cc:38:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from slib_repl.cc:38:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from slib_repl.cc:38:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from slib_repl.cc:38:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include siod_fringe.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from siod_fringe.cc:40:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from siod_fringe.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from siod_fringe.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from siod_fringe.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include siod_server.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from siod_server.cc:40:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from siod_server.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from siod_server.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from siod_server.cc:40:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+In file included from siod_server.cc:41:
+./EST_SiodServer.h:41:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:45:56: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+extern val_type val_type_##NAME;                       \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+./EST_SiodServer.h:41:1: note: did you mean struct here?
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:45:56: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+extern val_type val_type_##NAME;                       \
+                                                       ^
+In file included from siod_server.cc:41:
+./EST_SiodServer.h:41:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:47:23: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+./EST_SiodServer.h:41:1: note: did you mean struct here?
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:47:23: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);
+                      ^
+7 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include io.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from io.cc:52:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from io.cc:52:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from io.cc:52:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from io.cc:52:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include trace.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from trace.cc:17:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from trace.cc:17:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from trace.cc:17:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from trace.cc:17:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include EST_SiodServer.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from EST_SiodServer.cc:43:
+In file included from ./EST_SiodServer.h:38:
+In file included from ../include/EST_Server.h:38:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from EST_SiodServer.cc:43:
+In file included from ./EST_SiodServer.h:39:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from EST_SiodServer.cc:43:
+In file included from ./EST_SiodServer.h:39:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from EST_SiodServer.cc:43:
+In file included from ./EST_SiodServer.h:39:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+In file included from EST_SiodServer.cc:43:
+./EST_SiodServer.h:41:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:45:56: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+extern val_type val_type_##NAME;                       \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+./EST_SiodServer.h:41:1: note: did you mean struct here?
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:45:56: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+extern val_type val_type_##NAME;                       \
+                                                       ^
+In file included from EST_SiodServer.cc:43:
+./EST_SiodServer.h:41:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:47:23: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+./EST_SiodServer.h:41:1: note: did you mean struct here?
+VAL_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/EST_Val_defs.h:47:23: note: expanded from macro 'VAL_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);
+                      ^
+7 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include -DINSTANTIATE_TEMPLATES siod.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from siod.cc:35:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from siod.cc:35:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from siod.cc:35:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from siod.cc:35:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+siod.cc:462:18: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]
+    matches[i] = '\0';
+                 ^~~~
+siod.cc:501:18: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]
+    matches[i] = '\0';
+                 ^~~~
+7 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_EDITLINE -I../include -DINSTANTIATE_TEMPLATES siod_est.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from siod_est.cc:46:
+In file included from ../include/siod.h:18:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+In file included from siod_est.cc:46:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:198:56: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+#define SIOD_REGISTER_CLASS_DCLS(NAME,CLASS)           \
+                                                       ^
+In file included from siod_est.cc:46:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:201:23: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+EST_Val est_val(const class CLASS *v);                 \
+                      ^
+In file included from siod_est.cc:46:
+In file included from ../include/siod.h:212:
+../include/siod_est.h:55:1: warning: class 'obj' was previously declared as a struct [-Wmismatched-tags]
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+../include/siod_defs.h:30:8: note: previous use is here
+struct obj
+       ^
+../include/siod_est.h:55:1: note: did you mean struct here?
+SIOD_REGISTER_CLASS_DCLS(scheme,obj)
+^
+../include/siod_defs.h:202:17: note: expanded from macro 'SIOD_REGISTER_CLASS_DCLS'
+LISP siod(const class CLASS *v);
+                ^
+5 warnings generated.
+gcc -c -g -O3 -fPIC -Wall -DSUPPORT_EDITLINE -I../include siodeditline.c
+gcc -c -g -O3 -fPIC -Wall -DSUPPORT_EDITLINE -I../include el_complete.c
+gcc -c -g -O3 -fPIC -Wall -DSUPPORT_EDITLINE -I../include editline.c
+gcc -c -g -O3 -fPIC -Wall -DSUPPORT_EDITLINE -I../include el_sys_unix.c
+look at library estools slib.o slib_core.o slib_doc.o slib_file.o slib_format.o slib_list.o slib_math.o slib_sys.o slib_server.o slib_str.o slib_xtr.o slib_repl.o siod_fringe.o siod_server.o io.o trace.o EST_SiodServer.o siod.o siod_est.o siodeditline.o el_complete.o editline.o el_sys_unix.o
+Update library estools slib.o slib_core.o slib_doc.o slib_file.o slib_format.o slib_list.o slib_math.o slib_sys.o slib_server.o slib_str.o slib_xtr.o slib_repl.o siod_fringe.o siod_server.o io.o trace.o EST_SiodServer.o siod.o siod_est.o siodeditline.o el_complete.o editline.o el_sys_unix.o
+a - slib.o
+a - slib_core.o
+a - slib_doc.o
+a - slib_file.o
+a - slib_format.o
+a - slib_list.o
+a - slib_math.o
+a - slib_sys.o
+a - slib_server.o
+a - slib_str.o
+a - slib_xtr.o
+a - slib_repl.o
+a - siod_fringe.o
+a - siod_server.o
+a - io.o
+a - trace.o
+a - EST_SiodServer.o
+a - siod.o
+a - siod_est.o
+a - siodeditline.o
+a - el_complete.o
+a - editline.o
+a - el_sys_unix.o
+look at library estbase
+look at library eststring
+Making in directory ./rxp ...
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- charset.c dtd.c string16.c url.c ctype16.c input.c stdio16.c system.c xmlparser.c XML_Parser.cc 
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include charset.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include dtd.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include string16.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include url.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include ctype16.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include input.c
+input.c:61:9: warning: null passed to a callee which requires a non-null argument [-Wnonnull]
+    e = NewExternalEntity(0, 0, description, 0, 0);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/rxp/dtd.h:205:37: note: expanded from macro 'NewExternalEntity'
+    NewExternalEntityN(name, name ? Strlen(name) : 0, pub, sys, nnot, parent)
+                                    ^~~~~~~~~~~~
+../include/rxp/string16.h:81:16: note: expanded from macro 'Strlen'
+#define Strlen strlen8
+               ^
+../include/rxp/string16.h:51:30: note: expanded from macro 'strlen8'
+#define strlen8(s) strlen((s))
+                          ~~~^
+1 warning generated.
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include stdio16.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include system.c
+gcc -c -g -O3 -fPIC -Wall -DCHAR_SIZE=8 -I../include/rxp -I../include xmlparser.c
+xmlparser.c:1616:18: warning: null passed to a callee which requires a non-null argument [-Wnonnull]
+        external_part = NewExternalEntity(0, publicid, systemid, 0, parent);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/rxp/dtd.h:205:37: note: expanded from macro 'NewExternalEntity'
+    NewExternalEntityN(name, name ? Strlen(name) : 0, pub, sys, nnot, parent)
+                                    ^~~~~~~~~~~~
+../include/rxp/string16.h:81:16: note: expanded from macro 'Strlen'
+#define Strlen strlen8
+               ^
+../include/rxp/string16.h:51:30: note: expanded from macro 'strlen8'
+#define strlen8(s) strlen((s))
+                          ~~~^
+xmlparser.c:1631:18: warning: null passed to a callee which requires a non-null argument [-Wnonnull]
+        internal_part = NewInternalEntity(0, p->pbuf, parent, line, cpos, 1);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/rxp/dtd.h:207:37: note: expanded from macro 'NewInternalEntity'
+    NewInternalEntityN(name, name ? Strlen(name) : 0, test, parent, l, l1, mat)
+                                    ^~~~~~~~~~~~
+../include/rxp/string16.h:81:16: note: expanded from macro 'Strlen'
+#define Strlen strlen8
+               ^
+../include/rxp/string16.h:51:30: note: expanded from macro 'strlen8'
+#define strlen8(s) strlen((s))
+                          ~~~^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DCHAR_SIZE=8 -I../include/rxp -I../include -DINSTANTIATE_TEMPLATES XML_Parser.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+XML_Parser.cc:82:16: warning: null passed to a callee which requires a non-null argument [-Wnonnull]
+  Entity ent = NewExternalEntity(0,0,strdup8(desc),0,0);
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/rxp/dtd.h:205:37: note: expanded from macro 'NewExternalEntity'
+    NewExternalEntityN(name, name ? Strlen(name) : 0, pub, sys, nnot, parent)
+                                    ^~~~~~~~~~~~
+../include/rxp/string16.h:81:16: note: expanded from macro 'Strlen'
+#define Strlen strlen8
+               ^
+../include/rxp/string16.h:51:30: note: expanded from macro 'strlen8'
+#define strlen8(s) strlen((s))
+                          ~~~^
+XML_Parser.cc:113:16: warning: null passed to a callee which requires a non-null argument [-Wnonnull]
+  Entity ent = NewExternalEntity(0,0,strdup8(filename),0,0);
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/rxp/dtd.h:205:37: note: expanded from macro 'NewExternalEntity'
+    NewExternalEntityN(name, name ? Strlen(name) : 0, pub, sys, nnot, parent)
+                                    ^~~~~~~~~~~~
+../include/rxp/string16.h:81:16: note: expanded from macro 'Strlen'
+#define Strlen strlen8
+               ^
+../include/rxp/string16.h:51:30: note: expanded from macro 'strlen8'
+#define strlen8(s) strlen((s))
+                          ~~~^
+3 warnings generated.
+look at library estools
+look at library estbase charset.o dtd.o string16.o url.o ctype16.o input.o stdio16.o system.o xmlparser.o XML_Parser.o
+Update library estbase charset.o dtd.o string16.o url.o ctype16.o input.o stdio16.o system.o xmlparser.o XML_Parser.o
+a - charset.o
+a - dtd.o
+a - string16.o
+a - url.o
+a - ctype16.o
+a - input.o
+a - stdio16.o
+a - system.o
+a - xmlparser.o
+a - XML_Parser.o
+look at library eststring
+Making in directory ./audio ...
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- gen_audio.cc nas.cc esd.cc sun16audio.cc mplayer.cc win32audio.cc irixaudio.cc os2audio.cc macosxaudio.cc linux_sound.cc 
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include gen_audio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from gen_audio.cc:48:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+gen_audio.cc:213:5: warning: ignoring return value of function declared with warn_unused_result attribute [-Wunused-result]
+    system((EST_String)pref+usrcommand.unquote('"'));
+    ^~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include nas.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from nas.cc:45:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include esd.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from esd.cc:48:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+esd.cc:102:12: warning: unused variable 'endian_int' [-Wunused-variable]
+static int endian_int = 1;
+           ^
+3 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include sun16audio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from sun16audio.cc:53:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include mplayer.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from mplayer.cc:42:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include win32audio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from win32audio.cc:42:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include irixaudio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from irixaudio.cc:15:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include os2audio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from os2audio.cc:254:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include macosxaudio.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from macosxaudio.cc:44:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -DSUPPORT_ESD -I../include -I/usr/local/include linux_sound.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from linux_sound.cc:56:
+In file included from ../include/EST_Wave.h:45:
+In file included from ../include/EST_Featured.h:39:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+look at library estools
+look at library estbase gen_audio.o nas.o esd.o sun16audio.o mplayer.o win32audio.o irixaudio.o os2audio.o macosxaudio.o linux_sound.o
+Update library estbase gen_audio.o nas.o esd.o sun16audio.o mplayer.o win32audio.o irixaudio.o os2audio.o macosxaudio.o linux_sound.o
+a - gen_audio.o
+a - nas.o
+a - esd.o
+a - sun16audio.o
+a - mplayer.o
+a - win32audio.o
+a - irixaudio.o
+a - os2audio.o
+a - macosxaudio.o
+a - linux_sound.o
+look at library eststring
+Making in directory ./utils ...
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+clang: warning: argument unused during compilation: '-pie'
+making dependencies -- cmd_line.cc util_io.cc filetrans.cc cmd_line_aux.cc EST_swapping.cc EST_Server.cc EST_FringeServer.cc est_file.cc EST_ServiceTable.cc EST_cutils.c EST_error.c walloc.c system_specific_unix.c 
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include cmd_line.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from cmd_line.cc:44:
+In file included from ../include/EST_io_aux.h:46:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include util_io.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from util_io.cc:46:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include filetrans.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from filetrans.cc:44:
+In file included from ../include/EST_io_aux.h:46:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include cmd_line_aux.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from cmd_line_aux.cc:44:
+In file included from ../include/EST_string_aux.h:45:
+In file included from ../include/EST_types.h:47:
+In file included from ../include/EST_FMatrix.h:47:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include EST_swapping.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+1 warning generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include EST_Server.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from EST_Server.cc:46:
+In file included from ../include/EST_Server.h:38:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+EST_Server.cc:231:31: warning: 'memset' call operates on objects of type 'struct sockaddr_in' while the size is based on a different type 'struct sockaddr_in *' [-Wsizeof-pointer-memaccess]
+  memset(serv_addr, 0, sizeof(serv_addr));
+         ~~~~~~~~~            ^~~~~~~~~
+EST_Server.cc:231:31: note: did you mean to dereference the argument to 'sizeof' (and multiply it by the number of elements)?
+  memset(serv_addr, 0, sizeof(serv_addr));
+                              ^~~~~~~~~
+3 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include EST_FringeServer.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from EST_FringeServer.cc:46:
+In file included from ../include/EST_FringeServer.h:41:
+In file included from ../include/EST_Server.h:38:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include -DINSTANTIATE_TEMPLATES est_file.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+In file included from est_file.cc:44:
+In file included from ../include/EST_Features.h:42:
+In file included from ../include/EST_Val.h:53:
+../include/EST_Contents.h:66:46: warning: assigning field to itself [-Wself-assign-field]
+    {refs = c.refs; data = c.data; free_func = free_func; return *this;}
+                                             ^
+2 warnings generated.
+g++ -c -g -O3 -fPIC -Wall -Wno-non-template-friend -I../include -DINSTANTIATE_TEMPLATES EST_ServiceTable.cc
+clang: warning: unknown warning option '-Wno-non-template-friend'
+warning: unknown warning option '-Wno-non-template-friend' [-Wunknown-warning-option]
+EST_ServiceTable.cc:342:1: error: explicit specialization of 'default_val' after instantiation
+Declare_KVL_T(EST_String, EST_ServiceTable::Entry, EST_String_ST_entry)
+^
+../include/instantiate/EST_TKVLI.h:77:2: note: expanded from macro 'Declare_KVL_T'
+        Declare_KVL_TN(KEY, VAL, 0, TAG)
+        ^
+../include/instantiate/EST_TKVLI.h:72:41: note: expanded from macro 'Declare_KVL_TN'
+        template <> VAL *EST_TKVL< KEY, VAL >::default_val=&TAG##_kv_def_val_s; \
+                                               ^
+EST_ServiceTable.cc:292:22: note: implicit instantiation first required here
+  return *(entries.t.default_val);
+                     ^
+1 warning and 1 error generated.
+make[3]: *** [EST_ServiceTable.o] Error 1
+make[2]: *** [utils] Error 2
+make[2]: Leaving directory `/«PKGBUILDDIR»'
+make[1]: *** [override_dh_auto_build] Error 2
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+make: *** [build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1841
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -427,28 +2617,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 23380
+Build-Time: 30
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 7
 Job: speech-tools_1:2.1~release-5
 Package: speech-tools
-Package-Time: 0
+Package-Time: 67
 Source-Version: 1:2.1~release-5
-Space: 0
-Status: failed
+Space: 23380
+Status: attempted
 Version: 1:2.1~release-5
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0431
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 33.730841s
-DC-Time-Estimation: 33.730841 versus expected 365 (r/m: 9.82095759189639 ; m: 33.730841)
+Finished at 20130131-1841
+Build needed 00:01:07, 23380k disc space
+DC-Status: Failed 67.914372s
+DC-Time-Estimation: 67.914372 versus expected 365 (r/m: 4.37441471151349 ; m: 67.914372)

@@ -1,12 +1,12 @@
-DC-Build-Header: quickfix 1.13.3+dfsg-4 / Mon Jan 28 04:09:54 +0000 2013
-DC-Task: logfile:/tmp/quickfix_1.13.3+dfsg-4_unstable_clang.log version:1.13.3+dfsg-4 chroot:unstable modes:binary-only:clang source:quickfix architecture:any esttime:2890
+DC-Build-Header: quickfix 1.13.3+dfsg-4 / Sat Feb 02 02:19:51 +0000 2013
+DC-Task: logfile:/tmp/quickfix_1.13.3+dfsg-4_unstable_clang.log version:1.13.3+dfsg-4 modes:binary-only:clang chroot:unstable source:quickfix esttime:2890 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang quickfix_1.13.3+dfsg-4'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-136-229.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-142-22.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ quickfix 1.13.3+dfsg-4 (amd64)                             28 Jan 2013 04:09 ║
+║ quickfix 1.13.3+dfsg-4 (amd64)                             02 Feb 2013 02:19 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: quickfix
@@ -15,9 +15,9 @@ Source Version: 1.13.3+dfsg-4
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/quickfix-nVMwio/quickfix-1.13.3+dfsg' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/quickfix-nVMwio' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-45466d8c-1627-4862-ac3a-5de5ab3165ed' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/quickfix-pYh8Yv/quickfix-1.13.3+dfsg' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/quickfix-pYh8Yv' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-afd9673d-3ac4-49e6-b5d8-42363189a9ef' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -29,11 +29,11 @@ Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8234 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Fetched 16.8 MB in 3s (4540 kB/s)
+Get:4 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:5 http://localhost unstable/main 2013-02-01-2012.11.pdiff [40 B]
+Get:6 http://localhost unstable/main Sources [8235 kB]
+Get:7 http://localhost unstable/main amd64 Packages [8278 kB]
+Fetched 16.7 MB in 3s (5014 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -60,7 +60,7 @@ Need to get 13.3 MB of source archives.
 Get:1 http://localhost/debian/ unstable/main quickfix 1.13.3+dfsg-4 (dsc) [2269 B]
 Get:2 http://localhost/debian/ unstable/main quickfix 1.13.3+dfsg-4 (tar) [13.3 MB]
 Get:3 http://localhost/debian/ unstable/main quickfix 1.13.3+dfsg-4 (diff) [9977 B]
-Fetched 13.3 MB in 0s (21.1 MB/s)
+Fetched 13.3 MB in 0s (14.4 MB/s)
 Download complete and in download only mode
 
 Check arch
@@ -77,218 +77,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 2s (1023 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2730 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 1s (3985 B/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130123-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130123-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130123-1 [336 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130123-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130123-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130123-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130123-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:8 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:9 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (34.5 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130123-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130123-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130123-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 3s (7515 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130123-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130123-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -297,32 +192,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130123-1) ...
-Setting up libitm1:amd64 (4.8-20130123-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130123-1) ...
-Setting up libquadmath0:amd64 (4.8-20130123-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -368,7 +250,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-7Np8Cb/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-CeyygE/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -387,12 +269,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), autotools-dev, quilt, libxml2-dev, ruby, ruby-dev | ruby1.8-dev, libmysqlclient-dev, python-dev, libpqxx3-dev, libboost-all-dev, autoconf, automake, libtool
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), debhelper (>= 5), autotools-dev, quilt, libxml2-dev, ruby, ruby-dev, libmysqlclient-dev, python-dev, libpqxx3-dev, libboost-all-dev, autoconf, automake, libtool
-dpkg-deb: building package `sbuild-build-depends-quickfix-dummy' in `/«BUILDDIR»/resolver-4VIQBy/apt_archive/sbuild-build-depends-quickfix-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-quickfix-dummy' in `/«BUILDDIR»/resolver-0aMb9U/apt_archive/sbuild-build-depends-quickfix-dummy.deb'.
 OK
 Reading package lists...
 
@@ -404,19 +286,1620 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  adduser autoconf automake autotools-dev bsdmainutils comerr-dev debhelper
+  diffstat file gccxml gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libasprintf-dev libasprintf0c2
+  libboost-all-dev libboost-chrono-dev libboost-chrono1.49-dev
+  libboost-chrono1.49.0 libboost-date-time-dev libboost-date-time1.49-dev
+  libboost-date-time1.49.0 libboost-dev libboost-filesystem-dev
+  libboost-filesystem1.49-dev libboost-filesystem1.49.0 libboost-graph-dev
+  libboost-graph-parallel-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams-dev libboost-iostreams1.49-dev
+  libboost-iostreams1.49.0 libboost-locale-dev libboost-locale1.49-dev
+  libboost-locale1.49.0 libboost-math-dev libboost-math1.49-dev
+  libboost-math1.49.0 libboost-mpi-dev libboost-mpi-python-dev
+  libboost-mpi-python1.49-dev libboost-mpi-python1.49.0 libboost-mpi1.49-dev
+  libboost-mpi1.49.0 libboost-program-options-dev
+  libboost-program-options1.49-dev libboost-program-options1.49.0
+  libboost-python-dev libboost-python1.49-dev libboost-python1.49.0
+  libboost-random-dev libboost-random1.49-dev libboost-random1.49.0
+  libboost-regex-dev libboost-regex1.49-dev libboost-regex1.49.0
+  libboost-serialization-dev libboost-serialization1.49-dev
+  libboost-serialization1.49.0 libboost-signals-dev libboost-signals1.49-dev
+  libboost-signals1.49.0 libboost-system-dev libboost-system1.49-dev
+  libboost-system1.49.0 libboost-test-dev libboost-test1.49-dev
+  libboost-test1.49.0 libboost-thread-dev libboost-thread1.49-dev
+  libboost-thread1.49.0 libboost-timer-dev libboost-timer1.49-dev
+  libboost-timer1.49.0 libboost-wave-dev libboost-wave1.49-dev
+  libboost-wave1.49.0 libboost1.49-dev libcroco3 libexpat1-dev libgcrypt11
+  libgettextpo-dev libgettextpo0 libgfortran3 libglib2.0-0 libgnutls26
+  libgpg-error0 libgssapi-krb5-2 libgssrpc4 libibverbs-dev libibverbs1
+  libicu-dev libicu48 libk5crypto3 libkadm5clnt-mit8 libkadm5srv-mit8
+  libkdb5-6 libkeyutils1 libkrb5-3 libkrb5-dev libkrb5support0 libldap-2.4-2
+  libmagic1 libmysqlclient-dev libmysqlclient18 libnuma1 libopenmpi-dev
+  libopenmpi1.3 libp11-kit0 libpcre3 libpipeline1 libpopt0 libpq-dev libpq5
+  libpqxx-3.1 libpqxx3-dev libpython2.7 libruby1.9.1 libsasl2-2 libsigsegv2
+  libssl-dev libtasn1-3 libtool libtorque2 libunistring0 libxml2 libxml2-dev
+  libyaml-0-2 m4 man-db mpi-default-dev mysql-common openmpi-common pkg-config
+  po-debconf python-dev python2.7-dev quilt ruby ruby-dev ruby1.9.1
+  ruby1.9.1-dev zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc wamerican wordlist
+  whois vacation doc-base dh-make gettext-doc groff krb5-doc libboost-doc
+  python3 libboost1.49-doc xsltproc doxygen docbook-xml docbook-xsl
+  default-jdk fop rng-tools krb5-user icu-doc postgresql-doc-9.1 libpqxx3-doc
+  libtool-doc automaken gfortran fortran95-compiler gcj less www-browser
+  libmail-box-perl procmail graphviz default-mta mail-transport-agent ri
+  ruby1.9.1-examples ri1.9.1 ruby-switch
+Recommended packages:
+  curl wget lynx-cur autopoint libboost-graph-parallel1.49.0
+  libboost-graph1.49.0 libglib2.0-data shared-mime-info krb5-locales
+  libsasl2-modules libssl-doc libltdl-dev xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  adduser autoconf automake autotools-dev bsdmainutils comerr-dev debhelper
+  diffstat file gccxml gettext gettext-base groff-base html2text
+  intltool-debian krb5-multidev libasprintf-dev libasprintf0c2
+  libboost-all-dev libboost-chrono-dev libboost-chrono1.49-dev
+  libboost-chrono1.49.0 libboost-date-time-dev libboost-date-time1.49-dev
+  libboost-date-time1.49.0 libboost-dev libboost-filesystem-dev
+  libboost-filesystem1.49-dev libboost-filesystem1.49.0 libboost-graph-dev
+  libboost-graph-parallel-dev libboost-graph-parallel1.49-dev
+  libboost-graph1.49-dev libboost-iostreams-dev libboost-iostreams1.49-dev
+  libboost-iostreams1.49.0 libboost-locale-dev libboost-locale1.49-dev
+  libboost-locale1.49.0 libboost-math-dev libboost-math1.49-dev
+  libboost-math1.49.0 libboost-mpi-dev libboost-mpi-python-dev
+  libboost-mpi-python1.49-dev libboost-mpi-python1.49.0 libboost-mpi1.49-dev
+  libboost-mpi1.49.0 libboost-program-options-dev
+  libboost-program-options1.49-dev libboost-program-options1.49.0
+  libboost-python-dev libboost-python1.49-dev libboost-python1.49.0
+  libboost-random-dev libboost-random1.49-dev libboost-random1.49.0
+  libboost-regex-dev libboost-regex1.49-dev libboost-regex1.49.0
+  libboost-serialization-dev libboost-serialization1.49-dev
+  libboost-serialization1.49.0 libboost-signals-dev libboost-signals1.49-dev
+  libboost-signals1.49.0 libboost-system-dev libboost-system1.49-dev
+  libboost-system1.49.0 libboost-test-dev libboost-test1.49-dev
+  libboost-test1.49.0 libboost-thread-dev libboost-thread1.49-dev
+  libboost-thread1.49.0 libboost-timer-dev libboost-timer1.49-dev
+  libboost-timer1.49.0 libboost-wave-dev libboost-wave1.49-dev
+  libboost-wave1.49.0 libboost1.49-dev libcroco3 libexpat1-dev libgcrypt11
+  libgettextpo-dev libgettextpo0 libgfortran3 libglib2.0-0 libgnutls26
+  libgpg-error0 libgssapi-krb5-2 libgssrpc4 libibverbs-dev libibverbs1
+  libicu-dev libicu48 libk5crypto3 libkadm5clnt-mit8 libkadm5srv-mit8
+  libkdb5-6 libkeyutils1 libkrb5-3 libkrb5-dev libkrb5support0 libldap-2.4-2
+  libmagic1 libmysqlclient-dev libmysqlclient18 libnuma1 libopenmpi-dev
+  libopenmpi1.3 libp11-kit0 libpcre3 libpipeline1 libpopt0 libpq-dev libpq5
+  libpqxx-3.1 libpqxx3-dev libpython2.7 libruby1.9.1 libsasl2-2 libsigsegv2
+  libssl-dev libtasn1-3 libtool libtorque2 libunistring0 libxml2 libxml2-dev
+  libyaml-0-2 m4 man-db mpi-default-dev mysql-common openmpi-common pkg-config
+  po-debconf python-dev python2.7-dev quilt ruby ruby-dev ruby1.9.1
+  ruby1.9.1-dev sbuild-build-depends-quickfix-dummy zlib1g-dev
+0 upgraded, 148 newly installed, 0 to remove and 0 not upgraded.
+Need to get 91.0 MB/91.0 MB of archives.
+After this operation, 346 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main libpopt0 amd64 1.16-7 [56.4 kB]
+Get:3 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:4 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:5 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:6 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:7 http://localhost/debian/ unstable/main libgpg-error0 amd64 1.10-3.1 [77.9 kB]
+Get:8 http://localhost/debian/ unstable/main libgcrypt11 amd64 1.5.0-3 [298 kB]
+Get:9 http://localhost/debian/ unstable/main libp11-kit0 amd64 0.12-3 [52.8 kB]
+Get:10 http://localhost/debian/ unstable/main libtasn1-3 amd64 2.13-2 [67.7 kB]
+Get:11 http://localhost/debian/ unstable/main libgnutls26 amd64 2.12.20-3 [618 kB]
+Get:12 http://localhost/debian/ unstable/main libkeyutils1 amd64 1.5.5-4 [8690 B]
+Get:13 http://localhost/debian/ unstable/main libkrb5support0 amd64 1.10.1+dfsg-3 [49.2 kB]
+Get:14 http://localhost/debian/ unstable/main libk5crypto3 amd64 1.10.1+dfsg-3 [112 kB]
+Get:15 http://localhost/debian/ unstable/main libkrb5-3 amd64 1.10.1+dfsg-3 [394 kB]
+Get:16 http://localhost/debian/ unstable/main libgssapi-krb5-2 amd64 1.10.1+dfsg-3 [148 kB]
+Get:17 http://localhost/debian/ unstable/main libgssrpc4 amd64 1.10.1+dfsg-3 [87.5 kB]
+Get:18 http://localhost/debian/ unstable/main libkadm5clnt-mit8 amd64 1.10.1+dfsg-3 [67.6 kB]
+Get:19 http://localhost/debian/ unstable/main libkdb5-6 amd64 1.10.1+dfsg-3 [66.5 kB]
+Get:20 http://localhost/debian/ unstable/main libkadm5srv-mit8 amd64 1.10.1+dfsg-3 [84.6 kB]
+Get:21 http://localhost/debian/ unstable/main libsasl2-2 amd64 2.1.25.dfsg1-6 [120 kB]
+Get:22 http://localhost/debian/ unstable/main libldap-2.4-2 amd64 2.4.31-1 [243 kB]
+Get:23 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:24 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:25 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:26 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:27 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:28 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:29 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:30 http://localhost/debian/ unstable/main libgfortran3 amd64 4.7.2-5 [351 kB]
+Get:31 http://localhost/debian/ unstable/main libicu48 amd64 4.8.1.1-10 [4741 kB]
+Get:32 http://localhost/debian/ unstable/main mysql-common all 5.5.29+dfsg-1 [109 kB]
+Get:33 http://localhost/debian/ unstable/main libmysqlclient18 amd64 5.5.29+dfsg-1 [708 kB]
+Get:34 http://localhost/debian/ unstable/main libyaml-0-2 amd64 0.1.4-2 [56.5 kB]
+Get:35 http://localhost/debian/ unstable/main adduser all 3.113+nmu3 [264 kB]
+Get:36 http://localhost/debian/ unstable/main libboost-iostreams1.49.0 amd64 1.49.0-3.1 [57.6 kB]
+Get:37 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:38 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:39 http://localhost/debian/ unstable/main libsigsegv2 amd64 2.9-4 [28.9 kB]
+Get:40 http://localhost/debian/ unstable/main m4 amd64 1.4.16-4 [260 kB]
+Get:41 http://localhost/debian/ unstable/main autoconf all 2.69-1 [589 kB]
+Get:42 http://localhost/debian/ unstable/main autotools-dev all 20120608.1 [73.0 kB]
+Get:43 http://localhost/debian/ unstable/main automake all 1:1.11.6-1 [607 kB]
+Get:44 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:45 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:46 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:47 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:48 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:49 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:50 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:51 http://localhost/debian/ unstable/main diffstat amd64 1.55-3 [30.0 kB]
+Get:52 http://localhost/debian/ unstable/main gccxml amd64 0.9.0+cvs20120420-4 [4337 kB]
+Get:53 http://localhost/debian/ unstable/main comerr-dev amd64 2.1-1.42.5-1 [43.6 kB]
+Get:54 http://localhost/debian/ unstable/main krb5-multidev amd64 1.10.1+dfsg-3 [153 kB]
+Get:55 http://localhost/debian/ unstable/main libboost1.49-dev amd64 1.49.0-3.1 [9203 kB]
+Get:56 http://localhost/debian/ unstable/main libboost-dev amd64 1.49.0.1 [3022 B]
+Get:57 http://localhost/debian/ unstable/main libboost-system1.49.0 amd64 1.49.0-3.1 [33.0 kB]
+Get:58 http://localhost/debian/ unstable/main libboost-chrono1.49.0 amd64 1.49.0-3.1 [38.9 kB]
+Get:59 http://localhost/debian/ unstable/main libboost-chrono1.49-dev amd64 1.49.0-3.1 [50.6 kB]
+Get:60 http://localhost/debian/ unstable/main libboost-chrono-dev amd64 1.49.0.1 [3338 B]
+Get:61 http://localhost/debian/ unstable/main libboost-date-time1.49.0 amd64 1.49.0-3.1 [46.7 kB]
+Get:62 http://localhost/debian/ unstable/main libboost-serialization1.49.0 amd64 1.49.0-3.1 [212 kB]
+Get:63 http://localhost/debian/ unstable/main libboost-serialization1.49-dev amd64 1.49.0-3.1 [316 kB]
+Get:64 http://localhost/debian/ unstable/main libboost-date-time1.49-dev amd64 1.49.0-3.1 [49.5 kB]
+Get:65 http://localhost/debian/ unstable/main libboost-date-time-dev amd64 1.49.0.1 [2718 B]
+Get:66 http://localhost/debian/ unstable/main libboost-filesystem1.49.0 amd64 1.49.0-3.1 [77.2 kB]
+Get:67 http://localhost/debian/ unstable/main libboost-system1.49-dev amd64 1.49.0-3.1 [34.7 kB]
+Get:68 http://localhost/debian/ unstable/main libboost-filesystem1.49-dev amd64 1.49.0-3.1 [104 kB]
+Get:69 http://localhost/debian/ unstable/main libboost-filesystem-dev amd64 1.49.0.1 [2744 B]
+Get:70 http://localhost/debian/ unstable/main libboost-test1.49.0 amd64 1.49.0-3.1 [294 kB]
+Get:71 http://localhost/debian/ unstable/main libboost-test1.49-dev amd64 1.49.0-3.1 [756 kB]
+Get:72 http://localhost/debian/ unstable/main libboost-graph1.49-dev amd64 1.49.0-3.1 [192 kB]
+Get:73 http://localhost/debian/ unstable/main libboost-graph-dev amd64 1.49.0.1 [2812 B]
+Get:74 http://localhost/debian/ unstable/main libboost-graph-parallel1.49-dev amd64 1.49.0-3.1 [143 kB]
+Get:75 http://localhost/debian/ unstable/main libboost-graph-parallel-dev amd64 1.49.0.1 [2856 B]
+Get:76 http://localhost/debian/ unstable/main libboost-regex1.49.0 amd64 1.49.0-3.1 [449 kB]
+Get:77 http://localhost/debian/ unstable/main libicu-dev amd64 4.8.1.1-10 [5710 kB]
+Get:78 http://localhost/debian/ unstable/main libboost-regex1.49-dev amd64 1.49.0-3.1 [661 kB]
+Get:79 http://localhost/debian/ unstable/main libboost-iostreams1.49-dev amd64 1.49.0-3.1 [73.7 kB]
+Get:80 http://localhost/debian/ unstable/main libboost-iostreams-dev amd64 1.49.0.1 [2704 B]
+Get:81 http://localhost/debian/ unstable/main libboost-thread1.49.0 amd64 1.49.0-3.1 [61.0 kB]
+Get:82 http://localhost/debian/ unstable/main libboost-locale1.49.0 amd64 1.49.0-3.1 [310 kB]
+Get:83 http://localhost/debian/ unstable/main libboost-locale1.49-dev amd64 1.49.0-3.1 [521 kB]
+Get:84 http://localhost/debian/ unstable/main libboost-locale-dev amd64 1.49.0.1 [3048 B]
+Get:85 http://localhost/debian/ unstable/main libboost-math1.49.0 amd64 1.49.0-3.1 [473 kB]
+Get:86 http://localhost/debian/ unstable/main libboost-math1.49-dev amd64 1.49.0-3.1 [1872 kB]
+Get:87 http://localhost/debian/ unstable/main libboost-math-dev amd64 1.49.0.1 [2914 B]
+Get:88 http://localhost/debian/ unstable/main libibverbs1 amd64 1.1.6-1 [35.3 kB]
+Get:89 http://localhost/debian/ unstable/main libnuma1 amd64 2.0.8-1 [34.7 kB]
+Get:90 http://localhost/debian/ unstable/main libtorque2 amd64 2.4.16+dfsg-1 [120 kB]
+Get:91 http://localhost/debian/ unstable/main libopenmpi1.3 amd64 1.4.5-1 [1436 kB]
+Get:92 http://localhost/debian/ unstable/main libboost-mpi1.49.0 amd64 1.49.0-3.1 [82.8 kB]
+Get:93 http://localhost/debian/ unstable/main openmpi-common all 1.4.5-1 [101 kB]
+Get:94 http://localhost/debian/ unstable/main libibverbs-dev amd64 1.1.6-1 [84.8 kB]
+Get:95 http://localhost/debian/ unstable/main libopenmpi-dev amd64 1.4.5-1 [2778 kB]
+Get:96 http://localhost/debian/ unstable/main mpi-default-dev amd64 1.0.1 [3604 B]
+Get:97 http://localhost/debian/ unstable/main libboost-mpi1.49-dev amd64 1.49.0-3.1 [527 kB]
+Get:98 http://localhost/debian/ unstable/main libboost-mpi-dev amd64 1.49.0.1 [2806 B]
+Get:99 http://localhost/debian/ unstable/main libboost-python1.49.0 amd64 1.49.0-3.1 [359 kB]
+Get:100 http://localhost/debian/ unstable/main libboost-mpi-python1.49.0 amd64 1.49.0-3.1 [744 kB]
+Get:101 http://localhost/debian/ unstable/main libboost-mpi-python1.49-dev amd64 1.49.0-3.1 [124 kB]
+Get:102 http://localhost/debian/ unstable/main libboost-mpi-python-dev amd64 1.49.0.1 [2846 B]
+Get:103 http://localhost/debian/ unstable/main libboost-program-options1.49.0 amd64 1.49.0-3.1 [156 kB]
+Get:104 http://localhost/debian/ unstable/main libboost-program-options1.49-dev amd64 1.49.0-3.1 [223 kB]
+Get:105 http://localhost/debian/ unstable/main libboost-program-options-dev amd64 1.49.0.1 [2732 B]
+Get:106 http://localhost/debian/ unstable/main libpython2.7 amd64 2.7.3-6 [1208 kB]
+Get:107 http://localhost/debian/ unstable/main libexpat1-dev amd64 2.1.0-1 [229 kB]
+Get:108 http://localhost/debian/ unstable/main zlib1g-dev amd64 1:1.2.7.dfsg-13 [215 kB]
+Get:109 http://localhost/debian/ unstable/main libssl-dev amd64 1.0.1c-4 [1698 kB]
+Get:110 http://localhost/debian/ unstable/main python2.7-dev amd64 2.7.3-6 [22.8 MB]
+Get:111 http://localhost/debian/ unstable/main python-dev all 2.7.3-3 [916 B]
+Get:112 http://localhost/debian/ unstable/main libboost-python1.49-dev amd64 1.49.0-3.1 [504 kB]
+Get:113 http://localhost/debian/ unstable/main libboost-python-dev amd64 1.49.0.1 [3108 B]
+Get:114 http://localhost/debian/ unstable/main libboost-random1.49.0 amd64 1.49.0-3.1 [32.2 kB]
+Get:115 http://localhost/debian/ unstable/main libboost-random1.49-dev amd64 1.49.0-3.1 [30.6 kB]
+Get:116 http://localhost/debian/ unstable/main libboost-random-dev amd64 1.49.0.1 [2714 B]
+Get:117 http://localhost/debian/ unstable/main libboost-regex-dev amd64 1.49.0.1 [2970 B]
+Get:118 http://localhost/debian/ unstable/main libboost-serialization-dev amd64 1.49.0.1 [2940 B]
+Get:119 http://localhost/debian/ unstable/main libboost-signals1.49.0 amd64 1.49.0-3.1 [57.0 kB]
+Get:120 http://localhost/debian/ unstable/main libboost-signals1.49-dev amd64 1.49.0-3.1 [66.5 kB]
+Get:121 http://localhost/debian/ unstable/main libboost-signals-dev amd64 1.49.0.1 [2778 B]
+Get:122 http://localhost/debian/ unstable/main libboost-system-dev amd64 1.49.0.1 [2850 B]
+Get:123 http://localhost/debian/ unstable/main libboost-test-dev amd64 1.49.0.1 [2750 B]
+Get:124 http://localhost/debian/ unstable/main libboost-thread1.49-dev amd64 1.49.0-3.1 [67.1 kB]
+Get:125 http://localhost/debian/ unstable/main libboost-thread-dev amd64 1.49.0.1 [2736 B]
+Get:126 http://localhost/debian/ unstable/main libboost-timer1.49.0 amd64 1.49.0-3.1 [35.8 kB]
+Get:127 http://localhost/debian/ unstable/main libboost-timer1.49-dev amd64 1.49.0-3.1 [36.3 kB]
+Get:128 http://localhost/debian/ unstable/main libboost-timer-dev amd64 1.49.0.1 [2832 B]
+Get:129 http://localhost/debian/ unstable/main libboost-wave1.49.0 amd64 1.49.0-3.1 [304 kB]
+Get:130 http://localhost/debian/ unstable/main libboost-wave1.49-dev amd64 1.49.0-3.1 [590 kB]
+Get:131 http://localhost/debian/ unstable/main libboost-wave-dev amd64 1.49.0.1 [2744 B]
+Get:132 http://localhost/debian/ unstable/main libboost-all-dev amd64 1.49.0.1 [3004 B]
+Get:133 http://localhost/debian/ unstable/main libmysqlclient-dev amd64 5.5.29+dfsg-1 [974 kB]
+Get:134 http://localhost/debian/ unstable/main libpq5 amd64 9.1.7-1 [516 kB]
+Get:135 http://localhost/debian/ unstable/main libkrb5-dev amd64 1.10.1+dfsg-3 [39.6 kB]
+Get:136 http://localhost/debian/ unstable/main libpq-dev amd64 9.1.7-1 [570 kB]
+Get:137 http://localhost/debian/ unstable/main libpqxx-3.1 amd64 3.1-1.1 [215 kB]
+Get:138 http://localhost/debian/ unstable/main pkg-config amd64 0.26-1 [59.5 kB]
+Get:139 http://localhost/debian/ unstable/main libpqxx3-dev amd64 3.1-1.1 [170 kB]
+Get:140 http://localhost/debian/ unstable/main libruby1.9.1 amd64 1.9.3.194-5 [4414 kB]
+Get:141 http://localhost/debian/ unstable/main libtool amd64 2.4.2-1.2 [621 kB]
+Get:142 http://localhost/debian/ unstable/main libxml2-dev amd64 2.8.0+dfsg1-7 [899 kB]
+Get:143 http://localhost/debian/ unstable/main quilt all 0.60-7 [381 kB]
+Get:144 http://localhost/debian/ unstable/main ruby1.9.1 amd64 1.9.3.194-5 [208 kB]
+Get:145 http://localhost/debian/ unstable/main ruby all 4.9 [6350 B]
+Get:146 http://localhost/debian/ unstable/main ruby1.9.1-dev amd64 1.9.3.194-5 [1384 kB]
+Get:147 http://localhost/debian/ unstable/main ruby-dev all 4.9 [5980 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 91.0 MB in 5s (15.4 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package libpopt0:amd64.
+Unpacking libpopt0:amd64 (from .../libpopt0_1.16-7_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Unpacking libgpg-error0:amd64 (from .../libgpg-error0_1.10-3.1_amd64.deb) ...
+Selecting previously unselected package libgcrypt11:amd64.
+Unpacking libgcrypt11:amd64 (from .../libgcrypt11_1.5.0-3_amd64.deb) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Unpacking libp11-kit0:amd64 (from .../libp11-kit0_0.12-3_amd64.deb) ...
+Selecting previously unselected package libtasn1-3:amd64.
+Unpacking libtasn1-3:amd64 (from .../libtasn1-3_2.13-2_amd64.deb) ...
+Selecting previously unselected package libgnutls26:amd64.
+Unpacking libgnutls26:amd64 (from .../libgnutls26_2.12.20-3_amd64.deb) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Unpacking libkeyutils1:amd64 (from .../libkeyutils1_1.5.5-4_amd64.deb) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Unpacking libkrb5support0:amd64 (from .../libkrb5support0_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Unpacking libk5crypto3:amd64 (from .../libk5crypto3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Unpacking libkrb5-3:amd64 (from .../libkrb5-3_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Unpacking libgssapi-krb5-2:amd64 (from .../libgssapi-krb5-2_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Unpacking libgssrpc4:amd64 (from .../libgssrpc4_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5clnt-mit8:amd64.
+Unpacking libkadm5clnt-mit8:amd64 (from .../libkadm5clnt-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkdb5-6:amd64.
+Unpacking libkdb5-6:amd64 (from .../libkdb5-6_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libkadm5srv-mit8:amd64.
+Unpacking libkadm5srv-mit8:amd64 (from .../libkadm5srv-mit8_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Unpacking libsasl2-2:amd64 (from .../libsasl2-2_2.1.25.dfsg1-6_amd64.deb) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Unpacking libldap-2.4-2:amd64 (from .../libldap-2.4-2_2.4.31-1_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgfortran3:amd64.
+Unpacking libgfortran3:amd64 (from .../libgfortran3_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package libicu48:amd64.
+Unpacking libicu48:amd64 (from .../libicu48_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.29+dfsg-1_all.deb) ...
+Selecting previously unselected package libmysqlclient18:amd64.
+Unpacking libmysqlclient18:amd64 (from .../libmysqlclient18_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libyaml-0-2:amd64.
+Unpacking libyaml-0-2:amd64 (from .../libyaml-0-2_0.1.4-2_amd64.deb) ...
+Selecting previously unselected package adduser.
+Unpacking adduser (from .../adduser_3.113+nmu3_all.deb) ...
+Selecting previously unselected package libboost-iostreams1.49.0.
+Unpacking libboost-iostreams1.49.0 (from .../libboost-iostreams1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libsigsegv2.
+Unpacking libsigsegv2 (from .../libsigsegv2_2.9-4_amd64.deb) ...
+Selecting previously unselected package m4.
+Unpacking m4 (from .../archives/m4_1.4.16-4_amd64.deb) ...
+Selecting previously unselected package autoconf.
+Unpacking autoconf (from .../autoconf_2.69-1_all.deb) ...
+Selecting previously unselected package autotools-dev.
+Unpacking autotools-dev (from .../autotools-dev_20120608.1_all.deb) ...
+Selecting previously unselected package automake.
+Unpacking automake (from .../automake_1%3a1.11.6-1_all.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package diffstat.
+Unpacking diffstat (from .../diffstat_1.55-3_amd64.deb) ...
+Selecting previously unselected package gccxml.
+Unpacking gccxml (from .../gccxml_0.9.0+cvs20120420-4_amd64.deb) ...
+Selecting previously unselected package comerr-dev.
+Unpacking comerr-dev (from .../comerr-dev_2.1-1.42.5-1_amd64.deb) ...
+Selecting previously unselected package krb5-multidev.
+Unpacking krb5-multidev (from .../krb5-multidev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libboost1.49-dev.
+Unpacking libboost1.49-dev (from .../libboost1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-dev.
+Unpacking libboost-dev (from .../libboost-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-system1.49.0.
+Unpacking libboost-system1.49.0 (from .../libboost-system1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-chrono1.49.0.
+Unpacking libboost-chrono1.49.0 (from .../libboost-chrono1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-chrono1.49-dev.
+Unpacking libboost-chrono1.49-dev (from .../libboost-chrono1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-chrono-dev.
+Unpacking libboost-chrono-dev (from .../libboost-chrono-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49.0.
+Unpacking libboost-date-time1.49.0 (from .../libboost-date-time1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49.0.
+Unpacking libboost-serialization1.49.0 (from .../libboost-serialization1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization1.49-dev.
+Unpacking libboost-serialization1.49-dev (from .../libboost-serialization1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time1.49-dev.
+Unpacking libboost-date-time1.49-dev (from .../libboost-date-time1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-date-time-dev.
+Unpacking libboost-date-time-dev (from .../libboost-date-time-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-filesystem1.49.0.
+Unpacking libboost-filesystem1.49.0 (from .../libboost-filesystem1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-system1.49-dev.
+Unpacking libboost-system1.49-dev (from .../libboost-system1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-filesystem1.49-dev.
+Unpacking libboost-filesystem1.49-dev (from .../libboost-filesystem1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-filesystem-dev.
+Unpacking libboost-filesystem-dev (from .../libboost-filesystem-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-test1.49.0.
+Unpacking libboost-test1.49.0 (from .../libboost-test1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-test1.49-dev.
+Unpacking libboost-test1.49-dev (from .../libboost-test1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-graph1.49-dev.
+Unpacking libboost-graph1.49-dev (from .../libboost-graph1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-graph-dev.
+Unpacking libboost-graph-dev (from .../libboost-graph-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-graph-parallel1.49-dev.
+Unpacking libboost-graph-parallel1.49-dev (from .../libboost-graph-parallel1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-graph-parallel-dev.
+Unpacking libboost-graph-parallel-dev (from .../libboost-graph-parallel-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-regex1.49.0.
+Unpacking libboost-regex1.49.0 (from .../libboost-regex1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libicu-dev.
+Unpacking libicu-dev (from .../libicu-dev_4.8.1.1-10_amd64.deb) ...
+Selecting previously unselected package libboost-regex1.49-dev.
+Unpacking libboost-regex1.49-dev (from .../libboost-regex1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-iostreams1.49-dev.
+Unpacking libboost-iostreams1.49-dev (from .../libboost-iostreams1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-iostreams-dev.
+Unpacking libboost-iostreams-dev (from .../libboost-iostreams-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49.0.
+Unpacking libboost-thread1.49.0 (from .../libboost-thread1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-locale1.49.0.
+Unpacking libboost-locale1.49.0 (from .../libboost-locale1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-locale1.49-dev.
+Unpacking libboost-locale1.49-dev (from .../libboost-locale1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-locale-dev.
+Unpacking libboost-locale-dev (from .../libboost-locale-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-math1.49.0.
+Unpacking libboost-math1.49.0 (from .../libboost-math1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-math1.49-dev.
+Unpacking libboost-math1.49-dev (from .../libboost-math1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-math-dev.
+Unpacking libboost-math-dev (from .../libboost-math-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libibverbs1.
+Unpacking libibverbs1 (from .../libibverbs1_1.1.6-1_amd64.deb) ...
+Selecting previously unselected package libnuma1.
+Unpacking libnuma1 (from .../libnuma1_2.0.8-1_amd64.deb) ...
+Selecting previously unselected package libtorque2.
+Unpacking libtorque2 (from .../libtorque2_2.4.16+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libopenmpi1.3.
+Unpacking libopenmpi1.3 (from .../libopenmpi1.3_1.4.5-1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi1.49.0.
+Unpacking libboost-mpi1.49.0 (from .../libboost-mpi1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package openmpi-common.
+Unpacking openmpi-common (from .../openmpi-common_1.4.5-1_all.deb) ...
+Selecting previously unselected package libibverbs-dev.
+Unpacking libibverbs-dev (from .../libibverbs-dev_1.1.6-1_amd64.deb) ...
+Selecting previously unselected package libopenmpi-dev.
+Unpacking libopenmpi-dev (from .../libopenmpi-dev_1.4.5-1_amd64.deb) ...
+Selecting previously unselected package mpi-default-dev.
+Unpacking mpi-default-dev (from .../mpi-default-dev_1.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi1.49-dev.
+Unpacking libboost-mpi1.49-dev (from .../libboost-mpi1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi-dev.
+Unpacking libboost-mpi-dev (from .../libboost-mpi-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-python1.49.0.
+Unpacking libboost-python1.49.0 (from .../libboost-python1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi-python1.49.0.
+Unpacking libboost-mpi-python1.49.0 (from .../libboost-mpi-python1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi-python1.49-dev.
+Unpacking libboost-mpi-python1.49-dev (from .../libboost-mpi-python1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-mpi-python-dev.
+Unpacking libboost-mpi-python-dev (from .../libboost-mpi-python-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-program-options1.49.0.
+Unpacking libboost-program-options1.49.0 (from .../libboost-program-options1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-program-options1.49-dev.
+Unpacking libboost-program-options1.49-dev (from .../libboost-program-options1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-program-options-dev.
+Unpacking libboost-program-options-dev (from .../libboost-program-options-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libpython2.7.
+Unpacking libpython2.7 (from .../libpython2.7_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package libexpat1-dev.
+Unpacking libexpat1-dev (from .../libexpat1-dev_2.1.0-1_amd64.deb) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Unpacking zlib1g-dev:amd64 (from .../zlib1g-dev_1%3a1.2.7.dfsg-13_amd64.deb) ...
+Selecting previously unselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_1.0.1c-4_amd64.deb) ...
+Selecting previously unselected package python2.7-dev.
+Unpacking python2.7-dev (from .../python2.7-dev_2.7.3-6_amd64.deb) ...
+Selecting previously unselected package python-dev.
+Unpacking python-dev (from .../python-dev_2.7.3-3_all.deb) ...
+Selecting previously unselected package libboost-python1.49-dev.
+Unpacking libboost-python1.49-dev (from .../libboost-python1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-python-dev.
+Unpacking libboost-python-dev (from .../libboost-python-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-random1.49.0.
+Unpacking libboost-random1.49.0 (from .../libboost-random1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-random1.49-dev.
+Unpacking libboost-random1.49-dev (from .../libboost-random1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-random-dev.
+Unpacking libboost-random-dev (from .../libboost-random-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-regex-dev.
+Unpacking libboost-regex-dev (from .../libboost-regex-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-serialization-dev.
+Unpacking libboost-serialization-dev (from .../libboost-serialization-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals1.49.0.
+Unpacking libboost-signals1.49.0 (from .../libboost-signals1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals1.49-dev.
+Unpacking libboost-signals1.49-dev (from .../libboost-signals1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-signals-dev.
+Unpacking libboost-signals-dev (from .../libboost-signals-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-system-dev.
+Unpacking libboost-system-dev (from .../libboost-system-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-test-dev.
+Unpacking libboost-test-dev (from .../libboost-test-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread1.49-dev.
+Unpacking libboost-thread1.49-dev (from .../libboost-thread1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-thread-dev.
+Unpacking libboost-thread-dev (from .../libboost-thread-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-timer1.49.0.
+Unpacking libboost-timer1.49.0 (from .../libboost-timer1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-timer1.49-dev.
+Unpacking libboost-timer1.49-dev (from .../libboost-timer1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-timer-dev.
+Unpacking libboost-timer-dev (from .../libboost-timer-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-wave1.49.0.
+Unpacking libboost-wave1.49.0 (from .../libboost-wave1.49.0_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-wave1.49-dev.
+Unpacking libboost-wave1.49-dev (from .../libboost-wave1.49-dev_1.49.0-3.1_amd64.deb) ...
+Selecting previously unselected package libboost-wave-dev.
+Unpacking libboost-wave-dev (from .../libboost-wave-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libboost-all-dev.
+Unpacking libboost-all-dev (from .../libboost-all-dev_1.49.0.1_amd64.deb) ...
+Selecting previously unselected package libmysqlclient-dev.
+Unpacking libmysqlclient-dev (from .../libmysqlclient-dev_5.5.29+dfsg-1_amd64.deb) ...
+Selecting previously unselected package libpq5.
+Unpacking libpq5 (from .../libpq5_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libkrb5-dev.
+Unpacking libkrb5-dev (from .../libkrb5-dev_1.10.1+dfsg-3_amd64.deb) ...
+Selecting previously unselected package libpq-dev.
+Unpacking libpq-dev (from .../libpq-dev_9.1.7-1_amd64.deb) ...
+Selecting previously unselected package libpqxx-3.1.
+Unpacking libpqxx-3.1 (from .../libpqxx-3.1_3.1-1.1_amd64.deb) ...
+Selecting previously unselected package pkg-config.
+Unpacking pkg-config (from .../pkg-config_0.26-1_amd64.deb) ...
+Selecting previously unselected package libpqxx3-dev.
+Unpacking libpqxx3-dev (from .../libpqxx3-dev_3.1-1.1_amd64.deb) ...
+Selecting previously unselected package libruby1.9.1.
+Unpacking libruby1.9.1 (from .../libruby1.9.1_1.9.3.194-5_amd64.deb) ...
+Selecting previously unselected package libtool.
+Unpacking libtool (from .../libtool_2.4.2-1.2_amd64.deb) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Unpacking libxml2-dev:amd64 (from .../libxml2-dev_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package quilt.
+Unpacking quilt (from .../archives/quilt_0.60-7_all.deb) ...
+Selecting previously unselected package ruby1.9.1.
+Unpacking ruby1.9.1 (from .../ruby1.9.1_1.9.3.194-5_amd64.deb) ...
+Selecting previously unselected package ruby.
+Unpacking ruby (from .../apt/archives/ruby_4.9_all.deb) ...
+Selecting previously unselected package ruby1.9.1-dev.
+Unpacking ruby1.9.1-dev (from .../ruby1.9.1-dev_1.9.3.194-5_amd64.deb) ...
+Selecting previously unselected package ruby-dev.
+Unpacking ruby-dev (from .../archives/ruby-dev_4.9_all.deb) ...
+Selecting previously unselected package sbuild-build-depends-quickfix-dummy.
+Unpacking sbuild-build-depends-quickfix-dummy (from .../sbuild-build-depends-quickfix-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up libpopt0:amd64 (1.16-7) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libgpg-error0:amd64 (1.10-3.1) ...
+Setting up libgcrypt11:amd64 (1.5.0-3) ...
+Setting up libp11-kit0:amd64 (0.12-3) ...
+Setting up libtasn1-3:amd64 (2.13-2) ...
+Setting up libgnutls26:amd64 (2.12.20-3) ...
+Setting up libkeyutils1:amd64 (1.5.5-4) ...
+Setting up libkrb5support0:amd64 (1.10.1+dfsg-3) ...
+Setting up libk5crypto3:amd64 (1.10.1+dfsg-3) ...
+Setting up libkrb5-3:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssapi-krb5-2:amd64 (1.10.1+dfsg-3) ...
+Setting up libgssrpc4:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5clnt-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libkdb5-6:amd64 (1.10.1+dfsg-3) ...
+Setting up libkadm5srv-mit8:amd64 (1.10.1+dfsg-3) ...
+Setting up libsasl2-2:amd64 (2.1.25.dfsg1-6) ...
+Setting up libldap-2.4-2:amd64 (2.4.31-1) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libgfortran3:amd64 (4.7.2-5) ...
+Setting up libicu48:amd64 (4.8.1.1-10) ...
+Setting up mysql-common (5.5.29+dfsg-1) ...
+Setting up libmysqlclient18:amd64 (5.5.29+dfsg-1) ...
+Setting up libyaml-0-2:amd64 (0.1.4-2) ...
+Setting up adduser (3.113+nmu3) ...
+Setting up libboost-iostreams1.49.0 (1.49.0-3.1) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up libsigsegv2 (2.9-4) ...
+Setting up m4 (1.4.16-4) ...
+Setting up autoconf (2.69-1) ...
+Setting up autotools-dev (20120608.1) ...
+Setting up automake (1:1.11.6-1) ...
+update-alternatives: using /usr/bin/automake-1.11 to provide /usr/bin/automake (automake) in auto mode
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up diffstat (1.55-3) ...
+Setting up gccxml (0.9.0+cvs20120420-4) ...
+Setting up comerr-dev (2.1-1.42.5-1) ...
+Setting up krb5-multidev (1.10.1+dfsg-3) ...
+Setting up libboost1.49-dev (1.49.0-3.1) ...
+Setting up libboost-dev (1.49.0.1) ...
+Setting up libboost-system1.49.0 (1.49.0-3.1) ...
+Setting up libboost-chrono1.49.0 (1.49.0-3.1) ...
+Setting up libboost-chrono1.49-dev (1.49.0-3.1) ...
+Setting up libboost-chrono-dev (1.49.0.1) ...
+Setting up libboost-date-time1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49.0 (1.49.0-3.1) ...
+Setting up libboost-serialization1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time1.49-dev (1.49.0-3.1) ...
+Setting up libboost-date-time-dev (1.49.0.1) ...
+Setting up libboost-filesystem1.49.0 (1.49.0-3.1) ...
+Setting up libboost-system1.49-dev (1.49.0-3.1) ...
+Setting up libboost-filesystem1.49-dev (1.49.0-3.1) ...
+Setting up libboost-filesystem-dev (1.49.0.1) ...
+Setting up libboost-test1.49.0 (1.49.0-3.1) ...
+Setting up libboost-test1.49-dev (1.49.0-3.1) ...
+Setting up libboost-graph1.49-dev (1.49.0-3.1) ...
+Setting up libboost-graph-dev (1.49.0.1) ...
+Setting up libboost-graph-parallel1.49-dev (1.49.0-3.1) ...
+Setting up libboost-graph-parallel-dev (1.49.0.1) ...
+Setting up libboost-regex1.49.0 (1.49.0-3.1) ...
+Setting up libicu-dev (4.8.1.1-10) ...
+Setting up libboost-regex1.49-dev (1.49.0-3.1) ...
+Setting up libboost-iostreams1.49-dev (1.49.0-3.1) ...
+Setting up libboost-iostreams-dev (1.49.0.1) ...
+Setting up libboost-thread1.49.0 (1.49.0-3.1) ...
+Setting up libboost-locale1.49.0 (1.49.0-3.1) ...
+Setting up libboost-locale1.49-dev (1.49.0-3.1) ...
+Setting up libboost-locale-dev (1.49.0.1) ...
+Setting up libboost-math1.49.0 (1.49.0-3.1) ...
+Setting up libboost-math1.49-dev (1.49.0-3.1) ...
+Setting up libboost-math-dev (1.49.0.1) ...
+Setting up libibverbs1 (1.1.6-1) ...
+Setting up libnuma1 (2.0.8-1) ...
+Setting up libtorque2 (2.4.16+dfsg-1) ...
+Setting up libopenmpi1.3 (1.4.5-1) ...
+Setting up libboost-mpi1.49.0 (1.49.0-3.1) ...
+Setting up openmpi-common (1.4.5-1) ...
+Setting up libibverbs-dev (1.1.6-1) ...
+Setting up libopenmpi-dev (1.4.5-1) ...
+update-alternatives: using /usr/lib/openmpi/include to provide /usr/include/mpi (mpi) in auto mode
+Setting up mpi-default-dev (1.0.1) ...
+Setting up libboost-mpi1.49-dev (1.49.0-3.1) ...
+Setting up libboost-mpi-dev (1.49.0.1) ...
+Setting up libboost-python1.49.0 (1.49.0-3.1) ...
+Setting up libboost-mpi-python1.49.0 (1.49.0-3.1) ...
+Setting up libboost-mpi-python1.49-dev (1.49.0-3.1) ...
+Setting up libboost-mpi-python-dev (1.49.0.1) ...
+Setting up libboost-program-options1.49.0 (1.49.0-3.1) ...
+Setting up libboost-program-options1.49-dev (1.49.0-3.1) ...
+Setting up libboost-program-options-dev (1.49.0.1) ...
+Setting up libpython2.7 (2.7.3-6) ...
+Setting up libexpat1-dev (2.1.0-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.7.dfsg-13) ...
+Setting up libssl-dev (1.0.1c-4) ...
+Setting up python2.7-dev (2.7.3-6) ...
+Setting up python-dev (2.7.3-3) ...
+Setting up libboost-python1.49-dev (1.49.0-3.1) ...
+Setting up libboost-python-dev (1.49.0.1) ...
+Setting up libboost-random1.49.0 (1.49.0-3.1) ...
+Setting up libboost-random1.49-dev (1.49.0-3.1) ...
+Setting up libboost-random-dev (1.49.0.1) ...
+Setting up libboost-regex-dev (1.49.0.1) ...
+Setting up libboost-serialization-dev (1.49.0.1) ...
+Setting up libboost-signals1.49.0 (1.49.0-3.1) ...
+Setting up libboost-signals1.49-dev (1.49.0-3.1) ...
+Setting up libboost-signals-dev (1.49.0.1) ...
+Setting up libboost-system-dev (1.49.0.1) ...
+Setting up libboost-test-dev (1.49.0.1) ...
+Setting up libboost-thread1.49-dev (1.49.0-3.1) ...
+Setting up libboost-thread-dev (1.49.0.1) ...
+Setting up libboost-timer1.49.0 (1.49.0-3.1) ...
+Setting up libboost-timer1.49-dev (1.49.0-3.1) ...
+Setting up libboost-timer-dev (1.49.0.1) ...
+Setting up libboost-wave1.49.0 (1.49.0-3.1) ...
+Setting up libboost-wave1.49-dev (1.49.0-3.1) ...
+Setting up libboost-wave-dev (1.49.0.1) ...
+Setting up libboost-all-dev (1.49.0.1) ...
+Setting up libmysqlclient-dev (5.5.29+dfsg-1) ...
+Setting up libpq5 (9.1.7-1) ...
+Setting up libkrb5-dev (1.10.1+dfsg-3) ...
+Setting up libpq-dev (9.1.7-1) ...
+Setting up libpqxx-3.1 (3.1-1.1) ...
+Setting up pkg-config (0.26-1) ...
+Setting up libpqxx3-dev (3.1-1.1) ...
+Setting up libruby1.9.1 (1.9.3.194-5) ...
+Setting up libtool (2.4.2-1.2) ...
+Setting up libxml2-dev:amd64 (2.8.0+dfsg1-7) ...
+Setting up quilt (0.60-7) ...
+Setting up ruby1.9.1 (1.9.3.194-5) ...
+update-alternatives: using /usr/bin/gem1.9.1 to provide /usr/bin/gem (gem) in auto mode
+update-alternatives: using /usr/bin/ruby1.9.1 to provide /usr/bin/ruby (ruby) in auto mode
+Setting up ruby (4.9) ...
+Setting up ruby1.9.1-dev (1.9.3.194-5) ...
+Setting up ruby-dev (4.9) ...
+Setting up sbuild-build-depends-quickfix-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-quickfix-dummy : Depends: python-dev but it is not going to be installed
-                                       Depends: libboost-all-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: adduser_3.113+nmu3 apt_0.9.7.7 autoconf_2.69-1 automake_1:1.11.6-1 autotools-dev_20120608.1 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 comerr-dev_2.1-1.42.5-1 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffstat_1.55-3 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gccxml_0.9.0+cvs20120420-4 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 krb5-multidev_1.10.1+dfsg-3 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libboost-all-dev_1.49.0.1 libboost-chrono-dev_1.49.0.1 libboost-chrono1.49-dev_1.49.0-3.1 libboost-chrono1.49.0_1.49.0-3.1 libboost-date-time-dev_1.49.0.1 libboost-date-time1.49-dev_1.49.0-3.1 libboost-date-time1.49.0_1.49.0-3.1 libboost-dev_1.49.0.1 libboost-filesystem-dev_1.49.0.1 libboost-filesystem1.49-dev_1.49.0-3.1 libboost-filesystem1.49.0_1.49.0-3.1 libboost-graph-dev_1.49.0.1 libboost-graph-parallel-dev_1.49.0.1 libboost-graph-parallel1.49-dev_1.49.0-3.1 libboost-graph1.49-dev_1.49.0-3.1 libboost-iostreams-dev_1.49.0.1 libboost-iostreams1.49-dev_1.49.0-3.1 libboost-iostreams1.49.0_1.49.0-3.1 libboost-locale-dev_1.49.0.1 libboost-locale1.49-dev_1.49.0-3.1 libboost-locale1.49.0_1.49.0-3.1 libboost-math-dev_1.49.0.1 libboost-math1.49-dev_1.49.0-3.1 libboost-math1.49.0_1.49.0-3.1 libboost-mpi-dev_1.49.0.1 libboost-mpi-python-dev_1.49.0.1 libboost-mpi-python1.49-dev_1.49.0-3.1 libboost-mpi-python1.49.0_1.49.0-3.1 libboost-mpi1.49-dev_1.49.0-3.1 libboost-mpi1.49.0_1.49.0-3.1 libboost-program-options-dev_1.49.0.1 libboost-program-options1.49-dev_1.49.0-3.1 libboost-program-options1.49.0_1.49.0-3.1 libboost-python-dev_1.49.0.1 libboost-python1.49-dev_1.49.0-3.1 libboost-python1.49.0_1.49.0-3.1 libboost-random-dev_1.49.0.1 libboost-random1.49-dev_1.49.0-3.1 libboost-random1.49.0_1.49.0-3.1 libboost-regex-dev_1.49.0.1 libboost-regex1.49-dev_1.49.0-3.1 libboost-regex1.49.0_1.49.0-3.1 libboost-serialization-dev_1.49.0.1 libboost-serialization1.49-dev_1.49.0-3.1 libboost-serialization1.49.0_1.49.0-3.1 libboost-signals-dev_1.49.0.1 libboost-signals1.49-dev_1.49.0-3.1 libboost-signals1.49.0_1.49.0-3.1 libboost-system-dev_1.49.0.1 libboost-system1.49-dev_1.49.0-3.1 libboost-system1.49.0_1.49.0-3.1 libboost-test-dev_1.49.0.1 libboost-test1.49-dev_1.49.0-3.1 libboost-test1.49.0_1.49.0-3.1 libboost-thread-dev_1.49.0.1 libboost-thread1.49-dev_1.49.0-3.1 libboost-thread1.49.0_1.49.0-3.1 libboost-timer-dev_1.49.0.1 libboost-timer1.49-dev_1.49.0-3.1 libboost-timer1.49.0_1.49.0-3.1 libboost-wave-dev_1.49.0.1 libboost-wave1.49-dev_1.49.0-3.1 libboost-wave1.49.0_1.49.0-3.1 libboost1.49-dev_1.49.0-3.1 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libexpat1-dev_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgcrypt11_1.5.0-3 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libgfortran3_4.7.2-5 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgnutls26_2.12.20-3 libgomp1_4.7.2-5 libgpg-error0_1.10-3.1 libgpm2_1.20.4-6 libgssapi-krb5-2_1.10.1+dfsg-3 libgssrpc4_1.10.1+dfsg-3 libibverbs-dev_1.1.6-1 libibverbs1_1.1.6-1 libicu-dev_4.8.1.1-10 libicu48_4.8.1.1-10 libitm1_4.7.2-5 libk5crypto3_1.10.1+dfsg-3 libkadm5clnt-mit8_1.10.1+dfsg-3 libkadm5srv-mit8_1.10.1+dfsg-3 libkdb5-6_1.10.1+dfsg-3 libkeyutils1_1.5.5-4 libkrb5-3_1.10.1+dfsg-3 libkrb5-dev_1.10.1+dfsg-3 libkrb5support0_1.10.1+dfsg-3 libldap-2.4-2_2.4.31-1 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libmysqlclient-dev_5.5.29+dfsg-1 libmysqlclient18_5.5.29+dfsg-1 libncurses5_5.9-10 libncursesw5_5.9-10 libnuma1_2.0.8-1 libopenmpi-dev_1.4.5-1 libopenmpi1.3_1.4.5-1 libp11-kit0_0.12-3 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libpopt0_1.16-7 libpq-dev_9.1.7-1 libpq5_9.1.7-1 libpqxx-3.1_3.1-1.1 libpqxx3-dev_3.1-1.1 libpython2.7_2.7.3-6 libquadmath0_4.7.2-5 libreadline6_6.2+dfsg-0.1 libruby1.9.1_1.9.3.194-5 libsasl2-2_2.1.25.dfsg1-6 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libsigsegv2_2.9-4 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl-dev_1.0.1c-4 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtasn1-3_2.13-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo5_5.9-10 libtool_2.4.2-1.2 libtorque2_2.4.16+dfsg-1 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 libxml2-dev_2.8.0+dfsg1-7 libyaml-0-2_0.1.4-2 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 m4_1.4.16-4 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 mpi-default-dev_1.0.1 multiarch-support_2.13-38 mysql-common_5.5.29+dfsg-1 ncurses-base_5.9-10 ncurses-bin_5.9-10 openmpi-common_1.4.5-1 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 pkg-config_0.26-1 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-dev_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-dev_2.7.3-6 python2.7-minimal_2.7.3-6 quilt_0.60-7 readline-common_6.2+dfsg-0.1 ruby_4.9 ruby-dev_4.9 ruby1.9.1_1.9.3.194-5 ruby1.9.1-dev_1.9.3.194-5 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-quickfix-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13 zlib1g-dev_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Jan  4 04:01:58 2012 UTC using RSA key ID DDA7B20F
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./quickfix_1.13.3+dfsg-4.dsc
+dpkg-source: info: extracting quickfix in quickfix-1.13.3+dfsg
+dpkg-source: info: unpacking quickfix_1.13.3+dfsg.orig.tar.gz
+dpkg-source: info: unpacking quickfix_1.13.3+dfsg-4.debian.tar.gz
+dpkg-source: info: applying uninitialized-v2.patch
+dpkg-source: info: applying src-fieldbase_calculate.patch
+dpkg-source: info: applying src-heartbeat.patch
+dpkg-source: info: applying ruby_site_packages.patch
+dpkg-source: info: applying ruby_hardcode_lower_optimization.patch
+dpkg-source: info: applying build_system_cleanup.patch
+dpkg-source: info: applying stdlib.patch
+dpkg-source: info: applying test_runner_bad_virtual_method_arg.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-afd9673d-3ac4-49e6-b5d8-42363189a9ef
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package quickfix
+dpkg-buildpackage: source version 1.13.3+dfsg-4
+dpkg-buildpackage: source changed by Roberto C. Sanchez <roberto@connexer.com>
+ dpkg-source --before-build quickfix-1.13.3+dfsg
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null pop -a -R || test $? = 2
+Removing patch test_runner_bad_virtual_method_arg.patch
+Restoring UnitTest++/src/tests/TestTestRunner.cpp
+
+Removing patch stdlib.patch
+Restoring src/C++/Utility.h
+
+Removing patch build_system_cleanup.patch
+Restoring src/python/Makefile.in
+Restoring src/python/Makefile.am
+Restoring src/Makefile.am
+Restoring src/C++/test/Makefile.am
+Restoring examples/ordermatch/test/Makefile.am
+
+Removing patch ruby_hardcode_lower_optimization.patch
+Restoring src/ruby/make_ruby.sh
+
+Removing patch ruby_site_packages.patch
+Restoring src/ruby/Makefile.in
+Restoring src/ruby/Makefile.am
+Restoring configure.in
+Restoring configure
+
+Removing patch src-heartbeat.patch
+Restoring src/C++/Session.h
+
+Removing patch src-fieldbase_calculate.patch
+Restoring src/C++/Field.h
+
+Removing patch uninitialized-v2.patch
+Restoring src/C++/Initiator.cpp
+
+No patches applied
+rm -rf .pc debian/stamp-patched
+dh_testdir
+dh_testroot
+rm -f build-stamp 
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -f config.sub config.guess
+dh_clean 
+ debian/rules build-arch
+QUILT_PATCHES=debian/patches \
+		quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch uninitialized-v2.patch
+patching file src/C++/Initiator.cpp
+
+Applying patch src-fieldbase_calculate.patch
+patching file src/C++/Field.h
+
+Applying patch src-heartbeat.patch
+patching file src/C++/Session.h
+
+Applying patch ruby_site_packages.patch
+patching file configure
+patching file configure.in
+patching file src/ruby/Makefile.am
+patching file src/ruby/Makefile.in
+
+Applying patch ruby_hardcode_lower_optimization.patch
+patching file src/ruby/make_ruby.sh
+
+Applying patch build_system_cleanup.patch
+patching file examples/ordermatch/test/Makefile.am
+patching file src/C++/test/Makefile.am
+patching file src/Makefile.am
+patching file src/python/Makefile.am
+patching file src/python/Makefile.in
+
+Applying patch stdlib.patch
+patching file src/C++/Utility.h
+
+Applying patch test_runner_bad_virtual_method_arg.patch
+patching file UnitTest++/src/tests/TestTestRunner.cpp
+
+Now at patch test_runner_bad_virtual_method_arg.patch
+touch debian/stamp-patched
+dh_testdir
+# Add here commands to configure the package.
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+libtoolize
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `config'.
+libtoolize: linking file `config/ltmain.sh'
+libtoolize: You should add the contents of the following files to `aclocal.m4':
+libtoolize:   `/usr/share/aclocal/libtool.m4'
+libtoolize:   `/usr/share/aclocal/ltoptions.m4'
+libtoolize:   `/usr/share/aclocal/ltversion.m4'
+libtoolize:   `/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding `AC_CONFIG_MACRO_DIR([m4])' to configure.in and
+libtoolize: rerunning libtoolize, to keep the correct libtool macros in-tree.
+libtoolize: Consider adding `-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+./configure --build x86_64-linux-gnu --prefix=/usr --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info CC="/usr/bin/gcc" CXX="/usr/bin/g++" CFLAGS="-O3 -O3 -msse3" CXXFLAGS="-O3 -O3 -msse3" LDFLAGS="-Wl,-z,defs -L/usr/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions" --with-ruby --with-mysql=/usr --enable-new-allocator --with-python=/usr/include/python2.7 --with-postgresql=/usr --with-boost=/usr/include/boost
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for C++ compiler default output file name... a.out
+checking whether the C++ compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/bin/g++ accepts -g... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/bin/g++... gcc3
+checking for gcc... /usr/bin/gcc
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/bin/gcc accepts -g... yes
+checking for /usr/bin/gcc option to accept ISO C89... none needed
+checking dependency style of /usr/bin/gcc... gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by /usr/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from /usr/bin/gcc object... ok
+checking how to run the C preprocessor... /usr/bin/gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether /usr/bin/g++ accepts -g... (cached) yes
+checking dependency style of /usr/bin/g++... (cached) gcc3
+checking how to run the C++ preprocessor... /usr/bin/g++ -E
+checking for objdir... .libs
+checking if /usr/bin/gcc supports -fno-rtti -fno-exceptions... yes
+checking for /usr/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/bin/gcc static flag -static works... no
+checking if /usr/bin/gcc supports -c -o file.o... yes
+checking if /usr/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for ld used by /usr/bin/g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the /usr/bin/g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for /usr/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/bin/g++ static flag -static works... no
+checking if /usr/bin/g++ supports -c -o file.o... yes
+checking if /usr/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for flex... no
+checking for lex... no
+-e:1: Use RbConfig instead of obsolete and deprecated Config.
+-e:1: Use RbConfig instead of obsolete and deprecated Config.
+checking for xml2-config... /usr/bin/xml2-config
+checking for libxml - version >= 2.0.0... yes (version 2.8.0)
+checking for shutdown in -lc... yes
+checking for inet_addr in -lc... yes
+checking for nanosleep in -lc... yes
+checking for ftime in -lcompat... no
+checking which threading environment to use... -lpthread
+checking for pthread_create in -lpthread... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for STREAMS ioctl... no
+checking for socklen_t... yes
+checking for ftime... yes
+checking for set_terminate in the global namespace... no
+checking for set_terminate in the std namespace... yes
+checking for typeinfo in the global namespace... no
+checking for typeinfo in the std namespace... yes
+checking for gethostbyname_r with input result... yes
+checking for boost::pool_allocator... yes
+checking for boost::fast_pool_allocator... yes
+checking __gnu_cxx::__pool_alloc... yes
+checking __gnu_cxx::__mt_alloc... yes
+checking __gnu_cxx::bitmap_allocator... yes
+checking for cplus_demangle in -liberty... no
+checking if select modifies timeval parameter... yes
+configure: creating ./config.status
+config.status: creating quickfix.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/C++/Makefile
+config.status: creating src/C++/test/Makefile
+config.status: creating src/python/Makefile
+config.status: creating src/ruby/Makefile
+config.status: creating bin/Makefile
+config.status: creating bin/cfg/Makefile
+config.status: creating spec/Makefile
+config.status: creating test/Makefile
+config.status: creating test/atrun/Makefile
+config.status: creating test/cfg/Makefile
+config.status: creating test/definitions/Makefile
+config.status: creating test/definitions/server/Makefile
+config.status: creating test/definitions/server/future/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/executor/Makefile
+config.status: creating examples/executor/C++/Makefile
+config.status: creating examples/ordermatch/Makefile
+config.status: creating examples/ordermatch/test/Makefile
+config.status: creating examples/tradeclient/Makefile
+config.status: creating examples/tradeclientgui/Makefile
+config.status: creating examples/tradeclientgui/banzai/Makefile
+config.status: creating examples/tradeclientgui/banzai/test/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/html/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+touch configure-stamp
+dh_testdir
+/usr/bin/make
+make[1]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /«BUILDDIR»/quickfix-1.13.3+dfsg/config/missing --run aclocal-1.11 
+ cd . && /bin/bash /«BUILDDIR»/quickfix-1.13.3+dfsg/config/missing --run automake-1.11 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /«BUILDDIR»/quickfix-1.13.3+dfsg/config/missing --run autoconf
+/bin/bash ./config.status --recheck
+running CONFIG_SHELL=/bin/bash /bin/bash ./configure --build x86_64-linux-gnu --prefix=/usr --mandir=${prefix}/share/man --infodir=${prefix}/share/info CC=/usr/bin/gcc CXX=/usr/bin/g++ CFLAGS=-O3 -O3 -msse3 CXXFLAGS=-O3 -O3 -msse3 LDFLAGS=-Wl,-z,defs -L/usr/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions --with-ruby --with-mysql=/usr --enable-new-allocator --with-python=/usr/include/python2.7 --with-postgresql=/usr --with-boost=/usr/include/boost build_alias=x86_64-linux-gnu --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/bin/g++ accepts -g... yes
+checking for style of include used by make... GNU
+checking dependency style of /usr/bin/g++... gcc3
+checking for gcc... /usr/bin/gcc
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/bin/gcc accepts -g... yes
+checking for /usr/bin/gcc option to accept ISO C89... none needed
+checking dependency style of /usr/bin/gcc... gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by /usr/bin/gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from /usr/bin/gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... /usr/bin/gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/bin/gcc supports -fno-rtti -fno-exceptions... yes
+checking for /usr/bin/gcc option to produce PIC... -fPIC -DPIC
+checking if /usr/bin/gcc PIC flag -fPIC -DPIC works... yes
+checking if /usr/bin/gcc static flag -static works... no
+checking if /usr/bin/gcc supports -c -o file.o... yes
+checking if /usr/bin/gcc supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... /usr/bin/g++ -E
+checking for ld used by /usr/bin/g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the /usr/bin/g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for /usr/bin/g++ option to produce PIC... -fPIC -DPIC
+checking if /usr/bin/g++ PIC flag -fPIC -DPIC works... yes
+checking if /usr/bin/g++ static flag -static works... no
+checking if /usr/bin/g++ supports -c -o file.o... yes
+checking if /usr/bin/g++ supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for flex... no
+checking for lex... no
+-e:1: Use RbConfig instead of obsolete and deprecated Config.
+-e:1: Use RbConfig instead of obsolete and deprecated Config.
+checking for xml2-config... /usr/bin/xml2-config
+checking for libxml - version >= 2.0.0... yes (version 2.8.0)
+checking for shutdown in -lc... yes
+checking for inet_addr in -lc... yes
+checking for nanosleep in -lc... yes
+checking for ftime in -lcompat... no
+checking which threading environment to use... -lpthread
+checking for pthread_create in -lpthread... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for STREAMS ioctl... no
+checking for socklen_t... yes
+checking for ftime... yes
+checking for set_terminate in the global namespace... no
+checking for set_terminate in the std namespace... yes
+checking for typeinfo in the global namespace... no
+checking for typeinfo in the std namespace... yes
+checking for gethostbyname_r with input result... yes
+checking for boost::pool_allocator... yes
+checking for boost::fast_pool_allocator... yes
+checking __gnu_cxx::__pool_alloc... yes
+checking __gnu_cxx::__mt_alloc... yes
+checking __gnu_cxx::bitmap_allocator... yes
+checking for cplus_demangle in -liberty... no
+checking if select modifies timeval parameter... yes
+configure: creating ./config.status
+ /bin/bash ./config.status
+config.status: creating quickfix.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/C++/Makefile
+config.status: creating src/C++/test/Makefile
+config.status: creating src/python/Makefile
+config.status: creating src/ruby/Makefile
+config.status: creating bin/Makefile
+config.status: creating bin/cfg/Makefile
+config.status: creating spec/Makefile
+config.status: creating test/Makefile
+config.status: creating test/atrun/Makefile
+config.status: creating test/cfg/Makefile
+config.status: creating test/definitions/Makefile
+config.status: creating test/definitions/server/Makefile
+config.status: creating test/definitions/server/future/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/executor/Makefile
+config.status: creating examples/executor/C++/Makefile
+config.status: creating examples/ordermatch/Makefile
+config.status: creating examples/ordermatch/test/Makefile
+config.status: creating examples/tradeclient/Makefile
+config.status: creating examples/tradeclientgui/Makefile
+config.status: creating examples/tradeclientgui/banzai/Makefile
+config.status: creating examples/tradeclientgui/banzai/test/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
+config.status: creating examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/html/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make[1]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+make[1]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /«BUILDDIR»/quickfix-1.13.3+dfsg/config/missing --run autoheader)
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+Making all in UnitTest++
+make[3]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/UnitTest++'
+src/AssertException.cpp
+src/Test.cpp
+src/Checks.cpp
+src/TestRunner.cpp
+src/TestResults.cpp
+src/TestReporter.cpp
+src/TestReporterStdout.cpp
+src/ReportAssert.cpp
+src/TestList.cpp
+src/TimeConstraint.cpp
+src/TestDetails.cpp
+src/MemoryOutStream.cpp
+src/DeferredTestReporter.cpp
+src/DeferredTestResult.cpp
+src/XmlTestReporter.cpp
+src/CurrentTest.cpp
+src/Posix/SignalTranslator.cpp
+In file included from src/Posix/SignalTranslator.cpp:1:
+src/Posix/SignalTranslator.h:25:22: warning: private field 'm_old_SIGABRT_action' is not used [-Wunused-private-field]
+    struct sigaction m_old_SIGABRT_action;
+                     ^
+src/Posix/SignalTranslator.h:26:22: warning: private field 'm_old_SIGALRM_action' is not used [-Wunused-private-field]
+    struct sigaction m_old_SIGALRM_action;
+                     ^
+2 warnings generated.
+src/Posix/TimeHelpers.cpp
+Creating libUnitTest++.a library...
+src/tests/Main.cpp
+src/tests/TestAssertHandler.cpp
+src/tests/TestChecks.cpp
+src/tests/TestUnitTest++.cpp
+src/tests/TestTest.cpp
+src/tests/TestTestResults.cpp
+src/tests/TestTestRunner.cpp
+src/tests/TestTestRunner.cpp:76:18: warning: '<anonymous namespace>::SlowTest::RunImpl' hides overloaded virtual function [-Woverloaded-virtual]
+    virtual void RunImpl(TestResults&) const
+                 ^
+src/tests/../Test.h:24:18: note: hidden overloaded virtual function 'UnitTest::Test::RunImpl' declared here
+    virtual void RunImpl() const;
+                 ^
+src/tests/TestTestRunner.cpp:201:22: warning: '<anonymous namespace>::TestRunnerFixtureSlowTestWithTimeExemptionPassesHelper::RunImpl()::SlowExemptedTest::RunImpl' hides overloaded virtual function [-Woverloaded-virtual]
+        virtual void RunImpl(TestResults&) const
+                     ^
+src/tests/../Test.h:24:18: note: hidden overloaded virtual function 'UnitTest::Test::RunImpl' declared here
+    virtual void RunImpl() const;
+                 ^
+2 warnings generated.
+src/tests/TestCheckMacros.cpp
+src/tests/TestTestList.cpp
+src/tests/TestTestMacros.cpp
+src/tests/TestTimeConstraint.cpp
+src/tests/TestTimeConstraintMacro.cpp
+src/tests/TestMemoryOutStream.cpp
+src/tests/TestDeferredTestReporter.cpp
+src/tests/TestXmlTestReporter.cpp
+src/tests/TestCurrentTest.cpp
+Linking TestUnitTest++...
+Running unit tests...
+Success: 174 tests passed.
+Test time: 0.09 seconds.
+make[3]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/UnitTest++'
+Making all in src
+make[3]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src'
+Making all in C++
+make[4]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+grep "_ALLOCATOR" ../../config.h >Allocator.h
+/usr/bin/make  all-recursive
+make[5]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+Making all in test
+make[6]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++/test'
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DictionaryTestCase.lo -MD -MP -MF .deps/DictionaryTestCase.Tpo -c -o DictionaryTestCase.lo DictionaryTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DictionaryTestCase.lo -MD -MP -MF .deps/DictionaryTestCase.Tpo -c DictionaryTestCase.cpp  -fPIC -DPIC -o .libs/DictionaryTestCase.o
+mv -f .deps/DictionaryTestCase.Tpo .deps/DictionaryTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldBaseTestCase.lo -MD -MP -MF .deps/FieldBaseTestCase.Tpo -c -o FieldBaseTestCase.lo FieldBaseTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldBaseTestCase.lo -MD -MP -MF .deps/FieldBaseTestCase.Tpo -c FieldBaseTestCase.cpp  -fPIC -DPIC -o .libs/FieldBaseTestCase.o
+mv -f .deps/FieldBaseTestCase.Tpo .deps/FieldBaseTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldConvertorsTestCase.lo -MD -MP -MF .deps/FieldConvertorsTestCase.Tpo -c -o FieldConvertorsTestCase.lo FieldConvertorsTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldConvertorsTestCase.lo -MD -MP -MF .deps/FieldConvertorsTestCase.Tpo -c FieldConvertorsTestCase.cpp  -fPIC -DPIC -o .libs/FieldConvertorsTestCase.o
+mv -f .deps/FieldConvertorsTestCase.Tpo .deps/FieldConvertorsTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileLogTestCase.lo -MD -MP -MF .deps/FileLogTestCase.Tpo -c -o FileLogTestCase.lo FileLogTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileLogTestCase.lo -MD -MP -MF .deps/FileLogTestCase.Tpo -c FileLogTestCase.cpp  -fPIC -DPIC -o .libs/FileLogTestCase.o
+mv -f .deps/FileLogTestCase.Tpo .deps/FileLogTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStoreFactoryTestCase.lo -MD -MP -MF .deps/FileStoreFactoryTestCase.Tpo -c -o FileStoreFactoryTestCase.lo FileStoreFactoryTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStoreFactoryTestCase.lo -MD -MP -MF .deps/FileStoreFactoryTestCase.Tpo -c FileStoreFactoryTestCase.cpp  -fPIC -DPIC -o .libs/FileStoreFactoryTestCase.o
+mv -f .deps/FileStoreFactoryTestCase.Tpo .deps/FileStoreFactoryTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStoreTestCase.lo -MD -MP -MF .deps/FileStoreTestCase.Tpo -c -o FileStoreTestCase.lo FileStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStoreTestCase.lo -MD -MP -MF .deps/FileStoreTestCase.Tpo -c FileStoreTestCase.cpp  -fPIC -DPIC -o .libs/FileStoreTestCase.o
+mv -f .deps/FileStoreTestCase.Tpo .deps/FileStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileUtilitiesTestCase.lo -MD -MP -MF .deps/FileUtilitiesTestCase.Tpo -c -o FileUtilitiesTestCase.lo FileUtilitiesTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileUtilitiesTestCase.lo -MD -MP -MF .deps/FileUtilitiesTestCase.Tpo -c FileUtilitiesTestCase.cpp  -fPIC -DPIC -o .libs/FileUtilitiesTestCase.o
+mv -f .deps/FileUtilitiesTestCase.Tpo .deps/FileUtilitiesTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpMessageTestCase.lo -MD -MP -MF .deps/HttpMessageTestCase.Tpo -c -o HttpMessageTestCase.lo HttpMessageTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpMessageTestCase.lo -MD -MP -MF .deps/HttpMessageTestCase.Tpo -c HttpMessageTestCase.cpp  -fPIC -DPIC -o .libs/HttpMessageTestCase.o
+mv -f .deps/HttpMessageTestCase.Tpo .deps/HttpMessageTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpParserTestCase.lo -MD -MP -MF .deps/HttpParserTestCase.Tpo -c -o HttpParserTestCase.lo HttpParserTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpParserTestCase.lo -MD -MP -MF .deps/HttpParserTestCase.Tpo -c HttpParserTestCase.cpp  -fPIC -DPIC -o .libs/HttpParserTestCase.o
+mv -f .deps/HttpParserTestCase.Tpo .deps/HttpParserTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MemoryStoreTestCase.lo -MD -MP -MF .deps/MemoryStoreTestCase.Tpo -c -o MemoryStoreTestCase.lo MemoryStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MemoryStoreTestCase.lo -MD -MP -MF .deps/MemoryStoreTestCase.Tpo -c MemoryStoreTestCase.cpp  -fPIC -DPIC -o .libs/MemoryStoreTestCase.o
+mv -f .deps/MemoryStoreTestCase.Tpo .deps/MemoryStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageSortersTestCase.lo -MD -MP -MF .deps/MessageSortersTestCase.Tpo -c -o MessageSortersTestCase.lo MessageSortersTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageSortersTestCase.lo -MD -MP -MF .deps/MessageSortersTestCase.Tpo -c MessageSortersTestCase.cpp  -fPIC -DPIC -o .libs/MessageSortersTestCase.o
+mv -f .deps/MessageSortersTestCase.Tpo .deps/MessageSortersTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessagesTestCase.lo -MD -MP -MF .deps/MessagesTestCase.Tpo -c -o MessagesTestCase.lo MessagesTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessagesTestCase.lo -MD -MP -MF .deps/MessagesTestCase.Tpo -c MessagesTestCase.cpp  -fPIC -DPIC -o .libs/MessagesTestCase.o
+MessagesTestCase.cpp:501:3: warning: expression result unused [-Wunused-value]
+  !object.isSetField( noOrders );
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+mv -f .deps/MessagesTestCase.Tpo .deps/MessagesTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT GroupTestCase.lo -MD -MP -MF .deps/GroupTestCase.Tpo -c -o GroupTestCase.lo GroupTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT GroupTestCase.lo -MD -MP -MF .deps/GroupTestCase.Tpo -c GroupTestCase.cpp  -fPIC -DPIC -o .libs/GroupTestCase.o
+mv -f .deps/GroupTestCase.Tpo .deps/GroupTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLStoreTestCase.lo -MD -MP -MF .deps/MySQLStoreTestCase.Tpo -c -o MySQLStoreTestCase.lo MySQLStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLStoreTestCase.lo -MD -MP -MF .deps/MySQLStoreTestCase.Tpo -c MySQLStoreTestCase.cpp  -fPIC -DPIC -o .libs/MySQLStoreTestCase.o
+MySQLStoreTestCase.cpp:60:22: warning: assigning field to itself [-Wself-assign-field]
+    this->resetAfter = resetAfter;
+                     ^
+1 warning generated.
+mv -f .deps/MySQLStoreTestCase.Tpo .deps/MySQLStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT NullStoreTestCase.lo -MD -MP -MF .deps/NullStoreTestCase.Tpo -c -o NullStoreTestCase.lo NullStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT NullStoreTestCase.lo -MD -MP -MF .deps/NullStoreTestCase.Tpo -c NullStoreTestCase.cpp  -fPIC -DPIC -o .libs/NullStoreTestCase.o
+mv -f .deps/NullStoreTestCase.Tpo .deps/NullStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT OdbcStoreTestCase.lo -MD -MP -MF .deps/OdbcStoreTestCase.Tpo -c -o OdbcStoreTestCase.lo OdbcStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT OdbcStoreTestCase.lo -MD -MP -MF .deps/OdbcStoreTestCase.Tpo -c OdbcStoreTestCase.cpp  -fPIC -DPIC -o .libs/OdbcStoreTestCase.o
+mv -f .deps/OdbcStoreTestCase.Tpo .deps/OdbcStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ParserTestCase.lo -MD -MP -MF .deps/ParserTestCase.Tpo -c -o ParserTestCase.lo ParserTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ParserTestCase.lo -MD -MP -MF .deps/ParserTestCase.Tpo -c ParserTestCase.cpp  -fPIC -DPIC -o .libs/ParserTestCase.o
+mv -f .deps/ParserTestCase.Tpo .deps/ParserTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLStoreTestCase.lo -MD -MP -MF .deps/PostgreSQLStoreTestCase.Tpo -c -o PostgreSQLStoreTestCase.lo PostgreSQLStoreTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLStoreTestCase.lo -MD -MP -MF .deps/PostgreSQLStoreTestCase.Tpo -c PostgreSQLStoreTestCase.cpp  -fPIC -DPIC -o .libs/PostgreSQLStoreTestCase.o
+PostgreSQLStoreTestCase.cpp:60:22: warning: assigning field to itself [-Wself-assign-field]
+    this->resetAfter = resetAfter;
+                     ^
+1 warning generated.
+mv -f .deps/PostgreSQLStoreTestCase.Tpo .deps/PostgreSQLStoreTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionIDTestCase.lo -MD -MP -MF .deps/SessionIDTestCase.Tpo -c -o SessionIDTestCase.lo SessionIDTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionIDTestCase.lo -MD -MP -MF .deps/SessionIDTestCase.Tpo -c SessionIDTestCase.cpp  -fPIC -DPIC -o .libs/SessionIDTestCase.o
+mv -f .deps/SessionIDTestCase.Tpo .deps/SessionIDTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionSettingsTestCase.lo -MD -MP -MF .deps/SessionSettingsTestCase.Tpo -c -o SessionSettingsTestCase.lo SessionSettingsTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionSettingsTestCase.lo -MD -MP -MF .deps/SessionSettingsTestCase.Tpo -c SessionSettingsTestCase.cpp  -fPIC -DPIC -o .libs/SessionSettingsTestCase.o
+mv -f .deps/SessionSettingsTestCase.Tpo .deps/SessionSettingsTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionTestCase.lo -MD -MP -MF .deps/SessionTestCase.Tpo -c -o SessionTestCase.lo SessionTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionTestCase.lo -MD -MP -MF .deps/SessionTestCase.Tpo -c SessionTestCase.cpp  -fPIC -DPIC -o .libs/SessionTestCase.o
+SessionTestCase.cpp:1178:8: warning: 'SuiteSessionTests::resetOnEndTimeFixture::createSession' hides overloaded virtual function [-Woverloaded-virtual]
+  void createSession()
+       ^
+SessionTestCase.cpp:345:16: note: hidden overloaded virtual function 'SuiteSessionTests::sessionFixture::createSession' declared here
+  virtual void createSession( int heartBtInt )
+               ^
+1 warning generated.
+mv -f .deps/SessionTestCase.Tpo .deps/SessionTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SettingsTestCase.lo -MD -MP -MF .deps/SettingsTestCase.Tpo -c -o SettingsTestCase.lo SettingsTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SettingsTestCase.lo -MD -MP -MF .deps/SettingsTestCase.Tpo -c SettingsTestCase.cpp  -fPIC -DPIC -o .libs/SettingsTestCase.o
+mv -f .deps/SettingsTestCase.Tpo .deps/SettingsTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketAcceptorTestCase.lo -MD -MP -MF .deps/SocketAcceptorTestCase.Tpo -c -o SocketAcceptorTestCase.lo SocketAcceptorTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketAcceptorTestCase.lo -MD -MP -MF .deps/SocketAcceptorTestCase.Tpo -c SocketAcceptorTestCase.cpp  -fPIC -DPIC -o .libs/SocketAcceptorTestCase.o
+mv -f .deps/SocketAcceptorTestCase.Tpo .deps/SocketAcceptorTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnectorTestCase.lo -MD -MP -MF .deps/SocketConnectorTestCase.Tpo -c -o SocketConnectorTestCase.lo SocketConnectorTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnectorTestCase.lo -MD -MP -MF .deps/SocketConnectorTestCase.Tpo -c SocketConnectorTestCase.cpp  -fPIC -DPIC -o .libs/SocketConnectorTestCase.o
+mv -f .deps/SocketConnectorTestCase.Tpo .deps/SocketConnectorTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketServerTestCase.lo -MD -MP -MF .deps/SocketServerTestCase.Tpo -c -o SocketServerTestCase.lo SocketServerTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketServerTestCase.lo -MD -MP -MF .deps/SocketServerTestCase.Tpo -c SocketServerTestCase.cpp  -fPIC -DPIC -o .libs/SocketServerTestCase.o
+mv -f .deps/SocketServerTestCase.Tpo .deps/SocketServerTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT StringUtilitiesTestCase.lo -MD -MP -MF .deps/StringUtilitiesTestCase.Tpo -c -o StringUtilitiesTestCase.lo StringUtilitiesTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT StringUtilitiesTestCase.lo -MD -MP -MF .deps/StringUtilitiesTestCase.Tpo -c StringUtilitiesTestCase.cpp  -fPIC -DPIC -o .libs/StringUtilitiesTestCase.o
+mv -f .deps/StringUtilitiesTestCase.Tpo .deps/StringUtilitiesTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TestHelper.lo -MD -MP -MF .deps/TestHelper.Tpo -c -o TestHelper.lo TestHelper.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TestHelper.lo -MD -MP -MF .deps/TestHelper.Tpo -c TestHelper.cpp  -fPIC -DPIC -o .libs/TestHelper.o
+mv -f .deps/TestHelper.Tpo .deps/TestHelper.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TimeRangeTestCase.lo -MD -MP -MF .deps/TimeRangeTestCase.Tpo -c -o TimeRangeTestCase.lo TimeRangeTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TimeRangeTestCase.lo -MD -MP -MF .deps/TimeRangeTestCase.Tpo -c TimeRangeTestCase.cpp  -fPIC -DPIC -o .libs/TimeRangeTestCase.o
+mv -f .deps/TimeRangeTestCase.Tpo .deps/TimeRangeTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT UtcTimeOnlyTestCase.lo -MD -MP -MF .deps/UtcTimeOnlyTestCase.Tpo -c -o UtcTimeOnlyTestCase.lo UtcTimeOnlyTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT UtcTimeOnlyTestCase.lo -MD -MP -MF .deps/UtcTimeOnlyTestCase.Tpo -c UtcTimeOnlyTestCase.cpp  -fPIC -DPIC -o .libs/UtcTimeOnlyTestCase.o
+mv -f .deps/UtcTimeOnlyTestCase.Tpo .deps/UtcTimeOnlyTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src   -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT UtcTimeStampTestCase.lo -MD -MP -MF .deps/UtcTimeStampTestCase.Tpo -c -o UtcTimeStampTestCase.lo UtcTimeStampTestCase.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../../.. -I.. -I../../../UnitTest++/src -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT UtcTimeStampTestCase.lo -MD -MP -MF .deps/UtcTimeStampTestCase.Tpo -c UtcTimeStampTestCase.cpp  -fPIC -DPIC -o .libs/UtcTimeStampTestCase.o
+mv -f .deps/UtcTimeStampTestCase.Tpo .deps/UtcTimeStampTestCase.Plo
+/bin/bash ../../../libtool --tag=CXX   --mode=link /usr/bin/g++ -O0 -g -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux  -Wl,-z,defs -L/usr/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions -o libquickfixcpptest.la  DictionaryTestCase.lo FieldBaseTestCase.lo FieldConvertorsTestCase.lo FileLogTestCase.lo FileStoreFactoryTestCase.lo FileStoreTestCase.lo FileUtilitiesTestCase.lo HttpMessageTestCase.lo HttpParserTestCase.lo MemoryStoreTestCase.lo MessageSortersTestCase.lo MessagesTestCase.lo GroupTestCase.lo MySQLStoreTestCase.lo NullStoreTestCase.lo OdbcStoreTestCase.lo ParserTestCase.lo PostgreSQLStoreTestCase.lo SessionIDTestCase.lo SessionSettingsTestCase.lo SessionTestCase.lo SettingsTestCase.lo SocketAcceptorTestCase.lo SocketConnectorTestCase.lo SocketServerTestCase.lo StringUtilitiesTestCase.lo TestHelper.lo TimeRangeTestCase.lo UtcTimeOnlyTestCase.lo UtcTimeStampTestCase.lo  -lpthread  -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -L/usr/lib -lpq 
+libtool: link: ar cru .libs/libquickfixcpptest.a .libs/DictionaryTestCase.o .libs/FieldBaseTestCase.o .libs/FieldConvertorsTestCase.o .libs/FileLogTestCase.o .libs/FileStoreFactoryTestCase.o .libs/FileStoreTestCase.o .libs/FileUtilitiesTestCase.o .libs/HttpMessageTestCase.o .libs/HttpParserTestCase.o .libs/MemoryStoreTestCase.o .libs/MessageSortersTestCase.o .libs/MessagesTestCase.o .libs/GroupTestCase.o .libs/MySQLStoreTestCase.o .libs/NullStoreTestCase.o .libs/OdbcStoreTestCase.o .libs/ParserTestCase.o .libs/PostgreSQLStoreTestCase.o .libs/SessionIDTestCase.o .libs/SessionSettingsTestCase.o .libs/SessionTestCase.o .libs/SettingsTestCase.o .libs/SocketAcceptorTestCase.o .libs/SocketConnectorTestCase.o .libs/SocketServerTestCase.o .libs/StringUtilitiesTestCase.o .libs/TestHelper.o .libs/TimeRangeTestCase.o .libs/UtcTimeOnlyTestCase.o .libs/UtcTimeStampTestCase.o 
+libtool: link: ranlib .libs/libquickfixcpptest.a
+libtool: link: ( cd ".libs" && rm -f "libquickfixcpptest.la" && ln -s "../libquickfixcpptest.la" "libquickfixcpptest.la" )
+make[6]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++/test'
+make[6]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Session.lo -MD -MP -MF .deps/Session.Tpo -c -o Session.lo Session.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Session.lo -MD -MP -MF .deps/Session.Tpo -c Session.cpp  -fPIC -DPIC -o .libs/Session.o
+mv -f .deps/Session.Tpo .deps/Session.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TimeRange.lo -MD -MP -MF .deps/TimeRange.Tpo -c -o TimeRange.lo TimeRange.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT TimeRange.lo -MD -MP -MF .deps/TimeRange.Tpo -c TimeRange.cpp  -fPIC -DPIC -o .libs/TimeRange.o
+mv -f .deps/TimeRange.Tpo .deps/TimeRange.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionFactory.lo -MD -MP -MF .deps/SessionFactory.Tpo -c -o SessionFactory.lo SessionFactory.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionFactory.lo -MD -MP -MF .deps/SessionFactory.Tpo -c SessionFactory.cpp  -fPIC -DPIC -o .libs/SessionFactory.o
+mv -f .deps/SessionFactory.Tpo .deps/SessionFactory.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Parser.lo -MD -MP -MF .deps/Parser.Tpo -c -o Parser.lo Parser.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Parser.lo -MD -MP -MF .deps/Parser.Tpo -c Parser.cpp  -fPIC -DPIC -o .libs/Parser.o
+In file included from Parser.cpp:27:
+./Parser.h:56:7: warning: private field 'm_bufferSize' is not used [-Wunused-private-field]
+  int m_bufferSize;
+      ^
+1 warning generated.
+mv -f .deps/Parser.Tpo .deps/Parser.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Log.lo -MD -MP -MF .deps/Log.Tpo -c -o Log.lo Log.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Log.lo -MD -MP -MF .deps/Log.Tpo -c Log.cpp  -fPIC -DPIC -o .libs/Log.o
+mv -f .deps/Log.Tpo .deps/Log.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileLog.lo -MD -MP -MF .deps/FileLog.Tpo -c -o FileLog.lo FileLog.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileLog.lo -MD -MP -MF .deps/FileLog.Tpo -c FileLog.cpp  -fPIC -DPIC -o .libs/FileLog.o
+mv -f .deps/FileLog.Tpo .deps/FileLog.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Settings.lo -MD -MP -MF .deps/Settings.Tpo -c -o Settings.lo Settings.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Settings.lo -MD -MP -MF .deps/Settings.Tpo -c Settings.cpp  -fPIC -DPIC -o .libs/Settings.o
+mv -f .deps/Settings.Tpo .deps/Settings.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageStore.lo -MD -MP -MF .deps/MessageStore.Tpo -c -o MessageStore.lo MessageStore.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageStore.lo -MD -MP -MF .deps/MessageStore.Tpo -c MessageStore.cpp  -fPIC -DPIC -o .libs/MessageStore.o
+mv -f .deps/MessageStore.Tpo .deps/MessageStore.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketServer.lo -MD -MP -MF .deps/SocketServer.Tpo -c -o SocketServer.lo SocketServer.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketServer.lo -MD -MP -MF .deps/SocketServer.Tpo -c SocketServer.cpp  -fPIC -DPIC -o .libs/SocketServer.o
+mv -f .deps/SocketServer.Tpo .deps/SocketServer.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnector.lo -MD -MP -MF .deps/SocketConnector.Tpo -c -o SocketConnector.lo SocketConnector.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnector.lo -MD -MP -MF .deps/SocketConnector.Tpo -c SocketConnector.cpp  -fPIC -DPIC -o .libs/SocketConnector.o
+mv -f .deps/SocketConnector.Tpo .deps/SocketConnector.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Acceptor.lo -MD -MP -MF .deps/Acceptor.Tpo -c -o Acceptor.lo Acceptor.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Acceptor.lo -MD -MP -MF .deps/Acceptor.Tpo -c Acceptor.cpp  -fPIC -DPIC -o .libs/Acceptor.o
+mv -f .deps/Acceptor.Tpo .deps/Acceptor.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Initiator.lo -MD -MP -MF .deps/Initiator.Tpo -c -o Initiator.lo Initiator.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Initiator.lo -MD -MP -MF .deps/Initiator.Tpo -c Initiator.cpp  -fPIC -DPIC -o .libs/Initiator.o
+mv -f .deps/Initiator.Tpo .deps/Initiator.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketAcceptor.lo -MD -MP -MF .deps/SocketAcceptor.Tpo -c -o SocketAcceptor.lo SocketAcceptor.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketAcceptor.lo -MD -MP -MF .deps/SocketAcceptor.Tpo -c SocketAcceptor.cpp  -fPIC -DPIC -o .libs/SocketAcceptor.o
+mv -f .deps/SocketAcceptor.Tpo .deps/SocketAcceptor.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketInitiator.lo -MD -MP -MF .deps/SocketInitiator.Tpo -c -o SocketInitiator.lo SocketInitiator.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketInitiator.lo -MD -MP -MF .deps/SocketInitiator.Tpo -c SocketInitiator.cpp  -fPIC -DPIC -o .libs/SocketInitiator.o
+In file included from SocketInitiator.cpp:27:
+./SocketInitiator.h:77:8: warning: private field 'm_stop' is not used [-Wunused-private-field]
+  bool m_stop;
+       ^
+1 warning generated.
+mv -f .deps/SocketInitiator.Tpo .deps/SocketInitiator.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketMonitor.lo -MD -MP -MF .deps/SocketMonitor.Tpo -c -o SocketMonitor.lo SocketMonitor.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketMonitor.lo -MD -MP -MF .deps/SocketMonitor.Tpo -c SocketMonitor.cpp  -fPIC -DPIC -o .libs/SocketMonitor.o
+mv -f .deps/SocketMonitor.Tpo .deps/SocketMonitor.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnection.lo -MD -MP -MF .deps/SocketConnection.Tpo -c -o SocketConnection.lo SocketConnection.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SocketConnection.lo -MD -MP -MF .deps/SocketConnection.Tpo -c SocketConnection.cpp  -fPIC -DPIC -o .libs/SocketConnection.o
+mv -f .deps/SocketConnection.Tpo .deps/SocketConnection.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketAcceptor.lo -MD -MP -MF .deps/ThreadedSocketAcceptor.Tpo -c -o ThreadedSocketAcceptor.lo ThreadedSocketAcceptor.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketAcceptor.lo -MD -MP -MF .deps/ThreadedSocketAcceptor.Tpo -c ThreadedSocketAcceptor.cpp  -fPIC -DPIC -o .libs/ThreadedSocketAcceptor.o
+mv -f .deps/ThreadedSocketAcceptor.Tpo .deps/ThreadedSocketAcceptor.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketInitiator.lo -MD -MP -MF .deps/ThreadedSocketInitiator.Tpo -c -o ThreadedSocketInitiator.lo ThreadedSocketInitiator.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketInitiator.lo -MD -MP -MF .deps/ThreadedSocketInitiator.Tpo -c ThreadedSocketInitiator.cpp  -fPIC -DPIC -o .libs/ThreadedSocketInitiator.o
+In file included from ThreadedSocketInitiator.cpp:27:
+./ThreadedSocketInitiator.h:78:8: warning: private field 'm_stop' is not used [-Wunused-private-field]
+  bool m_stop;
+       ^
+1 warning generated.
+mv -f .deps/ThreadedSocketInitiator.Tpo .deps/ThreadedSocketInitiator.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketConnection.lo -MD -MP -MF .deps/ThreadedSocketConnection.Tpo -c -o ThreadedSocketConnection.lo ThreadedSocketConnection.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT ThreadedSocketConnection.lo -MD -MP -MF .deps/ThreadedSocketConnection.Tpo -c ThreadedSocketConnection.cpp  -fPIC -DPIC -o .libs/ThreadedSocketConnection.o
+ThreadedSocketConnection.cpp:50:43: warning: field 'm_pLog' is uninitialized when used here [-Wuninitialized]
+    m_application( application ), m_pLog( m_pLog ),
+                                          ^
+In file included from ThreadedSocketConnection.cpp:27:
+./ThreadedSocketConnection.h:73:16: warning: private field 'm_application' is not used [-Wunused-private-field]
+  Application& m_application;
+               ^
+2 warnings generated.
+mv -f .deps/ThreadedSocketConnection.Tpo .deps/ThreadedSocketConnection.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT NullStore.lo -MD -MP -MF .deps/NullStore.Tpo -c -o NullStore.lo NullStore.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT NullStore.lo -MD -MP -MF .deps/NullStore.Tpo -c NullStore.cpp  -fPIC -DPIC -o .libs/NullStore.o
+mv -f .deps/NullStore.Tpo .deps/NullStore.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStore.lo -MD -MP -MF .deps/FileStore.Tpo -c -o FileStore.lo FileStore.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FileStore.lo -MD -MP -MF .deps/FileStore.Tpo -c FileStore.cpp  -fPIC -DPIC -o .libs/FileStore.o
+mv -f .deps/FileStore.Tpo .deps/FileStore.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLStore.lo -MD -MP -MF .deps/MySQLStore.Tpo -c -o MySQLStore.lo MySQLStore.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLStore.lo -MD -MP -MF .deps/MySQLStore.Tpo -c MySQLStore.cpp  -fPIC -DPIC -o .libs/MySQLStore.o
+mv -f .deps/MySQLStore.Tpo .deps/MySQLStore.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLLog.lo -MD -MP -MF .deps/MySQLLog.Tpo -c -o MySQLLog.lo MySQLLog.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MySQLLog.lo -MD -MP -MF .deps/MySQLLog.Tpo -c MySQLLog.cpp  -fPIC -DPIC -o .libs/MySQLLog.o
+mv -f .deps/MySQLLog.Tpo .deps/MySQLLog.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLStore.lo -MD -MP -MF .deps/PostgreSQLStore.Tpo -c -o PostgreSQLStore.lo PostgreSQLStore.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLStore.lo -MD -MP -MF .deps/PostgreSQLStore.Tpo -c PostgreSQLStore.cpp  -fPIC -DPIC -o .libs/PostgreSQLStore.o
+mv -f .deps/PostgreSQLStore.Tpo .deps/PostgreSQLStore.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLLog.lo -MD -MP -MF .deps/PostgreSQLLog.Tpo -c -o PostgreSQLLog.lo PostgreSQLLog.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT PostgreSQLLog.lo -MD -MP -MF .deps/PostgreSQLLog.Tpo -c PostgreSQLLog.cpp  -fPIC -DPIC -o .libs/PostgreSQLLog.o
+mv -f .deps/PostgreSQLLog.Tpo .deps/PostgreSQLLog.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Dictionary.lo -MD -MP -MF .deps/Dictionary.Tpo -c -o Dictionary.lo Dictionary.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Dictionary.lo -MD -MP -MF .deps/Dictionary.Tpo -c Dictionary.cpp  -fPIC -DPIC -o .libs/Dictionary.o
+mv -f .deps/Dictionary.Tpo .deps/Dictionary.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DataDictionary.lo -MD -MP -MF .deps/DataDictionary.Tpo -c -o DataDictionary.lo DataDictionary.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DataDictionary.lo -MD -MP -MF .deps/DataDictionary.Tpo -c DataDictionary.cpp  -fPIC -DPIC -o .libs/DataDictionary.o
+mv -f .deps/DataDictionary.Tpo .deps/DataDictionary.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DataDictionaryProvider.lo -MD -MP -MF .deps/DataDictionaryProvider.Tpo -c -o DataDictionaryProvider.lo DataDictionaryProvider.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT DataDictionaryProvider.lo -MD -MP -MF .deps/DataDictionaryProvider.Tpo -c DataDictionaryProvider.cpp  -fPIC -DPIC -o .libs/DataDictionaryProvider.o
+mv -f .deps/DataDictionaryProvider.Tpo .deps/DataDictionaryProvider.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionSettings.lo -MD -MP -MF .deps/SessionSettings.Tpo -c -o SessionSettings.lo SessionSettings.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT SessionSettings.lo -MD -MP -MF .deps/SessionSettings.Tpo -c SessionSettings.cpp  -fPIC -DPIC -o .libs/SessionSettings.o
+mv -f .deps/SessionSettings.Tpo .deps/SessionSettings.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldTypes.lo -MD -MP -MF .deps/FieldTypes.Tpo -c -o FieldTypes.lo FieldTypes.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldTypes.lo -MD -MP -MF .deps/FieldTypes.Tpo -c FieldTypes.cpp  -fPIC -DPIC -o .libs/FieldTypes.o
+mv -f .deps/FieldTypes.Tpo .deps/FieldTypes.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldMap.lo -MD -MP -MF .deps/FieldMap.Tpo -c -o FieldMap.lo FieldMap.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT FieldMap.lo -MD -MP -MF .deps/FieldMap.Tpo -c FieldMap.cpp  -fPIC -DPIC -o .libs/FieldMap.o
+mv -f .deps/FieldMap.Tpo .deps/FieldMap.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Message.lo -MD -MP -MF .deps/Message.Tpo -c -o Message.lo Message.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Message.lo -MD -MP -MF .deps/Message.Tpo -c Message.cpp  -fPIC -DPIC -o .libs/Message.o
+mv -f .deps/Message.Tpo .deps/Message.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Group.lo -MD -MP -MF .deps/Group.Tpo -c -o Group.lo Group.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Group.lo -MD -MP -MF .deps/Group.Tpo -c Group.cpp  -fPIC -DPIC -o .libs/Group.o
+mv -f .deps/Group.Tpo .deps/Group.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageSorters.lo -MD -MP -MF .deps/MessageSorters.Tpo -c -o MessageSorters.lo MessageSorters.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT MessageSorters.lo -MD -MP -MF .deps/MessageSorters.Tpo -c MessageSorters.cpp  -fPIC -DPIC -o .libs/MessageSorters.o
+mv -f .deps/MessageSorters.Tpo .deps/MessageSorters.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpParser.lo -MD -MP -MF .deps/HttpParser.Tpo -c -o HttpParser.lo HttpParser.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpParser.lo -MD -MP -MF .deps/HttpParser.Tpo -c HttpParser.cpp  -fPIC -DPIC -o .libs/HttpParser.o
+In file included from HttpParser.cpp:27:
+./HttpParser.h:53:7: warning: private field 'm_bufferSize' is not used [-Wunused-private-field]
+  int m_bufferSize;
+      ^
+1 warning generated.
+mv -f .deps/HttpParser.Tpo .deps/HttpParser.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpMessage.lo -MD -MP -MF .deps/HttpMessage.Tpo -c -o HttpMessage.lo HttpMessage.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpMessage.lo -MD -MP -MF .deps/HttpMessage.Tpo -c HttpMessage.cpp  -fPIC -DPIC -o .libs/HttpMessage.o
+mv -f .deps/HttpMessage.Tpo .deps/HttpMessage.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpConnection.lo -MD -MP -MF .deps/HttpConnection.Tpo -c -o HttpConnection.lo HttpConnection.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpConnection.lo -MD -MP -MF .deps/HttpConnection.Tpo -c HttpConnection.cpp  -fPIC -DPIC -o .libs/HttpConnection.o
+mv -f .deps/HttpConnection.Tpo .deps/HttpConnection.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpServer.lo -MD -MP -MF .deps/HttpServer.Tpo -c -o HttpServer.lo HttpServer.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT HttpServer.lo -MD -MP -MF .deps/HttpServer.Tpo -c HttpServer.cpp  -fPIC -DPIC -o .libs/HttpServer.o
+mv -f .deps/HttpServer.Tpo .deps/HttpServer.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Utility.lo -MD -MP -MF .deps/Utility.Tpo -c -o Utility.lo Utility.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT Utility.lo -MD -MP -MF .deps/Utility.Tpo -c Utility.cpp  -fPIC -DPIC -o .libs/Utility.o
+mv -f .deps/Utility.Tpo .deps/Utility.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT LIBXML_DOMDocument.lo -MD -MP -MF .deps/LIBXML_DOMDocument.Tpo -c -o LIBXML_DOMDocument.lo LIBXML_DOMDocument.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT LIBXML_DOMDocument.lo -MD -MP -MF .deps/LIBXML_DOMDocument.Tpo -c LIBXML_DOMDocument.cpp  -fPIC -DPIC -o .libs/LIBXML_DOMDocument.o
+mv -f .deps/LIBXML_DOMDocument.Tpo .deps/LIBXML_DOMDocument.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT CallStack.lo -MD -MP -MF .deps/CallStack.Tpo -c -o CallStack.lo CallStack.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT CallStack.lo -MD -MP -MF .deps/CallStack.Tpo -c CallStack.cpp  -fPIC -DPIC -o .libs/CallStack.o
+mv -f .deps/CallStack.Tpo .deps/CallStack.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=link /usr/bin/g++  -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -version-info 14:0:0 -Wl,-z,defs -L/usr/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions -o libquickfix.la -rpath /usr/lib Session.lo TimeRange.lo SessionFactory.lo Parser.lo Log.lo FileLog.lo Settings.lo MessageStore.lo SocketServer.lo SocketConnector.lo Acceptor.lo Initiator.lo SocketAcceptor.lo SocketInitiator.lo SocketMonitor.lo SocketConnection.lo ThreadedSocketAcceptor.lo ThreadedSocketInitiator.lo ThreadedSocketConnection.lo NullStore.lo FileStore.lo MySQLStore.lo MySQLLog.lo PostgreSQLStore.lo PostgreSQLLog.lo Dictionary.lo DataDictionary.lo DataDictionaryProvider.lo SessionSettings.lo FieldTypes.lo FieldMap.lo Message.lo Group.lo MessageSorters.lo HttpParser.lo HttpMessage.lo HttpConnection.lo HttpServer.lo Utility.lo LIBXML_DOMDocument.lo CallStack.lo  -lpthread  -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -L/usr/lib -lpq 
+libtool: link: /usr/bin/g++  -fPIC -DPIC -shared -nostdlib /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o  .libs/Session.o .libs/TimeRange.o .libs/SessionFactory.o .libs/Parser.o .libs/Log.o .libs/FileLog.o .libs/Settings.o .libs/MessageStore.o .libs/SocketServer.o .libs/SocketConnector.o .libs/Acceptor.o .libs/Initiator.o .libs/SocketAcceptor.o .libs/SocketInitiator.o .libs/SocketMonitor.o .libs/SocketConnection.o .libs/ThreadedSocketAcceptor.o .libs/ThreadedSocketInitiator.o .libs/ThreadedSocketConnection.o .libs/NullStore.o .libs/FileStore.o .libs/MySQLStore.o .libs/MySQLLog.o .libs/PostgreSQLStore.o .libs/PostgreSQLLog.o .libs/Dictionary.o .libs/DataDictionary.o .libs/DataDictionaryProvider.o .libs/SessionSettings.o .libs/FieldTypes.o .libs/FieldMap.o .libs/Message.o .libs/Group.o .libs/MessageSorters.o .libs/HttpParser.o .libs/HttpMessage.o .libs/HttpConnection.o .libs/HttpServer.o .libs/Utility.o .libs/LIBXML_DOMDocument.o .libs/CallStack.o   -L/usr/lib/python2.7/config -ldl -lutil -lpython2.7 -lpthread -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -lpq -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -lstdc++ -lm -lc -lgcc_s /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o  -O3 -O3 -msse3 -Wl,-z -Wl,defs -Wl,-export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions   -Wl,-soname -Wl,libquickfix.so.14 -o .libs/libquickfix.so.14.0.0
+libtool: link: (cd ".libs" && rm -f "libquickfix.so.14" && ln -s "libquickfix.so.14.0.0" "libquickfix.so.14")
+libtool: link: (cd ".libs" && rm -f "libquickfix.so" && ln -s "libquickfix.so.14.0.0" "libquickfix.so")
+libtool: link: ( cd ".libs" && rm -f "libquickfix.la" && ln -s "../libquickfix.la" "libquickfix.la" )
+rm -rf ../../lib/libquickfix.a
+rm -rf ../../lib/libquickfix.la
+rm -rf ../../lib/libquickfix.so
+rm -rf ../../lib/libquickfix.dylib
+ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
+ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
+ln -s ../src/C++/.libs/libquickfix.so ../../lib/libquickfix.so
+ln -s ../src/C++/.libs/libquickfix.dylib ../../lib/libquickfix.dylib
+bash ./copy.sh ../../include/quickfix *.h
+bash ./copy.sh ../../include/quickfix fix*/*.h
+make[6]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+make[5]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+make[4]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++'
+Making all in python
+make[4]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/python'
+/bin/bash ../../libtool --tag=CXX   --mode=compile /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../..    -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT QuickfixPython.lo -MD -MP -MF .deps/QuickfixPython.Tpo -c -o QuickfixPython.lo QuickfixPython.cpp
+libtool: compile:  /usr/bin/g++ -DHAVE_CONFIG_H -I. -I../.. -I. -I.. -I../.. -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2 -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -MT QuickfixPython.lo -MD -MP -MF .deps/QuickfixPython.Tpo -c QuickfixPython.cpp  -fPIC -DPIC -o .libs/QuickfixPython.o
+QuickfixPython.cpp:872:38: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    PyErr_Format(PyExc_RuntimeError, mesg);
+                                     ^~~~
+QuickfixPython.cpp:2032:11: warning: explicitly assigning a variable of type 'int' to itself [-Wself-assign]
+                    res = SWIG_AddCast(res);
+                    ~~~ ^              ~~~
+QuickfixPython.cpp:2035:11: warning: explicitly assigning a variable of type 'int' to itself [-Wself-assign]
+                    res = SWIG_AddCast(res);                
+                    ~~~ ^              ~~~
+QuickfixPython.cpp:306005:9: warning: unused variable 'res' [-Wunused-variable]
+    int res = SWIG_ConvertPtr(obj4, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+        ^
+QuickfixPython.cpp:305978:13: warning: variable 'temp5' is uninitialized when used here [-Wuninitialized]
+    *arg5 = temp5;
+            ^~~~~
+QuickfixPython.cpp:305942:29: note: initialize the variable 'temp5' to silence this warning
+  FIX::DataDictionary *temp5 ;
+                            ^
+                             = NULL
+QuickfixPython.cpp:329324:14: warning: explicitly assigning a variable of type 'void *' to itself [-Wself-assign]
+  clientdata = clientdata;
+  ~~~~~~~~~~ ^ ~~~~~~~~~~
+6 warnings generated.
+mv -f .deps/QuickfixPython.Tpo .deps/QuickfixPython.Plo
+/bin/bash ../../libtool --tag=CXX   --mode=link /usr/bin/g++  -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -version-info 10:0:0 -Wl,-z,defs -L/usr/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions -o libquickfix_python.la -rpath /usr/lib QuickfixPython.lo ../../src/C++/libquickfix.la  -lpthread  -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -L/usr/lib -lpq 
+libtool: link: /usr/bin/g++  -fPIC -DPIC -shared -nostdlib /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtbeginS.o  .libs/QuickfixPython.o   -Wl,-rpath -Wl,/«BUILDDIR»/quickfix-1.13.3+dfsg/src/C++/.libs -L/usr/lib/python2.7/config -ldl -lutil -lpython2.7 ../../src/C++/.libs/libquickfix.so -lpthread -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -lpq -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../.. -L/lib -lstdc++ -lm -lc -lgcc_s /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/crtendS.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o  -O3 -O3 -msse3 -Wl,-z -Wl,defs -Wl,-export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions   -Wl,-soname -Wl,libquickfix_python.so.10 -o .libs/libquickfix_python.so.10.0.0
+libtool: link: (cd ".libs" && rm -f "libquickfix_python.so.10" && ln -s "libquickfix_python.so.10.0.0" "libquickfix_python.so.10")
+libtool: link: (cd ".libs" && rm -f "libquickfix_python.so" && ln -s "libquickfix_python.so.10.0.0" "libquickfix_python.so")
+libtool: link: ( cd ".libs" && rm -f "libquickfix_python.la" && ln -s "../libquickfix_python.la" "libquickfix_python.la" )
+mkdir -p ../../lib/python
+ln -sf ../../src/python/.libs/libquickfix_python.so ../../lib/python/_quickfix.so 
+ln -sf ../../src/python/.libs/libquickfix_python.dylib ../../lib/python/_quickfix.dylib 
+ln -sf ../../src/python/quickfix.py ../../lib/python/quickfix.py
+ln -sf ../../src/python/quickfix40.py ../../lib/python/quickfix40.py
+ln -sf ../../src/python/quickfix41.py ../../lib/python/quickfix41.py
+ln -sf ../../src/python/quickfix42.py ../../lib/python/quickfix42.py
+ln -sf ../../src/python/quickfix43.py ../../lib/python/quickfix43.py
+ln -sf ../../src/python/quickfix44.py ../../lib/python/quickfix44.py
+ln -sf ../../src/python/quickfix50.py ../../lib/python/quickfix50.py
+ln -sf ../../src/python/quickfix50sp1.py ../../lib/python/quickfix50sp1.py
+ln -sf ../../src/python/quickfix50sp2.py ../../lib/python/quickfix50sp2.py
+ln -sf ../../src/python/quickfixt11.py ../../lib/python/quickfixt11.py
+bash ./link.sh ../../lib/python _quickfix.so _quickfix.dylib
+../../lib/python/_quickfix.so
+make[4]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/python'
+Making all in ruby
+make[4]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby'
+bash ./make_ruby.sh /usr/bin/g++ -O3 -O3 -msse3 -Wall -ansi -Wpointer-arith -Wwrite-strings -I/usr/include/boost  -I/usr/include/mysql -I/usr/mysql/include -I/usr/include -I/usr/include/postgresql -I/usr/include/libxml2  -I/usr/include/python2.7 -I/usr/lib/ruby/1.9.1/x86_64-linux -lpthread  -L/usr/lib -lxml2 -L/usr/lib/mysql -L/usr/mysql/lib -lmysqlclient -L/usr/lib -lpq 
+/«BUILDDIR»/quickfix-1.13.3+dfsg/src/temp /«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby
+checking for main() in -lquickfix... yes
+creating Makefile
+/«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby
+make[5]: Entering directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby'
+compiling QuickfixRuby.cpp
+In file included from QuickfixRuby.cpp:3752:
+/usr/include/ruby-1.9.1/ruby/backward/rubyio.h:2:2: warning: use "ruby/io.h" instead of "rubyio.h" [-W#warnings]
+#warning use "ruby/io.h" instead of "rubyio.h"
+ ^
+QuickfixRuby.cpp:3904:10: fatal error: 'config.h' file not found
+#include <config.h>
+         ^
+1 warning and 1 error generated.
+make[5]: *** [QuickfixRuby.o] Error 1
+make[5]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby'
+make[4]: *** [all-local] Error 2
+make[4]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src/ruby'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg/src'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/«BUILDDIR»/quickfix-1.13.3+dfsg'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130202-0227
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -424,28 +1907,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 241172
+Build-Time: 389
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 25
 Job: quickfix_1.13.3+dfsg-4
 Package: quickfix
-Package-Time: 0
+Package-Time: 441
 Source-Version: 1.13.3+dfsg-4
-Space: 0
-Status: failed
+Space: 241172
+Status: attempted
 Version: 1.13.3+dfsg-4
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0409
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.446091s
-DC-Time-Estimation: 34.446091 versus expected 2890 (r/m: 82.8992151533246 ; m: 34.446091)
+Finished at 20130202-0227
+Build needed 00:07:21, 241172k disc space
+DC-Status: Failed 441.729013s
+DC-Time-Estimation: 441.729013 versus expected 2890 (r/m: 5.542472681096 ; m: 441.729013)

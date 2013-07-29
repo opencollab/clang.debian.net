@@ -1,12 +1,12 @@
-DC-Build-Header: rplay 3.3.2-14 / Mon Jan 28 05:00:44 +0000 2013
-DC-Task: logfile:/tmp/rplay_3.3.2-14_unstable_clang.log version:3.3.2-14 chroot:unstable modes:binary-only:clang source:rplay architecture:any esttime:136
+DC-Build-Header: rplay 3.3.2-14 / Thu Jan 31 18:49:14 +0000 2013
+DC-Task: logfile:/tmp/rplay_3.3.2-14_unstable_clang.log version:3.3.2-14 modes:binary-only:clang chroot:unstable source:rplay esttime:136 architecture:any
 DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang rplay_3.3.2-14'
 Could not create '/sbuild-nonexistent/logs': No such file or directory
 Could not create '/sbuild-nonexistent/logs': No such file or directory
-sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-31-136-229.ec2.internal
+sbuild (Debian sbuild) 0.62.5 (13 Jul 2011) on ip-10-30-147-246.ec2.internal
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║ rplay 3.3.2-14 (amd64)                                     28 Jan 2013 05:00 ║
+║ rplay 3.3.2-14 (amd64)                                     31 Jan 2013 18:49 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 Package: rplay
@@ -15,9 +15,9 @@ Source Version: 3.3.2-14
 Distribution: unstable
 Architecture: amd64
 
-I: NOTICE: Log filtering will replace 'build/rplay-d4hp7B/rplay-3.3.2' with '«PKGBUILDDIR»'
-I: NOTICE: Log filtering will replace 'build/rplay-d4hp7B' with '«BUILDDIR»'
-I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-957a2dc4-fb80-4914-b6c3-260c815116c0' with '«CHROOT»'
+I: NOTICE: Log filtering will replace 'build/rplay-mSQh8p/rplay-3.3.2' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/rplay-mSQh8p' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-49c2e33b-4363-4c55-a003-f905419ba381' with '«CHROOT»'
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Update chroot                                                                │
@@ -28,14 +28,10 @@ Get:1 http://localhost unstable Release.gpg [836 B]
 Get:2 http://localhost unstable Release [227 kB]
 Ign http://localhost unstable/main Sources/DiffIndex
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
-Get:3 http://localhost unstable/main Translation-en/DiffIndex [7876 B]
-Get:4 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:5 http://localhost unstable/main 2013-01-27-2011.16.pdiff [737 B]
-Get:6 http://localhost unstable/main Sources [8236 kB]
-Get:7 http://localhost unstable/main amd64 Packages [8284 kB]
-Get:8 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Get:9 http://localhost unstable/main 2013-01-28-0212.01.pdiff [43 B]
-Fetched 16.8 MB in 4s (3766 kB/s)
+Hit http://localhost unstable/main Translation-en/DiffIndex
+Get:3 http://localhost unstable/main Sources [8236 kB]
+Get:4 http://localhost unstable/main amd64 Packages [8279 kB]
+Fetched 16.7 MB in 3s (5516 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +58,7 @@ Need to get 506 kB of source archives.
 Get:1 http://localhost/debian/ unstable/main rplay 3.3.2-14 (dsc) [1423 B]
 Get:2 http://localhost/debian/ unstable/main rplay 3.3.2-14 (tar) [476 kB]
 Get:3 http://localhost/debian/ unstable/main rplay 3.3.2-14 (diff) [28.7 kB]
-Fetched 506 kB in 0s (1512 kB/s)
+Fetched 506 kB in 0s (934 kB/s)
 Download complete and in download only mode
 
 Check arch
@@ -79,218 +75,113 @@ Check arch
 
 + echo 'Entering customization script...'
 Entering customization script...
-+ echo 'Add experimental as repository'
-Add experimental as repository
-+ echo deb http://localhost:9999/debian experimental main
++ echo 'Add an unstable version of clang as repository'
+Add an unstable version of clang as repository
++ echo deb http://clang.ecranbleu.org/apt/debian unstable main
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Get:1 http://localhost experimental Release.gpg [836 B]
 Hit http://localhost unstable Release
-Get:2 http://localhost experimental Release [161 kB]
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
+Get:1 http://clang.ecranbleu.org unstable Release [1616 B]
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Get:3 http://localhost experimental/main Translation-en [704 kB]
-Get:4 http://localhost experimental/main amd64 Packages [1605 kB]
 Hit http://localhost unstable/main Sources
+Get:2 http://clang.ecranbleu.org unstable/main amd64 Packages [2354 B]
 Hit http://localhost unstable/main amd64 Packages
-Fetched 2471 kB in 1s (1325 kB/s)
+Ign http://clang.ecranbleu.org unstable/main Translation-en
+Fetched 3970 B in 1s (2730 B/s)
 Reading package lists...
 + echo 'Install of clang'
 Install of clang
 + apt-get update
 Ign http://localhost unstable InRelease
-Ign http://localhost experimental InRelease
 Hit http://localhost unstable Release.gpg
-Hit http://localhost experimental Release.gpg
 Hit http://localhost unstable Release
-Hit http://localhost experimental Release
+Ign http://clang.ecranbleu.org unstable InRelease
 Ign http://localhost unstable/main Sources/DiffIndex
+Ign http://clang.ecranbleu.org unstable Release.gpg
 Ign http://localhost unstable/main amd64 Packages/DiffIndex
+Hit http://clang.ecranbleu.org unstable Release
+Ign http://clang.ecranbleu.org unstable/main amd64 Packages/DiffIndex
 Hit http://localhost unstable/main Translation-en/DiffIndex
-Ign http://localhost experimental/main amd64 Packages/DiffIndex
-Get:1 http://localhost experimental/main Translation-en/DiffIndex [7819 B]
 Hit http://localhost unstable/main Sources
 Hit http://localhost unstable/main amd64 Packages
-Hit http://localhost experimental/main amd64 Packages
-Fetched 7819 B in 2s (3809 B/s)
+Hit http://clang.ecranbleu.org unstable/main amd64 Packages
+Ign http://clang.ecranbleu.org unstable/main Translation-en
 Reading package lists...
-+ apt-get install --yes --no-install-recommends clang -t experimental
++ apt-get install --yes --no-install-recommends --force-yes clang
 Reading package lists...
 Building dependency tree...
 Reading state information...
 The following extra packages will be installed:
-  clang-3.2 compiler-rt cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base gcc-4.8-base
-  libc-dev-bin libc6 libc6-dev libclang-common-dev libexpat1 libffi5
-  libgcc-4.7-dev libgcc1 libgomp1 libitm1 libllvm3.2 libncurses5 libncursesw5
-  libobjc-4.7-dev libobjc4 libpython2.7-minimal libpython2.7-stdlib
-  libquadmath0 libsqlite3-0 libssl1.0.0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5 mime-support python python-minimal python2.7 python2.7-minimal
+  clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
 Suggested packages:
-  gcc-4.7-locales g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg
-  gcc-4.7-multilib libmudflap0-4.7-dev libgcc1-dbg libgomp1-dbg libitm1-dbg
-  libquadmath0-dbg libmudflap0-dbg libcloog-ppl0 libppl-c2 libppl7
-  binutils-gold glibc-doc libstdc++6-4.7-doc python-doc python-tk
-  python2.7-doc binfmt-support
+  python-doc python-tk python2.7-doc binfmt-support
 Recommended packages:
-  llvm-3.2-dev manpages-dev file
+  llvm-3.2-dev file
 The following NEW packages will be installed:
-  clang clang-3.2 compiler-rt gcc-4.8-base libclang-common-dev libexpat1
-  libffi5 libgcc-4.7-dev libllvm3.2 libncursesw5 libobjc-4.7-dev libobjc4
-  libpython2.7-minimal libpython2.7-stdlib libsqlite3-0 libssl1.0.0
-  mime-support python python-minimal python2.7 python2.7-minimal
-The following packages will be upgraded:
-  cpp-4.7 g++-4.7 gcc-4.7 gcc-4.7-base libc-dev-bin libc6 libc6-dev libgcc1
-  libgomp1 libitm1 libncurses5 libquadmath0 libstdc++6 libstdc++6-4.7-dev
-  libtinfo5
-15 upgraded, 21 newly installed, 0 to remove and 24 not upgraded.
-Need to get 56.7 MB of archives.
-After this operation, 72.6 MB of additional disk space will be used.
-Get:1 http://localhost/debian/ experimental/main gcc-4.8-base amd64 4.8-20130127-1 [147 kB]
-Get:2 http://localhost/debian/ experimental/main libc6-dev amd64 2.16-0experimental1 [3086 kB]
-Get:3 http://localhost/debian/ experimental/main libc-dev-bin amd64 2.16-0experimental1 [226 kB]
-Get:4 http://localhost/debian/ experimental/main libc6 amd64 2.16-0experimental1 [4729 kB]
-Get:5 http://localhost/debian/ experimental/main libgcc1 amd64 1:4.8-20130127-1 [43.7 kB]
-Get:6 http://localhost/debian/ experimental/main libstdc++6 amd64 4.8-20130127-1 [335 kB]
-Get:7 http://localhost/debian/ experimental/main libtinfo5 amd64 5.9+20130119-1 [294 kB]
-Get:8 http://localhost/debian/ experimental/main libncurses5 amd64 5.9+20130119-1 [115 kB]
-Get:9 http://localhost/debian/ experimental/main libncursesw5 amd64 5.9+20130119-1 [142 kB]
-Get:10 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
-Get:11 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
-Get:12 http://localhost/debian/ experimental/main libexpat1 amd64 2.1.0-2 [138 kB]
-Get:13 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
-Get:14 http://localhost/debian/ experimental/main libgomp1 amd64 4.8-20130127-1 [27.4 kB]
-Get:15 http://localhost/debian/ experimental/main libitm1 amd64 4.8-20130127-1 [37.7 kB]
-Get:16 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
-Get:17 http://localhost/debian/ experimental/main libobjc4 amd64 4.8-20130127-1 [163 kB]
-Get:18 http://localhost/debian/ experimental/main libquadmath0 amd64 4.8-20130127-1 [139 kB]
-Get:19 http://localhost/debian/ experimental/main libstdc++6-4.7-dev amd64 4.7.2-19 [1678 kB]
-Get:20 http://localhost/debian/ experimental/main g++-4.7 amd64 4.7.2-19 [5877 kB]
-Get:21 http://localhost/debian/ experimental/main gcc-4.7 amd64 4.7.2-19 [5831 kB]
-Get:22 http://localhost/debian/ experimental/main cpp-4.7 amd64 4.7.2-19 [5416 kB]
-Get:23 http://localhost/debian/ experimental/main libgcc-4.7-dev amd64 4.7.2-19 [2465 kB]
-Get:24 http://localhost/debian/ experimental/main gcc-4.7-base amd64 4.7.2-19 [148 kB]
-Get:25 http://localhost/debian/ experimental/main mime-support all 3.53~experimental2 [36.5 kB]
-Get:26 http://localhost/debian/ experimental/main libpython2.7-minimal amd64 2.7.3-15 [531 kB]
-Get:27 http://localhost/debian/ experimental/main python2.7-minimal amd64 2.7.3-15 [1220 kB]
-Get:28 http://localhost/debian/ experimental/main libpython2.7-stdlib amd64 2.7.3-15 [2367 kB]
-Get:29 http://localhost/debian/ experimental/main python2.7 amd64 2.7.3-15 [326 kB]
-Get:30 http://localhost/debian/ experimental/main python-minimal amd64 2.7.3-10 [41.8 kB]
-Get:31 http://localhost/debian/ experimental/main python amd64 2.7.3-10 [184 kB]
-Get:32 http://localhost/debian/ experimental/main libobjc-4.7-dev amd64 4.7.2-19 [717 kB]
-Get:33 http://localhost/debian/ experimental/main libclang-common-dev amd64 3.2-1~exp5 [303 kB]
-Get:34 http://localhost/debian/ experimental/main compiler-rt amd64 3.2-1~exp5 [315 kB]
-Get:35 http://localhost/debian/ experimental/main clang-3.2 amd64 3.2-1~exp5 [10.1 MB]
-Get:36 http://localhost/debian/ experimental/main clang all 3.2-1~exp5 [9506 B]
+  clang clang-3.2 compiler-rt libclang-common-dev libexpat1 libffi5 libllvm3.2
+  libncursesw5 libsqlite3-0 libssl1.0.0 mime-support python python-minimal
+  python2.7 python2.7-minimal
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.3 MB of archives.
+After this operation, 70.1 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libclang-common-dev compiler-rt clang-3.2 clang
+Get:1 http://localhost/debian/ unstable/main libncursesw5 amd64 5.9-10 [141 kB]
+Get:2 http://localhost/debian/ unstable/main libssl1.0.0 amd64 1.0.1c-4 [1213 kB]
+Get:3 http://localhost/debian/ unstable/main libsqlite3-0 amd64 3.7.15.2-1 [463 kB]
+Get:4 http://localhost/debian/ unstable/main libexpat1 amd64 2.1.0-1 [141 kB]
+Get:5 http://localhost/debian/ unstable/main libffi5 amd64 3.0.10-3 [24.8 kB]
+Get:6 http://localhost/debian/ unstable/main libllvm3.2 amd64 3.2-2 [7865 kB]
+Get:7 http://localhost/debian/ unstable/main mime-support all 3.52-2 [35.2 kB]
+Get:8 http://localhost/debian/ unstable/main python2.7-minimal amd64 2.7.3-6 [1783 kB]
+Get:9 http://clang.ecranbleu.org/apt/debian/ unstable/main libclang-common-dev amd64 3.2-2 [303 kB]
+Get:10 http://localhost/debian/ unstable/main python2.7 amd64 2.7.3-6 [2729 kB]
+Get:11 http://localhost/debian/ unstable/main python-minimal all 2.7.3-3 [42.5 kB]
+Get:12 http://localhost/debian/ unstable/main python all 2.7.3-3 [179 kB]
+Get:13 http://clang.ecranbleu.org/apt/debian/ unstable/main compiler-rt amd64 3.2-2 [312 kB]
+Get:14 http://clang.ecranbleu.org/apt/debian/ unstable/main clang-3.2 amd64 3.2-2 [10.0 MB]
+Get:15 http://clang.ecranbleu.org/apt/debian/ unstable/main clang all 3.2-2 [9558 B]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 56.7 MB in 1s (33.4 MB/s)
-Selecting previously unselected package gcc-4.8-base:amd64.
-(Reading database ... 13484 files and directories currently installed.)
-Unpacking gcc-4.8-base:amd64 (from .../gcc-4.8-base_4.8-20130127-1_amd64.deb) ...
-Setting up gcc-4.8-base:amd64 (4.8-20130127-1) ...
-(Reading database ... 13491 files and directories currently installed.)
-Preparing to replace libc6-dev:amd64 2.13-38 (using .../libc6-dev_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc6-dev:amd64 ...
-Preparing to replace libc-dev-bin 2.13-38 (using .../libc-dev-bin_2.16-0experimental1_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.16-0experimental1_amd64.deb) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Unpacking replacement libc6:amd64 ...
-Setting up libc6:amd64 (2.16-0experimental1) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-debconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
-debconf: falling back to frontend: Teletype
-Checking for services that may need to be restarted...
-Checking init scripts...
-Nothing to restart.
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libgcc1:amd64 1:4.7.2-5 (using .../libgcc1_1%3a4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgcc1:amd64 ...
-Setting up libgcc1:amd64 (1:4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libstdc++6:amd64 4.7.2-5 (using .../libstdc++6_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libstdc++6:amd64 ...
-Setting up libstdc++6:amd64 (4.8-20130127-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libtinfo5:amd64 5.9-10 (using .../libtinfo5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libtinfo5:amd64 ...
-Setting up libtinfo5:amd64 (5.9+20130119-1) ...
-(Reading database ... 13509 files and directories currently installed.)
-Preparing to replace libncurses5:amd64 5.9-10 (using .../libncurses5_5.9+20130119-1_amd64.deb) ...
-Unpacking replacement libncurses5:amd64 ...
-Setting up libncurses5:amd64 (5.9+20130119-1) ...
+Fetched 25.3 MB in 11s (2242 kB/s)
 Selecting previously unselected package libncursesw5:amd64.
-(Reading database ... 13509 files and directories currently installed.)
-Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9+20130119-1_amd64.deb) ...
+(Reading database ... 13484 files and directories currently installed.)
+Unpacking libncursesw5:amd64 (from .../libncursesw5_5.9-10_amd64.deb) ...
 Selecting previously unselected package libssl1.0.0:amd64.
 Unpacking libssl1.0.0:amd64 (from .../libssl1.0.0_1.0.1c-4_amd64.deb) ...
 Selecting previously unselected package libsqlite3-0:amd64.
 Unpacking libsqlite3-0:amd64 (from .../libsqlite3-0_3.7.15.2-1_amd64.deb) ...
 Selecting previously unselected package libexpat1:amd64.
-Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-2_amd64.deb) ...
+Unpacking libexpat1:amd64 (from .../libexpat1_2.1.0-1_amd64.deb) ...
 Selecting previously unselected package libffi5:amd64.
 Unpacking libffi5:amd64 (from .../libffi5_3.0.10-3_amd64.deb) ...
-Preparing to replace libgomp1:amd64 4.7.2-5 (using .../libgomp1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libgomp1:amd64 ...
-Preparing to replace libitm1:amd64 4.7.2-5 (using .../libitm1_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libitm1:amd64 ...
 Selecting previously unselected package libllvm3.2:amd64.
 Unpacking libllvm3.2:amd64 (from .../libllvm3.2_3.2-2_amd64.deb) ...
-Selecting previously unselected package libobjc4:amd64.
-Unpacking libobjc4:amd64 (from .../libobjc4_4.8-20130127-1_amd64.deb) ...
-Preparing to replace libquadmath0:amd64 4.7.2-5 (using .../libquadmath0_4.8-20130127-1_amd64.deb) ...
-Unpacking replacement libquadmath0:amd64 ...
-Preparing to replace libstdc++6-4.7-dev 4.7.2-5 (using .../libstdc++6-4.7-dev_4.7.2-19_amd64.deb) ...
-Unpacking replacement libstdc++6-4.7-dev:amd64 ...
-Preparing to replace g++-4.7 4.7.2-5 (using .../g++-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement g++-4.7 ...
-Preparing to replace gcc-4.7 4.7.2-5 (using .../gcc-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7 ...
-Preparing to replace cpp-4.7 4.7.2-5 (using .../cpp-4.7_4.7.2-19_amd64.deb) ...
-Unpacking replacement cpp-4.7 ...
-Selecting previously unselected package libgcc-4.7-dev:amd64.
-Unpacking libgcc-4.7-dev:amd64 (from .../libgcc-4.7-dev_4.7.2-19_amd64.deb) ...
-Preparing to replace gcc-4.7-base:amd64 4.7.2-5 (using .../gcc-4.7-base_4.7.2-19_amd64.deb) ...
-Unpacking replacement gcc-4.7-base:amd64 ...
 Selecting previously unselected package mime-support.
-Unpacking mime-support (from .../mime-support_3.53~experimental2_all.deb) ...
-Selecting previously unselected package libpython2.7-minimal:amd64.
-Unpacking libpython2.7-minimal:amd64 (from .../libpython2.7-minimal_2.7.3-15_amd64.deb) ...
+Unpacking mime-support (from .../mime-support_3.52-2_all.deb) ...
 Selecting previously unselected package python2.7-minimal.
-Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-15_amd64.deb) ...
-Selecting previously unselected package libpython2.7-stdlib:amd64.
-Unpacking libpython2.7-stdlib:amd64 (from .../libpython2.7-stdlib_2.7.3-15_amd64.deb) ...
+Unpacking python2.7-minimal (from .../python2.7-minimal_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python2.7.
-Unpacking python2.7 (from .../python2.7_2.7.3-15_amd64.deb) ...
+Unpacking python2.7 (from .../python2.7_2.7.3-6_amd64.deb) ...
 Selecting previously unselected package python-minimal.
-Unpacking python-minimal (from .../python-minimal_2.7.3-10_amd64.deb) ...
+Unpacking python-minimal (from .../python-minimal_2.7.3-3_all.deb) ...
 Selecting previously unselected package python.
-Unpacking python (from .../python_2.7.3-10_amd64.deb) ...
-Selecting previously unselected package libobjc-4.7-dev:amd64.
-Unpacking libobjc-4.7-dev:amd64 (from .../libobjc-4.7-dev_4.7.2-19_amd64.deb) ...
+Unpacking python (from .../python_2.7.3-3_all.deb) ...
 Selecting previously unselected package libclang-common-dev.
-Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-1~exp5_amd64.deb) ...
+Unpacking libclang-common-dev (from .../libclang-common-dev_3.2-2_amd64.deb) ...
 Selecting previously unselected package compiler-rt.
-Unpacking compiler-rt (from .../compiler-rt_3.2-1~exp5_amd64.deb) ...
+Unpacking compiler-rt (from .../compiler-rt_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang-3.2.
-Unpacking clang-3.2 (from .../clang-3.2_3.2-1~exp5_amd64.deb) ...
+Unpacking clang-3.2 (from .../clang-3.2_3.2-2_amd64.deb) ...
 Selecting previously unselected package clang.
-Unpacking clang (from .../clang_3.2-1~exp5_all.deb) ...
-Setting up libc-dev-bin (2.16-0experimental1) ...
-Setting up libc6-dev:amd64 (2.16-0experimental1) ...
-Setting up libncursesw5:amd64 (5.9+20130119-1) ...
+Unpacking clang (from .../archives/clang_3.2-2_all.deb) ...
+Setting up libncursesw5:amd64 (5.9-10) ...
 Setting up libssl1.0.0:amd64 (1.0.1c-4) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -299,32 +190,19 @@ debconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 Setting up libsqlite3-0:amd64 (3.7.15.2-1) ...
-Setting up libexpat1:amd64 (2.1.0-2) ...
+Setting up libexpat1:amd64 (2.1.0-1) ...
 Setting up libffi5:amd64 (3.0.10-3) ...
-Setting up libgomp1:amd64 (4.8-20130127-1) ...
-Setting up libitm1:amd64 (4.8-20130127-1) ...
 Setting up libllvm3.2:amd64 (3.2-2) ...
-Setting up libobjc4:amd64 (4.8-20130127-1) ...
-Setting up libquadmath0:amd64 (4.8-20130127-1) ...
-Setting up gcc-4.7-base:amd64 (4.7.2-19) ...
-Setting up libgcc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libstdc++6-4.7-dev:amd64 (4.7.2-19) ...
-Setting up cpp-4.7 (4.7.2-19) ...
-Setting up gcc-4.7 (4.7.2-19) ...
-Setting up g++-4.7 (4.7.2-19) ...
-Setting up mime-support (3.53~experimental2) ...
-Setting up libpython2.7-minimal:amd64 (2.7.3-15) ...
-Setting up python2.7-minimal (2.7.3-15) ...
+Setting up mime-support (3.52-2) ...
+Setting up python2.7-minimal (2.7.3-6) ...
 Linking and byte-compiling packages for runtime python2.7...
-Setting up libpython2.7-stdlib:amd64 (2.7.3-15) ...
-Setting up python2.7 (2.7.3-15) ...
-Setting up python-minimal (2.7.3-10) ...
-Setting up python (2.7.3-10) ...
-Setting up libobjc-4.7-dev:amd64 (4.7.2-19) ...
-Setting up libclang-common-dev (3.2-1~exp5) ...
-Setting up compiler-rt (3.2-1~exp5) ...
-Setting up clang-3.2 (3.2-1~exp5) ...
-Setting up clang (3.2-1~exp5) ...
+Setting up python2.7 (2.7.3-6) ...
+Setting up python-minimal (2.7.3-3) ...
+Setting up python (2.7.3-3) ...
+Setting up libclang-common-dev (3.2-2) ...
+Setting up compiler-rt (3.2-2) ...
+Setting up clang-3.2 (3.2-2) ...
+Setting up clang (3.2-2) ...
 + echo 'Replace gcc, g++ & cpp by clang'
 Replace gcc, g++ & cpp by clang
 + VERSIONS='4.6 4.7'
@@ -370,7 +248,7 @@ Finished processing commands.
 ────────────────────────────────────────────────────────────────────────────────
 Merged Build-Depends: build-essential, fakeroot
 Filtered Build-Depends: build-essential, fakeroot
-dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-Lw9gmc/apt_archive/sbuild-build-depends-core-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-Cqo_jR/apt_archive/sbuild-build-depends-core-dummy.deb'.
 OK
 Reading package lists...
 
@@ -389,12 +267,12 @@ debconf: delaying package configuration, since apt-utils is not installed
 Need to get 0 B/710 B of archives.
 After this operation, 0 B of additional disk space will be used.
 Selecting previously unselected package sbuild-build-depends-core-dummy.
-(Reading database ... 14674 files and directories currently installed.)
+(Reading database ... 14662 files and directories currently installed.)
 Unpacking sbuild-build-depends-core-dummy (from .../sbuild-build-depends-core-dummy.deb) ...
 Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
 Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), libgsm1-dev, libreadline-dev, debhelper (>= 8.0.0), dpkg (>= 1.15.4) | install-info
 Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), libgsm1-dev, libreadline-dev, debhelper (>= 8.0.0), dpkg (>= 1.15.4)
-dpkg-deb: building package `sbuild-build-depends-rplay-dummy' in `/«BUILDDIR»/resolver-biBDS7/apt_archive/sbuild-build-depends-rplay-dummy.deb'.
+dpkg-deb: building package `sbuild-build-depends-rplay-dummy' in `/«BUILDDIR»/resolver-AnSgwO/apt_archive/sbuild-build-depends-rplay-dummy.deb'.
 OK
 Reading package lists...
 
@@ -406,18 +284,1075 @@ Installing build dependencies
 Reading package lists...
 Building dependency tree...
 Reading state information...
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+The following extra packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libgsm1 libgsm1-dev libmagic1 libpcre3
+  libpipeline1 libreadline-dev libreadline6-dev libtinfo-dev libunistring0
+  libxml2 man-db po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libglib2.0-data shared-mime-info xml-core
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper file gettext gettext-base groff-base html2text
+  intltool-debian libasprintf-dev libasprintf0c2 libcroco3 libgettextpo-dev
+  libgettextpo0 libglib2.0-0 libgsm1 libgsm1-dev libmagic1 libpcre3
+  libpipeline1 libreadline-dev libreadline6-dev libtinfo-dev libunistring0
+  libxml2 man-db po-debconf sbuild-build-depends-rplay-dummy
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 9478 kB/9479 kB of archives.
+After this operation, 27.3 MB of additional disk space will be used.
+Get:1 http://localhost/debian/ unstable/main libpipeline1 amd64 1.2.2-1 [39.9 kB]
+Get:2 http://localhost/debian/ unstable/main groff-base amd64 1.22.1-2 [741 kB]
+Get:3 http://localhost/debian/ unstable/main bsdmainutils amd64 9.0.4 [210 kB]
+Get:4 http://localhost/debian/ unstable/main man-db amd64 2.6.3-3 [898 kB]
+Get:5 http://localhost/debian/ unstable/main libasprintf0c2 amd64 0.18.1.1-10 [27.2 kB]
+Get:6 http://localhost/debian/ unstable/main libmagic1 amd64 5.11-2 [202 kB]
+Get:7 http://localhost/debian/ unstable/main libpcre3 amd64 1:8.31-2 [247 kB]
+Get:8 http://localhost/debian/ unstable/main libxml2 amd64 2.8.0+dfsg1-7 [903 kB]
+Get:9 http://localhost/debian/ unstable/main libglib2.0-0 amd64 2.33.12+really2.32.4-5 [1838 kB]
+Get:10 http://localhost/debian/ unstable/main libcroco3 amd64 0.6.6-2 [134 kB]
+Get:11 http://localhost/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:12 http://localhost/debian/ unstable/main libgettextpo0 amd64 0.18.1.1-10 [145 kB]
+Get:13 http://localhost/debian/ unstable/main libgsm1 amd64 1.0.13-4 [29.7 kB]
+Get:14 http://localhost/debian/ unstable/main file amd64 5.11-2 [51.8 kB]
+Get:15 http://localhost/debian/ unstable/main gettext-base amd64 0.18.1.1-10 [154 kB]
+Get:16 http://localhost/debian/ unstable/main html2text amd64 1.3.2a-15 [103 kB]
+Get:17 http://localhost/debian/ unstable/main libasprintf-dev amd64 0.18.1.1-10 [26.8 kB]
+Get:18 http://localhost/debian/ unstable/main libgettextpo-dev amd64 0.18.1.1-10 [184 kB]
+Get:19 http://localhost/debian/ unstable/main gettext amd64 0.18.1.1-10 [1815 kB]
+Get:20 http://localhost/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:21 http://localhost/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:22 http://localhost/debian/ unstable/main debhelper all 9.20120909 [705 kB]
+Get:23 http://localhost/debian/ unstable/main libgsm1-dev amd64 1.0.13-4 [35.2 kB]
+Get:24 http://localhost/debian/ unstable/main libtinfo-dev amd64 5.9-10 [105 kB]
+Get:25 http://localhost/debian/ unstable/main libreadline6-dev amd64 6.2+dfsg-0.1 [193 kB]
+Get:26 http://localhost/debian/ unstable/main libreadline-dev amd64 6.2+dfsg-0.1 [896 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 9478 kB in 0s (20.3 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 14662 files and directories currently installed.)
+Unpacking libpipeline1:amd64 (from .../libpipeline1_1.2.2-1_amd64.deb) ...
+Selecting previously unselected package groff-base.
+Unpacking groff-base (from .../groff-base_1.22.1-2_amd64.deb) ...
+Selecting previously unselected package bsdmainutils.
+Unpacking bsdmainutils (from .../bsdmainutils_9.0.4_amd64.deb) ...
+Selecting previously unselected package man-db.
+Unpacking man-db (from .../man-db_2.6.3-3_amd64.deb) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Unpacking libasprintf0c2:amd64 (from .../libasprintf0c2_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libmagic1:amd64.
+Unpacking libmagic1:amd64 (from .../libmagic1_5.11-2_amd64.deb) ...
+Selecting previously unselected package libpcre3:amd64.
+Unpacking libpcre3:amd64 (from .../libpcre3_1%3a8.31-2_amd64.deb) ...
+Selecting previously unselected package libxml2:amd64.
+Unpacking libxml2:amd64 (from .../libxml2_2.8.0+dfsg1-7_amd64.deb) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Unpacking libglib2.0-0:amd64 (from .../libglib2.0-0_2.33.12+really2.32.4-5_amd64.deb) ...
+Selecting previously unselected package libcroco3:amd64.
+Unpacking libcroco3:amd64 (from .../libcroco3_0.6.6-2_amd64.deb) ...
+Selecting previously unselected package libunistring0:amd64.
+Unpacking libunistring0:amd64 (from .../libunistring0_0.9.3-5_amd64.deb) ...
+Selecting previously unselected package libgettextpo0:amd64.
+Unpacking libgettextpo0:amd64 (from .../libgettextpo0_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgsm1:amd64.
+Unpacking libgsm1:amd64 (from .../libgsm1_1.0.13-4_amd64.deb) ...
+Selecting previously unselected package file.
+Unpacking file (from .../archives/file_5.11-2_amd64.deb) ...
+Selecting previously unselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-15_amd64.deb) ...
+Selecting previously unselected package libasprintf-dev:amd64.
+Unpacking libasprintf-dev:amd64 (from .../libasprintf-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package libgettextpo-dev:amd64.
+Unpacking libgettextpo-dev:amd64 (from .../libgettextpo-dev_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package gettext.
+Unpacking gettext (from .../gettext_0.18.1.1-10_amd64.deb) ...
+Selecting previously unselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously unselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.16+nmu2_all.deb) ...
+Selecting previously unselected package debhelper.
+Unpacking debhelper (from .../debhelper_9.20120909_all.deb) ...
+Selecting previously unselected package libgsm1-dev:amd64.
+Unpacking libgsm1-dev:amd64 (from .../libgsm1-dev_1.0.13-4_amd64.deb) ...
+Selecting previously unselected package libtinfo-dev:amd64.
+Unpacking libtinfo-dev:amd64 (from .../libtinfo-dev_5.9-10_amd64.deb) ...
+Selecting previously unselected package libreadline6-dev:amd64.
+Unpacking libreadline6-dev:amd64 (from .../libreadline6-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Unpacking libreadline-dev:amd64 (from .../libreadline-dev_6.2+dfsg-0.1_amd64.deb) ...
+Selecting previously unselected package sbuild-build-depends-rplay-dummy.
+Unpacking sbuild-build-depends-rplay-dummy (from .../sbuild-build-depends-rplay-dummy.deb) ...
+Processing triggers for mime-support ...
+Setting up libpipeline1:amd64 (1.2.2-1) ...
+Setting up groff-base (1.22.1-2) ...
+Setting up bsdmainutils (9.0.4) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.3-3) ...
+Building database of manual pages ...
+Setting up libasprintf0c2:amd64 (0.18.1.1-10) ...
+Setting up libmagic1:amd64 (5.11-2) ...
+Setting up libpcre3:amd64 (1:8.31-2) ...
+Setting up libxml2:amd64 (2.8.0+dfsg1-7) ...
+Setting up libglib2.0-0:amd64 (2.33.12+really2.32.4-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.6-2) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libgettextpo0:amd64 (0.18.1.1-10) ...
+Setting up libgsm1:amd64 (1.0.13-4) ...
+Setting up file (5.11-2) ...
+Setting up gettext-base (0.18.1.1-10) ...
+Setting up html2text (1.3.2a-15) ...
+Setting up libasprintf-dev:amd64 (0.18.1.1-10) ...
+Setting up libgettextpo-dev:amd64 (0.18.1.1-10) ...
+Setting up gettext (0.18.1.1-10) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20120909) ...
+Setting up libgsm1-dev:amd64 (1.0.13-4) ...
+Setting up libtinfo-dev:amd64 (5.9-10) ...
+Setting up libreadline6-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up libreadline-dev:amd64 (6.2+dfsg-0.1) ...
+Setting up sbuild-build-depends-rplay-dummy (0.invalid.0) ...
 
-The following packages have unmet dependencies:
- sbuild-build-depends-rplay-dummy : Depends: libreadline-dev but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-apt-get failed.
-Package installation failed
-Not removing build depends: cloned chroot in use
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.22-7.1 dpkg-dev_1.16.9 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc-4.6_4.6.3-15 gcc-4.7_4.7.2-5 libc6-dev_2.13-38 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 linux-libc-dev_3.2.35-2
+Package versions: apt_0.9.7.7 base-files_7.1 base-passwd_3.5.26 bash_4.2+dfsg-0.1 binutils_2.22-7.1 bsdmainutils_9.0.4 bsdutils_1:2.20.1-5.3 build-essential_11.6 bzip2_1.0.6-4 clang_3.2-2 clang-3.2_3.2-2 compiler-rt_3.2-2 coreutils_8.20-3 cpp_4:4.7.2-1 cpp-4.6_4.6.3-15 cpp-4.7_4.7.2-5 dash_0.5.7-3 debconf_1.5.49 debconf-i18n_1.5.49 debfoster_2.7-1.2 debhelper_9.20120909 debian-archive-keyring_2012.4 debianutils_4.3.4 diffutils_1:3.2-7 dpkg_1.16.9 dpkg-dev_1.16.9 e2fslibs_1.42.5-1 e2fsprogs_1.42.5-1 fakeroot_1.18.4-2 file_5.11-2 findutils_4.4.2-5 g++_4:4.7.2-1 g++-4.6_4.6.3-15 g++-4.7_4.7.2-5 gcc_4:4.7.2-1 gcc-4.4-base_4.4.7-3 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.3-15 gcc-4.6-base_4.6.3-15 gcc-4.7_4.7.2-5 gcc-4.7-base_4.7.2-5 gettext_0.18.1.1-10 gettext-base_0.18.1.1-10 gnupg_1.4.12-7 gpgv_1.4.12-7 grep_2.14-1 groff-base_1.22.1-2 gzip_1.5-1.1 hostname_3.12 html2text_1.3.2a-15 initscripts_2.88dsf-39 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.51-8 libapt-pkg4.12_0.9.7.7 libasprintf-dev_0.18.1.1-10 libasprintf0c2_0.18.1.1-10 libattr1_1:2.4.46-8 libblkid1_2.20.1-5.3 libbz2-1.0_1.0.6-4 libc-bin_2.13-38 libc-dev-bin_2.13-38 libc6_2.13-38 libc6-dev_2.13-38 libclang-common-dev_3.2-2 libclass-isa-perl_0.36-5 libcomerr2_1.42.5-1 libcroco3_0.6.6-2 libdb5.1_5.1.29-5 libdpkg-perl_1.16.9 libexpat1_2.1.0-1 libffi5_3.0.10-3 libfile-fcntllock-perl_0.14-2 libgc1c2_1:7.1-9.1 libgcc1_1:4.7.2-5 libgdbm3_1.8.3-11 libgettextpo-dev_0.18.1.1-10 libgettextpo0_0.18.1.1-10 libglib2.0-0_2.33.12+really2.32.4-5 libgmp10_2:5.0.5+dfsg-2 libgomp1_4.7.2-5 libgpm2_1.20.4-6 libgsm1_1.0.13-4 libgsm1-dev_1.0.13-4 libitm1_4.7.2-5 libllvm3.2_3.2-2 liblocale-gettext-perl_1.05-7+b1 liblzma5_5.1.1alpha+20120614-2 libmagic1_5.11-2 libmount1_2.20.1-5.3 libmpc2_0.9-4 libmpfr4_3.1.0-5 libncurses5_5.9-10 libncursesw5_5.9-10 libpam-modules_1.1.3-7.1 libpam-modules-bin_1.1.3-7.1 libpam-runtime_1.1.3-7.1 libpam0g_1.1.3-7.1 libpcre3_1:8.31-2 libpipeline1_1.2.2-1 libquadmath0_4.7.2-5 libreadline-dev_6.2+dfsg-0.1 libreadline6_6.2+dfsg-0.1 libreadline6-dev_6.2+dfsg-0.1 libselinux1_2.1.9-5 libsemanage-common_2.1.6-6 libsemanage1_2.1.6-6 libsepol1_2.1.4-3 libslang2_2.2.4-15 libsqlite3-0_3.7.15.2-1 libss2_1.42.5-1 libssl1.0.0_1.0.1c-4 libstdc++6_4.7.2-5 libstdc++6-4.6-dev_4.6.3-15 libstdc++6-4.7-dev_4.7.2-5 libswitch-perl_2.16-2 libtext-charwidth-perl_0.04-7+b1 libtext-iconv-perl_1.7-5 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_1.2000-1 libtinfo-dev_5.9-10 libtinfo5_5.9-10 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23+nmu1 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.3 libxml2_2.8.0+dfsg1-7 linux-libc-dev_3.2.35-2 login_1:4.1.5.1-1 lsb-base_4.1+Debian9 make_3.81-8.2 man-db_2.6.3-3 mawk_1.3.3-17 mime-support_3.52-2 mount_2.20.1-5.3 multiarch-support_2.13-38 ncurses-base_5.9-10 ncurses-bin_5.9-10 passwd_1:4.1.5.1-1 patch_2.6.1-3 perl_5.14.2-17 perl-base_5.14.2-17 perl-modules_5.14.2-17 po-debconf_1.0.16+nmu2 python_2.7.3-3 python-minimal_2.7.3-3 python2.7_2.7.3-6 python2.7-minimal_2.7.3-6 readline-common_6.2+dfsg-0.1 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-rplay-dummy_0.invalid.0 sed_4.2.1-10 sensible-utils_0.0.7 sudo_1.8.5p2-1 sysv-rc_2.88dsf-39 sysvinit_2.88dsf-39 sysvinit-utils_2.88dsf-39 tar_1.26+dfsg-0.1 tzdata_2012j-1 ucf_3.0025+nmu3 util-linux_2.20.1-5.3 vim_2:7.3.547-6 vim-common_2:7.3.547-6 vim-runtime_2:7.3.547-6 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.7.dfsg-13
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Wed Dec 14 18:48:35 2011 UTC using DSA key ID 54B99890
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./rplay_3.3.2-14.dsc
+dpkg-source: info: extracting rplay in rplay-3.3.2
+dpkg-source: info: unpacking rplay_3.3.2.orig.tar.gz
+dpkg-source: info: unpacking rplay_3.3.2-14.debian.tar.gz
+dpkg-source: info: applying 01_previous_changes.patch
+dpkg-source: info: applying 10_fix_manpages.patch
+dpkg-source: info: applying 20_soname.patch
+dpkg-source: info: applying 30_contrib.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+User Environment
+────────────────
+
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-49c2e33b-4363-4c55-a003-f905419ba381
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package rplay
+dpkg-buildpackage: source version 3.3.2-14
+dpkg-buildpackage: source changed by Thorsten Alteholz <debian@alteholz.de>
+ dpkg-source --before-build rplay-3.3.2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -f contrib/mailsound/mailsound{,.o} \
+		gsm/Makefile rx/{config.*,Makefile}
+dh_clean
+ debian/rules build-arch
+dh_testdir
+./configure --prefix=/usr --sysconfdir=/etc/rplay --without-x \
+		--enable-rplayd-user=nobody --enable-rplayd-group=audio
+creating cache ./config.cache
+configuring rplay version 3.3.2
+checking for gcc... gcc
+checking whether the C compiler (gcc -g ) works... yes
+checking whether the C compiler (gcc -g ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for POSIXized ISC... no
+checking how to run the C preprocessor... gcc -E
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking for ranlib... ranlib
+checking for etags... no
+checking for makedepend... no
+checking for makeinfo... no
+checking for texi2dvi... no
+checking for texi2html... no
+checking for dvips... no
+checking for dirent.h that defines DIR... yes
+checking for opendir in -ldir... no
+checking for ANSI C header files... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for fcntl.h... yes
+checking for sys/file.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/time.h... yes
+checking for stdlib.h... yes
+checking for unistd.h... yes
+checking for memory.h... yes
+checking for string.h... yes
+checking for strings.h... yes
+checking for utime.h... yes
+checking for limits.h... yes
+checking for gsm.h... yes
+checking for gsm/gsm.h... yes
+checking for regex.h... yes
+checking for rxposix.h... no
+checking for rx/rxposix.h... no
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for working const... yes
+checking for size_t... yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for 8-bit clean memcmp... yes
+checking for vprintf... yes
+checking return type of signal handlers... void
+checking for getcwd... yes
+checking for gethostname... yes
+checking for mkdir... yes
+checking for re_comp... yes
+checking for regcomp... yes
+checking for select... yes
+checking for snprintf... yes
+checking for socket... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strstr... yes
+checking for fstat... yes
+checking for fchmod... yes
+checking for fchown... yes
+checking for utime... yes
+checking for utimes... yes
+checking for memmove... yes
+checking for sigset... yes
+checking for vsnprintf... yes
+checking for waitpid... yes
+checking for random... yes
+checking for srandom... yes
+checking for socket in -lsocket... no
+checking for t_accept in -lnsl... no
+checking for readline in -lreadline... yes
+checking for gsm_decode in -lgsm... yes
+checking for regcomp... (cached) yes
+checking for sun... no
+checking for linux... yes
+using oss configuration
+updating cache ./config.cache
+creating ./config.status
+creating Makefile.config
+creating Makefile
+creating include/Makefile
+creating lib/Makefile
+creating adpcm/Makefile
+creating gsm/Makefile
+creating librplay/Makefile
+creating rplayd/Makefile
+creating rplay/Makefile
+creating rptp/Makefile
+creating doc/Makefile
+creating devrplay/Makefile
+creating include/config.h
+linking ./rplayd/audio/audio_oss.c to rplayd/audio.c
+linking ./rplayd/audio/audio_oss.h to rplayd/audio.h
+configuring in rx
+running /bin/sh ./configure  --prefix=/usr --sysconfdir=/etc/rplay --without-x --enable-rplayd-user=nobody --enable-rplayd-group=audio --cache-file=.././config.cache --srcdir=.
+loading cache .././config.cache
+checking for gcc... (cached) gcc
+checking whether we are using GNU C... (cached) yes
+checking whether gcc accepts -g... yes
+checking how to run the C preprocessor... (cached) gcc -E
+checking for ranlib... (cached) ranlib
+checking for a BSD compatible install... (cached) /usr/bin/install -c
+checking for working const... (cached) yes
+checking whether cross-compiling... no
+checking for ANSI C header files... (cached) yes
+updating cache .././config.cache
+creating ./config.status
+creating Makefile
+/usr/bin/make CFLAGS="-O2 -D_REENTRANT"
+make[1]: Entering directory `/«PKGBUILDDIR»'
+make all in include...
+make[2]: Entering directory `/«PKGBUILDDIR»/include'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/«PKGBUILDDIR»/include'
+make all in lib...
+make[2]: Entering directory `/«PKGBUILDDIR»/lib'
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT getopt.c
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT getopt1.c
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT hash.c
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT strdup.c
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT tilde.c
+tilde.c:243:26: warning: implicit declaration of function 'getuid' is invalid in C99 [-Wimplicit-function-declaration]
+              entry = getpwuid (getuid ());
+                                ^
+1 warning generated.
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT xmalloc.c
+ar rcv librp.a getopt.o getopt1.o hash.o strdup.o tilde.o xmalloc.o
+a - getopt.o
+a - getopt1.o
+a - hash.o
+a - strdup.o
+a - tilde.o
+a - xmalloc.o
+ranlib librp.a
+make[2]: Leaving directory `/«PKGBUILDDIR»/lib'
+make all in adpcm...
+make[2]: Entering directory `/«PKGBUILDDIR»/adpcm'
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT g711.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT g721.c
+g721.c:93:8: warning: implicit declaration of function 'alaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = alaw2linear(sl) >> 2;
+                     ^
+g721.c:96:8: warning: implicit declaration of function 'ulaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = ulaw2linear(sl) >> 2;
+                     ^
+g721.c:105:9: warning: implicit declaration of function 'predictor_zero' is invalid in C99 [-Wimplicit-function-declaration]
+        sezi = predictor_zero(state_ptr);
+               ^
+g721.c:107:15: warning: implicit declaration of function 'predictor_pole' is invalid in C99 [-Wimplicit-function-declaration]
+        se = (sezi + predictor_pole(state_ptr)) >> 1;   /* estimated signal */
+                     ^
+g721.c:112:6: warning: implicit declaration of function 'step_size' is invalid in C99 [-Wimplicit-function-declaration]
+        y = step_size(state_ptr);               /* quantizer step size */
+            ^
+g721.c:113:6: warning: implicit declaration of function 'quantize' is invalid in C99 [-Wimplicit-function-declaration]
+        i = quantize(d, y, qtab_721, 7);        /* i = ADPCM code */
+            ^
+g721.c:115:7: warning: implicit declaration of function 'reconstruct' is invalid in C99 [-Wimplicit-function-declaration]
+        dq = reconstruct(i & 8, _dqlntab[i], y);        /* quantized est diff */
+             ^
+g721.c:121:2: warning: implicit declaration of function 'update' is invalid in C99 [-Wimplicit-function-declaration]
+        update(4, y, _witab[i] << 5, _fitab[i], dq, sr, dqsez, state_ptr);
+        ^
+g721.c:165:11: warning: implicit declaration of function 'tandem_adjust_alaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_alaw(sr, se, y, i, 8, qtab_721));
+                        ^
+g721.c:167:11: warning: implicit declaration of function 'tandem_adjust_ulaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_ulaw(sr, se, y, i, 8, qtab_721));
+                        ^
+10 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT g723_24.c
+g723_24.c:81:8: warning: implicit declaration of function 'alaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = alaw2linear(sl) >> 2;
+                     ^
+g723_24.c:84:8: warning: implicit declaration of function 'ulaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = ulaw2linear(sl) >> 2;
+                     ^
+g723_24.c:93:9: warning: implicit declaration of function 'predictor_zero' is invalid in C99 [-Wimplicit-function-declaration]
+        sezi = predictor_zero(state_ptr);
+               ^
+g723_24.c:95:15: warning: implicit declaration of function 'predictor_pole' is invalid in C99 [-Wimplicit-function-declaration]
+        sei = sezi + predictor_pole(state_ptr);
+                     ^
+g723_24.c:101:6: warning: implicit declaration of function 'step_size' is invalid in C99 [-Wimplicit-function-declaration]
+        y = step_size(state_ptr);       /* quantizer step size */
+            ^
+g723_24.c:102:6: warning: implicit declaration of function 'quantize' is invalid in C99 [-Wimplicit-function-declaration]
+        i = quantize(d, y, qtab_723_24, 3);     /* i = ADPCM code */
+            ^
+g723_24.c:103:7: warning: implicit declaration of function 'reconstruct' is invalid in C99 [-Wimplicit-function-declaration]
+        dq = reconstruct(i & 4, _dqlntab[i], y); /* quantized diff. */
+             ^
+g723_24.c:109:2: warning: implicit declaration of function 'update' is invalid in C99 [-Wimplicit-function-declaration]
+        update(3, y, _witab[i], _fitab[i], dq, sr, dqsez, state_ptr);
+        ^
+g723_24.c:150:11: warning: implicit declaration of function 'tandem_adjust_alaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_alaw(sr, se, y, i, 4, qtab_723_24));
+                        ^
+g723_24.c:152:11: warning: implicit declaration of function 'tandem_adjust_ulaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_ulaw(sr, se, y, i, 4, qtab_723_24));
+                        ^
+10 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT g723_40.c
+g723_40.c:100:8: warning: implicit declaration of function 'alaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = alaw2linear(sl) >> 2;
+                     ^
+g723_40.c:103:8: warning: implicit declaration of function 'ulaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+                sl = ulaw2linear(sl) >> 2;
+                     ^
+g723_40.c:112:9: warning: implicit declaration of function 'predictor_zero' is invalid in C99 [-Wimplicit-function-declaration]
+        sezi = predictor_zero(state_ptr);
+               ^
+g723_40.c:114:15: warning: implicit declaration of function 'predictor_pole' is invalid in C99 [-Wimplicit-function-declaration]
+        sei = sezi + predictor_pole(state_ptr);
+                     ^
+g723_40.c:120:6: warning: implicit declaration of function 'step_size' is invalid in C99 [-Wimplicit-function-declaration]
+        y = step_size(state_ptr);       /* adaptive quantizer step size */
+            ^
+g723_40.c:121:6: warning: implicit declaration of function 'quantize' is invalid in C99 [-Wimplicit-function-declaration]
+        i = quantize(d, y, qtab_723_40, 15);    /* i = ADPCM code */
+            ^
+g723_40.c:123:7: warning: implicit declaration of function 'reconstruct' is invalid in C99 [-Wimplicit-function-declaration]
+        dq = reconstruct(i & 0x10, _dqlntab[i], y);     /* quantized diff */
+             ^
+g723_40.c:129:2: warning: implicit declaration of function 'update' is invalid in C99 [-Wimplicit-function-declaration]
+        update(5, y, _witab[i], _fitab[i], dq, sr, dqsez, state_ptr);
+        ^
+g723_40.c:170:11: warning: implicit declaration of function 'tandem_adjust_alaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_alaw(sr, se, y, i, 0x10, qtab_723_40));
+                        ^
+g723_40.c:172:11: warning: implicit declaration of function 'tandem_adjust_ulaw' is invalid in C99 [-Wimplicit-function-declaration]
+                return (tandem_adjust_ulaw(sr, se, y, i, 0x10, qtab_723_40));
+                        ^
+10 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT g72x.c
+g72x.c:205:8: warning: implicit declaration of function 'abs' is invalid in C99 [-Wimplicit-function-declaration]
+        dqm = abs(d);
+              ^
+g72x.c:374:4: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                        else
+                        ^
+g72x.c:492:7: warning: implicit declaration of function 'linear2alaw' is invalid in C99 [-Wimplicit-function-declaration]
+        sp = linear2alaw((sr >> 1) << 3);       /* short to A-law compression */
+             ^
+g72x.c:493:8: warning: implicit declaration of function 'alaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+        dx = (alaw2linear(sp) >> 2) - se;       /* 16-bit prediction error */
+              ^
+g72x.c:541:7: warning: implicit declaration of function 'linear2ulaw' is invalid in C99 [-Wimplicit-function-declaration]
+        sp = linear2ulaw(sr << 2);      /* short to u-law compression */
+             ^
+g72x.c:542:8: warning: implicit declaration of function 'ulaw2linear' is invalid in C99 [-Wimplicit-function-declaration]
+        dx = (ulaw2linear(sp) >> 2) - se;       /* 16-bit prediction error */
+              ^
+6 warnings generated.
+ar rcv libadpcm.a g711.o g721.o g723_24.o g723_40.o g72x.o
+a - g711.o
+a - g721.o
+a - g723_24.o
+a - g723_40.o
+a - g72x.o
+ranlib libadpcm.a
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT decode.c
+decode.c:40:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(argc, argv)  
+^~~~
+decode.c:53:2: warning: implicit declaration of function 'g72x_init_state' is invalid in C99 [-Wimplicit-function-declaration]
+        g72x_init_state(&state);
+        ^
+decode.c:96:4: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+                        exit(1);
+                        ^
+decode.c:96:4: note: please include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+3 warnings generated.
+gcc -o g72xdecode decode.o  -L. -ladpcm 
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT encode.c
+encode.c:37:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(argc, argv)  
+^~~~
+encode.c:52:2: warning: implicit declaration of function 'g72x_init_state' is invalid in C99 [-Wimplicit-function-declaration]
+        g72x_init_state(&state);
+        ^
+encode.c:101:4: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+                        exit(1);
+                        ^
+encode.c:101:4: note: please include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+3 warnings generated.
+gcc -o g72xencode encode.o  -L. -ladpcm 
+make[2]: Leaving directory `/«PKGBUILDDIR»/adpcm'
+make all in librplay...
+make[2]: Entering directory `/«PKGBUILDDIR»/librplay'
+gcc -c  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT rplay.c
+rplay.c:747:9: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+        seed = time(0);
+               ^
+1 warning generated.
+gcc -c  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT rptp.c
+rptp.c:577:10: warning: implicit declaration of function 'isspace' is invalid in C99 [-Wimplicit-function-declaration]
+            if (isspace(*p))
+                ^
+1 warning generated.
+gcc -c  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT async.c
+async.c:282:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+async.c:579:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+async.c:579:9: note: place parentheses around the assignment to silence this warning
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                      ^
+                    (                                          )
+async.c:579:9: note: use '==' to turn this assignment into an equality comparison
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                      ^
+                      ==
+2 warnings generated.
+ar rcv librplay.a rplay.o rptp.o async.o
+a - rplay.o
+a - rptp.o
+a - async.o
+ranlib librplay.a
+gcc -c -fPIC  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT -o rplay.lo rplay.c
+rplay.c:747:9: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+        seed = time(0);
+               ^
+1 warning generated.
+gcc -c -fPIC  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT -o rptp.lo rptp.c
+rptp.c:577:10: warning: implicit declaration of function 'isspace' is invalid in C99 [-Wimplicit-function-declaration]
+            if (isspace(*p))
+                ^
+1 warning generated.
+gcc -c -fPIC  -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT -o async.lo async.c
+async.c:282:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+async.c:579:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+async.c:579:9: note: place parentheses around the assignment to silence this warning
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                      ^
+                    (                                          )
+async.c:579:9: note: use '==' to turn this assignment into an equality comparison
+                if (p = memchr(ptr->current, '\r', ptr->length))
+                      ^
+                      ==
+2 warnings generated.
+gcc -o librplay.so.3.3.2 rplay.lo rptp.lo async.lo  -shared -Xlinker -soname -Xlinker librplay.so.3 
+ln -fs librplay.so.3.3.2 librplay.so.3
+ln -fs librplay.so.3.3.2 librplay.so
+make[2]: Leaving directory `/«PKGBUILDDIR»/librplay'
+make all in rplayd...
+make[2]: Entering directory `/«PKGBUILDDIR»/rplayd'
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT audio.c
+audio.c:96:9: warning: implicitly declaring library function 'strcmp' with type 'int (const char *, const char *)'
+    if (strcmp(rplay_audio_device, "/dev/audio") == 0)
+        ^
+audio.c:96:9: note: please include the header <string.h> or explicitly provide a declaration for 'strcmp'
+audio.c:102:2: warning: implicit declaration of function 'rplay_audio_set_port' is invalid in C99 [-Wimplicit-function-declaration]
+        rplay_audio_set_port();
+        ^
+audio.c:234:5: warning: implicit declaration of function 'rplay_audio_setfragsize' is invalid in C99 [-Wimplicit-function-declaration]
+    rplay_audio_setfragsize((0x7fff << 16) | i);
+    ^
+audio.c:292:12: warning: implicit declaration of function 'write' is invalid in C99 [-Wimplicit-function-declaration]
+    return write(rplay_audio_fd, buf, nbytes);
+           ^
+audio.c:305:2: warning: implicit declaration of function 'close' is invalid in C99 [-Wimplicit-function-declaration]
+        close(rplay_audio_fd);
+        ^
+audio.c:321:6: warning: implicit declaration of function 'rplay_audio_mixer_open' is invalid in C99 [-Wimplicit-function-declaration]
+        if (rplay_audio_mixer_open() < 0)
+            ^
+audio.c:390:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+audio.c:621:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+8 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT buffer.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT cache.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT cdrom.c
+cdrom.c:471:9: warning: implicit declaration of function 'ioctl' is invalid in C99 [-Wimplicit-function-declaration]
+    if (ioctl(info->fd, CDROMREADTOCHDR, &hdr) < 0)
+        ^
+cdrom.c:560:15: warning: implicit declaration of function 'open' is invalid in C99 [-Wimplicit-function-declaration]
+    info.fd = open(info.device, 0);
+              ^
+cdrom.c:600:16: warning: assigning to '__u8 *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+            audio.buf = info.buffer;
+                      ^ ~~~~~~~~~~~
+cdrom.c:613:6: warning: implicit declaration of function 'write' is invalid in C99 [-Wimplicit-function-declaration]
+        if (write(output_fd, info.buffer, CD_FRAMESIZE_RAW * frames) < 0)
+            ^
+cdrom.c:622:5: warning: implicit declaration of function 'close' is invalid in C99 [-Wimplicit-function-declaration]
+    close(info.fd);
+    ^
+5 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT command.c
+command.c:302:66: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+            SNPRINTF(SIZE(b->buf + b->nbytes, BUFFER_SIZE - b->nbytes), fmt);
+                                                                        ^~~
+command.c:909:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        while (name = rptp_parse(0, 0))
+               ~~~~~^~~~~~~~~~~~~~~~~~
+command.c:909:14: note: place parentheses around the assignment to silence this warning
+        while (name = rptp_parse(0, 0))
+                    ^
+               (                      )
+command.c:909:14: note: use '==' to turn this assignment into an equality comparison
+        while (name = rptp_parse(0, 0))
+                    ^
+                    ==
+command.c:1165:36: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+                SNPRINTF(SIZE(buf, sizeof(buf)), sound_name);
+                                                 ^~~~~~~~~~
+command.c:1457:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (p = strtok(first ? buf : NULL, ",| "))
+           ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+command.c:1457:14: note: place parentheses around the assignment to silence this warning
+    while (p = strtok(first ? buf : NULL, ",| "))
+             ^
+           (                                    )
+command.c:1457:14: note: use '==' to turn this assignment into an equality comparison
+    while (p = strtok(first ? buf : NULL, ",| "))
+             ^
+             ==
+command.c:1634:69: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+            SNPRINTF(SIZE(command_buffer + n, sizeof(command_buffer) - n), argv[i]);
+                                                                           ^~~~~~~
+command.c:1685:43: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+        SNPRINTF(SIZE(buf + n, sizeof(buf) - n), argv[i]);
+                                                 ^~~~~~~
+command.c:1875:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (name = rptp_parse(0, 0))
+           ~~~~~^~~~~~~~~~~~~~~~~~
+command.c:1875:17: note: place parentheses around the assignment to silence this warning
+    while (name = rptp_parse(0, 0))
+                ^
+           (                      )
+command.c:1875:17: note: use '==' to turn this assignment into an equality comparison
+    while (name = rptp_parse(0, 0))
+                ^
+                ==
+command.c:2364:2: warning: implicit declaration of function 'monitor_alloc' is invalid in C99 [-Wimplicit-function-declaration]
+        monitor_alloc();
+        ^
+8 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT connection.c
+connection.c:90:15: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    c->time = time(0);
+              ^
+connection.c:307:50: warning: passing 'int *' to parameter of type 'socklen_t *' (aka 'unsigned int *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    fd = accept(sock_fd, (struct sockaddr *) &f, &flen);
+                                                 ^~~~~
+/usr/include/x86_64-linux-gnu/sys/socket.h:215:28: note: passing argument to parameter '__addr_len' here
+                   socklen_t *__restrict __addr_len);
+                                         ^
+connection.c:1367:9: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+                             sp->sample_rate,
+                             ^~~~~~~~~~~~~~~
+connection.c:1472:9: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+                             sp->sample_rate,
+                             ^~~~~~~~~~~~~~~
+connection.c:1744:6: warning: implicit declaration of function 'isascii' is invalid in C99 [-Wimplicit-function-declaration]
+                && isascii(c->event->start[0]))
+                   ^
+5 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT flange.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT helper.c
+helper.c:70:24: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    helper_read_time = time(0);
+                       ^
+1 warning generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT host.c
+host.c:82:22: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    host_read_time = time(0);
+                     ^
+1 warning generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT misc.c
+misc.c:532:27: warning: the value of the size argument in 'strncat' is too large, might lead to a buffer overflow [-Wstrncat-size]
+        strncat(string, "none,", sizeof(string) - strlen(string));
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:532:27: note: change the argument to be the free space in the destination buffer minus the terminating null byte
+        strncat(string, "none,", sizeof(string) - strlen(string));
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                 sizeof(string) - strlen(string) - 1
+misc.c:536:30: warning: the value of the size argument in 'strncat' is too large, might lead to a buffer overflow [-Wstrncat-size]
+        strncat(string, "speaker,", sizeof(string) - strlen(string));
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:536:30: note: change the argument to be the free space in the destination buffer minus the terminating null byte
+        strncat(string, "speaker,", sizeof(string) - strlen(string));
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                    sizeof(string) - strlen(string) - 1
+misc.c:540:32: warning: the value of the size argument in 'strncat' is too large, might lead to a buffer overflow [-Wstrncat-size]
+        strncat(string, "headphone,", sizeof(string) - strlen(string));
+                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:540:32: note: change the argument to be the free space in the destination buffer minus the terminating null byte
+        strncat(string, "headphone,", sizeof(string) - strlen(string));
+                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                      sizeof(string) - strlen(string) - 1
+misc.c:544:30: warning: the value of the size argument in 'strncat' is too large, might lead to a buffer overflow [-Wstrncat-size]
+        strncat(string, "lineout,", sizeof(string) - strlen(string));
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+misc.c:544:30: note: change the argument to be the free space in the destination buffer minus the terminating null byte
+        strncat(string, "lineout,", sizeof(string) - strlen(string));
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                    sizeof(string) - strlen(string) - 1
+4 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT native.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT rplayd.c
+rplayd.c:320:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(int argc, char **argv)
+^~~~
+rplayd.c:332:17: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    starttime = time(0);
+                ^
+rplayd.c:543:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        while (p = (char *) strtok(first ? buf : NULL, " \t\n"))
+               ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rplayd.c:543:11: note: place parentheses around the assignment to silence this warning
+        while (p = (char *) strtok(first ? buf : NULL, " \t\n"))
+                 ^
+               (                                               )
+rplayd.c:543:11: note: use '==' to turn this assignment into an equality comparison
+        while (p = (char *) strtok(first ? buf : NULL, " \t\n"))
+                 ^
+                 ==
+rplayd.c:942:4: warning: implicit declaration of function 'connection_monitor_continue' is invalid in C99 [-Wimplicit-function-declaration]
+                        connection_monitor_continue();
+                        ^
+rplayd.c:1083:8: warning: implicit declaration of function 'monitor_cleanup' is invalid in C99 [-Wimplicit-function-declaration]
+                            monitor_cleanup();
+                            ^
+rplayd.c:1399:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+monitor_alloc()
+^~~~~~~~~~~~~
+rplayd.c:1419:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+rplayd.c:1421:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+monitor_cleanup()
+^~~~~~~~~~~~~~~
+rplayd.c:1429:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+rplayd.c:1525:74: warning: passing 'int *' to parameter of type 'socklen_t *' (aka 'unsigned int *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        n = recvfrom(fd, recv_buf, sizeof(recv_buf), 0, (struct sockaddr *) &f, &flen);
+                                                                                ^~~~~
+/usr/include/x86_64-linux-gnu/sys/socket.h:168:27: note: passing argument to parameter '__addr_len' here
+                         socklen_t *__restrict __addr_len);
+                                               ^
+rplayd.c:2029:5: warning: implicit declaration of function 'helper_reread' is invalid in C99 [-Wimplicit-function-declaration]
+    helper_reread(helpers_file);
+    ^
+rplayd.c:2050:5: warning: implicit declaration of function 'sigset' is invalid in C99 [-Wimplicit-function-declaration]
+    sigset(SIGPIPE, SIG_IGN);
+    ^
+12 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT server.c
+server.c:66:24: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    server_read_time = time(0);
+                       ^
+server.c:163:62: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+        SNPRINTF(SIZE(b->buf + b->nbytes, BUFFER_SIZE - b->nbytes), line);
+                                                                    ^~~~
+2 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT sound.c
+sound.c:132:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (p = (char *) strtok(first ? dirs : 0, ":"))
+           ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sound.c:132:14: note: place parentheses around the assignment to silence this warning
+    while (p = (char *) strtok(first ? dirs : 0, ":"))
+             ^
+           (                                         )
+sound.c:132:14: note: use '==' to turn this assignment into an equality comparison
+    while (p = (char *) strtok(first ? dirs : 0, ":"))
+             ^
+             ==
+sound.c:244:23: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    sound_read_time = time(0);
+                      ^
+sound.c:303:5: warning: implicit declaration of function 'sound_free' is invalid in C99 [-Wimplicit-function-declaration]
+    sound_free(s);
+    ^
+sound.c:1267:3: warning: expression result unused [-Wunused-value]
+                *p++;
+                ^~~~
+sound.c:1917:2: warning: implicit declaration of function 'g72x_init_state' is invalid in C99 [-Wimplicit-function-declaration]
+        g72x_init_state(&si->adpcm_state[0]);
+        ^
+sound.c:2009:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+            while (p = (char *) strtok(first ? helper->program : NULL, " \t\n"))
+                   ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sound.c:2009:15: note: place parentheses around the assignment to silence this warning
+            while (p = (char *) strtok(first ? helper->program : NULL, " \t\n"))
+                     ^
+                   (                                                           )
+sound.c:2009:15: note: use '==' to turn this assignment into an equality comparison
+            while (p = (char *) strtok(first ? helper->program : NULL, " \t\n"))
+                     ^
+                     ==
+sound.c:2192:6: warning: implicit declaration of function 'sigset' is invalid in C99 [-Wimplicit-function-declaration]
+            sigset(SIGHUP, SIG_DFL);
+            ^
+7 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT spool.c
+spool.c:507:4: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+                 sp->sample_rate,
+                 ^~~~~~~~~~~~~~~
+spool.c:919:11: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+    now = time(0);
+          ^
+spool.c:1255:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+3 warnings generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT timer.c
+timer.c:44:17: warning: implicit declaration of function 'rplay_audio_getospace_bytes' is invalid in C99 [-Wimplicit-function-declaration]
+    int bytes = rplay_audio_getospace_bytes();
+                ^
+1 warning generated.
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT ulaw.c
+gcc -c  -I. -I../include -I. -I./../include -I./../lib -I./../adpcm -DHAVE_CONFIG_H -DRPLAY_CONF=\"/etc/rplay/rplay.conf\" -DRPLAY_HOSTS=\"/etc/rplay/rplay.hosts\" -DRPLAY_SERVERS=\"/etc/rplay/rplay.servers\" -DRPLAY_HELPERS=\"/etc/rplay/rplay.helpers\" -DRPLAY_CACHE=\"/tmp/.rplay-cache\" -DRPLAY_LOG=\"/tmp/rplay.log\" -DRPLAYDRC=\"\~/.rplaydrc\" -O2 -D_REENTRANT xhash.c
+gcc -o rplayd audio.o buffer.o cache.o cdrom.o command.o connection.o flange.o helper.o host.o misc.o native.o rplayd.o server.o sound.o spool.o timer.o ulaw.o xhash.o  -L../librplay -lrplay -L../lib -lrp -L../adpcm -ladpcm -lgsm    -lm
+make[2]: Leaving directory `/«PKGBUILDDIR»/rplayd'
+make all in rplay...
+make[2]: Entering directory `/«PKGBUILDDIR»/rplay'
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT rplay.c
+rplay.c:108:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(int argc, char **argv)
+^~~~
+rplay.c:679:3: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+                (int) rplay_get(rp, RPLAY_SOUND, index));
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rplay.c:791:3: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+                (int) rplay_get(rp, RPLAY_SOUND, index));
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rplay.c:804:3: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+                (int) rplay_get(rp, RPLAY_SOUND, index));
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4 warnings generated.
+gcc -o rplay rplay.o  -L../librplay -lrplay -L../lib -lrp  
+make[2]: Leaving directory `/«PKGBUILDDIR»/rplay'
+make all in rptp...
+make[2]: Entering directory `/«PKGBUILDDIR»/rptp'
+gcc -c  -I. -I../include -I./../include -I./../lib -DHAVE_CONFIG_H -O2 -D_REENTRANT rptp.c
+rptp.c:153:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main(int argc, char **argv)
+^~~~
+rptp.c:702:2: warning: implicit declaration of function 'write' is invalid in C99 [-Wimplicit-function-declaration]
+        write(2, line, strlen(line));
+        ^
+rptp.c:852:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        while (name = rptp_parse(first ? response : 0, 0))
+               ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rptp.c:852:14: note: place parentheses around the assignment to silence this warning
+        while (name = rptp_parse(first ? response : 0, 0))
+                    ^
+               (                                         )
+rptp.c:852:14: note: use '==' to turn this assignment into an equality comparison
+        while (name = rptp_parse(first ? response : 0, 0))
+                    ^
+                    ==
+rptp.c:1063:17: warning: implicit declaration of function 'read' is invalid in C99 [-Wimplicit-function-declaration]
+    while ((n = read(rptp_fd, buf, sizeof(buf))) > 0)
+                ^
+rptp.c:1068:5: warning: implicit declaration of function 'close' is invalid in C99 [-Wimplicit-function-declaration]
+    close(rptp_fd);
+    ^
+5 warnings generated.
+gcc -o rptp rptp.o  -L../librplay -lrplay -L../lib -lrp  -lreadline 
+make[2]: Leaving directory `/«PKGBUILDDIR»/rptp'
+make all in doc...
+make[2]: Entering directory `/«PKGBUILDDIR»/doc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/«PKGBUILDDIR»/doc'
+make all in devrplay...
+make[2]: Entering directory `/«PKGBUILDDIR»/devrplay'
+gcc -c  -fPIC -I. -I../include -I./../include -DHAVE_CONFIG_H -O2 -D_REENTRANT devrplay.c
+devrplay.c:175:10: warning: overflow converting case value to switch condition type (2148552716 to 18446744071563137036) [-Wswitch]
+    case SNDCTL_DSP_GETOSPACE:
+         ^
+/usr/include/linux/soundcard.h:577:31: note: expanded from macro 'SNDCTL_DSP_GETOSPACE'
+#define SNDCTL_DSP_GETOSPACE            _SIOR ('P',12, audio_buf_info)
+                                        ^
+/usr/include/linux/soundcard.h:95:16: note: expanded from macro '_SIOR'
+#define _SIOR           _IOR
+                        ^
+/usr/include/asm-generic/ioctl.h:75:28: note: expanded from macro '_IOR'
+#define _IOR(type,nr,size)      _IOC(_IOC_READ,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:171:10: warning: overflow converting case value to switch condition type (2147766287 to 18446744071562350607) [-Wswitch]
+    case SNDCTL_DSP_GETCAPS:
+         ^
+/usr/include/linux/soundcard.h:580:29: note: expanded from macro 'SNDCTL_DSP_GETCAPS'
+#define SNDCTL_DSP_GETCAPS              _SIOR ('P',15, int)
+                                        ^
+/usr/include/linux/soundcard.h:95:16: note: expanded from macro '_SIOR'
+#define _SIOR           _IOR
+                        ^
+/usr/include/asm-generic/ioctl.h:75:28: note: expanded from macro '_IOR'
+#define _IOR(type,nr,size)      _IOC(_IOC_READ,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:167:10: warning: overflow converting case value to switch condition type (2147766283 to 18446744071562350603) [-Wswitch]
+    case SNDCTL_DSP_GETFMTS:
+         ^
+/usr/include/linux/soundcard.h:550:29: note: expanded from macro 'SNDCTL_DSP_GETFMTS'
+#define SNDCTL_DSP_GETFMTS              _SIOR ('P',11, int) /* Returns a mask */
+                                        ^
+/usr/include/linux/soundcard.h:95:16: note: expanded from macro '_SIOR'
+#define _SIOR           _IOR
+                        ^
+/usr/include/asm-generic/ioctl.h:75:28: note: expanded from macro '_IOR'
+#define _IOR(type,nr,size)      _IOC(_IOC_READ,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:163:10: warning: overflow converting case value to switch condition type (3221508100 to 18446744072636092420) [-Wswitch]
+    case SNDCTL_DSP_GETBLKSIZE:
+         ^
+/usr/include/linux/soundcard.h:540:32: note: expanded from macro 'SNDCTL_DSP_GETBLKSIZE'
+#define SNDCTL_DSP_GETBLKSIZE           _SIOWR('P', 4, int)
+                                        ^
+/usr/include/linux/soundcard.h:97:17: note: expanded from macro '_SIOWR'
+#define _SIOWR          _IOWR
+                        ^
+/usr/include/asm-generic/ioctl.h:77:29: note: expanded from macro '_IOWR'
+#define _IOWR(type,nr,size)     _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:159:10: warning: overflow converting case value to switch condition type (3221508102 to 18446744072636092422) [-Wswitch]
+    case SNDCTL_DSP_CHANNELS:
+         ^
+/usr/include/linux/soundcard.h:542:30: note: expanded from macro 'SNDCTL_DSP_CHANNELS'
+#define SNDCTL_DSP_CHANNELS             _SIOWR('P', 6, int)
+                                        ^
+/usr/include/linux/soundcard.h:97:17: note: expanded from macro '_SIOWR'
+#define _SIOWR          _IOWR
+                        ^
+/usr/include/asm-generic/ioctl.h:77:29: note: expanded from macro '_IOWR'
+#define _IOWR(type,nr,size)     _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:155:10: warning: overflow converting case value to switch condition type (3221508099 to 18446744072636092419) [-Wswitch]
+    case SNDCTL_DSP_STEREO:
+         ^
+/usr/include/linux/soundcard.h:539:28: note: expanded from macro 'SNDCTL_DSP_STEREO'
+#define SNDCTL_DSP_STEREO               _SIOWR('P', 3, int)
+                                        ^
+/usr/include/linux/soundcard.h:97:17: note: expanded from macro '_SIOWR'
+#define _SIOWR          _IOWR
+                        ^
+/usr/include/asm-generic/ioctl.h:77:29: note: expanded from macro '_IOWR'
+#define _IOWR(type,nr,size)     _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:151:10: warning: overflow converting case value to switch condition type (3221508098 to 18446744072636092418) [-Wswitch]
+    case SNDCTL_DSP_SPEED:
+         ^
+/usr/include/linux/soundcard.h:538:27: note: expanded from macro 'SNDCTL_DSP_SPEED'
+#define SNDCTL_DSP_SPEED                _SIOWR('P', 2, int)
+                                        ^
+/usr/include/linux/soundcard.h:97:17: note: expanded from macro '_SIOWR'
+#define _SIOWR          _IOWR
+                        ^
+/usr/include/asm-generic/ioctl.h:77:29: note: expanded from macro '_IOWR'
+#define _IOWR(type,nr,size)     _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:147:10: warning: overflow converting case value to switch condition type (3221508101 to 18446744072636092421) [-Wswitch]
+    case SNDCTL_DSP_SETFMT:
+         ^
+/usr/include/linux/soundcard.h:551:28: note: expanded from macro 'SNDCTL_DSP_SETFMT'
+#define SNDCTL_DSP_SETFMT               _SIOWR('P',5, int) /* Selects ONE fmt*/
+                                        ^
+/usr/include/linux/soundcard.h:97:17: note: expanded from macro '_SIOWR'
+#define _SIOWR          _IOWR
+                        ^
+/usr/include/asm-generic/ioctl.h:77:29: note: expanded from macro '_IOWR'
+#define _IOWR(type,nr,size)     _IOC(_IOC_READ|_IOC_WRITE,(type),(nr),(_IOC_TYPECHECK(size)))
+                                ^
+/usr/include/asm-generic/ioctl.h:66:2: note: expanded from macro '_IOC'
+        (((dir)  << _IOC_DIRSHIFT) | \
+        ^
+devrplay.c:243:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+9 warnings generated.
+gcc -o devrplay.so.3 devrplay.o  -Wl,-soname -Wl,devrplay.so.3 -shared   -L../librplay -lrplay -ldl
+make[2]: Leaving directory `/«PKGBUILDDIR»/devrplay'
+make[1]: Leaving directory `/«PKGBUILDDIR»'
+(cd contrib/mailsound; /usr/bin/make CFLAGS="-O2 -g")
+make[1]: Entering directory `/«PKGBUILDDIR»/contrib/mailsound'
+gcc -c  -I../../include -O2 -g mailsound.c
+mailsound.c:41:9: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+PRIVATE compare(char *buffer, char *from, long size);
+~~~~~~~ ^
+mailsound.c:42:9: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+PRIVATE play_sound(char *sound, long size);
+~~~~~~~ ^
+mailsound.c:75:8: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+PUBLIC main(int ac, char **av)
+       ^~~~
+mailsound.c:121:16: warning: implicit declaration of function 'getuid' is invalid in C99 [-Wimplicit-function-declaration]
+        pw = getpwuid(getuid());
+                      ^
+mailsound.c:149:9: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+PRIVATE compare(char *buffer, char *from, long size)
+~~~~~~~ ^
+mailsound.c:156:14: warning: implicit declaration of function 're_comp' is invalid in C99 [-Wimplicit-function-declaration]
+        if ((char *)re_comp(pattern) != NULL)
+                    ^
+mailsound.c:156:6: warning: cast to 'char *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+        if ((char *)re_comp(pattern) != NULL)
+            ^
+mailsound.c:157:3: error: non-void function 'compare' should return a value [-Wreturn-type]
+                return;
+                ^
+mailsound.c:158:6: warning: implicit declaration of function 're_exec' is invalid in C99 [-Wimplicit-function-declaration]
+        if (re_exec(from))
+            ^
+mailsound.c:175:9: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+PRIVATE play_sound(char *sound_args, long size)
+~~~~~~~ ^
+mailsound.c:197:7: warning: cast to 'char *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+                if ((char *)re_comp(subject_re) != NULL)
+                    ^
+mailsound.c:236:14: warning: implicit declaration of function 'getopt' is invalid in C99 [-Wimplicit-function-declaration]
+        while ((c = getopt(ac, av, "s:h:rz:Z:v:d")) != NOTOK)
+                    ^
+mailsound.c:285:11: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+                srandom(time(NULL));
+                        ^
+12 warnings and 1 error generated.
+make[1]: *** [mailsound.o] Error 1
+make[1]: Leaving directory `/«PKGBUILDDIR»/contrib/mailsound'
+make: *** [build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20130131-1850
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Cleanup                                                                      │
@@ -425,28 +1360,26 @@ Not removing build depends: cloned chroot in use
 
 Purging /«BUILDDIR»
 Not cleaning session: cloned chroot in use
-E: Package build dependencies not satisfied; skipping
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Summary                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Architecture: amd64
-Build-Space: 0
-Build-Time: 0
+Build-Space: 4932
+Build-Time: 11
 Distribution: unstable
-Fail-Stage: install-deps
-Install-Time: 0
+Fail-Stage: build
+Install-Time: 7
 Job: rplay_3.3.2-14
 Package: rplay
-Package-Time: 0
+Package-Time: 49
 Source-Version: 3.3.2-14
-Space: 0
-Status: failed
+Space: 4932
+Status: attempted
 Version: 3.3.2-14
 ────────────────────────────────────────────────────────────────────────────────
-Finished at 20130128-0500
-Build needed 00:00:00, 0k disc space
-E: Package build dependencies not satisfied; skipping
-DC-Status: Failed 34.847198s
-DC-Time-Estimation: 34.847198 versus expected 136 (r/m: 2.90275281243559 ; m: 34.847198)
+Finished at 20130131-1850
+Build needed 00:00:49, 4932k disc space
+DC-Status: Failed 49.210949s
+DC-Time-Estimation: 49.210949 versus expected 136 (r/m: 1.76361262612513 ; m: 49.210949)
