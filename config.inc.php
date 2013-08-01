@@ -6,7 +6,7 @@ $suffix="lsid64b";
 $ext="buildlog";
 $currentVersion="3.2";
 
-$clangVersions=Array("2.9" => 16398, "3.0" => 15658, "3.1" => 17710, "3.2" => 18264);
+$clangVersions=Array("2.9" => 16398, "3.0" => 15658, "3.1" => 17710, "3.2" => 18264, "3.3" => 18854);
 
 switch ($_SERVER['HTTP_HOST']){
  case 'clang.debian.net':
