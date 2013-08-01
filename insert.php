@@ -1,11 +1,12 @@
 #!/usr/bin/php
    <?
-$_SERVER['HTTP_HOST']="localhost";
+//$_SERVER['HTTP_HOST']="localhost";
+$_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.2";
-$DATE_REBUILD="2013-01-28";
+$CLANG_VERSION="3.3";
+$DATE_REBUILD="2013-07-14";
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);

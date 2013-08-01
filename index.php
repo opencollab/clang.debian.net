@@ -62,11 +62,11 @@ The full list of all the results with logs are available at the following URL:<b
 <li>
 <a href="/status.php?version=2.9">clang 2.9</a> (September 2011)</li>
 <li>
-<a href="/status.php?version=3.0">clang 3.0</a> (January 2012)</li>
+<a href="/status.php?version=3.0">clang 3.0</a> (January 2012) - <a href="http://sylvestre.ledru.info/blog/sylvestre/2012/02/29/rebuild_of_the_debian_archive_with_clang">Blog post</a></li>
 <li>
-<a href="/status.php?version=3.1">clang 3.1</a> (June 2012)</li>
+<a href="/status.php?version=3.1">clang 3.1</a> (June 2012) - <a href="http://sylvestre.ledru.info/blog/sylvestre/2012/07/24/news_on_debian_aamp_clang_1">Blog post</a></li>
 <li>
-<a href="/status.php?version=3.2">clang 3.2</a> (January 2013)</li>
+<a href="/status.php?version=3.2">clang 3.2</a> (January 2013) - <a href="http://sylvestre.ledru.info/blog/sylvestre/2013/02/06/rebuild_of_debian_using_clang_3_2">Blog post</a></li>
 </ul>
 <br />
     Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
