@@ -5,8 +5,8 @@ Dans certains cas, on recupere la liste brute des résultats.
 
 La commande suivante va donner la liste des packages qui ont fail uniquement avec clang mais OK dans unstable.
 grep DIFFEXP res.compared > res.fail.only.clang
-
-
+LIST=$(less res.fail.only.clang|awk '{print $1}')
+for f in $LIST; do grep "^$f " clang.txt; done >  scanlog-3.3-2013-07-14
 
 
 3) Generer la liste des packages:
