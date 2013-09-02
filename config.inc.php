@@ -52,6 +52,11 @@ switch ($_SERVER['HTTP_HOST']){
 	exit;
 }
 
+$secureMode = false;
+if ($_SERVER['REMOTE_ADDR']== "128.93.60.69") {
+   $secureMode = true;
+}
+
 $host_db = _DB_HOST_;
 $user_db = _DB_USER_;
 $pass_db = _DB_PASS_;
