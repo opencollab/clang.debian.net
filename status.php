@@ -100,12 +100,12 @@ displayVersion($versionGET, $keyGET);
 if ($versionGET=="2.9") {
 	$suffix="lsid64c";
 }
-if ($versionGET=="3.1") {
+if ($versionGET=="3.1" || $versionGET=="3.3") {
 	$suffix="unstable_clang";
     $ext="log";
 }
 
-$req="SELECT * FROM errors WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}' order by package";
+$req="SELECT * FROM errors WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}'		 order by package";
 // order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
