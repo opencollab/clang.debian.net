@@ -93,7 +93,9 @@ displayVersion($versionGET, $keyGET);
 ?>
 
 <table class="data">
-<tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th></tr>
+<tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
+<?=($secureMode==true)?"<th>Bug report</th>":""?>
+</tr>
 <?
 if ($versionGET=="2.9") {
 	$suffix="lsid64c";
@@ -111,7 +113,10 @@ while ($row = mysql_fetch_object($result)) {
 $dateLog=explode(" ",$row->date_build);
 ?>
 
-<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td></tr>
+<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
+<?=($secureMode==true)?"<td><a href='/bugs.php?pkg={$row->package}'>Report</a></td>":""?>
+
+</tr>
      <? // metaphone($row->detected_error)  ?>
         <? } ?>
 </table>
