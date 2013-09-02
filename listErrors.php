@@ -19,7 +19,7 @@ $known_errors= Array(
         Array("key" => "USE_OF_UNDECLARED_IDENTIFIER", "dsc" => "Unqualified lookup into dependent bases of class templates", "msg" => "use of undeclared identifier", "nb" => 0),
         Array("key" => "EQUALITY_COMPARISON", "dsc" => "equality comparison with extraneous parentheses", "msg" => "equality comparison with extraneous parentheses", "nb" => 0),
         Array("key" => "REDEF_NOT_SUPPORTED_C99", "dsc" => "redefinition of a extern inline not supported in C99", "msg" => "is not supported in C99 mode", "nb" => 0),
-        Array("key" => "WRONG_GCC_ASSUMPTION", "dsc" => "Wrong assumption about gcc/g++ output", "msg" => Array("g++ was not found","see the result of gcc","gcc >= 3.0 is needed","Compiler version 3.0","Gcc version error"), "nb" => 0),
+        Array("key" => "WRONG_GCC_ASSUMPTION", "dsc" => "Wrong assumption about gcc/g++ output", "msg" => Array("g++ was not found","see the result of gcc","gcc >= 3.0 is needed","Compiler version 3.0","Gcc version error","GCC too old","You need gcc"), "nb" => 0),
         Array("key" => "AMBIGUOUS_DECLARATION", "dsc" => "Ambiguous declaration", "msg" => "is ambiguous", "nb" => 0),
         Array("key" => "POSIX_SPAWN_FAILED", "dsc" => "posix_spawn failed", "msg" => "posix_spawn failed: Cannot allocate memory", "nb" => 0),
         Array("key" => "CANNOT_USE_O_MULTI_OUTPUT", "dsc" => "Cannot use -o use multiple output", "msg" => "cannot specify -o when generating multiple output files", "nb" => 0),
@@ -98,6 +98,15 @@ $known_errors= Array(
         Array("key" => "SOMETIMES_UNINITIALIZED", "dsc" => "Potential usage of an uninitialized variable", "msg" => Array("-Wsometimes-uninitialized"), "nb" => 0),
 
         Array("key" => "CANNOT_INIT_ELEM", "dsc" => "Cannot initialize a element", "msg" => Array("cannot initialize a variable of type","cannot initialize a parameter of type","cannot initialize return object of type","cannot initialize return object of type"), "nb" => 0),
+
+        Array("key" => "NOT_ALLOWED_HERE", "dsc" => "Function definition is not allowed here", "msg" => Array("error: function definition is not allowed here"), "nb" => 0),
+	Array("key" => "DEFAULT_CONSTRUCTOR", "dsc" => "Changes of default constructor", "msg" => Array("error: addition of default argument on redeclaration makes this constructor a default constructor"), "nb" => 0),
+
+	Array("key" => "LINKER_OPTION_UNUSED", "dsc" => "Linker option unused", "msg" => Array("' input unused"), "nb" => 0),
+
+	Array("key" => "UNUSED_PRIV_FIELD", "dsc" => "Unused private field", "msg" => Array("-Wunused-private-field"), "nb" => 0),
+
+Array("key" => "INCOMPLETE_DEF_TYPE", "dsc" => "Incomplete definition of a type", "msg" => Array("error: incomplete definition of type"), "nb" => 0),
 
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
