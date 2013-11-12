@@ -15,10 +15,27 @@ if ($versionGET=="3.2") {
    $ext="log";
 }
 
+   if ($keyGET) {
+
+   foreach ($known_errors as $key => $err) {
+// retrieve of the name
+        if ($err['key']==$keyGET) {
+            $keyDSC=$err['dsc'];
+            break;
+        }
+
+    }
+    if ($keyGET=="NO_CAT") {
+    $keyGET="";
+    }
+}
+
+
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Rebuild of the Debian archive with clang</title>
+<title><?=($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="revamp.css" />
@@ -65,17 +82,6 @@ $(document).ready(function () {
 else 
 {
 
-    foreach ($known_errors as $key => $err) {
-// retrieve of the name
-        if ($err['key']==$keyGET) {
-            $keyDSC=$err['dsc'];
-            break;
-        }
-
-    }
-    if ($keyGET=="NO_CAT") {
-        $keyGET="";
-    }
 
 ?>
 <div align="center">
