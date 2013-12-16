@@ -106,7 +106,17 @@ $known_errors= Array(
 
 	Array("key" => "UNUSED_PRIV_FIELD", "dsc" => "Unused private field", "msg" => Array("-Wunused-private-field"), "nb" => 0),
 
-Array("key" => "INCOMPLETE_DEF_TYPE", "dsc" => "Incomplete definition of a type", "msg" => Array("error: incomplete definition of type"), "nb" => 0),
+	Array("key" => "INCOMPLETE_DEF_TYPE", "dsc" => "Incomplete definition of a type", "msg" => Array("error: incomplete definition of type"), "nb" => 0),
+
+        Array("key" => "MISMATCHED_TAGS", "dsc" => "Mismatched Tags", "msg" => Array("-Wmismatched-tags"), "nb" => 0),
+
+        Array("key" => "ENUM_CONVERSION", "dsc" => "Enum Conversion", "msg" => Array("-Wenum-conversion"), "nb" => 0),
+
+        Array("key" => "MISSING_PROTOTYPE", "dsc" => "Missing prototypes", "msg" => Array("-Wmissing-prototypes"), "nb" => 0),
+
+        Array("key" => "DEPRECATED_DECLARATION", "dsc" => "Deprecated declaration", "msg" => Array("-Wdeprecated-declarations"), "nb" => 0),
+
+        Array("key" => "STRING_PLUS_INT", "dsc" => "String + int", "msg" => Array("-Wstring-plus-int"), "nb" => 0),
 
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
