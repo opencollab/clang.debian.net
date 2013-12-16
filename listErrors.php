@@ -11,7 +11,9 @@ $known_errors= Array(
         Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'") , "nb" => 0),
         Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => "dh_makeshlibs: dpkg-gensymbols", "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
+        Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
         Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => "undefined reference to", "nb" => 0),
+
         Array("key" => "NO_REF_VALUE", "dsc" => "XXX does not refer to a value", "msg" => "does not refer to a value", "nb" => 0),
         Array("key" => "UNKNOWN_TYPE_NAME", "dsc" => "Unknown Type Name", "msg" => "unknown type name", "nb" => 0),
         Array("key" => "UNKNOWN_ARG", "dsc" => "Unknown argument", "msg" => Array("Unknown argument", "unknown argument"), "nb" => 0),
@@ -118,9 +120,27 @@ $known_errors= Array(
 
         Array("key" => "STRING_PLUS_INT", "dsc" => "String + int", "msg" => Array("-Wstring-plus-int"), "nb" => 0),
 
+/* New in 3.4 */
+
+Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" => Array("-Werror,-Wunused-const-variable"), "nb" => 0),
+
+Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0),
+
+Array("key" => "WRONG_FRIEND_DECLARATION", "dsc" => "Wrong friend declaration", "msg" => Array("friend declaration specifying a default argument must be a definition"), "nb" => 0),
+
+Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line  differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
+
+Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0),
+
+Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
+
+
+
+
+
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
-        
+
 
         );
 

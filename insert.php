@@ -1,12 +1,12 @@
-#!/usr/bin/php
-   <?
-//$_SERVER['HTTP_HOST']="localhost";
-$_SERVER['HTTP_HOST']="clang.debian.net";
+#!/usr/bin/php5
+<?php
+$_SERVER['HTTP_HOST']="localhost";
+//$_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.3";
-$DATE_REBUILD="2013-07-14";
+$CLANG_VERSION="3.4rc1";
+$DATE_REBUILD="2013-11-23";
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);
@@ -71,4 +71,6 @@ mysql_query($query);
 $query="delete from errors where clang_version=3.2  and trim(detected_error) like '%Dependencies installation failed%'";
 mysql_query($query);
 echo "$i lines processed\n";
+
 ?>
+

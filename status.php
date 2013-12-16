@@ -10,7 +10,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2") {
+if ($versionGET=="3.2" || $versionGET=="3.4rc1") {
    $suffix="unstable_clang";
    $ext="log";
 }
@@ -119,7 +119,6 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
 }
 
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}'		 order by errors.package";
-
 // order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
