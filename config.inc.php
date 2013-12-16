@@ -53,7 +53,7 @@ switch ($_SERVER['HTTP_HOST']){
 }
 
 $secureMode = false;
-if ($_SERVER['REMOTE_ADDR']== "128.93.60.69") {
+if ($_SERVER['REMOTE_ADDR']== "128.93.60.69" || $_SERVER['REMOTE_ADDR']== "46.218.182.251") {
    $secureMode = true;
 }
 
