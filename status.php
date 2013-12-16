@@ -15,18 +15,42 @@ if ($versionGET=="3.2" || $versionGET=="3.4rc1") {
    $ext="log";
 }
 
+   if ($keyGET) {
+
+   foreach ($known_errors as $key => $err) {
+// retrieve of the name
+        if ($err['key']==$keyGET) {
+            $keyDSC=$err['dsc'];
+            break;
+        }
+
+    }
+    if ($keyGET=="NO_CAT") {
+    $keyGET="";
+    }
+}
+
+
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Rebuild of the Debian archive with clang</title>
+<title><?=($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="revamp.css" />
 <link rel="StyleSheet" type="text/css" href="pkg.css" />
 <link rel="StyleSheet" type="text/css" href="status.css" />
 <script type="text/javascript" src="jquery.js"></script>
+<link rel="stylesheet" href="/styles/github.css">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 <script type="text/javascript">
+$(document).ready(function() {
+  $('pre').each(function(i, e) {hljs.highlightBlock(e)});
+});
+
 $(document).ready(function () {
   $("#pkg_field").focus();
 
@@ -55,7 +79,7 @@ $(document).ready(function () {
 
 
     $totalDebian=$clangVersions[$versionGET];
-    if (!$keyGET) {
+    if (!isset($keyGET)) {
 ?>
 <div align="center">clang <?=$versionGET?></div><br />
 
@@ -65,17 +89,6 @@ $(document).ready(function () {
 else 
 {
 
-    foreach ($known_errors as $key => $err) {
-// retrieve of the name
-        if ($err['key']==$keyGET) {
-            $keyDSC=$err['dsc'];
-            break;
-        }
-
-    }
-    if ($keyGET=="NO_CAT") {
-        $keyGET="";
-    }
 
 ?>
 <div align="center">
@@ -94,7 +107,7 @@ displayVersion($versionGET, $keyGET);
 
 <table class="data">
 <tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
-<?=($secureMode==true)?"<th>Bug report</th>":""?>
+<th>Bug report</th>
 </tr>
 <?
 if ($versionGET=="2.9") {
@@ -105,23 +118,33 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
     $ext="log";
 }
 
-$req="SELECT * FROM errors WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}' order by SOUNDEX(reverse(detected_error))"; //package";
-
-//		 order by package";
+$req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}'		 order by errors.package";
 // order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
+$nb=mysql_num_rows($result);
 while ($row = mysql_fetch_object($result)) {
 $dateLog=explode(" ",$row->date_build);
 ?>
 
 <tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
-<?=($secureMode==true)?"<td><a href='/bugs.php?pkg={$row->package}'>Report</a></td>":""?>
+<td><?=($secureMode==true)?"<a href='/bugs.php?pkg={$row->package}'>Report</a>":""?>
+<?
+if ($row->bug_number) {
+if ($row->bug_type == "debian") {
+?>
+<br /><a href="http://bugs.debian.org/<?=$row->bug_number?>"><?=$row->bug_number?></a>
+<? } else { ?>
+<br /><a href="<?=$row->bug_number?>">Bug report</a>
+<? } } ?>
+
+</td>
 
 </tr>
      <? // metaphone($row->detected_error)  ?>
         <? } ?>
 </table>
+<?=$nb?> errors
 <div align="right"><a href="status.php">Return to the list</a></div>
 <? } ?>
 </div><div id="footer">

@@ -72,6 +72,7 @@ Package: <?=$pkg?>
 
 Severity: minor
 Usertags: clang-ftbfs
+User: pkg-llvm-team@lists.alioth.debian.org 
 
 Hello,
 
