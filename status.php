@@ -124,10 +124,16 @@ $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON b
 $result=mysql_query($req);
 $nb=mysql_num_rows($result);
 while ($row = mysql_fetch_object($result)) {
-$dateLog=explode(" ",$row->date_build);
+      $dateLog=explode(" ",$row->date_build);
+      $version=$row->version;
+      if (strpos($version , ":")) {
+      	 // We have an epoch
+         $version_ = explode(":", $version);
+	 $version = $version_[1];
+     }
 ?>
 
-<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$row->version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
+<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
 <td><?=($secureMode==true)?"<a href='/bugs.php?pkg={$row->package}'>Report</a>":""?>
 <?
 if ($row->bug_number) {
