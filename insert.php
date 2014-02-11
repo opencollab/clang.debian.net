@@ -5,8 +5,8 @@ $_SERVER['HTTP_HOST']="localhost";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.4rc1";
-$DATE_REBUILD="2013-11-23";
+$CLANG_VERSION="3.4";
+$DATE_REBUILD="2014-01-14";
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);
