@@ -10,7 +10,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4rc1") {
+if ($versionGET=="3.2" || $versionGET=="3.4") {
    $suffix="unstable_clang";
    $ext="log";
 }
