@@ -132,8 +132,11 @@ Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line  diffe
 
 Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0),
 
-Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
+        Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
 
+        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a buildin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
+
+        Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
 
 
 
