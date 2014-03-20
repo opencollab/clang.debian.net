@@ -20,4 +20,5 @@ compiled with:
 <pre class="failure">
 clang++ -o conftest -g  -O2  -D_FORTIFY_SOURCE=2 conftest.cpp
 </pre>
+will be stucked in an infinity loop.
 Reported upstream as <a href="http://llvm.org/bugs/show_bug.cgi?id=16821">bug 16821</a>
