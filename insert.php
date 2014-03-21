@@ -1,7 +1,7 @@
 #!/usr/bin/php5
 <?php
-$_SERVER['HTTP_HOST']="localhost";
-//$_SERVER['HTTP_HOST']="clang.debian.net";
+//$_SERVER['HTTP_HOST']="localhost";
+$_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
