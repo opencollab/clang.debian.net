@@ -126,7 +126,7 @@ Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" 
 
 Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0),
 
-Array("key" => "WRONG_FRIEND_DECLARATION", "dsc" => "Wrong friend declaration", "msg" => Array("friend declaration specifying a default argument must be a definition"), "nb" => 0),
+Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong friend declaration", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0),
 
 Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line  differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
 
