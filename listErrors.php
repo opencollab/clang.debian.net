@@ -126,21 +126,19 @@ Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" 
 
 Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0),
 
-Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong friend declaration", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0),
+Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong C++ default declaration in a method", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0),
 
-Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line  differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
+Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
 
 Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0),
 
         Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
 
-        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a buildin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
+        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
 
         Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
 
-
-
-
+// General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
 
