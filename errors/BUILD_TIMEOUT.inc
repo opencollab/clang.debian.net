@@ -1,9 +1,9 @@
 The binary produced by clang is wrong when built with -D_FORTIFY_SOURCE=2.
 For example, the code:
 <pre class="failure">
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
 
 int main ()
 {
