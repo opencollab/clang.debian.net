@@ -4,7 +4,7 @@ include("listErrors.php");
 $keyGET=mysql_real_escape_string($_GET['key']);
 $versionGET=mysql_real_escape_string($_GET['version']);
 if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2")) {
-        $versionGET="3.3";
+        $versionGET="3.4";
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -70,6 +70,9 @@ The full list of all the results with logs are available at the following URL:<b
 <li>
 <a href="/status.php?version=3.3">clang 3.3</a> (July 2013) - <a href="http://sylvestre.ledru.info/blog/2013/08/19/clang-3-3-and-debian">Blog post</a></li>
 </li>
+<li>
+<a href="/status.php?version=3.4">clang 3.4</a> (January 2014) - <a href="http://sylvestre.ledru.info/blog/2014/03/21/rebuild-of-debian-using-clang">Blog post</a></li>
+
 </ul>
 <br />
     Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
