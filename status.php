@@ -5,6 +5,7 @@ $keyGET=mysql_real_escape_string($_GET['key']);
 if (strpos($keyGET, "..") && $keyGET!="" ) {
    header("Location: /");
 }
+
 $versionGET=mysql_real_escape_string($_GET['version']);
 if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2" && $versionGET!="3.3")) {
 	$versionGET=$currentVersion;
@@ -26,10 +27,9 @@ if ($versionGET=="3.2" || $versionGET=="3.4") {
 
     }
     if ($keyGET=="NO_CAT") {
-    $keyGET="";
+        $keyGET="";
     }
 }
-
 
 
 ?>
@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 
     $totalDebian=$clangVersions[$versionGET];
-    if (!isset($keyGET)) {
+    if (!isset($keyGET) || $keyGET == "") {
 ?>
 <div align="center">clang <?=$versionGET?></div><br />
 
