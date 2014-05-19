@@ -12,10 +12,7 @@ $clangVersions=Array("2.9" => 16398, "3.0" => 15658, "3.1" => 17710, "3.2" => 18
 switch ($_SERVER['HTTP_HOST']){
  case 'clang.debian.net':
  case 'manchot.ecranbleu.org':
-        define("_DB_","clang");
-        define("_DB_HOST_","localhost");
-        define("_DB_USER_","clang");
-        define("_DB_PASS_","c--lang___");
+        include("clang.debian.net.php");
 	define("BASEPATH","/www/clang.debian.net/");
         $pathSite="/www/clang.debian.net/";
         $pathToBaseDocumentations="{$pathSite}docs/";
@@ -54,7 +51,7 @@ switch ($_SERVER['HTTP_HOST']){
 }
 
 $secureMode = false;
-if ($_SERVER['REMOTE_ADDR']== "128.93.60.69" || $_SERVER['REMOTE_ADDR']== "46.218.182.251") {
+if ($_SERVER['REMOTE_ADDR']== "X.Y.Z.W") {
    $secureMode = true;
 }
 
