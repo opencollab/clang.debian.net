@@ -1,33 +1,38 @@
-Pretraitement:
-1) Lancer le build avec clang
-2) Lancer le build avec unstable normal
-Dans certains cas, on recupere la liste brute des résultats.
+Preprocessing
 
-La commande suivante va donner la liste des packages qui ont fail uniquement avec clang mais OK dans unstable.
+1) Build with clang
+2) Normal build
+
+In some case, we get a raw list of results
+
+The following command with give the list of packages failing with clang but OK under unstable.
 grep DIFFEXP res.compared > res.fail.only.clang
 LIST=$(less res.fail.only.clang|awk '{print $1}')
 for f in $LIST; do grep "^$f " clang.txt; done >  scanlog-3.3-2013-07-14
 
+3) Generation the list of packages. It will find the error.
 
-3) Generer la liste des packages:
-
-Pour l'import, dans le dossier des logs, faire
+From the log directory, run:
 cqa-scanlogs > ../scanlog-3.1-2012-06-23
 
-4) faire l'import en base:
-Editer le fichier insert.php
-modifier le chemin, changer la version et la date
+This program can be found here:
+http://anonscm.debian.org/viewvc/collab-qa/collab-qa-tools/
+and Debian packages should be created
 
-executer => ca devrait insert en base.
+4) Import the file into the database
+Edit insert.php
+Update the path, the version and the date
 
-maj status.php pour rajouter le support de la nouvelle version
-et config.inc.php pour le nb de packages
+Run, it should insert in the db
 
-5) Verifier:
-Ensuite, consulter
-localhost/status.php?version=X.Y&key=NO_CAT
+Update status.php to add the support of the new version
+update config.inc.php for the number of packages
 
-Regarder les messages d'erreur et les rajouter dans listErrors.php si il y en a assez
+5) Check:
+http://localhost/status.php?version=X.Y&key=NO_CAT
 
-Dans status.php, on peut aussi rajouter order by SOUNDEX(reverse(detected_error)) pour avoir un tri deja fait
+Check for new common error message and add then listErrors.php 
+
+In status.php, don't hesitate to use the SQL search SOUNDEX(reverse(detected_error))
+to have a better sort
 
