@@ -118,7 +118,11 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
     $ext="log";
 }
 
-$req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' AND key_code='{$keyGET}'		 order by errors.package";
+$req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
+if ($keyGET!="all") {
+  $req.=" AND key_code='{$keyGET}'";
+}
+$req.="		 order by errors.package";
 // order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
@@ -139,9 +143,9 @@ while ($row = mysql_fetch_object($result)) {
 if ($row->bug_number) {
 if ($row->bug_type == "debian") {
 ?>
-<br /><a href="http://bugs.debian.org/<?=$row->bug_number?>"><?=$row->bug_number?></a>
+<a href="http://bugs.debian.org/<?=$row->bug_number?>"><?=$row->bug_number?></a>
 <? } else { ?>
-<br /><a href="<?=$row->bug_number?>">Bug report</a>
+<a href="<?=$row->bug_number?>">Bug report</a>
 <? } } ?>
 
 </td>
