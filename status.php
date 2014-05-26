@@ -143,7 +143,7 @@ while ($row = mysql_fetch_object($result)) {
 if ($row->bug_number) {
 if ($row->bug_type == "debian") {
 ?>
-<a href="http://bugs.debian.org/<?=$row->bug_number?>"><?=$row->bug_number?></a>
+<a href="http://bugs.debian.org/<?=$row->bug_number?>"><?if ($row->status == "resolved") {?><del><?=$row->bug_number?></del><?}else{?><?=$row->bug_number?><? } ?></a>
 <? } else { ?>
 <a href="<?=$row->bug_number?>">Bug report</a>
 <? } } ?>
