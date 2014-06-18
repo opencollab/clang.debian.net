@@ -1,0 +1,1854 @@
+DC-Build-Header: gcc-4.6 4.6.4-7 / 2014-06-17 11:18:22 +0000
+DC-Task: source:gcc-4.6 version:4.6.4-7 architecture:any chroot:unstable esttime:32254 logfile:/tmp/gcc-4.6_4.6.4-7_unstable_clang.log modes:binary-only:parallel:clang
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang --append-to-version "clang1" --maintainer "Lucas Nussbaum <lucas@debian.org>" --uploader "Lucas Nussbaum <lucas@debian.org>" gcc-4.6_4.6.4-7'
+sbuild (Debian sbuild) 0.63.2 (18 Aug 2012) on ip-172-31-4-235.us-west-2.compute.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ gcc-4.6 4.6.4-7clang1 (amd64)                              17 Jun 2014 11:18 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: gcc-4.6
+Version: 4.6.4-7clang1
+Source Version: 4.6.4-7
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/gcc-4.6-SaHp8A/gcc-4.6-4.6.4' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/gcc-4.6-SaHp8A' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-bf917216-bfe3-411d-a725-c02e8963f3ae' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Get:1 http://localhost:9999 unstable InRelease [206 kB]
+Ign http://localhost:9999 unstable/main Sources/DiffIndex
+Ign http://localhost:9999 unstable/main amd64 Packages/DiffIndex
+Get:2 http://localhost:9999 unstable/main Translation-en/DiffIndex [7876 B]
+Get:3 http://localhost:9999 unstable/main 2014-06-16-2054.31.pdiff [699 B]
+Get:4 http://localhost:9999 unstable/main 2014-06-16-2054.31.pdiff [699 B]
+Get:5 http://localhost:9999 unstable/main Sources [9439 kB]
+Get:6 http://localhost:9999 unstable/main amd64 Packages [9063 kB]
+Fetched 18.7 MB in 4s (4466 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev linux-libc-dev multiarch-support
+6 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 9447 kB of archives.
+After this operation, 10.2 kB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main libc6-dev amd64 2.19-2 [2000 kB]
+Get:2 http://localhost:9999/debian/ unstable/main libc-dev-bin amd64 2.19-2 [235 kB]
+Get:3 http://localhost:9999/debian/ unstable/main linux-libc-dev amd64 3.14.7-1 [937 kB]
+Get:4 http://localhost:9999/debian/ unstable/main libc-bin amd64 2.19-2 [1288 kB]
+Get:5 http://localhost:9999/debian/ unstable/main libc6 amd64 2.19-2 [4816 kB]
+Get:6 http://localhost:9999/debian/ unstable/main multiarch-support amd64 2.19-2 [171 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 9447 kB in 0s (33.1 MB/s)
+(Reading database ... 14215 files and directories currently installed.)
+Preparing to unpack .../libc6-dev_2.19-2_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.19-2) over (2.19-1) ...
+Preparing to unpack .../libc-dev-bin_2.19-2_amd64.deb ...
+Unpacking libc-dev-bin (2.19-2) over (2.19-1) ...
+Preparing to unpack .../linux-libc-dev_3.14.7-1_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (3.14.7-1) over (3.14.5-1) ...
+Preparing to unpack .../libc-bin_2.19-2_amd64.deb ...
+Unpacking libc-bin (2.19-2) over (2.19-1) ...
+Preparing to unpack .../libc6_2.19-2_amd64.deb ...
+Unpacking libc6:amd64 (2.19-2) over (2.19-1) ...
+Setting up libc6:amd64 (2.19-2) ...
+Setting up libc-bin (2.19-2) ...
+(Reading database ... 14216 files and directories currently installed.)
+Preparing to unpack .../multiarch-support_2.19-2_amd64.deb ...
+Unpacking multiarch-support (2.19-2) over (2.19-1) ...
+Setting up multiarch-support (2.19-2) ...
+Setting up libc-dev-bin (2.19-2) ...
+Setting up linux-libc-dev:amd64 (3.14.7-1) ...
+Setting up libc6-dev:amd64 (2.19-2) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'gcc-4.6' packaging is maintained in the 'Svn' version control system at:
+svn://svn.debian.org/svn/gcccvs/branches/sid/gcc-4.6
+Need to get 57.8 MB of source archives.
+Get:1 http://localhost:9999/debian/ unstable/main gcc-4.6 4.6.4-7 (dsc) [5186 B]
+Get:2 http://localhost:9999/debian/ unstable/main gcc-4.6 4.6.4-7 (tar) [56.9 MB]
+Get:3 http://localhost:9999/debian/ unstable/main gcc-4.6 4.6.4-7 (diff) [887 kB]
+Fetched 57.8 MB in 5s (11.5 MB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ echo 'Install of clang-3.4'
+Install of clang-3.4
++ apt-get update
+Hit http://localhost:9999 unstable InRelease
+Ign http://localhost:9999 unstable/main Sources/DiffIndex
+Ign http://localhost:9999 unstable/main amd64 Packages/DiffIndex
+Hit http://localhost:9999 unstable/main Translation-en/DiffIndex
+Hit http://localhost:9999 unstable/main Sources
+Hit http://localhost:9999 unstable/main amd64 Packages
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-3.4
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libclang-common-3.4-dev libclang1-3.4 libffi6 libllvm3.4 libobjc-4.9-dev
+  libobjc4
+Suggested packages:
+  gnustep gnustep-devel
+Recommended packages:
+  llvm-3.4-dev python
+The following NEW packages will be installed:
+  clang-3.4 libclang-common-3.4-dev libclang1-3.4 libffi6 libllvm3.4
+  libobjc-4.9-dev libobjc4
+0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+Need to get 30.6 MB of archives.
+After this operation, 118 MB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main libffi6 amd64 3.1-2 [19.8 kB]
+Get:2 http://localhost:9999/debian/ unstable/main libllvm3.4 amd64 1:3.4.2-1 [6721 kB]
+Get:3 http://localhost:9999/debian/ unstable/main libobjc4 amd64 4.9.0-6 [112 kB]
+Get:4 http://localhost:9999/debian/ unstable/main libobjc-4.9-dev amd64 4.9.0-6 [372 kB]
+Get:5 http://localhost:9999/debian/ unstable/main libclang1-3.4 amd64 1:3.4.2-1 [3618 kB]
+Get:6 http://localhost:9999/debian/ unstable/main libclang-common-3.4-dev amd64 1:3.4.2-1 [539 kB]
+Get:7 http://localhost:9999/debian/ unstable/main clang-3.4 amd64 1:3.4.2-1 [19.2 MB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 30.6 MB in 0s (34.4 MB/s)
+Selecting previously unselected package libffi6:amd64.
+(Reading database ... 14216 files and directories currently installed.)
+Preparing to unpack .../libffi6_3.1-2_amd64.deb ...
+Unpacking libffi6:amd64 (3.1-2) ...
+Selecting previously unselected package libllvm3.4:amd64.
+Preparing to unpack .../libllvm3.4_1%3a3.4.2-1_amd64.deb ...
+Unpacking libllvm3.4:amd64 (1:3.4.2-1) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../libobjc4_4.9.0-6_amd64.deb ...
+Unpacking libobjc4:amd64 (4.9.0-6) ...
+Selecting previously unselected package libobjc-4.9-dev:amd64.
+Preparing to unpack .../libobjc-4.9-dev_4.9.0-6_amd64.deb ...
+Unpacking libobjc-4.9-dev:amd64 (4.9.0-6) ...
+Selecting previously unselected package libclang1-3.4:amd64.
+Preparing to unpack .../libclang1-3.4_1%3a3.4.2-1_amd64.deb ...
+Unpacking libclang1-3.4:amd64 (1:3.4.2-1) ...
+Selecting previously unselected package libclang-common-3.4-dev.
+Preparing to unpack .../libclang-common-3.4-dev_1%3a3.4.2-1_amd64.deb ...
+Unpacking libclang-common-3.4-dev (1:3.4.2-1) ...
+Selecting previously unselected package clang-3.4.
+Preparing to unpack .../clang-3.4_1%3a3.4.2-1_amd64.deb ...
+Unpacking clang-3.4 (1:3.4.2-1) ...
+Setting up libffi6:amd64 (3.1-2) ...
+Setting up libllvm3.4:amd64 (1:3.4.2-1) ...
+Setting up libobjc4:amd64 (4.9.0-6) ...
+Setting up libobjc-4.9-dev:amd64 (4.9.0-6) ...
+Setting up libclang1-3.4:amd64 (1:3.4.2-1) ...
+Setting up libclang-common-3.4-dev (1:3.4.2-1) ...
+Setting up clang-3.4 (1:3.4.2-1) ...
+Processing triggers for libc-bin (2.19-2) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.6 gcc-4.6 cpp-4.6
++ ln -s clang++ g++-4.6
++ ln -s clang gcc-4.6
++ ln -s clang cpp-4.6
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.7 gcc-4.7 cpp-4.7
++ ln -s clang++ g++-4.7
++ ln -s clang gcc-4.7
++ ln -s clang cpp-4.7
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.8 gcc-4.8 cpp-4.8
++ ln -s clang++ g++-4.8
++ ln -s clang gcc-4.8
++ ln -s clang cpp-4.8
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.9 gcc-4.9 cpp-4.9
++ ln -s clang++ g++-4.9
++ ln -s clang gcc-4.9
++ ln -s clang cpp-4.9
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
++ cd -
+/«BUILDDIR»
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-qXOErJ/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/816 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 14431 files and directories currently installed.)
+Preparing to unpack .../sbuild-build-depends-core-dummy.deb ...
+Unpacking sbuild-build-depends-core-dummy (0.invalid.0) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), dpkg-dev (>= 1.16.0~ubuntu4), debhelper (>= 5.0.62), g++-multilib, libc6-dev (>= 2.13-5), libc6-dev-i386, lib32gcc1, m4, libtool, autoconf2.64, zlib1g-dev, gawk, lzma, xz-utils, patchutils, binutils (>= 2.21.1) | binutils-multiarch (>= 2.21.1), gperf (>= 3.0.1), bison (>= 1:2.3), flex, gettext, texinfo (>= 4.3), locales, sharutils, procps, libcloog-ppl-dev (>= 0.16), libmpc-dev (>= 1.0), libmpfr-dev (>= 3.0.0-9~), libgmp-dev (>= 2:5.0.1~), libelfg0-dev (>= 0.8.12), dejagnu, autogen, realpath (>= 1.9.12), chrpath, lsb-release, make (>= 3.81), quilt
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.4.3), g++ (>= 4:4.4.3), make, dpkg-dev (>= 1.13.5), dpkg-dev (>= 1.16.0~ubuntu4), debhelper (>= 5.0.62), g++-multilib, libc6-dev (>= 2.13-5), libc6-dev-i386, lib32gcc1, m4, libtool, autoconf2.64, zlib1g-dev, gawk, lzma, xz-utils, patchutils, binutils (>= 2.21.1), gperf (>= 3.0.1), bison (>= 1:2.3), flex, gettext, texinfo (>= 4.3), locales, sharutils, procps, libcloog-ppl-dev (>= 0.16), libmpc-dev (>= 1.0), libmpfr-dev (>= 3.0.0-9~), libgmp-dev (>= 2:5.0.1~), libelfg0-dev (>= 0.8.12), dejagnu, autogen, realpath (>= 1.9.12), chrpath, lsb-release, make (>= 3.81), quilt
+dpkg-deb: building package `sbuild-build-depends-gcc-4.6-dummy' in `/«BUILDDIR»/resolver-kwrYQf/apt_archive/sbuild-build-depends-gcc-4.6-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install gcc-4.6 build dependencies (apt-based resolver)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autoconf autoconf2.64 autogen autotools-dev bison bsdmainutils chrpath
+  debhelper dejagnu diffstat expect file flex g++-4.9-multilib g++-multilib
+  gawk gcc-4.9-multilib gcc-multilib gettext gettext-base gperf groff-base
+  guile-2.0-libs intltool-debian lib32asan1 lib32atomic1 lib32cilkrts5
+  lib32gcc-4.9-dev lib32gcc1 lib32gomp1 lib32itm1 lib32quadmath0
+  lib32stdc++-4.9-dev lib32stdc++6 lib32ubsan0 lib32vtv0 libasprintf0c2
+  libbison-dev libc6-dev-i386 libc6-dev-x32 libc6-i386 libc6-x32
+  libcloog-ppl-dev libcroco3 libelfg0 libelfg0-dev libexpat1 libfl-dev
+  libglib2.0-0 libgmp-dev libintl-perl libltdl7 libmagic1 libmpc-dev
+  libmpfr-dev libncursesw5 libopts25 libopts25-dev libpipeline1 libppl-dev
+  libprocps3 libpython-stdlib libpython2.7-minimal libpython2.7-stdlib
+  libsigsegv2 libsqlite3-0 libssl1.0.0 libtcl8.5 libtext-unidecode-perl
+  libtool libunistring0 libx32asan1 libx32atomic1 libx32cilkrts5
+  libx32gcc-4.9-dev libx32gcc1 libx32gomp1 libx32itm1 libx32quadmath0
+  libx32stdc++-4.9-dev libx32stdc++6 libx32ubsan0 libx32vtv0
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml2 locales lsb-release m4 man-db mime-support
+  patchutils po-debconf procps python python-minimal python2.7
+  python2.7-minimal quilt realpath sharutils tcl8.5 texinfo zlib1g-dev
+Suggested packages:
+  autoconf2.13 autoconf-archive gnu-standards autoconf-doc bison-doc wamerican
+  wordlist whois vacation dh-make lib32stdc++6-4.9-dbg libx32stdc++6-4.9-dbg
+  gawk-doc gettext-doc groff libgmp10-doc libintl-xs-perl libmpfr-doc
+  libppl-doc libtool-doc gfortran fortran95-compiler gcj-jdk lsb less
+  www-browser libmail-box-perl python-doc python-tk python2.7-doc
+  binfmt-support procmail graphviz default-mta mail-transport-agent bsd-mailx
+  mailx tcl-tclreadline texlive-base texlive-latex-base
+  texlive-generic-recommended texinfo-doc-nonfree
+Recommended packages:
+  automake automaken curl wget lynx-cur autopoint libasprintf-dev
+  libgettextpo-dev libglib2.0-data shared-mime-info libgmp3-dev libltdl-dev
+  libxml-sax-expat-perl xml-core libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  autoconf autoconf2.64 autogen autotools-dev bison bsdmainutils chrpath
+  debhelper dejagnu diffstat expect file flex g++-4.9-multilib g++-multilib
+  gawk gcc-4.9-multilib gcc-multilib gettext gettext-base gperf groff-base
+  guile-2.0-libs intltool-debian lib32asan1 lib32atomic1 lib32cilkrts5
+  lib32gcc-4.9-dev lib32gcc1 lib32gomp1 lib32itm1 lib32quadmath0
+  lib32stdc++-4.9-dev lib32stdc++6 lib32ubsan0 lib32vtv0 libasprintf0c2
+  libbison-dev libc6-dev-i386 libc6-dev-x32 libc6-i386 libc6-x32
+  libcloog-ppl-dev libcroco3 libelfg0 libelfg0-dev libexpat1 libfl-dev
+  libglib2.0-0 libgmp-dev libintl-perl libltdl7 libmagic1 libmpc-dev
+  libmpfr-dev libncursesw5 libopts25 libopts25-dev libpipeline1 libppl-dev
+  libprocps3 libpython-stdlib libpython2.7-minimal libpython2.7-stdlib
+  libsigsegv2 libsqlite3-0 libssl1.0.0 libtcl8.5 libtext-unidecode-perl
+  libtool libunistring0 libx32asan1 libx32atomic1 libx32cilkrts5
+  libx32gcc-4.9-dev libx32gcc1 libx32gomp1 libx32itm1 libx32quadmath0
+  libx32stdc++-4.9-dev libx32stdc++6 libx32ubsan0 libx32vtv0
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml2 locales lsb-release m4 man-db mime-support
+  patchutils po-debconf procps python python-minimal python2.7
+  python2.7-minimal quilt realpath sbuild-build-depends-gcc-4.6-dummy
+  sharutils tcl8.5 texinfo zlib1g-dev
+0 upgraded, 107 newly installed, 0 to remove and 0 not upgraded.
+Need to get 49.9 MB/49.9 MB of archives.
+After this operation, 200 MB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main libncursesw5 amd64 5.9+20140118-1 [120 kB]
+Get:2 http://localhost:9999/debian/ unstable/main libpipeline1 amd64 1.3.0-1 [25.8 kB]
+Get:3 http://localhost:9999/debian/ unstable/main libprocps3 amd64 1:3.3.9-5 [55.6 kB]
+Get:4 http://localhost:9999/debian/ unstable/main libssl1.0.0 amd64 1.0.1h-3 [1011 kB]
+Get:5 http://localhost:9999/debian/ unstable/main groff-base amd64 1.22.2-5 [1043 kB]
+Get:6 http://localhost:9999/debian/ unstable/main bsdmainutils amd64 9.0.5 [211 kB]
+Get:7 http://localhost:9999/debian/ unstable/main man-db amd64 2.6.7.1-1 [990 kB]
+Get:8 http://localhost:9999/debian/ unstable/main libasprintf0c2 amd64 0.18.3.2-2 [29.4 kB]
+Get:9 http://localhost:9999/debian/ unstable/main libmagic1 amd64 1:5.19-1 [237 kB]
+Get:10 http://localhost:9999/debian/ unstable/main libsqlite3-0 amd64 3.8.5-1 [420 kB]
+Get:11 http://localhost:9999/debian/ unstable/main libxml2 amd64 2.9.1+dfsg1-3 [791 kB]
+Get:12 http://localhost:9999/debian/ unstable/main libsigsegv2 amd64 2.10-4 [28.8 kB]
+Get:13 http://localhost:9999/debian/ unstable/main m4 amd64 1.4.17-4 [254 kB]
+Get:14 http://localhost:9999/debian/ unstable/main libfl-dev amd64 2.5.39-7 [74.7 kB]
+Get:15 http://localhost:9999/debian/ unstable/main flex amd64 2.5.39-7 [960 kB]
+Get:16 http://localhost:9999/debian/ unstable/main gawk amd64 1:4.1.1+dfsg-1 [520 kB]
+Get:17 http://localhost:9999/debian/ unstable/main libglib2.0-0 amd64 2.40.0-3 [2405 kB]
+Get:18 http://localhost:9999/debian/ unstable/main libcroco3 amd64 0.6.8-2 [133 kB]
+Get:19 http://localhost:9999/debian/ unstable/main libelfg0 amd64 0.8.13-5 [51.6 kB]
+Get:20 http://localhost:9999/debian/ unstable/main libexpat1 amd64 2.1.0-6 [80.6 kB]
+Get:21 http://localhost:9999/debian/ unstable/main libltdl7 amd64 2.4.2-1.7 [352 kB]
+Get:22 http://localhost:9999/debian/ unstable/main libopts25 amd64 1:5.18.3-3 [69.1 kB]
+Get:23 http://localhost:9999/debian/ unstable/main libtcl8.5 amd64 8.5.15-4 [728 kB]
+Get:24 http://localhost:9999/debian/ unstable/main libunistring0 amd64 0.9.3-5 [434 kB]
+Get:25 http://localhost:9999/debian/ unstable/main libpython2.7-minimal amd64 2.7.7-2 [348 kB]
+Get:26 http://localhost:9999/debian/ unstable/main python2.7-minimal amd64 2.7.7-2 [1231 kB]
+Get:27 http://localhost:9999/debian/ unstable/main procps amd64 1:3.3.9-5 [233 kB]
+Get:28 http://localhost:9999/debian/ unstable/main file amd64 1:5.19-1 [58.0 kB]
+Get:29 http://localhost:9999/debian/ unstable/main gettext-base amd64 0.18.3.2-2 [116 kB]
+Get:30 http://localhost:9999/debian/ unstable/main locales all 2.19-2 [3909 kB]
+Get:31 http://localhost:9999/debian/ unstable/main mime-support all 3.56 [35.5 kB]
+Get:32 http://localhost:9999/debian/ unstable/main libpython2.7-stdlib amd64 2.7.7-2 [1871 kB]
+Get:33 http://localhost:9999/debian/ unstable/main python2.7 amd64 2.7.7-2 [242 kB]
+Get:34 http://localhost:9999/debian/ unstable/main python-minimal amd64 2.7.6-2 [39.3 kB]
+Get:35 http://localhost:9999/debian/ unstable/main libpython-stdlib amd64 2.7.6-2 [18.8 kB]
+Get:36 http://localhost:9999/debian/ unstable/main python amd64 2.7.6-2 [150 kB]
+Get:37 http://localhost:9999/debian/ unstable/main libtext-unidecode-perl all 0.04-2 [115 kB]
+Get:38 http://localhost:9999/debian/ unstable/main libintl-perl all 1.23-1 [1209 kB]
+Get:39 http://localhost:9999/debian/ unstable/main libxml-namespacesupport-perl all 1.11-1 [14.8 kB]
+Get:40 http://localhost:9999/debian/ unstable/main libxml-sax-base-perl all 1.07-1 [23.1 kB]
+Get:41 http://localhost:9999/debian/ unstable/main libxml-sax-perl all 0.99+dfsg-2 [68.3 kB]
+Get:42 http://localhost:9999/debian/ unstable/main libxml-libxml-perl amd64 2.0116+dfsg-1 [362 kB]
+Get:43 http://localhost:9999/debian/ unstable/main texinfo amd64 5.2.0.dfsg.1-4 [957 kB]
+Get:44 http://localhost:9999/debian/ unstable/main autoconf all 2.69-6 [340 kB]
+Get:45 http://localhost:9999/debian/ unstable/main guile-2.0-libs amd64 2.0.11+1-1 [2238 kB]
+Get:46 http://localhost:9999/debian/ unstable/main libopts25-dev amd64 1:5.18.3-3 [104 kB]
+Get:47 http://localhost:9999/debian/ unstable/main autogen amd64 1:5.18.3-3 [1225 kB]
+Get:48 http://localhost:9999/debian/ unstable/main autotools-dev all 20140510.1 [70.3 kB]
+Get:49 http://localhost:9999/debian/ unstable/main libbison-dev amd64 2:3.0.2.dfsg-2 [426 kB]
+Get:50 http://localhost:9999/debian/ unstable/main bison amd64 2:3.0.2.dfsg-2 [765 kB]
+Get:51 http://localhost:9999/debian/ unstable/main chrpath amd64 0.16-1 [16.3 kB]
+Get:52 http://localhost:9999/debian/ unstable/main gettext amd64 0.18.3.2-2 [1202 kB]
+Get:53 http://localhost:9999/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:54 http://localhost:9999/debian/ unstable/main po-debconf all 1.0.16+nmu2 [224 kB]
+Get:55 http://localhost:9999/debian/ unstable/main debhelper all 9.20140613 [692 kB]
+Get:56 http://localhost:9999/debian/ unstable/main tcl8.5 amd64 8.5.15-4 [58.5 kB]
+Get:57 http://localhost:9999/debian/ unstable/main expect amd64 5.45-5 [178 kB]
+Get:58 http://localhost:9999/debian/ unstable/main dejagnu all 1.5-3 [885 kB]
+Get:59 http://localhost:9999/debian/ unstable/main diffstat amd64 1.58-1 [29.4 kB]
+Get:60 http://localhost:9999/debian/ unstable/main libc6-i386 amd64 2.19-2 [2368 kB]
+Get:61 http://localhost:9999/debian/ unstable/main libc6-dev-i386 amd64 2.19-2 [1311 kB]
+Get:62 http://localhost:9999/debian/ unstable/main libc6-x32 amd64 2.19-2 [2595 kB]
+Get:63 http://localhost:9999/debian/ unstable/main libc6-dev-x32 amd64 2.19-2 [1578 kB]
+Get:64 http://localhost:9999/debian/ unstable/main lib32gcc1 amd64 1:4.9.0-6 [47.9 kB]
+Get:65 http://localhost:9999/debian/ unstable/main libx32gcc1 amd64 1:4.9.0-6 [38.7 kB]
+Get:66 http://localhost:9999/debian/ unstable/main lib32gomp1 amd64 4.9.0-6 [38.9 kB]
+Get:67 http://localhost:9999/debian/ unstable/main libx32gomp1 amd64 4.9.0-6 [35.6 kB]
+Get:68 http://localhost:9999/debian/ unstable/main lib32itm1 amd64 4.9.0-6 [31.6 kB]
+Get:69 http://localhost:9999/debian/ unstable/main libx32itm1 amd64 4.9.0-6 [28.7 kB]
+Get:70 http://localhost:9999/debian/ unstable/main lib32atomic1 amd64 4.9.0-6 [8608 B]
+Get:71 http://localhost:9999/debian/ unstable/main libx32atomic1 amd64 4.9.0-6 [8988 B]
+Get:72 http://localhost:9999/debian/ unstable/main lib32stdc++6 amd64 4.9.0-6 [280 kB]
+Get:73 http://localhost:9999/debian/ unstable/main lib32asan1 amd64 4.9.0-6 [185 kB]
+Get:74 http://localhost:9999/debian/ unstable/main libx32asan1 amd64 4.9.0-6 [187 kB]
+Get:75 http://localhost:9999/debian/ unstable/main lib32ubsan0 amd64 4.9.0-6 [87.9 kB]
+Get:76 http://localhost:9999/debian/ unstable/main libx32ubsan0 amd64 4.9.0-6 [82.1 kB]
+Get:77 http://localhost:9999/debian/ unstable/main lib32vtv0 amd64 4.9.0-6 [2420 B]
+Get:78 http://localhost:9999/debian/ unstable/main libx32vtv0 amd64 4.9.0-6 [2398 B]
+Get:79 http://localhost:9999/debian/ unstable/main lib32cilkrts5 amd64 4.9.0-6 [42.8 kB]
+Get:80 http://localhost:9999/debian/ unstable/main libx32cilkrts5 amd64 4.9.0-6 [39.1 kB]
+Get:81 http://localhost:9999/debian/ unstable/main lib32quadmath0 amd64 4.9.0-6 [193 kB]
+Get:82 http://localhost:9999/debian/ unstable/main libx32quadmath0 amd64 4.9.0-6 [132 kB]
+Get:83 http://localhost:9999/debian/ unstable/main lib32gcc-4.9-dev amd64 4.9.0-6 [1908 kB]
+Get:84 http://localhost:9999/debian/ unstable/main libx32gcc-4.9-dev amd64 4.9.0-6 [1775 kB]
+Get:85 http://localhost:9999/debian/ unstable/main gcc-4.9-multilib amd64 4.9.0-6 [974 B]
+Get:86 http://localhost:9999/debian/ unstable/main lib32stdc++-4.9-dev amd64 4.9.0-6 [359 kB]
+Get:87 http://localhost:9999/debian/ unstable/main libx32stdc++6 amd64 4.9.0-6 [244 kB]
+Get:88 http://localhost:9999/debian/ unstable/main libx32stdc++-4.9-dev amd64 4.9.0-6 [347 kB]
+Get:89 http://localhost:9999/debian/ unstable/main g++-4.9-multilib amd64 4.9.0-6 [988 B]
+Get:90 http://localhost:9999/debian/ unstable/main gcc-multilib amd64 4:4.9.0-3 [994 B]
+Get:91 http://localhost:9999/debian/ unstable/main g++-multilib amd64 4:4.9.0-3 [934 B]
+Get:92 http://localhost:9999/debian/ unstable/main gperf amd64 3.0.4-1 [139 kB]
+Get:93 http://localhost:9999/debian/ unstable/main libppl-dev amd64 1:1.1-2+b1 [2061 kB]
+Get:94 http://localhost:9999/debian/ unstable/main libgmp-dev amd64 2:6.0.0+dfsg-4 [601 kB]
+Get:95 http://localhost:9999/debian/ unstable/main libcloog-ppl-dev amd64 0.16.1-5 [68.2 kB]
+Get:96 http://localhost:9999/debian/ unstable/main libelfg0-dev amd64 0.8.13-5 [55.9 kB]
+Get:97 http://localhost:9999/debian/ unstable/main libmpfr-dev amd64 3.1.2-1 [547 kB]
+Get:98 http://localhost:9999/debian/ unstable/main libtool amd64 2.4.2-1.7 [505 kB]
+Get:99 http://localhost:9999/debian/ unstable/main lsb-release all 4.1+Debian13 [26.3 kB]
+Get:100 http://localhost:9999/debian/ unstable/main patchutils amd64 0.3.3-1 [87.0 kB]
+Get:101 http://localhost:9999/debian/ unstable/main quilt all 0.63-2 [311 kB]
+Get:102 http://localhost:9999/debian/ unstable/main realpath amd64 1.19 [15.7 kB]
+Get:103 http://localhost:9999/debian/ unstable/main sharutils amd64 1:4.14-2 [245 kB]
+Get:104 http://localhost:9999/debian/ unstable/main zlib1g-dev amd64 1:1.2.8.dfsg-1 [217 kB]
+Get:105 http://localhost:9999/debian/ unstable/main autoconf2.64 all 2.64-3 [522 kB]
+Get:106 http://localhost:9999/debian/ unstable/main libmpc-dev amd64 1.0.1-1 [61.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 49.9 MB in 10s (4982 kB/s)
+Selecting previously unselected package libncursesw5:amd64.
+(Reading database ... 14431 files and directories currently installed.)
+Preparing to unpack .../libncursesw5_5.9+20140118-1_amd64.deb ...
+Unpacking libncursesw5:amd64 (5.9+20140118-1) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../libpipeline1_1.3.0-1_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.3.0-1) ...
+Selecting previously unselected package libprocps3:amd64.
+Preparing to unpack .../libprocps3_1%3a3.3.9-5_amd64.deb ...
+Unpacking libprocps3:amd64 (1:3.3.9-5) ...
+Selecting previously unselected package libssl1.0.0:amd64.
+Preparing to unpack .../libssl1.0.0_1.0.1h-3_amd64.deb ...
+Unpacking libssl1.0.0:amd64 (1.0.1h-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../groff-base_1.22.2-5_amd64.deb ...
+Unpacking groff-base (1.22.2-5) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../bsdmainutils_9.0.5_amd64.deb ...
+Unpacking bsdmainutils (9.0.5) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../man-db_2.6.7.1-1_amd64.deb ...
+Unpacking man-db (2.6.7.1-1) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Preparing to unpack .../libasprintf0c2_0.18.3.2-2_amd64.deb ...
+Unpacking libasprintf0c2:amd64 (0.18.3.2-2) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../libmagic1_1%3a5.19-1_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.19-1) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../libsqlite3-0_3.8.5-1_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.8.5-1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../libxml2_2.9.1+dfsg1-3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.1+dfsg1-3) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../libsigsegv2_2.10-4_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.10-4) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../archives/m4_1.4.17-4_amd64.deb ...
+Unpacking m4 (1.4.17-4) ...
+Selecting previously unselected package libfl-dev:amd64.
+Preparing to unpack .../libfl-dev_2.5.39-7_amd64.deb ...
+Unpacking libfl-dev:amd64 (2.5.39-7) ...
+Selecting previously unselected package flex.
+Preparing to unpack .../flex_2.5.39-7_amd64.deb ...
+Unpacking flex (2.5.39-7) ...
+Setting up libsigsegv2:amd64 (2.10-4) ...
+Processing triggers for libc-bin (2.19-2) ...
+Selecting previously unselected package gawk.
+(Reading database ... 15236 files and directories currently installed.)
+Preparing to unpack .../gawk_1%3a4.1.1+dfsg-1_amd64.deb ...
+Unpacking gawk (1:4.1.1+dfsg-1) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../libglib2.0-0_2.40.0-3_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.40.0-3) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../libcroco3_0.6.8-2_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.8-2) ...
+Selecting previously unselected package libelfg0:amd64.
+Preparing to unpack .../libelfg0_0.8.13-5_amd64.deb ...
+Unpacking libelfg0:amd64 (0.8.13-5) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../libexpat1_2.1.0-6_amd64.deb ...
+Unpacking libexpat1:amd64 (2.1.0-6) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../libltdl7_2.4.2-1.7_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.2-1.7) ...
+Selecting previously unselected package libopts25:amd64.
+Preparing to unpack .../libopts25_1%3a5.18.3-3_amd64.deb ...
+Unpacking libopts25:amd64 (1:5.18.3-3) ...
+Selecting previously unselected package libtcl8.5:amd64.
+Preparing to unpack .../libtcl8.5_8.5.15-4_amd64.deb ...
+Unpacking libtcl8.5:amd64 (8.5.15-4) ...
+Selecting previously unselected package libunistring0:amd64.
+Preparing to unpack .../libunistring0_0.9.3-5_amd64.deb ...
+Unpacking libunistring0:amd64 (0.9.3-5) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Preparing to unpack .../libpython2.7-minimal_2.7.7-2_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.7-2) ...
+Selecting previously unselected package python2.7-minimal.
+Preparing to unpack .../python2.7-minimal_2.7.7-2_amd64.deb ...
+Unpacking python2.7-minimal (2.7.7-2) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../procps_1%3a3.3.9-5_amd64.deb ...
+Unpacking procps (1:3.3.9-5) ...
+Selecting previously unselected package file.
+Preparing to unpack .../file_1%3a5.19-1_amd64.deb ...
+Unpacking file (1:5.19-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../gettext-base_0.18.3.2-2_amd64.deb ...
+Unpacking gettext-base (0.18.3.2-2) ...
+Selecting previously unselected package locales.
+Preparing to unpack .../locales_2.19-2_all.deb ...
+Unpacking locales (2.19-2) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../mime-support_3.56_all.deb ...
+Unpacking mime-support (3.56) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../libpython2.7-stdlib_2.7.7-2_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.7-2) ...
+Selecting previously unselected package python2.7.
+Preparing to unpack .../python2.7_2.7.7-2_amd64.deb ...
+Unpacking python2.7 (2.7.7-2) ...
+Selecting previously unselected package python-minimal.
+Preparing to unpack .../python-minimal_2.7.6-2_amd64.deb ...
+Unpacking python-minimal (2.7.6-2) ...
+Selecting previously unselected package libpython-stdlib:amd64.
+Preparing to unpack .../libpython-stdlib_2.7.6-2_amd64.deb ...
+Unpacking libpython-stdlib:amd64 (2.7.6-2) ...
+Selecting previously unselected package python.
+Preparing to unpack .../python_2.7.6-2_amd64.deb ...
+Unpacking python (2.7.6-2) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../libtext-unidecode-perl_0.04-2_all.deb ...
+Unpacking libtext-unidecode-perl (0.04-2) ...
+Selecting previously unselected package libintl-perl.
+Preparing to unpack .../libintl-perl_1.23-1_all.deb ...
+Unpacking libintl-perl (1.23-1) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../libxml-namespacesupport-perl_1.11-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.11-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../libxml-sax-base-perl_1.07-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.07-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../libxml-sax-perl_0.99+dfsg-2_all.deb ...
+Unpacking libxml-sax-perl (0.99+dfsg-2) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../libxml-libxml-perl_2.0116+dfsg-1_amd64.deb ...
+Unpacking libxml-libxml-perl (2.0116+dfsg-1) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../texinfo_5.2.0.dfsg.1-4_amd64.deb ...
+Unpacking texinfo (5.2.0.dfsg.1-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../autoconf_2.69-6_all.deb ...
+Unpacking autoconf (2.69-6) ...
+Selecting previously unselected package guile-2.0-libs.
+Preparing to unpack .../guile-2.0-libs_2.0.11+1-1_amd64.deb ...
+Unpacking guile-2.0-libs (2.0.11+1-1) ...
+Selecting previously unselected package libopts25-dev.
+Preparing to unpack .../libopts25-dev_1%3a5.18.3-3_amd64.deb ...
+Unpacking libopts25-dev (1:5.18.3-3) ...
+Selecting previously unselected package autogen.
+Preparing to unpack .../autogen_1%3a5.18.3-3_amd64.deb ...
+Unpacking autogen (1:5.18.3-3) ...
+Replaced by files in installed package libopts25-dev (1:5.18.3-3) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../autotools-dev_20140510.1_all.deb ...
+Unpacking autotools-dev (20140510.1) ...
+Selecting previously unselected package libbison-dev:amd64.
+Preparing to unpack .../libbison-dev_2%3a3.0.2.dfsg-2_amd64.deb ...
+Unpacking libbison-dev:amd64 (2:3.0.2.dfsg-2) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../bison_2%3a3.0.2.dfsg-2_amd64.deb ...
+Unpacking bison (2:3.0.2.dfsg-2) ...
+Selecting previously unselected package chrpath.
+Preparing to unpack .../chrpath_0.16-1_amd64.deb ...
+Unpacking chrpath (0.16-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../gettext_0.18.3.2-2_amd64.deb ...
+Unpacking gettext (0.18.3.2-2) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../intltool-debian_0.35.0+20060710.1_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.1) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../po-debconf_1.0.16+nmu2_all.deb ...
+Unpacking po-debconf (1.0.16+nmu2) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../debhelper_9.20140613_all.deb ...
+Unpacking debhelper (9.20140613) ...
+Selecting previously unselected package tcl8.5.
+Preparing to unpack .../tcl8.5_8.5.15-4_amd64.deb ...
+Unpacking tcl8.5 (8.5.15-4) ...
+Selecting previously unselected package expect.
+Preparing to unpack .../expect_5.45-5_amd64.deb ...
+Unpacking expect (5.45-5) ...
+Selecting previously unselected package dejagnu.
+Preparing to unpack .../archives/dejagnu_1.5-3_all.deb ...
+Unpacking dejagnu (1.5-3) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../diffstat_1.58-1_amd64.deb ...
+Unpacking diffstat (1.58-1) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../libc6-i386_2.19-2_amd64.deb ...
+Unpacking libc6-i386 (2.19-2) ...
+Selecting previously unselected package libc6-dev-i386.
+Preparing to unpack .../libc6-dev-i386_2.19-2_amd64.deb ...
+Unpacking libc6-dev-i386 (2.19-2) ...
+Selecting previously unselected package libc6-x32.
+Preparing to unpack .../libc6-x32_2.19-2_amd64.deb ...
+Unpacking libc6-x32 (2.19-2) ...
+Selecting previously unselected package libc6-dev-x32.
+Preparing to unpack .../libc6-dev-x32_2.19-2_amd64.deb ...
+Unpacking libc6-dev-x32 (2.19-2) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../lib32gcc1_1%3a4.9.0-6_amd64.deb ...
+Unpacking lib32gcc1 (1:4.9.0-6) ...
+Selecting previously unselected package libx32gcc1.
+Preparing to unpack .../libx32gcc1_1%3a4.9.0-6_amd64.deb ...
+Unpacking libx32gcc1 (1:4.9.0-6) ...
+Selecting previously unselected package lib32gomp1.
+Preparing to unpack .../lib32gomp1_4.9.0-6_amd64.deb ...
+Unpacking lib32gomp1 (4.9.0-6) ...
+Selecting previously unselected package libx32gomp1.
+Preparing to unpack .../libx32gomp1_4.9.0-6_amd64.deb ...
+Unpacking libx32gomp1 (4.9.0-6) ...
+Selecting previously unselected package lib32itm1.
+Preparing to unpack .../lib32itm1_4.9.0-6_amd64.deb ...
+Unpacking lib32itm1 (4.9.0-6) ...
+Selecting previously unselected package libx32itm1.
+Preparing to unpack .../libx32itm1_4.9.0-6_amd64.deb ...
+Unpacking libx32itm1 (4.9.0-6) ...
+Selecting previously unselected package lib32atomic1.
+Preparing to unpack .../lib32atomic1_4.9.0-6_amd64.deb ...
+Unpacking lib32atomic1 (4.9.0-6) ...
+Selecting previously unselected package libx32atomic1.
+Preparing to unpack .../libx32atomic1_4.9.0-6_amd64.deb ...
+Unpacking libx32atomic1 (4.9.0-6) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../lib32stdc++6_4.9.0-6_amd64.deb ...
+Unpacking lib32stdc++6 (4.9.0-6) ...
+Selecting previously unselected package lib32asan1.
+Preparing to unpack .../lib32asan1_4.9.0-6_amd64.deb ...
+Unpacking lib32asan1 (4.9.0-6) ...
+Selecting previously unselected package libx32asan1.
+Preparing to unpack .../libx32asan1_4.9.0-6_amd64.deb ...
+Unpacking libx32asan1 (4.9.0-6) ...
+Selecting previously unselected package lib32ubsan0.
+Preparing to unpack .../lib32ubsan0_4.9.0-6_amd64.deb ...
+Unpacking lib32ubsan0 (4.9.0-6) ...
+Selecting previously unselected package libx32ubsan0.
+Preparing to unpack .../libx32ubsan0_4.9.0-6_amd64.deb ...
+Unpacking libx32ubsan0 (4.9.0-6) ...
+Selecting previously unselected package lib32vtv0.
+Preparing to unpack .../lib32vtv0_4.9.0-6_amd64.deb ...
+Unpacking lib32vtv0 (4.9.0-6) ...
+Selecting previously unselected package libx32vtv0.
+Preparing to unpack .../libx32vtv0_4.9.0-6_amd64.deb ...
+Unpacking libx32vtv0 (4.9.0-6) ...
+Selecting previously unselected package lib32cilkrts5.
+Preparing to unpack .../lib32cilkrts5_4.9.0-6_amd64.deb ...
+Unpacking lib32cilkrts5 (4.9.0-6) ...
+Selecting previously unselected package libx32cilkrts5.
+Preparing to unpack .../libx32cilkrts5_4.9.0-6_amd64.deb ...
+Unpacking libx32cilkrts5 (4.9.0-6) ...
+Selecting previously unselected package lib32quadmath0.
+Preparing to unpack .../lib32quadmath0_4.9.0-6_amd64.deb ...
+Unpacking lib32quadmath0 (4.9.0-6) ...
+Selecting previously unselected package libx32quadmath0.
+Preparing to unpack .../libx32quadmath0_4.9.0-6_amd64.deb ...
+Unpacking libx32quadmath0 (4.9.0-6) ...
+Selecting previously unselected package lib32gcc-4.9-dev.
+Preparing to unpack .../lib32gcc-4.9-dev_4.9.0-6_amd64.deb ...
+Unpacking lib32gcc-4.9-dev (4.9.0-6) ...
+Selecting previously unselected package libx32gcc-4.9-dev.
+Preparing to unpack .../libx32gcc-4.9-dev_4.9.0-6_amd64.deb ...
+Unpacking libx32gcc-4.9-dev (4.9.0-6) ...
+Selecting previously unselected package gcc-4.9-multilib.
+Preparing to unpack .../gcc-4.9-multilib_4.9.0-6_amd64.deb ...
+Unpacking gcc-4.9-multilib (4.9.0-6) ...
+Selecting previously unselected package lib32stdc++-4.9-dev.
+Preparing to unpack .../lib32stdc++-4.9-dev_4.9.0-6_amd64.deb ...
+Unpacking lib32stdc++-4.9-dev (4.9.0-6) ...
+Selecting previously unselected package libx32stdc++6.
+Preparing to unpack .../libx32stdc++6_4.9.0-6_amd64.deb ...
+Unpacking libx32stdc++6 (4.9.0-6) ...
+Selecting previously unselected package libx32stdc++-4.9-dev.
+Preparing to unpack .../libx32stdc++-4.9-dev_4.9.0-6_amd64.deb ...
+Unpacking libx32stdc++-4.9-dev (4.9.0-6) ...
+Selecting previously unselected package g++-4.9-multilib.
+Preparing to unpack .../g++-4.9-multilib_4.9.0-6_amd64.deb ...
+Unpacking g++-4.9-multilib (4.9.0-6) ...
+Selecting previously unselected package gcc-multilib.
+Preparing to unpack .../gcc-multilib_4%3a4.9.0-3_amd64.deb ...
+Unpacking gcc-multilib (4:4.9.0-3) ...
+Selecting previously unselected package g++-multilib.
+Preparing to unpack .../g++-multilib_4%3a4.9.0-3_amd64.deb ...
+Unpacking g++-multilib (4:4.9.0-3) ...
+Selecting previously unselected package gperf.
+Preparing to unpack .../gperf_3.0.4-1_amd64.deb ...
+Unpacking gperf (3.0.4-1) ...
+Selecting previously unselected package libppl-dev:amd64.
+Preparing to unpack .../libppl-dev_1%3a1.1-2+b1_amd64.deb ...
+Unpacking libppl-dev:amd64 (1:1.1-2+b1) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Preparing to unpack .../libgmp-dev_2%3a6.0.0+dfsg-4_amd64.deb ...
+Unpacking libgmp-dev:amd64 (2:6.0.0+dfsg-4) ...
+Selecting previously unselected package libcloog-ppl-dev:amd64.
+Preparing to unpack .../libcloog-ppl-dev_0.16.1-5_amd64.deb ...
+Unpacking libcloog-ppl-dev:amd64 (0.16.1-5) ...
+Selecting previously unselected package libelfg0-dev.
+Preparing to unpack .../libelfg0-dev_0.8.13-5_amd64.deb ...
+Unpacking libelfg0-dev (0.8.13-5) ...
+Selecting previously unselected package libmpfr-dev:amd64.
+Preparing to unpack .../libmpfr-dev_3.1.2-1_amd64.deb ...
+Unpacking libmpfr-dev:amd64 (3.1.2-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../libtool_2.4.2-1.7_amd64.deb ...
+Unpacking libtool (2.4.2-1.7) ...
+Selecting previously unselected package lsb-release.
+Preparing to unpack .../lsb-release_4.1+Debian13_all.deb ...
+Unpacking lsb-release (4.1+Debian13) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../patchutils_0.3.3-1_amd64.deb ...
+Unpacking patchutils (0.3.3-1) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../archives/quilt_0.63-2_all.deb ...
+Unpacking quilt (0.63-2) ...
+Selecting previously unselected package realpath.
+Preparing to unpack .../realpath_1.19_amd64.deb ...
+Unpacking realpath (1.19) ...
+Selecting previously unselected package sharutils.
+Preparing to unpack .../sharutils_1%3a4.14-2_amd64.deb ...
+Unpacking sharutils (1:4.14-2) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../zlib1g-dev_1%3a1.2.8.dfsg-1_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.8.dfsg-1) ...
+Selecting previously unselected package autoconf2.64.
+Preparing to unpack .../autoconf2.64_2.64-3_all.deb ...
+Unpacking autoconf2.64 (2.64-3) ...
+Selecting previously unselected package libmpc-dev:amd64.
+Preparing to unpack .../libmpc-dev_1.0.1-1_amd64.deb ...
+Unpacking libmpc-dev:amd64 (1.0.1-1) ...
+Selecting previously unselected package sbuild-build-depends-gcc-4.6-dummy.
+Preparing to unpack .../sbuild-build-depends-gcc-4.6-dummy.deb ...
+Unpacking sbuild-build-depends-gcc-4.6-dummy (0.invalid.0) ...
+Setting up libncursesw5:amd64 (5.9+20140118-1) ...
+Setting up libpipeline1:amd64 (1.3.0-1) ...
+Setting up libprocps3:amd64 (1:3.3.9-5) ...
+Setting up libssl1.0.0:amd64 (1.0.1h-3) ...
+Setting up groff-base (1.22.2-5) ...
+Setting up bsdmainutils (9.0.5) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.7.1-1) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libasprintf0c2:amd64 (0.18.3.2-2) ...
+Setting up libmagic1:amd64 (1:5.19-1) ...
+Setting up libsqlite3-0:amd64 (3.8.5-1) ...
+Setting up libxml2:amd64 (2.9.1+dfsg1-3) ...
+Setting up m4 (1.4.17-4) ...
+Setting up libfl-dev:amd64 (2.5.39-7) ...
+Setting up flex (2.5.39-7) ...
+Setting up gawk (1:4.1.1+dfsg-1) ...
+Setting up libglib2.0-0:amd64 (2.40.0-3) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.8-2) ...
+Setting up libelfg0:amd64 (0.8.13-5) ...
+Setting up libexpat1:amd64 (2.1.0-6) ...
+Setting up libltdl7:amd64 (2.4.2-1.7) ...
+Setting up libopts25:amd64 (1:5.18.3-3) ...
+Setting up libtcl8.5:amd64 (8.5.15-4) ...
+Setting up libunistring0:amd64 (0.9.3-5) ...
+Setting up libpython2.7-minimal:amd64 (2.7.7-2) ...
+Setting up python2.7-minimal (2.7.7-2) ...
+Setting up procps (1:3.3.9-5) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up file (1:5.19-1) ...
+Setting up gettext-base (0.18.3.2-2) ...
+Setting up locales (2.19-2) ...
+Generating locales (this might take a while)...
+Generation complete.
+Setting up mime-support (3.56) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.7-2) ...
+Setting up python2.7 (2.7.7-2) ...
+Setting up python-minimal (2.7.6-2) ...
+Setting up libpython-stdlib:amd64 (2.7.6-2) ...
+Setting up python (2.7.6-2) ...
+Setting up libtext-unidecode-perl (0.04-2) ...
+Setting up libintl-perl (1.23-1) ...
+Setting up libxml-namespacesupport-perl (1.11-1) ...
+Setting up libxml-sax-base-perl (1.07-1) ...
+Setting up libxml-sax-perl (0.99+dfsg-2) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libxml-libxml-perl (2.0116+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up texinfo (5.2.0.dfsg.1-4) ...
+Setting up autoconf (2.69-6) ...
+Setting up guile-2.0-libs (2.0.11+1-1) ...
+Setting up libopts25-dev (1:5.18.3-3) ...
+Setting up autogen (1:5.18.3-3) ...
+Setting up autotools-dev (20140510.1) ...
+Setting up libbison-dev:amd64 (2:3.0.2.dfsg-2) ...
+Setting up bison (2:3.0.2.dfsg-2) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up chrpath (0.16-1) ...
+Setting up gettext (0.18.3.2-2) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2) ...
+Setting up debhelper (9.20140613) ...
+Setting up tcl8.5 (8.5.15-4) ...
+Setting up expect (5.45-5) ...
+Setting up dejagnu (1.5-3) ...
+Setting up diffstat (1.58-1) ...
+Setting up libc6-i386 (2.19-2) ...
+Setting up libc6-dev-i386 (2.19-2) ...
+Setting up libc6-x32 (2.19-2) ...
+Setting up libc6-dev-x32 (2.19-2) ...
+Setting up lib32gcc1 (1:4.9.0-6) ...
+Setting up libx32gcc1 (1:4.9.0-6) ...
+Setting up lib32gomp1 (4.9.0-6) ...
+Setting up libx32gomp1 (4.9.0-6) ...
+Setting up lib32itm1 (4.9.0-6) ...
+Setting up libx32itm1 (4.9.0-6) ...
+Setting up lib32atomic1 (4.9.0-6) ...
+Setting up libx32atomic1 (4.9.0-6) ...
+Setting up lib32stdc++6 (4.9.0-6) ...
+Setting up lib32asan1 (4.9.0-6) ...
+Setting up libx32asan1 (4.9.0-6) ...
+Setting up lib32ubsan0 (4.9.0-6) ...
+Setting up libx32ubsan0 (4.9.0-6) ...
+Setting up lib32vtv0 (4.9.0-6) ...
+Setting up libx32vtv0 (4.9.0-6) ...
+Setting up lib32cilkrts5 (4.9.0-6) ...
+Setting up libx32cilkrts5 (4.9.0-6) ...
+Setting up lib32quadmath0 (4.9.0-6) ...
+Setting up libx32quadmath0 (4.9.0-6) ...
+Setting up lib32gcc-4.9-dev (4.9.0-6) ...
+Setting up libx32gcc-4.9-dev (4.9.0-6) ...
+Setting up gcc-4.9-multilib (4.9.0-6) ...
+Setting up lib32stdc++-4.9-dev (4.9.0-6) ...
+Setting up libx32stdc++6 (4.9.0-6) ...
+Setting up libx32stdc++-4.9-dev (4.9.0-6) ...
+Setting up g++-4.9-multilib (4.9.0-6) ...
+Setting up gcc-multilib (4:4.9.0-3) ...
+Setting up g++-multilib (4:4.9.0-3) ...
+Setting up gperf (3.0.4-1) ...
+Setting up libppl-dev:amd64 (1:1.1-2+b1) ...
+Setting up libgmp-dev:amd64 (2:6.0.0+dfsg-4) ...
+Setting up libcloog-ppl-dev:amd64 (0.16.1-5) ...
+Setting up libelfg0-dev (0.8.13-5) ...
+Setting up libmpfr-dev:amd64 (3.1.2-1) ...
+Setting up libtool (2.4.2-1.7) ...
+Setting up lsb-release (4.1+Debian13) ...
+Setting up patchutils (0.3.3-1) ...
+Setting up quilt (0.63-2) ...
+Setting up realpath (1.19) ...
+Setting up sharutils (1:4.14-2) ...
+Setting up zlib1g-dev:amd64 (1:1.2.8.dfsg-1) ...
+Setting up autoconf2.64 (2.64-3) ...
+Setting up libmpc-dev:amd64 (1.0.1-1) ...
+Setting up sbuild-build-depends-gcc-4.6-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.19-2) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.24.51.20140604-3 dpkg-dev_1.17.10 g++-4.6_4.6.4-7 g++-4.9_4.9.0-6 gcc-4.6_4.6.4-7 gcc-4.7_4.7.4-1 gcc-4.9_4.9.0-6 libc6-dev_2.19-2 libstdc++-4.9-dev_4.9.0-6 libstdc++6_4.9.0-6 libstdc++6-4.6-dev_4.6.4-7 linux-libc-dev_3.14.7-1
+Package versions: apt_1.0.4 autoconf_2.69-6 autoconf2.64_2.64-3 autogen_1:5.18.3-3 autotools-dev_20140510.1 base-files_7.3 base-passwd_3.5.33 bash_4.3-7 binutils_2.24.51.20140604-3 bison_2:3.0.2.dfsg-2 bsdmainutils_9.0.5 bsdutils_1:2.20.1-5.8 build-essential_11.6 bzip2_1.0.6-5 chrpath_0.16-1 clang-3.4_1:3.4.2-1 coreutils_8.21-1.2 cpp_4:4.9.0-3 cpp-4.6_4.6.4-7 cpp-4.7_4.7.4-1 cpp-4.9_4.9.0-6 dash_0.5.7-4 debconf_1.5.53 debconf-i18n_1.5.53 debfoster_2.7-1.2 debhelper_9.20140613 debian-archive-keyring_2012.4 debianutils_4.4 dejagnu_1.5-3 diffstat_1.58-1 diffutils_1:3.3-1 dpkg_1.17.10 dpkg-dev_1.17.10 e2fslibs_1.42.10-1 e2fsprogs_1.42.10-1 expect_5.45-5 fakeroot_1.20-3 file_1:5.19-1 findutils_4.4.2-8 flex_2.5.39-7 g++_4:4.9.0-3 g++-4.6_4.6.4-7 g++-4.9_4.9.0-6 g++-4.9-multilib_4.9.0-6 g++-multilib_4:4.9.0-3 gawk_1:4.1.1+dfsg-1 gcc_4:4.9.0-3 gcc-4.4-base_4.4.7-8 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.4-7 gcc-4.6-base_4.6.4-7 gcc-4.7_4.7.4-1 gcc-4.7-base_4.7.4-1 gcc-4.8-base_4.8.3-3 gcc-4.9_4.9.0-6 gcc-4.9-base_4.9.0-6 gcc-4.9-multilib_4.9.0-6 gcc-multilib_4:4.9.0-3 gettext_0.18.3.2-2 gettext-base_0.18.3.2-2 gnupg_1.4.16-1.1 gperf_3.0.4-1 gpgv_1.4.16-1.1 grep_2.18-2 groff-base_1.22.2-5 guile-2.0-libs_2.0.11+1-1 gzip_1.6-3 hostname_3.15 initscripts_2.88dsf-53.2 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 lib32asan1_4.9.0-6 lib32atomic1_4.9.0-6 lib32cilkrts5_4.9.0-6 lib32gcc-4.9-dev_4.9.0-6 lib32gcc1_1:4.9.0-6 lib32gomp1_4.9.0-6 lib32itm1_4.9.0-6 lib32quadmath0_4.9.0-6 lib32stdc++-4.9-dev_4.9.0-6 lib32stdc++6_4.9.0-6 lib32ubsan0_4.9.0-6 lib32vtv0_4.9.0-6 libacl1_2.2.52-1 libapt-pkg4.12_1.0.4 libarchive-extract-perl_0.72-1 libasan1_4.9.0-6 libasprintf0c2_0.18.3.2-2 libatomic1_4.9.0-6 libattr1_1:2.4.47-1 libaudit-common_1:2.3.7-1 libaudit1_1:2.3.7-1 libbison-dev_2:3.0.2.dfsg-2 libblkid1_2.20.1-5.8 libbz2-1.0_1.0.6-5 libc-bin_2.19-2 libc-dev-bin_2.19-2 libc6_2.19-2 libc6-dev_2.19-2 libc6-dev-i386_2.19-2 libc6-dev-x32_2.19-2 libc6-i386_2.19-2 libc6-x32_2.19-2 libcap2_1:2.22-1.2 libcilkrts5_4.9.0-6 libclang-common-3.4-dev_1:3.4.2-1 libclang1-3.4_1:3.4.2-1 libclass-isa-perl_0.36-5 libcloog-isl4_0.18.2-1 libcloog-ppl-dev_0.16.1-5 libcloog-ppl1_0.16.1-5 libcomerr2_1.42.10-1 libcroco3_0.6.8-2 libdb5.1_5.1.29-5 libdb5.3_5.3.28-3 libdebconfclient0_0.191 libdpkg-perl_1.17.10 libelfg0_0.8.13-5 libelfg0-dev_0.8.13-5 libexpat1_2.1.0-6 libfakeroot_1.20-3 libffi6_3.1-2 libfile-fcntllock-perl_0.20-1 libfl-dev_2.5.39-7 libgc1c2_1:7.2d-6 libgcc-4.7-dev_4.7.4-1 libgcc-4.9-dev_4.9.0-6 libgcc1_1:4.9.0-6 libgdbm3_1.8.3-12 libglib2.0-0_2.40.0-3 libgmp-dev_2:6.0.0+dfsg-4 libgmp10_2:6.0.0+dfsg-4 libgmpxx4ldbl_2:6.0.0+dfsg-4 libgomp1_4.9.0-6 libgpm2_1.20.4-6.1 libintl-perl_1.23-1 libisl10_0.12.2-1 libitm1_4.9.0-6 libllvm3.4_1:3.4.2-1 liblocale-gettext-perl_1.05-8 liblog-message-simple-perl_0.10-1 liblsan0_4.9.0-6 libltdl7_2.4.2-1.7 liblzma5_5.1.1alpha+20120614-2 libmagic1_1:5.19-1 libmodule-pluggable-perl_5.1-1 libmount1_2.20.1-5.8 libmpc-dev_1.0.1-1 libmpc2_0.9-4 libmpc3_1.0.1-1 libmpfr-dev_3.1.2-1 libmpfr4_3.1.2-1 libncurses5_5.9+20140118-1 libncursesw5_5.9+20140118-1 libobjc-4.9-dev_4.9.0-6 libobjc4_4.9.0-6 libopts25_1:5.18.3-3 libopts25-dev_1:5.18.3-3 libpam-modules_1.1.8-3 libpam-modules-bin_1.1.8-3 libpam-runtime_1.1.8-3 libpam0g_1.1.8-3 libpcre3_1:8.31-5 libpipeline1_1.3.0-1 libpod-latex-perl_0.61-1 libppl-c4_1:1.1-2+b1 libppl-dev_1:1.1-2+b1 libppl13_1:1.1-2+b1 libprocps3_1:3.3.9-5 libpython-stdlib_2.7.6-2 libpython2.7-minimal_2.7.7-2 libpython2.7-stdlib_2.7.7-2 libquadmath0_4.9.0-6 libreadline6_6.3-6 libselinux1_2.3-1 libsemanage-common_2.3-1 libsemanage1_2.3-1 libsepol1_2.3-1 libsigsegv2_2.10-4 libslang2_2.2.4-16 libsqlite3-0_3.8.5-1 libss2_1.42.10-1 libssl1.0.0_1.0.1h-3 libstdc++-4.9-dev_4.9.0-6 libstdc++6_4.9.0-6 libstdc++6-4.6-dev_4.6.4-7 libswitch-perl_2.17-1 libtcl8.5_8.5.15-4 libterm-ui-perl_0.42-1 libtext-charwidth-perl_0.04-7+b2 libtext-iconv-perl_1.7-5+b1 libtext-soundex-perl_3.4-1+b1 libtext-unidecode-perl_0.04-2 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_2.3000-2 libtinfo5_5.9+20140118-1 libtool_2.4.2-1.7 libtsan0_4.9.0-6 libubsan0_4.9.0-6 libunistring0_0.9.3-5 libusb-0.1-4_2:0.1.12-23.3 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.8 libvtv0_4.9.0-6 libx32asan1_4.9.0-6 libx32atomic1_4.9.0-6 libx32cilkrts5_4.9.0-6 libx32gcc-4.9-dev_4.9.0-6 libx32gcc1_1:4.9.0-6 libx32gomp1_4.9.0-6 libx32itm1_4.9.0-6 libx32quadmath0_4.9.0-6 libx32stdc++-4.9-dev_4.9.0-6 libx32stdc++6_4.9.0-6 libx32ubsan0_4.9.0-6 libx32vtv0_4.9.0-6 libxml-libxml-perl_2.0116+dfsg-1 libxml-namespacesupport-perl_1.11-1 libxml-sax-base-perl_1.07-1 libxml-sax-perl_0.99+dfsg-2 libxml2_2.9.1+dfsg1-3 linux-libc-dev_3.14.7-1 locales_2.19-2 login_1:4.2-2 lsb-base_4.1+Debian13 lsb-release_4.1+Debian13 m4_1.4.17-4 make_4.0-8 man-db_2.6.7.1-1 mawk_1.3.3-17 mime-support_3.56 mount_2.20.1-5.8 multiarch-support_2.19-2 ncurses-base_5.9+20140118-1 ncurses-bin_5.9+20140118-1 passwd_1:4.2-2 patch_2.7.1-5 patchutils_0.3.3-1 perl_5.18.2-4 perl-base_5.18.2-4 perl-modules_5.18.2-4 po-debconf_1.0.16+nmu2 procps_1:3.3.9-5 python_2.7.6-2 python-minimal_2.7.6-2 python2.7_2.7.7-2 python2.7-minimal_2.7.7-2 quilt_0.63-2 readline-common_6.3-6 realpath_1.19 rename_0.20-3 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-gcc-4.6-dummy_0.invalid.0 sed_4.2.2-4 sensible-utils_0.0.9 sharutils_1:4.14-2 startpar_0.59-3 sudo_1.8.9p5-1 sysv-rc_2.88dsf-53.2 sysvinit_2.88dsf-53.2 sysvinit-core_2.88dsf-53.2 sysvinit-utils_2.88dsf-53.2 tar_1.27.1-2 tcl8.5_8.5.15-4 texinfo_5.2.0.dfsg.1-4 tzdata_2014e-1 ucf_3.0030 util-linux_2.20.1-5.8 vim_2:7.4.273-2+b1 vim-common_2:7.4.273-2+b1 vim-runtime_2:7.4.273-2 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.8.dfsg-1 zlib1g-dev_1:1.2.8.dfsg-1
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Mon Apr 28 09:01:35 2014 UTC using DSA key ID 0F932C9C
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./gcc-4.6_4.6.4-7.dsc
+dpkg-source: info: extracting gcc-4.6 in gcc-4.6-4.6.4
+dpkg-source: info: unpacking gcc-4.6_4.6.4.orig.tar.gz
+dpkg-source: info: applying gcc-4.6_4.6.4-7.diff.gz
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+Hack binNMU version
+───────────────────
+
+Created changelog entry for binNMU version 4.6.4-7clang1
+
+User Environment
+────────────────
+
+DEB_BUILD_OPTIONS=parallel=10
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-bf917216-bfe3-411d-a725-c02e8963f3ae
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package gcc-4.6
+dpkg-buildpackage: source version 4.6.4-7clang1
+dpkg-buildpackage: source distribution unstable
+ dpkg-source --before-build gcc-4.6-4.6.4
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+rm -rf stamps
+rm -rf gcc-4.6.4  d
+/usr/bin/make -f debian/rules2 clean
+make[1]: Entering directory '/«PKGBUILDDIR»'
+dh_testdir
+rm -f pxxx status
+rm -f *-summary *-protocol testsuite-comparision summary-diff
+if [ -f /«PKGBUILDDIR»/src/gcc/p/config-lang.in.debian ]; then \
+  mv -f /«PKGBUILDDIR»/src/gcc/p/config-lang.in.debian /«PKGBUILDDIR»/src/gcc/p/config-lang.in; \
+else true; fi
+rm -f /«PKGBUILDDIR»/src/gcc/po/*.gmo
+rm -f debian/lib{gcc,gcj,objc,stdc++}{-v3,[0-9]}*.{{pre,post}{inst,rm},shlibs}
+fs=`echo debian/*BV* debian/*GCJ* debian/*CXX* debian/*LC* debian/*MF* | sort -u`; \
+for f in $fs; do \
+  [ -f $f ] || continue; \
+  f2=$(echo $f | sed 's/BV/4.6/;s/CXX/6/;s/LGCJ/12/;s/GCJ/12/;s/LC/1/;s/MF/0/;s/-CRB//;s/\.in$//'); \
+  rm -f $f2; \
+done
+rm -f debian/shlibs.local debian/substvars.local
+rm -f debian/*.debhelper
+[ -d debian/bugs ] && /usr/bin/make -C debian/bugs clean
+make[1]: [clean] Error 1 (ignored)
+debian/rules2:1530: recipe for target 'clean' failed
+rm -f debian/README.libstdc++-baseline debian/README.Bugs debian/README.Debian.amd64
+rm -f debian/lib*gcj-bc.shlibs
+rm -rf bin locales share
+rm -rf check-inst
+rm -rf .pc
+dh_clean
+make[1]: Leaving directory '/«PKGBUILDDIR»'
+rm -rf /«PKGBUILDDIR»/src* /«PKGBUILDDIR»/build* debian/tmp* html
+rm -f bootstrap-* first-move-stamp
+rm -f autotools_files
+rm -f debian/*.tmp
+rm -f debian/soname-cache
+find debian -name '.#*' | xargs -r rm -f
+rm -f debian/patches/series*
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+: # unpack gcc tarball
+mkdir stamps
+if [ -d /«PKGBUILDDIR»/src ]; then \
+  echo >&2 "Source directory /«PKGBUILDDIR»/src exists. Delete by hand"; \
+  false; \
+fi
+rm -rf gcc-4.6.4
+case gcc-4.6.4-dfsg.tar.xz in \
+  *.bz2)  tar -x --bzip2 -f gcc-4.6.4-dfsg.tar.xz;; \
+  *.gz)   tar -x --gzip  -f gcc-4.6.4-dfsg.tar.xz;; \
+  *.lzma) lzcat gcc-4.6.4-dfsg.tar.xz | tar -x -f -;; \
+  *.xz) xzcat gcc-4.6.4-dfsg.tar.xz | tar -x -f -;; \
+  *)     false; \
+esac
+mv gcc-4.6.4 /«PKGBUILDDIR»/src
+rm -f /«PKGBUILDDIR»/src/gcc/doc/*.1
+rm -f /«PKGBUILDDIR»/src/gcc/doc/fsf-funding.7
+rm -f /«PKGBUILDDIR»/src/gcc/doc/*.info
+rm -f /«PKGBUILDDIR»/src/gcc/fortran/*.info
+rm -f /«PKGBUILDDIR»/src/libgomp/*.info
+rm -f /«PKGBUILDDIR»/src/gcc/java/*.1
+rm -f /«PKGBUILDDIR»/src/gcc/java/*.info
+for i in gcc/doc/arm-neon-intrinsics.texi gcc/doc/bugreport.texi gcc/doc/c-tree.texi gcc/doc/cfg.texi gcc/doc/collect2.texi gcc/doc/compat.texi gcc/doc/configfiles.texi gcc/doc/configterms.texi gcc/doc/contrib.texi gcc/doc/contribute.texi gcc/doc/cpp.texi gcc/doc/cppenv.texi gcc/doc/cppinternals.texi gcc/doc/cppopts.texi gcc/doc/extend.texi gcc/doc/fragments.texi gcc/doc/frontends.texi gcc/doc/gccint.texi gcc/doc/gcov.texi gcc/doc/generic.texi gcc/doc/gimple.texi gcc/doc/gnu.texi gcc/doc/gty.texi gcc/doc/headerdirs.texi gcc/doc/hostconfig.texi gcc/doc/implement-c.texi gcc/doc/implement-cxx.texi gcc/doc/install-old.texi gcc/doc/install.texi gcc/doc/interface.texi gcc/doc/invoke.texi gcc/doc/languages.texi gcc/doc/libgcc.texi gcc/doc/loop.texi gcc/doc/lto.texi gcc/doc/makefile.texi gcc/doc/md.texi gcc/doc/objc.texi gcc/doc/options.texi gcc/doc/passes.texi gcc/doc/plugins.texi gcc/doc/portability.texi gcc/doc/rtl.texi gcc/doc/service.texi gcc/doc/sourcebuild.texi gcc/doc/standards.texi gcc/doc/tm.texi.in gcc/doc/tm.texi gcc/doc/tree-ssa.texi gcc/doc/trouble.texi gcc/doc/include/gcc-common.texi gcc/doc/include/funding.texi gcc/fortran/gfc-internals.texi gcc/fortran/invoke.texi gcc/fortran/intrinsic.texi ; do \
+  if [ -f /«PKGBUILDDIR»/src/$i ]; then \
+    cp debian/dummy.texi /«PKGBUILDDIR»/src/$i; \
+  else \
+    echo >&2 "$i does not exist, fix debian/rules.unpack"; \
+  fi; \
+done
+gcc/doc/c-tree.texi does not exist, fix debian/rules.unpack
+for i in gcc/doc/gcc.texi gcc/java/gcj.texi gcc/ada/gnat-style.texi gcc/ada/gnat_rm.texi gcc/ada/gnat_ugn.texi gcc/fortran/gfortran.texi gcc/go/gccgo.texi libgomp/libgomp.texi libquadmath/libquadmath.texi ; do \
+  n=$(basename $i .texi); \
+  if [ -f /«PKGBUILDDIR»/src/$i ]; then \
+    sed "s/@name@/$n/g" debian/gcc-dummy.texi \
+      > /«PKGBUILDDIR»/src/$i; \
+  else \
+    echo >&2 "$i does not exist, fix debian/rules.unpack"; \
+  fi; \
+done
+for i in gcc/doc/cpp.1 gcc/doc/g++.1 gcc/doc/gc-analyze.1 gcc/doc/gcc.1 gcc/doc/gccgo.1 gcc/doc/gcj.1 gcc/doc/gcj-dbtool.1 gcc/doc/gcjh.1 gcc/doc/gcov.1 gcc/doc/gfortran.1 gcc/doc/gij.1 gcc/doc/grmic.1 gcc/doc/grmiregistry.1 gcc/doc/jcf-dump.1 gcc/doc/jv-convert.1 gcc/doc/fsf-funding.7 ; do \
+  touch /«PKGBUILDDIR»/src/$i; \
+done
+rm -f /«PKGBUILDDIR»/src/INSTALL/*.html
+echo "gcc-4.6.4-dfsg.tar.xz unpacked." > stamps/01-unpack-stamp-gcc-4.6.4-dfsg.tar.xz
+echo -e "\nBuilt from Debian source package gcc-4.6-4.6.4-7clang1" \
+	> pxxx
+echo -e "Integrated upstream packages in this version:\n" >> pxxx
+for i in gcc-4.6.4-dfsg.tar.xz ; do echo "  $i" >> pxxx; done
+mv -f pxxx stamps/01-unpack-stamp
+echo gcc-gfdl-build.diff gcc-textdomain.diff gcc-driver-extra-langs.diff gcc-hash-style-gnu.diff libstdc++-pic.diff libstdc++-doclink.diff libstdc++-man-3cxx.diff libstdc++-test-installed.diff libjava-stacktrace.diff libjava-jnipath.diff libjava-sjlj.diff libjava-disable-plugin.diff alpha-no-ev4-directive.diff boehm-gc-getnprocs.diff note-gnu-stack.diff libgomp-omp_h-multilib.diff sparc-force-cpu.diff pr24619.diff gccgo-version.diff no_fpr_in_libgcc.diff pr48226.diff pr47487.diff mudflap-varargs.diff mudflapth-link.diff pr45078.diff pr43804.diff pr47818.diff pr48830.diff pr49169.diff pr49756.diff pr49940.diff pr49944.diff gcc-cloog-dl.diff libffi-kfreebsd.diff libffi-m68k.diff gcc-base-version.diff pr49696.diff libffi-powerpc-sf.diff libffi-powerpc-sysv-without-string-ops.diff pr49030.diff pr50193.diff pr50114.diff pr50946.diff gcc-arm-abi-conformance.diff arm-no-va_list-warn.diff pr47955.diff m68k-fp-cmp-zero.diff m68k-atomic.diff gcc-gengtype-fix1.diff gcc-gengtype-fix2.diff ppl-version.diff libjava-cff1.7.diff gcc-d-lang.diff libjava-disable-static.diff s390-biarch.diff mips-triarch.diff arm-dynamic-linker.diff arm-multilib-soft.diff arm-multilib-defaults.diff gcc-ice-hack.diff gcc-ice-apport.diff libjava-fixed-symlinks.diff libstdc++-arm-wno-abi.diff ada-mips.diff libffi-ro-eh_frame_sect.diff gcc-multiarch.diff libjava-multiarch.diff libjava-nobiarch-check.diff config-ml.diff gcc-powerpc-nof.diff gcc-powerpc-undef.diff gcc-multilib64-multiarch.diff gcc-no-add-needed.diff mips-fix-loongson2f-nop.diff gcc-system-root.diff libgomp-kfreebsd-testsuite.diff armhf-triplet.diff \
+  | sed -r 's/  +/ /g' | tr " " "\n" > debian/patches/series
+sed -r 's/(.)$/\1 -p1/' -i debian/patches/series
+touch stamps/02-series-stamp
+QUILT_PATCHES=debian/patches \
+  quilt --quiltrc /dev/null push -a || test $? = 2
+Applying patch gcc-gfdl-build.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 3697 (offset 16 lines).
+
+Applying patch gcc-textdomain.diff
+patching file src/gcc/intl.c
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 5173 (offset 16 lines).
+patching file src/libcpp/init.c
+patching file src/libcpp/system.h
+patching file src/libcpp/Makefile.in
+
+Applying patch gcc-driver-extra-langs.diff
+patching file src/gcc/Makefile.in
+
+Applying patch gcc-hash-style-gnu.diff
+patching file src/gcc/config/alpha/linux-elf.h
+patching file src/gcc/config/i386/linux.h
+patching file src/gcc/config/i386/linux64.h
+Hunk #1 succeeded at 78 (offset 3 lines).
+patching file src/gcc/config/ia64/linux.h
+patching file src/gcc/config/rs6000/linux64.h
+patching file src/gcc/config/rs6000/sysv4.h
+patching file src/gcc/config/s390/linux.h
+patching file src/gcc/config/sparc/linux.h
+patching file src/gcc/config/arm/linux-elf.h
+
+Applying patch libstdc++-pic.diff
+patching file src/libstdc++-v3/src/Makefile.am
+patching file src/libstdc++-v3/src/Makefile.in
+
+Applying patch libstdc++-doclink.diff
+patching file src/libstdc++-v3/doc/doxygen/mainpage.html
+patching file src/libstdc++-v3/doc/html/api.html
+patching file src/libstdc++-v3/doc/xml/api.xml
+
+Applying patch libstdc++-man-3cxx.diff
+patching file src/libstdc++-v3/doc/doxygen/user.cfg.in
+patching file src/libstdc++-v3/scripts/run_doxygen
+patching file src/libstdc++-v3/include/profile/impl/profiler_algos.h
+
+Applying patch libstdc++-test-installed.diff
+patching file src/libstdc++-v3/testsuite/lib/libstdc++.exp
+
+Applying patch libjava-stacktrace.diff
+patching file src/libjava/stacktrace.cc
+
+Applying patch libjava-jnipath.diff
+patching file src/libjava/configure.ac
+Hunk #1 succeeded at 1528 (offset -5 lines).
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+patching file src/libjava/gnu/classpath/natSystemProperties.cc
+
+Applying patch libjava-sjlj.diff
+patching file src/libjava/sysdep/generic/backtrace.h
+
+Applying patch libjava-disable-plugin.diff
+patching file src/libjava/configure.ac
+
+Applying patch alpha-no-ev4-directive.diff
+patching file src/gcc/config/alpha/alpha.c
+Hunk #1 succeeded at 9774 (offset 41 lines).
+Hunk #2 succeeded at 9784 (offset 41 lines).
+
+Applying patch boehm-gc-getnprocs.diff
+patching file src/boehm-gc/pthread_support.c
+
+Applying patch note-gnu-stack.diff
+patching file src/boehm-gc/ia64_save_regs_in_stack.s
+patching file src/boehm-gc/ia64_save_regs_in_stack.S
+patching file src/gcc/config/ia64/crtbegin.asm
+patching file src/gcc/config/ia64/crtend.asm
+patching file src/gcc/config/ia64/crti.asm
+patching file src/gcc/config/ia64/crtn.asm
+patching file src/gcc/config/ia64/lib1funcs.asm
+patching file src/gcc/config/ia64/linux.h
+patching file src/gcc/config/rs6000/ppc-asm.h
+
+Applying patch libgomp-omp_h-multilib.diff
+patching file src/libgomp/omp.h.in
+
+Applying patch sparc-force-cpu.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 3775 (offset 9 lines).
+
+Applying patch pr24619.diff
+patching file src/libmudflap/mf-hooks2.c
+
+Applying patch gccgo-version.diff
+patching file src/gcc/go/Make-lang.in
+patching file src/libgo/Makefile.in
+Hunk #1 succeeded at 383 (offset -86 lines).
+Hunk #2 succeeded at 453 (offset -86 lines).
+patching file src/libgo/Makefile.am
+
+Applying patch no_fpr_in_libgcc.diff
+patching file src/gcc/config/rs6000/crtresfpr.asm
+patching file src/gcc/config/rs6000/crtresxfpr.asm
+patching file src/gcc/config/rs6000/crtsavfpr.asm
+
+Applying patch pr48226.diff
+patching file src/gcc/testsuite/gcc.target/powerpc/pr48226.c
+patching file src/gcc/config/rs6000/rs6000-c.c
+
+Applying patch pr47487.diff
+patching file src/gcc/config/rs6000/rs6000.c
+Hunk #1 succeeded at 22047 (offset -6 lines).
+
+Applying patch mudflap-varargs.diff
+patching file src/gcc/builtins.c
+
+Applying patch mudflapth-link.diff
+patching file src/libmudflap/Makefile.am
+patching file src/libmudflap/Makefile.in
+
+Applying patch pr45078.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 4518 (offset 16 lines).
+Hunk #2 succeeded at 4543 (offset 16 lines).
+patching file src/gcc/config.gcc
+
+Applying patch pr43804.diff
+patching file src/gcc/config/m68k/constraints.md
+
+Applying patch pr47818.diff
+patching file src/gcc/ada/sem_prag.adb
+
+Applying patch pr48830.diff
+patching file src/gcc/reload.c
+patching file src/gcc/reload1.c
+patching file src/gcc/testsuite/gcc.target/sparc/ultrasp12.c
+
+Applying patch pr49169.diff
+patching file src/gcc/builtins.c
+patching file src/gcc/fold-const.c
+Hunk #1 succeeded at 9239 (offset 7 lines).
+Hunk #2 succeeded at 9272 (offset 7 lines).
+Hunk #3 succeeded at 9283 (offset 7 lines).
+Hunk #4 succeeded at 11147 (offset -9 lines).
+patching file src/gcc/testsuite/gcc.dg/torture/pr49169.c
+patching file src/gcc/tree-ssa-ccp.c
+
+Applying patch pr49756.diff
+patching file src/gcc/gcc.c
+Hunk #1 succeeded at 6192 (offset 31 lines).
+patching file src/gcc/toplev.c
+Hunk #1 succeeded at 1923 (offset 7 lines).
+patching file src/include/libiberty.h
+patching file src/libiberty/configure.ac
+patching file src/libiberty/Makefile.in
+patching file src/libiberty/config.in
+patching file src/libiberty/stack-limit.c
+
+Applying patch pr49940.diff
+patching file src/gcc/ada/s-osinte-kfreebsd-gnu.ads
+
+Applying patch pr49944.diff
+patching file src/gcc/ada/s-osinte-kfreebsd-gnu.ads
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/gcc/ada/s-osinte-freebsd.ads
+
+Applying patch gcc-cloog-dl.diff
+patching file src/gcc/Makefile.in
+patching file src/gcc/graphite-cloog-compat.h
+patching file src/gcc/graphite.c
+patching file src/gcc/graphite-clast-to-gimple.c
+patching file src/gcc/graphite-poly.h
+
+Applying patch libffi-kfreebsd.diff
+patching file src/libffi/configure.ac
+Hunk #1 succeeded at 322 (offset 9 lines).
+
+Applying patch libffi-m68k.diff
+patching file src/libffi/src/m68k/sysv.S
+patching file src/libffi/src/m68k/ffi.c
+patching file src/libffi/src/m68k/ffitarget.h
+
+Applying patch gcc-base-version.diff
+patching file src/gcc/BASE-VER
+patching file src/gcc/FULL-VER
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 847 (offset 15 lines).
+Hunk #2 succeeded at 872 (offset 15 lines).
+Hunk #3 succeeded at 2202 (offset 16 lines).
+Hunk #4 succeeded at 2275 (offset 16 lines).
+Hunk #5 succeeded at 2816 (offset 16 lines).
+Hunk #6 succeeded at 3820 (offset 16 lines).
+Hunk #7 succeeded at 3983 (offset 16 lines).
+Hunk #8 succeeded at 4004 (offset 16 lines).
+Hunk #9 succeeded at 4229 (offset 16 lines).
+Hunk #10 succeeded at 4597 (offset 16 lines).
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+patching file src/libgcc/Makefile.in
+
+Applying patch pr49696.diff
+patching file src/gcc/config/mips/sync.md
+
+Applying patch libffi-powerpc-sf.diff
+patching file src/libffi/src/powerpc/ffi.c
+patching file src/libffi/src/powerpc/ffitarget.h
+patching file src/libffi/src/powerpc/ppc_closure.S
+patching file src/libffi/src/powerpc/sysv.S
+
+Applying patch libffi-powerpc-sysv-without-string-ops.diff
+patching file src/libffi/src/powerpc/ffi.c
+patching file src/libffi/src/powerpc/sysv.S
+
+Applying patch pr49030.diff
+patching file src/gcc/config/arm/arm-protos.h
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 17071 (offset 39 lines).
+Hunk #2 succeeded at 17098 (offset 39 lines).
+Hunk #3 succeeded at 17111 (offset 39 lines).
+Hunk #4 succeeded at 17119 (offset 39 lines).
+Hunk #5 succeeded at 17127 (offset 39 lines).
+Hunk #6 succeeded at 17152 (offset 39 lines).
+Hunk #7 succeeded at 17168 (offset 39 lines).
+Hunk #8 succeeded at 17176 (offset 39 lines).
+Hunk #9 succeeded at 17188 (offset 39 lines).
+Hunk #10 succeeded at 17198 (offset 39 lines).
+Hunk #11 succeeded at 17214 (offset 39 lines).
+patching file src/gcc/config/arm/arm.md
+Hunk #1 succeeded at 6468 (offset 1 line).
+Hunk #2 succeeded at 6519 (offset 1 line).
+Hunk #3 succeeded at 6531 (offset 1 line).
+Hunk #4 succeeded at 6543 (offset 1 line).
+Hunk #5 succeeded at 7380 (offset 1 line).
+Hunk #6 succeeded at 7516 (offset 1 line).
+Hunk #7 succeeded at 7526 (offset 1 line).
+Hunk #8 succeeded at 7536 (offset 1 line).
+Hunk #9 succeeded at 7656 (offset 1 line).
+Hunk #10 succeeded at 7676 (offset 1 line).
+Hunk #11 succeeded at 7702 (offset 1 line).
+patching file src/gcc/config/arm/predicates.md
+patching file src/gcc/testsuite/gcc.dg/torture/pr49030.c
+patching file src/gcc/testsuite/gcc.target/arm/cmp-1.c
+patching file src/gcc/testsuite/gcc.target/arm/cmp-2.c
+
+Applying patch pr50193.diff
+patching file src/gcc/config/arm/predicates.md
+patching file src/gcc/testsuite/gcc.target/arm/shiftable.c
+
+Applying patch pr50114.diff
+patching file src/gcc/testsuite/g++.dg/ext/forscope2.C
+patching file src/gcc/testsuite/g++.dg/cpp0x/lambda/lambda-for.C
+patching file src/gcc/cp/decl.c
+
+Applying patch pr50946.diff
+patching file src/gcc/config/arm/arm.h
+Hunk #1 succeeded at 1172 (offset 5 lines).
+
+Applying patch gcc-arm-abi-conformance.diff
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 4119 (offset -212 lines).
+Hunk #2 succeeded at 4131 (offset -212 lines).
+Hunk #3 succeeded at 4154 (offset -212 lines).
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/abitest.h
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-constants.h
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect1.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect2.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect3.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect4.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect5.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect6.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect7.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/neon-vect8.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp1.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp10.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp11.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp12.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp13.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp14.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp15.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp16.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp17.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp2.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp3.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp4.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp5.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp6.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp7.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp8.c
+patching file src/gcc/testsuite/gcc.target/arm/aapcs/vfp9.c
+
+Applying patch arm-no-va_list-warn.diff
+patching file src/gcc/config/arm/arm.c
+Hunk #1 succeeded at 23085 with fuzz 2 (offset -1987 lines).
+
+Applying patch pr47955.diff
+patching file src/gcc/config/m68k/m68k.c
+
+Applying patch m68k-fp-cmp-zero.diff
+patching file src/gcc/config/m68k/m68k.c
+
+Applying patch m68k-atomic.diff
+patching file src/libgcc/config.host
+patching file src/libgcc/config/m68k/linux-atomic.c
+patching file src/libgcc/config/m68k/t-linux
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 1796 (offset 4 lines).
+Hunk #2 succeeded at 1811 (offset 4 lines).
+
+Applying patch gcc-gengtype-fix1.diff
+patching file src/gcc/gengtype-state.c
+patching file src/gcc/gengtype.c
+Hunk #1 succeeded at 1925 (offset -18 lines).
+
+Applying patch gcc-gengtype-fix2.diff
+patching file src/gcc/Makefile.in
+Hunk #1 succeeded at 3793 (offset 13 lines).
+
+Applying patch ppl-version.diff
+patching file src/configure.ac
+Hunk #1 succeeded at 1684 (offset 107 lines).
+
+Applying patch libjava-cff1.7.diff
+patching file src/libjava/defineclass.cc
+
+Applying patch gcc-d-lang.diff
+patching file src/gcc/d/lang-specs.h
+patching file src/gcc/d/lang.opt
+patching file src/gcc/gcc.c
+Hunk #2 succeeded at 5127 (offset 31 lines).
+
+Applying patch libjava-disable-static.diff
+patching file src/Makefile.in
+
+Applying patch s390-biarch.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 2310 (offset 6 lines).
+
+Applying patch mips-triarch.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 1907 (offset 5 lines).
+patching file src/gcc/config/mips/linux64.h
+
+Applying patch arm-dynamic-linker.diff
+patching file src/gcc/config/arm/linux-eabi.h
+
+Applying patch arm-multilib-soft.diff
+patching file src/gcc/config/arm/t-linux-eabi
+
+Applying patch arm-multilib-defaults.diff
+patching file src/gcc/config.gcc
+Hunk #1 succeeded at 3245 (offset 232 lines).
+Hunk #2 succeeded at 3292 (offset 224 lines).
+patching file src/gcc/config/arm/linux-eabi.h
+
+Applying patch gcc-ice-hack.diff
+patching file src/gcc/gcc.c
+Hunk #2 succeeded at 2660 (offset 18 lines).
+Hunk #3 succeeded at 2713 (offset 18 lines).
+Hunk #4 succeeded at 2780 (offset 18 lines).
+Hunk #5 succeeded at 5933 (offset 31 lines).
+patching file src/gcc/diagnostic.c
+
+Applying patch gcc-ice-apport.diff
+patching file src/gcc/gcc.c
+Hunk #1 succeeded at 6137 (offset 31 lines).
+
+Applying patch libjava-fixed-symlinks.diff
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+
+Applying patch libstdc++-arm-wno-abi.diff
+patching file src/libstdc++-v3/testsuite/lib/libstdc++.exp
+
+Applying patch ada-mips.diff
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/config/bootstrap-debug.mk
+
+Applying patch libffi-ro-eh_frame_sect.diff
+patching file src/libffi/configure.ac
+Hunk #1 succeeded at 356 (offset 9 lines).
+
+Applying patch gcc-multiarch.diff
+patching file src/gcc/config/sh/t-linux
+patching file src/gcc/config/s390/t-linux
+patching file src/libstdc++-v3/python/hook.in
+
+Applying patch libjava-multiarch.diff
+patching file src/libjava/configure.ac
+Hunk #1 succeeded at 1588 (offset -5 lines).
+Hunk #2 succeeded at 1617 (offset -5 lines).
+patching file src/libjava/Makefile.am
+patching file src/libjava/Makefile.in
+patching file src/libjava/classpath/m4/acinclude.m4
+patching file src/libjava/classpath/configure.ac
+
+Applying patch libjava-nobiarch-check.diff
+patching file src/libjava/testsuite/Makefile.in
+
+Applying patch config-ml.diff
+patching file src/config-ml.in
+Hunk #1 succeeded at 480 (offset 13 lines).
+Hunk #2 succeeded at 686 (offset 13 lines).
+Hunk #3 succeeded at 919 (offset 13 lines).
+patching file src/libstdc++-v3/include/Makefile.am
+Hunk #1 succeeded at 822 (offset -7 lines).
+Hunk #2 succeeded at 1041 (offset -10 lines).
+patching file src/libstdc++-v3/include/Makefile.in
+Hunk #1 succeeded at 1063 (offset -19 lines).
+Hunk #2 succeeded at 1440 (offset -22 lines).
+patching file src/libstdc++-v3/configure.ac
+Hunk #1 succeeded at 411 (offset -47 lines).
+
+Applying patch gcc-powerpc-nof.diff
+patching file src/gcc/config/rs6000/t-linux64
+
+Applying patch gcc-powerpc-undef.diff
+patching file src/gcc/config/rs6000/sysv4.h
+
+Applying patch gcc-multilib64-multiarch.diff
+patching file src/gcc/config/s390/t-linux64
+patching file src/gcc/config/rs6000/t-linux64
+patching file src/gcc/config/sparc/t-linux64
+patching file src/gcc/config/i386/t-linux64
+
+Applying patch gcc-no-add-needed.diff
+patching file src/gcc/config/rs6000/sysv4.h
+patching file src/gcc/config/gnu-user.h
+patching file src/gcc/config/alpha/elf.h
+patching file src/gcc/config/ia64/linux.h
+
+Applying patch mips-fix-loongson2f-nop.diff
+patching file src/gcc/config/mips/mips.h
+
+Applying patch gcc-system-root.diff
+patching file src/gcc/incpath.c
+patching file src/gcc/gcc.c
+
+Applying patch libgomp-kfreebsd-testsuite.diff
+patching file src/libgomp/testsuite/libgomp.c/lock-2.c
+
+Applying patch armhf-triplet.diff
+patching file src/libjava/configure.ac
+Hunk #1 succeeded at 921 (offset -5 lines).
+patching file src/gcc/config.gcc
+patching file src/gcc/testsuite/lib/target-supports.exp
+Hunk #1 succeeded at 3286 (offset 21 lines).
+Hunk #2 succeeded at 3317 (offset 21 lines).
+patching file src/gcc/ada/gcc-interface/Makefile.in
+patching file src/configure.ac
+patching file src/libstdc++-v3/configure.host
+patching file src/libstdc++-v3/testsuite/20_util/make_unsigned/requirements/typedefs-2.cc
+patching file src/libstdc++-v3/testsuite/20_util/make_signed/requirements/typedefs-2.cc
+
+Now at patch armhf-triplet.diff
+if ! test -f ./autotools_files ; then touch ./autotools_files ; fi
+cd /«PKGBUILDDIR»/src/fixincludes && ./genfixes
+AutoGen appears to be out of date or not correctly installed.
+Please download and install:
+   ftp://gcc.gnu.org/pub/gcc/infrastructure/autogen.tar.gz
+for f in ./src/Makefile.in ./src/configure.ac ./src/gcc/Makefile.in ./src/gcc/ada/gcc-interface/Makefile.in ./src/libcpp/Makefile.in ./src/libffi/configure.ac ./src/libgcc/Makefile.in ./src/libgo/Makefile.am ./src/libgo/Makefile.in ./src/libiberty/Makefile.in ./src/libiberty/configure.ac ./src/libjava/Makefile.am ./src/libjava/Makefile.in ./src/libjava/classpath/configure.ac ./src/libjava/classpath/m4/acinclude.m4 ./src/libjava/configure.ac ./src/libjava/testsuite/Makefile.in ./src/libmudflap/Makefile.am ./src/libmudflap/Makefile.in ./src/libstdc++-v3/configure.ac ./src/libstdc++-v3/include/Makefile.am ./src/libstdc++-v3/include/Makefile.in ./src/libstdc++-v3/src/Makefile.am ./src/libstdc++-v3/src/Makefile.in ; \
+  do case $f in \
+    */classpath/m4/acinclude.m4) \
+        : ;; \
+    */configure.*|*/acinclude.m4) \
+	if grep ^"$(md5sum $f)"$ ./autotools_files >/dev/null ; \
+	  then echo "Skipping already regenerated file $f." ; \
+	else \
+	  echo "Running autoconf2.64 in $(dirname $f)..." ; \
+	  dir="/«PKGBUILDDIR»"; cd /«PKGBUILDDIR»/$(dirname $f) \
+	    && AUTOM4TE=/usr/bin/autom4te2.64 autoconf2.64 \
+	    && cd $dir \
+	    && echo "$(md5sum $f)" >> ./autotools_files ; \
+	fi ;; \
+    */Makefile.*) ;; \
+    *) echo "Unknown file: $f"; false; \
+  esac; \
+done
+Running autoconf2.64 in ./src...
+Running autoconf2.64 in ./src/libffi...
+Running autoconf2.64 in ./src/libiberty...
+Running autoconf2.64 in ./src/libjava/classpath...
+Running autoconf2.64 in ./src/libjava...
+Running autoconf2.64 in ./src/libstdc++-v3...
+for i in    gcc-gfdl-build gcc-textdomain gcc-driver-extra-langs gcc-hash-style-gnu libstdc++-pic libstdc++-doclink libstdc++-man-3cxx libstdc++-test-installed libjava-stacktrace libjava-jnipath libjava-sjlj libjava-disable-plugin alpha-no-ev4-directive boehm-gc-getnprocs note-gnu-stack libgomp-omp_h-multilib sparc-force-cpu pr24619 gccgo-version no_fpr_in_libgcc pr48226 pr47487 mudflap-varargs mudflapth-link pr45078 pr43804 pr47818 pr48830 pr49169 pr49756 pr49940 pr49944 gcc-cloog-dl libffi-kfreebsd libffi-m68k gcc-base-version pr49696 libffi-powerpc-sf libffi-powerpc-sysv-without-string-ops pr49030 pr50193 pr50114 pr50946 gcc-arm-abi-conformance arm-no-va_list-warn pr47955 m68k-fp-cmp-zero m68k-atomic gcc-gengtype-fix1 gcc-gengtype-fix2 ppl-version libjava-cff1.7  gcc-d-lang libjava-disable-static s390-biarch mips-triarch arm-dynamic-linker arm-multilib-soft arm-multilib-defaults gcc-ice-hack gcc-ice-apport libjava-fixed-symlinks libstdc++-arm-wno-abi ada-mips libffi-ro-eh_frame_sect gcc-multiarch libjava-multiarch libjava-nobiarch-check config-ml gcc-powerpc-nof gcc-powerpc-undef gcc-multilib64-multiarch gcc-no-add-needed mips-fix-loongson2f-nop gcc-system-root libgomp-kfreebsd-testsuite armhf-triplet; do \
+  echo -e "\n$i:" >> pxxx; \
+  sed -n 's/^# *DP: */  /p' debian/patches/$i.diff >> pxxx; \
+done
+mv pxxx stamps/02-patch-stamp
+mkdir -p stamps
+/usr/bin/make -f debian/rules.conf control
+make[1]: Entering directory '/«PKGBUILDDIR»'
+dpkg-query: no packages found matching binutils-multiarch
+echo "addons: gccbase cdev c++dev fdev objcdev source objppdev multilib plugindev libobjc lib32objc lib64objc libn32objc libs source"; \
+m4 -DBINUTILSV=2.24.51.20140604 -DBINUTILSBDV=2.21.1 -DSRCNAME=gcc-4.6 -D__x86_64__ -DARCH=amd64 -DDIST=Debian -DLIBC_DEV_DEP="libc6-dev (>= 2.13-5)" -DLIBC_BIARCH_BUILD_DEP="libc6-dev-amd64 [i386], libc6-dev-sparc64 [sparc], libc6-dev-s390 [s390x], libc6-dev-s390x [s390], libc6-dev-i386 [amd64], libc6-dev-powerpc [ppc64], libc6-dev-ppc64 [powerpc], libc0.1-dev-i386 [kfreebsd-amd64], lib32gcc1 [amd64 ppc64 kfreebsd-amd64 s390x], lib64gcc1 [i386 powerpc sparc s390], libc6-dev-mips64 [mips mipsel], libc6-dev-mipsn32 [mips mipsel]," -DFORTRAN_BUILD_DEP="" -DGNAT_BUILD_DEP="" -DJAVA_BUILD_DEP="" -DJAVA_BUILD_INDEP=", " -DLIBSTDCXX_BUILD_INDEP="doxygen (>= 1.7.2), graphviz (>= 2.2), gsfonts-x11, texlive-latex-base , xsltproc, libxml2-utils, docbook-xsl-ns" -DGDC_BUILD_DEP="" -DSPU_BUILD_DEP="" -DBINUTILS_BUILD_DEP="binutils (>= 2.21.1) | binutils-multiarch (>= 2.21.1)" -DLIBC_BUILD_DEP="libc6.1-dev (>= 2.13-5) [alpha ia64] | libc0.3-dev (>= 2.13-5) [hurd-i386] | libc0.1-dev (>= 2.13-5) [kfreebsd-i386 kfreebsd-amd64] | libc6-dev (>= 2.13-5)" -DCHECK_BUILD_DEP="dejagnu [!m68k !hurd-i386 !hurd-alpha !kfreebsd-i386 !kfreebsd-alpha], autogen," -DAUTO_BUILD_DEP="m4, libtool, autoconf2.64," -DAUTOGEN_BUILD_DEP="" -DCLOOG_BUILD_DEP="libcloog-ppl-dev (>= 0.16)," -DGMP_BUILD_DEP="libgmp-dev (>= 2:5.0.1~)," -DMPFR_BUILD_DEP="libmpfr-dev (>= 3.0.0-9~)," -DMPC_BUILD_DEP="libmpc-dev (>= 1.0)," -DELF_BUILD_DEP="libelfg0-dev (>= 0.8.12)," -DDPKG_BUILD_DEP="dpkg-dev (>= 1.16.0~ubuntu4)," -DSOURCE_BUILD_DEP="" -DCROSS_BUILD_DEP="" -DGCC_MULTILIB_BUILD_DEP='g++-multilib [amd64 i386 kfreebsd-amd64 mips mipsel powerpc ppc64 s390 s390x sparc],' -DMULTILIB_ARCHS="amd64 i386 kfreebsd-amd64 mips mipsel powerpc ppc64 s390 s390x sparc" -DNEON_ARCHS="" -DTP= -DTS= -DLS= -DMULTIARCH=yes \
+  -DPV=-4.6 \
+  -DCXX_SO=6 \
+  -DGCC_SO=1 \
+  -DOBJC_SO=3 \
+  -DFORTRAN_SO=3 \
+  -DGCJ_SO=12 \
+  -DLIBGCJ_EXT=12 \
+  -DGNAT_SO=4.6 \
+  -DGNAT_V=4.6 \
+  -DPHOBOS_V= \
+  -DGOMP_SO=1 \
+  -DGCCMATH_SO= \
+  -DMF_SO=0 \
+  -DQMATH_SO=0 \
+  -DSSP_SO=0 \
+  -DGO_SO=0 \
+  -Denabled_languages="c c++ fortran objc objpp gccbase cdev c++dev fdev objcdev source objppdev multilib plugindev libobjc lib32objc lib64objc libn32objc libs source" \
+  -Dada_no_archs="!m32r !sh3 !sh3eb !sh4 !sh4eb" \
+  -Djava_no_archs="!knetbsd-i386 !knetbsd-alpha" \
+  -Dfortran_no_archs="" \
+  -Dlibgc_no_archs="!avr !mips !mipsel !knetbsd-i386 !knetbsd-alpha" \
+  -Dlibphobos_archs="" \
+  -Dlibphobos_no_archs="" \
+  -Dcheck_no_archs="!m68k !hurd-i386 !hurd-alpha !kfreebsd-i386 !kfreebsd-alpha" \
+  -Dlocale_no_archs="" \
+  -Dlinux_gnu_archs="" \
+  -Dbiarch32_archs="amd64 ppc64 kfreebsd-amd64 s390x" \
+  -Dbiarch64_archs="i386 powerpc sparc s390 mips mipsel" \
+  -Dbiarchn32_archs="mips mipsel" \
+  -Dbiarchhf_archs="" \
+  -Dbiarchsf_archs="" \
+	debian/control.m4 > debian/control.tmp2
+addons: gccbase cdev c++dev fdev objcdev source objppdev multilib plugindev libobjc lib32objc lib64objc libn32objc libs source
+uniq debian/control.tmp2 | sed '/^Build/s/ *, */, /g' \
+	> debian/control.tmp
+rm -f debian/control.tmp2
+[ -e debian/control ] \
+  && cmp -s debian/control debian/control.tmp \
+  && rm -f debian/control.tmp && exit 0; \
+  mv debian/control.tmp debian/control; touch stamps/03-control-stamp
+m4 -DDIST=Debian -DSRCNAME=gcc-4.6 \
+	debian/README.Bugs.m4 > debian/README.Bugs
+rm -f debian/rules.parameters.tmp
+( \
+	echo '# configuration parameters taken from upstream source files'; \
+	echo 'GCC_VERSION	:= 4.6.4'; \
+	echo 'NEXT_GCC_VERSION	:= 4.6.5'; \
+	echo 'BASE_VERSION	:= 4.6'; \
+	echo 'SOURCE_VERSION	:= 4.6.4-7clang1'; \
+	echo 'DEB_VERSION	:= 4.6.4-7clang1'; \
+	echo 'DEB_EVERSION	:= 1:4.6.4-7clang1'; \
+	echo 'GDC_BASE_VERSION  := '; \
+	echo 'DEB_GDC_VERSION	:= '; \
+	echo 'DEB_SOVERSION	:= 4.6'; \
+	echo 'DEB_SOEVERSION	:= 1:4.6'; \
+	echo 'DEB_LIBGCC_SOVERSION	:= 1:4.6'; \
+	echo 'DEB_LIBGCC_VERSION	:= 1:4.6.4-7clang1'; \
+	echo 'DEB_STDCXX_SOVERSION	:= 4.6'; \
+	echo 'DEB_GCJ_SOVERSION	:= 4.6'; \
+	echo 'PKG_GCJ_EXT	:= 12'; \
+	echo 'PKG_LIBGCJ_EXT	:= 12'; \
+	echo 'DEB_GOMP_SOVERSION	:= 4.6'; \
+	echo 'DEB_GCCMATH_SOVERSION	:= 4.6'; \
+	echo 'GCC_SONAME	:= 1'; \
+	echo 'CXX_SONAME	:= 6'; \
+	echo 'FORTRAN_SONAME	:= 3'; \
+	echo 'OBJC_SONAME	:= 3'; \
+	echo 'GCJ_SONAME	:= 12'; \
+	echo 'GNAT_VERSION	:= 4.6'; \
+	echo 'GNAT_SONAME	:= 4.6'; \
+	echo 'FFI_SONAME	:= 4'; \
+	echo 'MUDFLAP_SONAME	:= 0'; \
+	echo 'SSP_SONAME	:= 0'; \
+	echo 'GOMP_SONAME	:= 1'; \
+	echo 'QMATH_SONAME	:= 0'; \
+	echo 'GCCMATH_SONAME	:= '; \
+	echo 'GO_SONAME		:= 0'; \
+	echo 'LIBC_DEP		:= libc6'; \
+) > debian/rules.parameters.tmp
+[ -e debian/rules.parameters ] \
+  && cmp -s debian/rules.parameters debian/rules.parameters.tmp \
+  && rm -f debian/rules.parameters.tmp && exit 0; \
+  mv debian/rules.parameters.tmp debian/rules.parameters; \
+  touch stamps/03-control-stamp
+rm -f debian/copyright
+if echo 4.6.4-7clang1 | grep -E ^'[0-9]\.[0-9]-[0-9]{8}' ; \
+	then SVN_BRANCH="trunk" ; \
+else \
+	SVN_BRANCH="gcc-4_6-branch" ; \
+fi ; \
+sed debian/copyright.in		\
+	-e "s/@BV@/4.6/g"		\
+	-e "s/@SVN_BRANCH@/$SVN_BRANCH/g"	\
+	> debian/copyright
+rm -f debian/substvars.local.tmp
+( \
+	echo 'gcc:Version=4.6.4-7clang1'; \
+	echo 'gcc:EpochVersion=1:4.6.4-7clang1'; \
+	echo 'gcc:SoftVersion=4.6.4-1'; \
+	echo 'gdc:Version='; \
+	echo 'gcj:Version=4.6.4-7clang1'; \
+	echo 'gcj:SoftVersion=4.6.4-1'; \
+	echo 'gcj:BaseVersion=4.6'; \
+	echo 'gnat:Version=4.6.4-7clang1'; \
+	echo 'binutils:Version=2.24.51.20140604'; \
+	echo 'dep:libgcc=libgcc1 (>= 1:4.6.4-7clang1)'; \
+	echo 'dep:libgccbiarch=lib32gcc1 (>= 1:4.6.4-7clang1)'; \
+	echo 'dep:libc=libc6 (>= 2.11)'; \
+	echo 'dep:libcdev=libc6-dev (>= 2.13-5)'; \
+	echo 'dep:libcbiarch=libc6-i386 (>= 2.11)'; \
+	echo 'dep:libcbiarchdev=libc6-dev-i386 (>= 2.11)'; \
+	echo 'dep:libunwinddev='; \
+	echo 'dep:libcxxbiarch=lib32stdc++6 (>= ${gcc:Version})'; \
+	echo 'dep:libcxxbiarchdbg=lib32stdc++6-4.6-dbg'; \
+	echo 'dep:libgobiarch='; \
+	echo 'dep:libgobiarchdbg='; \
+	echo 'dep:libgnat='; \
+	echo 'dep:ecj=ecj-gcj, libecj-java-gcj (>= 3.5.1)'; \
+	echo 'dep:libcloog=libcloog-ppl1, libppl-c4, libppl13'; \
+) > debian/substvars.local.tmp
+( \
+	echo 'gcc:multilib=gcc-4.6-multilib'; \
+	echo 'gxx:multilib=g++-4.6-multilib'; \
+	echo 'gobjc:multilib=gobjc-4.6-multilib'; \
+	echo 'gobjcxx:multilib=gobjc++-4.6-multilib'; \
+	echo 'gfortran:multilib=gfortran-4.6-multilib'; \
+) >> debian/substvars.local.tmp
+echo 'dep:gold=binutils-gold (>= 2.24.51.20140604)' \
+	>> debian/substvars.local.tmp
+echo 'dep:libgomp=libgomp1 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:libqmath=libquadmath0 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:libgfortranbiarch=lib32gfortran3 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:libobjcbiarch=lib32objc3 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:libgompbiarch=lib32gomp1 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:libqmathbiarch=lib32quadmath0 (>= ${gcc:Version})' \
+	>> debian/substvars.local.tmp
+echo 'dep:gcj=gcc-4.6 (>= 4.6.4-1)' \
+	>> debian/substvars.local.tmp
+echo 'confl:lib32=libc6-i386 (<< 2.9-22)' >> debian/substvars.local.tmp
+echo 'multiarch:breaks=gcc-4.1, gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2)' >> debian/substvars.local.tmp
+[ -e debian/substvars.local ] \
+  && cmp -s debian/substvars.local debian/substvars.local.tmp \
+  && rm -f debian/substvars.local.tmp && exit 0; \
+  mv debian/substvars.local.tmp debian/substvars.local; \
+  touch stamps/03-control-stamp
+fs=`echo debian/*BV* debian/*GCJ* debian/*CXX* debian/*LC* debian/*MF* | sort -u`; \
+for f in $fs debian/source.lintian-overrides.in; do \
+  [ -f $f ] || echo "CANNOT FIND $f"; \
+  [ -f $f ] || continue; \
+  if [ -z "" ]; then case "$f" in *-CR*) continue; esac; fi; \
+  f2=$(echo $f | sed 's/BV/4.6/;s/CXX/6/;s/LGCJ/12/;s/GCJ/12/;s/LC/1/;s/MF/0/;s/-CRB//;s/\.in$//'); \
+  sed -e 's/@BV@/4.6/g' \
+      -e 's/@CXX@/6/g' \
+      -e 's/@LGCJ@/12/g' \
+      -e 's/@GCJ@/12/g' \
+      -e 's/@GCJSO@/12/g' \
+      -e 's/@LC@/1/g' \
+      -e 's/@MF@/0/g' \
+      -e 's/@SRC@/gcc-4.6/g' \
+      -e 's/@GFDL@/#/g' \
+      -e 's/@java_priority@//g' \
+      -e 's/@gcc_priority@/46/g' \
+      -e 's/@TARGET@/x86_64-linux-gnu/g' \
+    $f > $f2; \
+  touch -r $f $f2; \
+done
+make[1]: Leaving directory '/«PKGBUILDDIR»'
+/usr/bin/make -f debian/rules2 stamps/04-configure-stamp
+make[1]: Entering directory '/«PKGBUILDDIR»'
+dh_testdir
+: # give information about the build process
+------------------------ Build process variables ------------------------
+Number of parallel processes used for the build: 3
+Package source: gcc-4.6
+GCC version: 4.6.4
+Base Debian version: 4.6
+Configured with: -v
+	 --with-pkgversion='Debian 4.6.4-7clang1'
+	 --with-bugurl='file:///usr/share/doc/gcc-4.6/README.Bugs'
+	 --enable-languages=c,c++,fortran,objc,obj-c++
+	 --prefix=/usr
+	 --program-suffix=-4.6
+	 --enable-shared
+	 --enable-linker-build-id
+	 --with-system-zlib
+	 --libexecdir=/usr/lib
+	 --without-included-gettext
+	 --enable-threads=posix
+	 --with-gxx-include-dir=/usr/include/c++/4.6
+	 --libdir=/usr/lib
+	 --enable-nls
+	 --with-sysroot=/
+	 --enable-clocale=gnu
+	 --enable-libstdcxx-debug
+	 --enable-gnu-unique-object
+	 --disable-libmudflap
+	 --enable-plugin
+	 --enable-objc-gc
+	 --with-arch-32=i586
+	 --with-tune=generic
+	 --enable-checking=release
+	 --build=x86_64-linux-gnu
+	 --host=x86_64-linux-gnu
+	 --target=x86_64-linux-gnu
+	
+Using shell /bin/bash -e		
+Architecture: amd64 (GNU: x86_64-linux-gnu)
+CPPFLAGS: 
+CFLAGS: 
+LDFLAGS: 
+BOOT_CFLAGS: 
+DEBIAN_BUILDARCH: 
+Install prefix: /usr
+Will build the biarch compilers (64/32, defaulting to 64bit)
+Will build the C++ compiler
+Will build the ObjC compiler.
+Will build the extra ObjC runtime for garbage collection.
+Will build the Obj-C++ compiler
+Will build the Fortran 95 compiler.
+Will not build the Java compiler: built from separate source
+Will not build the Ada compiler: built from separate source
+Will not build the Go compiler: built from the gcc-4.7 sources
+Will not build the D compiler: built from separate source
+Will build with SSP support.
+Will run the testsuite.
+Will run the testsuite with -m32: yes
+Will enable national language support.
+-----------------------------------------------------------------------------
+
+rm -f stamps/04-configure-stamp stamps/05-build-stamp
+cp stamps/02-patch-stamp debian/README.Debian.amd64
+rm -rf /«PKGBUILDDIR»/build
+mkdir /«PKGBUILDDIR»/build
+: # configure
+cd /«PKGBUILDDIR»/build \
+  && PATH=/«PKGBUILDDIR»/bin:/usr/lib/x86_64-linux-gnu/gcc/bin:$PATH \
+	CC="gcc" \
+	 \
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/«PKGBUILDDIR»/build/gcc/ada/rts \
+	../src/configure -v --with-pkgversion='Debian 4.6.4-7clang1' --with-bugurl='file:///usr/share/doc/gcc-4.6/README.Bugs' --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib  --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-gnu-unique-object --disable-libmudflap --enable-plugin --enable-objc-gc --with-arch-32=i586 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for gawk... gawk
+checking for x86_64-linux-gnu-gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for x86_64-linux-gnu-g++... x86_64-linux-gnu-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether x86_64-linux-gnu-g++ accepts -g... yes
+checking for x86_64-linux-gnu-gnatbind... no
+checking for gnatbind... no
+checking for x86_64-linux-gnu-gnatmake... no
+checking for gnatmake... no
+make[1]: *** [stamps/04-configure-stamp] Terminated
+checking whether compiler driver understands Ada... debian/rules2:777: recipe for target 'stamps/04-configure-stamp' failed
+debian/rules:29: recipe for target 'stamps/04-configure-stamp' failed
+make: *** [stamps/04-configure-stamp] Terminated
+E: Caught signal ‘Terminated’: terminating immediately
+Build killed with signal TERM after 62 minutes of inactivity
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20140617-1228
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Build Architecture: amd64
+Build-Space: 702024
+Build-Time: 4139
+Distribution: unstable
+Fail-Stage: build
+Host Architecture: amd64
+Install-Time: 29
+Job: gcc-4.6_4.6.4-7
+Machine Architecture: amd64
+Package: gcc-4.6
+Package-Time: 4200
+Source-Version: 4.6.4-7
+Space: 702024
+Status: attempted
+Version: 4.6.4-7clang1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20140617-1228
+Build needed 01:10:00, 702024k disc space
+DC-Status: Failed 4216.726179248s
+DC-Time-Estimation: 4216.726179248 versus expected 32254 (r/m: 6.649062004247118 ; m: 4216.726179248)
