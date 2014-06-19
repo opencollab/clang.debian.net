@@ -5,8 +5,8 @@ $_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.4";
-$DATE_REBUILD="2014-01-14";
+$CLANG_VERSION="3.4.2";
+$DATE_REBUILD="2014-06-16";
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);

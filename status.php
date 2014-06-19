@@ -7,11 +7,13 @@ if (strpos($keyGET, "..") && $keyGET!="" ) {
 }
 
 $versionGET=mysql_real_escape_string($_GET['version']);
-if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2" && $versionGET!="3.3")) {
+
+// TODO improve that
+if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2" && $versionGET!="3.3" && versionGET!="3.4" &&$versionGET!="3.4.2")) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4") {
+if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2") {
    $suffix="unstable_clang";
    $ext="log";
 }
@@ -114,8 +116,8 @@ if ($versionGET=="2.9") {
 	$suffix="lsid64c";
 }
 if ($versionGET=="3.1" || $versionGET=="3.3") {
-	$suffix="unstable_clang";
-    $ext="log";
+   	$suffix="unstable_clang";
+   	$ext="log";
 }
 
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
