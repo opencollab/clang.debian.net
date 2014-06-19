@@ -5,9 +5,9 @@ $pathGCCToLog="rebuild.lsid64-amd64.2011-09-11";
 $suffix="lsid64b";
 $ext="buildlog";
 
-$currentVersion="3.4";
+$currentVersion="3.4.2";
 
-$clangVersions=Array("2.9" => 16398, "3.0" => 15658, "3.1" => 17710, "3.2" => 18264, "3.3" => 18854, "3.4" => 21204);
+$clangVersions=Array("2.9" => 16398, "3.0" => 15658, "3.1" => 17710, "3.2" => 18264, "3.3" => 18854, "3.4" => 21204, "3.4.2" => 21383);
 
 switch ($_SERVER['HTTP_HOST']){
  case 'clang.debian.net':
