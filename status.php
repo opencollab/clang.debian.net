@@ -9,27 +9,27 @@ if (strpos($keyGET, "..") && $keyGET!="" ) {
 $versionGET=mysql_real_escape_string($_GET['version']);
 
 // TODO improve that
-if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2" && $versionGET!="3.3" && versionGET!="3.4" &&$versionGET!="3.4.2")) {
+if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2") {
+if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0rc1") {
    $suffix="unstable_clang";
    $ext="log";
 }
 
-   if ($keyGET) {
+if ($keyGET) {
 
    foreach ($known_errors as $key => $err) {
-// retrieve of the name
+   	// retrieve of the name
         if ($err['key']==$keyGET) {
             $keyDSC=$err['dsc'];
             break;
         }
-
     }
+
     if ($keyGET=="NO_CAT") {
-        $keyGET="";
+//       $keyGET="";
     }
 }
 
@@ -78,8 +78,6 @@ $(document).ready(function () {
 <div id="body">
 
 <? 
-
-
     $totalDebian=$clangVersions[$versionGET];
     if (!isset($keyGET) || $keyGET == "") {
 ?>
@@ -121,11 +119,14 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
 }
 
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
+if ($keyGET == "NO_CAT") {
+   $keyGET="";
+}
 if ($keyGET!="all") {
   $req.=" AND key_code='{$keyGET}'";
 }
 $req.="		 order by errors.package";
-// order by SOUNDEX(reverse(detected_error))"; //package";
+//$req.=" order by SOUNDEX(reverse(detected_error))"; //package";
 
 $result=mysql_query($req);
 $nb=mysql_num_rows($result);
