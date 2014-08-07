@@ -19,8 +19,8 @@ $known_errors= Array(
         Array("key" => "UNKNOWN_ARG", "dsc" => "Unknown argument", "msg" => Array("Unknown argument", "unknown argument"), "nb" => 0),
         Array("key" => "IMPLICIT_INSTANTIATION", "dsc" => "Implicit instantiation", "msg" => "implicit instantiation of undefined template", "nb" => 0),
         Array("key" => "USE_OF_UNDECLARED_IDENTIFIER", "dsc" => "Unqualified lookup into dependent bases of class templates", "msg" => "use of undeclared identifier", "nb" => 0),
-        Array("key" => "EQUALITY_COMPARISON", "dsc" => "equality comparison with extraneous parentheses", "msg" => "equality comparison with extraneous parentheses", "nb" => 0),
-        Array("key" => "REDEF_NOT_SUPPORTED_C99", "dsc" => "redefinition of a extern inline not supported in C99", "msg" => "is not supported in C99 mode", "nb" => 0),
+        Array("key" => "EQUALITY_COMPARISON", "dsc" => "Equality comparison with extraneous parentheses", "msg" => "equality comparison with extraneous parentheses", "nb" => 0),
+        Array("key" => "REDEF_NOT_SUPPORTED_C99", "dsc" => "Redefinition of a extern inline not supported in C99", "msg" => "is not supported in C99 mode", "nb" => 0),
         Array("key" => "WRONG_GCC_ASSUMPTION", "dsc" => "Wrong assumption about gcc/g++ output", "msg" => Array("g++ was not found","see the result of gcc","gcc >= 3.0 is needed","Compiler version 3.0","Gcc version error","GCC too old","You need gcc"), "nb" => 0),
         Array("key" => "AMBIGUOUS_DECLARATION", "dsc" => "Ambiguous declaration", "msg" => "is ambiguous", "nb" => 0),
         Array("key" => "POSIX_SPAWN_FAILED", "dsc" => "posix_spawn failed", "msg" => "posix_spawn failed: Cannot allocate memory", "nb" => 0),
@@ -37,7 +37,7 @@ $known_errors= Array(
         Array("key" => "SYMBOL_ERROR", "dsc" => "Symbol errors", "msg" => Array("could not read symbols: Bad value","could not read symbols: Invalid operation"), "nb" => 0),
         Array("key" => "SEG_FAULT", "dsc" => "Segmentation fault", "msg" => "Segmentation fault", "nb" => 0),
         Array("key" => "OLD_GNU_FIELD_DESIGNATOR", "dsc" => "Use of old GNU field designator", "msg" => "use of GNU old-style field designator extension", "nb" => 0),
-        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => "-Wtautological-compare", "nb" => 0),
+        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => Array("-Wtautological-compare","Wtautological-constant-out-of-range-compare","Wtautological-pointer-compare"), "nb" => 0),
         Array("key" => "RESTRICT_REQ_POINTER", "dsc" => "restrict requires a pointer or reference", "msg" => "error: expected identifier or '('", "nb" => 0),
         Array("key" => "EXPECTED_DECLARATION", "dsc" => "Expected declaration (#define missing?)", "msg" => "error: expected", "nb" => 0),
         Array("key" => "XLIB_BUILD_FAIL", "dsc" => "xutils-dev build tool is failing", "msg" => Array("Imake.rules:2486:25: error:","Imake.rules:1674:27: error: empty character constant"), "nb" => 0),
@@ -50,7 +50,7 @@ $known_errors= Array(
         Array("key" => "CLANG_FAILED", "dsc" => "clang command failed", "msg" => Array("gcc frontend command"), "nb" => 0),
         Array("key" => "NOT_STRUCT_UNION", "dsc" => "Member is not a structure or union", "msg" => Array("is not a structure or union"), "nb" => 0),
         Array("key" => "LINE_POSITIVE", "dsc" => "#line requires a positive integer", "msg" => Array("#line directive requires a positive integer argument"), "nb" => 0),
-        Array("key" => "VARIABLE_LENGTH_ARRAY", "dsc" => "variable length array in structure won't be supported", "msg" => Array("variable length array in structure' extension will never be supported"), "nb" => 0),
+        Array("key" => "VARIABLE_LENGTH_ARRAY", "dsc" => "Variable length array in structure won't be supported", "msg" => Array("variable length array in structure' extension will never be supported"), "nb" => 0),
         Array("key" => "NON-POD", "dsc" => "Variable length array for a non POD (plain old data) element", "msg" => Array("variable length array of non-POD element"), "nb" => 0),
         Array("key" => "NOT_SUPPORTED_REGISTER", "dsc" => "Global register variable not supported ", "msg" => Array("error: global register variables are not supported"), "nb" => 0),
         Array("key" => "NO_MATCHING_FUNCTION_CALL", "dsc" => "No matching function call", "msg" => Array("error: no matching function for call"), "nb" => 0),
@@ -122,21 +122,32 @@ $known_errors= Array(
 
 /* New in 3.4 */
 
-Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" => Array("-Werror,-Wunused-const-variable"), "nb" => 0),
+Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" => Array("-Werror,-Wunused-const-variable"), "nb" => 0, "new" => "3.4.0"),
 
-Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0),
+Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0, "new" => "3.4.0"),
 
-Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong C++ default declaration in a method", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0),
+Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong C++ default declaration in a method", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0, "new" => "3.4.0"),
 
-Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
+Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0, "new" => "3.4.0"),
 
-Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0),
+Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0, "new" => "3.4.0"),
 
-        Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
+        Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0, "new" => "3.4.0"),
 
-        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
+        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0, "new" => "3.4.0"),
 
         Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
+	
+// From 3.5.0
+	Array("key" => "EMBEDDED_DIRECTIVE_UNDEFINED", "dsc" => "Embedded directive has undefined behavior", "msg" => Array("embedding a directive within macro arguments has undefined behavior"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "NO_VIABLE_OVERLOADED", "dsc" => "No viable overloaded", "msg" => Array("no viable overloaded"), "nb" => 0, "new" => "3.5.0"),
+	Array("key" => "HEADER_GUARD", "dsc" => "Header guard failure", "msg" => Array("is used as a header guard here"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "ABSOLUTE_VALUE_ERROR", "dsc" => "Absolute value error", "msg" => Array("Wabsolute-value"), "nb" => 0, "new" => "3.5.0"),
+//+ tautolical
+        Array("key" => "INT_POINTER_COMPARISON", "dsc" => "Comparison between pointer and integer", "msg" => Array("comparison between pointer and integer"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "INVALID_INSTRUCTION_MNEMONIC", "dsc" => "Invalid instruction mnemonic", "msg" => Array("invalid instruction mnemonic"), "nb" => 0, "new" => "3.5.0"),
+
+
 
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
@@ -256,7 +267,7 @@ foreach($errors as  $key => $err) {
             if ($err['key']!="NO_CAT") {
 
 ?>
-    <tr><td><?=$err["dsc"]?></td>
+    <tr><td><?=$err["dsc"]?> <?if (isset($err['new'])) { echo "<small> - new in " . $err['new'] . "</small>"; }?> </td>
 <td><?=$err["nb"]?></td>
 <td><?=round(100*$err["nb"]/$totalFailed,2)?>% / <?=round(100*$err["nb"]/$totalDebian,2)?>%</td>
 <td><a href="status.php?version=<?=$version?>&key=<?=$err['key']?>">List of errors</a></td>
