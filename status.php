@@ -125,8 +125,12 @@ if ($keyGET == "NO_CAT") {
 if ($keyGET!="all") {
   $req.=" AND key_code='{$keyGET}'";
 }
-$req.="		 order by errors.package";
-//$req.=" order by SOUNDEX(reverse(detected_error))"; //package";
+if (isset($_GET['sort'])) {
+  $req.=" order by SOUNDEX(reverse(detected_error))"; //package";
+} else {
+  $req.="		 order by errors.package";
+}
+
 
 $result=mysql_query($req);
 $nb=mysql_num_rows($result);
