@@ -139,13 +139,15 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
 	
 // From 3.5.0
-	Array("key" => "EMBEDDED_DIRECTIVE_UNDEFINED", "dsc" => "Embedded directive has undefined behavior", "msg" => Array("embedding a directive within macro arguments has undefined behavior"), "nb" => 0, "new" => "3.5.0"),
+	Array("key" => "EMBEDDED_DIRECTIVE_UNDEFINED", "dsc" => "Embedded directive has undefined behavior", "msg" => Array("embedding a directive within macro arguments has undefined behavior"), "nb" => 0),
         Array("key" => "NO_VIABLE_OVERLOADED", "dsc" => "No viable overloaded", "msg" => Array("no viable overloaded"), "nb" => 0, "new" => "3.5.0"),
-	Array("key" => "HEADER_GUARD", "dsc" => "Header guard failure", "msg" => Array("is used as a header guard here"), "nb" => 0, "new" => "3.5.0"),
+	Array("key" => "HEADER_GUARD", "dsc" => "Header guard failure", "msg" => Array("is used as a header guard here"), "nb" => 0),
         Array("key" => "ABSOLUTE_VALUE_ERROR", "dsc" => "Absolute value error", "msg" => Array("Wabsolute-value"), "nb" => 0, "new" => "3.5.0"),
 //+ tautolical
-        Array("key" => "INT_POINTER_COMPARISON", "dsc" => "Comparison between pointer and integer", "msg" => Array("comparison between pointer and integer"), "nb" => 0, "new" => "3.5.0"),
-        Array("key" => "INVALID_INSTRUCTION_MNEMONIC", "dsc" => "Invalid instruction mnemonic", "msg" => Array("invalid instruction mnemonic"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "INT_POINTER_COMPARISON", "dsc" => "Comparison between pointer and integer", "msg" => Array("comparison between pointer and integer"), "nb" => 0),
+        Array("key" => "INVALID_INSTRUCTION_MNEMONIC", "dsc" => "Invalid instruction mnemonic", "msg" => Array("invalid instruction mnemonic"), "nb" => 0),
+        Array("key" => "FORWARD_WITH_NESTED", "dsc" => "Forward declaration of class cannot have a nested name specifier", "msg" => Array("forward declaration of class cannot have a nested name specifier"), "nb" => 0),
+        Array("key" => "DEFAULT_INIT_NEEDS_USER_CONST", "dsc" => "Default initialization needs a user-provided default constructor", "msg" => Array("default initialization of an object of const type"), "nb" => 0),
 
 
 
