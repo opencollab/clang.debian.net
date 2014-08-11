@@ -5,8 +5,17 @@ $_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
-$CLANG_VERSION="3.4.2";
-$DATE_REBUILD="2014-06-16";
+if (isset($argv[1])) {
+  $CLANG_VERSION=$argv[1];
+} else {
+  $CLANG_VERSION="3.5.0rc1";
+}
+
+if (isset($argv[2])) {
+  $DATE_REBUILD=$argv[2];
+} else {
+  $DATE_REBUILD="2014-08-05";
+}
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
 mysql_query($QUERY);
