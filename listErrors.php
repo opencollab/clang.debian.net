@@ -5,7 +5,7 @@ $known_errors= Array(
         Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with an other option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
         Array("key" => "OPENMP_NOT_AVAILABLE", "dsc" => "OpenMP is not yet available in Clang", "msg" => Array("'omp.h' file not found","We need OpenMP","missing omp.h","Could not find omp.h"), "nb" => 0),
         Array("key" => "MAIN_RETURNS_INT", "dsc" => "main function must return int", "msg" => "error: 'main' must return 'int'", "nb" => 0),
-        Array("key" => "FUNCTION_RETURNS_VALUE", "dsc" => "non-void function should return a value", "msg" => "should return a value [-Wreturn-type]", "nb" => 0),
+        Array("key" => "FUNCTION_RETURNS_VALUE", "dsc" => "non-void function should return a value", "msg" => Array("should return a value [-Wreturn-type]","control may reach end of non-void function"), "nb" => 0),
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
         Array("key" => "OBJC", "dsc" => "Could not find objective C headers", "msg" => "'objc/objc.h' file not found", "nb" => 0),
         Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'") , "nb" => 0),
@@ -25,13 +25,12 @@ $known_errors= Array(
         Array("key" => "AMBIGUOUS_DECLARATION", "dsc" => "Ambiguous declaration", "msg" => "is ambiguous", "nb" => 0),
         Array("key" => "POSIX_SPAWN_FAILED", "dsc" => "posix_spawn failed", "msg" => "posix_spawn failed: Cannot allocate memory", "nb" => 0),
         Array("key" => "CANNOT_USE_O_MULTI_OUTPUT", "dsc" => "Cannot use -o use multiple output", "msg" => "cannot specify -o when generating multiple output files", "nb" => 0),
-        Array("key" => "REDEFINITION", "dsc" => "Redefinition failed", "msg" => "redefinition of", "nb" => 0),
+        Array("key" => "REDEFINITION", "dsc" => "Redefinition failed", "msg" => Array("redefinition of","macro redefined"), "nb" => 0),
         Array("key" => "PARAMETER_CANNOT_BE_QUALIFIED", "dsc" => "Parameter could be qualified", "msg" => "parameter declarator cannot be qualified", "nb" => 0),
 
         Array("key" => "CONFLICTING_TYPE", "dsc" => "Conflicting types", "msg" => "error: conflicting types for", "nb" => 0),
         Array("key" => "WRONG_MAIN_DECLARATION", "dsc" => "Wrong main declaration", "msg" => Array("first parameter of 'main' (argument count) must be of type 'int'","error: second parameter of 'main'","too many parameters (4) for 'main'","error: C++ requires a type specifier for all"), "nb" => 0),
         Array("key" => "EMPTY_BODY", "dsc" => "Empty body declaration", "msg" => Array("if statement has empty body","for loop has empty body","while loop has empty body"), "nb" => 0),
-        Array("key" => "EXPECTED_SEMILON", "dsc" => "No support of nested C function", "msg" => "error: expected ';' at end of declaration", "nb" => 0),
         Array("key" => "CONFIGURE_FAILED", "dsc" => "Configure failed", "msg" => Array("compiler cannot create executables", "does not preserve whitespace with or without -traditional","fatal error: 'ac_nonexistent.h' file not found"), "nb" => 0),
         Array("key" => "FILE_NOT_FOUND", "dsc" => "Some headers could not be found", "msg" => "file not found", "nb" => 0),
         Array("key" => "SYMBOL_ERROR", "dsc" => "Symbol errors", "msg" => Array("could not read symbols: Bad value","could not read symbols: Invalid operation"), "nb" => 0),
@@ -55,7 +54,7 @@ $known_errors= Array(
         Array("key" => "NOT_SUPPORTED_REGISTER", "dsc" => "Global register variable not supported ", "msg" => Array("error: global register variables are not supported"), "nb" => 0),
         Array("key" => "NO_MATCHING_FUNCTION_CALL", "dsc" => "No matching function call", "msg" => Array("error: no matching function for call"), "nb" => 0),
         Array("key" => "NO_MATCHING_MEMBER_CALL", "dsc" => "No matching member or constructor call", "msg" => Array("error: no matching member function for call","no matching constructor"), "nb" => 0),
-        Array("key" => "BINDING_DROPS_QUALIFIERS", "dsc" => "binding of reference drops qualifiers ", "msg" => Array("error: binding of reference to type"), "nb" => 0),
+        Array("key" => "BINDING_DROPS_QUALIFIERS", "dsc" => "Binding of reference drops qualifiers ", "msg" => Array("error: binding of reference to type"), "nb" => 0),
         Array("key" => "CANNOT_FIND_FUNCTION", "dsc" => "Unqualified lookup in templates", "msg" => Array("that is neither visible in the template definition nor found by argument-dependent lookup"), "nb" => 0),
         Array("key" => "INVALID_USE_NONSTATIC", "dsc" => "Invalid use of nonstatic data member", "msg" => Array("invalid use of nonstatic data member"), "nb" => 0),
         Array("key" => "DIFFERS_DECLARATION_RETURN", "dsc" => "Definition differs from the declaration in the return type ", "msg" => Array("error: out-of-line definition of"), "nb" => 0),
@@ -101,7 +100,7 @@ $known_errors= Array(
 
         Array("key" => "CANNOT_INIT_ELEM", "dsc" => "Cannot initialize a element", "msg" => Array("cannot initialize a variable of type","cannot initialize a parameter of type","cannot initialize return object of type","cannot initialize return object of type"), "nb" => 0),
 
-        Array("key" => "NOT_ALLOWED_HERE", "dsc" => "Function definition is not allowed here", "msg" => Array("error: function definition is not allowed here"), "nb" => 0),
+        Array("key" => "NOT_ALLOWED_HERE", "dsc" => "No support of nested C function", "msg" => Array("error: function definition is not allowed here","error: expected ';' at end of declaration"), "nb" => 0),
 	Array("key" => "DEFAULT_CONSTRUCTOR", "dsc" => "Changes of default constructor", "msg" => Array("error: addition of default argument on redeclaration makes this constructor a default constructor"), "nb" => 0),
 
 	Array("key" => "LINKER_OPTION_UNUSED", "dsc" => "Linker option unused", "msg" => Array("' input unused"), "nb" => 0),
@@ -122,25 +121,25 @@ $known_errors= Array(
 
 /* New in 3.4 */
 
-Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" => Array("-Werror,-Wunused-const-variable"), "nb" => 0, "new" => "3.4.0"),
+Array("key" => "UNUSED_CONST_VARIABLE", "dsc" => "Unused const variable", "msg" => Array("-Werror,-Wunused-const-variable"), "nb" => 0),
 
-Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0, "new" => "3.4.0"),
+Array("key" => "RECURSIVE_TEMPLATE_EXCEEDED", "dsc" => "Recursive template instantiation exceeded", "msg" => Array("recursive template instantiation exceeded"), "nb" => 0),
 
-Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong C++ default declaration in a method", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0, "new" => "3.4.0"),
+Array("key" => "WRONG_DEFAULT_DECLARATION", "dsc" => "Wrong C++ default declaration in a method", "msg" => Array("friend declaration specifying a default argument must be a definition", "default arguments cannot be added to an out-of-line definition"), "nb" => 0),
 
-Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0, "new" => "3.4.0"),
+Array("key" => "RETURN_TYPE_DIFFER", "dsc" => "return type of out-of-line differs from that in the declaration", "msg" => Array("return type of out-of-line definition of"), "nb" => 0),
 
-Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0, "new" => "3.4.0"),
+Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without the argument", "msg" => Array("enabled with the -std=c++11 or -std=gnu++11 compiler options"), "nb" => 0),
 
-        Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0, "new" => "3.4.0"),
+        Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
 
-        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0, "new" => "3.4.0"),
+        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
 
         Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
 	
-// From 3.5.0
+// Added 3.5.0
 	Array("key" => "EMBEDDED_DIRECTIVE_UNDEFINED", "dsc" => "Embedded directive has undefined behavior", "msg" => Array("embedding a directive within macro arguments has undefined behavior"), "nb" => 0),
-        Array("key" => "NO_VIABLE_OVERLOADED", "dsc" => "No viable overloaded", "msg" => Array("no viable overloaded"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "NO_VIABLE_OVERLOADED", "dsc" => "No viable overloaded", "msg" => Array("no viable overloaded"), "nb" => 0),
 	Array("key" => "HEADER_GUARD", "dsc" => "Header guard failure", "msg" => Array("is used as a header guard here"), "nb" => 0),
         Array("key" => "ABSOLUTE_VALUE_ERROR", "dsc" => "Absolute value error", "msg" => Array("Wabsolute-value"), "nb" => 0, "new" => "3.5.0"),
 //+ tautolical
@@ -148,7 +147,15 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "INVALID_INSTRUCTION_MNEMONIC", "dsc" => "Invalid instruction mnemonic", "msg" => Array("invalid instruction mnemonic"), "nb" => 0),
         Array("key" => "FORWARD_WITH_NESTED", "dsc" => "Forward declaration of class cannot have a nested name specifier", "msg" => Array("forward declaration of class cannot have a nested name specifier"), "nb" => 0),
         Array("key" => "DEFAULT_INIT_NEEDS_USER_CONST", "dsc" => "Default initialization needs a user-provided default constructor", "msg" => Array("default initialization of an object of const type"), "nb" => 0),
-
+        Array("key" => "NO_TYPE_NAMED_IN_NAMESPACE", "dsc" => "No type named in namespace", "msg" => Array("no type named"), "nb" => 0),
+	Array("key" => "FUNCTION_DIFFER_RETURN_CANNOT_OVERLOADED", "dsc" => "Functions differ only in their return type cannot be overloaded", "msg" => Array("functions that differ only in their return type cannot be overloaded"), "nb" => 0),
+        Array("key" => "DEFAULT_ARG_DECLARED_FUNC_TEMPLATE", "dsc" => "Default arguments cannot be added to a function template that has already been declared", "msg" => Array("default arguments cannot be added to a function template that has already been declared"), "nb" => 0),
+        Array("key" => "UNKNOWN_UNEXPECTED_DIRECTIVE", "dsc" => "Unknown/unexpected directive", "msg"  => Array("unknown directive", "unexpected directive"), "nb" => 0),
+        Array("key" => "HIDES_OVERLOADED_VIRTUAL_FUNCTION", "dsc" => "Hides overloaded virtual function", "msg"  => Array("hides overloaded virtual function"), "nb" => 0),
+	Array("key" => "ASSIGN_VAR_TO_TYPE", "dsc" => "Explicitly assigning a variable of type", "msg"  => Array("explicitly assigning a variable of type"), "nb" => 0),
+	Array("key" => "VISIBILITY_NOT_MATCH", "dsc" => "Visibility does not match previous declaration", "msg"  => Array("visibility does not match previous declaration"), "nb" => 0),
+        Array("key" => "NOT_FUNCTION_OR_FUNCTION_POINTER", "dsc" => "Object is not a function or function pointer ", "msg"  => Array(" is not a function or function pointer"), "nb" => 0),
+        Array("key" => "NOT_COMPILE_TIME_CONSTANT", "dsc" => "Initializer element not compile-time constant", "msg"  => Array("initializer element is not a compile-time constant"), "nb" => 0),
 
 
 // General
