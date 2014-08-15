@@ -36,7 +36,7 @@ $known_errors= Array(
         Array("key" => "SYMBOL_ERROR", "dsc" => "Symbol errors", "msg" => Array("could not read symbols: Bad value","could not read symbols: Invalid operation"), "nb" => 0),
         Array("key" => "SEG_FAULT", "dsc" => "Segmentation fault", "msg" => "Segmentation fault", "nb" => 0),
         Array("key" => "OLD_GNU_FIELD_DESIGNATOR", "dsc" => "Use of old GNU field designator", "msg" => "use of GNU old-style field designator extension", "nb" => 0),
-        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => Array("-Wtautological-compare","Wtautological-constant-out-of-range-compare","Wtautological-pointer-compare"), "nb" => 0),
+        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => Array("-Wtautological-compare"), "nb" => 0),
         Array("key" => "RESTRICT_REQ_POINTER", "dsc" => "restrict requires a pointer or reference", "msg" => "error: expected identifier or '('", "nb" => 0),
         Array("key" => "EXPECTED_DECLARATION", "dsc" => "Expected declaration (#define missing?)", "msg" => "error: expected", "nb" => 0),
         Array("key" => "XLIB_BUILD_FAIL", "dsc" => "xutils-dev build tool is failing", "msg" => Array("Imake.rules:2486:25: error:","Imake.rules:1674:27: error: empty character constant"), "nb" => 0),
@@ -133,7 +133,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         Array("key" => "READONLY_VAR_NOT_ASSIGN", "dsc" => "read-only variable is not assignable", "msg" => Array("read-only variable is not assignable"), "nb" => 0),
 
-        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Defitinion of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
+        Array("key" => "DEF_BUILTIN_FUNCTION", "dsc" => "Definition of a builtin function", "msg" => Array("error: definition of builtin function"), "nb" => 0),
 
         Array("key" => "BUILD_TIMEOUT", "dsc" => "The build timeout", "msg" => Array("Build killed with signal"), "nb" => 0),
 	
@@ -149,13 +149,14 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "DEFAULT_INIT_NEEDS_USER_CONST", "dsc" => "Default initialization needs a user-provided default constructor", "msg" => Array("default initialization of an object of const type"), "nb" => 0),
         Array("key" => "NO_TYPE_NAMED_IN_NAMESPACE", "dsc" => "No type named in namespace", "msg" => Array("no type named"), "nb" => 0),
 	Array("key" => "FUNCTION_DIFFER_RETURN_CANNOT_OVERLOADED", "dsc" => "Functions differ only in their return type cannot be overloaded", "msg" => Array("functions that differ only in their return type cannot be overloaded"), "nb" => 0),
-        Array("key" => "DEFAULT_ARG_DECLARED_FUNC_TEMPLATE", "dsc" => "Default arguments cannot be added to a function template that has already been declared", "msg" => Array("default arguments cannot be added to a function template that has already been declared"), "nb" => 0),
+        Array("key" => "DEFAULT_ARG_DECLARED_FUNC_TEMPLATE", "dsc" => "Default arguments cannot be added to a function template (already declared)", "msg" => Array("default arguments cannot be added to a function template that has already been declared"), "nb" => 0),
         Array("key" => "UNKNOWN_UNEXPECTED_DIRECTIVE", "dsc" => "Unknown/unexpected directive", "msg"  => Array("unknown directive", "unexpected directive"), "nb" => 0),
         Array("key" => "HIDES_OVERLOADED_VIRTUAL_FUNCTION", "dsc" => "Hides overloaded virtual function", "msg"  => Array("hides overloaded virtual function"), "nb" => 0),
 	Array("key" => "ASSIGN_VAR_TO_TYPE", "dsc" => "Explicitly assigning a variable of type", "msg"  => Array("explicitly assigning a variable of type"), "nb" => 0),
 	Array("key" => "VISIBILITY_NOT_MATCH", "dsc" => "Visibility does not match previous declaration", "msg"  => Array("visibility does not match previous declaration"), "nb" => 0),
         Array("key" => "NOT_FUNCTION_OR_FUNCTION_POINTER", "dsc" => "Object is not a function or function pointer ", "msg"  => Array(" is not a function or function pointer"), "nb" => 0),
         Array("key" => "NOT_COMPILE_TIME_CONSTANT", "dsc" => "Initializer element not compile-time constant", "msg"  => Array("initializer element is not a compile-time constant"), "nb" => 0),
+        Array("key" => "TAUTOLOGICAL-POINTER-COMPARE", "dsc" => "Tautological pointer comparison", "msg" => Array("Wtautological-constant-out-of-range-compare","Wtautological-pointer-compare","tautological-undefined-compare"), "nb" => 0, "new" => "3.5.0"),
 
 
 // General
