@@ -164,10 +164,9 @@ if ($row->bug_type == "debian") {
 <?=$nb?> errors
 <div align="right"><a href="status.php">Return to the list</a></div>
 <? } ?>
-</div><div id="footer">
+</div>
+<div id="footer">
 Pages written by <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> for <a href="http://www.debian.org/">Debian</a> and <a href="http://www.irill.org">IRILL</a><br />
-<span class="tiny">
-</span>
 </div>
 </body>
 </html>
