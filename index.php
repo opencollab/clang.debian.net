@@ -189,10 +189,8 @@ Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for h
 <br />Thanks also to <a href="https://www.grid5000.fr/">Grid 5000</a> for their infrastructure and Amazon for their credit to use AWS.<br />
 
 </div>
-<div id="footer">
-Pages written by <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> for <a href="http://www.debian.org/">Debian</a> and <a href="http://www.irill.org">IRILL</a><br />
-<span class="tiny">
-</span>
-</div>
+<?
+include("footer.php");
+?>
 </body>
 </html>
