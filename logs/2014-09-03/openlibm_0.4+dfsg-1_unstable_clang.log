@@ -1,0 +1,1282 @@
+DC-Build-Header: openlibm 0.4+dfsg-1 / 2014-09-04 15:39:33 +0000
+DC-Task: source:openlibm version:0.4+dfsg-1 architecture:any chroot:unstable esttime: logfile:/tmp/openlibm_0.4+dfsg-1_unstable_clang.log modes:binary-only:parallel:clang
+DC-Sbuild-call: su user -c 'sbuild -n --apt-update -d unstable -v  --chroot-setup-commands=/tmp/switch-to-clang --append-to-version "clang1" --maintainer "Lucas Nussbaum <lucas@debian.org>" --uploader "Lucas Nussbaum <lucas@debian.org>" openlibm_0.4+dfsg-1'
+sbuild (Debian sbuild) 0.63.2 (18 Aug 2012) on ip-172-31-0-68.us-west-2.compute.internal
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ openlibm 0.4+dfsg-1clang1 (amd64)                          04 Sep 2014 15:39 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Package: openlibm
+Version: 0.4+dfsg-1clang1
+Source Version: 0.4+dfsg-1
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+
+I: NOTICE: Log filtering will replace 'build/openlibm-_RdaJc/openlibm-0.4+dfsg' with '«PKGBUILDDIR»'
+I: NOTICE: Log filtering will replace 'build/openlibm-_RdaJc' with '«BUILDDIR»'
+I: NOTICE: Log filtering will replace 'var/lib/schroot/mount/unstable-amd64-sbuild-cefa6c38-a369-4f95-b150-8d1f02ca5548' with '«CHROOT»'
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Update chroot                                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Get:1 http://localhost:9999 unstable InRelease [233 kB]
+Ign http://localhost:9999 unstable/main Sources/DiffIndex
+Get:2 http://localhost:9999 unstable/main amd64 Packages/DiffIndex [7876 B]
+Get:3 http://localhost:9999 unstable/main Translation-en/DiffIndex [7876 B]
+Get:4 http://localhost:9999 unstable/main amd64 2014-09-03-1436.55.pdiff [26.7 kB]
+Get:5 http://localhost:9999 unstable/main amd64 2014-09-03-2030.01.pdiff [12.4 kB]
+Get:6 http://localhost:9999 unstable/main amd64 2014-09-04-0229.22.pdiff [5892 B]
+Get:7 http://localhost:9999 unstable/main amd64 2014-09-04-0831.05.pdiff [18.1 kB]
+Get:8 http://localhost:9999 unstable/main amd64 2014-09-04-0831.05.pdiff [18.1 kB]
+Get:9 http://localhost:9999 unstable/main 2014-09-03-1436.55.pdiff [3960 B]
+Get:10 http://localhost:9999 unstable/main 2014-09-03-2030.01.pdiff [1010 B]
+Get:11 http://localhost:9999 unstable/main 2014-09-04-0229.22.pdiff [648 B]
+Get:12 http://localhost:9999 unstable/main 2014-09-04-0831.05.pdiff [61 B]
+Err http://localhost:9999 unstable/main Sources
+  
+Err http://localhost:9999 unstable/main Sources
+  
+Get:13 http://localhost:9999 unstable/main Sources [9681 kB]
+Get:14 http://localhost:9999 unstable/main 2014-09-04-0831.05.pdiff [61 B]
+Fetched 9998 kB in 3s (2644 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  binutils
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 3310 kB of archives.
+After this operation, 50.2 kB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main binutils amd64 2.24.51.20140903-1 [3310 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 3310 kB in 0s (29.9 MB/s)
+(Reading database ... 15135 files and directories currently installed.)
+Preparing to unpack .../binutils_2.24.51.20140903-1_amd64.deb ...
+Unpacking binutils (2.24.51.20140903-1) over (2.24.51.20140818-1) ...
+Setting up binutils (2.24.51.20140903-1) ...
+Processing triggers for libc-bin (2.19-10) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Fetch source files                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Check APT
+─────────
+
+Checking available source versions...
+
+Download source files with APT
+──────────────────────────────
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+NOTICE: 'openlibm' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/pkg-julia/openlibm.git
+Need to get 273 kB of source archives.
+Get:1 http://localhost:9999/debian/ unstable/main openlibm 0.4+dfsg-1 (dsc) [2028 B]
+Get:2 http://localhost:9999/debian/ unstable/main openlibm 0.4+dfsg-1 (tar) [264 kB]
+Get:3 http://localhost:9999/debian/ unstable/main openlibm 0.4+dfsg-1 (diff) [7088 B]
+Fetched 273 kB in 1s (206 kB/s)
+Download complete and in download only mode
+
+Check arch
+──────────
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Chroot Setup Commands                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+/tmp/switch-to-clang
+────────────────────
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=3.5
++ echo 'Install of clang-3.5'
+Install of clang-3.5
++ apt-get update
+Hit http://localhost:9999 unstable InRelease
+Ign http://localhost:9999 unstable/main Sources/DiffIndex
+Get:1 http://localhost:9999 unstable/main amd64 Packages/DiffIndex [7876 B]
+Get:2 http://localhost:9999 unstable/main Translation-en/DiffIndex [7876 B]
+Err http://localhost:9999 unstable/main Sources
+  
+Err http://localhost:9999 unstable/main Sources
+  
+Err http://localhost:9999 unstable/main Sources
+  
+Hit http://localhost:9999 unstable/main Sources
+Fetched 15.8 kB in 1s (8586 B/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-3.5
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libbsd0 libclang-common-3.5-dev libclang1-3.5 libedit2 libffi6 libllvm3.5
+  libobjc-4.9-dev libobjc4
+Suggested packages:
+  gnustep gnustep-devel clang-3.5-doc
+Recommended packages:
+  llvm-3.5-dev python
+The following NEW packages will be installed:
+  clang-3.5 libbsd0 libclang-common-3.5-dev libclang1-3.5 libedit2 libffi6
+  libllvm3.5 libobjc-4.9-dev libobjc4
+0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
+Need to get 33.3 MB of archives.
+After this operation, 132 MB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main libbsd0 amd64 0.7.0-2 [67.9 kB]
+Get:2 http://localhost:9999/debian/ unstable/main libedit2 amd64 3.1-20140620-2 [85.1 kB]
+Get:3 http://localhost:9999/debian/ unstable/main libffi6 amd64 3.1-2 [19.8 kB]
+Get:4 http://localhost:9999/debian/ unstable/main libllvm3.5 amd64 1:3.5-1 [7609 kB]
+Get:5 http://localhost:9999/debian/ unstable/main libobjc4 amd64 4.9.1-12 [112 kB]
+Get:6 http://localhost:9999/debian/ unstable/main libobjc-4.9-dev amd64 4.9.1-12 [372 kB]
+Get:7 http://localhost:9999/debian/ unstable/main libclang1-3.5 amd64 1:3.5-1 [3628 kB]
+Get:8 http://localhost:9999/debian/ unstable/main libclang-common-3.5-dev amd64 1:3.5-1 [677 kB]
+Get:9 http://localhost:9999/debian/ unstable/main clang-3.5 amd64 1:3.5-1 [20.7 MB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 33.3 MB in 1s (32.8 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 15135 files and directories currently installed.)
+Preparing to unpack .../libbsd0_0.7.0-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.7.0-2) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../libedit2_3.1-20140620-2_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20140620-2) ...
+Selecting previously unselected package libffi6:amd64.
+Preparing to unpack .../libffi6_3.1-2_amd64.deb ...
+Unpacking libffi6:amd64 (3.1-2) ...
+Selecting previously unselected package libllvm3.5:amd64.
+Preparing to unpack .../libllvm3.5_1%3a3.5-1_amd64.deb ...
+Unpacking libllvm3.5:amd64 (1:3.5-1) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../libobjc4_4.9.1-12_amd64.deb ...
+Unpacking libobjc4:amd64 (4.9.1-12) ...
+Selecting previously unselected package libobjc-4.9-dev:amd64.
+Preparing to unpack .../libobjc-4.9-dev_4.9.1-12_amd64.deb ...
+Unpacking libobjc-4.9-dev:amd64 (4.9.1-12) ...
+Selecting previously unselected package libclang1-3.5:amd64.
+Preparing to unpack .../libclang1-3.5_1%3a3.5-1_amd64.deb ...
+Unpacking libclang1-3.5:amd64 (1:3.5-1) ...
+Selecting previously unselected package libclang-common-3.5-dev.
+Preparing to unpack .../libclang-common-3.5-dev_1%3a3.5-1_amd64.deb ...
+Unpacking libclang-common-3.5-dev (1:3.5-1) ...
+Selecting previously unselected package clang-3.5.
+Preparing to unpack .../clang-3.5_1%3a3.5-1_amd64.deb ...
+Unpacking clang-3.5 (1:3.5-1) ...
+Setting up libbsd0:amd64 (0.7.0-2) ...
+Setting up libedit2:amd64 (3.1-20140620-2) ...
+Setting up libffi6:amd64 (3.1-2) ...
+Setting up libllvm3.5:amd64 (1:3.5-1) ...
+Setting up libobjc4:amd64 (4.9.1-12) ...
+Setting up libobjc-4.9-dev:amd64 (4.9.1-12) ...
+Setting up libclang1-3.5:amd64 (1:3.5-1) ...
+Setting up libclang-common-3.5-dev (1:3.5-1) ...
+Setting up clang-3.5 (1:3.5-1) ...
+Processing triggers for libc-bin (2.19-10) ...
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9'
++ cd /usr/bin
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-3.5 g++-4.6
++ ln -s clang-3.5 gcc-4.6
++ ln -s clang-3.5 cpp-4.6
++ ln -s clang-3.5 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-3.5 g++-4.7
++ ln -s clang-3.5 gcc-4.7
++ ln -s clang-3.5 cpp-4.7
++ ln -s clang-3.5 gcc
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-3.5 g++-4.8
++ ln -s clang-3.5 gcc-4.8
++ ln -s clang-3.5 cpp-4.8
++ ln -s clang-3.5 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method
++ for VERSION in '$VERSIONS'
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-3.5 g++-4.9
++ ln -s clang-3.5 gcc-4.9
++ ln -s clang-3.5 cpp-4.9
++ ln -s clang-3.5 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
++ cd -
+/«BUILDDIR»
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/switch-to-clang'.
+
+Finished processing commands.
+────────────────────────────────────────────────────────────────────────────────
+Merged Build-Depends: build-essential, fakeroot
+Filtered Build-Depends: build-essential, fakeroot
+dpkg-deb: building package `sbuild-build-depends-core-dummy' in `/«BUILDDIR»/resolver-2xMn5R/apt_archive/sbuild-build-depends-core-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install core build dependencies (apt-based resolver)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  sbuild-build-depends-core-dummy
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/818 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Selecting previously unselected package sbuild-build-depends-core-dummy.
+(Reading database ... 15338 files and directories currently installed.)
+Preparing to unpack .../sbuild-build-depends-core-dummy.deb ...
+Unpacking sbuild-build-depends-core-dummy (0.invalid.0) ...
+Setting up sbuild-build-depends-core-dummy (0.invalid.0) ...
+Merged Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, init, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit-utils, tar, util-linux, libc6-dev | libc-dev, gcc (>= 4:4.9.1), g++ (>= 4:4.9.1), make, dpkg-dev (>= 1.17.11), debhelper (>= 9), dh-exec
+Filtered Build-Depends: base-files, base-passwd, bash, bsdutils, coreutils, dash, debianutils, diffutils, dpkg, e2fsprogs, findutils, grep, gzip, hostname, init, libc-bin, login, mount, ncurses-base, ncurses-bin, perl-base, sed, sysvinit-utils, tar, util-linux, libc6-dev, gcc (>= 4:4.9.1), g++ (>= 4:4.9.1), make, dpkg-dev (>= 1.17.11), debhelper (>= 9), dh-exec
+dpkg-deb: building package `sbuild-build-depends-openlibm-dummy' in `/«BUILDDIR»/resolver-tfy8OA/apt_archive/sbuild-build-depends-openlibm-dummy.deb'.
+OK
+Reading package lists...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Install openlibm build dependencies (apt-based resolver)                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  bsdmainutils debhelper dh-exec file gettext gettext-base groff-base
+  intltool-debian libasprintf0c2 libcroco3 libglib2.0-0 libmagic1 libpipeline1
+  libunistring0 libxml2 man-db po-debconf
+Suggested packages:
+  wamerican wordlist whois vacation dh-make gettext-doc groff less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl wget lynx-cur autopoint libasprintf-dev libgettextpo-dev
+  libglib2.0-data shared-mime-info xml-core libmail-sendmail-perl
+The following NEW packages will be installed:
+  bsdmainutils debhelper dh-exec file gettext gettext-base groff-base
+  intltool-debian libasprintf0c2 libcroco3 libglib2.0-0 libmagic1 libpipeline1
+  libunistring0 libxml2 man-db po-debconf sbuild-build-depends-openlibm-dummy
+0 upgraded, 18 newly installed, 0 to remove and 0 not upgraded.
+Need to get 8775 kB/8776 kB of archives.
+After this operation, 26.9 MB of additional disk space will be used.
+Get:1 http://localhost:9999/debian/ unstable/main libpipeline1 amd64 1.3.0-1 [25.8 kB]
+Get:2 http://localhost:9999/debian/ unstable/main groff-base amd64 1.22.2-7 [1142 kB]
+Get:3 http://localhost:9999/debian/ unstable/main bsdmainutils amd64 9.0.5 [211 kB]
+Get:4 http://localhost:9999/debian/ unstable/main man-db amd64 2.6.7.1-1 [990 kB]
+Get:5 http://localhost:9999/debian/ unstable/main libasprintf0c2 amd64 0.19.2-2 [30.8 kB]
+Get:6 http://localhost:9999/debian/ unstable/main libmagic1 amd64 1:5.19-1 [237 kB]
+Get:7 http://localhost:9999/debian/ unstable/main libxml2 amd64 2.9.1+dfsg1-4 [797 kB]
+Get:8 http://localhost:9999/debian/ unstable/main libglib2.0-0 amd64 2.40.0-5 [2421 kB]
+Get:9 http://localhost:9999/debian/ unstable/main libcroco3 amd64 0.6.8-3 [135 kB]
+Get:10 http://localhost:9999/debian/ unstable/main libunistring0 amd64 0.9.3-5.2 [283 kB]
+Get:11 http://localhost:9999/debian/ unstable/main file amd64 1:5.19-1 [58.0 kB]
+Get:12 http://localhost:9999/debian/ unstable/main gettext-base amd64 0.19.2-2 [120 kB]
+Get:13 http://localhost:9999/debian/ unstable/main gettext amd64 0.19.2-2 [1237 kB]
+Get:14 http://localhost:9999/debian/ unstable/main intltool-debian all 0.35.0+20060710.1 [30.8 kB]
+Get:15 http://localhost:9999/debian/ unstable/main po-debconf all 1.0.16+nmu3 [220 kB]
+Get:16 http://localhost:9999/debian/ unstable/main debhelper all 9.20140817 [814 kB]
+Get:17 http://localhost:9999/debian/ unstable/main dh-exec amd64 0.13 [23.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 8775 kB in 0s (29.3 MB/s)
+Selecting previously unselected package libpipeline1:amd64.
+(Reading database ... 15338 files and directories currently installed.)
+Preparing to unpack .../libpipeline1_1.3.0-1_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.3.0-1) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../groff-base_1.22.2-7_amd64.deb ...
+Unpacking groff-base (1.22.2-7) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../bsdmainutils_9.0.5_amd64.deb ...
+Unpacking bsdmainutils (9.0.5) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../man-db_2.6.7.1-1_amd64.deb ...
+Unpacking man-db (2.6.7.1-1) ...
+Selecting previously unselected package libasprintf0c2:amd64.
+Preparing to unpack .../libasprintf0c2_0.19.2-2_amd64.deb ...
+Unpacking libasprintf0c2:amd64 (0.19.2-2) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../libmagic1_1%3a5.19-1_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.19-1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../libxml2_2.9.1+dfsg1-4_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.1+dfsg1-4) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../libglib2.0-0_2.40.0-5_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.40.0-5) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../libcroco3_0.6.8-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.8-3) ...
+Selecting previously unselected package libunistring0:amd64.
+Preparing to unpack .../libunistring0_0.9.3-5.2_amd64.deb ...
+Unpacking libunistring0:amd64 (0.9.3-5.2) ...
+Selecting previously unselected package file.
+Preparing to unpack .../file_1%3a5.19-1_amd64.deb ...
+Unpacking file (1:5.19-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../gettext-base_0.19.2-2_amd64.deb ...
+Unpacking gettext-base (0.19.2-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../gettext_0.19.2-2_amd64.deb ...
+Unpacking gettext (0.19.2-2) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../intltool-debian_0.35.0+20060710.1_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.1) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../po-debconf_1.0.16+nmu3_all.deb ...
+Unpacking po-debconf (1.0.16+nmu3) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../debhelper_9.20140817_all.deb ...
+Unpacking debhelper (9.20140817) ...
+Selecting previously unselected package dh-exec.
+Preparing to unpack .../dh-exec_0.13_amd64.deb ...
+Unpacking dh-exec (0.13) ...
+Selecting previously unselected package sbuild-build-depends-openlibm-dummy.
+Preparing to unpack .../sbuild-build-depends-openlibm-dummy.deb ...
+Unpacking sbuild-build-depends-openlibm-dummy (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.3.0-1) ...
+Setting up groff-base (1.22.2-7) ...
+Setting up bsdmainutils (9.0.5) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up man-db (2.6.7.1-1) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libasprintf0c2:amd64 (0.19.2-2) ...
+Setting up libmagic1:amd64 (1:5.19-1) ...
+Setting up libxml2:amd64 (2.9.1+dfsg1-4) ...
+Setting up libglib2.0-0:amd64 (2.40.0-5) ...
+No schema files found: doing nothing.
+Setting up libcroco3:amd64 (0.6.8-3) ...
+Setting up libunistring0:amd64 (0.9.3-5.2) ...
+Setting up file (1:5.19-1) ...
+Setting up gettext-base (0.19.2-2) ...
+Setting up gettext (0.19.2-2) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu3) ...
+Setting up debhelper (9.20140817) ...
+Setting up dh-exec (0.13) ...
+Setting up sbuild-build-depends-openlibm-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.19-10) ...
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build environment                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Kernel: Linux 2.6.32-5-xen-amd64 amd64 (x86_64)
+Toolchain package versions: binutils_2.24.51.20140903-1 dpkg-dev_1.17.13 g++-4.6_4.6.4-7 g++-4.9_4.9.1-12 gcc-4.6_4.6.4-7 gcc-4.7_4.7.4-3 gcc-4.9_4.9.1-12 libc6-dev_2.19-10 libstdc++-4.9-dev_4.9.1-12 libstdc++6_4.9.1-12 libstdc++6-4.6-dev_4.6.4-7 linux-libc-dev_3.14.15-2
+Package versions: acl_2.2.52-1.1 adduser_3.113+nmu3 apt_1.0.7 base-files_7.5 base-passwd_3.5.35 bash_4.3-9 binutils_2.24.51.20140903-1 bsdmainutils_9.0.5 bsdutils_1:2.20.1-5.8 build-essential_11.7 bzip2_1.0.6-7 clang-3.5_1:3.5-1 coreutils_8.23-2 cpp_4:4.9.1-3 cpp-4.6_4.6.4-7 cpp-4.7_4.7.4-3 cpp-4.9_4.9.1-12 dash_0.5.7-4 dbus_1.8.6-2 debconf_1.5.53 debconf-i18n_1.5.53 debfoster_2.7-2 debhelper_9.20140817 debian-archive-keyring_2014.1 debianutils_4.4 dh-exec_0.13 diffutils_1:3.3-1 dmsetup_2:1.02.88-1 dpkg_1.17.13 dpkg-dev_1.17.13 e2fslibs_1.42.12-1 e2fsprogs_1.42.12-1 fakeroot_1.20.1-1.1 file_1:5.19-1 findutils_4.4.2-9 g++_4:4.9.1-3 g++-4.6_4.6.4-7 g++-4.9_4.9.1-12 gcc_4:4.9.1-3 gcc-4.4-base_4.4.7-8 gcc-4.5-base_4.5.4-1 gcc-4.6_4.6.4-7 gcc-4.6-base_4.6.4-7 gcc-4.7_4.7.4-3 gcc-4.7-base_4.7.4-3 gcc-4.8-base_4.8.3-10 gcc-4.9_4.9.1-12 gcc-4.9-base_4.9.1-12 gettext_0.19.2-2 gettext-base_0.19.2-2 gnupg_1.4.18-3 gpgv_1.4.18-3 grep_2.20-2 groff-base_1.22.2-7 gzip_1.6-3 hostname_3.15 init_1.21 initscripts_2.88dsf-53.4 insserv_1.14.0-5 intltool-debian_0.35.0+20060710.1 libacl1_2.2.52-1.1 libalgorithm-c3-perl_0.09-1 libapt-pkg4.12_1.0.7 libarchive-extract-perl_0.72-1 libasan1_4.9.1-12 libasprintf0c2_0.19.2-2 libatomic1_4.9.1-12 libattr1_1:2.4.47-1 libaudit-common_1:2.3.7-1 libaudit1_1:2.3.7-1 libblkid1_2.20.1-5.8 libbsd0_0.7.0-2 libbz2-1.0_1.0.6-7 libc-bin_2.19-10 libc-dev-bin_2.19-10 libc6_2.19-10 libc6-dev_2.19-10 libcap-ng0_0.7.4-2 libcap2_1:2.24-4 libcap2-bin_1:2.24-4 libcgi-fast-perl_1:2.02-1 libcgi-pm-perl_4.03-1 libcilkrts5_4.9.1-12 libclang-common-3.5-dev_1:3.5-1 libclang1-3.5_1:3.5-1 libclass-c3-perl_0.26-1 libclass-c3-xs-perl_0.13-2+b1 libclass-isa-perl_0.36-5 libcloog-isl4_0.18.2-1 libcloog-ppl1_0.16.1-5 libcomerr2_1.42.12-1 libcroco3_0.6.8-3 libcryptsetup4_2:1.6.6-1 libdata-optlist-perl_0.109-1 libdata-section-perl_0.200006-1 libdb5.1_5.1.29-5 libdb5.3_5.3.28-6 libdbus-1-3_1.8.6-2 libdebconfclient0_0.191 libdevmapper1.02.1_2:1.02.88-1 libdpkg-perl_1.17.13 libedit2_3.1-20140620-2 libexpat1_2.1.0-6 libfakeroot_1.20.1-1.1 libfcgi-perl_0.77-1+b1 libffi6_3.1-2 libfile-fcntllock-perl_0.22-1+b1 libgc1c2_1:7.2d-6.3 libgcc-4.7-dev_4.7.4-3 libgcc-4.9-dev_4.9.1-12 libgcc1_1:4.9.1-12 libgcrypt11_1.5.4-3 libgcrypt20_1.6.2-3 libgdbm3_1.8.3-13 libglib2.0-0_2.40.0-5 libgmp10_2:6.0.0+dfsg-6 libgmpxx4ldbl_2:6.0.0+dfsg-6 libgomp1_4.9.1-12 libgpg-error0_1.13-4 libgpm2_1.20.4-6.1 libisl10_0.12.2-2 libitm1_4.9.1-12 libkmod2_18-1 libllvm3.5_1:3.5-1 liblocale-gettext-perl_1.05-8+b1 liblog-message-perl_0.8-1 liblog-message-simple-perl_0.10-2 liblsan0_4.9.1-12 liblzma5_5.1.1alpha+20120614-2 libmagic1_1:5.19-1 libmodule-build-perl_0.420800-1 libmodule-pluggable-perl_5.1-1 libmodule-signature-perl_0.73-1 libmount1_2.20.1-5.8 libmpc2_0.9-4 libmpc3_1.0.2-1 libmpfr4_3.1.2-1 libmro-compat-perl_0.12-1 libncurses5_5.9+20140712-2 libncursesw5_5.9+20140712-2 libobjc-4.9-dev_4.9.1-12 libobjc4_4.9.1-12 libpackage-constants-perl_0.04-1 libpam-cap_1:2.24-4 libpam-modules_1.1.8-3.1 libpam-modules-bin_1.1.8-3.1 libpam-runtime_1.1.8-3.1 libpam-systemd_208-8 libpam0g_1.1.8-3.1 libparams-util-perl_1.07-2+b1 libpcre3_1:8.35-3 libpipeline1_1.3.0-1 libpod-latex-perl_0.61-1 libpod-readme-perl_0.11-1 libppl-c4_1:1.1-3 libppl13_1:1.1-3 libprocps3_1:3.3.9-7 libquadmath0_4.9.1-12 libreadline6_6.3-8 libregexp-common-perl_2013031301-1 libselinux1_2.3-2 libsemanage-common_2.3-1 libsemanage1_2.3-1 libsepol1_2.3-2 libslang2_2.2.4-17 libsoftware-license-perl_0.103010-1 libss2_1.42.12-1 libstdc++-4.9-dev_4.9.1-12 libstdc++6_4.9.1-12 libstdc++6-4.6-dev_4.6.4-7 libsub-exporter-perl_0.986-1 libsub-install-perl_0.928-1 libswitch-perl_2.17-1 libsystemd-daemon0_208-8 libsystemd-journal0_208-8 libsystemd-login0_208-8 libterm-ui-perl_0.42-1 libtext-charwidth-perl_0.04-7+b3 libtext-iconv-perl_1.7-5+b2 libtext-soundex-perl_3.4-1+b2 libtext-template-perl_1.46-1 libtext-wrapi18n-perl_0.06-7 libtimedate-perl_2.3000-2 libtinfo5_5.9+20140712-2 libtsan0_4.9.1-12 libubsan0_4.9.1-12 libudev1_208-8 libunistring0_0.9.3-5.2 libusb-0.1-4_2:0.1.12-24 libustr-1.0-1_1.0.4-3 libuuid1_2.20.1-5.8 libwrap0_7.6.q-25 libxml2_2.9.1+dfsg1-4 linux-libc-dev_3.14.15-2 login_1:4.2-2+b1 lsb-base_4.1+Debian13 make_4.0-8 man-db_2.6.7.1-1 mawk_1.3.3-17 mount_2.20.1-5.8 multiarch-support_2.19-10 ncurses-base_5.9+20140712-2 ncurses-bin_5.9+20140712-2 passwd_1:4.2-2+b1 patch_2.7.1-6 perl_5.20.0-6 perl-base_5.20.0-6 perl-modules_5.20.0-6 po-debconf_1.0.16+nmu3 procps_1:3.3.9-7 psmisc_22.21-2 readline-common_6.3-8 rename_0.20-3 sbuild-build-depends-core-dummy_0.invalid.0 sbuild-build-depends-openlibm-dummy_0.invalid.0 sed_4.2.2-4 sensible-utils_0.0.9 startpar_0.59-3 sudo_1.8.9p5-1 systemd_208-8 systemd-sysv_208-8 sysv-rc_2.88dsf-53.4 sysvinit_2.88dsf-53.4 sysvinit-utils_2.88dsf-53.4 tar_1.27.1-2 tcpd_7.6.q-25 tzdata_2014g-1 ucf_3.0030 udev_208-8 util-linux_2.20.1-5.8 vim_2:7.4.430-1 vim-common_2:7.4.430-1 vim-runtime_2:7.4.430-1 xz-utils_5.1.1alpha+20120614-2 zlib1g_1:1.2.8.dfsg-2
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Build                                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+Unpack source
+─────────────
+
+gpgv: keyblock resource `/sbuild-nonexistent/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Jul 29 10:31:37 2014 UTC using RSA key ID 0ECEBE4A
+gpgv: Can't check signature: public key not found
+dpkg-source: warning: failed to verify signature on ./openlibm_0.4+dfsg-1.dsc
+dpkg-source: info: extracting openlibm in openlibm-0.4+dfsg
+dpkg-source: info: unpacking openlibm_0.4+dfsg.orig.tar.gz
+dpkg-source: info: unpacking openlibm_0.4+dfsg-1.debian.tar.xz
+dpkg-source: info: applying noopt.patch
+dpkg-source: info: applying test-tolerance.patch
+dpkg-source: info: applying exp-fpstack.patch
+
+Check disc space
+────────────────
+
+Sufficient free space for build
+
+Hack binNMU version
+───────────────────
+
+Created changelog entry for binNMU version 0.4+dfsg-1clang1
+
+User Environment
+────────────────
+
+DEB_BUILD_OPTIONS=parallel=10
+HOME=/sbuild-nonexistent
+LOGNAME=user
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=user
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-cefa6c38-a369-4f95-b150-8d1f02ca5548
+SCHROOT_UID=1000
+SCHROOT_USER=user
+SHELL=/bin/sh
+USER=user
+
+dpkg-buildpackage
+─────────────────
+
+dpkg-buildpackage: source package openlibm
+dpkg-buildpackage: source version 0.4+dfsg-1clang1
+dpkg-buildpackage: source distribution unstable
+ dpkg-source --before-build openlibm-0.4+dfsg
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+make[1]: Entering directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+rm -f src/common.c.o src/e_acos.c.o src/e_acosf.c.o src/e_acosh.c.o src/e_acoshf.c.o src/e_asin.c.o src/e_asinf.c.o src/e_atan2.c.o src/e_atan2f.c.o src/e_atanh.c.o src/e_atanhf.c.o src/e_cosh.c.o src/e_coshf.c.o src/e_exp.c.o src/e_expf.c.o src/e_fmod.c.o src/e_fmodf.c.o src/e_gamma.c.o src/e_gamma_r.c.o src/e_gammaf.c.o src/e_gammaf_r.c.o src/e_hypot.c.o src/e_hypotf.c.o src/e_j0.c.o src/e_j0f.c.o src/e_j1.c.o src/e_j1f.c.o src/e_jn.c.o src/e_jnf.c.o src/e_lgamma.c.o src/e_lgamma_r.c.o src/e_lgammaf.c.o src/e_lgammaf_r.c.o src/e_log.c.o src/e_log10.c.o src/e_log10f.c.o src/e_log2.c.o src/e_log2f.c.o src/e_logf.c.o src/e_pow.c.o src/e_powf.c.o src/e_scalb.c.o src/e_scalbf.c.o src/e_rem_pio2.c.o src/e_rem_pio2f.c.o src/e_sinh.c.o src/e_sinhf.c.o src/k_cos.c.o src/k_exp.c.o src/k_expf.c.o src/k_rem_pio2.c.o src/k_sin.c.o src/k_tan.c.o src/k_cosf.c.o src/k_sinf.c.o src/k_tanf.c.o src/s_asinh.c.o src/s_asinhf.c.o src/s_atan.c.o src/s_atanf.c.o src/s_carg.c.o src/s_cargf.c.o src/s_cargl.c.o src/s_cbrt.c.o src/s_cbrtf.c.o src/s_ceil.c.o src/s_ceilf.c.o src/s_copysign.c.o src/s_copysignf.c.o src/s_cos.c.o src/s_cosf.c.o src/s_csqrt.c.o src/s_csqrtf.c.o src/s_erf.c.o src/s_erff.c.o src/s_exp2.c.o src/s_exp2f.c.o src/s_expm1.c.o src/s_expm1f.c.o src/s_fabs.c.o src/s_fabsf.c.o src/s_fdim.c.o src/s_finite.c.o src/s_finitef.c.o src/s_floor.c.o src/s_floorf.c.o src/s_fma.c.o src/s_fmaf.c.o src/s_fmax.c.o src/s_fmaxf.c.o src/s_fmin.c.o src/s_fminf.c.o src/s_fpclassify.c.o src/s_frexp.c.o src/s_frexpf.c.o src/s_ilogb.c.o src/s_ilogbf.c.o src/s_isinf.c.o src/s_isfinite.c.o src/s_isnormal.c.o src/s_isnan.c.o src/s_llround.c.o src/s_llroundf.c.o src/s_llroundl.c.o src/s_log1p.c.o src/s_log1pf.c.o src/s_logb.c.o src/s_logbf.c.o src/s_lround.c.o src/s_lroundf.c.o src/s_lroundl.c.o src/s_modf.c.o src/s_modff.c.o src/s_nearbyint.c.o src/s_nextafter.c.o src/s_nextafterf.c.o src/s_nexttowardf.c.o src/s_rint.c.o src/s_rintf.c.o src/s_round.c.o src/s_roundf.c.o src/s_roundl.c.o src/s_scalbln.c.o src/s_signbit.c.o src/s_signgam.c.o src/s_significand.c.o src/s_significandf.c.o src/s_sin.c.o src/s_sincos.c.o src/s_sinf.c.o src/s_sincosf.c.o src/s_tan.c.o src/s_tanf.c.o src/s_tanh.c.o src/s_tanhf.c.o src/s_tgammaf.c.o src/s_trunc.c.o src/s_truncf.c.o src/s_cpow.c.o src/s_cpowf.c.o src/s_cpowl.c.o src/w_cabs.c.o src/w_cabsf.c.o src/w_drem.c.o src/w_dremf.c.o src/s_nan.c.o src/s_copysignl.c.o src/s_fabsl.c.o src/s_modfl.c.o src/e_acosl.c.o src/e_asinl.c.o src/e_atan2l.c.o src/e_fmodl.c.o src/s_fmaxl.c.o src/s_fminl.c.o src/s_ilogbl.c.o src/e_hypotl.c.o src/s_atanl.c.o src/s_ceill.c.o src/s_cosl.c.o src/s_cprojl.c.o src/s_csqrtl.c.o src/s_floorl.c.o src/s_fmal.c.o src/s_frexpl.c.o src/s_nexttoward.c.o src/s_sinl.c.o src/s_sincosl.c.o src/s_tanl.c.o src/s_truncl.c.o src/w_cabsl.c.o src/s_nextafterl.c.o src/s_ccosh.c.o src/s_ccoshf.c.o src/s_cexp.c.o src/s_cexpf.c.o src/s_cimag.c.o src/s_cimagf.c.o src/s_cimagl.c.o src/s_conj.c.o src/s_conjf.c.o src/s_conjl.c.o src/s_cproj.c.o src/s_cprojf.c.o src/s_creal.c.o src/s_crealf.c.o src/s_creall.c.o src/s_csinh.c.o src/s_csinhf.c.o src/s_ctanh.c.o src/s_ctanhf.c.o amd64/fenv.c.o amd64/e_remainder.S.o amd64/e_remainderf.S.o amd64/e_remainderl.S.o amd64/e_sqrt.S.o amd64/e_sqrtf.S.o amd64/e_sqrtl.S.o amd64/s_llrint.S.o amd64/s_llrintf.S.o amd64/s_llrintl.S.o amd64/s_logbl.S.o amd64/s_lrint.S.o amd64/s_lrintf.S.o amd64/s_lrintl.S.o amd64/s_remquo.S.o amd64/s_remquof.S.o amd64/s_remquol.S.o amd64/s_rintl.S.o amd64/s_scalbn.S.o amd64/s_scalbnf.S.o amd64/s_scalbnl.S.o bsdsrc/b_exp.c.o bsdsrc/b_log.c.o bsdsrc/b_tgamma.c.o ld80/invtrig.c.o ld80/k_cosl.c.o ld80/k_sinl.c.o ld80/k_tanl.c.o ld80/s_exp2l.c.o ld80/s_nanl.c.o *.a *.so libopenlibm.*
+make -C test clean
+make[2]: Entering directory '/«BUILDDIR»/openlibm-0.4+dfsg/test'
+make[2]: *** No rule to make target 'clean'.  Stop.
+make[2]: Leaving directory '/«BUILDDIR»/openlibm-0.4+dfsg/test'
+make[1]: [distclean] Error 2 (ignored)
+Makefile:46: recipe for target 'distclean' failed
+make[1]: Leaving directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+   dh_clean
+ debian/rules build-arch
+dh build-arch 
+   dh_testdir -a
+   dh_auto_configure -a
+   dh_auto_build -a
+make[1]: Entering directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/common.c -o src/common.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_acos.c -o src/e_acos.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_acosf.c -o src/e_acosf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_acosh.c -o src/e_acosh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_acoshf.c -o src/e_acoshf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_asin.c -o src/e_asin.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_asinf.c -o src/e_asinf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_atan2.c -o src/e_atan2.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_atan2f.c -o src/e_atan2f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_atanh.c -o src/e_atanh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_atanhf.c -o src/e_atanhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_cosh.c -o src/e_cosh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_coshf.c -o src/e_coshf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_exp.c -o src/e_exp.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_expf.c -o src/e_expf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_fmod.c -o src/e_fmod.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_fmodf.c -o src/e_fmodf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_gamma.c -o src/e_gamma.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_gamma_r.c -o src/e_gamma_r.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_gammaf.c -o src/e_gammaf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_gammaf_r.c -o src/e_gammaf_r.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_hypot.c -o src/e_hypot.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_hypotf.c -o src/e_hypotf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_j0.c -o src/e_j0.c.o
+src/e_j0.c:281:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0.c:283:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j0.c:281:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0.c:273:17: note: initialize the variable 'p' to silence this warning
+        const double *p,*q;
+                       ^
+                        = 0
+src/e_j0.c:281:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0.c:284:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*q[4]))));
+                   ^
+src/e_j0.c:281:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0.c:273:20: note: initialize the variable 'q' to silence this warning
+        const double *p,*q;
+                          ^
+                           = 0
+src/e_j0.c:376:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0.c:378:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j0.c:376:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0.c:368:17: note: initialize the variable 'p' to silence this warning
+        const double *p,*q;
+                       ^
+                        = 0
+src/e_j0.c:376:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0.c:379:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*(q[4]+z*q[5])))));
+                   ^
+src/e_j0.c:376:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0.c:368:20: note: initialize the variable 'q' to silence this warning
+        const double *p,*q;
+                          ^
+                           = 0
+4 warnings generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_j0f.c -o src/e_j0f.c.o
+src/e_j0f.c:237:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0f.c:239:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j0f.c:237:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0f.c:229:16: note: initialize the variable 'p' to silence this warning
+        const float *p,*q;
+                      ^
+                       = 0
+src/e_j0f.c:237:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0f.c:240:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*q[4]))));
+                   ^
+src/e_j0f.c:237:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pR2; q= pS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0f.c:229:19: note: initialize the variable 'q' to silence this warning
+        const float *p,*q;
+                         ^
+                          = 0
+src/e_j0f.c:332:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0f.c:334:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j0f.c:332:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0f.c:324:16: note: initialize the variable 'p' to silence this warning
+        const float *p,*q;
+                      ^
+                       = 0
+src/e_j0f.c:332:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+                ^~~~~~~~~~~~~~
+src/e_j0f.c:335:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*(q[4]+z*q[5])))));
+                   ^
+src/e_j0f.c:332:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qR2; q= qS2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j0f.c:324:19: note: initialize the variable 'q' to silence this warning
+        const float *p,*q;
+                         ^
+                          = 0
+4 warnings generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_j1.c -o src/e_j1.c.o
+src/e_j1.c:275:17: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+                ^~~~~~~~~~~~~~
+src/e_j1.c:277:13: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j1.c:275:14: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1.c:267:17: note: initialize the variable 'p' to silence this warning
+        const double *p,*q;
+                       ^
+                        = 0
+src/e_j1.c:275:17: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+                ^~~~~~~~~~~~~~
+src/e_j1.c:278:20: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*q[4]))));
+                   ^
+src/e_j1.c:275:14: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1.c:267:20: note: initialize the variable 'q' to silence this warning
+        const double *p,*q;
+                          ^
+                           = 0
+src/e_j1.c:371:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+                ^~~~~~~~~~~~~~
+src/e_j1.c:373:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j1.c:371:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1.c:363:17: note: initialize the variable 'p' to silence this warning
+        const double *p,*q;
+                       ^
+                        = 0
+src/e_j1.c:371:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+                ^~~~~~~~~~~~~~
+src/e_j1.c:374:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*(q[4]+z*q[5])))));
+                   ^
+src/e_j1.c:371:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1.c:363:20: note: initialize the variable 'q' to silence this warning
+        const double *p,*q;
+                          ^
+                           = 0
+4 warnings generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_j1f.c -o src/e_j1f.c.o
+src/e_j1f.c:232:17: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+                ^~~~~~~~~~~~~~
+src/e_j1f.c:234:13: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j1f.c:232:14: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1f.c:224:16: note: initialize the variable 'p' to silence this warning
+        const float *p,*q;
+                      ^
+                       = 0
+src/e_j1f.c:232:17: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+                ^~~~~~~~~~~~~~
+src/e_j1f.c:235:20: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*q[4]))));
+                   ^
+src/e_j1f.c:232:14: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = pr2; q= ps2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1f.c:224:19: note: initialize the variable 'q' to silence this warning
+        const float *p,*q;
+                         ^
+                          = 0
+src/e_j1f.c:328:10: warning: variable 'p' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+                ^~~~~~~~~~~~~~
+src/e_j1f.c:330:6: note: uninitialized use occurs here
+        r = p[0]+z*(p[1]+z*(p[2]+z*(p[3]+z*(p[4]+z*p[5]))));
+            ^
+src/e_j1f.c:328:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1f.c:320:16: note: initialize the variable 'p' to silence this warning
+        const float *p,*q;
+                      ^
+                       = 0
+src/e_j1f.c:328:10: warning: variable 'q' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+                ^~~~~~~~~~~~~~
+src/e_j1f.c:331:13: note: uninitialized use occurs here
+        s = one+z*(q[0]+z*(q[1]+z*(q[2]+z*(q[3]+z*(q[4]+z*q[5])))));
+                   ^
+src/e_j1f.c:328:7: note: remove the 'if' if its condition is always true
+        else if(ix>=0x40000000){p = qr2; q= qs2;}
+             ^~~~~~~~~~~~~~~~~~
+src/e_j1f.c:320:19: note: initialize the variable 'q' to silence this warning
+        const float *p,*q;
+                         ^
+                          = 0
+4 warnings generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_jn.c -o src/e_jn.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_jnf.c -o src/e_jnf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_lgamma.c -o src/e_lgamma.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_lgamma_r.c -o src/e_lgamma_r.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_lgammaf.c -o src/e_lgammaf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_lgammaf_r.c -o src/e_lgammaf_r.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_log.c -o src/e_log.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_log10.c -o src/e_log10.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_log10f.c -o src/e_log10f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_log2.c -o src/e_log2.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_log2f.c -o src/e_log2f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_logf.c -o src/e_logf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_pow.c -o src/e_pow.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_powf.c -o src/e_powf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_scalb.c -o src/e_scalb.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_scalbf.c -o src/e_scalbf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_rem_pio2.c -o src/e_rem_pio2.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_rem_pio2f.c -o src/e_rem_pio2f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_sinh.c -o src/e_sinh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_sinhf.c -o src/e_sinhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_cos.c -o src/k_cos.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_exp.c -o src/k_exp.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_expf.c -o src/k_expf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_rem_pio2.c -o src/k_rem_pio2.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_sin.c -o src/k_sin.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_tan.c -o src/k_tan.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_cosf.c -o src/k_cosf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_sinf.c -o src/k_sinf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/k_tanf.c -o src/k_tanf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_asinh.c -o src/s_asinh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_asinhf.c -o src/s_asinhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_atan.c -o src/s_atan.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_atanf.c -o src/s_atanf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_carg.c -o src/s_carg.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cargf.c -o src/s_cargf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cargl.c -o src/s_cargl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cbrt.c -o src/s_cbrt.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cbrtf.c -o src/s_cbrtf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ceil.c -o src/s_ceil.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ceilf.c -o src/s_ceilf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_copysign.c -o src/s_copysign.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_copysignf.c -o src/s_copysignf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cos.c -o src/s_cos.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cosf.c -o src/s_cosf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_csqrt.c -o src/s_csqrt.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_csqrtf.c -o src/s_csqrtf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_erf.c -o src/s_erf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_erff.c -o src/s_erff.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_exp2.c -o src/s_exp2.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_exp2f.c -o src/s_exp2f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_expm1.c -o src/s_expm1.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_expm1f.c -o src/s_expm1f.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fabs.c -o src/s_fabs.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fabsf.c -o src/s_fabsf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fdim.c -o src/s_fdim.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_finite.c -o src/s_finite.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_finitef.c -o src/s_finitef.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_floor.c -o src/s_floor.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_floorf.c -o src/s_floorf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fma.c -o src/s_fma.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmaf.c -o src/s_fmaf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmax.c -o src/s_fmax.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmaxf.c -o src/s_fmaxf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmin.c -o src/s_fmin.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fminf.c -o src/s_fminf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fpclassify.c -o src/s_fpclassify.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_frexp.c -o src/s_frexp.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_frexpf.c -o src/s_frexpf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ilogb.c -o src/s_ilogb.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ilogbf.c -o src/s_ilogbf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_isinf.c -o src/s_isinf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_isfinite.c -o src/s_isfinite.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_isnormal.c -o src/s_isnormal.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_isnan.c -o src/s_isnan.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_llround.c -o src/s_llround.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_llroundf.c -o src/s_llroundf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_llroundl.c -o src/s_llroundl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_log1p.c -o src/s_log1p.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_log1pf.c -o src/s_log1pf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_logb.c -o src/s_logb.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_logbf.c -o src/s_logbf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_lround.c -o src/s_lround.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_lroundf.c -o src/s_lroundf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_lroundl.c -o src/s_lroundl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_modf.c -o src/s_modf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_modff.c -o src/s_modff.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nearbyint.c -o src/s_nearbyint.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nextafter.c -o src/s_nextafter.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nextafterf.c -o src/s_nextafterf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nexttowardf.c -o src/s_nexttowardf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_rint.c -o src/s_rint.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_rintf.c -o src/s_rintf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_round.c -o src/s_round.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_roundf.c -o src/s_roundf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_roundl.c -o src/s_roundl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_scalbln.c -o src/s_scalbln.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_signbit.c -o src/s_signbit.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_signgam.c -o src/s_signgam.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_significand.c -o src/s_significand.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_significandf.c -o src/s_significandf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sin.c -o src/s_sin.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sincos.c -o src/s_sincos.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sinf.c -o src/s_sinf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sincosf.c -o src/s_sincosf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tan.c -o src/s_tan.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tanf.c -o src/s_tanf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tanh.c -o src/s_tanh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tanhf.c -o src/s_tanhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tgammaf.c -o src/s_tgammaf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_trunc.c -o src/s_trunc.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_truncf.c -o src/s_truncf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cpow.c -o src/s_cpow.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cpowf.c -o src/s_cpowf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cpowl.c -o src/s_cpowl.c.o
+src/s_cpowl.c:65:6: warning: implicitly declaring library function 'powl' with type 'long double (long double, long double)'
+        r = powl(absa, x);
+            ^
+src/s_cpowl.c:65:6: note: include the header <math.h> or explicitly provide a declaration for 'powl'
+src/s_cpowl.c:68:11: warning: implicitly declaring library function 'expl' with type 'long double (long double)'
+                r = r * expl(-y * arga);
+                        ^
+src/s_cpowl.c:68:11: note: include the header <math.h> or explicitly provide a declaration for 'expl'
+src/s_cpowl.c:69:23: warning: implicitly declaring library function 'logl' with type 'long double (long double)'
+                theta = theta + y * logl(absa);
+                                    ^
+src/s_cpowl.c:69:23: note: include the header <math.h> or explicitly provide a declaration for 'logl'
+3 warnings generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/w_cabs.c -o src/w_cabs.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/w_cabsf.c -o src/w_cabsf.c.o
+src/w_cabsf.c:9:19: warning: unused variable 'rcsid' [-Wunused-const-variable]
+static const char rcsid[] =
+                  ^
+1 warning generated.
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/w_drem.c -o src/w_drem.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/w_dremf.c -o src/w_dremf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nan.c -o src/s_nan.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_copysignl.c -o src/s_copysignl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fabsl.c -o src/s_fabsl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_modfl.c -o src/s_modfl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_acosl.c -o src/e_acosl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_asinl.c -o src/e_asinl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_atan2l.c -o src/e_atan2l.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_fmodl.c -o src/e_fmodl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmaxl.c -o src/s_fmaxl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fminl.c -o src/s_fminl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ilogbl.c -o src/s_ilogbl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/e_hypotl.c -o src/e_hypotl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_atanl.c -o src/s_atanl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ceill.c -o src/s_ceill.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cosl.c -o src/s_cosl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cprojl.c -o src/s_cprojl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_csqrtl.c -o src/s_csqrtl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_floorl.c -o src/s_floorl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_fmal.c -o src/s_fmal.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_frexpl.c -o src/s_frexpl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nexttoward.c -o src/s_nexttoward.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sinl.c -o src/s_sinl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_sincosl.c -o src/s_sincosl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_tanl.c -o src/s_tanl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_truncl.c -o src/s_truncl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/w_cabsl.c -o src/w_cabsl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_nextafterl.c -o src/s_nextafterl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ccosh.c -o src/s_ccosh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ccoshf.c -o src/s_ccoshf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cexp.c -o src/s_cexp.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cexpf.c -o src/s_cexpf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cimag.c -o src/s_cimag.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cimagf.c -o src/s_cimagf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cimagl.c -o src/s_cimagl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_conj.c -o src/s_conj.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_conjf.c -o src/s_conjf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_conjl.c -o src/s_conjl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cproj.c -o src/s_cproj.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_cprojf.c -o src/s_cprojf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_creal.c -o src/s_creal.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_crealf.c -o src/s_crealf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_creall.c -o src/s_creall.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_csinh.c -o src/s_csinh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_csinhf.c -o src/s_csinhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ctanh.c -o src/s_ctanh.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c src/s_ctanhf.c -o src/s_ctanhf.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c amd64/fenv.c -o amd64/fenv.c.o
+amd64/fenv.c:51:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int feclearexcept(int __excepts);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:97:1: note: previous definition is here
+feclearexcept(int __excepts)
+^
+amd64/fenv.c:52:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int fegetexceptflag(fexcept_t *__flagp, int __excepts);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:115:1: note: previous definition is here
+fegetexceptflag(fexcept_t *__flagp, int __excepts)
+^
+amd64/fenv.c:82:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int fetestexcept(int __excepts);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:130:1: note: previous definition is here
+fetestexcept(int __excepts)
+^
+amd64/fenv.c:83:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int fegetround(void);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:141:1: note: previous definition is here
+fegetround(void)
+^
+amd64/fenv.c:84:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int fesetround(int __round);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:156:1: note: previous definition is here
+fesetround(int __round)
+^
+amd64/fenv.c:115:15: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern inline DLLEXPORT int fesetenv(const fenv_t *__envp);
+              ^
+/«BUILDDIR»/openlibm-0.4+dfsg/src/math_private.h:373:35: note: expanded from macro 'DLLEXPORT'
+#define DLLEXPORT __attribute__ ((visibility("default")))
+                                  ^
+/«BUILDDIR»/openlibm-0.4+dfsg/amd64/fenv.h:181:1: note: previous definition is here
+fesetenv(const fenv_t *__envp)
+^
+6 warnings generated.
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_remainder.S -o amd64/e_remainder.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_remainderf.S -o amd64/e_remainderf.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_remainderl.S -o amd64/e_remainderl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_sqrt.S -o amd64/e_sqrt.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_sqrtf.S -o amd64/e_sqrtf.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/e_sqrtl.S -o amd64/e_sqrtl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_llrint.S -o amd64/s_llrint.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_llrintf.S -o amd64/s_llrintf.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_llrintl.S -o amd64/s_llrintl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_logbl.S -o amd64/s_logbl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_lrint.S -o amd64/s_lrint.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_lrintf.S -o amd64/s_lrintf.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_lrintl.S -o amd64/s_lrintl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_remquo.S -o amd64/s_remquo.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_remquof.S -o amd64/s_remquof.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_remquol.S -o amd64/s_remquol.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_rintl.S -o amd64/s_rintl.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_scalbn.S -o amd64/s_scalbn.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_scalbnf.S -o amd64/s_scalbnf.S.o
+gcc  -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -c amd64/s_scalbnl.S -o amd64/s_scalbnl.S.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c bsdsrc/b_exp.c -o bsdsrc/b_exp.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c bsdsrc/b_log.c -o bsdsrc/b_log.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c bsdsrc/b_tgamma.c -o bsdsrc/b_tgamma.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/invtrig.c -o ld80/invtrig.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/k_cosl.c -o ld80/k_cosl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/k_sinl.c -o ld80/k_sinl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/k_tanl.c -o ld80/k_tanl.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/s_exp2l.c -o ld80/s_exp2l.c.o
+gcc -D_FORTIFY_SOURCE=2 -fno-gnu89-inline -std=c99 -Wall -I/«BUILDDIR»/openlibm-0.4+dfsg -I/«BUILDDIR»/openlibm-0.4+dfsg/include -I/«BUILDDIR»/openlibm-0.4+dfsg/ld80 -I/«BUILDDIR»/openlibm-0.4+dfsg/amd64 -I/«BUILDDIR»/openlibm-0.4+dfsg/src -DASSEMBLER -D__BSD_VISIBLE -Wno-implicit-function-declaration -fPIC -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -c ld80/s_nanl.c -o ld80/s_nanl.c.o
+ar -rcs libopenlibm.a src/common.c.o src/e_acos.c.o src/e_acosf.c.o src/e_acosh.c.o src/e_acoshf.c.o src/e_asin.c.o src/e_asinf.c.o src/e_atan2.c.o src/e_atan2f.c.o src/e_atanh.c.o src/e_atanhf.c.o src/e_cosh.c.o src/e_coshf.c.o src/e_exp.c.o src/e_expf.c.o src/e_fmod.c.o src/e_fmodf.c.o src/e_gamma.c.o src/e_gamma_r.c.o src/e_gammaf.c.o src/e_gammaf_r.c.o src/e_hypot.c.o src/e_hypotf.c.o src/e_j0.c.o src/e_j0f.c.o src/e_j1.c.o src/e_j1f.c.o src/e_jn.c.o src/e_jnf.c.o src/e_lgamma.c.o src/e_lgamma_r.c.o src/e_lgammaf.c.o src/e_lgammaf_r.c.o src/e_log.c.o src/e_log10.c.o src/e_log10f.c.o src/e_log2.c.o src/e_log2f.c.o src/e_logf.c.o src/e_pow.c.o src/e_powf.c.o src/e_scalb.c.o src/e_scalbf.c.o src/e_rem_pio2.c.o src/e_rem_pio2f.c.o src/e_sinh.c.o src/e_sinhf.c.o src/k_cos.c.o src/k_exp.c.o src/k_expf.c.o src/k_rem_pio2.c.o src/k_sin.c.o src/k_tan.c.o src/k_cosf.c.o src/k_sinf.c.o src/k_tanf.c.o src/s_asinh.c.o src/s_asinhf.c.o src/s_atan.c.o src/s_atanf.c.o src/s_carg.c.o src/s_cargf.c.o src/s_cargl.c.o src/s_cbrt.c.o src/s_cbrtf.c.o src/s_ceil.c.o src/s_ceilf.c.o src/s_copysign.c.o src/s_copysignf.c.o src/s_cos.c.o src/s_cosf.c.o src/s_csqrt.c.o src/s_csqrtf.c.o src/s_erf.c.o src/s_erff.c.o src/s_exp2.c.o src/s_exp2f.c.o src/s_expm1.c.o src/s_expm1f.c.o src/s_fabs.c.o src/s_fabsf.c.o src/s_fdim.c.o src/s_finite.c.o src/s_finitef.c.o src/s_floor.c.o src/s_floorf.c.o src/s_fma.c.o src/s_fmaf.c.o src/s_fmax.c.o src/s_fmaxf.c.o src/s_fmin.c.o src/s_fminf.c.o src/s_fpclassify.c.o src/s_frexp.c.o src/s_frexpf.c.o src/s_ilogb.c.o src/s_ilogbf.c.o src/s_isinf.c.o src/s_isfinite.c.o src/s_isnormal.c.o src/s_isnan.c.o src/s_llround.c.o src/s_llroundf.c.o src/s_llroundl.c.o src/s_log1p.c.o src/s_log1pf.c.o src/s_logb.c.o src/s_logbf.c.o src/s_lround.c.o src/s_lroundf.c.o src/s_lroundl.c.o src/s_modf.c.o src/s_modff.c.o src/s_nearbyint.c.o src/s_nextafter.c.o src/s_nextafterf.c.o src/s_nexttowardf.c.o src/s_rint.c.o src/s_rintf.c.o src/s_round.c.o src/s_roundf.c.o src/s_roundl.c.o src/s_scalbln.c.o src/s_signbit.c.o src/s_signgam.c.o src/s_significand.c.o src/s_significandf.c.o src/s_sin.c.o src/s_sincos.c.o src/s_sinf.c.o src/s_sincosf.c.o src/s_tan.c.o src/s_tanf.c.o src/s_tanh.c.o src/s_tanhf.c.o src/s_tgammaf.c.o src/s_trunc.c.o src/s_truncf.c.o src/s_cpow.c.o src/s_cpowf.c.o src/s_cpowl.c.o src/w_cabs.c.o src/w_cabsf.c.o src/w_drem.c.o src/w_dremf.c.o src/s_nan.c.o src/s_copysignl.c.o src/s_fabsl.c.o src/s_modfl.c.o src/e_acosl.c.o src/e_asinl.c.o src/e_atan2l.c.o src/e_fmodl.c.o src/s_fmaxl.c.o src/s_fminl.c.o src/s_ilogbl.c.o src/e_hypotl.c.o src/s_atanl.c.o src/s_ceill.c.o src/s_cosl.c.o src/s_cprojl.c.o src/s_csqrtl.c.o src/s_floorl.c.o src/s_fmal.c.o src/s_frexpl.c.o src/s_nexttoward.c.o src/s_sinl.c.o src/s_sincosl.c.o src/s_tanl.c.o src/s_truncl.c.o src/w_cabsl.c.o src/s_nextafterl.c.o src/s_ccosh.c.o src/s_ccoshf.c.o src/s_cexp.c.o src/s_cexpf.c.o src/s_cimag.c.o src/s_cimagf.c.o src/s_cimagl.c.o src/s_conj.c.o src/s_conjf.c.o src/s_conjl.c.o src/s_cproj.c.o src/s_cprojf.c.o src/s_creal.c.o src/s_crealf.c.o src/s_creall.c.o src/s_csinh.c.o src/s_csinhf.c.o src/s_ctanh.c.o src/s_ctanhf.c.o amd64/fenv.c.o amd64/e_remainder.S.o amd64/e_remainderf.S.o amd64/e_remainderl.S.o amd64/e_sqrt.S.o amd64/e_sqrtf.S.o amd64/e_sqrtl.S.o amd64/s_llrint.S.o amd64/s_llrintf.S.o amd64/s_llrintl.S.o amd64/s_logbl.S.o amd64/s_lrint.S.o amd64/s_lrintf.S.o amd64/s_lrintl.S.o amd64/s_remquo.S.o amd64/s_remquof.S.o amd64/s_remquol.S.o amd64/s_rintl.S.o amd64/s_scalbn.S.o amd64/s_scalbnf.S.o amd64/s_scalbnl.S.o bsdsrc/b_exp.c.o bsdsrc/b_log.c.o bsdsrc/b_tgamma.c.o ld80/invtrig.c.o ld80/k_cosl.c.o ld80/k_sinl.c.o ld80/k_tanl.c.o ld80/s_exp2l.c.o ld80/s_nanl.c.o
+gcc -shared src/common.c.o src/e_acos.c.o src/e_acosf.c.o src/e_acosh.c.o src/e_acoshf.c.o src/e_asin.c.o src/e_asinf.c.o src/e_atan2.c.o src/e_atan2f.c.o src/e_atanh.c.o src/e_atanhf.c.o src/e_cosh.c.o src/e_coshf.c.o src/e_exp.c.o src/e_expf.c.o src/e_fmod.c.o src/e_fmodf.c.o src/e_gamma.c.o src/e_gamma_r.c.o src/e_gammaf.c.o src/e_gammaf_r.c.o src/e_hypot.c.o src/e_hypotf.c.o src/e_j0.c.o src/e_j0f.c.o src/e_j1.c.o src/e_j1f.c.o src/e_jn.c.o src/e_jnf.c.o src/e_lgamma.c.o src/e_lgamma_r.c.o src/e_lgammaf.c.o src/e_lgammaf_r.c.o src/e_log.c.o src/e_log10.c.o src/e_log10f.c.o src/e_log2.c.o src/e_log2f.c.o src/e_logf.c.o src/e_pow.c.o src/e_powf.c.o src/e_scalb.c.o src/e_scalbf.c.o src/e_rem_pio2.c.o src/e_rem_pio2f.c.o src/e_sinh.c.o src/e_sinhf.c.o src/k_cos.c.o src/k_exp.c.o src/k_expf.c.o src/k_rem_pio2.c.o src/k_sin.c.o src/k_tan.c.o src/k_cosf.c.o src/k_sinf.c.o src/k_tanf.c.o src/s_asinh.c.o src/s_asinhf.c.o src/s_atan.c.o src/s_atanf.c.o src/s_carg.c.o src/s_cargf.c.o src/s_cargl.c.o src/s_cbrt.c.o src/s_cbrtf.c.o src/s_ceil.c.o src/s_ceilf.c.o src/s_copysign.c.o src/s_copysignf.c.o src/s_cos.c.o src/s_cosf.c.o src/s_csqrt.c.o src/s_csqrtf.c.o src/s_erf.c.o src/s_erff.c.o src/s_exp2.c.o src/s_exp2f.c.o src/s_expm1.c.o src/s_expm1f.c.o src/s_fabs.c.o src/s_fabsf.c.o src/s_fdim.c.o src/s_finite.c.o src/s_finitef.c.o src/s_floor.c.o src/s_floorf.c.o src/s_fma.c.o src/s_fmaf.c.o src/s_fmax.c.o src/s_fmaxf.c.o src/s_fmin.c.o src/s_fminf.c.o src/s_fpclassify.c.o src/s_frexp.c.o src/s_frexpf.c.o src/s_ilogb.c.o src/s_ilogbf.c.o src/s_isinf.c.o src/s_isfinite.c.o src/s_isnormal.c.o src/s_isnan.c.o src/s_llround.c.o src/s_llroundf.c.o src/s_llroundl.c.o src/s_log1p.c.o src/s_log1pf.c.o src/s_logb.c.o src/s_logbf.c.o src/s_lround.c.o src/s_lroundf.c.o src/s_lroundl.c.o src/s_modf.c.o src/s_modff.c.o src/s_nearbyint.c.o src/s_nextafter.c.o src/s_nextafterf.c.o src/s_nexttowardf.c.o src/s_rint.c.o src/s_rintf.c.o src/s_round.c.o src/s_roundf.c.o src/s_roundl.c.o src/s_scalbln.c.o src/s_signbit.c.o src/s_signgam.c.o src/s_significand.c.o src/s_significandf.c.o src/s_sin.c.o src/s_sincos.c.o src/s_sinf.c.o src/s_sincosf.c.o src/s_tan.c.o src/s_tanf.c.o src/s_tanh.c.o src/s_tanhf.c.o src/s_tgammaf.c.o src/s_trunc.c.o src/s_truncf.c.o src/s_cpow.c.o src/s_cpowf.c.o src/s_cpowl.c.o src/w_cabs.c.o src/w_cabsf.c.o src/w_drem.c.o src/w_dremf.c.o src/s_nan.c.o src/s_copysignl.c.o src/s_fabsl.c.o src/s_modfl.c.o src/e_acosl.c.o src/e_asinl.c.o src/e_atan2l.c.o src/e_fmodl.c.o src/s_fmaxl.c.o src/s_fminl.c.o src/s_ilogbl.c.o src/e_hypotl.c.o src/s_atanl.c.o src/s_ceill.c.o src/s_cosl.c.o src/s_cprojl.c.o src/s_csqrtl.c.o src/s_floorl.c.o src/s_fmal.c.o src/s_frexpl.c.o src/s_nexttoward.c.o src/s_sinl.c.o src/s_sincosl.c.o src/s_tanl.c.o src/s_truncl.c.o src/w_cabsl.c.o src/s_nextafterl.c.o src/s_ccosh.c.o src/s_ccoshf.c.o src/s_cexp.c.o src/s_cexpf.c.o src/s_cimag.c.o src/s_cimagf.c.o src/s_cimagl.c.o src/s_conj.c.o src/s_conjf.c.o src/s_conjl.c.o src/s_cproj.c.o src/s_cprojf.c.o src/s_creal.c.o src/s_crealf.c.o src/s_creall.c.o src/s_csinh.c.o src/s_csinhf.c.o src/s_ctanh.c.o src/s_ctanhf.c.o amd64/fenv.c.o amd64/e_remainder.S.o amd64/e_remainderf.S.o amd64/e_remainderl.S.o amd64/e_sqrt.S.o amd64/e_sqrtf.S.o amd64/e_sqrtl.S.o amd64/s_llrint.S.o amd64/s_llrintf.S.o amd64/s_llrintl.S.o amd64/s_logbl.S.o amd64/s_lrint.S.o amd64/s_lrintf.S.o amd64/s_lrintl.S.o amd64/s_remquo.S.o amd64/s_remquof.S.o amd64/s_remquol.S.o amd64/s_rintl.S.o amd64/s_scalbn.S.o amd64/s_scalbnf.S.o amd64/s_scalbnl.S.o bsdsrc/b_exp.c.o bsdsrc/b_log.c.o bsdsrc/b_tgamma.c.o ld80/invtrig.c.o ld80/k_cosl.c.o ld80/k_sinl.c.o ld80/k_tanl.c.o ld80/s_exp2l.c.o ld80/s_nanl.c.o -Wl,-z,relro -Wl,-soname,libopenlibm.so.1 -o libopenlibm.so.1.0
+make -C test
+make[2]: Entering directory '/«BUILDDIR»/openlibm-0.4+dfsg/test'
+gcc -g test-double.c -D__BSD_VISIBLE -I ../include -I../src ../libopenlibm.a -o test-double
+In file included from test-double.c:34:
+./libm-test.c:2528:39: warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+  check_float ("fabs (0) == 0",  FUNC(fabs) (0), 0, 0, 0, 0);
+                                      ^
+test-double.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function
+                       ^
+./libm-test.c:2528:39: note: use function 'abs' instead
+  check_float ("fabs (0) == 0",  FUNC(fabs) (0), 0, 0, 0, 0);
+                                 ~~~~~^~~~~
+                                 abs
+test-double.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function
+                       ^
+In file included from test-double.c:34:
+./libm-test.c:2536:40: warning: absolute value function 'fabs' given an argument of type 'long double' but has parameter of type 'double' which may cause truncation of value [-Wabsolute-value]
+  check_float ("fabs (-e) == e",  FUNC(fabs) (-M_El), M_El, 0, 0, 0);
+                                       ^
+test-double.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function
+                       ^
+./libm-test.c:2536:40: note: use function 'fabsl' instead
+  check_float ("fabs (-e) == e",  FUNC(fabs) (-M_El), M_El, 0, 0, 0);
+                                  ~~~~~^~~~~
+                                  fabsl
+test-double.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function
+                       ^
+2 warnings generated.
+gcc -g test-float.c -D__BSD_VISIBLE -I ../include -I../src ../libopenlibm.a -o test-float
+In file included from test-float.c:34:
+./libm-test.c:2528:34: warning: using floating point absolute value function 'fabsf' when argument is of integer type [-Wabsolute-value]
+  check_float ("fabs (0) == 0",  FUNC(fabs) (0), 0, 0, 0, 0);
+                                 ^
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+./libm-test.c:2528:34: note: use function 'abs' instead
+  check_float ("fabs (0) == 0",  FUNC(fabs) (0), 0, 0, 0, 0);
+                                 ^~~~~~~~~~
+                                 abs
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+In file included from test-float.c:34:
+./libm-test.c:2535:40: warning: absolute value function 'fabsf' given an argument of type 'double' but has parameter of type 'float' which may cause truncation of value [-Wabsolute-value]
+  check_float ("fabs (38.0) == 38.0",  FUNC(fabs) (38.0), 38.0, 0, 0, 0);
+                                       ^
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+./libm-test.c:2535:40: note: use function 'fabs' instead
+  check_float ("fabs (38.0) == 38.0",  FUNC(fabs) (38.0), 38.0, 0, 0, 0);
+                                       ^~~~~~~~~~
+                                       fabs
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+In file included from test-float.c:34:
+./libm-test.c:2536:35: warning: absolute value function 'fabsf' given an argument of type 'long double' but has parameter of type 'float' which may cause truncation of value [-Wabsolute-value]
+  check_float ("fabs (-e) == e",  FUNC(fabs) (-M_El), M_El, 0, 0, 0);
+                                  ^
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+./libm-test.c:2536:35: note: use function 'fabsl' instead
+  check_float ("fabs (-e) == e",  FUNC(fabs) (-M_El), M_El, 0, 0, 0);
+                                  ^~~~~~~~~~
+                                  fabsl
+test-float.c:20:24: note: expanded from macro 'FUNC'
+#define FUNC(function) function ## f
+                       ^
+<scratch space>:386:1: note: expanded from here
+fabsf
+^
+3 warnings generated.
+make[2]: Leaving directory '/«BUILDDIR»/openlibm-0.4+dfsg/test'
+make[1]: Leaving directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+test/test-float
+testing float (without inline functions)
+Failure: Test: tanh (0.7) == 0.60436777711716349631
+Result:
+ is:          6.04367733001708984375e-01   0x1.356fb000000000000000p-1
+ should be:   6.04367792606353759766e-01   0x1.356fb200000000000000p-1
+ difference:  5.96046447753906250000e-08   0x1.00000000000000000000p-24
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Failure: Test: tanh (-0.7) == -0.60436777711716349631
+Result:
+ is:         -6.04367733001708984375e-01  -0x1.356fb000000000000000p-1
+ should be:  -6.04367792606353759766e-01  -0x1.356fb200000000000000p-1
+ difference:  5.96046447753906250000e-08   0x1.00000000000000000000p-24
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Maximal error of `tanh'
+ is      :  1.0000 ulp
+ accepted:  0.0000 ulp
+Failure: Test: expm1 (1) == M_El - 1.0
+Result:
+ is:          1.71828174591064453125e+00   0x1.b7e15000000000000000p+0
+ should be:   1.71828186511993408203e+00   0x1.b7e15200000000000000p+0
+ difference:  1.19209289550781250000e-07   0x1.00000000000000000000p-23
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Maximal error of `expm1'
+ is      :  1.0000 ulp
+ accepted:  0.0000 ulp
+Failure: log (0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log (-0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log10 (0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log10 (-0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log1p (-1) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log2 (0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: log2 (-0) == -inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: Test: erfc (2.0) == 0.0046777349810472658379
+Result:
+ is:          4.67773526906967163086e-03   0x1.328f6000000000000000p-8
+ should be:   4.67773480340838432312e-03   0x1.328f5e00000000000000p-8
+ difference:  4.65661287307739257812e-10   0x1.00000000000000000000p-31
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Failure: gamma (0) == inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: gamma (-3) == inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: lgamma (0) == inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: lgamma (-3) == inf plus division by zero exception: Exception "Divide by zero" not set
+Failure: Test: j0 (2.0) == 0.22389077914123566805
+Result:
+ is:          2.23890811204910278320e-01   0x1.ca874400000000000000p-3
+ should be:   2.23890781402587890625e-01   0x1.ca874000000000000000p-3
+ difference:  2.98023223876953125000e-08   0x1.00000000000000000000p-25
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+Maximal error of `j0'
+ is      :  2.0000 ulp
+ accepted:  1.0000 ulp
+Failure: Test: j1 (10.0) == 0.043472746168861436670
+Result:
+ is:          4.34727519750595092773e-02   0x1.6420f800000000000000p-5
+ should be:   4.34727445244789123535e-02   0x1.6420f400000000000000p-5
+ difference:  7.45058059692382812500e-09   0x1.00000000000000000000p-27
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+Maximal error of `j1'
+ is      :  2.0000 ulp
+ accepted:  1.0000 ulp
+Failure: Test: jn (0, 2.0) == 0.22389077914123566805
+Result:
+ is:          2.23890811204910278320e-01   0x1.ca874400000000000000p-3
+ should be:   2.23890781402587890625e-01   0x1.ca874000000000000000p-3
+ difference:  2.98023223876953125000e-08   0x1.00000000000000000000p-25
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+Failure: Test: jn (1, 10.0) == 0.043472746168861436670
+Result:
+ is:          4.34727519750595092773e-02   0x1.6420f800000000000000p-5
+ should be:   4.34727445244789123535e-02   0x1.6420f400000000000000p-5
+ difference:  7.45058059692382812500e-09   0x1.00000000000000000000p-27
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+Failure: Test: jn (3, 0.7) == 0.0069296548267508408077
+Result:
+ is:          6.92965509369969367981e-03   0x1.c6245200000000000000p-8
+ should be:   6.92965462803840637207e-03   0x1.c6245000000000000000p-8
+ difference:  4.65661287307739257812e-10   0x1.00000000000000000000p-31
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Failure: Test: jn (10, 0.1) == 0.26905328954342155795e-19
+Result:
+ is:          2.69053354306458036604e-20   0x1.fc3a3800000000000000p-66
+ should be:   2.69053289682972680899e-20   0x1.fc3a3000000000000000p-66
+ difference:  6.46234853557052870993e-27   0x1.00000000000000000000p-87
+ ulp       :  4.0000
+ max.ulp   :  2.0000
+Failure: Test: jn (10, 2.0) == 0.25153862827167367096e-6
+Result:
+ is:          2.51538693873953889124e-07   0x1.0e166e00000000000000p-22
+ should be:   2.51538637030535028316e-07   0x1.0e166a00000000000000p-22
+ difference:  5.68434188608080148697e-14   0x1.00000000000000000000p-44
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+Failure: Test: jn (10, 10.0) == 0.20748610663335885770
+Result:
+ is:          2.07486152648925781250e-01   0x1.a8ee8000000000000000p-3
+ should be:   2.07486107945442199707e-01   0x1.a8ee7a00000000000000p-3
+ difference:  4.47034835815429687500e-08   0x1.80000000000000000000p-25
+ ulp       :  3.0000
+ max.ulp   :  2.0000
+Maximal error of `jn'
+ is      :  4.0000 ulp
+ accepted:  2.0000 ulp
+Failure: y0 (-1.0) == NaN: Exception "Invalid operation" not set
+Failure: y0 (0.0) == -inf: Exception "Divide by zero" not set
+Failure: y1 (-1.0) == NaN: Exception "Invalid operation" not set
+Failure: y1 (0.0) == -inf: Exception "Divide by zero" not set
+Failure: Test: y1 (0.7) == -1.1032498719076333697
+Result:
+ is:         -1.10324978828430175781e+00  -0x1.1a6e9400000000000000p+0
+ should be:  -1.10324990749359130859e+00  -0x1.1a6e9600000000000000p+0
+ difference:  1.19209289550781250000e-07   0x1.00000000000000000000p-23
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Failure: yn (0, -1.0) == NaN: Exception "Invalid operation" not set
+Failure: yn (0, 0.0) == -inf: Exception "Divide by zero" not set
+Failure: yn (1, -1.0) == NaN: Exception "Invalid operation" not set
+Failure: yn (1, 0.0) == -inf: Exception "Divide by zero" not set
+Failure: Test: yn (1, 0.7) == -1.1032498719076333697
+Result:
+ is:         -1.10324978828430175781e+00  -0x1.1a6e9400000000000000p+0
+ should be:  -1.10324990749359130859e+00  -0x1.1a6e9600000000000000p+0
+ difference:  1.19209289550781250000e-07   0x1.00000000000000000000p-23
+ ulp       :  1.0000
+ max.ulp   :  0.0000
+Failure: Test: yn (10, 0.1) == -0.11831335132045197885e19
+Result:
+ is:         -1.18313319792010854400e+18  -0x1.06b55600000000000000p+60
+ should be:  -1.18313347279801548800e+18  -0x1.06b55a00000000000000p+60
+ difference:  2.74877906944000000000e+11   0x1.00000000000000000000p+38
+ ulp       :  2.0000
+ max.ulp   :  1.0000
+
+Test suite completed:
+  1131 test cases plus 953 tests for exception flags executed.
+  39 errors occurred.
+debian/rules:7: recipe for target 'override_dh_auto_test' failed
+make[1]: *** [override_dh_auto_test] Error 1
+make[1]: Leaving directory '/«BUILDDIR»/openlibm-0.4+dfsg'
+make: *** [build-arch] Error 2
+debian/rules:4: recipe for target 'build-arch' failed
+dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+────────────────────────────────────────────────────────────────────────────────
+Build finished at 20140904-1540
+
+Finished
+────────
+
+E: Build failure (dpkg-buildpackage died)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Cleanup                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Purging /«BUILDDIR»
+Not cleaning session: cloned chroot in use
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Summary                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Build Architecture: amd64
+Build-Space: 7144
+Build-Time: 19
+Distribution: unstable
+Fail-Stage: build
+Host Architecture: amd64
+Install-Time: 9
+Job: openlibm_0.4+dfsg-1
+Machine Architecture: amd64
+Package: openlibm
+Package-Time: 58
+Source-Version: 0.4+dfsg-1
+Space: 7144
+Status: attempted
+Version: 0.4+dfsg-1clang1
+────────────────────────────────────────────────────────────────────────────────
+Finished at 20140904-1540
+Build needed 00:00:58, 7144k disc space
+DC-Status: Failed 58.611304973s
+DC-Time-Estimation: 58.611304973 versus expected 1 (r/m: 57.611304973 ; m: 1.0)
