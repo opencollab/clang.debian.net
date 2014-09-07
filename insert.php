@@ -8,13 +8,13 @@ include "listErrors.php";
 if (isset($argv[1])) {
   $CLANG_VERSION=$argv[1];
 } else {
-  $CLANG_VERSION="3.5.0rc1";
+  $CLANG_VERSION="3.5.0";
 }
 
 if (isset($argv[2])) {
   $DATE_REBUILD=$argv[2];
 } else {
-  $DATE_REBUILD="2014-08-05";
+  $DATE_REBUILD="2014-09-03";
 }
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";
