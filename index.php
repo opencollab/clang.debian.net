@@ -77,17 +77,6 @@ The full list of all the results with logs are available at the following URL:<b
 <br />
     Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
 <br />
-<h1>Build time, binary size or performances</h1>
-For now, none of this aspect have been checked in this analyze.
-I will try to introduce some measures of build time in the next analyzes.
-<br />
-
-Some pointers:<br />
-<ul>
-<li><a href="http://gcc.gnu.org/ml/gcc/2012-02/msg00134.html">gcc/clang compile-time measurements in Chromium</a></li>
-<li><a href="http://weblogs.java.net/blog/simonis/archive/2011/02/10/compiling-hotspot-vm-clang">Compiling the HotSpot VM with Clang</a> (not up-to-date)</li>
-</ul>
-<br />
 
 <h1>Future</h1>
 I will rebuild regularly the Debian archive with two goals in mind:<br />
