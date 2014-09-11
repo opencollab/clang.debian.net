@@ -9,7 +9,7 @@ $known_errors= Array(
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
         Array("key" => "OBJC", "dsc" => "Could not find objective C headers", "msg" => "'objc/objc.h' file not found", "nb" => 0),
         Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'") , "nb" => 0),
-        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => "dh_makeshlibs: dpkg-gensymbols", "nb" => 0),
+        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors"), "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
         Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
         Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => "undefined reference to", "nb" => 0),
