@@ -1,6 +1,6 @@
 Probably a mistake:
 <pre class="failure">
-#include <stdlib.h>
+#include &lt;stdlib.h&gt;
 void foo() {
  unsigned int i=0; /* absolute value function 'abs' given an argument of type 'long long' but has parameter of type 'int' which may cause truncation of value [-Wabsolute-value] */
  abs(i);

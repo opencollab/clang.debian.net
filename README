@@ -16,20 +16,27 @@ This program can be found here:
 http://anonscm.debian.org/viewvc/collab-qa/collab-qa-tools/
 and Debian packages should be created
 
+Or you can install with collab-qa-tools
+
 4) Import the file into the database
 Edit insert.php
 Update the path, the version and the date
 
 Run, it should insert in the db
 
-Update status.php to add the support of the new version
+With reimport-all.sh, all previous scanlog-* are going to be reimported.
+This should be done when new categories are created.
+
+5) Update status.php to add the support of the new version
 update config.inc.php for the number of packages
 
-5) Check:
+6) Check:
 http://localhost/status.php?version=X.Y&key=NO_CAT
 
 Check for new common error message and add then listErrors.php 
 
-In status.php, don't hesitate to use the SQL search SOUNDEX(reverse(detected_error))
-to have a better sort
 
+Notes:
+* Add &sort=true in the URL to get a SOUNDEX() sort
+Example:
+http://clang.debian.net/status.php?version=3.5.0&key=NO_CAT&sort=true

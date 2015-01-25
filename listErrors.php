@@ -9,7 +9,7 @@ $known_errors= Array(
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
         Array("key" => "OBJC", "dsc" => "Could not find objective C headers", "msg" => "'objc/objc.h' file not found", "nb" => 0),
         Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'") , "nb" => 0),
-        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => "dh_makeshlibs: dpkg-gensymbols", "nb" => 0),
+        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors"), "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
         Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
         Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => "undefined reference to", "nb" => 0),
@@ -157,6 +157,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "NOT_FUNCTION_OR_FUNCTION_POINTER", "dsc" => "Object is not a function or function pointer ", "msg"  => Array(" is not a function or function pointer"), "nb" => 0),
         Array("key" => "NOT_COMPILE_TIME_CONSTANT", "dsc" => "Initializer element not compile-time constant", "msg"  => Array("initializer element is not a compile-time constant"), "nb" => 0),
         Array("key" => "TAUTOLOGICAL-POINTER-COMPARE", "dsc" => "Tautological pointer comparison", "msg" => Array("Wtautological-constant-out-of-range-compare","Wtautological-pointer-compare","tautological-undefined-compare"), "nb" => 0, "new" => "3.5.0"),
+        Array("key" => "HASKELL_BUILD_FAIL", "dsc" => "openBinaryFile is not defined for haskell packages", "msg"  => Array("openBinaryFile: does not exist"), "nb" => 0),
 
 
 // General
