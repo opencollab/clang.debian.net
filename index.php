@@ -1,4 +1,4 @@
-<?
+<?php
 include("config.inc.php");
 include("listErrors.php");
 $keyGET=mysql_real_escape_string($_GET['key']);

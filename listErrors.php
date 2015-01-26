@@ -1,4 +1,4 @@
-<?
+<?php
 include_once("config.inc.php");
 $known_errors= Array(
         Array("key" => "UNKNOWN_OPTION", "dsc" => "Unsupported option", "msg" => Array("the clang compiler does not support","error: '-I-' not supported"), "nb" => 0),
@@ -27,7 +27,6 @@ $known_errors= Array(
         Array("key" => "CANNOT_USE_O_MULTI_OUTPUT", "dsc" => "Cannot use -o use multiple output", "msg" => "cannot specify -o when generating multiple output files", "nb" => 0),
         Array("key" => "REDEFINITION", "dsc" => "Redefinition failed", "msg" => Array("redefinition of","macro redefined"), "nb" => 0),
         Array("key" => "PARAMETER_CANNOT_BE_QUALIFIED", "dsc" => "Parameter could be qualified", "msg" => "parameter declarator cannot be qualified", "nb" => 0),
-
         Array("key" => "CONFLICTING_TYPE", "dsc" => "Conflicting types", "msg" => "error: conflicting types for", "nb" => 0),
         Array("key" => "WRONG_MAIN_DECLARATION", "dsc" => "Wrong main declaration", "msg" => Array("first parameter of 'main' (argument count) must be of type 'int'","error: second parameter of 'main'","too many parameters (4) for 'main'","error: C++ requires a type specifier for all"), "nb" => 0),
         Array("key" => "EMPTY_BODY", "dsc" => "Empty body declaration", "msg" => Array("if statement has empty body","for loop has empty body","while loop has empty body"), "nb" => 0),
@@ -231,7 +230,7 @@ function displayVersion($versionGET, $keyGET="") {
 	 
 ?>
 <div align="right">Versions:
-<?
+<?php
 $nb=count($clangVersions);
 $i=0;
 foreach ($clangVersions as $version => $pkg) {
@@ -248,7 +247,7 @@ foreach ($clangVersions as $version => $pkg) {
 }
 ?>
 </div>
-<?
+<?php
 }
 
 function resultClangDisplay($version, $display=true) {
@@ -301,7 +300,7 @@ foreach($errors as  $key => $err) {
 <td><a href="status.php?version=<?=$version?>&key=NO_CAT">List of errors</a></td>
 </tr>
 </table>
-<?
+<?php
 }
 }
 ?>
