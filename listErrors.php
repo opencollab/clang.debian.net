@@ -157,8 +157,19 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "NOT_COMPILE_TIME_CONSTANT", "dsc" => "Initializer element not compile-time constant", "msg"  => Array("initializer element is not a compile-time constant"), "nb" => 0),
         Array("key" => "TAUTOLOGICAL-POINTER-COMPARE", "dsc" => "Tautological pointer comparison", "msg" => Array("Wtautological-constant-out-of-range-compare","Wtautological-pointer-compare","tautological-undefined-compare"), "nb" => 0, "new" => "3.5.0"),
         Array("key" => "HASKELL_BUILD_FAIL", "dsc" => "openBinaryFile is not defined for haskell packages", "msg"  => Array("openBinaryFile: does not exist"), "nb" => 0),
+        Array("key" => "KEYWORD_PRECEDE", "dsc" => "Keyword must precede function declarator", "msg" => Array("keyword must precede function declarator"), "nb" => 0, "new" => "3.6.0"),
 
+        Array("key" => "INCORRECT_LOGICAL", "dsc" => "Incorrect logical operation", "msg" => Array("logical-not-parentheses","logical-op-parentheses"), "nb" => 0),
 
+        Array("key" => "INCORRECT_CONVERSION", "dsc" => "Incorrect conversion", "msg" => Array("Wpointer-bool-conversion", "Wsign-conversion", "Wundefined-bool-conversion", "Wnull-conversion"), "nb" => 0, "new" => "3.6.0"),
+
+        Array("key" => "SELF_ASSIGN", "dsc" => "Explicitly assigning value of variable", "msg" => Array("Wself-assign"), "nb" => 0),
+
+        Array("key" => "CXX11_NARROWING", "dsc" => "Cannot be narrowed", "msg" => Array("Wc++11-narrowing"), "nb" => 0),
+
+        Array("key" => "DUPLICATE_DECL_SPEC", "dsc" => "Duplicate declaration specifier", "msg" => Array("Wduplicate-decl-specifier"), "nb" => 0),
+
+        
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
