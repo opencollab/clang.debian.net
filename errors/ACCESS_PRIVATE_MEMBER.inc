@@ -9,7 +9,7 @@ class A
     };
 };
 
-template <typename t> void foo()
+template &lt;typename t&gt; void foo()
 {
     A::st::f();
 }
