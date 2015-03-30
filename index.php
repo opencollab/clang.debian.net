@@ -21,7 +21,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 <h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
 <div id="body">
 
-    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1), January 28th 2013 (clang 3.2), July 14th 2013 (clang 3.3), January 10th 2014 (clang 3.4), June 6th 2014 (clang 3.4.2), September 7th 2014 (clang 3.5.0)<br />
+    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1), January 28th 2013 (clang 3.2), July 14th 2013 (clang 3.3), January 10th 2014 (clang 3.4), June 6th 2014 (clang 3.4.2), September 7th 2014 (clang 3.5.0), March 2th 2015 (3.6.0)<br />
 
 
 <h1>Presentation</h1>
@@ -73,7 +73,10 @@ The full list of all the results with logs are available at the following URL:<b
 <li>
 <a href="/status.php?version=3.4">clang 3.4</a> (January 2014) - <a href="http://sylvestre.ledru.info/blog/2014/03/21/rebuild-of-debian-using-clang">Blog post</a></li>
 <li>
-<a href="/status.php?version=3.5.0">clang 3.5.0</a> (September 2014) <!--- <a href="http://sylvestre.ledru.info/blog/2014/03/21/rebuild-of-debian-using-clang">Blog post</a>--></li>
+<a href="/status.php?version=3.5.0">clang 3.5.0</a> (September 2014) - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a></li>
+
+<li>
+<a href="/status.php?version=3.6.0">clang 3.6.0</a> (March 2015) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
 
 </ul>
 <br />
