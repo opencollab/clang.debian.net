@@ -13,7 +13,7 @@ if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0rc1") {
+if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0") {
    $suffix="unstable_clang";
    $ext="log";
 }
