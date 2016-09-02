@@ -5,7 +5,7 @@ $pathGCCToLog="rebuild.lsid64-amd64.2011-09-11";
 $suffix="lsid64b";
 $ext="buildlog";
 
-$currentVersion="3.6.0";
+$currentVersion="3.8.1";
 
 $clangVersions=Array(
 	"2.9" => 16398,
@@ -17,6 +17,7 @@ $clangVersions=Array(
 	"3.4.2" => 21383,
 	"3.5.0" => 22202,
 	"3.6.0" => 22319,
+    "3.8.1" => 24585,
 );
 
 switch ($_SERVER['HTTP_HOST']){
