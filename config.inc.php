@@ -189,38 +189,6 @@ function SendMail($adr_destinataire,$sujet,$corps) {
 	return mail($adr_destinataire,$sujet,$corps,$tete);
 }
 
-function formatsql($chaine) {
-	return trim(nl2br(htmlspecialchars($chaine)));
-}
-
-function intervertir_date_EN_FR($date)
-{
-	// Interverti les dates FR -> En et FR -> En
-	// Utiliser pour les traitements sur les dates
-	$sep="-";
-	$d=explode($sep , $date);
-	$date=$d[2].$sep.$d[1].$sep.$d[0];
-	if($date=="00-00-0000" || $date=="0000-00-00" || count($d)<3)
-		return "";
-	return $date;
-}
-
-function add_comment ($id_author, $comment, $page, $lang, $id="") {
-	$commentl=strtolower(trim($comment));
-		$sql="INSERT INTO comment (id_author, comment, page, insertdate, lang, ";
-        if (strlen($id)>0) {
-            $sql.="idparent,";
-        }
-	$sql.=" hostname, ip) VALUES ('$id_author', '$comment', '$page', UNIX_TIMESTAMP(),'$lang',";
-	if (strlen($id)>0) {
-		$sql.="{$id},";
-	}
-	$sql.="'".gethostbyaddr($_SERVER['REMOTE_ADDR'])."','{$_SERVER['REMOTE_ADDR']})";
-	db_query($sql);
-		//		SendMail("sylvestre@ecranbleu.org","Howto linux","-----------Ajout d'un commentaire------------\nAuteur : $author\nEmail : $email\nCommentaire : $comment\nPage concernee : $page\nUrl de suppression : http://{$_SERVER['HTTP_HOST']}/howto/commentaire2.php?action=delete_sly&password=plop&id=".mysql_insert_id())."\n".parray($_SERVER);
-
-}
-
 function makeSummary($text, $nbchar) {
         if (strlen($text)>$nbchar) {
                 return substr($text,0,$nbchar)." (...)";
