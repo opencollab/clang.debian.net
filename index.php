@@ -91,7 +91,7 @@ I will rebuild regularly the Debian archive with two goals in mind:<br />
 The next step I would like to achieve would be an automatic rebuild of each new packages in the Debian archive with clang.<br />
 To complete this goal, I proposed a Google Summer project called <a href="http://wiki.debian.org/SummerOfCode2012/Projects#clang_support_for_build_services">clang support for build services</a> in the Debian context.<br >
 <br />
-An other aspect I am working on is to rebuild the archive using its static analyzer: scan-build. scan-build provides a great detection on some painful bugs.<br />
+Another aspect I am working on is to rebuild the archive using its static analyzer: scan-build. scan-build provides a great detection on some painful bugs.<br />
 <br />
 There are still some works to do in the LLVM/Clang world. libc++ should be packaged into Debian. LLDB should be ported to GNU/Linux.<br />
 I wrote an other GSoC subject called <a href="http://wiki.debian.org/SummerOfCode2012/Projects#Provide_an_alternative_to_libstdc.2B-.2B-_with_libc.2B-.2B-">Provide an alternative to libstdc++ with libc++</a>.

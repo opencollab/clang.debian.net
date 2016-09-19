@@ -2,7 +2,7 @@
 include_once("config.inc.php");
 $known_errors= Array(
         Array("key" => "UNKNOWN_OPTION", "dsc" => "Unsupported option", "msg" => Array("the clang compiler does not support","error: '-I-' not supported"), "nb" => 0),
-        Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with an other option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
+        Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with another option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
         Array("key" => "OPENMP_NOT_AVAILABLE", "dsc" => "OpenMP is not yet available in Clang", "msg" => Array("'omp.h' file not found","We need OpenMP","missing omp.h","Could not find omp.h"), "nb" => 0),
         Array("key" => "MAIN_RETURNS_INT", "dsc" => "main function must return int", "msg" => "error: 'main' must return 'int'", "nb" => 0),
         Array("key" => "FUNCTION_RETURNS_VALUE", "dsc" => "non-void function should return a value", "msg" => Array("should return a value [-Wreturn-type]","control may reach end of non-void function"), "nb" => 0),
@@ -69,7 +69,7 @@ $known_errors= Array(
 
         Array("key" => "C_WITH_LINKER", "dsc" => "-c is conflicting with the linker argument ", "msg" => Array("'linker' input unused when '-c' is present"), "nb" => 0),
 //use 'template' keyword to treat 'find' as a dependent template name 
-        Array("key" => "DEPENDENT_TEMPLATE", "dsc" => "Use of a keyword as dependant template name", "msg" => Array("as a dependent template name"), "nb" => 0),
+        Array("key" => "DEPENDENT_TEMPLATE", "dsc" => "Use of a keyword as dependent template name", "msg" => Array("as a dependent template name"), "nb" => 0),
 
 //        Array("key" => "VOID_CONST_VOID", "dsc" => "Cannot initialize a parameter of type 'void *'  with 'const void *const'", "msg" => Array("cannot initialize a parameter of type 'void *' with an lvalue of type 'const void *const'"), "nb" => 0),
 
