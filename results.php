@@ -21,7 +21,7 @@ $versionGET=mysql_real_escape_string($_GET['version']);
 <h1>Presentation</h1>
 This document presents the result of the rebuild of the Debian archive (the distribution) with clang, a new C/C++ compiler.<br />
 <br />
-clang is now ready to build most of the software (either for C, C++ or Objective-C). In the next few years, clang might replace gcc/g++ (it will soon be the case under *BSD  TODO). Beside this personnal opinion, I believe that building a software with various compilers is always a good thing. Due to the fact that compilers behave differently from one to the other, one will found some bugs other accepted, etc.<br />
+clang is now ready to build most of the software (either for C, C++ or Objective-C). In the next few years, clang might replace gcc/g++ (it will soon be the case under *BSD  TODO). Beside this personal opinion, I believe that building a software with various compilers is always a good thing. Due to the fact that compilers behave differently from one to the other, one will found some bugs other accepted, etc.<br />
 <br />
 clang is now stable and good enough to rebuild most of the packages in the Debian archive.<br />
 <br />
@@ -50,7 +50,7 @@ Other errors can be caused by several reasons:<br />
 </ul>
 <br />
 <br />
-Some kind of errors are listed with 0 failure. Those are issues which occured with clang 2.9 which has been fixed by upstream with the version 3.0.<br />
+Some kind of errors are listed with 0 failure. Those are issues which occurred with clang 2.9 which has been fixed by upstream with the version 3.0.<br />
 <br />
 <br />
 <br />
@@ -104,7 +104,7 @@ All packages of the archive (15658 sources packages) have been rebuild this chro
 <h1>Future</h1>
 The next step I would like to acheive would be an automatic rebuild of each new packages in the Debian archive with clang.<br />
 <br />
-An other aspect I am working on is to rebuild the archive using its static analyzer: scan-build. scan-build provides a great detection on some painful bugs.<br />
+Another aspect I am working on is to rebuild the archive using its static analyzer: scan-build. scan-build provides a great detection on some painful bugs.<br />
 <br />
 There are still some works to do in the LLVM/Clang world. libc++ should be packaged into Debian. LLDB should be ported to GNU/Linux.<br />
 <br />
