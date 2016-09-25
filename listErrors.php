@@ -177,6 +177,9 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "STATIC_IN_INLINE", "dsc" => "Static in inline", "msg" => Array("Wstatic-in-inline"), "nb" => 0),
         Array("key" => "UNEXP_TOKEN", "dsc" => "Unexpected token at start of statement", "msg" => Array("unexpected token at start of statement"), "nb" => 0),
 
+        Array("key" => "EXCEPTION_SPEC", "dsc" => "Missing exception specification", "msg" => Array("is missing exception specification"), "nb" => 0),
+        Array("key" => "NOT_ALLOW", "dsc" => "Not allowed args fails the build", "msg" => Array("not allowed with"), "nb" => 0),
+        
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
