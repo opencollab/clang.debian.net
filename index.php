@@ -21,11 +21,11 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 <h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
 <div id="body">
 
-    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1), January 28th 2013 (clang 3.2), July 14th 2013 (clang 3.3), January 10th 2014 (clang 3.4), June 6th 2014 (clang 3.4.2), September 7th 2014 (clang 3.5.0), March 2th 2015 (3.6.0)<br />
+    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>). February 28th 2012 (clang 3.0),  June 23th 2012 (clang 3.1), January 28th 2013 (clang 3.2), July 14th 2013 (clang 3.3), January 10th 2014 (clang 3.4), June 6th 2014 (clang 3.4.2), September 7th 2014 (clang 3.5.0), March 2th 2015 (3.6.0), Aug 30th 2016 (3.8.1)<br />
 
 
 <h1>Presentation</h1>
-This document presents the result of the rebuild of the Debian archive (the distribution) with <a href="http://packages.qa.debian.org/c/clang.html">clang</a>, a new C/C++ compiler.<br />
+This document presents the result of the rebuild of the Debian archive (the distribution) with <a href="http://packages.qa.debian.org/c/clang.html">clang</a>, a C/C++ compiler.<br />
 <br />
 clang is now ready to build software for production (either for C, C++ or Objective-C). This compiler is providing many more warnings and interesting errors than the gcc suite while not carrying the same legacy as gcc.<br />
 This rebuild has several goals. The first one is to prove (or not) that clang is a viable alternative. Second, building a software with different compilers improves the overall quality of code by providing different checks and alerts.
@@ -41,7 +41,7 @@ The detailed list of errors:<br />
 <br />
 Errors can be caused by several reasons:<br />
 <ul>
-<li>Refused declarations. See <a href="/status.php?version=<?=$currentVersion?>&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
+<li>Rejected declarations. See <a href="/status.php?version=<?=$currentVersion?>&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
 <li>Different warnings options list in <i>-Wall</i> or <i>-Wextra</i> (which will fail with -Werror). See <a href="/status.php?version=<?=$currentVersion?>&key=TAUTOLOGICAL-COMPARE">example 1</a>, <a href="status.php?version=<?=$currentVersion?>&key=LINE_POSITIVE">example 2</a>, etc.</li>
 <li>g++ accepts codes which should be rejected by the compiler. See <a href="/status.php?version=<?=$currentVersion?>&key=ACCESS_PRIVATE_MEMBER">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=USE_OF_UNDECLARED_IDENTIFIER">example 2</a> or <a href="/status.php?version=<?=$currentVersion?>&key=CANNOT_FIND_FUNCTION">example 3</a></li>
 <li>Some different in the C++ standard appreciation. See <a href="/status.php?version=<?=$currentVersion?>&key=ACCESS_PROTECTED_MEMBER">example 1</a></li>
@@ -77,41 +77,24 @@ The full list of all the results with logs are available at the following URL:<b
 
 <li>
 <a href="/status.php?version=3.6.0">clang 3.6.0</a> (March 2015) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
+<li>
+        <a href="/status.php?version=3.8.0">clang 3.8.0</a> (August 2016) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
 
 </ul>
-<br />
-    Many issues listed in the 2.9 have been fixed with the version 3.0. However, due to the improvements of error detections and some more warnings, 3.1 triggers more failure than 3.0. Consequently, the percentage of failure changed from about 8 % to 12 %.
-<br />
 
-<h1>Future</h1>
-I will rebuild regularly the Debian archive with two goals in mind:<br />
+<h1>Status</h1>
+    The Debian archive is regularly rebuilt against the latest version of clang. This to achieve three goals:<br />
 1) See which packages get fixed<br />
 2) See the impact of new clang releases<br />
-<br />
-The next step I would like to achieve would be an automatic rebuild of each new packages in the Debian archive with clang.<br />
-To complete this goal, I proposed a Google Summer project called <a href="http://wiki.debian.org/SummerOfCode2012/Projects#clang_support_for_build_services">clang support for build services</a> in the Debian context.<br >
-<br />
-An other aspect I am working on is to rebuild the archive using its static analyzer: scan-build. scan-build provides a great detection on some painful bugs.<br />
-<br />
-There are still some works to do in the LLVM/Clang world. libc++ should be packaged into Debian. LLDB should be ported to GNU/Linux.<br />
-I wrote an other GSoC subject called <a href="http://wiki.debian.org/SummerOfCode2012/Projects#Provide_an_alternative_to_libstdc.2B-.2B-_with_libc.2B-.2B-">Provide an alternative to libstdc++ with libc++</a>.
-<br />
+3) Find bugs or gcc-compatibility issues in gcc itself<br />
 <br />
 <br />
 
-<h1>Conclusions</h1>
-When I had the idea to rebuild Debian with a new compiler, I was expecting many issues and bugs caused by clang but I have been surprised to notice that most of the issues are either difference in C standard supported, difference of interpretation or corner cases.<br /> 
-My personal opinion is that clang is now stable and good enough to rebuild most of the packages in the Debian archive, even if many of them will need minor tweaks to compile properly.<br />
-In the next few years, coupled with better static analysis tools, clang might replace gcc/g++ as the C/C++ compiler used by default in Linux and BSD distributions.<br />The clang developers are progressing very fast: 14.5% of the packages were failing with version 2.9 against 8.8% with version 3.0 and 12.1% with 3.1.<br />
-Several major steps in the clang adoptions have been made like chromium/chrome being built by default with clang, Xcode providing clang by default, FreeBSD working on the gcc => clang switch, etc.<br />
-However, from Debian's point of view, one important step would be to make sure that clang manages correctly all Debian kernels and release architectures (11 official, 6 unofficial)
-<br />
-<br />
 <br />
 <h1>Annexes</h1>
 <h2>Rebuild</h2>
     The 2.9 and 3.0 rebuild itself have been done on a cluster called Grid 5000.<br />
-    3.1, 3.2 and 3.3 rebuilds have been done on EC2, the Amazon cloud, sponsoring Debian.<br />
+    3.1, 3.2 and later rebuilds have been done on AWS, the Amazon cloud, sponsoring Debian.<br />
 <br />
 Each packages in the Debian archive has been rebuild with the chroot described further. <br />
      For each packages failing to build from the source with clang, the package has been rebuild with a "normal" Debian sid chroot. If working, we considered that it was due to a clang bug. Otherwise, the package is not listed in this list.<br />

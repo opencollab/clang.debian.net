@@ -1,20 +1,20 @@
 #!/usr/bin/php5
 <?php
-//$_SERVER['HTTP_HOST']="localhost";
-$_SERVER['HTTP_HOST']="clang.debian.net";
+$_SERVER['HTTP_HOST']="localhost";
+//$_SERVER['HTTP_HOST']="clang.debian.net";
 include "config.inc.php";
 include "listErrors.php";
 
 if (isset($argv[1])) {
   $CLANG_VERSION=$argv[1];
 } else {
-  $CLANG_VERSION="3.6.0";
+  $CLANG_VERSION="3.8.1";
 }
 
 if (isset($argv[2])) {
   $DATE_REBUILD=$argv[2];
 } else {
-  $DATE_REBUILD="2015-03-25";
+  $DATE_REBUILD="2016-08-30";
 }
 
 $QUERY="DELETE FROM errors WHERE clang_version='$CLANG_VERSION' AND date_build='$DATE_REBUILD 00:00:00'";

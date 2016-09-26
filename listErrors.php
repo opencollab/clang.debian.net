@@ -2,13 +2,13 @@
 include_once("config.inc.php");
 $known_errors= Array(
         Array("key" => "UNKNOWN_OPTION", "dsc" => "Unsupported option", "msg" => Array("the clang compiler does not support","error: '-I-' not supported"), "nb" => 0),
-        Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with an other option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
+        Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with another option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
         Array("key" => "OPENMP_NOT_AVAILABLE", "dsc" => "OpenMP is not yet available in Clang", "msg" => Array("'omp.h' file not found","We need OpenMP","missing omp.h","Could not find omp.h"), "nb" => 0),
         Array("key" => "MAIN_RETURNS_INT", "dsc" => "main function must return int", "msg" => "error: 'main' must return 'int'", "nb" => 0),
         Array("key" => "FUNCTION_RETURNS_VALUE", "dsc" => "non-void function should return a value", "msg" => Array("should return a value [-Wreturn-type]","control may reach end of non-void function"), "nb" => 0),
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
         Array("key" => "OBJC", "dsc" => "Could not find objective C headers", "msg" => "'objc/objc.h' file not found", "nb" => 0),
-        Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'") , "nb" => 0),
+        Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'", "invalid integral value") , "nb" => 0),
         Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors"), "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
         Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
@@ -69,7 +69,7 @@ $known_errors= Array(
 
         Array("key" => "C_WITH_LINKER", "dsc" => "-c is conflicting with the linker argument ", "msg" => Array("'linker' input unused when '-c' is present"), "nb" => 0),
 //use 'template' keyword to treat 'find' as a dependent template name 
-        Array("key" => "DEPENDENT_TEMPLATE", "dsc" => "Use of a keyword as dependant template name", "msg" => Array("as a dependent template name"), "nb" => 0),
+        Array("key" => "DEPENDENT_TEMPLATE", "dsc" => "Use of a keyword as dependent template name", "msg" => Array("as a dependent template name"), "nb" => 0),
 
 //        Array("key" => "VOID_CONST_VOID", "dsc" => "Cannot initialize a parameter of type 'void *'  with 'const void *const'", "msg" => Array("cannot initialize a parameter of type 'void *' with an lvalue of type 'const void *const'"), "nb" => 0),
 
@@ -169,6 +169,16 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         Array("key" => "DUPLICATE_DECL_SPEC", "dsc" => "Duplicate declaration specifier", "msg" => Array("Wduplicate-decl-specifier"), "nb" => 0),
 
+        // added in 3.8.1
+        Array("key" => "MISSING_DECL", "dsc" => "Missing declaration", "msg" => Array("Wmissing-declarations"), "nb" => 0),
+        Array("key" => "IGNORED_UNK_ATTRIB", "dsc" => "Ignored or unknown attributes", "msg" => Array("Wignored-attributes", "Wunknown-attributes"), "nb" => 0),
+        Array("key" => "IMPL_FUNC_DECL", "dsc" => "Implicit function error", "msg" => Array("Wimplicit-function-declaration"), "nb" => 0),
+        Array("key" => "OLD_STYLE_CAST", "dsc" => "Old style cast", "msg" => Array("Wold-style-cast"), "nb" => 0),
+        Array("key" => "STATIC_IN_INLINE", "dsc" => "Static in inline", "msg" => Array("Wstatic-in-inline"), "nb" => 0),
+        Array("key" => "UNEXP_TOKEN", "dsc" => "Unexpected token at start of statement", "msg" => Array("unexpected token at start of statement"), "nb" => 0),
+
+        Array("key" => "EXCEPTION_SPEC", "dsc" => "Missing exception specification", "msg" => Array("is missing exception specification"), "nb" => 0),
+        Array("key" => "NOT_ALLOW", "dsc" => "Not allowed args fails the build", "msg" => Array("not allowed with"), "nb" => 0),
         
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
