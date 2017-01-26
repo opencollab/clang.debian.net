@@ -20,6 +20,12 @@ $clangVersions=Array(
     "3.8.1" => 24585,
 );
 
+$locally_configured = false;
+if (file_exists("local-config.inc.php")) {
+	include("local-config.inc.php");
+}
+
+if (!$locally_configured) {
 switch ($_SERVER['HTTP_HOST']){
  case 'clang.debian.net':
  case 'manchot.ecranbleu.org':
@@ -57,8 +63,9 @@ switch ($_SERVER['HTTP_HOST']){
 	define("_DB_USER_","Unknow");
 	define("_DB_PASS_","Unknow");
 	print "Le fichier config.inc.php n'est pas configure ";
-	print "($HTTP_HOST)";
+	print "({$_SERVER['HTTP_HOST']})";
 	exit;
+}
 }
 
 $secureMode = false;
@@ -73,6 +80,38 @@ $pass_db = _DB_PASS_;
 $db_db = _DB_;
 
 
+
+$use_mysqli = false;
+if (defined("PHP_MAJOR_VERSION") && PHP_MAJOR_VERSION >= 7) {
+	$use_mysqli = true;
+
+function mysql_connect($host_db,$user_db,$pass_db) {
+	$mysqli = new mysqli($host_db,$user_db,$pass_db);
+	if ($mysqli->connect_error) {
+		die("Connect Error (".$mysqli->connect_errno.") "
+			.$mysqli->connect_error);
+	}
+	return $mysqli;
+}
+
+function mysql_error() {
+	global $conn_db;
+	return $conn_db->error;
+}
+
+function mysql_fetch_object($result) {
+	return $result->fetch_object();
+}
+
+function mysql_query($req) {
+	global $conn_db;
+	return $conn_db->query($req);
+}
+
+function mysql_select_db($db_db,$conn_db) {
+	return $conn_db->select_db($db_db);
+}
+}
 
 switch ($type) {
 	case "POSTGRESQL" :
