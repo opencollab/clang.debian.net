@@ -110,7 +110,7 @@ There are still some works to do in the LLVM/Clang world. libc++ should be packa
 <br />
 <br />
 <br />
-Many thanks to Lucas Nussbaum for his time and patient (especially since I did a few screw up :p). Thanks also to grid 5000 for their infrastructure.<br />
+Many thanks to Lucas Nussbaum for his time and patience. Thanks also to grid 5000 for their infrastructure.<br />
 </div>
 </body>
 </html>
