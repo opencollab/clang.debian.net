@@ -1,7 +1,7 @@
 <?php
 include_once("config.inc.php");
 
-$package = isset($_GET['p']) ? $_GET['p'] : NULL;
+$package = mysql_real_escape_string(isset($_GET['p']) ? $_GET['p'] : NULL);
 $html_format = isset($_GET['format']) ? $_GET['format'] == "html" : false;
 
 $req="SELECT * FROM errors WHERE clang_version='$currentVersion'";
