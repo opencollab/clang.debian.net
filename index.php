@@ -161,7 +161,7 @@ The same procedure has been used for the 3.2 rebuild except that the clang packa
 
 
 <h2>Acknowledgments</h2>
-Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience (especially since I did a few screw up :p).<br />
+Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience.<br />
 <a href="http://upsilon.cc/~zack/">Stefano Zacchiroli</a> for the review (among other things).
 <br />Thanks also to <a href="https://www.grid5000.fr/">Grid 5000</a> for their infrastructure and Amazon for their credit to use AWS.<br />
 
