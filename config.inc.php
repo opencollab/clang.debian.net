@@ -5,7 +5,7 @@ $pathGCCToLog="rebuild.lsid64-amd64.2011-09-11";
 $suffix="lsid64b";
 $ext="buildlog";
 
-$currentVersion="3.8.1";
+$currentVersion="4.0.1";
 
 $clangVersions=Array(
 	"2.9" => 16398,
@@ -18,6 +18,9 @@ $clangVersions=Array(
 	"3.5.0" => 22202,
 	"3.6.0" => 22319,
     "3.8.1" => 24585,
+    "3.9.1" => 27828,
+    "4.0.1" => 27828,
+    "5.0" => 27828
 );
 
 $locally_configured = false;
