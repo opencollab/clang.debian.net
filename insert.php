@@ -45,7 +45,7 @@ if ($handle) {
                 }
                 $key_code=get_key_clang($known_errors, $msg);
                 if ($key_code != "BUILD_DEP") {
-                    $pkg_name=mysql_real_escape_string($line[0]);
+                    $pkg_name=mysqli_real_escape_string($conn_db, $line[0]);
                     if (trim($msg)=="XXX") {
                         $msg="Undetected error";
                     }
@@ -58,7 +58,8 @@ if ($handle) {
                     }
                     $SQL="INSERT INTO errors (package, version, detected_error, error_code, date_build, clang_version, key_code) VALUES (";
 
-                    $SQL.="'".$pkg_name."', '". mysql_real_escape_string($line[1])."', '". mysql_real_escape_string($msg)."', '". mysql_real_escape_string($line[3])."','$DATE_REBUILD','$CLANG_VERSION','$key_code')";
+                    $SQL.="'".$pkg_name."', '". mysqli_real_escape_string($conn_db, $line[1])."', '". mysqli_real_escape_string($conn_db, $msg)."', '". mysqli_real_escape_string($conn_db, $line[3])."','$DATE_REBUILD','$CLANG_VERSION','$key_code')";
+
                     $result=mysql_query($SQL);
                     if (!$result) {
                         die('Invalid query: ' . mysql_error());
