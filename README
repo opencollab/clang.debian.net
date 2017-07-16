@@ -7,6 +7,16 @@ In some case, we get a raw list of results
 
 cqa-compare-ref-rebuild -s /tmp/log-clang-14-06-16/ -o /tmp/log-clang-14-06-16-results -i clang
 
+or
+LIST=$(grep " Failed " res-vanilla.txt |awk '{print $1}')
+grep -v " OK " res-clang3.9.txt  > res-clang3.9.failed.txt
+for f in $LIST; do sed -i "/$f /d" res-clang3.9.failed.txt; done
+LIST=$(awk '{print $1}' ../../res-clang3.9.failed.txt)
+for f in $LIST; do cp "$f"_*log results/; done
+
+In case you need to rename the log:
+for f in *clang4.0*; do git mv $f $(echo $f|sed -e "s|clang4.0|clang|g"); done
+
 3) Generation the list of packages. It will find the error.
 
 From the log directory, run:
@@ -33,7 +43,7 @@ update config.inc.php for the number of packages
 6) Check:
 http://localhost/status.php?version=X.Y&key=NO_CAT
 
-Check for new common error message and add then listErrors.php 
+Check for new common error message and add then listErrors.php
 
 7) Get the number of packages in the archive with
 wget -q -O - ftp://ftp.debian.org/debian/dists/sid/main/source/Sources.gz | zgrep -c '^Package: '
