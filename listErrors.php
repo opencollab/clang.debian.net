@@ -179,7 +179,14 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         Array("key" => "EXCEPTION_SPEC", "dsc" => "Missing exception specification", "msg" => Array("is missing exception specification"), "nb" => 0),
         Array("key" => "NOT_ALLOW", "dsc" => "Not allowed args fails the build", "msg" => Array("not allowed with"), "nb" => 0),
-        
+
+
+// added in 3.9.1
+        Array("key" => "QT_CPP_11_MISS", "dsc" => "Qt thinks that clang is not a C++11 compiler", "msg" => Array("Qt requires a C++11 compiler and yours does not seem to be that."), "nb" => 0, "new" => "3.9"),
+        Array("key" => "LINK_FAILED_NONRE", "dsc" => "Linker issue - Nonrepresentable section on output", "msg" => Array(": Nonrepresentable section on output"), "nb" => 0, "new" => "3.9"),
+        Array("key" => "SPACE_LITERAL", "dsc" => "C++11 requires a space between literal and identifier", "msg" => Array("[-Wreserved-user-defined-literal]"), "nb" => 0, "new" => "3.9"),
+        Array("key" => "FORWARD_REF", "dsc" => "ISO C++ forbids forward references to 'enum' types ", "msg" => Array("ISO C++ forbids forward references to 'enum' types"), "nb" => 0, "new" => "3.9"),
+
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
