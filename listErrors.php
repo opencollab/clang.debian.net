@@ -184,8 +184,17 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 // added in 3.9.1
         Array("key" => "QT_CPP_11_MISS", "dsc" => "Qt thinks that clang is not a C++11 compiler", "msg" => Array("Qt requires a C++11 compiler and yours does not seem to be that."), "nb" => 0, "new" => "3.9"),
         Array("key" => "LINK_FAILED_NONRE", "dsc" => "Linker issue - Nonrepresentable section on output", "msg" => Array(": Nonrepresentable section on output"), "nb" => 0, "new" => "3.9"),
-        Array("key" => "SPACE_LITERAL", "dsc" => "C++11 requires a space between literal and identifier", "msg" => Array("[-Wreserved-user-defined-literal]"), "nb" => 0, "new" => "3.9"),
-        Array("key" => "FORWARD_REF", "dsc" => "ISO C++ forbids forward references to 'enum' types ", "msg" => Array("ISO C++ forbids forward references to 'enum' types"), "nb" => 0, "new" => "3.9"),
+        Array("key" => "SPACE_LITERAL", "dsc" => "C++11 requires a space between literal and identifier", "msg" => Array("[-Wreserved-user-defined-literal]"), "nb" => 0, "new" => "3.8"),
+        Array("key" => "FORWARD_REF", "dsc" => "ISO C++ forbids forward references to 'enum' types ", "msg" => Array("ISO C++ forbids forward references to 'enum' types"), "nb" => 0, "new" => "3.8"),
+        Array("key" => "NO-PIE-UNSUPPORTED", "dsc" => "no-pie is not an known option (breaks all haskell packages)", "msg" => Array("In file included from /tmp/"), "nb" => 0, "new" => "3.9"),
+        Array("key" => "VARARGS_UNDEF", "dsc" => "-Wvarargs: undefined behavior with va_start", "msg" => Array("passing an object that undergoes default argument promotion to"), "nb" => 0, "new" => "3.9"),
+        Array("key" => "ORDERED-COMP-PTR-ZERO", "dsc" => "Ordered comparison between pointer and zero", "msg" => Array("ordered comparison between pointer and zero"), "nb" => 0, "new" => "4.0"),
+        Array("key" => "BOOL_LIT", "dsc" => "bool literal returned from a function", "msg" => Array("bool literal returned from"), "nb" => 0, "new" => "4.0"),
+        Array("key" => "PACKED_NUMBER", "dsc" => "Taking address of packed member of class or structure may result in an unaligned pointer value", "msg" => Array("taking address of packed member"), "nb" => 0, "new" => "4.0"),
+
+        Array("key" => "OPTIM_FLAG_NOT_SUPPORTED", "dsc" => "Optimization flag is not supported", "msg" => Array("ignored-optimization-argument"), "nb" => 0, "new" => "5.0"),
+
+
 
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
