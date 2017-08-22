@@ -14,6 +14,18 @@ for f in $LIST; do sed -i "/$f /d" res-clang3.9.failed.txt; done
 LIST=$(awk '{print $1}' ../../res-clang3.9.failed.txt)
 for f in $LIST; do cp "$f"_*log results/; done
 
+or 
+mkdir clang/
+mv *clang5.0.log clang
+cqa-scanlogs > normal.txt
+cd clang
+cqa-scanlogs > clang.txt
+cqa-compare-results ../normal.txt clang.txt |grep DIFFRES > fail-clang.txt
+LIST=$(awk '{print $1}' fail-clang.txt)
+for f in $LIST; do cp "$f"_*log results/; done
+
+
+
 In case you need to rename the log:
 for f in *clang4.0*; do git mv $f $(echo $f|sed -e "s|clang4.0|clang|g"); done
 
