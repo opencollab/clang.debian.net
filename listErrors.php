@@ -194,7 +194,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         Array("key" => "OPTIM_FLAG_NOT_SUPPORTED", "dsc" => "Optimization flag is not supported", "msg" => Array("ignored-optimization-argument"), "nb" => 0, "new" => "4.0"),
         Array("key" => "NO_TEMPLATE_NAMED", "dsc" => "Default is not C++11", "msg" => Array("error: no template named"), "nb" => 0),
-        Array("key" => "AUT_FUNC_NOT_ALLOWED", "dsc" => "auto not allowed in function return type", "msg" => Array("not allowed in function return type"), "nb" => 0, "new" => "5.0"),
+        Array("key" => "AUTO_FUNC_NOT_ALLOWED", "dsc" => "auto not allowed in function return type", "msg" => Array("not allowed in function return type"), "nb" => 0, "new" => "5.0"),
         Array("key" => "NO_DISCARD_ATTRIBUTE", "dsc" => "nodiscard attribute cannot be applied to types", "msg" => Array("'nodiscard' attribute cannot be applied to types"), "nb" => 0, "new" => "5.0"),
 
         Array("key" => "UNSUPPORTED_DIRECTIVE_MACRO", "dsc" => "Unsupported include directive within macro arg", "msg" => Array("include directive within macro arguments is not supported"), "nb" => 0),
