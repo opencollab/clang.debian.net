@@ -193,6 +193,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "PACKED_NUMBER", "dsc" => "Taking address of packed member of class or structure may result in an unaligned pointer value", "msg" => Array("taking address of packed member"), "nb" => 0, "new" => "4.0"),
 
         Array("key" => "OPTIM_FLAG_NOT_SUPPORTED", "dsc" => "Optimization flag is not supported", "msg" => Array("ignored-optimization-argument"), "nb" => 0, "new" => "5.0"),
+        Array("key" => "NO_TEMPLATE_NAMED", "dsc" => "Default is not C++11", "msg" => Array("error: no template named"), "nb" => 0, "new" => "5.0"),
 
 
 
