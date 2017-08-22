@@ -23,6 +23,10 @@ foo.cpp:4:23: error: use of undeclared identifier 'somePtr'
                              ^
 3 errors generated.
 
-# Works
+# Fails again
 $ g++ -std=c++11 foo.cpp
+foo.cpp:1:13: error: invalid use of 'auto'
+ auto k() -> auto;
+             ^~~~
+
 </pre>
