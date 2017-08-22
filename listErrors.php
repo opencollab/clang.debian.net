@@ -3,7 +3,7 @@ include_once("config.inc.php");
 $known_errors= Array(
         Array("key" => "UNKNOWN_OPTION", "dsc" => "Unsupported option", "msg" => Array("the clang compiler does not support","error: '-I-' not supported"), "nb" => 0),
         Array("key" => "UNSUPPORTED_ARGUMENT","dsc" => "Unsupported argument with another option", "msg" => Array("unsupported option","error: unsupported argument"), "nb" => 0),
-        Array("key" => "OPENMP_NOT_AVAILABLE", "dsc" => "OpenMP is not yet available in Clang", "msg" => Array("'omp.h' file not found","We need OpenMP","missing omp.h","Could not find omp.h"), "nb" => 0),
+        Array("key" => "OPENMP_NOT_AVAILABLE", "dsc" => "OpenMP is not yet available in Clang", "msg" => Array("'omp.h' file not found","We need OpenMP","missing omp.h","Could not find omp.h", 'know how to enable OpenMP', 'seem to have a C compiler with OpenMP support installed'), "nb" => 0),
         Array("key" => "MAIN_RETURNS_INT", "dsc" => "main function must return int", "msg" => "error: 'main' must return 'int'", "nb" => 0),
         Array("key" => "FUNCTION_RETURNS_VALUE", "dsc" => "non-void function should return a value", "msg" => Array("should return a value [-Wreturn-type]","control may reach end of non-void function"), "nb" => 0),
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
