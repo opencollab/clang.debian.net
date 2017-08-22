@@ -25,4 +25,4 @@ foo.cpp:4:23: error: use of undeclared identifier 'somePtr'
 
 # Works
 $ g++ -std=c++11 foo.cpp
-
+</pre>
