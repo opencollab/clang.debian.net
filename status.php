@@ -13,7 +13,7 @@ if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0"|| $versionGET=="3.8.1") {
+if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0"|| $versionGET=="3.8.1"|| $versionGET=="3.9.1"|| $versionGET=="4.0.1"|| $versionGET=="5.0") {
    $suffix="unstable_clang";
    $ext="log";
 }
@@ -117,7 +117,7 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
    	$suffix="unstable_clang";
    	$ext="log";
 }
-if ($versionGET=="3.9.1" || $versionGET=="4.0.1" || $versionGET=="5.0") {
+if ($versionGET=="3.9.1" || $versionGET=="4.0.1") {
     $sameDateJuly2017=true;
 }
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
@@ -143,6 +143,9 @@ while ($row = mysql_fetch_object($result)) {
       	 // We have an epoch
          $version_ = explode(":", $version);
 	 $version = $version_[1];
+     }
+     if ($sameDateJuly2017) {
+	$dateLog[0] = $dateLog[0] . "-" . $versionGET;
      }
 ?>
 
