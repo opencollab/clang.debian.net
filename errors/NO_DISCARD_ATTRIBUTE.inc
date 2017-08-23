@@ -19,4 +19,5 @@ foo.cpp:2:20: note: an attribute that appertains to a type-specifier is ignored
 
 </pre>
 
-This is impacting mostly Qt based packages.
+This is impacting mostly Qt based packages.<br />
+Reported <a href="https://bugs.llvm.org/show_bug.cgi?id=34304">upstream</a>
