@@ -73,11 +73,13 @@ The full list of all the results with logs are available at the following URL:<b
 <a href="/status.php?version=3.4">clang 3.4</a> (January 2014) - <a href="http://sylvestre.ledru.info/blog/2014/03/21/rebuild-of-debian-using-clang">Blog post</a></li>
 <li>
 <a href="/status.php?version=3.5.0">clang 3.5.0</a> (September 2014) - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a></li>
-
 <li>
 <a href="/status.php?version=3.6.0">clang 3.6.0</a> (March 2015) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
 <li>
-        <a href="/status.php?version=3.8.0">clang 3.8.0</a> (August 2016) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
+<a href="/status.php?version=3.8.0">clang 3.8.0</a> (August 2016) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
+<a href="/status.php?version=3.9.1">clang 3.9.1</a> (July 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
+<a href="/status.php?version=4.0.1">clang 4.0.1</a> (July 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
+<a href="/status.php?version=5.0">clang 5.0</a> (August 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
 
 </ul>
 
