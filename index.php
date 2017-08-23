@@ -25,7 +25,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 
 
 <h1>Presentation</h1>
-This document presents the result of the rebuild of the Debian archive (the distribution) with <a href="http://packages.qa.debian.org/c/clang.html">clang</a>, a C/C++ compiler.<br />
+This document presents the result of the rebuild of the Debian archive (the distribution) with clang, a C/C++ compiler.<br />
 <br />
 clang is now ready to build software for production (either for C, C++ or Objective-C). This compiler is providing many more warnings and interesting errors than the gcc suite while not carrying the same legacy as gcc.<br />
 This rebuild has several goals. The first one is to prove (or not) that clang is a viable alternative. Second, building a software with different compilers improves the overall quality of code by providing different checks and alerts.
@@ -74,11 +74,13 @@ The full list of all the results with logs are available at the following URL:<b
 <a href="/status.php?version=3.4">clang 3.4</a> (January 2014) - <a href="http://sylvestre.ledru.info/blog/2014/03/21/rebuild-of-debian-using-clang">Blog post</a></li>
 <li>
 <a href="/status.php?version=3.5.0">clang 3.5.0</a> (September 2014) - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a></li>
-
 <li>
 <a href="/status.php?version=3.6.0">clang 3.6.0</a> (March 2015) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
 <li>
-        <a href="/status.php?version=3.8.0">clang 3.8.0</a> (August 2016) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
+<a href="/status.php?version=3.8.0">clang 3.8.0</a> (August 2016) <!-- - <a href="http://sylvestre.ledru.info/blog/2014/09/11/rebuild-of-debian-using-clang-3-5">Blog post</a>--></li>
+<a href="/status.php?version=3.9.1">clang 3.9.1</a> (July 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
+<a href="/status.php?version=4.0.1">clang 4.0.1</a> (July 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
+<a href="/status.php?version=5.0">clang 5.0</a> (August 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
 
 </ul>
 
