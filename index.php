@@ -25,7 +25,7 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 
 
 <h1>Presentation</h1>
-This document presents the result of the rebuild of the Debian archive (the distribution) with <a href="http://packages.qa.debian.org/c/clang.html">clang</a>, a C/C++ compiler.<br />
+This document presents the result of the rebuild of the Debian archive (the distribution) with clang, a C/C++ compiler.<br />
 <br />
 clang is now ready to build software for production (either for C, C++ or Objective-C). This compiler is providing many more warnings and interesting errors than the gcc suite while not carrying the same legacy as gcc.<br />
 This rebuild has several goals. The first one is to prove (or not) that clang is a viable alternative. Second, building a software with different compilers improves the overall quality of code by providing different checks and alerts.
