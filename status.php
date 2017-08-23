@@ -1,19 +1,19 @@
-<?php
+<?
 include("config.inc.php");
 include("listErrors.php");
-$keyGET=mysqli_real_escape_string($conn_db, $_GET['key']);
+$keyGET=mysql_real_escape_string($_GET['key']);
 if (strpos($keyGET, "..") && $keyGET!="" ) {
    header("Location: /");
 }
 
-$versionGET=mysqli_real_escape_string($conn_db, $_GET['version']);
+$versionGET=mysql_real_escape_string($_GET['version']);
 
 // TODO improve that
 if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0"|| $versionGET=="3.8.1"|| $versionGET=="3.9.1"|| $versionGET=="4.0.1"|| $versionGET=="5.0") {
+if ($versionGET=="3.2" || $versionGET=="3.4" || $versionGET=="3.4.2" || $versionGET=="3.5.0" || $versionGET=="3.6.0"|| $versionGET=="3.8.1") {
    $suffix="unstable_clang";
    $ext="log";
 }
@@ -37,7 +37,7 @@ if ($keyGET) {
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
+<title><?=($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="revamp.css" />
@@ -77,13 +77,13 @@ $(document).ready(function () {
 <h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
 <div id="body">
 
-<?php
+<? 
     $totalDebian=$clangVersions[$versionGET];
     if (!isset($keyGET) || $keyGET == "") {
 ?>
-<div align="center">clang <?php echo $versionGET?></div><br />
+<div align="center">clang <?=$versionGET?></div><br />
 
-<?php
+<?
     resultClangDisplay($versionGET);
  } 
 else 
@@ -92,16 +92,16 @@ else
 
 ?>
 <div align="center">
-    <i>"<?php echo $keyDSC?>"</i> build failure(s)<br />clang <?php echo $versionGET?>
+    <i>"<?=$keyDSC?>"</i> build failure(s)<br />clang <?=$versionGET?>
 </div>
 <div align="right">    <a href="status.php">Return to the list</a></div>
-<?php
+<?
     if (is_file("errors/".$keyGET.".inc")) {
         include("errors/".$keyGET.".inc");
     }
 ?><br />
 
-<?php
+<?
 displayVersion($versionGET, $keyGET);
 ?>
 
@@ -109,7 +109,7 @@ displayVersion($versionGET, $keyGET);
 <tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
 <th>Bug report</th>
 </tr>
-<?php
+<?
 if ($versionGET=="2.9") {
 	$suffix="lsid64c";
 }
@@ -135,49 +135,39 @@ if (isset($_GET['sort'])) {
 
 
 $result=mysql_query($req);
-$nb=mysqli_num_rows($result);
-
+$nb=mysql_num_rows($result);
 while ($row = mysql_fetch_object($result)) {
       $dateLog=explode(" ",$row->date_build);
-
       $version=$row->version;
       if (strpos($version , ":")) {
       	 // We have an epoch
          $version_ = explode(":", $version);
-         $version = $version_[1];
-      }
-      if ($sameDateJuly2017) {
-          $dateLog[0]=$dateLog[0]."-".$versionGET;
-      }
+	 $version = $version_[1];
+     }
 ?>
 
-<tr><td> <?php echo $row->package?> </td><td><?php echo $row->version?></td><td><?php echo $row->detected_error?></td><td><a href="/logs/<?php echo $dateLog[0]?>/<?php echo $row->package?>_<?php echo $version?>_<?php echo $suffix?>.<?php echo $ext?>">Log</a></td>
-<td><?php echo ($secureMode==true)?"<a href='/bugs.php?pkg={$row->package}'>Report</a>":""?>
-<?php
+<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
+<td><?=($secureMode==true)?"<a href='/bugs.php?pkg={$row->package}'>Report</a>":""?>
+<?
 if ($row->bug_number) {
 if ($row->bug_type == "debian") {
 ?>
-<a href="http://bugs.debian.org/<?php echo $row->bug_number?>">
-<?php if ($row->status == "resolved") {?><del>
-<?php echo $row->bug_number?></del>
-<?php } else { ?>
-<?php echo $row->bug_number?>
-<?php } ?></a>
-<?php } else { ?>
-<a href="<?php echo $row->bug_number?>">Bug report</a>
-<?php }
-} ?>
+<a href="http://bugs.debian.org/<?=$row->bug_number?>"><?if ($row->status == "resolved") {?><del><?=$row->bug_number?></del><?}else{?><?=$row->bug_number?><? } ?></a>
+<? } else { ?>
+<a href="<?=$row->bug_number?>">Bug report</a>
+<? } } ?>
 
 </td>
 
 </tr>
-<?php  } ?>
+     <? // metaphone($row->detected_error)  ?>
+        <? } ?>
 </table>
-<?php echo $nb?> errors
+<?=$nb?> errors
 <div align="right"><a href="status.php">Return to the list</a></div>
-<?php } ?>
+<? } ?>
 </div>
-<?php
+<?
 include("footer.php");
 ?>
 </body>

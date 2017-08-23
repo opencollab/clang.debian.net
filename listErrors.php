@@ -210,15 +210,17 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
 function parse_error($version)
 {
-    global $known_errors, $nbTotal, $totalFailed, $totalNbNotCat, $conn_db;
+    global $known_errors, $nbTotal, $totalFailed, $totalNbNotCat;
 
     $totalFailed=0;
     $totalNbNotCat=0;
 
     $req="SELECT * FROM errors WHERE clang_version='$version'";
-    $result=mysqli_query($conn_db, $req);
-    $nbTotal=mysqli_num_rows($result);
-    while ($row = mysqli_fetch_object($result)) {
+
+    $result=mysql_query($req);
+    $nbTotal=mysql_num_rows($result);
+
+    while ($row = mysql_fetch_object($result)) {
         $set=false;
         $totalFailed++;
         get_key_clang($known_errors, $row->detected_error);
@@ -300,10 +302,10 @@ function resultClangDisplay($version, $display=true) {
 ?>
 
 
-<?php echo $totalDebian?> packages have been rebuild. Among them, <?php echo $totalFailed?> (<?php echo round($totalFailed*100/$totalDebian,1)?> %) failed.
+<?=$totalDebian?> packages have been rebuild. Among them, <?=$totalFailed?> (<?=round($totalFailed*100/$totalDebian,1)?> %) failed.
 <br />
 Most of the errors are explained with test cases.
-<?php
+<?
 if ($display) {
    displayVersion($version,"");
 }
@@ -311,21 +313,21 @@ if ($display) {
 
 <table class="data">
 <tr><th>Type of error</th><th>Occurrence</th><th>clang % / Debian %</th><th></th></tr>
-<?php
+<?
 foreach($errors as  $key => $err) {
                 if ($err['nb']>0) {
             if ($err['key']!="NO_CAT") {
 
 ?>
-    <tr><td><?php echo $err["dsc"]?> <?php if (isset($err['new'])) { echo "<small> - new in " . $err['new'] . "</small>"; }?> </td>
-<td><?php echo $err["nb"]?></td>
-<td><?php echo round(100*$err["nb"]/$totalFailed,2)?>% / <?php echo round(100*$err["nb"]/$totalDebian,2)?>%</td>
-<td><a href="status.php?version=<?php echo $version?>&key=<?php echo $err['key']?>">List of errors</a></td>
-<?php /* ?> 
+    <tr><td><?=$err["dsc"]?> <?if (isset($err['new'])) { echo "<small> - new in " . $err['new'] . "</small>"; }?> </td>
+<td><?=$err["nb"]?></td>
+<td><?=round(100*$err["nb"]/$totalFailed,2)?>% / <?=round(100*$err["nb"]/$totalDebian,2)?>%</td>
+<td><a href="status.php?version=<?=$version?>&key=<?=$err['key']?>">List of errors</a></td>
+<? /* ?> 
  <td><?if (!is_file("errors/{$err['key']}.inc")) echo "no";?></td>
 <? */ ?>
 </tr>
-<?php
+<?
                     } else {
 // Key the no cat stuff
                 $key_NO_CAT=$key;
@@ -335,9 +337,9 @@ foreach($errors as  $key => $err) {
 
 }
 ?>
-    <tr><td>Not categorized</td><td><?php echo $err_NO_CAT['nb']?></td>
-<td><?php echo round(100*$err_NO_CAT['nb']/$totalFailed,2)?>% / <?php echo round(100*$err_NO_CAT['nb']/$totalDebian,2)?>%</td>
-<td><a href="status.php?version=<?php echo $version?>&key=NO_CAT">List of errors</a></td>
+    <tr><td>Not categorized</td><td><?=$err_NO_CAT['nb']?></td>
+<td><?=round(100*$err_NO_CAT['nb']/$totalFailed,2)?>% / <?=round(100*$err_NO_CAT['nb']/$totalDebian,2)?>%</td>
+<td><a href="status.php?version=<?=$version?>&key=NO_CAT">List of errors</a></td>
 </tr>
 </table>
 <?php
