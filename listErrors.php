@@ -198,6 +198,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "NO_DISCARD_ATTRIBUTE", "dsc" => "nodiscard attribute cannot be applied to types", "msg" => Array("'nodiscard' attribute cannot be applied to types"), "nb" => 0, "new" => "5.0"),
 
         Array("key" => "UNSUPPORTED_DIRECTIVE_MACRO", "dsc" => "Unsupported include directive within macro arg", "msg" => Array("include directive within macro arguments is not supported"), "nb" => 0),
+        Array("key" => "FAILED_PARSE_DEFAULT", "dsc" => "qmake: failed to parse default search paths from compiler", "msg" => Array("failed to parse default search paths from compiler"), "nb" => 0, "new" => "6.0"),
  
 
 
