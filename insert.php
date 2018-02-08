@@ -27,7 +27,7 @@ if ($handle==FALSE) {
 $i=1;
 $previous_pkg_name="";
 if ($handle) {
-    while (($buffer = fgets($handle, 4096)) !== false) {
+    while (($buffer = fgets($handle, 40096)) !== false) {
 
         $line = explode(" ", $buffer);
         if ($line[2] != "OK") {
@@ -37,6 +37,7 @@ if ($handle) {
             } else {
                 if ($line[2] != "Failed" && $line[2] != "Unknown") {
                     echo "error on line $buffer";
+                    echo "found {$line[2]}";
                     die();
                 }
                 $msg="";
