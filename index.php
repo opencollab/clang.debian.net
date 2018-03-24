@@ -84,6 +84,8 @@ The full list of all the results with logs are available at the following URL:<b
 <a href="/status.php?version=4.0.1">clang 4.0.1</a> (July 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
 <li>
 <a href="/status.php?version=5.0">clang 5.0</a> (August 2017) - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a></li>
+<li>
+<a href="/status.php?version=6.0rc1">clang 6.0rc1</a> (Feb 2018)<!-- - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a>--></li>
 
 </ul>
 
