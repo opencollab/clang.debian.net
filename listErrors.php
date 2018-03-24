@@ -16,7 +16,7 @@ $known_errors= Array(
 
         Array("key" => "NO_REF_VALUE", "dsc" => "XXX does not refer to a value", "msg" => "does not refer to a value", "nb" => 0),
         Array("key" => "UNKNOWN_TYPE_NAME", "dsc" => "Unknown Type Name", "msg" => "unknown type name", "nb" => 0),
-        Array("key" => "UNKNOWN_ARG", "dsc" => "Unknown argument", "msg" => Array("Unknown argument", "unknown argument"), "nb" => 0),
+        Array("key" => "UNKNOWN_ARG", "dsc" => "Unknown argument in the command line", "msg" => Array("Unknown argument", "unknown argument"), "nb" => 0),
         Array("key" => "IMPLICIT_INSTANTIATION", "dsc" => "Implicit instantiation", "msg" => "implicit instantiation of undefined template", "nb" => 0),
         Array("key" => "USE_OF_UNDECLARED_IDENTIFIER", "dsc" => "Unqualified lookup into dependent bases of class templates", "msg" => "use of undeclared identifier", "nb" => 0),
         Array("key" => "EQUALITY_COMPARISON", "dsc" => "Equality comparison with extraneous parentheses", "msg" => "equality comparison with extraneous parentheses", "nb" => 0),
