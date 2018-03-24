@@ -199,7 +199,19 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         Array("key" => "UNSUPPORTED_DIRECTIVE_MACRO", "dsc" => "Unsupported include directive within macro arg", "msg" => Array("include directive within macro arguments is not supported"), "nb" => 0),
         Array("key" => "FAILED_PARSE_DEFAULT", "dsc" => "qmake: failed to parse default search paths from compiler", "msg" => Array("failed to parse default search paths from compiler"), "nb" => 0, "new" => "6.0"),
- 
+	Array("key" => "NO_ALLOW_DECL", "dsc" => "does not allow access declarations", "msg" => Array("does not allow access declarations; use using declarations"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "MISSING_FIELD_INIT", "dsc" => "Missing field initializer", "msg" => Array("error,-Wmissing-field-initializers"), "nb" => 0),
+        Array("key" => "DELETE_NON_VIRTUAL_DTOR", "dsc" => "Has virtual functions but non-virtual destructor", "msg" => Array("error,-Wdelete-non-virtual-dtor"), "nb" => 0),
+        Array("key" => "EXCEPT_NOT_MATCH", "dsc" => "Exception specification in declaration does not match previous declaration", "msg" => Array("exception specification in declaration does not match previous"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "NULL_POINTER_ARITHMETIC", "dsc" => "Performing pointer arithmetic on a null pointer has undefined behavior", "msg" => Array("error,-Wnull-pointer-arithmetic"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "PESSIMIZING_MOVE", "dsc" => "Moving a temporary object prevents copy elision", "msg" => Array("error,-Wpessimizing-move"), "nb" => 0),
+        Array("key" => "INCONSISTENT_MISSING_OVERRIDE", "dsc" => "Overrides a member function but is not marked override", "msg" => Array("error,-Winconsistent-missing-override"), "nb" => 0),
+        Array("key" => "UNUSED_VARIABLE", "dsc" => "Uunused variable", "msg" => Array("error,-Wunused-variable"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "PRAGMA_PACK", "dsc" => "The current #pragma pack aligment value is modified in the included file", "msg" => Array("error,-Wpragma-pack"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "UNUSED_LAMBDA_CAPTURE", "dsc" => "Lambda capture is not used", "msg" => Array("error,-Wunused-lambda-capture"), "nb" => 0),
+        Array("key" => "NON_LITERAL_NULL_CONVERSION", "dsc" => "Expression which evaluates to zero treated as a null pointer constant of type", "msg" => Array("error,-Wnon-literal-null-conversion"), "nb" => 0),
+        Array("key" => "NON_POD_VARARGS", "dsc" => "Cannot pass non-trivial object of type 'xx' to variadic function", "msg" => Array("non-pod-varargs"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "CXX_14_EXT", "dsc" => "Is a C++14 extension", "msg" => Array("error,-Wc++14-extensions"), "nb" => 0, "new" => "6.0"),
 
 
 // General
