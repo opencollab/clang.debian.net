@@ -202,7 +202,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 	Array("key" => "NO_ALLOW_DECL", "dsc" => "does not allow access declarations", "msg" => Array("does not allow access declarations; use using declarations"), "nb" => 0, "new" => "6.0"),
         Array("key" => "MISSING_FIELD_INIT", "dsc" => "Missing field initializer", "msg" => Array("error,-Wmissing-field-initializers"), "nb" => 0),
         Array("key" => "DELETE_NON_VIRTUAL_DTOR", "dsc" => "Has virtual functions but non-virtual destructor", "msg" => Array("error,-Wdelete-non-virtual-dtor"), "nb" => 0),
-        Array("key" => "EXCEPT_NOT_MATCH", "dsc" => "Exception specification in declaration does not match previous declaration", "msg" => Array("exception specification in declaration does not match previous"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "EXCEPT_NOT_MATCH", "dsc" => "Exception specification in declaration does not match previous declaration", "msg" => Array("exception specification in declaration does not match previous"), "nb" => 0),
         Array("key" => "NULL_POINTER_ARITHMETIC", "dsc" => "Performing pointer arithmetic on a null pointer has undefined behavior", "msg" => Array("error,-Wnull-pointer-arithmetic"), "nb" => 0, "new" => "6.0"),
         Array("key" => "PESSIMIZING_MOVE", "dsc" => "Moving a temporary object prevents copy elision", "msg" => Array("error,-Wpessimizing-move"), "nb" => 0),
         Array("key" => "INCONSISTENT_MISSING_OVERRIDE", "dsc" => "Overrides a member function but is not marked override", "msg" => Array("error,-Winconsistent-missing-override"), "nb" => 0),
