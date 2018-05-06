@@ -21,7 +21,7 @@ $clangVersions=Array(
     "3.9.1" => 27828,
     "4.0.1" => 27828,
     "5.0" => 28203,
-    "6.0rc1" => 31085
+    "6.0" => 32304
 );
 
 $locally_configured = false;
