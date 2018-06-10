@@ -206,7 +206,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "NULL_POINTER_ARITHMETIC", "dsc" => "Performing pointer arithmetic on a null pointer has undefined behavior", "msg" => Array("error,-Wnull-pointer-arithmetic"), "nb" => 0, "new" => "6.0"),
         Array("key" => "PESSIMIZING_MOVE", "dsc" => "Moving a temporary object prevents copy elision", "msg" => Array("error,-Wpessimizing-move"), "nb" => 0),
         Array("key" => "INCONSISTENT_MISSING_OVERRIDE", "dsc" => "Overrides a member function but is not marked override", "msg" => Array("error,-Winconsistent-missing-override"), "nb" => 0),
-        Array("key" => "UNUSED_VARIABLE", "dsc" => "Uunused variable", "msg" => Array("error,-Wunused-variable"), "nb" => 0, "new" => "6.0"),
+        Array("key" => "UNUSED_VARIABLE", "dsc" => "Unused variable", "msg" => Array("error,-Wunused-variable"), "nb" => 0, "new" => "6.0"),
         Array("key" => "PRAGMA_PACK", "dsc" => "The current #pragma pack aligment value is modified in the included file", "msg" => Array("error,-Wpragma-pack"), "nb" => 0, "new" => "6.0"),
         Array("key" => "UNUSED_LAMBDA_CAPTURE", "dsc" => "Lambda capture is not used", "msg" => Array("error,-Wunused-lambda-capture"), "nb" => 0),
         Array("key" => "NON_LITERAL_NULL_CONVERSION", "dsc" => "Expression which evaluates to zero treated as a null pointer constant of type", "msg" => Array("error,-Wnon-literal-null-conversion"), "nb" => 0),
