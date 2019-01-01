@@ -11,7 +11,9 @@ or
 LIST=$(grep " Failed " res-vanilla.txt |awk '{print $1}')
 grep -v " OK " res-clang3.9.txt  > res-clang3.9.failed.txt
 for f in $LIST; do sed -i "/$f /d" res-clang3.9.failed.txt; done
+cd logs/XXX
 LIST=$(awk '{print $1}' ../../res-clang3.9.failed.txt)
+mkdir results/
 for f in $LIST; do cp "$f"_*log results/; done
 
 or
