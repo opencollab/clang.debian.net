@@ -213,7 +213,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "NON_POD_VARARGS", "dsc" => "Cannot pass non-trivial object of type 'xx' to variadic function", "msg" => Array("non-pod-varargs"), "nb" => 0, "new" => "6.0"),
         Array("key" => "CXX_14_EXT", "dsc" => "Is a C++14 extension", "msg" => Array("error,-Wc++14-extensions"), "nb" => 0, "new" => "6.0"),
 
-
+	Array("key" => "ASM_GOTO", "dsc" => "'asm goto' constructs are not supported yet", "msg" => Array("'asm goto' constructs are not supp"), "nb" => 0),
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
