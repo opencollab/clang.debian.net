@@ -214,6 +214,11 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "CXX_14_EXT", "dsc" => "Is a C++14 extension", "msg" => Array("error,-Wc++14-extensions"), "nb" => 0, "new" => "6.0"),
 
 	Array("key" => "ASM_GOTO", "dsc" => "'asm goto' constructs are not supported yet", "msg" => Array("'asm goto' constructs are not supp"), "nb" => 0),
+
+	Array("key" => "ILLEGAL_STORAGE", "dsc" => "illegal storage class on function", "msg" => Array("illegal storage class on function"), "nb" => 0),
+	Array("key" => "INCORRECT_COMP_DETECTION", "dsc" => "Incorrect compiler detection", "msg" => Array("could not configure a C compiler", "clang: not found", "clang++: not found"), "nb" => 0),
+	Array("key" => "TESTSUITE_FAILED", "dsc" => "Testsuite is failing with clang", "msg" => Array("dh_auto_test: "), "nb" => 0),
+
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
 
