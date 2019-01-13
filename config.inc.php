@@ -5,7 +5,7 @@ $pathGCCToLog="rebuild.lsid64-amd64.2011-09-11";
 $suffix="lsid64b";
 $ext="buildlog";
 
-$currentVersion="6.0";
+$currentVersion="7.0.1";
 
 $clangVersions=Array(
     "2.9" => 16398,
