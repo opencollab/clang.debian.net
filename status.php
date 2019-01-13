@@ -105,10 +105,6 @@ else
 displayVersion($versionGET, $keyGET);
 ?>
 
-<table class="data">
-<tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
-<th>Bug report</th>
-</tr>
 <?
 if ($versionGET=="2.9") {
 	$suffix="lsid64c";
@@ -117,9 +113,11 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
    	$suffix="unstable_clang";
    	$ext="log";
 }
-if ($versionGET=="3.9.1" || $versionGET=="4.0.1") {
+if ($versionGET=="3.9.1" || $versionGET=="4.0.1" || $versionGET=="7.0.1" || $versionGET=="8svn") {
     $sameDateJuly2017=true;
 }
+
+
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
 if ($keyGET == "NO_CAT") {
    $keyGET="";
@@ -136,6 +134,18 @@ if (isset($_GET['sort'])) {
 
 $result=mysql_query($req);
 $nb=mysql_num_rows($result);
+if ($nb > 0) {
+?>
+<table class="data">
+<tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
+<th>Bug report</th>
+</tr>
+<?
+} else {
+?>
+<b>No error detect for version <?=$versionGET?></b><br />
+<?
+}
 while ($row = mysql_fetch_object($result)) {
       $dateLog=explode(" ",$row->date_build);
       $version=$row->version;
