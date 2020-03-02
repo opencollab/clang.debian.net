@@ -1,0 +1,2461 @@
+DC-Build-Header: sqlite 2.8.17-15 / 2020-02-25 04:33:08 +0000
+DC-Task: type:rebuild-binarch-only source:sqlite version:2.8.17-15 chroot:unstable esttime:80 logfile:/tmp/sqlite_2.8.17-15_unstable_clang10.log modes:clang10:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang10 sqlite_2.8.17-15'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-11-173.eu-central-1.compute.internal
+
++==============================================================================+
+| sqlite 2.8.17-15 (amd64)                     Tue, 25 Feb 2020 04:33:09 +0000 |
++==============================================================================+
+
+Package: sqlite
+Version: 2.8.17-15
+Source Version: 2.8.17-15
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-0a5c7da6-2f34-45bd-be60-99ded4a2eea1' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang10
+------------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=10
++ echo 'Install of clang-10'
+Install of clang-10
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [142 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-0823.32.pdiff [11.0 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-1420.34.pdiff [30.2 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-0823.32.pdiff [15.5 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-1420.34.pdiff [27.5 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main Translation-en [6193 kB]
+Fetched 6572 kB in 2s (3081 kB/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-10 libomp-10-dev libobjc-9-dev
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386 libclang-common-10-dev
+  libclang-cpp10 libclang1-10 libedit2 libgc1c2 libllvm10 libobjc4 libomp5-10
+  libz3-4
+Suggested packages:
+  clang-10-doc libomp-10-doc
+Recommended packages:
+  llvm-10-dev python3
+The following NEW packages will be installed:
+  clang-10 lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-10-dev libclang-cpp10 libclang1-10 libedit2 libgc1c2
+  libllvm10 libobjc-9-dev libobjc4 libomp-10-dev libomp5-10 libz3-4
+0 upgraded, 17 newly installed, 0 to remove and 2 not upgraded.
+Need to get 46.4 MB of archives.
+After this operation, 238 MB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libbsd0 amd64 0.10.0-1 [107 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 libedit2 amd64 3.1-20191231-1 [95.4 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libz3-4 amd64 4.8.7-4 [6790 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 libllvm10 amd64 1:10.0.0~+rc2-1 [15.5 MB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libclang-cpp10 amd64 1:10.0.0~+rc2-1 [9069 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 libgc1c2 amd64 1:7.6.4-0.4 [224 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 libobjc4 amd64 10-20200222-1 [41.6 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libobjc-9-dev amd64 9.2.1-29 [219 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libc6-i386 amd64 2.29-10 [2918 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc-s1 amd64 10-20200222-1 [49.4 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc1 amd64 1:10-20200222-1 [1104 B]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 lib32stdc++6 amd64 10-20200222-1 [510 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 libclang-common-10-dev amd64 1:10.0.0~+rc2-1 [2782 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 libclang1-10 amd64 1:10.0.0~+rc2-1 [7607 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 clang-10 amd64 1:10.0.0~+rc2-1 [103 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 libomp5-10 amd64 1:10.0.0~+rc2-1 [337 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 libomp-10-dev amd64 1:10.0.0~+rc2-1 [84.3 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 46.4 MB in 2s (21.9 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12119 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../01-libedit2_3.1-20191231-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191231-1) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../02-libz3-4_4.8.7-4_amd64.deb ...
+Unpacking libz3-4:amd64 (4.8.7-4) ...
+Selecting previously unselected package libllvm10:amd64.
+Preparing to unpack .../03-libllvm10_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libllvm10:amd64 (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package libclang-cpp10.
+Preparing to unpack .../04-libclang-cpp10_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libclang-cpp10 (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../05-libgc1c2_1%3a7.6.4-0.4_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../06-libobjc4_10-20200222-1_amd64.deb ...
+Unpacking libobjc4:amd64 (10-20200222-1) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../07-libobjc-9-dev_9.2.1-29_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.2.1-29) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../08-libc6-i386_2.29-10_amd64.deb ...
+Unpacking libc6-i386 (2.29-10) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../09-lib32gcc-s1_10-20200222-1_amd64.deb ...
+Unpacking lib32gcc-s1 (10-20200222-1) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../10-lib32gcc1_1%3a10-20200222-1_amd64.deb ...
+Unpacking lib32gcc1 (1:10-20200222-1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../11-lib32stdc++6_10-20200222-1_amd64.deb ...
+Unpacking lib32stdc++6 (10-20200222-1) ...
+Selecting previously unselected package libclang-common-10-dev.
+Preparing to unpack .../12-libclang-common-10-dev_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libclang-common-10-dev (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package libclang1-10.
+Preparing to unpack .../13-libclang1-10_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libclang1-10 (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package clang-10.
+Preparing to unpack .../14-clang-10_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking clang-10 (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package libomp5-10:amd64.
+Preparing to unpack .../15-libomp5-10_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libomp5-10:amd64 (1:10.0.0~+rc2-1) ...
+Selecting previously unselected package libomp-10-dev.
+Preparing to unpack .../16-libomp-10-dev_1%3a10.0.0~+rc2-1_amd64.deb ...
+Unpacking libomp-10-dev (1:10.0.0~+rc2-1) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4) ...
+Setting up libobjc4:amd64 (10-20200222-1) ...
+Setting up libz3-4:amd64 (4.8.7-4) ...
+Setting up libobjc-9-dev:amd64 (9.2.1-29) ...
+Setting up libomp5-10:amd64 (1:10.0.0~+rc2-1) ...
+Setting up libc6-i386 (2.29-10) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up libomp-10-dev (1:10.0.0~+rc2-1) ...
+Setting up libedit2:amd64 (3.1-20191231-1) ...
+Setting up libllvm10:amd64 (1:10.0.0~+rc2-1) ...
+Setting up lib32gcc-s1 (10-20200222-1) ...
+Setting up libclang1-10 (1:10.0.0~+rc2-1) ...
+Setting up lib32gcc1 (1:10-20200222-1) ...
+Setting up libclang-cpp10 (1:10.0.0~+rc2-1) ...
+Setting up lib32stdc++6 (10-20200222-1) ...
+Setting up libclang-common-10-dev (1:10.0.0~+rc2-1) ...
+Setting up clang-10 (1:10.0.0~+rc2-1) ...
+Processing triggers for libc-bin (2.29-10) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-10 g++-4.6
++ ln -s clang-10 gcc-4.6
++ ln -s clang-10 cpp-4.6
++ ln -s clang-10 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-10 g++-4.7
++ ln -s clang-10 gcc-4.7
++ ln -s clang-10 cpp-4.7
++ ln -s clang-10 gcc
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-10 g++-4.8
++ ln -s clang-10 gcc-4.8
++ ln -s clang-10 cpp-4.8
++ ln -s clang-10 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-10 g++-4.9
++ ln -s clang-10 gcc-4.9
++ ln -s clang-10 cpp-4.9
++ ln -s clang-10 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-10 g++-5
++ ln -s clang-10 gcc-5
++ ln -s clang-10 cpp-5
++ ln -s clang-10 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-10 g++-6
++ ln -s clang-10 gcc-6
++ ln -s clang-10 cpp-6
++ ln -s clang-10 gcc
++ echo 'gcc-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-10 g++-7
++ ln -s clang-10 gcc-7
++ ln -s clang-10 cpp-7
++ ln -s clang-10 gcc
++ echo 'gcc-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-10 g++-8
++ ln -s clang-10 gcc-8
++ ln -s clang-10 cpp-8
++ ln -s clang-10 gcc
++ echo 'gcc-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-10 g++-9
++ ln -s clang-10 gcc-9
++ ln -s clang-10 cpp-9
++ ln -s clang-10 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-10 g++-10
++ ln -s clang-10 gcc-10
++ ln -s clang-10 cpp-10
++ ln -s clang-10 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/sqlite-A4Hjxf
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/clang10'.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+I: NOTICE: Log filtering will replace 'build/sqlite-A4Hjxf/resolver-XlfHFs' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://127.0.0.1:12990/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libgmp10 zlib1g
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 343 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libgmp10 amd64 2:6.2.0+dfsg-4 [253 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 zlib1g amd64 1:1.2.11.dfsg-2 [90.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 343 kB in 0s (3499 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12960 files and directories currently installed.)
+Preparing to unpack .../libgmp10_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp10:amd64 (2:6.2.0+dfsg-4) over (2:6.2.0+dfsg-3) ...
+Setting up libgmp10:amd64 (2:6.2.0+dfsg-4) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12960 files and directories currently installed.)
+Preparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2_amd64.deb ...
+Unpacking zlib1g:amd64 (1:1.2.11.dfsg-2) over (1:1.2.11.dfsg-1.2) ...
+Setting up zlib1g:amd64 (1:1.2.11.dfsg-2) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Check APT
+---------
+
+Checking available source versions...
+
+Download source files with APT
+------------------------------
+
+Reading package lists...
+Need to get 975 kB of source archives.
+Get:1 http://127.0.0.1:12990/debian sid/main sqlite 2.8.17-15 (dsc) [1982 B]
+Get:2 http://127.0.0.1:12990/debian sid/main sqlite 2.8.17-15 (tar) [962 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main sqlite 2.8.17-15 (diff) [11.0 kB]
+Fetched 975 kB in 0s (5341 kB/s)
+Download complete and in download only mode
+I: NOTICE: Log filtering will replace 'build/sqlite-A4Hjxf/sqlite-2.8.17' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/sqlite-A4Hjxf' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev, build-essential, fakeroot
+Filtered Build-Depends: debhelper (>= 11), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev, build-essential, fakeroot
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [405 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [489 B]
+Fetched 1851 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libcroco3 libdebhelper-perl
+  libelf1 libfile-stripnondeterminism-perl libglib2.0-0 libicu63 libmagic-mgc
+  libmagic1 libncurses-dev libncurses6 libpipeline1 libreadline-dev
+  libreadline8 libsigsegv2 libsub-override-perl libtcl8.6 libtool libuchardet0
+  libxml2 m4 man-db po-debconf readline-common sensible-utils tcl8.6
+  tcl8.6-dev zlib1g-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  ncurses-doc readline-doc libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl tcl-tclreadline tcl8.6-doc
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libcroco3 libdebhelper-perl
+  libelf1 libfile-stripnondeterminism-perl libglib2.0-0 libicu63 libmagic-mgc
+  libmagic1 libncurses-dev libncurses6 libpipeline1 libreadline-dev
+  libreadline8 libsigsegv2 libsub-override-perl libtcl8.6 libtool libuchardet0
+  libxml2 m4 man-db po-debconf readline-common sbuild-build-depends-main-dummy
+  sensible-utils tcl8.6 tcl8.6-dev zlib1g-dev
+0 upgraded, 43 newly installed, 0 to remove and 0 not upgraded.
+Need to get 22.3 MB of archives.
+After this operation, 84.2 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [916 B]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libuchardet0 amd64 0.0.6-3 [64.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 groff-base amd64 1.22.4-4 [919 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libpipeline1 amd64 1.5.2-2 [33.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 man-db amd64 2.9.0-2 [1307 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 readline-common all 8.0-3 [72.5 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libreadline8 amd64 8.0-3 [160 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 sensible-utils all 0.0.12+nmu1 [16.0 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libmagic-mgc amd64 1:5.38-4 [262 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 libmagic1 amd64 1:5.38-4 [120 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 file amd64 1:5.38-4 [67.9 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 gettext-base amd64 0.19.8.1-10 [123 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 m4 amd64 1.4.18-4 [203 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 autoconf all 2.69-11.1 [341 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 automake all 1:1.16.1-4 [771 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 autopoint all 0.19.8.1-10 [435 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libtool all 2.4.6-13 [513 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 dh-autoreconf all 19 [16.9 kB]
+Get:22 http://127.0.0.1:12990/debian sid/main amd64 libdebhelper-perl all 12.9 [183 kB]
+Get:23 http://127.0.0.1:12990/debian sid/main amd64 libarchive-zip-perl all 1.67-1 [104 kB]
+Get:24 http://127.0.0.1:12990/debian sid/main amd64 libsub-override-perl all 0.09-2 [10.2 kB]
+Get:25 http://127.0.0.1:12990/debian sid/main amd64 libfile-stripnondeterminism-perl all 1.6.3-2 [23.7 kB]
+Get:26 http://127.0.0.1:12990/debian sid/main amd64 dh-strip-nondeterminism all 1.6.3-2 [14.7 kB]
+Get:27 http://127.0.0.1:12990/debian sid/main amd64 libelf1 amd64 0.176-1.1 [161 kB]
+Get:28 http://127.0.0.1:12990/debian sid/main amd64 dwz amd64 0.13-5 [151 kB]
+Get:29 http://127.0.0.1:12990/debian sid/main amd64 libglib2.0-0 amd64 2.62.4-2 [1319 kB]
+Get:30 http://127.0.0.1:12990/debian sid/main amd64 libicu63 amd64 63.2-2 [8301 kB]
+Get:31 http://127.0.0.1:12990/debian sid/main amd64 libxml2 amd64 2.9.10+dfsg-3 [709 kB]
+Get:32 http://127.0.0.1:12990/debian sid/main amd64 libcroco3 amd64 0.6.13-1 [146 kB]
+Get:33 http://127.0.0.1:12990/debian sid/main amd64 gettext amd64 0.19.8.1-10 [1303 kB]
+Get:34 http://127.0.0.1:12990/debian sid/main amd64 intltool-debian all 0.35.0+20060710.5 [26.8 kB]
+Get:35 http://127.0.0.1:12990/debian sid/main amd64 po-debconf all 1.0.21 [248 kB]
+Get:36 http://127.0.0.1:12990/debian sid/main amd64 debhelper all 12.9 [994 kB]
+Get:37 http://127.0.0.1:12990/debian sid/main amd64 libncurses6 amd64 6.1+20191019-1 [102 kB]
+Get:38 http://127.0.0.1:12990/debian sid/main amd64 libncurses-dev amd64 6.1+20191019-1 [337 kB]
+Get:39 http://127.0.0.1:12990/debian sid/main amd64 libreadline-dev amd64 8.0-3 [140 kB]
+Get:40 http://127.0.0.1:12990/debian sid/main amd64 libtcl8.6 amd64 8.6.10+dfsg-1 [1007 kB]
+Get:41 http://127.0.0.1:12990/debian sid/main amd64 tcl8.6 amd64 8.6.10+dfsg-1 [124 kB]
+Get:42 http://127.0.0.1:12990/debian sid/main amd64 zlib1g-dev amd64 1:1.2.11.dfsg-2 [190 kB]
+Get:43 http://127.0.0.1:12990/debian sid/main amd64 tcl8.6-dev amd64 8.6.10+dfsg-1 [1011 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 22.3 MB in 2s (14.6 MB/s)
+Selecting previously unselected package bsdmainutils.
+(Reading database ... 12960 files and directories currently installed.)
+Preparing to unpack .../00-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../01-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../02-groff-base_1.22.4-4_amd64.deb ...
+Unpacking groff-base (1.22.4-4) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../03-libpipeline1_1.5.2-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.2-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../04-man-db_2.9.0-2_amd64.deb ...
+Unpacking man-db (2.9.0-2) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../05-readline-common_8.0-3_all.deb ...
+Unpacking readline-common (8.0-3) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../06-libreadline8_8.0-3_amd64.deb ...
+Unpacking libreadline8:amd64 (8.0-3) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../07-sensible-utils_0.0.12+nmu1_all.deb ...
+Unpacking sensible-utils (0.0.12+nmu1) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../08-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../09-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../10-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../11-gettext-base_0.19.8.1-10_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-10) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../12-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../13-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../14-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../15-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../16-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../17-autopoint_0.19.8.1-10_all.deb ...
+Unpacking autopoint (0.19.8.1-10) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../18-libtool_2.4.6-13_all.deb ...
+Unpacking libtool (2.4.6-13) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../19-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libdebhelper-perl.
+Preparing to unpack .../20-libdebhelper-perl_12.9_all.deb ...
+Unpacking libdebhelper-perl (12.9) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../21-libarchive-zip-perl_1.67-1_all.deb ...
+Unpacking libarchive-zip-perl (1.67-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../22-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../23-libfile-stripnondeterminism-perl_1.6.3-2_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.6.3-2) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../24-dh-strip-nondeterminism_1.6.3-2_all.deb ...
+Unpacking dh-strip-nondeterminism (1.6.3-2) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../25-libelf1_0.176-1.1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../26-dwz_0.13-5_amd64.deb ...
+Unpacking dwz (0.13-5) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../27-libglib2.0-0_2.62.4-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.62.4-2) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../28-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../29-libxml2_2.9.10+dfsg-3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-3) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../30-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../31-gettext_0.19.8.1-10_amd64.deb ...
+Unpacking gettext (0.19.8.1-10) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../32-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../33-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../34-debhelper_12.9_all.deb ...
+Unpacking debhelper (12.9) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../35-libncurses6_6.1+20191019-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20191019-1) ...
+Selecting previously unselected package libncurses-dev:amd64.
+Preparing to unpack .../36-libncurses-dev_6.1+20191019-1_amd64.deb ...
+Unpacking libncurses-dev:amd64 (6.1+20191019-1) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Preparing to unpack .../37-libreadline-dev_8.0-3_amd64.deb ...
+Unpacking libreadline-dev:amd64 (8.0-3) ...
+Selecting previously unselected package libtcl8.6:amd64.
+Preparing to unpack .../38-libtcl8.6_8.6.10+dfsg-1_amd64.deb ...
+Unpacking libtcl8.6:amd64 (8.6.10+dfsg-1) ...
+Selecting previously unselected package tcl8.6.
+Preparing to unpack .../39-tcl8.6_8.6.10+dfsg-1_amd64.deb ...
+Unpacking tcl8.6 (8.6.10+dfsg-1) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../40-zlib1g-dev_1%3a1.2.11.dfsg-2_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-2) ...
+Selecting previously unselected package tcl8.6-dev:amd64.
+Preparing to unpack .../41-tcl8.6-dev_8.6.10+dfsg-1_amd64.deb ...
+Unpacking tcl8.6-dev:amd64 (8.6.10+dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy.
+Preparing to unpack .../42-sbuild-build-depends-main-dummy_0.invalid.0_amd64.deb ...
+Unpacking sbuild-build-depends-main-dummy (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.2-2) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up libarchive-zip-perl (1.67-1) ...
+Setting up libglib2.0-0:amd64 (2.62.4-2) ...
+No schema files found: doing nothing.
+Setting up libdebhelper-perl (12.9) ...
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up gettext-base (0.19.8.1-10) ...
+Setting up file (1:5.38-4) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20191019-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libtcl8.6:amd64 (8.6.10+dfsg-1) ...
+Setting up autopoint (0.19.8.1-10) ...
+Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-2) ...
+Setting up sensible-utils (0.0.12+nmu1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libelf1:amd64 (0.176-1.1) ...
+Setting up readline-common (8.0-3) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-3) ...
+Setting up libfile-stripnondeterminism-perl (1.6.3-2) ...
+Setting up tcl8.6 (8.6.10+dfsg-1) ...
+Setting up libncurses-dev:amd64 (6.1+20191019-1) ...
+Setting up libtool (2.4.6-13) ...
+Setting up tcl8.6-dev:amd64 (8.6.10+dfsg-1) ...
+Setting up libreadline8:amd64 (8.0-3) ...
+Setting up m4 (1.4.18-4) ...
+Setting up libreadline-dev:amd64 (8.0-3) ...
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up dh-strip-nondeterminism (1.6.3-2) ...
+Setting up dwz (0.13-5) ...
+Setting up groff-base (1.22.4-4) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up gettext (0.19.8.1-10) ...
+Setting up man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up po-debconf (1.0.21) ...
+Setting up dh-autoreconf (19) ...
+Setting up debhelper (12.9) ...
+Setting up sbuild-build-depends-main-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (amd64 included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 4.19.0-6-cloud-amd64 #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11) amd64 (x86_64)
+Toolchain package versions: binutils_2.34-3 dpkg-dev_1.19.7 g++-9_9.2.1-29 gcc-9_9.2.1-29 libc6-dev_2.29-10 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 linux-libc-dev_5.4.19-1
+Package versions: adduser_3.118 apt_1.8.4 autoconf_2.69-11.1 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.34-3 binutils-common_2.34-3 binutils-x86-64-linux-gnu_2.34-3 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 clang-10_1:10.0.0~+rc2-1 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-29 dash_0.5.10.2-6 debconf_1.5.73 debhelper_12.9 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-strip-nondeterminism_1.6.3-2 diffutils_1:3.7-3 dpkg_1.19.7 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.5-2 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.38-4 findutils_4.7.0-1 g++_4:9.2.1-3.1 g++-9_9.2.1-29 gcc_4:9.2.1-3.1 gcc-10-base_10-20200222-1 gcc-9_9.2.1-29 gcc-9-base_9.2.1-29 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gpgv_2.2.19-1 grep_3.4-1 groff-base_1.22.4-4 gzip_1.9-3+b1 hostname_3.23 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 lib32gcc-s1_10-20200222-1 lib32gcc1_1:10-20200222-1 lib32stdc++6_10-20200222-1 libacl1_2.2.53-5 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libasan5_9.2.1-29 libatomic1_10-20200222-1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libbinutils_2.34-3 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-10 libc-dev-bin_2.29-10 libc6_2.29-10 libc6-dev_2.29-10 libc6-i386_2.29-10 libcap-ng0_0.7.9-2.1+b1 libcc1-0_10-20200222-1 libclang-common-10-dev_1:10.0.0~+rc2-1 libclang-cpp10_1:10.0.0~+rc2-1 libclang1-10_1:10.0.0~+rc2-1 libcom-err2_1.45.5-2 libcroco3_0.6.13-1 libcrypt-dev_1:4.4.10-10 libcrypt1_1:4.4.10-10 libctf-nobfd0_2.34-3 libctf0_2.34-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.251 libdebhelper-perl_12.9 libdpkg-perl_1.19.7 libedit2_3.1-20191231-1 libelf1_0.176-1.1 libext2fs2_1.45.5-2 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi7_3.3-3 libfile-stripnondeterminism-perl_1.6.3-2 libgc1c2_1:7.6.4-0.4 libgcc-9-dev_9.2.1-29 libgcc-s1_10-20200222-1 libgcc1_1:10-20200222-1 libgcrypt20_1.8.5-5 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.62.4-2 libgmp10_2:6.2.0+dfsg-4 libgnutls30_3.6.12-2 libgomp1_10-20200222-1 libgpg-error0_1.37-1 libhogweed5_3.5.1+really3.5.1-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libisl22_0.22.1-1 libitm1_10-20200222-1 libllvm10_1:10.0.0~+rc2-1 liblsan0_10-20200222-1 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 libmagic-mgc_1:5.38-4 libmagic1_1:5.38-4 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libncurses-dev_6.1+20191019-1 libncurses6_6.1+20191019-1 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libobjc-9-dev_9.2.1-29 libobjc4_10-20200222-1 libomp-10-dev_1:10.0.0~+rc2-1 libomp5-10_1:10.0.0~+rc2-1 libp11-kit0_0.23.20-1 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre2-8-0_10.34-7 libpcre3_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.2-2 libquadmath0_10-20200222-1 libreadline-dev_8.0-3 libreadline8_8.0-3 libseccomp2_2.4.2-2 libselinux1_3.0-1+b1 libsemanage-common_3.0-1 libsemanage1_3.0-1+b1 libsepol1_3.0-1 libsigsegv2_2.12-2 libsmartcols1_2.34-0.1 libss2_1.45.5-2 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 libsub-override-perl_0.09-2 libsystemd0_244.3-1 libtasn1-6_4.16.0-2 libtcl8.6_8.6.10+dfsg-1 libtinfo6_6.1+20191019-1 libtool_2.4.6-13 libtsan0_10-20200222-1 libubsan1_10-20200222-1 libuchardet0_0.0.6-3 libudev1_244.3-1 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libxml2_2.9.10+dfsg-3 libz3-4_4.8.7-4 libzstd1_1.4.4+dfsg-3 linux-libc-dev_5.4.19-1 login_1:4.8.1-1 logsave_1.45.5-2 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.4.20200120-2 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 passwd_1:4.8.1-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 po-debconf_1.0.21 readline-common_8.0-3 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 sysvinit-utils_2.96-2.1 tar_1.30+dfsg-6+b1 tcl8.6_8.6.10+dfsg-1 tcl8.6-dev_8.6.10+dfsg-1 tzdata_2019c-3 util-linux_2.34-0.1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-2 zlib1g-dev_1:1.2.11.dfsg-2
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: sqlite
+Binary: sqlite, sqlite-doc, libsqlite0, libsqlite0-dev, libsqlite-tcl
+Architecture: any all
+Version: 2.8.17-15
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Standards-Version: 4.1.5
+Build-Depends: debhelper (>= 11), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev
+Package-List:
+ libsqlite-tcl deb interpreters optional arch=any
+ libsqlite0 deb libs optional arch=any
+ libsqlite0-dev deb libdevel optional arch=any
+ sqlite deb database optional arch=any
+ sqlite-doc deb doc optional arch=all
+Checksums-Sha1:
+ 9444a99e2eefef59b137d652d732d1c494ea55a4 962009 sqlite_2.8.17.orig.tar.gz
+ fd20283ad2f87676299f0dfcc8ad178de97fe6a5 11004 sqlite_2.8.17-15.debian.tar.xz
+Checksums-Sha256:
+ f9455c7111de0519e0e7e5614dabec992fd621a842b738ec4f899aef7aba89f4 962009 sqlite_2.8.17.orig.tar.gz
+ beb87e551fc2cfe47e6f1c8ae949bee3c06c55b5e0575e28a2ab35d89aa9edd4 11004 sqlite_2.8.17-15.debian.tar.xz
+Files:
+ 04f15ed552134b06528b3628be7d7315 962009 sqlite_2.8.17.orig.tar.gz
+ a59dcacdf347ad0785a536730d9b6d2c 11004 sqlite_2.8.17-15.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEfYh9yLp7u6e4NeO63OMQ54ZMyL8FAlt8kTcACgkQ3OMQ54ZM
+yL9gixAAgAhZ/cmP4HOirDMld5Rfm4MZCgN2f51tOWJphqyzpxwVKA5fjk+geJSv
+1lPofMNjiIZWsq2W66fZtUM3VGy2CyHD7TzPQ0EeuI+8gu1db3kmBIzoX+JcwAiB
+xmt4v9b8YKkl3og8XB40+O8TNJtE88Yz8xzn0gnzT+VsngXqoSf54Qjsi83gYgtI
+CLT4GeJ6r6erd86bWJcYXouZfvmpLQ0egCXmUsyIpTgc//tY41X866gUyebxRgI/
+oCiykvdq7HomvPLEJ4UgpHhCh+LbllEjDlX6bYLnJi9gG30oMXn8T2vKqlkcDv36
+Pp8yQuAXcxb+GXn/DnV/ncYXNzM3++8jEtQc3HHZ1YhENc5aBOcXhxsPNzVCphO0
+DuJJKK4Pf+yM7Arzcnwl2lgXqytqyQA50PBhReextxbQ/NNeaKpyOCzgn7p/HadJ
+qKIoz+dOt+/ygiQ23HNO9nw3MA6FDecg2D75gH3vGNkHvSZW8l17Q9Y7dNOyQo5D
+MpCAS63UEHDoFHx2SYxnOk56/IjJN3yNLeQQfLd1V6gCHD3nkEvmjIES1PvER8YN
+7ySDIUQ+KfQoI2OvWFErJOzpZjYSgGCH8FY5nRdloG/xzWzMdmuvFH9MsiXisEAr
+GMHPk6Iq9KzOtK5cggLsqCHebKgLEOjiUdBPZ0W+mzWUzRjgCao=
+=OhVB
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Aug 21 22:24:55 2018 UTC
+gpgv:                using RSA key 7D887DC8BA7BBBA7B835E3BADCE310E7864CC8BF
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./sqlite_2.8.17-15.dsc
+dpkg-source: info: extracting sqlite in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking sqlite_2.8.17.orig.tar.gz
+dpkg-source: info: unpacking sqlite_2.8.17-15.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 01-fix-CVE-2007-1888.patch
+dpkg-source: info: applying 02-lemon-snprintf.patch
+dpkg-source: info: applying 03-add-fprintf-format-argument.patch
+dpkg-source: info: applying 04-fix-sort-syntax.patch
+dpkg-source: info: applying 05-link_with_LDFLAGS.patch
+dpkg-source: info: applying 06-cross.patch
+dpkg-source: info: applying 07-multiarch.patch
+dpkg-source: info: applying 08-fix_unsigned_FTBFS.patch
+dpkg-source: info: applying 09-tcl8.6_compat.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+HOME=/sbuild-nonexistent
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+LOGNAME=user42
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable
+SCHROOT_CHROOT_NAME=sid-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1001
+SCHROOT_GROUP=user42
+SCHROOT_SESSION_ID=sid-amd64-sbuild-0a5c7da6-2f34-45bd-be60-99ded4a2eea1
+SCHROOT_UID=1001
+SCHROOT_USER=user42
+SHELL=/bin/sh
+USER=user42
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -us -uc -b -rfakeroot
+dpkg-buildpackage: info: source package sqlite
+dpkg-buildpackage: info: source version 2.8.17-15
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+libtoolize: 'AC_PROG_RANLIB' is rendered obsolete by 'LT_INIT'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+mkdir -p /<<PKGBUILDDIR>>/bin/
+ln -s /usr/bin/tclsh8.6 /<<PKGBUILDDIR>>/bin/tclsh
+dh_auto_configure -- config_TARGET_TCL_INC="-I/usr/include/tcl8.6" config_BUILD_CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1" config_TARGET_LIBS="-ltcl8.6 -lpthread" --libdir=/usr/lib/x86_64-linux-gnu --enable-utf8
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking config_TARGET_TCL_INC=-I/usr/include/tcl8.6 "config_BUILD_CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1" "config_TARGET_LIBS=-ltcl8.6 -lpthread" --libdir=/usr/lib/x86_64-linux-gnu --enable-utf8
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+Version set to 2.8.17
+checking host compiler... cc
+checking switches for the host compiler... -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1
+checking target compiler... x86_64-linux-gnu-gcc
+checking switches on the target compiler... -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1
+checking target linker... x86_64-linux-gnu-gcc
+checking switches on the target compiler... checking for ranlib... (cached) ranlib
+-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1
+checking if host and target compilers are the same... no
+checking character encoding... UTF-8
+checking whether to support incore databases for attach and open... yes
+checking whether to support shared library linked as release mode or not... no
+checking whether to use an in-ram database for temporary tables... no
+checking if executables have the .exe suffix... unknown
+checking for sin... no
+checking for dlopen in -ldl... yes
+checking for library containing Tcl_Init... no
+checking TCL header files... -I/usr/include/tcl8.6
+checking for library containing tgetent... -lncurses
+checking for readline in -lreadline... yes
+checking readline header files... not specified: still searching...
+checking readline.h usability... no
+checking readline.h presence... no
+checking for readline.h... no
+checking for usleep... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sqlite.pc
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make all libtclsqlite.la doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+sed -e s/--VERS--/`cat ./VERSION`/ \
+            -e s/--ENCODING--/UTF8/ \
+                 ./src/sqlite.h.in >sqlite.h
+echo '#include <stdio.h>' >temp.c
+echo 'int main(){printf(' >>temp.c
+echo '"#define SQLITE_PTR_SZ %d",sizeof(char*));' >>temp.c
+echo 'exit(0);}' >>temp.c
+cc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -o temp temp.c
+temp.c:3:28: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+"#define SQLITE_PTR_SZ %d",sizeof(char*));
+                       ~~  ^~~~~~~~~~~~~
+                       %lu
+temp.c:4:1: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))' [-Wimplicit-function-declaration]
+exit(0);}
+^
+temp.c:4:1: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+2 warnings generated.
+./temp >config.h
+echo >>config.h
+rm -f temp.c temp
+echo '/* Automatically generated file.  Do not edit */' >opcodes.h
+grep '^case OP_' ./src/vdbe.c | \
+  sed -e 's/://' | \
+  awk '{printf "#define %-30s %3d\n", $2, ++cnt}' >>opcodes.h
+cc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -o lemon ./tool/lemon.c
+./tool/lemon.c:2821:7: warning: implicit declaration of function 'access' is invalid in C99 [-Wimplicit-function-declaration]
+  if( access(buf,004)==0 ){
+      ^
+1 warning generated.
+cp ./tool/lempar.c .
+cp ./src/parse.y .
+./lemon parse.y
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/attach.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/attach.c  -fPIC -DPIC -o .libs/attach.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/attach.c -o attach.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/auth.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/auth.c  -fPIC -DPIC -o .libs/auth.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/auth.c -o auth.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree.c  -fPIC -DPIC -o .libs/btree.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree.c -o btree.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/build.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/build.c  -fPIC -DPIC -o .libs/build.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/build.c -o build.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/copy.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/copy.c  -fPIC -DPIC -o .libs/copy.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/copy.c -o copy.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/date.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/date.c  -fPIC -DPIC -o .libs/date.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/date.c -o date.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/delete.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/delete.c  -fPIC -DPIC -o .libs/delete.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/delete.c -o delete.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/encode.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/encode.c  -fPIC -DPIC -o .libs/encode.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/encode.c -o encode.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/expr.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/expr.c  -fPIC -DPIC -o .libs/expr.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/expr.c -o expr.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/func.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/func.c  -fPIC -DPIC -o .libs/func.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/func.c -o func.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/hash.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/hash.c  -fPIC -DPIC -o .libs/hash.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/hash.c -o hash.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/insert.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/insert.c  -fPIC -DPIC -o .libs/insert.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/insert.c -o insert.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c -DTEMP_STORE=1 ./src/main.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c -DTEMP_STORE=1 ./src/main.c  -fPIC -DPIC -o .libs/main.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c -DTEMP_STORE=1 ./src/main.c -o main.o >/dev/null 2>&1
+echo '/* Automatically generated file.  Do not edit */' >opcodes.c
+echo 'char *sqliteOpcodeNames[] = { "???", ' >>opcodes.c
+grep '^case OP_' ./src/vdbe.c | \
+  sed -e 's/^.*OP_/  "/' -e 's/:.*$/", /' >>opcodes.c
+echo '};' >>opcodes.c
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c opcodes.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c opcodes.c  -fPIC -DPIC -o .libs/opcodes.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c opcodes.c -o opcodes.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/os.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/os.c  -fPIC -DPIC -o .libs/os.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/os.c -o os.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/pager.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/pager.c  -fPIC -DPIC -o .libs/pager.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/pager.c -o pager.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c parse.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c parse.c  -fPIC -DPIC -o .libs/parse.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c parse.c -o parse.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/pragma.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/pragma.c  -fPIC -DPIC -o .libs/pragma.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/pragma.c -o pragma.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/printf.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/printf.c  -fPIC -DPIC -o .libs/printf.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/printf.c -o printf.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/random.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/random.c  -fPIC -DPIC -o .libs/random.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/random.c -o random.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/select.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/select.c  -fPIC -DPIC -o .libs/select.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/select.c -o select.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/table.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/table.c  -fPIC -DPIC -o .libs/table.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/table.c -o table.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/tokenize.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/tokenize.c  -fPIC -DPIC -o .libs/tokenize.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/tokenize.c -o tokenize.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/update.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/update.c  -fPIC -DPIC -o .libs/update.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/update.c -o update.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/util.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/util.c  -fPIC -DPIC -o .libs/util.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/util.c -o util.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vacuum.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vacuum.c  -fPIC -DPIC -o .libs/vacuum.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vacuum.c -o vacuum.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbe.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbe.c  -fPIC -DPIC -o .libs/vdbe.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbe.c -o vdbe.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbeaux.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbeaux.c  -fPIC -DPIC -o .libs/vdbeaux.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/vdbeaux.c -o vdbeaux.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/where.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/where.c  -fPIC -DPIC -o .libs/where.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/where.c -o where.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/trigger.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/trigger.c  -fPIC -DPIC -o .libs/trigger.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/trigger.c -o trigger.o >/dev/null 2>&1
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree_rb.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree_rb.c  -fPIC -DPIC -o .libs/btree_rb.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -c ./src/btree_rb.c -o btree_rb.o >/dev/null 2>&1
+./libtool --mode=link x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -o libsqlite.la attach.lo auth.lo btree.lo build.lo copy.lo date.lo delete.lo encode.lo expr.lo func.lo hash.lo insert.lo main.lo opcodes.lo os.lo pager.lo parse.lo pragma.lo printf.lo random.lo select.lo table.lo tokenize.lo update.lo util.lo vacuum.lo vdbe.lo vdbeaux.lo where.lo trigger.lo btree_rb.lo  -rpath /usr/lib/x86_64-linux-gnu \
+	-version-info "8:6:8"
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/attach.o .libs/auth.o .libs/btree.o .libs/build.o .libs/copy.o .libs/date.o .libs/delete.o .libs/encode.o .libs/expr.o .libs/func.o .libs/hash.o .libs/insert.o .libs/main.o .libs/opcodes.o .libs/os.o .libs/pager.o .libs/parse.o .libs/pragma.o .libs/printf.o .libs/random.o .libs/select.o .libs/table.o .libs/tokenize.o .libs/update.o .libs/util.o .libs/vacuum.o .libs/vdbe.o .libs/vdbeaux.o .libs/where.o .libs/trigger.o .libs/btree_rb.o   -L/<<PKGBUILDDIR>>/.libs  -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro -Wl,-z -Wl,now   -Wl,-soname -Wl,libsqlite.so.0 -o .libs/libsqlite.so.0.8.6
+libtool: link: (cd ".libs" && rm -f "libsqlite.so.0" && ln -s "libsqlite.so.0.8.6" "libsqlite.so.0")
+libtool: link: (cd ".libs" && rm -f "libsqlite.so" && ln -s "libsqlite.so.0.8.6" "libsqlite.so")
+libtool: link: ar cr .libs/libsqlite.a  attach.o auth.o btree.o build.o copy.o date.o delete.o encode.o expr.o func.o hash.o insert.o main.o opcodes.o os.o pager.o parse.o pragma.o printf.o random.o select.o table.o tokenize.o update.o util.o vacuum.o vdbe.o vdbeaux.o where.o trigger.o btree_rb.o
+libtool: link: ranlib .libs/libsqlite.a
+libtool: link: ( cd ".libs" && rm -f "libsqlite.la" && ln -s "../libsqlite.la" "libsqlite.la" )
+./libtool --mode=link x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -DHAVE_READLINE=1 -I/usr/include/readline -o sqlite ./src/shell.c \
+	libsqlite.la -lreadline -lncurses 
+libtool: link: x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z -Wl,relro -Wl,-z -Wl,now -DHAVE_READLINE=1 -I/usr/include/readline -o .libs/sqlite ./src/shell.c  -L/<<PKGBUILDDIR>>/.libs ./.libs/libsqlite.so -lreadline -lncurses
+./libtool --mode=compile x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/tclsqlite.c
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/tclsqlite.c  -fPIC -DPIC -o .libs/tclsqlite.o
+libtool: compile:  x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -I/usr/include/tcl8.6 -c ./src/tclsqlite.c -o tclsqlite.o >/dev/null 2>&1
+./libtool --mode=link x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -o libtclsqlite.la tclsqlite.lo \
+	libsqlite.la -ldl -lm -rpath /usr/lib/sqlite \
+	-version-info "8:6:8"
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/tclsqlite.o   -Wl,-rpath -Wl,/<<PKGBUILDDIR>>/.libs -L/<<PKGBUILDDIR>>/.libs ./.libs/libsqlite.so -ldl -lm  -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro -Wl,-z -Wl,now   -Wl,-soname -Wl,libtclsqlite.so.0 -o .libs/libtclsqlite.so.0.8.6
+libtool: link: (cd ".libs" && rm -f "libtclsqlite.so.0" && ln -s "libtclsqlite.so.0.8.6" "libtclsqlite.so.0")
+libtool: link: (cd ".libs" && rm -f "libtclsqlite.so" && ln -s "libtclsqlite.so.0.8.6" "libtclsqlite.so")
+libtool: link: ar cr .libs/libtclsqlite.a  tclsqlite.o
+libtool: link: ranlib .libs/libtclsqlite.a
+libtool: link: ( cd ".libs" && rm -f "libtclsqlite.la" && ln -s "../libtclsqlite.la" "libtclsqlite.la" )
+cat ./src/attach.c ./src/auth.c ./src/btree.c ./src/btree.h ./src/btree_rb.c ./src/build.c ./src/copy.c ./src/date.c ./src/delete.c ./src/encode.c ./src/expr.c ./src/func.c ./src/hash.c ./src/hash.h ./src/insert.c ./src/main.c ./src/os.c ./src/pager.c ./src/pager.h ./src/parse.y ./src/pragma.c ./src/printf.c ./src/random.c ./src/select.c ./src/shell.c ./src/sqlite.h.in ./src/sqliteInt.h ./src/table.c ./src/tclsqlite.c ./src/tokenize.c ./src/trigger.c ./src/update.c ./src/util.c ./src/vacuum.c ./src/vdbe.c ./src/vdbeaux.c ./src/vdbe.h ./src/where.c | grep '$Id: ' | sort -k 4 | tail -1 \
+          | awk '{print $5,$6}' >last_change
+tclsh ./www/index.tcl `cat ./VERSION` >index.html
+tclsh ./www/sqlite.tcl >sqlite.html
+tclsh ./www/changes.tcl >changes.html
+tclsh ./www/lang.tcl >lang.html
+tclsh ./www/opcode.tcl ./src/vdbe.c >opcode.html
+tclsh ./www/arch.tcl >arch.html
+cp ./www/arch.png .
+tclsh ./www/vdbe.tcl >vdbe.html
+tclsh ./www/c_interface.tcl >c_interface.html
+tclsh ./www/mingw.tcl >mingw.html
+tclsh ./www/tclsqlite.tcl >tclsqlite.html
+tclsh ./www/download.tcl >download.html
+tclsh ./www/speed.tcl >speed.html
+tclsh ./www/faq.tcl >faq.html
+tclsh ./www/formatchng.tcl >formatchng.html
+tclsh ./www/conflict.tcl >conflict.html
+tclsh ./www/omitted.tcl >omitted.html
+tclsh ./www/datatypes.tcl >datatypes.html
+tclsh ./www/quickstart.tcl >quickstart.html
+tclsh ./www/fileformat.tcl >fileformat.html
+tclsh ./www/nulls.tcl >nulls.html
+mkdir -p doc
+mv index.html sqlite.html changes.html lang.html opcode.html arch.html arch.png vdbe.html c_interface.html mingw.html tclsqlite.html download.html speed.html faq.html formatchng.html conflict.html omitted.html datatypes.html quickstart.html fileformat.html nulls.html doc
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+LDFLAGS="-Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -ltcl8.6 -lpthread" dh_auto_test || true
+	make -j4 test VERBOSE=1
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+./libtool --mode=link x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -ltcl8.6 -lpthread -I/usr/include/tcl8.6 -DTCLSH=1 -DSQLITE_TEST=1\
+                -o testfixture ./src/btree.c ./src/func.c ./src/os.c ./src/pager.c ./src/test1.c ./src/test2.c ./src/test3.c ./src/test4.c ./src/vdbe.c ./src/md5.c ./src/tclsqlite.c \
+	libtclsqlite.la libsqlite.la -ldl -lm
+libtool: link: x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z -Wl,relro -Wl,-z -Wl,now -I/usr/include/tcl8.6 -DTCLSH=1 -DSQLITE_TEST=1 -o .libs/testfixture ./src/btree.c ./src/func.c ./src/os.c ./src/pager.c ./src/test1.c ./src/test2.c ./src/test3.c ./src/test4.c ./src/vdbe.c ./src/md5.c ./src/tclsqlite.c  -L/<<PKGBUILDDIR>>/.libs -ltcl8.6 -lpthread ./.libs/libtclsqlite.so ./.libs/libsqlite.so -ldl -lm -Wl,-rpath -Wl,/usr/lib/sqlite
+./src/func.c:399:37: warning: passing 'unsigned char [1000]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  sqlite_set_result_string(context, zBuf, n);
+                                    ^~~~
+./sqlite.h:520:56: note: passing argument to parameter here
+char *sqlite_set_result_string(sqlite_func*,const char*,int);
+                                                       ^
+1 warning generated.
+./src/md5.c:271:31: warning: 'memset' call operates on objects of type 'struct Context' while the size is based on a different type 'struct Context *' [-Wsizeof-pointer-memaccess]
+        memset(ctx, 0, sizeof(ctx));    /* In case it's sensitive */
+               ~~~            ^~~
+./src/md5.c:271:31: note: did you mean to dereference the argument to 'sizeof' (and multiply it by the number of elements)?
+        memset(ctx, 0, sizeof(ctx));    /* In case it's sensitive */
+                              ^~~
+./src/md5.c:308:26: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  DigestToBase16(digest, Tcl_GetStringResult(interp));
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./src/md5.c:280:57: note: passing argument to parameter 'zBuf' here
+static void DigestToBase16(unsigned char *digest, char *zBuf){
+                                                        ^
+./src/md5.c:342:26: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  DigestToBase16(digest, Tcl_GetStringResult(interp));
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./src/md5.c:280:57: note: passing argument to parameter 'zBuf' here
+static void DigestToBase16(unsigned char *digest, char *zBuf){
+                                                        ^
+3 warnings generated.
+./testfixture ./test/quick.test
+attach-1.1... Ok
+attach-1.2... Ok
+attach-1.3... Ok
+attach-1.4... Ok
+attach-1.5... Ok
+attach-1.6... Ok
+attach-1.7... Ok
+attach-1.8... Ok
+attach-1.9... Ok
+attach-1.10... Ok
+attach-1.11... Ok
+attach-1.11b... Ok
+attach-1.12... Ok
+attach-1.13... Ok
+attach-1.14... Ok
+attach-1.15... Ok
+attach-1.16... Ok
+attach-1.17... Ok
+attach-1.18... Ok
+attach-1.19... Ok
+attach-1.20.1... Ok
+attach-1.20.2... Ok
+attach-1.21... Ok
+attach-1.22... Ok
+attach-1.23... Ok
+attach-1.24... Ok
+attach-1.25... Ok
+attach-1.26... Ok
+attach-1.27... Ok
+attach-1.28... Ok
+attach-1.29... Ok
+attach-2.1... Ok
+attach-2.2... Ok
+attach-2.3... Ok
+attach-2.4... Ok
+attach-2.5... Ok
+attach-2.6... Ok
+attach-2.7... Ok
+attach-2.8... Ok
+attach-2.9... Ok
+attach-2.10... Ok
+attach-2.12... Ok
+attach-2.13... Ok
+attach-2.14... Ok
+attach-2.15... Ok
+attach-2.16... Ok
+attach-3.1... Ok
+attach-3.2... Ok
+attach-3.3... Ok
+attach-3.4... Ok
+attach-3.5... Ok
+attach-3.6... Ok
+attach-3.7... Ok
+attach-3.8... Ok
+attach-3.9... Ok
+attach-3.10... Ok
+attach-3.11... Ok
+attach-3.12... Ok
+attach-3.13... Ok
+attach-3.14... Ok
+attach-3.15... Ok
+attach-4.1... Ok
+attach-4.2... Ok
+attach-4.3... Ok
+attach-4.4... Ok
+attach-4.5... Ok
+attach-4.6... Ok
+attach-4.7... Ok
+attach-4.8... Ok
+attach-4.9... Ok
+attach-4.10... Ok
+attach-4.11... Ok
+attach-4.12... Ok
+attach-4.13... Ok
+attach-5.1... Ok
+attach-5.2... Ok
+attach-5.3... Ok
+attach-5.4... Ok
+attach-5.5... Ok
+attach-5.6... Ok
+attach-5.7... Ok
+attach-5.7... Ok
+attach-5.8... Ok
+attach-5.9... Ok
+attach-6.1... Ok
+attach-6.2... Ok
+attach2-1.1... Ok
+attach2-2.1... Ok
+attach2-2.2... Ok
+attach2-2.3... Ok
+attach2-2.4... Ok
+attach2-2.5... Ok
+attach2-2.6... Ok
+attach2-2.7... Ok
+attach2-2.8... Ok
+attach2-2.9... Ok
+attach2-2.10... Ok
+attach2-2.11... Ok
+attach2-2.12... Ok
+attach2-3.1... Ok
+attach2-3.2... Ok
+auth-1.1.1... Ok
+auth-1.1.2... Ok
+auth-1.1.3... Ok
+auth-1.2... Ok
+auth-1.3.1... Ok
+auth-1.3.2... Ok
+auth-1.3.3... Ok
+auth-1.4... Ok
+auth-1.5... Ok
+auth-1.6... Ok
+auth-1.7.1... Ok
+auth-1.7.2... Ok
+auth-1.8... Ok
+auth-1.9... Ok
+auth-1.10... Ok
+auth-1.11... Ok
+auth-1.12... Ok
+auth-1.13... Ok
+auth-1.14... Ok
+auth-1.15... Ok
+auth-1.16... Ok
+auth-1.17... Ok
+auth-1.18... Ok
+auth-1.19.1... Ok
+auth-1.19.2... Ok
+auth-1.20... Ok
+auth-1.21.1... Ok
+auth-1.21.2... Ok
+auth-1.22... Ok
+auth-1.23.1... Ok
+auth-1.23.2... Ok
+auth-1.24... Ok
+auth-1.25... Ok
+auth-1.26... Ok
+auth-1.27... Ok
+auth-1.28... Ok
+auth-1.29... Ok
+auth-1.30... Ok
+auth-1.31... Ok
+auth-1.32... Ok
+auth-1.33... Ok
+auth-1.34... Ok
+auth-1.35.1... Ok
+auth-1.35.2... Ok
+auth-1.36... Ok
+auth-1.37... Ok
+auth-1.38... Ok
+auth-1.39... Ok
+auth-1.40... Ok
+auth-1.41... Ok
+auth-1.42... Ok
+auth-1.43... Ok
+auth-1.44... Ok
+auth-1.45... Ok
+auth-1.46... Ok
+auth-1.47... Ok
+auth-1.48... Ok
+auth-1.49... Ok
+auth-1.50... Ok
+auth-1.51... Ok
+auth-1.52... Ok
+auth-1.53... Ok
+auth-1.54... Ok
+auth-1.55... Ok
+auth-1.56... Ok
+auth-1.57... Ok
+auth-1.58... Ok
+auth-1.59... Ok
+auth-1.60... Ok
+auth-1.61... Ok
+auth-1.62... Ok
+auth-1.63... Ok
+auth-1.64... Ok
+auth-1.65... Ok
+auth-1.66... Ok
+auth-1.67... Ok
+auth-1.68... Ok
+auth-1.69... Ok
+auth-1.70... Ok
+auth-1.71... Ok
+auth-1.72... Ok
+auth-1.73... Ok
+auth-1.74... Ok
+auth-1.75... Ok
+auth-1.76... Ok
+auth-1.77... Ok
+auth-1.78... Ok
+auth-1.79... Ok
+auth-1.80... Ok
+auth-1.81... Ok
+auth-1.82... Ok
+auth-1.83... Ok
+auth-1.84... Ok
+auth-1.85... Ok
+auth-1.86... Ok
+auth-1.87... Ok
+auth-1.88... Ok
+auth-1.89... Ok
+auth-1.90... Ok
+auth-1.91... Ok
+auth-1.92... Ok
+auth-1.93... Ok
+auth-1.94... Ok
+auth-1.95... Ok
+auth-1.96... Ok
+auth-1.97... Ok
+auth-1.98... Ok
+auth-1.99... Ok
+auth-1.100... Ok
+auth-1.101... Ok
+auth-1.102... Ok
+auth-1.103... Ok
+auth-1.104... Ok
+auth-1.105... Ok
+auth-1.106... Ok
+auth-1.107... Ok
+auth-1.108... Ok
+auth-1.109... Ok
+auth-1.110... Ok
+auth-1.111... Ok
+auth-1.112... Ok
+auth-1.113... Ok
+auth-1.114... Ok
+auth-1.115... Ok
+auth-1.116... Ok
+auth-1.117... Ok
+auth-1.118... Ok
+auth-1.119... Ok
+auth-1.120... Ok
+auth-1.121... Ok
+auth-1.122... Ok
+auth-1.123... Ok
+auth-1.124... Ok
+auth-1.125... Ok
+auth-1.126... Ok
+auth-1.127... Ok
+auth-1.128... Ok
+auth-1.129... Ok
+auth-1.130... Ok
+auth-1.131... Ok
+auth-1.132... Ok
+auth-1.133... Ok
+auth-1.134... Ok
+auth-1.135... Ok
+auth-1.136.1... Ok
+auth-1.136.2... Ok
+auth-1.136.3... Ok
+auth-1.136.4... Ok
+auth-1.137... Ok
+auth-1.138... Ok
+auth-1.139... Ok
+auth-1.140... Ok
+auth-1.141... Ok
+auth-1.142... Ok
+auth-1.143... Ok
+auth-1.144... Ok
+auth-1.145... Ok
+auth-1.146... Ok
+auth-1.147... Ok
+auth-1.148... Ok
+auth-1.149... Ok
+auth-1.150... Ok
+auth-1.151... Ok
+auth-1.152... Ok
+auth-1.153... Ok
+auth-1.154... Ok
+auth-1.155... Ok
+auth-1.156... Ok
+auth-1.157... Ok
+auth-1.158... Ok
+auth-1.159... Ok
+auth-1.160... Ok
+auth-1.161... Ok
+auth-1.162... Ok
+auth-1.163... Ok
+auth-1.164... Ok
+auth-1.165... Ok
+auth-1.166... Ok
+auth-1.167... Ok
+auth-1.168... Ok
+auth-1.169... Ok
+auth-1.170... Ok
+auth-1.171... Ok
+auth-1.172... Ok
+auth-1.173... Ok
+auth-1.174... Ok
+auth-1.175... Ok
+auth-1.176... Ok
+auth-1.177... Ok
+auth-1.178... Ok
+auth-1.179... Ok
+auth-1.180... Ok
+auth-1.181... Ok
+auth-1.182... Ok
+auth-1.183... Ok
+auth-1.184... Ok
+auth-1.185... Ok
+auth-1.186... Ok
+auth-1.187... Ok
+auth-1.188... Ok
+auth-1.189... Ok
+auth-1.190... Ok
+auth-1.191... Ok
+auth-1.192... Ok
+auth-1.193... Ok
+auth-1.194... Ok
+auth-1.195... Ok
+auth-1.196... Ok
+auth-1.197... Ok
+auth-1.198... Ok
+auth-1.199... Ok
+auth-1.200... Ok
+auth-1.201... Ok
+auth-1.202... Ok
+auth-1.203... Ok
+auth-1.204... Ok
+auth-1.205... Ok
+auth-1.206... Ok
+auth-1.207... Ok
+auth-1.208... Ok
+auth-1.209... Ok
+auth-1.210... Ok
+auth-1.211... Ok
+auth-1.212... Ok
+auth-1.213... Ok
+auth-1.214... Ok
+auth-1.215... Ok
+auth-1.216... Ok
+auth-1.217... Ok
+auth-1.218... Ok
+auth-1.219... Ok
+auth-1.220... Ok
+auth-1.221... Ok
+auth-1.222... Ok
+auth-1.223... Ok
+auth-1.224... Ok
+auth-1.225... Ok
+auth-1.226... Ok
+auth-1.227... Ok
+auth-1.228... Ok
+auth-1.229... Ok
+auth-1.230... Ok
+auth-1.231... Ok
+auth-1.232... Ok
+auth-1.233... Ok
+auth-1.234... Ok
+auth-1.235... Ok
+auth-1.236... Ok
+auth-1.237... Ok
+auth-1.238... Ok
+auth-1.239... Ok
+auth-1.240... Ok
+auth-1.241... Ok
+auth-1.242... Ok
+auth-1.243... Ok
+auth-1.244... Ok
+auth-1.245... Ok
+auth-1.246... Ok
+auth-1.247... Ok
+auth-1.248... Ok
+auth-1.249... Ok
+auth-1.250... Ok
+auth-1.251... Ok
+auth-1.252... Ok
+auth-1.253... Ok
+auth-1.254... Ok
+auth-1.255... Ok
+auth-1.256... Ok
+auth-1.257... Ok
+auth-1.258... Ok
+auth-1.259... Ok
+auth-1.260... Ok
+auth-1.261... Ok
+auth-1.262... Ok
+auth-2.1... Ok
+auth-2.1... Ok
+auth-2.2... Ok
+auth-2.3... Ok
+auth-2.4... Ok
+auth-2.5... Ok
+auth-2.6... Ok
+auth-2.7... Ok
+auth-2.8... Ok
+auth-2.9.1... Ok
+auth-2.9.2... Ok
+auth-2.10... Ok
+auth-2.11.1... Ok
+auth-2.11.2... Ok
+auth-3.1... Ok
+auth-3.2... Ok
+auth-4.1... Ok
+auth-4.2... Ok
+auth-4.3... Ok
+auth-4.4... Ok
+auth-4.5... Ok
+bigfile-1.1... Ok
+bigfile-1.2... Ok
+bigfile-1.3... Ok
+bigfile-1.4... Ok
+bigfile-1.5... Ok
+bigfile-1.6... Ok
+bigfile-1.7... Ok
+bigfile-1.8... Ok
+bigfile-1.9... Ok
+bigfile-1.10... Ok
+bigfile-1.11... Ok
+bigfile-1.12... Ok
+bigfile-1.13... Ok
+bigfile-1.14... Ok
+bigfile-1.15... Ok
+bigfile-1.16... Ok
+bigrow-1.0... Ok
+bigrow-1.1... Ok
+bigrow-1.2... Ok
+bigrow-1.3... Ok
+bigrow-1.4... Ok
+bigrow-1.4.1... Ok
+bigrow-1.4.2... Ok
+bigrow-1.4.3... Ok
+bigrow-1.5... Ok
+bigrow-1.6... Ok
+bigrow-1.7... Ok
+bigrow-1.8... Ok
+bigrow-1.9... Ok
+bigrow-2.1... Ok
+bigrow-2.2... Ok
+bigrow-2.3... Ok
+bigrow-3.1... Ok
+bigrow-3.2... Ok
+bigrow-3.3.1... Ok
+bigrow-3.3.2... Ok
+bigrow-3.3.3... Ok
+bigrow-3.3.4... Ok
+bigrow-3.3.5... Ok
+bigrow-3.3.6... Ok
+bigrow-3.3.7... Ok
+bigrow-3.3.8... Ok
+bigrow-3.3.9... Ok
+bigrow-4.1... Ok
+bigrow-4.2... Ok
+bigrow-4.3... Ok
+bigrow-4.4.1... Ok
+bigrow-4.4.2... Ok
+bigrow-4.4.3... Ok
+bigrow-4.4.4... Ok
+bigrow-4.4.5... Ok
+bigrow-4.4.6... Ok
+bigrow-4.4.7... Ok
+bigrow-4.4.8... Ok
+bigrow-4.4.9... Ok
+bigrow-5.1... Ok
+bigrow-5.2.1... Ok
+bigrow-5.2.2... Ok
+bigrow-5.2.3... Ok
+bigrow-5.2.4... Ok
+bigrow-5.2.5... Ok
+bigrow-5.2.6... Ok
+bigrow-5.2.7... Ok
+bigrow-5.2.8... Ok
+bigrow-5.2.9... Ok
+bigrow-5.2.10... Ok
+bigrow-5.2.11... Ok
+bigrow-5.2.12... Ok
+bigrow-5.2.13... Ok
+bigrow-5.2.14... Ok
+bigrow-5.2.15... Ok
+bigrow-5.3... Ok
+bigrow-5.4... Ok
+bind-1.1... Ok
+bind-1.2... Ok
+bind-1.3... Ok
+bind-1.4... Ok
+bind-1.5... Ok
+bind-1.6... Ok
+bind-1.7... Ok
+bind-1.8... Ok
+bind-1.9... Ok
+bind-1.99... Ok
+btree-1.1... Ok
+btree-1.1.1... Ok
+btree-1.2... Ok
+btree-1.3... Ok
+btree-1.4... Ok
+btree-1.4.1... Ok
+btree-1.5... Ok
+btree-1.6... Ok
+btree-1.7... Ok
+btree-1.8... Ok
+btree-1.9... Ok
+btree-1.10... Ok
+btree-1.11... Ok
+btree-1.12... Ok
+btree-2.1... Ok
+btree-2.2... Ok
+btree-2.3... Ok
+btree-2.4... Ok
+btree-2.5... Ok
+btree-2.6... Ok
+btree-2.7... Ok
+btree-3.1... Ok
+btree-3.1.1... Ok
+btree-3.2... Ok
+btree-3.4... Ok
+btree-3.5... Ok
+btree-3.6... Ok
+btree-3.7... Ok
+btree-3.8... Ok
+btree-3.9... Ok
+btree-3.10... Ok
+btree-3.11... Ok
+btree-3.12... Ok
+btree-3.13... Ok
+btree-3.14... Ok
+btree-3.15... Ok
+btree-3.16... Ok
+btree-3.17... Ok
+btree-3.18... Ok
+btree-3.19... Ok
+btree-3.20... Ok
+btree-3.21... Ok
+btree-3.22... Ok
+btree-3.22.1... Ok
+btree-3.23... Ok
+btree-3.23.1... Ok
+btree-3.24... Ok
+btree-3.25... Ok
+btree-3.25.1... Ok
+btree-3.26... Ok
+btree-3.27... Ok
+btree-3.28... Ok
+btree-3.29... Ok
+btree-3.30... Ok
+btree-3.31... Ok
+btree-3.32... Ok
+btree-3.33... Ok
+btree-3.34... Ok
+btree-3.35... Ok
+btree-3.36... Ok
+btree-3.37... Ok
+btree-3.38... Ok
+btree-3.39... Ok
+btree-3.40... Ok
+btree-3.41... Ok
+btree-4.1... Ok
+btree-4.1.1... Ok
+btree-4.2... Ok
+btree-4.3... Ok
+btree-4.4... Ok
+btree-4.5... Ok
+btree-4.4...make[2]: *** [Makefile:374: test] Segmentation fault
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_auto_test: error: make -j4 test VERBOSE=1 returned exit code 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+   dh_installdirs
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+install -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin/ \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/
+install -m 0664 /<<PKGBUILDDIR>>/debian/pkgIndex.tcl \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite
+./libtool --mode=install install libtclsqlite.la \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite
+libtool: warning: relinking 'libtclsqlite.la'
+libtool: install: (cd /<<PKGBUILDDIR>>; /bin/bash "/<<PKGBUILDDIR>>/libtool"  --mode=relink x86_64-linux-gnu-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DTHREADSAFE=1 -DOS_UNIX=1 -DOS_WIN=0 -DHAVE_USLEEP=1 -I. -I./src -Wl,-z,relro -Wl,-z,now -L/<<PKGBUILDDIR>>/.libs -o libtclsqlite.la tclsqlite.lo libsqlite.la -ldl -lm -rpath /usr/lib/sqlite -version-info 8:6:8 -inst-prefix-dir /<<PKGBUILDDIR>>/debian/tmp)
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/tclsqlite.o   -L/<<PKGBUILDDIR>>/.libs -L/<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -lsqlite -ldl -lm  -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro -Wl,-z -Wl,now   -Wl,-soname -Wl,libtclsqlite.so.0 -o .libs/libtclsqlite.so.0.8.6
+libtool: install: install .libs/libtclsqlite.so.0.8.6T /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/libtclsqlite.so.0.8.6
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite && { ln -s -f libtclsqlite.so.0.8.6 libtclsqlite.so.0 || { rm -f libtclsqlite.so.0 && ln -s libtclsqlite.so.0.8.6 libtclsqlite.so.0; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite && { ln -s -f libtclsqlite.so.0.8.6 libtclsqlite.so || { rm -f libtclsqlite.so && ln -s libtclsqlite.so.0.8.6 libtclsqlite.so; }; })
+libtool: install: install .libs/libtclsqlite.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/libtclsqlite.la
+libtool: install: install .libs/libtclsqlite.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/libtclsqlite.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/libtclsqlite.a
+libtool: install: ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/sqlite/libtclsqlite.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/sqlite'
+install -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/lemon
+install -m 664 /<<PKGBUILDDIR>>/tool/lempar.c \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/share/lemon
+install -m 775 lemon /<<PKGBUILDDIR>>/debian/tmp/usr/bin/
+dh_auto_install
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./libtool --mode=install /usr/bin/install -c libsqlite.la /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+libtool: install: /usr/bin/install -c .libs/libsqlite.so.0.8.6 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libsqlite.so.0.8.6
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libsqlite.so.0.8.6 libsqlite.so.0 || { rm -f libsqlite.so.0 && ln -s libsqlite.so.0.8.6 libsqlite.so.0; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libsqlite.so.0.8.6 libsqlite.so || { rm -f libsqlite.so && ln -s libsqlite.so.0.8.6 libsqlite.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsqlite.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libsqlite.la
+libtool: install: /usr/bin/install -c .libs/libsqlite.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libsqlite.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libsqlite.a
+libtool: install: ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libsqlite.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/x86_64-linux-gnu'
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+./libtool --mode=install /usr/bin/install -c sqlite /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+libtool: warning: 'libsqlite.la' has not been installed in '/usr/lib/x86_64-linux-gnu'
+libtool: install: /usr/bin/install -c .libs/sqlite /<<PKGBUILDDIR>>/debian/tmp/usr/bin/sqlite
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/include
+/usr/bin/install -c -m 0644 sqlite.h /<<PKGBUILDDIR>>/debian/tmp/usr/include
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig
+/usr/bin/install -c -m 0644 sqlite.pc /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_strip
+   debian/rules override_dh_makeshlibs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+# empty dependency_libs
+sed -i "/dependency_libs/ s/'.*'/''/" \
+	`find /<<PKGBUILDDIR>>/debian/ -name '*.la'`
+dh_makeshlibs -V -X"libtclsqlite.so*"
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_shlibdeps
+dpkg-shlibdeps: warning: debian/libsqlite-tcl/usr/lib/sqlite/libtclsqlite.so.0.8.6 contains an unresolvable reference to symbol Tcl_Alloc: it's probably a plugin
+dpkg-shlibdeps: warning: 29 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libsqlite-tcl/usr/lib/sqlite/libtclsqlite.so.0.8.6 was not linked against libdl.so.2 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libsqlite-tcl/usr/lib/sqlite/libtclsqlite.so.0.8.6 was not linked against libm.so.6 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/sqlite/usr/bin/sqlite was not linked against libncurses.so.6 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/sqlite/usr/bin/sqlite was not linked against libtinfo.so.6 (it uses none of the library's symbols)
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'libsqlite-tcl' in '../libsqlite-tcl_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'sqlite-doc' in '../sqlite-doc_2.8.17-15_all.deb'.
+dpkg-deb: building package 'sqlite' in '../sqlite_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'libsqlite0-dbgsym' in '../libsqlite0-dbgsym_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'sqlite-dbgsym' in '../sqlite-dbgsym_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'libsqlite-tcl-dbgsym' in '../libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'libsqlite0-dev' in '../libsqlite0-dev_2.8.17-15_amd64.deb'.
+dpkg-deb: building package 'libsqlite0' in '../libsqlite0_2.8.17-15_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../sqlite_2.8.17-15_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2020-02-25T04:35:20Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+sqlite_2.8.17-15_amd64.changes:
+-------------------------------
+
+Format: 1.8
+Date: Tue, 21 Aug 2018 21:19:22 +0000
+Source: sqlite
+Binary: libsqlite-tcl libsqlite-tcl-dbgsym libsqlite0 libsqlite0-dbgsym libsqlite0-dev sqlite sqlite-dbgsym sqlite-doc
+Architecture: amd64 all
+Version: 2.8.17-15
+Distribution: unstable
+Urgency: medium
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Changed-By: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Description:
+ libsqlite-tcl - SQLite 2 Tcl bindings
+ libsqlite0 - SQLite 2 shared library
+ libsqlite0-dev - SQLite 2 development files
+ sqlite     - command line interface for SQLite 2
+ sqlite-doc - SQLite 2 documentation
+Closes: 872535 895642
+Changes:
+ sqlite (2.8.17-15) unstable; urgency=medium
+ .
+   * Make the package multiarch.
+   * Drop incorrect hunks from lemon patch (closes: #895642).
+   * Fix package installation.
+   * Fix test compilation.
+   * Ignore test failures for known problems.
+   * Make rebuildable.
+   * Update debhelper level to 11:
+     - don't specify parallel to debhelper.
+   * Update Standards-Version to 4.1.5 .
+ .
+   [ Aurelien Jarno <aurelien@aurel32.net> ]
+   * Fix FTBFS with GCC 7/8 on architectures with unsigned char
+     (closes: #872535).
+Checksums-Sha1:
+ 7802d90adda54196b5e602fcaeb4d6e83ed564d2 12480 libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ c5d4166bd7f4f6af8420dbc79d14d17c2b506c8d 12880 libsqlite-tcl_2.8.17-15_amd64.deb
+ f5f0e4b35f826e87b37f7416ecebc517b83a64fe 300068 libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ 0d870b00408c0513b06a50ed31db27b0108012ef 184820 libsqlite0-dev_2.8.17-15_amd64.deb
+ d08468102a9efe9098f2e017450dfb694a217e5b 164772 libsqlite0_2.8.17-15_amd64.deb
+ 0b5c634928e32316665599a374c6fdd6c64aab89 15584 sqlite-dbgsym_2.8.17-15_amd64.deb
+ 621e1c3decb76a4386d39ad70327d9313a64dcf4 136332 sqlite-doc_2.8.17-15_all.deb
+ 9f7077d0dbd2f507ca062b2396a8b7b7d14ae1ea 7042 sqlite_2.8.17-15_amd64.buildinfo
+ c76f9d1b64d39ded9a6612660f402eda09ea2ca3 20424 sqlite_2.8.17-15_amd64.deb
+Checksums-Sha256:
+ 7faa0fb8106a89d5b7e1830bbb19d89f9edf11f035ae05f5c04f9ba1a82a0a76 12480 libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ be72a74476223608f89048de17386c43facc729df9ebf6102589eda620b14bbb 12880 libsqlite-tcl_2.8.17-15_amd64.deb
+ e982569a563da2432d322d49d4d7d28158e1bf7d7930eeabd187e1d733ffa76b 300068 libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ bc58cdf6251a9823aca3c7f21f5968d4b550ecdd758fc58509e5a66cc67f2172 184820 libsqlite0-dev_2.8.17-15_amd64.deb
+ 0122c02864c271282eba8cc147a8771e8a67ffe1c5e37441297d3865cda3a749 164772 libsqlite0_2.8.17-15_amd64.deb
+ 06a85fecd699627b11d5f5c54fa677640858754012770a2f5ae532dc9842f9ee 15584 sqlite-dbgsym_2.8.17-15_amd64.deb
+ 5456124c5ac1a72845da51cb0d87fb327c25dc68a5dfc5e1ef4829a8be1ee1db 136332 sqlite-doc_2.8.17-15_all.deb
+ 85a2239b02ed9c242413dee0fb98b5e4c9c21b10151df1e64a81e79565b4c0d6 7042 sqlite_2.8.17-15_amd64.buildinfo
+ 2d47b22b862367fd46fa6b7fde53cc292c6a58a882527cdbc88fcdb4ac260f00 20424 sqlite_2.8.17-15_amd64.deb
+Files:
+ e94df4fb54ebfb059338c2cecfb7cc5e 12480 debug optional libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ df7d84ce504147a4e200656e868daff8 12880 interpreters optional libsqlite-tcl_2.8.17-15_amd64.deb
+ 2992a5e783cb2cafe00a4eb5641998e3 300068 debug optional libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ 227cf51753e089d8122b906a602c450f 184820 libdevel optional libsqlite0-dev_2.8.17-15_amd64.deb
+ 3647e87893a560fe00e4be3eaefb4f39 164772 libs optional libsqlite0_2.8.17-15_amd64.deb
+ 7022f0fc3e47e34ca3a358ded6efa75c 15584 debug optional sqlite-dbgsym_2.8.17-15_amd64.deb
+ fe7d1c583e444ef12c590e9081a1a05e 136332 doc optional sqlite-doc_2.8.17-15_all.deb
+ 0087ed54fc49be11f1c25e908b13a589 7042 devel optional sqlite_2.8.17-15_amd64.buildinfo
+ 5c7bc77ec4b64128f43cf8c8c5bab828 20424 database optional sqlite_2.8.17-15_amd64.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: sqlite
+Binary: sqlite sqlite-doc libsqlite0 libsqlite0-dev libsqlite-tcl
+Architecture: all amd64
+Version: 2.8.17-15
+Checksums-Md5:
+ e94df4fb54ebfb059338c2cecfb7cc5e 12480 libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ df7d84ce504147a4e200656e868daff8 12880 libsqlite-tcl_2.8.17-15_amd64.deb
+ 2992a5e783cb2cafe00a4eb5641998e3 300068 libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ 227cf51753e089d8122b906a602c450f 184820 libsqlite0-dev_2.8.17-15_amd64.deb
+ 3647e87893a560fe00e4be3eaefb4f39 164772 libsqlite0_2.8.17-15_amd64.deb
+ 7022f0fc3e47e34ca3a358ded6efa75c 15584 sqlite-dbgsym_2.8.17-15_amd64.deb
+ fe7d1c583e444ef12c590e9081a1a05e 136332 sqlite-doc_2.8.17-15_all.deb
+ 5c7bc77ec4b64128f43cf8c8c5bab828 20424 sqlite_2.8.17-15_amd64.deb
+Checksums-Sha1:
+ 7802d90adda54196b5e602fcaeb4d6e83ed564d2 12480 libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ c5d4166bd7f4f6af8420dbc79d14d17c2b506c8d 12880 libsqlite-tcl_2.8.17-15_amd64.deb
+ f5f0e4b35f826e87b37f7416ecebc517b83a64fe 300068 libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ 0d870b00408c0513b06a50ed31db27b0108012ef 184820 libsqlite0-dev_2.8.17-15_amd64.deb
+ d08468102a9efe9098f2e017450dfb694a217e5b 164772 libsqlite0_2.8.17-15_amd64.deb
+ 0b5c634928e32316665599a374c6fdd6c64aab89 15584 sqlite-dbgsym_2.8.17-15_amd64.deb
+ 621e1c3decb76a4386d39ad70327d9313a64dcf4 136332 sqlite-doc_2.8.17-15_all.deb
+ c76f9d1b64d39ded9a6612660f402eda09ea2ca3 20424 sqlite_2.8.17-15_amd64.deb
+Checksums-Sha256:
+ 7faa0fb8106a89d5b7e1830bbb19d89f9edf11f035ae05f5c04f9ba1a82a0a76 12480 libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+ be72a74476223608f89048de17386c43facc729df9ebf6102589eda620b14bbb 12880 libsqlite-tcl_2.8.17-15_amd64.deb
+ e982569a563da2432d322d49d4d7d28158e1bf7d7930eeabd187e1d733ffa76b 300068 libsqlite0-dbgsym_2.8.17-15_amd64.deb
+ bc58cdf6251a9823aca3c7f21f5968d4b550ecdd758fc58509e5a66cc67f2172 184820 libsqlite0-dev_2.8.17-15_amd64.deb
+ 0122c02864c271282eba8cc147a8771e8a67ffe1c5e37441297d3865cda3a749 164772 libsqlite0_2.8.17-15_amd64.deb
+ 06a85fecd699627b11d5f5c54fa677640858754012770a2f5ae532dc9842f9ee 15584 sqlite-dbgsym_2.8.17-15_amd64.deb
+ 5456124c5ac1a72845da51cb0d87fb327c25dc68a5dfc5e1ef4829a8be1ee1db 136332 sqlite-doc_2.8.17-15_all.deb
+ 2d47b22b862367fd46fa6b7fde53cc292c6a58a882527cdbc88fcdb4ac260f00 20424 sqlite_2.8.17-15_amd64.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 25 Feb 2020 04:35:20 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11.1),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-10),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.47),
+ bash (= 5.0-5),
+ binutils (= 2.34-3),
+ binutils-common (= 2.34-3),
+ binutils-x86-64-linux-gnu (= 2.34-3),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.8),
+ bzip2 (= 1.0.8-2),
+ clang-10 (= 1:10.0.0~+rc2-1),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3.1),
+ cpp-9 (= 9.2.1-29),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.9),
+ debianutils (= 4.9.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.6.3-2),
+ diffutils (= 1:3.7-3),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-5),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.38-4),
+ findutils (= 4.7.0-1),
+ g++ (= 4:9.2.1-3.1),
+ g++-9 (= 9.2.1-29),
+ gcc (= 4:9.2.1-3.1),
+ gcc-10-base (= 10-20200222-1),
+ gcc-9 (= 9.2.1-29),
+ gcc-9-base (= 9.2.1-29),
+ gettext (= 0.19.8.1-10),
+ gettext-base (= 0.19.8.1-10),
+ grep (= 3.4-1),
+ groff-base (= 1.22.4-4),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.23),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ lib32gcc-s1 (= 10-20200222-1),
+ lib32gcc1 (= 1:10-20200222-1),
+ lib32stdc++6 (= 10-20200222-1),
+ libacl1 (= 2.2.53-5),
+ libarchive-zip-perl (= 1.67-1),
+ libasan5 (= 9.2.1-29),
+ libatomic1 (= 10-20200222-1),
+ libattr1 (= 1:2.4.48-5),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2+b1),
+ libbinutils (= 2.34-3),
+ libblkid1 (= 2.34-0.1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.8-2),
+ libc-bin (= 2.29-10),
+ libc-dev-bin (= 2.29-10),
+ libc6 (= 2.29-10),
+ libc6-dev (= 2.29-10),
+ libc6-i386 (= 2.29-10),
+ libcap-ng0 (= 0.7.9-2.1+b1),
+ libcc1-0 (= 10-20200222-1),
+ libclang-common-10-dev (= 1:10.0.0~+rc2-1),
+ libclang-cpp10 (= 1:10.0.0~+rc2-1),
+ libclang1-10 (= 1:10.0.0~+rc2-1),
+ libcroco3 (= 0.6.13-1),
+ libcrypt-dev (= 1:4.4.10-10),
+ libcrypt1 (= 1:4.4.10-10),
+ libctf-nobfd0 (= 2.34-3),
+ libctf0 (= 2.34-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.251),
+ libdebhelper-perl (= 12.9),
+ libdpkg-perl (= 1.19.7),
+ libedit2 (= 3.1-20191231-1),
+ libelf1 (= 0.176-1.1),
+ libfdisk1 (= 2.34-0.1),
+ libffi7 (= 3.3-3),
+ libfile-stripnondeterminism-perl (= 1.6.3-2),
+ libgc1c2 (= 1:7.6.4-0.4),
+ libgcc-9-dev (= 9.2.1-29),
+ libgcc-s1 (= 10-20200222-1),
+ libgcc1 (= 1:10-20200222-1),
+ libgcrypt20 (= 1.8.5-5),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.62.4-2),
+ libgmp10 (= 2:6.2.0+dfsg-4),
+ libgomp1 (= 10-20200222-1),
+ libgpg-error0 (= 1.37-1),
+ libicu63 (= 63.2-2),
+ libisl22 (= 0.22.1-1),
+ libitm1 (= 10-20200222-1),
+ libllvm10 (= 1:10.0.0~+rc2-1),
+ liblsan0 (= 10-20200222-1),
+ liblz4-1 (= 1.9.2-2),
+ liblzma5 (= 5.2.4-1+b1),
+ libmagic-mgc (= 1:5.38-4),
+ libmagic1 (= 1:5.38-4),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libncurses-dev (= 6.1+20191019-1),
+ libncurses6 (= 6.1+20191019-1),
+ libncursesw6 (= 6.1+20191019-1),
+ libobjc-9-dev (= 9.2.1-29),
+ libobjc4 (= 10-20200222-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre2-8-0 (= 10.34-7),
+ libpcre3 (= 2:8.39-12+b1),
+ libperl5.30 (= 5.30.0-9),
+ libpipeline1 (= 1.5.2-2),
+ libquadmath0 (= 10-20200222-1),
+ libreadline-dev (= 8.0-3),
+ libreadline8 (= 8.0-3),
+ libseccomp2 (= 2.4.2-2),
+ libselinux1 (= 3.0-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.34-0.1),
+ libstdc++-9-dev (= 9.2.1-29),
+ libstdc++6 (= 10-20200222-1),
+ libsub-override-perl (= 0.09-2),
+ libsystemd0 (= 244.3-1),
+ libtcl8.6 (= 8.6.10+dfsg-1),
+ libtinfo6 (= 6.1+20191019-1),
+ libtool (= 2.4.6-13),
+ libtsan0 (= 10-20200222-1),
+ libubsan1 (= 10-20200222-1),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 244.3-1),
+ libunistring2 (= 0.9.10-2),
+ libuuid1 (= 2.34-0.1),
+ libxml2 (= 2.9.10+dfsg-3),
+ libz3-4 (= 4.8.7-4),
+ linux-libc-dev (= 5.4.19-1),
+ login (= 1:4.8.1-1),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-4),
+ make (= 4.2.1-1.2),
+ man-db (= 2.9.0-2),
+ mawk (= 1.3.4.20200120-2),
+ ncurses-base (= 6.1+20191019-1),
+ ncurses-bin (= 6.1+20191019-1),
+ patch (= 2.7.6-6),
+ perl (= 5.30.0-9),
+ perl-base (= 5.30.0-9),
+ perl-modules-5.30 (= 5.30.0-9),
+ po-debconf (= 1.0.21),
+ readline-common (= 8.0-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12+nmu1),
+ sysvinit-utils (= 2.96-2.1),
+ tar (= 1.30+dfsg-6+b1),
+ tcl8.6 (= 8.6.10+dfsg-1),
+ tcl8.6-dev (= 8.6.10+dfsg-1),
+ tzdata (= 2019c-3),
+ util-linux (= 2.34-0.1),
+ xz-utils (= 5.2.4-1+b1),
+ zlib1g (= 1:1.2.11.dfsg-2),
+ zlib1g-dev (= 1:1.2.11.dfsg-2)
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="C.UTF-8"
+ LC_ALL="C.UTF-8"
+ SOURCE_DATE_EPOCH="1534886362"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libsqlite-tcl-dbgsym_2.8.17-15_amd64.deb
+----------------------------------------
+
+ new Debian package, version 2.0.
+ size 12480 bytes: control archive=532 bytes.
+     359 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libsqlite-tcl-dbgsym
+ Source: sqlite
+ Version: 2.8.17-15
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 28
+ Depends: libsqlite-tcl (= 2.8.17-15)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for libsqlite-tcl
+ Build-Ids: 979db59bbe89996966e428fa16f69aefd9699a84
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/97/
+-rw-r--r-- root/root     17568 2018-08-21 21:19 ./usr/lib/debug/.build-id/97/9db59bbe89996966e428fa16f69aefd9699a84.debug
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/share/doc/libsqlite-tcl-dbgsym -> libsqlite-tcl
+
+
+libsqlite-tcl_2.8.17-15_amd64.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 12880 bytes: control archive=924 bytes.
+     710 bytes,    22 lines      control              
+     287 bytes,     4 lines      md5sums              
+      41 bytes,     1 lines      shlibs               
+      65 bytes,     2 lines      triggers             
+ Package: libsqlite-tcl
+ Source: sqlite
+ Version: 2.8.17-15
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 41
+ Depends: libc6 (>= 2.4), libsqlite0 (>= 2.8.17)
+ Suggests: sqlite-doc
+ Conflicts: libsqlite0-tcl
+ Replaces: libsqlite0-tcl
+ Section: interpreters
+ Priority: optional
+ Description: SQLite 2 Tcl bindings
+  SQLite is a C library that implements an SQL database engine.
+  Programs that link with the SQLite library can have SQL database
+  access without running a separate RDBMS process.
+  .
+  NOTE: This package is SQLite version 2. Most programs that use
+  SQLite use SQLite version 3. See the "libsqlite3-tcl" package for
+  that.
+  .
+  This package contains the Tcl bindings.
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/sqlite/
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/lib/sqlite/libtclsqlite.so.0 -> libtclsqlite.so.0.8.6
+-rw-r--r-- root/root     22648 2018-08-21 21:19 ./usr/lib/sqlite/libtclsqlite.so.0.8.6
+-rw-r--r-- root/root        82 2018-08-21 21:19 ./usr/lib/sqlite/pkgIndex.tcl
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/libsqlite-tcl/
+-rw-r--r-- root/root      4902 2018-08-21 21:19 ./usr/share/doc/libsqlite-tcl/changelog.Debian.gz
+-rw-r--r-- root/root       391 2013-10-18 13:14 ./usr/share/doc/libsqlite-tcl/copyright
+
+
+libsqlite0-dbgsym_2.8.17-15_amd64.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 300068 bytes: control archive=524 bytes.
+     351 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libsqlite0-dbgsym
+ Source: sqlite
+ Version: 2.8.17-15
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 326
+ Depends: libsqlite0 (= 2.8.17-15)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for libsqlite0
+ Build-Ids: 48dd976cd47b1e74624679beea636cfae5946a42
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/48/
+-rw-r--r-- root/root    323432 2018-08-21 21:19 ./usr/lib/debug/.build-id/48/dd976cd47b1e74624679beea636cfae5946a42.debug
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/share/doc/libsqlite0-dbgsym -> libsqlite0
+
+
+libsqlite0-dev_2.8.17-15_amd64.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 184820 bytes: control archive=908 bytes.
+     775 bytes,    23 lines      control              
+     433 bytes,     6 lines      md5sums              
+ Package: libsqlite0-dev
+ Source: sqlite
+ Version: 2.8.17-15
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 728
+ Depends: libsqlite0 (= 2.8.17-15), libc6-dev
+ Suggests: sqlite-doc
+ Conflicts: libsqlite-dev
+ Replaces: libsqlite-dev (<< 2.7.0)
+ Provides: libsqlite-dev
+ Section: libdevel
+ Priority: optional
+ Description: SQLite 2 development files
+  SQLite is a C library that implements an SQL database engine.
+  Programs that link with the SQLite library can have SQL database
+  access without running a separate RDBMS process.
+  .
+  NOTE: This package is SQLite version 2. Most programs that use
+  SQLite use SQLite version 3. See the "libsqlite3-dev" package for
+  that.
+  .
+  This package contains the development files (headers, static libraries)
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/include/
+-rw-r--r-- root/root     38778 2018-08-21 21:19 ./usr/include/sqlite.h
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/
+-rw-r--r-- root/root    686904 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/libsqlite.a
+-rw-r--r-- root/root       957 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/libsqlite.la
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/libsqlite.so -> libsqlite.so.0.8.6
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/pkgconfig/
+-rw-r--r-- root/root       248 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/pkgconfig/sqlite.pc
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/libsqlite0-dev/
+-rw-r--r-- root/root      4902 2018-08-21 21:19 ./usr/share/doc/libsqlite0-dev/changelog.Debian.gz
+-rw-r--r-- root/root       391 2013-10-18 13:14 ./usr/share/doc/libsqlite0-dev/copyright
+
+
+libsqlite0_2.8.17-15_amd64.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 164772 bytes: control archive=868 bytes.
+     560 bytes,    16 lines      control              
+     299 bytes,     4 lines      md5sums              
+      35 bytes,     1 lines      shlibs               
+      65 bytes,     2 lines      triggers             
+ Package: libsqlite0
+ Source: sqlite
+ Version: 2.8.17-15
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 410
+ Depends: libc6 (>= 2.28)
+ Section: libs
+ Priority: optional
+ Description: SQLite 2 shared library
+  SQLite is a C library that implements an SQL database engine.
+  Programs that link with the SQLite library can have SQL database
+  access without running a separate RDBMS process.
+  .
+  NOTE: This package is SQLite version 2. Most programs that use
+  SQLite use SQLite version 3. See the "libsqlite3-0" package for that.
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/libsqlite.so.0 -> libsqlite.so.0.8.6
+-rw-r--r-- root/root    400984 2018-08-21 21:19 ./usr/lib/x86_64-linux-gnu/libsqlite.so.0.8.6
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/libsqlite0/
+-rw-r--r-- root/root       717 2013-10-18 13:14 ./usr/share/doc/libsqlite0/README.Debian
+-rw-r--r-- root/root      4902 2018-08-21 21:19 ./usr/share/doc/libsqlite0/changelog.Debian.gz
+-rw-r--r-- root/root       391 2013-10-18 13:14 ./usr/share/doc/libsqlite0/copyright
+
+
+sqlite-dbgsym_2.8.17-15_amd64.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 15584 bytes: control archive=520 bytes.
+     338 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: sqlite-dbgsym
+ Source: sqlite
+ Version: 2.8.17-15
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 31
+ Depends: sqlite (= 2.8.17-15)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for sqlite
+ Build-Ids: ba4ce092afb89dd0cabaf05670a516ac00c7dc84
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/lib/debug/.build-id/ba/
+-rw-r--r-- root/root     21072 2018-08-21 21:19 ./usr/lib/debug/.build-id/ba/4ce092afb89dd0cabaf05670a516ac00c7dc84.debug
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-08-21 21:19 ./usr/share/doc/sqlite-dbgsym -> sqlite
+
+
+sqlite-doc_2.8.17-15_all.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 136332 bytes: control archive=1360 bytes.
+     641 bytes,    19 lines      control              
+    1769 bytes,    26 lines      md5sums              
+ Package: sqlite-doc
+ Source: sqlite
+ Version: 2.8.17-15
+ Architecture: all
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 699
+ Recommends: sqlite
+ Section: doc
+ Priority: optional
+ Description: SQLite 2 documentation
+  SQLite is a C library that implements an SQL database engine.
+  Programs that link with the SQLite library can have SQL database
+  access without running a separate RDBMS process.
+  .
+  NOTE: This package is SQLite version 2. Most programs that use
+  SQLite use SQLite version 3. See the "sqlite3-doc" package for that.
+  .
+  This package contains the documentation that is also available on
+  the SQLite homepage.
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc-base/
+-rw-r--r-- root/root       197 2018-04-23 16:51 ./usr/share/doc-base/sqlite-reference
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/sqlite-doc/
+-rw-r--r-- root/root      4902 2018-08-21 21:19 ./usr/share/doc/sqlite-doc/changelog.Debian.gz
+-rw-r--r-- root/root       391 2013-10-18 13:14 ./usr/share/doc/sqlite-doc/copyright
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/sqlite/
+-rw-r--r-- root/root      8398 2018-08-21 21:19 ./usr/share/doc/sqlite/arch.html
+-rw-r--r-- root/root      4447 2018-08-21 21:19 ./usr/share/doc/sqlite/arch.png
+-rw-r--r-- root/root      7196 2006-10-11 21:10 ./usr/share/doc/sqlite/arch2.gif
+-rw-r--r-- root/root     43878 2018-08-21 21:19 ./usr/share/doc/sqlite/c_interface.html
+-rw-r--r-- root/root     47968 2018-08-21 21:19 ./usr/share/doc/sqlite/changes.html
+-rw-r--r-- root/root      4027 2018-08-21 21:19 ./usr/share/doc/sqlite/conflict.html
+-rw-r--r-- root/root      9021 2018-08-21 21:19 ./usr/share/doc/sqlite/datatypes.html
+-rw-r--r-- root/root       510 2018-08-21 21:19 ./usr/share/doc/sqlite/download.html
+-rw-r--r-- root/root     20265 2018-08-21 21:19 ./usr/share/doc/sqlite/faq.html
+-rw-r--r-- root/root     30418 2018-08-21 21:19 ./usr/share/doc/sqlite/fileformat.html
+-rw-r--r-- root/root      8212 2018-08-21 21:19 ./usr/share/doc/sqlite/formatchng.html
+-rw-r--r-- root/root      7906 2018-08-21 21:19 ./usr/share/doc/sqlite/index.html
+-rw-r--r-- root/root    101256 2018-08-21 21:19 ./usr/share/doc/sqlite/lang.html
+-rw-r--r-- root/root     34694 2001-09-16 00:13 ./usr/share/doc/sqlite/lemon.html
+-rw-r--r-- root/root      3932 2018-08-21 21:19 ./usr/share/doc/sqlite/mingw.html
+-rw-r--r-- root/root     13483 2018-08-21 21:19 ./usr/share/doc/sqlite/nulls.html
+-rw-r--r-- root/root      3932 2018-08-21 21:19 ./usr/share/doc/sqlite/omitted.html
+-rw-r--r-- root/root     75358 2018-08-21 21:19 ./usr/share/doc/sqlite/opcode.html
+-rw-r--r-- root/root      3194 2018-08-21 21:19 ./usr/share/doc/sqlite/quickstart.html
+-rw-r--r-- root/root     19716 2018-08-21 21:19 ./usr/share/doc/sqlite/speed.html
+-rw-r--r-- root/root     25970 2018-08-21 21:19 ./usr/share/doc/sqlite/sqlite.html
+-rw-r--r-- root/root      8339 2018-08-21 21:19 ./usr/share/doc/sqlite/tclsqlite.html
+-rw-r--r-- root/root    207224 2018-08-21 21:19 ./usr/share/doc/sqlite/vdbe.html
+
+
+sqlite_2.8.17-15_amd64.deb
+--------------------------
+
+ new Debian package, version 2.0.
+ size 20424 bytes: control archive=828 bytes.
+     677 bytes,    17 lines      control              
+     323 bytes,     5 lines      md5sums              
+ Package: sqlite
+ Version: 2.8.17-15
+ Architecture: amd64
+ Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ Installed-Size: 55
+ Depends: libc6 (>= 2.14), libncurses6 (>= 6), libreadline8 (>= 6.0), libsqlite0 (>= 2.8.17), libtinfo6 (>= 6)
+ Recommends: sqlite3
+ Suggests: sqlite-doc
+ Section: database
+ Priority: optional
+ Description: command line interface for SQLite 2
+  SQLite is a C library that implements an SQL database engine.
+  Programs that link with the SQLite library can have SQL database
+  access without running a separate RDBMS process.
+  .
+  NOTE: This package is SQLite version 2. Most programs that use
+  SQLite use SQLite version 3. See the "sqlite3" package for that.
+
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/bin/
+-rwxr-xr-x root/root     36240 2018-08-21 21:19 ./usr/bin/sqlite
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/doc/sqlite/
+-rw-r--r-- root/root       717 2013-10-18 13:14 ./usr/share/doc/sqlite/README.Debian
+-rw-r--r-- root/root      4902 2018-08-21 21:19 ./usr/share/doc/sqlite/changelog.Debian.gz
+-rw-r--r-- root/root       391 2013-10-18 13:14 ./usr/share/doc/sqlite/copyright
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-08-21 21:19 ./usr/share/man/man1/
+-rw-r--r-- root/root      2812 2018-08-21 21:19 ./usr/share/man/man1/sqlite.1.gz
+
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Not cleaning session: cloned chroot in use
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 24068
+Build-Time: 49
+Distribution: unstable
+Host Architecture: amd64
+Install-Time: 43
+Job: sqlite_2.8.17-15
+Machine Architecture: amd64
+Package: sqlite
+Package-Time: 131
+Source-Version: 2.8.17-15
+Space: 24068
+Status: successful
+Version: 2.8.17-15
+--------------------------------------------------------------------------------
+Finished at 2020-02-25T04:35:20Z
+Build needed 00:02:11, 24068k disk space
+DC-Status: OK 133.220021537s
