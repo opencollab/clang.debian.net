@@ -1,0 +1,3093 @@
+DC-Build-Header: runc 1.0.0~rc10+dfsg1-1 / 2020-02-25 02:46:21 +0000
+DC-Task: type:rebuild-binarch-only source:runc version:1.0.0~rc10+dfsg1-1 chroot:unstable esttime:102 logfile:/tmp/runc_1.0.0~rc10+dfsg1-1_unstable_clang9.log modes:clang9:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang9 runc_1.0.0~rc10+dfsg1-1'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-6-46.eu-central-1.compute.internal
+
++==============================================================================+
+| runc 1.0.0~rc10+dfsg1-1 (amd64)              Tue, 25 Feb 2020 02:46:22 +0000 |
++==============================================================================+
+
+Package: runc
+Version: 1.0.0~rc10+dfsg1-1
+Source Version: 1.0.0~rc10+dfsg1-1
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-9f479e40-3e91-4ae7-b0e0-5cc1ffa940dc' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang9
+-----------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=9
++ echo 'Install of clang-9'
+Install of clang-9
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [142 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-0823.32.pdiff [11.0 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-1420.34.pdiff [30.2 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-0823.32.pdiff [15.5 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-1420.34.pdiff [27.5 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main Translation-en [6193 kB]
+Fetched 6514 kB in 2s (3235 kB/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-9 libomp-9-dev libobjc-9-dev
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-9-dev libclang-cpp9 libedit2 libgc1c2 libgcc-8-dev libllvm9
+  libmpx2 libobjc-8-dev libobjc4 libomp5-9 libstdc++-8-dev libz3-4
+Suggested packages:
+  clang-9-doc libomp-9-doc libstdc++-8-doc
+Recommended packages:
+  llvm-9-dev python3
+The following NEW packages will be installed:
+  clang-9 gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-9-dev libclang-cpp9 libedit2 libgc1c2 libgcc-8-dev libllvm9
+  libmpx2 libobjc-8-dev libobjc-9-dev libobjc4 libomp-9-dev libomp5-9
+  libstdc++-8-dev libz3-4
+0 upgraded, 21 newly installed, 0 to remove and 1 not upgraded.
+Need to get 43.9 MB of archives.
+After this operation, 237 MB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libbsd0 amd64 0.10.0-1 [107 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 libedit2 amd64 3.1-20191231-1 [95.4 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libz3-4 amd64 4.8.7-4 [6790 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 libllvm9 amd64 1:9.0.1-8 [15.0 MB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libclang-cpp9 amd64 1:9.0.1-8 [8429 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 gcc-8-base amd64 8.3.0-29 [194 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 libmpx2 amd64 8.3.0-29 [11.4 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libgcc-8-dev amd64 8.3.0-29 [2297 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libstdc++-8-dev amd64 8.3.0-29 [1543 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libgc1c2 amd64 1:7.6.4-0.4 [224 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 libobjc4 amd64 10-20200222-1 [41.6 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 libobjc-8-dev amd64 8.3.0-29 [227 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 libc6-i386 amd64 2.29-10 [2918 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc-s1 amd64 10-20200222-1 [49.4 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc1 amd64 1:10-20200222-1 [1104 B]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 lib32stdc++6 amd64 10-20200222-1 [510 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 libclang-common-9-dev amd64 1:9.0.1-8 [3727 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 clang-9 amd64 1:9.0.1-8 [1156 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 libobjc-9-dev amd64 9.2.1-29 [219 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libomp5-9 amd64 1:9.0.1-8 [333 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 libomp-9-dev amd64 1:9.0.1-8 [66.2 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 43.9 MB in 1s (67.5 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12119 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../01-libedit2_3.1-20191231-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191231-1) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../02-libz3-4_4.8.7-4_amd64.deb ...
+Unpacking libz3-4:amd64 (4.8.7-4) ...
+Selecting previously unselected package libllvm9:amd64.
+Preparing to unpack .../03-libllvm9_1%3a9.0.1-8_amd64.deb ...
+Unpacking libllvm9:amd64 (1:9.0.1-8) ...
+Selecting previously unselected package libclang-cpp9.
+Preparing to unpack .../04-libclang-cpp9_1%3a9.0.1-8_amd64.deb ...
+Unpacking libclang-cpp9 (1:9.0.1-8) ...
+Selecting previously unselected package gcc-8-base:amd64.
+Preparing to unpack .../05-gcc-8-base_8.3.0-29_amd64.deb ...
+Unpacking gcc-8-base:amd64 (8.3.0-29) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../06-libmpx2_8.3.0-29_amd64.deb ...
+Unpacking libmpx2:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgcc-8-dev:amd64.
+Preparing to unpack .../07-libgcc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libgcc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libstdc++-8-dev:amd64.
+Preparing to unpack .../08-libstdc++-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libstdc++-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../09-libgc1c2_1%3a7.6.4-0.4_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../10-libobjc4_10-20200222-1_amd64.deb ...
+Unpacking libobjc4:amd64 (10-20200222-1) ...
+Selecting previously unselected package libobjc-8-dev:amd64.
+Preparing to unpack .../11-libobjc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libobjc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../12-libc6-i386_2.29-10_amd64.deb ...
+Unpacking libc6-i386 (2.29-10) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../13-lib32gcc-s1_10-20200222-1_amd64.deb ...
+Unpacking lib32gcc-s1 (10-20200222-1) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../14-lib32gcc1_1%3a10-20200222-1_amd64.deb ...
+Unpacking lib32gcc1 (1:10-20200222-1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../15-lib32stdc++6_10-20200222-1_amd64.deb ...
+Unpacking lib32stdc++6 (10-20200222-1) ...
+Selecting previously unselected package libclang-common-9-dev.
+Preparing to unpack .../16-libclang-common-9-dev_1%3a9.0.1-8_amd64.deb ...
+Unpacking libclang-common-9-dev (1:9.0.1-8) ...
+Selecting previously unselected package clang-9.
+Preparing to unpack .../17-clang-9_1%3a9.0.1-8_amd64.deb ...
+Unpacking clang-9 (1:9.0.1-8) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../18-libobjc-9-dev_9.2.1-29_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.2.1-29) ...
+Selecting previously unselected package libomp5-9:amd64.
+Preparing to unpack .../19-libomp5-9_1%3a9.0.1-8_amd64.deb ...
+Unpacking libomp5-9:amd64 (1:9.0.1-8) ...
+Selecting previously unselected package libomp-9-dev.
+Preparing to unpack .../20-libomp-9-dev_1%3a9.0.1-8_amd64.deb ...
+Unpacking libomp-9-dev (1:9.0.1-8) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4) ...
+Setting up libobjc4:amd64 (10-20200222-1) ...
+Setting up libz3-4:amd64 (4.8.7-4) ...
+Setting up gcc-8-base:amd64 (8.3.0-29) ...
+Setting up libobjc-9-dev:amd64 (9.2.1-29) ...
+Setting up libmpx2:amd64 (8.3.0-29) ...
+Setting up libc6-i386 (2.29-10) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up libomp5-9:amd64 (1:9.0.1-8) ...
+Setting up libedit2:amd64 (3.1-20191231-1) ...
+Setting up lib32gcc-s1 (10-20200222-1) ...
+Setting up libgcc-8-dev:amd64 (8.3.0-29) ...
+Setting up libomp-9-dev (1:9.0.1-8) ...
+Setting up libllvm9:amd64 (1:9.0.1-8) ...
+Setting up libstdc++-8-dev:amd64 (8.3.0-29) ...
+Setting up libclang-cpp9 (1:9.0.1-8) ...
+Setting up lib32gcc1 (1:10-20200222-1) ...
+Setting up libobjc-8-dev:amd64 (8.3.0-29) ...
+Setting up lib32stdc++6 (10-20200222-1) ...
+Setting up libclang-common-9-dev (1:9.0.1-8) ...
+Setting up clang-9 (1:9.0.1-8) ...
+Processing triggers for libc-bin (2.29-10) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-9 g++-4.6
++ ln -s clang-9 gcc-4.6
++ ln -s clang-9 cpp-4.6
++ ln -s clang-9 gcc
++ dpkg --set-selections
++ echo 'gcc-4.6 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-9 g++-4.7
++ ln -s clang-9 gcc-4.7
++ ln -s clang-9 cpp-4.7
++ ln -s clang-9 gcc
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-9 g++-4.8
++ ln -s clang-9 gcc-4.8
++ ln -s clang-9 cpp-4.8
++ ln -s clang-9 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-9 g++-4.9
++ ln -s clang-9 gcc-4.9
++ ln -s clang-9 cpp-4.9
++ ln -s clang-9 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-9 g++-5
++ ln -s clang-9 gcc-5
++ ln -s clang-9 cpp-5
++ ln -s clang-9 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-9 g++-6
++ ln -s clang-9 gcc-6
++ ln -s clang-9 cpp-6
++ ln -s clang-9 gcc
++ echo 'gcc-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-9 g++-7
++ ln -s clang-9 gcc-7
++ ln -s clang-9 cpp-7
++ ln -s clang-9 gcc
++ echo 'gcc-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-9 g++-8
++ ln -s clang-9 gcc-8
++ ln -s clang-9 cpp-8
++ ln -s clang-9 gcc
++ echo 'gcc-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-9 g++-9
++ ln -s clang-9 gcc-9
++ ln -s clang-9 cpp-9
++ ln -s clang-9 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-9 g++-10
++ ln -s clang-9 gcc-10
++ ln -s clang-9 cpp-10
++ ln -s clang-9 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-10 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/runc-IbghBO
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ grep clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
+
+I: Finished running '/tmp/clang9'.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+I: NOTICE: Log filtering will replace 'build/runc-IbghBO/resolver-sSmyEt' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://127.0.0.1:12990/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libgmp10
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 253 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libgmp10 amd64 2:6.2.0+dfsg-4 [253 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 253 kB in 0s (4505 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13921 files and directories currently installed.)
+Preparing to unpack .../libgmp10_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp10:amd64 (2:6.2.0+dfsg-4) over (2:6.2.0+dfsg-3) ...
+Setting up libgmp10:amd64 (2:6.2.0+dfsg-4) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Check APT
+---------
+
+Checking available source versions...
+
+Download source files with APT
+------------------------------
+
+Reading package lists...
+NOTICE: 'runc' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/go-team/packages/runc.git
+Please use:
+git clone https://salsa.debian.org/go-team/packages/runc.git
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 250 kB of source archives.
+Get:1 http://127.0.0.1:12990/debian sid/main runc 1.0.0~rc10+dfsg1-1 (dsc) [2962 B]
+Get:2 http://127.0.0.1:12990/debian sid/main runc 1.0.0~rc10+dfsg1-1 (tar) [239 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main runc 1.0.0~rc10+dfsg1-1 (diff) [7984 B]
+Fetched 250 kB in 0s (2875 kB/s)
+Download complete and in download only mode
+I: NOTICE: Log filtering will replace 'build/runc-IbghBO/runc-1.0.0~rc10+dfsg1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/runc-IbghBO' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), dh-golang, go-md2man, golang-any, golang-dbus-dev, golang-github-checkpoint-restore-go-criu-dev, golang-github-containerd-console-dev, golang-github-coreos-go-systemd-dev (>= 20~), golang-github-cyphar-filepath-securejoin-dev, golang-github-docker-go-units-dev (>= 0.4.0~), golang-github-mrunalp-fileutils-dev, golang-github-opencontainers-selinux-dev (>= 1.3.0~), golang-github-opencontainers-specs-dev (>= 1.0.1-5~), golang-github-pkg-errors-dev, golang-github-seccomp-libseccomp-golang-dev (>= 0.9.1~), golang-github-sirupsen-logrus-dev (>= 1.0.2~), golang-github-urfave-cli-dev, golang-github-vishvananda-netlink-dev, golang-gocapability-dev (>= 0.0+git20180916~), golang-golang-x-tools, golang-goprotobuf-dev, libapparmor-dev, protobuf-compiler, build-essential, fakeroot
+Filtered Build-Depends: debhelper-compat (= 12), dh-golang, go-md2man, golang-any, golang-dbus-dev, golang-github-checkpoint-restore-go-criu-dev, golang-github-containerd-console-dev, golang-github-coreos-go-systemd-dev (>= 20~), golang-github-cyphar-filepath-securejoin-dev, golang-github-docker-go-units-dev (>= 0.4.0~), golang-github-mrunalp-fileutils-dev, golang-github-opencontainers-selinux-dev (>= 1.3.0~), golang-github-opencontainers-specs-dev (>= 1.0.1-5~), golang-github-pkg-errors-dev, golang-github-seccomp-libseccomp-golang-dev (>= 0.9.1~), golang-github-sirupsen-logrus-dev (>= 1.0.2~), golang-github-urfave-cli-dev, golang-github-vishvananda-netlink-dev, golang-gocapability-dev (>= 0.0+git20180916~), golang-golang-x-tools, golang-goprotobuf-dev, libapparmor-dev, protobuf-compiler, build-essential, fakeroot
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [654 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [738 B]
+Fetched 2355 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-golang dh-strip-nondeterminism dwz file gettext
+  gettext-base go-md2man golang-1.13-go golang-1.13-src golang-any
+  golang-dbus-dev golang-github-checkpoint-restore-go-criu-dev
+  golang-github-containerd-console-dev golang-github-coreos-go-systemd-dev
+  golang-github-coreos-pkg-dev golang-github-cpuguy83-go-md2man-dev
+  golang-github-cyphar-filepath-securejoin-dev
+  golang-github-davecgh-go-spew-dev golang-github-docker-go-units-dev
+  golang-github-kr-pretty-dev golang-github-kr-pty-dev
+  golang-github-kr-text-dev golang-github-mrunalp-fileutils-dev
+  golang-github-opencontainers-selinux-dev
+  golang-github-opencontainers-specs-dev golang-github-pkg-errors-dev
+  golang-github-pmezard-go-difflib-dev golang-github-russross-blackfriday-dev
+  golang-github-seccomp-libseccomp-golang-dev
+  golang-github-shurcool-sanitized-anchor-name-dev
+  golang-github-sirupsen-logrus-dev golang-github-stretchr-objx-dev
+  golang-github-stretchr-testify-dev golang-github-urfave-cli-dev
+  golang-github-vishvananda-netlink-dev golang-github-vishvananda-netns-dev
+  golang-github-xeipuuv-gojsonpointer-dev
+  golang-github-xeipuuv-gojsonreference-dev
+  golang-github-xeipuuv-gojsonschema-dev golang-go golang-gocapability-dev
+  golang-golang-x-crypto-dev golang-golang-x-net-dev golang-golang-x-sys-dev
+  golang-golang-x-text-dev golang-golang-x-tools golang-gopkg-check.v1-dev
+  golang-gopkg-yaml.v2-dev golang-goprotobuf-dev golang-src golang-yaml.v2-dev
+  groff-base intltool-debian libapparmor-dev libapparmor1 libarchive-zip-perl
+  libcroco3 libdebhelper-perl libelf1 libfile-stripnondeterminism-perl
+  libglib2.0-0 libicu63 libjs-jquery libjs-jquery-ui libmagic-mgc libmagic1
+  libpipeline1 libprotobuf-dev libprotobuf-lite17 libprotobuf17 libprotoc17
+  libseccomp-dev libsigsegv2 libsub-override-perl libsystemd-dev libtool
+  libuchardet0 libxml2 m4 man-db pkg-config po-debconf protobuf-compiler
+  sensible-utils zlib1g-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev bzr | brz
+  ca-certificates git mercurial subversion groff libjs-jquery-ui-docs seccomp
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx golang-doc libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs javascript-common libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-golang dh-strip-nondeterminism dwz file gettext
+  gettext-base go-md2man golang-1.13-go golang-1.13-src golang-any
+  golang-dbus-dev golang-github-checkpoint-restore-go-criu-dev
+  golang-github-containerd-console-dev golang-github-coreos-go-systemd-dev
+  golang-github-coreos-pkg-dev golang-github-cpuguy83-go-md2man-dev
+  golang-github-cyphar-filepath-securejoin-dev
+  golang-github-davecgh-go-spew-dev golang-github-docker-go-units-dev
+  golang-github-kr-pretty-dev golang-github-kr-pty-dev
+  golang-github-kr-text-dev golang-github-mrunalp-fileutils-dev
+  golang-github-opencontainers-selinux-dev
+  golang-github-opencontainers-specs-dev golang-github-pkg-errors-dev
+  golang-github-pmezard-go-difflib-dev golang-github-russross-blackfriday-dev
+  golang-github-seccomp-libseccomp-golang-dev
+  golang-github-shurcool-sanitized-anchor-name-dev
+  golang-github-sirupsen-logrus-dev golang-github-stretchr-objx-dev
+  golang-github-stretchr-testify-dev golang-github-urfave-cli-dev
+  golang-github-vishvananda-netlink-dev golang-github-vishvananda-netns-dev
+  golang-github-xeipuuv-gojsonpointer-dev
+  golang-github-xeipuuv-gojsonreference-dev
+  golang-github-xeipuuv-gojsonschema-dev golang-go golang-gocapability-dev
+  golang-golang-x-crypto-dev golang-golang-x-net-dev golang-golang-x-sys-dev
+  golang-golang-x-text-dev golang-golang-x-tools golang-gopkg-check.v1-dev
+  golang-gopkg-yaml.v2-dev golang-goprotobuf-dev golang-src golang-yaml.v2-dev
+  groff-base intltool-debian libapparmor-dev libapparmor1 libarchive-zip-perl
+  libcroco3 libdebhelper-perl libelf1 libfile-stripnondeterminism-perl
+  libglib2.0-0 libicu63 libjs-jquery libjs-jquery-ui libmagic-mgc libmagic1
+  libpipeline1 libprotobuf-dev libprotobuf-lite17 libprotobuf17 libprotoc17
+  libseccomp-dev libsigsegv2 libsub-override-perl libsystemd-dev libtool
+  libuchardet0 libxml2 m4 man-db pkg-config po-debconf protobuf-compiler
+  sbuild-build-depends-main-dummy sensible-utils zlib1g-dev
+0 upgraded, 93 newly installed, 0 to remove and 0 not upgraded.
+Need to get 129 MB of archives.
+After this operation, 646 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [1164 B]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libuchardet0 amd64 0.0.6-3 [64.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 groff-base amd64 1.22.4-4 [919 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libpipeline1 amd64 1.5.2-2 [33.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 man-db amd64 2.9.0-2 [1307 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 golang-github-davecgh-go-spew-dev all 1.1.1-2 [29.7 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 golang-github-pmezard-go-difflib-dev all 1.0.0-2 [12.0 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 golang-github-stretchr-objx-dev all 0.1.1+git20180825.ef50b0d-1 [23.4 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 golang-github-kr-pty-dev all 1.1.6-1 [10.6 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 golang-github-kr-text-dev all 0.1.0-1 [10.8 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 golang-github-kr-pretty-dev all 0.1.0-1 [10.2 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 golang-gopkg-check.v1-dev all 0.0+git20180628.788fd78-1 [31.6 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 golang-gopkg-yaml.v2-dev all 2.2.8-1 [60.7 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 golang-github-stretchr-testify-dev all 1.4.0+ds-1 [53.5 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 golang-golang-x-sys-dev all 0.0~git20200219.cb0a6d8-1 [270 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 golang-github-sirupsen-logrus-dev all 1.4.2-1 [41.2 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 sensible-utils all 0.0.12+nmu1 [16.0 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 libmagic-mgc amd64 1:5.38-4 [262 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libmagic1 amd64 1:5.38-4 [120 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 file amd64 1:5.38-4 [67.9 kB]
+Get:22 http://127.0.0.1:12990/debian sid/main amd64 gettext-base amd64 0.19.8.1-10 [123 kB]
+Get:23 http://127.0.0.1:12990/debian sid/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:24 http://127.0.0.1:12990/debian sid/main amd64 m4 amd64 1.4.18-4 [203 kB]
+Get:25 http://127.0.0.1:12990/debian sid/main amd64 autoconf all 2.69-11.1 [341 kB]
+Get:26 http://127.0.0.1:12990/debian sid/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:27 http://127.0.0.1:12990/debian sid/main amd64 automake all 1:1.16.1-4 [771 kB]
+Get:28 http://127.0.0.1:12990/debian sid/main amd64 autopoint all 0.19.8.1-10 [435 kB]
+Get:29 http://127.0.0.1:12990/debian sid/main amd64 libtool all 2.4.6-13 [513 kB]
+Get:30 http://127.0.0.1:12990/debian sid/main amd64 dh-autoreconf all 19 [16.9 kB]
+Get:31 http://127.0.0.1:12990/debian sid/main amd64 libdebhelper-perl all 12.9 [183 kB]
+Get:32 http://127.0.0.1:12990/debian sid/main amd64 libarchive-zip-perl all 1.67-1 [104 kB]
+Get:33 http://127.0.0.1:12990/debian sid/main amd64 libsub-override-perl all 0.09-2 [10.2 kB]
+Get:34 http://127.0.0.1:12990/debian sid/main amd64 libfile-stripnondeterminism-perl all 1.6.3-2 [23.7 kB]
+Get:35 http://127.0.0.1:12990/debian sid/main amd64 dh-strip-nondeterminism all 1.6.3-2 [14.7 kB]
+Get:36 http://127.0.0.1:12990/debian sid/main amd64 libelf1 amd64 0.176-1.1 [161 kB]
+Get:37 http://127.0.0.1:12990/debian sid/main amd64 dwz amd64 0.13-5 [151 kB]
+Get:38 http://127.0.0.1:12990/debian sid/main amd64 libglib2.0-0 amd64 2.62.4-2 [1319 kB]
+Get:39 http://127.0.0.1:12990/debian sid/main amd64 libicu63 amd64 63.2-2 [8301 kB]
+Get:40 http://127.0.0.1:12990/debian sid/main amd64 libxml2 amd64 2.9.10+dfsg-3 [709 kB]
+Get:41 http://127.0.0.1:12990/debian sid/main amd64 libcroco3 amd64 0.6.13-1 [146 kB]
+Get:42 http://127.0.0.1:12990/debian sid/main amd64 gettext amd64 0.19.8.1-10 [1303 kB]
+Get:43 http://127.0.0.1:12990/debian sid/main amd64 intltool-debian all 0.35.0+20060710.5 [26.8 kB]
+Get:44 http://127.0.0.1:12990/debian sid/main amd64 po-debconf all 1.0.21 [248 kB]
+Get:45 http://127.0.0.1:12990/debian sid/main amd64 debhelper all 12.9 [994 kB]
+Get:46 http://127.0.0.1:12990/debian sid/main amd64 dh-golang all 1.46 [23.2 kB]
+Get:47 http://127.0.0.1:12990/debian sid/main amd64 go-md2man amd64 1.0.10+ds-1 [656 kB]
+Get:48 http://127.0.0.1:12990/debian sid/main amd64 golang-1.13-src amd64 1.13.8-1 [12.7 MB]
+Get:49 http://127.0.0.1:12990/debian sid/main amd64 golang-1.13-go amd64 1.13.8-1 [47.6 MB]
+Get:50 http://127.0.0.1:12990/debian sid/main amd64 golang-src amd64 2:1.13~1 [4572 B]
+Get:51 http://127.0.0.1:12990/debian sid/main amd64 golang-go amd64 2:1.13~1 [23.7 kB]
+Get:52 http://127.0.0.1:12990/debian sid/main amd64 golang-any amd64 2:1.13~1 [4692 B]
+Get:53 http://127.0.0.1:12990/debian sid/main amd64 golang-dbus-dev all 5.0.3-1 [55.6 kB]
+Get:54 http://127.0.0.1:12990/debian sid/main amd64 golang-github-checkpoint-restore-go-criu-dev all 3.11-2 [20.7 kB]
+Get:55 http://127.0.0.1:12990/debian sid/main amd64 golang-github-containerd-console-dev all 0.0~git20170925.84eeaae-1 [8812 B]
+Get:56 http://127.0.0.1:12990/debian sid/main amd64 golang-golang-x-text-dev all 0.3.2-3 [3642 kB]
+Get:57 http://127.0.0.1:12990/debian sid/main amd64 golang-golang-x-net-dev all 1:0.0+git20200219.4628272+dfsg-1 [640 kB]
+Get:58 http://127.0.0.1:12990/debian sid/main amd64 golang-golang-x-crypto-dev all 1:0.0~git20190701.4def268-2 [1505 kB]
+Get:59 http://127.0.0.1:12990/debian sid/main amd64 golang-yaml.v2-dev all 2.2.2-1 [3968 B]
+Get:60 http://127.0.0.1:12990/debian sid/main amd64 golang-github-coreos-pkg-dev all 4-2 [25.1 kB]
+Get:61 http://127.0.0.1:12990/debian sid/main amd64 libsystemd-dev amd64 244.3-1 [334 kB]
+Get:62 http://127.0.0.1:12990/debian sid/main amd64 pkg-config amd64 0.29-6 [63.5 kB]
+Get:63 http://127.0.0.1:12990/debian sid/main amd64 golang-github-coreos-go-systemd-dev all 22.0.0-1 [51.7 kB]
+Get:64 http://127.0.0.1:12990/debian sid/main amd64 golang-github-shurcool-sanitized-anchor-name-dev all 1.0.0-1 [3872 B]
+Get:65 http://127.0.0.1:12990/debian sid/main amd64 golang-github-russross-blackfriday-dev all 1.5.2+git20190616.a925a15-1 [64.4 kB]
+Get:66 http://127.0.0.1:12990/debian sid/main amd64 golang-github-cpuguy83-go-md2man-dev all 1.0.10+ds-1 [6852 B]
+Get:67 http://127.0.0.1:12990/debian sid/main amd64 golang-github-pkg-errors-dev all 0.8.1-1 [11.2 kB]
+Get:68 http://127.0.0.1:12990/debian sid/main amd64 golang-github-cyphar-filepath-securejoin-dev all 0.2.2-1 [7196 B]
+Get:69 http://127.0.0.1:12990/debian sid/main amd64 golang-github-docker-go-units-dev all 0.4.0-3 [7720 B]
+Get:70 http://127.0.0.1:12990/debian sid/main amd64 golang-github-mrunalp-fileutils-dev all 0.0~git20160930.0.4ee1cc9-1 [3958 B]
+Get:71 http://127.0.0.1:12990/debian sid/main amd64 golang-github-xeipuuv-gojsonpointer-dev all 0.0~git20151027.0.e0fe6f6-2 [4620 B]
+Get:72 http://127.0.0.1:12990/debian sid/main amd64 golang-github-xeipuuv-gojsonreference-dev all 0.0~git20150808.0.e02fc20-2 [4592 B]
+Get:73 http://127.0.0.1:12990/debian sid/main amd64 golang-github-xeipuuv-gojsonschema-dev all 0.0~git20170210.0.6b67b3f-2 [25.3 kB]
+Get:74 http://127.0.0.1:12990/debian sid/main amd64 golang-github-opencontainers-specs-dev all 1.0.1+git20190408.a1b50f6-1 [27.7 kB]
+Get:75 http://127.0.0.1:12990/debian sid/main amd64 libseccomp-dev amd64 2.4.2-2 [72.4 kB]
+Get:76 http://127.0.0.1:12990/debian sid/main amd64 golang-github-seccomp-libseccomp-golang-dev all 0.9.1-1 [16.1 kB]
+Get:77 http://127.0.0.1:12990/debian sid/main amd64 golang-github-urfave-cli-dev all 1.22.2-4 [45.1 kB]
+Get:78 http://127.0.0.1:12990/debian sid/main amd64 golang-github-vishvananda-netns-dev all 0.0~git20170707.0.86bef33-1 [5646 B]
+Get:79 http://127.0.0.1:12990/debian sid/main amd64 golang-github-vishvananda-netlink-dev all 1.1.0-1 [116 kB]
+Get:80 http://127.0.0.1:12990/debian sid/main amd64 golang-gocapability-dev all 0.0+git20180916.d983527-1 [11.8 kB]
+Get:81 http://127.0.0.1:12990/debian sid/main amd64 libjs-jquery all 3.3.1~dfsg-3 [332 kB]
+Get:82 http://127.0.0.1:12990/debian sid/main amd64 libjs-jquery-ui all 1.12.1+dfsg-5 [232 kB]
+Get:83 http://127.0.0.1:12990/debian sid/main amd64 golang-golang-x-tools amd64 1:0.0~git20191118.07fc4c7+ds-1 [35.9 MB]
+Get:84 http://127.0.0.1:12990/debian sid/main amd64 zlib1g-dev amd64 1:1.2.11.dfsg-1.2 [209 kB]
+Get:85 http://127.0.0.1:12990/debian sid/main amd64 libprotobuf17 amd64 3.6.1.3-2+b2 [840 kB]
+Get:86 http://127.0.0.1:12990/debian sid/main amd64 libprotobuf-lite17 amd64 3.6.1.3-2+b2 [169 kB]
+Get:87 http://127.0.0.1:12990/debian sid/main amd64 libprotobuf-dev amd64 3.6.1.3-2+b2 [1152 kB]
+Get:88 http://127.0.0.1:12990/debian sid/main amd64 libprotoc17 amd64 3.6.1.3-2+b2 [686 kB]
+Get:89 http://127.0.0.1:12990/debian sid/main amd64 protobuf-compiler amd64 3.6.1.3-2+b2 [65.1 kB]
+Get:90 http://127.0.0.1:12990/debian sid/main amd64 golang-goprotobuf-dev amd64 1.3.2-2 [1628 kB]
+Get:91 http://127.0.0.1:12990/debian sid/main amd64 libapparmor1 amd64 2.13.3-7 [96.8 kB]
+Get:92 http://127.0.0.1:12990/debian sid/main amd64 libapparmor-dev amd64 2.13.3-7 [138 kB]
+Get:93 http://127.0.0.1:12990/debian sid/main amd64 golang-github-opencontainers-selinux-dev all 1.3.1-1 [13.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 129 MB in 2s (66.9 MB/s)
+Selecting previously unselected package bsdmainutils.
+(Reading database ... 13921 files and directories currently installed.)
+Preparing to unpack .../00-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../01-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../02-groff-base_1.22.4-4_amd64.deb ...
+Unpacking groff-base (1.22.4-4) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../03-libpipeline1_1.5.2-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.2-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../04-man-db_2.9.0-2_amd64.deb ...
+Unpacking man-db (2.9.0-2) ...
+Selecting previously unselected package golang-github-davecgh-go-spew-dev.
+Preparing to unpack .../05-golang-github-davecgh-go-spew-dev_1.1.1-2_all.deb ...
+Unpacking golang-github-davecgh-go-spew-dev (1.1.1-2) ...
+Selecting previously unselected package golang-github-pmezard-go-difflib-dev.
+Preparing to unpack .../06-golang-github-pmezard-go-difflib-dev_1.0.0-2_all.deb ...
+Unpacking golang-github-pmezard-go-difflib-dev (1.0.0-2) ...
+Selecting previously unselected package golang-github-stretchr-objx-dev.
+Preparing to unpack .../07-golang-github-stretchr-objx-dev_0.1.1+git20180825.ef50b0d-1_all.deb ...
+Unpacking golang-github-stretchr-objx-dev (0.1.1+git20180825.ef50b0d-1) ...
+Selecting previously unselected package golang-github-kr-pty-dev.
+Preparing to unpack .../08-golang-github-kr-pty-dev_1.1.6-1_all.deb ...
+Unpacking golang-github-kr-pty-dev (1.1.6-1) ...
+Selecting previously unselected package golang-github-kr-text-dev.
+Preparing to unpack .../09-golang-github-kr-text-dev_0.1.0-1_all.deb ...
+Unpacking golang-github-kr-text-dev (0.1.0-1) ...
+Selecting previously unselected package golang-github-kr-pretty-dev.
+Preparing to unpack .../10-golang-github-kr-pretty-dev_0.1.0-1_all.deb ...
+Unpacking golang-github-kr-pretty-dev (0.1.0-1) ...
+Selecting previously unselected package golang-gopkg-check.v1-dev.
+Preparing to unpack .../11-golang-gopkg-check.v1-dev_0.0+git20180628.788fd78-1_all.deb ...
+Unpacking golang-gopkg-check.v1-dev (0.0+git20180628.788fd78-1) ...
+Selecting previously unselected package golang-gopkg-yaml.v2-dev.
+Preparing to unpack .../12-golang-gopkg-yaml.v2-dev_2.2.8-1_all.deb ...
+Unpacking golang-gopkg-yaml.v2-dev (2.2.8-1) ...
+Selecting previously unselected package golang-github-stretchr-testify-dev.
+Preparing to unpack .../13-golang-github-stretchr-testify-dev_1.4.0+ds-1_all.deb ...
+Unpacking golang-github-stretchr-testify-dev (1.4.0+ds-1) ...
+Selecting previously unselected package golang-golang-x-sys-dev.
+Preparing to unpack .../14-golang-golang-x-sys-dev_0.0~git20200219.cb0a6d8-1_all.deb ...
+Unpacking golang-golang-x-sys-dev (0.0~git20200219.cb0a6d8-1) ...
+Selecting previously unselected package golang-github-sirupsen-logrus-dev.
+Preparing to unpack .../15-golang-github-sirupsen-logrus-dev_1.4.2-1_all.deb ...
+Unpacking golang-github-sirupsen-logrus-dev (1.4.2-1) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../16-sensible-utils_0.0.12+nmu1_all.deb ...
+Unpacking sensible-utils (0.0.12+nmu1) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../17-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../18-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../19-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../20-gettext-base_0.19.8.1-10_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-10) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../21-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../22-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../23-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../24-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../25-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../26-autopoint_0.19.8.1-10_all.deb ...
+Unpacking autopoint (0.19.8.1-10) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../27-libtool_2.4.6-13_all.deb ...
+Unpacking libtool (2.4.6-13) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../28-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libdebhelper-perl.
+Preparing to unpack .../29-libdebhelper-perl_12.9_all.deb ...
+Unpacking libdebhelper-perl (12.9) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../30-libarchive-zip-perl_1.67-1_all.deb ...
+Unpacking libarchive-zip-perl (1.67-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../31-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../32-libfile-stripnondeterminism-perl_1.6.3-2_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.6.3-2) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../33-dh-strip-nondeterminism_1.6.3-2_all.deb ...
+Unpacking dh-strip-nondeterminism (1.6.3-2) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../34-libelf1_0.176-1.1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../35-dwz_0.13-5_amd64.deb ...
+Unpacking dwz (0.13-5) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../36-libglib2.0-0_2.62.4-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.62.4-2) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../37-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../38-libxml2_2.9.10+dfsg-3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-3) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../39-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../40-gettext_0.19.8.1-10_amd64.deb ...
+Unpacking gettext (0.19.8.1-10) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../41-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../42-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../43-debhelper_12.9_all.deb ...
+Unpacking debhelper (12.9) ...
+Selecting previously unselected package dh-golang.
+Preparing to unpack .../44-dh-golang_1.46_all.deb ...
+Unpacking dh-golang (1.46) ...
+Selecting previously unselected package go-md2man.
+Preparing to unpack .../45-go-md2man_1.0.10+ds-1_amd64.deb ...
+Unpacking go-md2man (1.0.10+ds-1) ...
+Selecting previously unselected package golang-1.13-src.
+Preparing to unpack .../46-golang-1.13-src_1.13.8-1_amd64.deb ...
+Unpacking golang-1.13-src (1.13.8-1) ...
+Selecting previously unselected package golang-1.13-go.
+Preparing to unpack .../47-golang-1.13-go_1.13.8-1_amd64.deb ...
+Unpacking golang-1.13-go (1.13.8-1) ...
+Selecting previously unselected package golang-src.
+Preparing to unpack .../48-golang-src_2%3a1.13~1_amd64.deb ...
+Unpacking golang-src (2:1.13~1) ...
+Selecting previously unselected package golang-go.
+Preparing to unpack .../49-golang-go_2%3a1.13~1_amd64.deb ...
+Unpacking golang-go (2:1.13~1) ...
+Selecting previously unselected package golang-any.
+Preparing to unpack .../50-golang-any_2%3a1.13~1_amd64.deb ...
+Unpacking golang-any (2:1.13~1) ...
+Selecting previously unselected package golang-dbus-dev.
+Preparing to unpack .../51-golang-dbus-dev_5.0.3-1_all.deb ...
+Unpacking golang-dbus-dev (5.0.3-1) ...
+Selecting previously unselected package golang-github-checkpoint-restore-go-criu-dev.
+Preparing to unpack .../52-golang-github-checkpoint-restore-go-criu-dev_3.11-2_all.deb ...
+Unpacking golang-github-checkpoint-restore-go-criu-dev (3.11-2) ...
+Selecting previously unselected package golang-github-containerd-console-dev.
+Preparing to unpack .../53-golang-github-containerd-console-dev_0.0~git20170925.84eeaae-1_all.deb ...
+Unpacking golang-github-containerd-console-dev (0.0~git20170925.84eeaae-1) ...
+Selecting previously unselected package golang-golang-x-text-dev.
+Preparing to unpack .../54-golang-golang-x-text-dev_0.3.2-3_all.deb ...
+Unpacking golang-golang-x-text-dev (0.3.2-3) ...
+Selecting previously unselected package golang-golang-x-net-dev.
+Preparing to unpack .../55-golang-golang-x-net-dev_1%3a0.0+git20200219.4628272+dfsg-1_all.deb ...
+Unpacking golang-golang-x-net-dev (1:0.0+git20200219.4628272+dfsg-1) ...
+Selecting previously unselected package golang-golang-x-crypto-dev.
+Preparing to unpack .../56-golang-golang-x-crypto-dev_1%3a0.0~git20190701.4def268-2_all.deb ...
+Unpacking golang-golang-x-crypto-dev (1:0.0~git20190701.4def268-2) ...
+Selecting previously unselected package golang-yaml.v2-dev.
+Preparing to unpack .../57-golang-yaml.v2-dev_2.2.2-1_all.deb ...
+Unpacking golang-yaml.v2-dev (2.2.2-1) ...
+Selecting previously unselected package golang-github-coreos-pkg-dev.
+Preparing to unpack .../58-golang-github-coreos-pkg-dev_4-2_all.deb ...
+Unpacking golang-github-coreos-pkg-dev (4-2) ...
+Selecting previously unselected package libsystemd-dev:amd64.
+Preparing to unpack .../59-libsystemd-dev_244.3-1_amd64.deb ...
+Unpacking libsystemd-dev:amd64 (244.3-1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../60-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package golang-github-coreos-go-systemd-dev.
+Preparing to unpack .../61-golang-github-coreos-go-systemd-dev_22.0.0-1_all.deb ...
+Unpacking golang-github-coreos-go-systemd-dev (22.0.0-1) ...
+Selecting previously unselected package golang-github-shurcool-sanitized-anchor-name-dev.
+Preparing to unpack .../62-golang-github-shurcool-sanitized-anchor-name-dev_1.0.0-1_all.deb ...
+Unpacking golang-github-shurcool-sanitized-anchor-name-dev (1.0.0-1) ...
+Selecting previously unselected package golang-github-russross-blackfriday-dev.
+Preparing to unpack .../63-golang-github-russross-blackfriday-dev_1.5.2+git20190616.a925a15-1_all.deb ...
+Unpacking golang-github-russross-blackfriday-dev (1.5.2+git20190616.a925a15-1) ...
+Selecting previously unselected package golang-github-cpuguy83-go-md2man-dev.
+Preparing to unpack .../64-golang-github-cpuguy83-go-md2man-dev_1.0.10+ds-1_all.deb ...
+Unpacking golang-github-cpuguy83-go-md2man-dev (1.0.10+ds-1) ...
+Selecting previously unselected package golang-github-pkg-errors-dev.
+Preparing to unpack .../65-golang-github-pkg-errors-dev_0.8.1-1_all.deb ...
+Unpacking golang-github-pkg-errors-dev (0.8.1-1) ...
+Selecting previously unselected package golang-github-cyphar-filepath-securejoin-dev.
+Preparing to unpack .../66-golang-github-cyphar-filepath-securejoin-dev_0.2.2-1_all.deb ...
+Unpacking golang-github-cyphar-filepath-securejoin-dev (0.2.2-1) ...
+Selecting previously unselected package golang-github-docker-go-units-dev.
+Preparing to unpack .../67-golang-github-docker-go-units-dev_0.4.0-3_all.deb ...
+Unpacking golang-github-docker-go-units-dev (0.4.0-3) ...
+Selecting previously unselected package golang-github-mrunalp-fileutils-dev.
+Preparing to unpack .../68-golang-github-mrunalp-fileutils-dev_0.0~git20160930.0.4ee1cc9-1_all.deb ...
+Unpacking golang-github-mrunalp-fileutils-dev (0.0~git20160930.0.4ee1cc9-1) ...
+Selecting previously unselected package golang-github-xeipuuv-gojsonpointer-dev.
+Preparing to unpack .../69-golang-github-xeipuuv-gojsonpointer-dev_0.0~git20151027.0.e0fe6f6-2_all.deb ...
+Unpacking golang-github-xeipuuv-gojsonpointer-dev (0.0~git20151027.0.e0fe6f6-2) ...
+Selecting previously unselected package golang-github-xeipuuv-gojsonreference-dev.
+Preparing to unpack .../70-golang-github-xeipuuv-gojsonreference-dev_0.0~git20150808.0.e02fc20-2_all.deb ...
+Unpacking golang-github-xeipuuv-gojsonreference-dev (0.0~git20150808.0.e02fc20-2) ...
+Selecting previously unselected package golang-github-xeipuuv-gojsonschema-dev.
+Preparing to unpack .../71-golang-github-xeipuuv-gojsonschema-dev_0.0~git20170210.0.6b67b3f-2_all.deb ...
+Unpacking golang-github-xeipuuv-gojsonschema-dev (0.0~git20170210.0.6b67b3f-2) ...
+Selecting previously unselected package golang-github-opencontainers-specs-dev.
+Preparing to unpack .../72-golang-github-opencontainers-specs-dev_1.0.1+git20190408.a1b50f6-1_all.deb ...
+Unpacking golang-github-opencontainers-specs-dev (1.0.1+git20190408.a1b50f6-1) ...
+Selecting previously unselected package libseccomp-dev:amd64.
+Preparing to unpack .../73-libseccomp-dev_2.4.2-2_amd64.deb ...
+Unpacking libseccomp-dev:amd64 (2.4.2-2) ...
+Selecting previously unselected package golang-github-seccomp-libseccomp-golang-dev.
+Preparing to unpack .../74-golang-github-seccomp-libseccomp-golang-dev_0.9.1-1_all.deb ...
+Unpacking golang-github-seccomp-libseccomp-golang-dev (0.9.1-1) ...
+Selecting previously unselected package golang-github-urfave-cli-dev.
+Preparing to unpack .../75-golang-github-urfave-cli-dev_1.22.2-4_all.deb ...
+Unpacking golang-github-urfave-cli-dev (1.22.2-4) ...
+Selecting previously unselected package golang-github-vishvananda-netns-dev.
+Preparing to unpack .../76-golang-github-vishvananda-netns-dev_0.0~git20170707.0.86bef33-1_all.deb ...
+Unpacking golang-github-vishvananda-netns-dev (0.0~git20170707.0.86bef33-1) ...
+Selecting previously unselected package golang-github-vishvananda-netlink-dev.
+Preparing to unpack .../77-golang-github-vishvananda-netlink-dev_1.1.0-1_all.deb ...
+Unpacking golang-github-vishvananda-netlink-dev (1.1.0-1) ...
+Selecting previously unselected package golang-gocapability-dev.
+Preparing to unpack .../78-golang-gocapability-dev_0.0+git20180916.d983527-1_all.deb ...
+Unpacking golang-gocapability-dev (0.0+git20180916.d983527-1) ...
+Selecting previously unselected package libjs-jquery.
+Preparing to unpack .../79-libjs-jquery_3.3.1~dfsg-3_all.deb ...
+Unpacking libjs-jquery (3.3.1~dfsg-3) ...
+Selecting previously unselected package libjs-jquery-ui.
+Preparing to unpack .../80-libjs-jquery-ui_1.12.1+dfsg-5_all.deb ...
+Unpacking libjs-jquery-ui (1.12.1+dfsg-5) ...
+Selecting previously unselected package golang-golang-x-tools.
+Preparing to unpack .../81-golang-golang-x-tools_1%3a0.0~git20191118.07fc4c7+ds-1_amd64.deb ...
+Unpacking golang-golang-x-tools (1:0.0~git20191118.07fc4c7+ds-1) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../82-zlib1g-dev_1%3a1.2.11.dfsg-1.2_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-1.2) ...
+Selecting previously unselected package libprotobuf17:amd64.
+Preparing to unpack .../83-libprotobuf17_3.6.1.3-2+b2_amd64.deb ...
+Unpacking libprotobuf17:amd64 (3.6.1.3-2+b2) ...
+Selecting previously unselected package libprotobuf-lite17:amd64.
+Preparing to unpack .../84-libprotobuf-lite17_3.6.1.3-2+b2_amd64.deb ...
+Unpacking libprotobuf-lite17:amd64 (3.6.1.3-2+b2) ...
+Selecting previously unselected package libprotobuf-dev:amd64.
+Preparing to unpack .../85-libprotobuf-dev_3.6.1.3-2+b2_amd64.deb ...
+Unpacking libprotobuf-dev:amd64 (3.6.1.3-2+b2) ...
+Selecting previously unselected package libprotoc17:amd64.
+Preparing to unpack .../86-libprotoc17_3.6.1.3-2+b2_amd64.deb ...
+Unpacking libprotoc17:amd64 (3.6.1.3-2+b2) ...
+Selecting previously unselected package protobuf-compiler.
+Preparing to unpack .../87-protobuf-compiler_3.6.1.3-2+b2_amd64.deb ...
+Unpacking protobuf-compiler (3.6.1.3-2+b2) ...
+Selecting previously unselected package golang-goprotobuf-dev.
+Preparing to unpack .../88-golang-goprotobuf-dev_1.3.2-2_amd64.deb ...
+Unpacking golang-goprotobuf-dev (1.3.2-2) ...
+Selecting previously unselected package libapparmor1:amd64.
+Preparing to unpack .../89-libapparmor1_2.13.3-7_amd64.deb ...
+Unpacking libapparmor1:amd64 (2.13.3-7) ...
+Selecting previously unselected package libapparmor-dev:amd64.
+Preparing to unpack .../90-libapparmor-dev_2.13.3-7_amd64.deb ...
+Unpacking libapparmor-dev:amd64 (2.13.3-7) ...
+Selecting previously unselected package golang-github-opencontainers-selinux-dev.
+Preparing to unpack .../91-golang-github-opencontainers-selinux-dev_1.3.1-1_all.deb ...
+Unpacking golang-github-opencontainers-selinux-dev (1.3.1-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy.
+Preparing to unpack .../92-sbuild-build-depends-main-dummy_0.invalid.0_amd64.deb ...
+Unpacking sbuild-build-depends-main-dummy (0.invalid.0) ...
+Setting up golang-github-xeipuuv-gojsonpointer-dev (0.0~git20151027.0.e0fe6f6-2) ...
+Setting up libpipeline1:amd64 (1.5.2-2) ...
+Setting up golang-1.13-src (1.13.8-1) ...
+Setting up libseccomp-dev:amd64 (2.4.2-2) ...
+Setting up libapparmor1:amd64 (2.13.3-7) ...
+Setting up golang-dbus-dev (5.0.3-1) ...
+Setting up golang-github-shurcool-sanitized-anchor-name-dev (1.0.0-1) ...
+Setting up golang-github-stretchr-objx-dev (0.1.1+git20180825.ef50b0d-1) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up golang-github-pkg-errors-dev (0.8.1-1) ...
+Setting up libarchive-zip-perl (1.67-1) ...
+Setting up libglib2.0-0:amd64 (2.62.4-2) ...
+No schema files found: doing nothing.
+Setting up libprotobuf-lite17:amd64 (3.6.1.3-2+b2) ...
+Setting up libdebhelper-perl (12.9) ...
+Setting up golang-github-docker-go-units-dev (0.4.0-3) ...
+Setting up golang-golang-x-sys-dev (0.0~git20200219.cb0a6d8-1) ...
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up golang-github-pmezard-go-difflib-dev (1.0.0-2) ...
+Setting up gettext-base (0.19.8.1-10) ...
+Setting up golang-github-russross-blackfriday-dev (1.5.2+git20190616.a925a15-1) ...
+Setting up file (1:5.38-4) ...
+Setting up golang-github-seccomp-libseccomp-golang-dev (0.9.1-1) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up golang-github-davecgh-go-spew-dev (1.1.1-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up golang-github-xeipuuv-gojsonreference-dev (0.0~git20150808.0.e02fc20-2) ...
+Setting up golang-github-mrunalp-fileutils-dev (0.0~git20160930.0.4ee1cc9-1) ...
+Setting up autopoint (0.19.8.1-10) ...
+Setting up golang-github-kr-pty-dev (1.1.6-1) ...
+Setting up golang-github-opencontainers-selinux-dev (1.3.1-1) ...
+Setting up pkg-config (0.29-6) ...
+Setting up golang-github-vishvananda-netns-dev (0.0~git20170707.0.86bef33-1) ...
+Setting up golang-1.13-go (1.13.8-1) ...
+Setting up golang-gocapability-dev (0.0+git20180916.d983527-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-1.2) ...
+Setting up golang-github-containerd-console-dev (0.0~git20170925.84eeaae-1) ...
+Setting up sensible-utils (0.0.12+nmu1) ...
+Setting up golang-golang-x-text-dev (0.3.2-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up golang-github-vishvananda-netlink-dev (1.1.0-1) ...
+Setting up go-md2man (1.0.10+ds-1) ...
+Setting up golang-github-cyphar-filepath-securejoin-dev (0.2.2-1) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libapparmor-dev:amd64 (2.13.3-7) ...
+Setting up libprotobuf17:amd64 (3.6.1.3-2+b2) ...
+Setting up golang-github-checkpoint-restore-go-criu-dev (3.11-2) ...
+Setting up libjs-jquery (3.3.1~dfsg-3) ...
+Setting up golang-src (2:1.13~1) ...
+Setting up libelf1:amd64 (0.176-1.1) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-3) ...
+Setting up libsystemd-dev:amd64 (244.3-1) ...
+Setting up golang-github-cpuguy83-go-md2man-dev (1.0.10+ds-1) ...
+Setting up golang-github-urfave-cli-dev (1.22.2-4) ...
+Setting up libfile-stripnondeterminism-perl (1.6.3-2) ...
+Setting up libprotoc17:amd64 (3.6.1.3-2+b2) ...
+Setting up protobuf-compiler (3.6.1.3-2+b2) ...
+Setting up libtool (2.4.6-13) ...
+Setting up golang-go (2:1.13~1) ...
+Setting up m4 (1.4.18-4) ...
+Setting up golang-any (2:1.13~1) ...
+Setting up libprotobuf-dev:amd64 (3.6.1.3-2+b2) ...
+Setting up golang-goprotobuf-dev (1.3.2-2) ...
+Setting up libjs-jquery-ui (1.12.1+dfsg-5) ...
+Setting up golang-github-kr-text-dev (0.1.0-1) ...
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up golang-golang-x-net-dev (1:0.0+git20200219.4628272+dfsg-1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up dh-strip-nondeterminism (1.6.3-2) ...
+Setting up dwz (0.13-5) ...
+Setting up groff-base (1.22.4-4) ...
+Setting up golang-golang-x-crypto-dev (1:0.0~git20190701.4def268-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up golang-github-kr-pretty-dev (0.1.0-1) ...
+Setting up gettext (0.19.8.1-10) ...
+Setting up golang-gopkg-check.v1-dev (0.0+git20180628.788fd78-1) ...
+Setting up man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up golang-golang-x-tools (1:0.0~git20191118.07fc4c7+ds-1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up golang-gopkg-yaml.v2-dev (2.2.8-1) ...
+Setting up po-debconf (1.0.21) ...
+Setting up golang-github-stretchr-testify-dev (1.4.0+ds-1) ...
+Setting up golang-yaml.v2-dev (2.2.2-1) ...
+Setting up golang-github-sirupsen-logrus-dev (1.4.2-1) ...
+Setting up golang-github-xeipuuv-gojsonschema-dev (0.0~git20170210.0.6b67b3f-2) ...
+Setting up golang-github-opencontainers-specs-dev (1.0.1+git20190408.a1b50f6-1) ...
+Setting up golang-github-coreos-go-systemd-dev (22.0.0-1) ...
+Setting up golang-github-coreos-pkg-dev (4-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up debhelper (12.9) ...
+Setting up dh-golang (1.46) ...
+Setting up sbuild-build-depends-main-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (amd64 included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 4.19.0-6-cloud-amd64 #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11) amd64 (x86_64)
+Toolchain package versions: binutils_2.34-3 dpkg-dev_1.19.7 g++-9_9.2.1-29 gcc-9_9.2.1-29 libc6-dev_2.29-10 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 linux-libc-dev_5.4.19-1
+Package versions: adduser_3.118 apt_1.8.4 autoconf_2.69-11.1 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.34-3 binutils-common_2.34-3 binutils-x86-64-linux-gnu_2.34-3 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 clang-9_1:9.0.1-8 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-29 dash_0.5.10.2-6 debconf_1.5.73 debhelper_12.9 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-golang_1.46 dh-strip-nondeterminism_1.6.3-2 diffutils_1:3.7-3 dpkg_1.19.7 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.5-2 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.38-4 findutils_4.7.0-1 g++_4:9.2.1-3.1 g++-9_9.2.1-29 gcc_4:9.2.1-3.1 gcc-10-base_10-20200222-1 gcc-8-base_8.3.0-29 gcc-9_9.2.1-29 gcc-9-base_9.2.1-29 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 go-md2man_1.0.10+ds-1 golang-1.13-go_1.13.8-1 golang-1.13-src_1.13.8-1 golang-any_2:1.13~1 golang-dbus-dev_5.0.3-1 golang-github-checkpoint-restore-go-criu-dev_3.11-2 golang-github-containerd-console-dev_0.0~git20170925.84eeaae-1 golang-github-coreos-go-systemd-dev_22.0.0-1 golang-github-coreos-pkg-dev_4-2 golang-github-cpuguy83-go-md2man-dev_1.0.10+ds-1 golang-github-cyphar-filepath-securejoin-dev_0.2.2-1 golang-github-davecgh-go-spew-dev_1.1.1-2 golang-github-docker-go-units-dev_0.4.0-3 golang-github-kr-pretty-dev_0.1.0-1 golang-github-kr-pty-dev_1.1.6-1 golang-github-kr-text-dev_0.1.0-1 golang-github-mrunalp-fileutils-dev_0.0~git20160930.0.4ee1cc9-1 golang-github-opencontainers-selinux-dev_1.3.1-1 golang-github-opencontainers-specs-dev_1.0.1+git20190408.a1b50f6-1 golang-github-pkg-errors-dev_0.8.1-1 golang-github-pmezard-go-difflib-dev_1.0.0-2 golang-github-russross-blackfriday-dev_1.5.2+git20190616.a925a15-1 golang-github-seccomp-libseccomp-golang-dev_0.9.1-1 golang-github-shurcool-sanitized-anchor-name-dev_1.0.0-1 golang-github-sirupsen-logrus-dev_1.4.2-1 golang-github-stretchr-objx-dev_0.1.1+git20180825.ef50b0d-1 golang-github-stretchr-testify-dev_1.4.0+ds-1 golang-github-urfave-cli-dev_1.22.2-4 golang-github-vishvananda-netlink-dev_1.1.0-1 golang-github-vishvananda-netns-dev_0.0~git20170707.0.86bef33-1 golang-github-xeipuuv-gojsonpointer-dev_0.0~git20151027.0.e0fe6f6-2 golang-github-xeipuuv-gojsonreference-dev_0.0~git20150808.0.e02fc20-2 golang-github-xeipuuv-gojsonschema-dev_0.0~git20170210.0.6b67b3f-2 golang-go_2:1.13~1 golang-gocapability-dev_0.0+git20180916.d983527-1 golang-golang-x-crypto-dev_1:0.0~git20190701.4def268-2 golang-golang-x-net-dev_1:0.0+git20200219.4628272+dfsg-1 golang-golang-x-sys-dev_0.0~git20200219.cb0a6d8-1 golang-golang-x-text-dev_0.3.2-3 golang-golang-x-tools_1:0.0~git20191118.07fc4c7+ds-1 golang-gopkg-check.v1-dev_0.0+git20180628.788fd78-1 golang-gopkg-yaml.v2-dev_2.2.8-1 golang-goprotobuf-dev_1.3.2-2 golang-src_2:1.13~1 golang-yaml.v2-dev_2.2.2-1 gpgv_2.2.19-1 grep_3.4-1 groff-base_1.22.4-4 gzip_1.9-3+b1 hostname_3.23 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 lib32gcc-s1_10-20200222-1 lib32gcc1_1:10-20200222-1 lib32stdc++6_10-20200222-1 libacl1_2.2.53-5 libapparmor-dev_2.13.3-7 libapparmor1_2.13.3-7 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libasan5_9.2.1-29 libatomic1_10-20200222-1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libbinutils_2.34-3 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-10 libc-dev-bin_2.29-10 libc6_2.29-10 libc6-dev_2.29-10 libc6-i386_2.29-10 libcap-ng0_0.7.9-2.1+b1 libcc1-0_10-20200222-1 libclang-common-9-dev_1:9.0.1-8 libclang-cpp9_1:9.0.1-8 libcom-err2_1.45.5-2 libcroco3_0.6.13-1 libcrypt-dev_1:4.4.10-10 libcrypt1_1:4.4.10-10 libctf-nobfd0_2.34-3 libctf0_2.34-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.251 libdebhelper-perl_12.9 libdpkg-perl_1.19.7 libedit2_3.1-20191231-1 libelf1_0.176-1.1 libext2fs2_1.45.5-2 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi7_3.3-3 libfile-stripnondeterminism-perl_1.6.3-2 libgc1c2_1:7.6.4-0.4 libgcc-8-dev_8.3.0-29 libgcc-9-dev_9.2.1-29 libgcc-s1_10-20200222-1 libgcc1_1:10-20200222-1 libgcrypt20_1.8.5-5 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.62.4-2 libgmp10_2:6.2.0+dfsg-4 libgnutls30_3.6.12-2 libgomp1_10-20200222-1 libgpg-error0_1.37-1 libhogweed5_3.5.1+really3.5.1-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libisl22_0.22.1-1 libitm1_10-20200222-1 libjs-jquery_3.3.1~dfsg-3 libjs-jquery-ui_1.12.1+dfsg-5 libllvm9_1:9.0.1-8 liblsan0_10-20200222-1 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 libmagic-mgc_1:5.38-4 libmagic1_1:5.38-4 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-29 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libobjc-8-dev_8.3.0-29 libobjc-9-dev_9.2.1-29 libobjc4_10-20200222-1 libomp-9-dev_1:9.0.1-8 libomp5-9_1:9.0.1-8 libp11-kit0_0.23.20-1 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre2-8-0_10.34-7 libpcre3_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.2-2 libprotobuf-dev_3.6.1.3-2+b2 libprotobuf-lite17_3.6.1.3-2+b2 libprotobuf17_3.6.1.3-2+b2 libprotoc17_3.6.1.3-2+b2 libquadmath0_10-20200222-1 libseccomp-dev_2.4.2-2 libseccomp2_2.4.2-2 libselinux1_3.0-1+b1 libsemanage-common_3.0-1 libsemanage1_3.0-1+b1 libsepol1_3.0-1 libsigsegv2_2.12-2 libsmartcols1_2.34-0.1 libss2_1.45.5-2 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 libsub-override-perl_0.09-2 libsystemd-dev_244.3-1 libsystemd0_244.3-1 libtasn1-6_4.16.0-2 libtinfo6_6.1+20191019-1 libtool_2.4.6-13 libtsan0_10-20200222-1 libubsan1_10-20200222-1 libuchardet0_0.0.6-3 libudev1_244.3-1 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libxml2_2.9.10+dfsg-3 libz3-4_4.8.7-4 libzstd1_1.4.4+dfsg-3 linux-libc-dev_5.4.19-1 login_1:4.8.1-1 logsave_1.45.5-2 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.4.20200120-2 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 passwd_1:4.8.1-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 pkg-config_0.29-6 po-debconf_1.0.21 protobuf-compiler_3.6.1.3-2+b2 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 sysvinit-utils_2.96-2.1 tar_1.30+dfsg-6+b1 tzdata_2019c-3 util-linux_2.34-0.1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-1.2 zlib1g-dev_1:1.2.11.dfsg-1.2
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: runc
+Binary: runc, golang-github-opencontainers-runc-dev
+Architecture: any all
+Version: 1.0.0~rc10+dfsg1-1
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Alexandre Viau <aviau@debian.org>, Dmitry Smirnov <onlyjob@debian.org>, Tim Potter <tpot@hpe.com>
+Homepage: https://github.com/opencontainers/runc
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/go-team/packages/runc
+Vcs-Git: https://salsa.debian.org/go-team/packages/runc.git
+Testsuite: autopkgtest-pkg-go
+Build-Depends: debhelper-compat (= 12), dh-golang, go-md2man, golang-any, golang-dbus-dev, golang-github-checkpoint-restore-go-criu-dev, golang-github-containerd-console-dev, golang-github-coreos-go-systemd-dev (>= 20~), golang-github-cyphar-filepath-securejoin-dev, golang-github-docker-go-units-dev (>= 0.4.0~), golang-github-mrunalp-fileutils-dev, golang-github-opencontainers-selinux-dev (>= 1.3.0~), golang-github-opencontainers-specs-dev (>= 1.0.1-5~), golang-github-pkg-errors-dev, golang-github-seccomp-libseccomp-golang-dev (>= 0.9.1~), golang-github-sirupsen-logrus-dev (>= 1.0.2~), golang-github-urfave-cli-dev, golang-github-vishvananda-netlink-dev, golang-gocapability-dev (>= 0.0+git20180916~), golang-golang-x-tools, golang-goprotobuf-dev, libapparmor-dev, protobuf-compiler
+Package-List:
+ golang-github-opencontainers-runc-dev deb devel optional arch=all
+ runc deb devel optional arch=any
+Checksums-Sha1:
+ 46a892e4309e4ad2106ae92cd2490e2f042db3d0 238732 runc_1.0.0~rc10+dfsg1.orig.tar.xz
+ cecef2bc53f26db894d7ea11b4c571ef6d82d42f 7984 runc_1.0.0~rc10+dfsg1-1.debian.tar.xz
+Checksums-Sha256:
+ 307bd0d97fee7b0dd0d9822dedea8529b405f116d13f8a66f2c5146280810e88 238732 runc_1.0.0~rc10+dfsg1.orig.tar.xz
+ d7f43120715d5d01800fc9c29db4be3a42089881f383dc2836e7a78cbab32a75 7984 runc_1.0.0~rc10+dfsg1-1.debian.tar.xz
+Files:
+ 33babbe0eeee5e3acc4b0500ee550757 238732 runc_1.0.0~rc10+dfsg1.orig.tar.xz
+ a85cbc9c9a8f4e8caebf21216474096d 7984 runc_1.0.0~rc10+dfsg1-1.debian.tar.xz
+Go-Import-Path: github.com/opencontainers/runc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEULx8+TnSDCcqawZWUra72VOWjRsFAl4tXM8ACgkQUra72VOW
+jRsWDRAAiKRVAOha/eUgv0ndkDq/kkiDmiSdNYowyeWdTTjl/bGA/1RzsnYMKbW/
+7HBAKnkCqq8PIeuxvXgMW0KIDhTOK3C8R74Go+RPbqRVqpAOgZ216wNpzFAkxXIM
+5ScPzFtz6tZDuV6FoEEYvqtZ2lLhpAojU1KGZ6SDEQe6B+PhIcyiexxHhpr9NMQ3
+czmbJT4vhYNA3+uGYrg82nVWOhArC8jV1+cryikt1/8biIs9LLfNfE6ZLJ8emdKI
+CkFN8d95nSbbXYjbn1c+lE41BeDa8DlJFNy3uzqJea3zRbLJX+I2E/+MR7UbwbI7
+4Q/lD20MtXPdQkf4C80BYk2dxYJzAdbw2pT8f/d8TiKFcKSEKYrY+7kY8bATh0bg
+FDd85DJlwb+MeudaPRu9TXxKIj17s1/jGoYBx33H82tS32dNYE+55yK1MNWPQy53
+FEaNIj0OixXTFDpF5t09L9hXD81VwpD7Sh8ycutLB4KUPtewPL2eAkmyL1CFtUty
+kmrQu2QwPhNVIoKX+zlGVHoNX9drNITmueUeBQPM0Amq6KmDVaPFTz3XKnOf5491
++HWFtpfrNsP7TvMltu0QIwhP1S8MhDZ9OI6zc1+ULQE/TLB6y6/cBEYk650veP09
+KRYLv+sR5Q628g2ECoGzv7FatLO2wyOn4wk39SiKctNhJVinmfs=
+=sHH6
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Jan 26 09:33:03 2020 UTC
+gpgv:                using RSA key 50BC7CF939D20C272A6B065652B6BBD953968D1B
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./runc_1.0.0~rc10+dfsg1-1.dsc
+dpkg-source: info: extracting runc in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking runc_1.0.0~rc10+dfsg1.orig.tar.xz
+dpkg-source: info: unpacking runc_1.0.0~rc10+dfsg1-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying test--fix_TestGetAdditionalGroups.patch
+dpkg-source: info: applying test--skip-Hugetlb.patch
+dpkg-source: info: applying test--skip_TestFactoryNewTmpfs.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+HOME=/sbuild-nonexistent
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+LOGNAME=user42
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable
+SCHROOT_CHROOT_NAME=sid-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1001
+SCHROOT_GROUP=user42
+SCHROOT_SESSION_ID=sid-amd64-sbuild-9f479e40-3e91-4ae7-b0e0-5cc1ffa940dc
+SCHROOT_UID=1001
+SCHROOT_USER=user42
+SHELL=/bin/sh
+USER=user42
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -us -uc -b -rfakeroot
+dpkg-buildpackage: info: source package runc
+dpkg-buildpackage: info: source version 1.0.0~rc10+dfsg1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Dmitry Smirnov <onlyjob@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --buildsystem=golang --with=golang --builddirectory=_build
+   dh_auto_clean -O--buildsystem=golang -O--builddirectory=_build
+   dh_autoreconf_clean -O--buildsystem=golang -O--builddirectory=_build
+   debian/rules override_dh_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_clean
+## Remove Files-Excluded (when built from checkout or non-DFSG tarball):
+rm -f -rv `perl -0nE 'say $1 if m{^Files\-Excluded\:\s*(.*?)(?:\n\n|Files:|Comment:)}sm;' debian/copyright`
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ debian/rules build
+dh build --buildsystem=golang --with=golang --builddirectory=_build
+   dh_update_autotools_config -O--buildsystem=golang -O--builddirectory=_build
+   dh_autoreconf -O--buildsystem=golang -O--builddirectory=_build
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+cd man && ./md2man-all.sh
++ pwd
+/<<PKGBUILDDIR>>/man
++ which go-md2man
++ for FILE in *.md
+++ basename README.md
++ base=README.md
++ name=README
++ num=README
++ '[' -z README -o README = README ']'
++ continue
++ for FILE in *.md
+++ basename runc-checkpoint.8.md
++ base=runc-checkpoint.8.md
++ name=runc-checkpoint.8
++ num=8
++ '[' -z 8 -o runc-checkpoint.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-checkpoint.8.md -out ./man8/runc-checkpoint.8
++ for FILE in *.md
+++ basename runc-create.8.md
++ base=runc-create.8.md
++ name=runc-create.8
++ num=8
++ '[' -z 8 -o runc-create.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-create.8.md -out ./man8/runc-create.8
++ for FILE in *.md
+++ basename runc-delete.8.md
++ base=runc-delete.8.md
++ name=runc-delete.8
++ num=8
++ '[' -z 8 -o runc-delete.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-delete.8.md -out ./man8/runc-delete.8
++ for FILE in *.md
+++ basename runc-events.8.md
++ base=runc-events.8.md
++ name=runc-events.8
++ num=8
++ '[' -z 8 -o runc-events.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-events.8.md -out ./man8/runc-events.8
++ for FILE in *.md
+++ basename runc-exec.8.md
++ base=runc-exec.8.md
++ name=runc-exec.8
++ num=8
++ '[' -z 8 -o runc-exec.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-exec.8.md -out ./man8/runc-exec.8
++ for FILE in *.md
+++ basename runc-kill.8.md
++ base=runc-kill.8.md
++ name=runc-kill.8
++ num=8
++ '[' -z 8 -o runc-kill.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-kill.8.md -out ./man8/runc-kill.8
++ for FILE in *.md
+++ basename runc-list.8.md
++ base=runc-list.8.md
++ name=runc-list.8
++ num=8
++ '[' -z 8 -o runc-list.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-list.8.md -out ./man8/runc-list.8
++ for FILE in *.md
+++ basename runc-pause.8.md
++ base=runc-pause.8.md
++ name=runc-pause.8
++ num=8
++ '[' -z 8 -o runc-pause.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-pause.8.md -out ./man8/runc-pause.8
++ for FILE in *.md
+++ basename runc-ps.8.md
++ base=runc-ps.8.md
++ name=runc-ps.8
++ num=8
++ '[' -z 8 -o runc-ps.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-ps.8.md -out ./man8/runc-ps.8
++ for FILE in *.md
+++ basename runc-restore.8.md
++ base=runc-restore.8.md
++ name=runc-restore.8
++ num=8
++ '[' -z 8 -o runc-restore.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-restore.8.md -out ./man8/runc-restore.8
++ for FILE in *.md
+++ basename runc-resume.8.md
++ base=runc-resume.8.md
++ name=runc-resume.8
++ num=8
++ '[' -z 8 -o runc-resume.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-resume.8.md -out ./man8/runc-resume.8
++ for FILE in *.md
+++ basename runc-run.8.md
++ base=runc-run.8.md
++ name=runc-run.8
++ num=8
++ '[' -z 8 -o runc-run.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-run.8.md -out ./man8/runc-run.8
++ for FILE in *.md
+++ basename runc-spec.8.md
++ base=runc-spec.8.md
++ name=runc-spec.8
++ num=8
++ '[' -z 8 -o runc-spec.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-spec.8.md -out ./man8/runc-spec.8
++ for FILE in *.md
+++ basename runc-start.8.md
++ base=runc-start.8.md
++ name=runc-start.8
++ num=8
++ '[' -z 8 -o runc-start.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-start.8.md -out ./man8/runc-start.8
++ for FILE in *.md
+++ basename runc-state.8.md
++ base=runc-state.8.md
++ name=runc-state.8
++ num=8
++ '[' -z 8 -o runc-state.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-state.8.md -out ./man8/runc-state.8
++ for FILE in *.md
+++ basename runc-update.8.md
++ base=runc-update.8.md
++ name=runc-update.8
++ num=8
++ '[' -z 8 -o runc-update.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc-update.8.md -out ./man8/runc-update.8
++ for FILE in *.md
+++ basename runc.8.md
++ base=runc.8.md
++ name=runc.8
++ num=8
++ '[' -z 8 -o runc.8 = 8 ']'
++ mkdir -p ./man8
++ go-md2man -in runc.8.md -out ./man8/runc.8
+dh_auto_configure
+export DH_GOPKG="github.com/opencontainers/runc/vendor/github.com/cilium/ebpf" \
+&& dh_auto_build -v \
+;
+	cd _build && go version
+go version go1.13.8 linux/amd64
+	cd _build && go env
+GO111MODULE="off"
+GOARCH="amd64"
+GOBIN=""
+GOCACHE="/<<PKGBUILDDIR>>/_build/go-build"
+GOENV="/sbuild-nonexistent/.config/go/env"
+GOEXE=""
+GOFLAGS=""
+GOHOSTARCH="amd64"
+GOHOSTOS="linux"
+GONOPROXY=""
+GONOSUMDB=""
+GOOS="linux"
+GOPATH="/<<PKGBUILDDIR>>/_build"
+GOPRIVATE=""
+GOPROXY="off"
+GOROOT="/usr/lib/go-1.13"
+GOSUMDB="sum.golang.org"
+GOTMPDIR=""
+GOTOOLDIR="/usr/lib/go-1.13/pkg/tool/linux_amd64"
+GCCGO="gccgo"
+AR="ar"
+CC="gcc"
+CXX="g++"
+CGO_ENABLED="1"
+GOMOD=""
+CGO_CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security"
+CGO_CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2"
+CGO_CXXFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security"
+CGO_FFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong"
+CGO_LDFLAGS="-Wl,-z,relro"
+PKG_CONFIG="pkg-config"
+GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build097247814=/tmp/go-build -gno-record-gcc-switches"
+	cd _build && go generate -v github.com/opencontainers/runc/vendor/github.com/cilium/ebpf github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/abi.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/collection.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/doc.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/elf_reader.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/feature.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/linker.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/map.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/marshalers.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/prog.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/ptr_64.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/syscalls.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/types.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/types_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/alu.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/alu_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/doc.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/func.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/func_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/instruction.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/jump.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/jump_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/load_store.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/load_store_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/opcode.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/opcode_string.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/register.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/cpu.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/endian.go
+src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix/types_linux.go
+	cd _build && go install -trimpath -v -p 4 github.com/opencontainers/runc/vendor/github.com/cilium/ebpf github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix
+runtime/internal/sys
+internal/race
+internal/cpu
+runtime/internal/atomic
+sync/atomic
+runtime/internal/math
+unicode
+unicode/utf8
+math/bits
+internal/bytealg
+internal/testlog
+math
+encoding
+runtime
+internal/reflectlite
+sync
+sort
+errors
+io
+strconv
+internal/oserror
+syscall
+hash
+bytes
+hash/adler32
+strings
+bufio
+reflect
+path
+internal/syscall/unix
+time
+internal/poll
+internal/fmtsort
+encoding/binary
+golang.org/x/sys/unix
+os
+path/filepath
+fmt
+github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix
+github.com/pkg/errors
+debug/dwarf
+compress/flate
+github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal
+github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm
+compress/zlib
+debug/elf
+github.com/opencontainers/runc/vendor/github.com/cilium/ebpf
+## Remove extra license files:
+rm -f -v \
+            _build/src/github.com/opencontainers/runc/vendor/github.com/docker/docker/*/*/LICENSE* \
+        ;
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_build -- -tags "apparmor seccomp selinux ambient" -ldflags "-X main.version=1.0.0~rc10+dfsg1 -X main.gitCommit=1.0.0~rc10+dfsg1-1"
+	cd _build && go generate -v -tags "apparmor seccomp selinux ambient" -ldflags "-X main.version=1.0.0~rc10+dfsg1 -X main.gitCommit=1.0.0~rc10+dfsg1-1" github.com/opencontainers/runc github.com/opencontainers/runc/contrib/cmd/recvtty github.com/opencontainers/runc/libcontainer github.com/opencontainers/runc/libcontainer/apparmor github.com/opencontainers/runc/libcontainer/cgroups github.com/opencontainers/runc/libcontainer/cgroups/ebpf github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter github.com/opencontainers/runc/libcontainer/cgroups/fs github.com/opencontainers/runc/libcontainer/cgroups/fs2 github.com/opencontainers/runc/libcontainer/cgroups/fscommon github.com/opencontainers/runc/libcontainer/cgroups/systemd github.com/opencontainers/runc/libcontainer/configs github.com/opencontainers/runc/libcontainer/configs/validate github.com/opencontainers/runc/libcontainer/devices github.com/opencontainers/runc/libcontainer/integration github.com/opencontainers/runc/libcontainer/intelrdt github.com/opencontainers/runc/libcontainer/keys github.com/opencontainers/runc/libcontainer/logs github.com/opencontainers/runc/libcontainer/mount github.com/opencontainers/runc/libcontainer/nsenter github.com/opencontainers/runc/libcontainer/seccomp github.com/opencontainers/runc/libcontainer/specconv github.com/opencontainers/runc/libcontainer/stacktrace github.com/opencontainers/runc/libcontainer/system github.com/opencontainers/runc/libcontainer/user github.com/opencontainers/runc/libcontainer/utils github.com/opencontainers/runc/types
+src/github.com/opencontainers/runc/checkpoint.go
+src/github.com/opencontainers/runc/create.go
+src/github.com/opencontainers/runc/delete.go
+src/github.com/opencontainers/runc/events.go
+src/github.com/opencontainers/runc/exec.go
+src/github.com/opencontainers/runc/init.go
+src/github.com/opencontainers/runc/kill.go
+src/github.com/opencontainers/runc/list.go
+src/github.com/opencontainers/runc/main.go
+src/github.com/opencontainers/runc/notify_socket.go
+src/github.com/opencontainers/runc/pause.go
+src/github.com/opencontainers/runc/ps.go
+src/github.com/opencontainers/runc/restore.go
+src/github.com/opencontainers/runc/rlimit_linux.go
+src/github.com/opencontainers/runc/rootless_linux.go
+src/github.com/opencontainers/runc/run.go
+src/github.com/opencontainers/runc/signalmap.go
+src/github.com/opencontainers/runc/signals.go
+src/github.com/opencontainers/runc/spec.go
+src/github.com/opencontainers/runc/start.go
+src/github.com/opencontainers/runc/state.go
+src/github.com/opencontainers/runc/tty.go
+src/github.com/opencontainers/runc/update.go
+src/github.com/opencontainers/runc/utils.go
+src/github.com/opencontainers/runc/utils_linux.go
+src/github.com/opencontainers/runc/contrib/cmd/recvtty/recvtty.go
+src/github.com/opencontainers/runc/libcontainer/capabilities_linux.go
+src/github.com/opencontainers/runc/libcontainer/console_linux.go
+src/github.com/opencontainers/runc/libcontainer/container.go
+src/github.com/opencontainers/runc/libcontainer/container_linux.go
+src/github.com/opencontainers/runc/libcontainer/container_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/criu_opts_linux.go
+src/github.com/opencontainers/runc/libcontainer/error.go
+src/github.com/opencontainers/runc/libcontainer/error_test.go
+src/github.com/opencontainers/runc/libcontainer/factory.go
+src/github.com/opencontainers/runc/libcontainer/factory_linux.go
+src/github.com/opencontainers/runc/libcontainer/factory_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/generic_error.go
+src/github.com/opencontainers/runc/libcontainer/generic_error_test.go
+src/github.com/opencontainers/runc/libcontainer/init_linux.go
+src/github.com/opencontainers/runc/libcontainer/message_linux.go
+src/github.com/opencontainers/runc/libcontainer/network_linux.go
+src/github.com/opencontainers/runc/libcontainer/notify_linux.go
+src/github.com/opencontainers/runc/libcontainer/notify_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/process.go
+src/github.com/opencontainers/runc/libcontainer/process_linux.go
+src/github.com/opencontainers/runc/libcontainer/restored_process.go
+src/github.com/opencontainers/runc/libcontainer/rootfs_linux.go
+src/github.com/opencontainers/runc/libcontainer/rootfs_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/setns_init_linux.go
+src/github.com/opencontainers/runc/libcontainer/standard_init_linux.go
+src/github.com/opencontainers/runc/libcontainer/state_linux.go
+src/github.com/opencontainers/runc/libcontainer/state_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/stats_linux.go
+src/github.com/opencontainers/runc/libcontainer/sync.go
+src/github.com/opencontainers/runc/libcontainer/apparmor/apparmor.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/cgroups.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/cgroups_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/stats.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/utils.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/utils_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/ebpf.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter/devicefilter.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter/devicefilter_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/apply_raw.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/blkio.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/blkio_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpu.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpu_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuacct.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuset.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuset_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/devices.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/devices_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/freezer.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/freezer_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/hugetlb.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/hugetlb_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/kmem.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/memory.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/memory_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/name.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_cls.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_cls_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_prio.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_prio_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/perf_event.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/pids.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/pids_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/stats_util_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs/util_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/cpu.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/cpuset.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/defaultpath.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/defaultpath_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/devices.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/freezer.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/fs2.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/io.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/memory.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/pids.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/fscommon.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/utils.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/utils_test.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/apply_systemd.go
+src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/unified_hierarchy.go
+src/github.com/opencontainers/runc/libcontainer/configs/blkio_device.go
+src/github.com/opencontainers/runc/libcontainer/configs/cgroup_linux.go
+src/github.com/opencontainers/runc/libcontainer/configs/config.go
+src/github.com/opencontainers/runc/libcontainer/configs/config_linux.go
+src/github.com/opencontainers/runc/libcontainer/configs/config_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/configs/device.go
+src/github.com/opencontainers/runc/libcontainer/configs/device_defaults.go
+src/github.com/opencontainers/runc/libcontainer/configs/hugepage_limit.go
+src/github.com/opencontainers/runc/libcontainer/configs/intelrdt.go
+src/github.com/opencontainers/runc/libcontainer/configs/interface_priority_map.go
+src/github.com/opencontainers/runc/libcontainer/configs/mount.go
+src/github.com/opencontainers/runc/libcontainer/configs/namespaces.go
+src/github.com/opencontainers/runc/libcontainer/configs/namespaces_linux.go
+src/github.com/opencontainers/runc/libcontainer/configs/namespaces_syscall.go
+src/github.com/opencontainers/runc/libcontainer/configs/network.go
+src/github.com/opencontainers/runc/libcontainer/configs/config_test.go
+src/github.com/opencontainers/runc/libcontainer/configs/validate/rootless.go
+src/github.com/opencontainers/runc/libcontainer/configs/validate/rootless_test.go
+src/github.com/opencontainers/runc/libcontainer/configs/validate/validator.go
+src/github.com/opencontainers/runc/libcontainer/configs/validate/validator_test.go
+src/github.com/opencontainers/runc/libcontainer/devices/devices.go
+src/github.com/opencontainers/runc/libcontainer/devices/devices_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/checkpoint_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/doc.go
+src/github.com/opencontainers/runc/libcontainer/integration/exec_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/execin_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/init_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/seccomp_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/template_test.go
+src/github.com/opencontainers/runc/libcontainer/integration/utils_test.go
+src/github.com/opencontainers/runc/libcontainer/intelrdt/intelrdt.go
+src/github.com/opencontainers/runc/libcontainer/intelrdt/intelrdt_test.go
+src/github.com/opencontainers/runc/libcontainer/intelrdt/stats.go
+src/github.com/opencontainers/runc/libcontainer/intelrdt/util_test.go
+src/github.com/opencontainers/runc/libcontainer/keys/keyctl.go
+src/github.com/opencontainers/runc/libcontainer/logs/logs.go
+src/github.com/opencontainers/runc/libcontainer/logs/logs_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/mount/mount.go
+src/github.com/opencontainers/runc/libcontainer/mount/mount_linux.go
+src/github.com/opencontainers/runc/libcontainer/mount/mountinfo.go
+src/github.com/opencontainers/runc/libcontainer/nsenter/nsenter.go
+src/github.com/opencontainers/runc/libcontainer/seccomp/config.go
+src/github.com/opencontainers/runc/libcontainer/seccomp/seccomp_linux.go
+src/github.com/opencontainers/runc/libcontainer/seccomp/seccomp_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/specconv/example.go
+src/github.com/opencontainers/runc/libcontainer/specconv/spec_linux.go
+src/github.com/opencontainers/runc/libcontainer/specconv/spec_linux_test.go
+src/github.com/opencontainers/runc/libcontainer/stacktrace/capture.go
+src/github.com/opencontainers/runc/libcontainer/stacktrace/capture_test.go
+src/github.com/opencontainers/runc/libcontainer/stacktrace/frame.go
+src/github.com/opencontainers/runc/libcontainer/stacktrace/frame_test.go
+src/github.com/opencontainers/runc/libcontainer/stacktrace/stacktrace.go
+src/github.com/opencontainers/runc/libcontainer/system/linux.go
+src/github.com/opencontainers/runc/libcontainer/system/linux_test.go
+src/github.com/opencontainers/runc/libcontainer/system/proc.go
+src/github.com/opencontainers/runc/libcontainer/system/proc_test.go
+src/github.com/opencontainers/runc/libcontainer/system/syscall_linux_64.go
+src/github.com/opencontainers/runc/libcontainer/system/sysconfig.go
+src/github.com/opencontainers/runc/libcontainer/system/xattrs_linux.go
+src/github.com/opencontainers/runc/libcontainer/user/lookup.go
+src/github.com/opencontainers/runc/libcontainer/user/lookup_unix.go
+src/github.com/opencontainers/runc/libcontainer/user/user.go
+src/github.com/opencontainers/runc/libcontainer/user/user_test.go
+src/github.com/opencontainers/runc/libcontainer/utils/cmsg.go
+src/github.com/opencontainers/runc/libcontainer/utils/utils.go
+src/github.com/opencontainers/runc/libcontainer/utils/utils_test.go
+src/github.com/opencontainers/runc/libcontainer/utils/utils_unix.go
+src/github.com/opencontainers/runc/types/events.go
+	cd _build && go install -trimpath -v -p 4 -tags "apparmor seccomp selinux ambient" -ldflags "-X main.version=1.0.0~rc10+dfsg1 -X main.gitCommit=1.0.0~rc10+dfsg1-1" github.com/opencontainers/runc github.com/opencontainers/runc/contrib/cmd/recvtty github.com/opencontainers/runc/libcontainer github.com/opencontainers/runc/libcontainer/apparmor github.com/opencontainers/runc/libcontainer/cgroups github.com/opencontainers/runc/libcontainer/cgroups/ebpf github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter github.com/opencontainers/runc/libcontainer/cgroups/fs github.com/opencontainers/runc/libcontainer/cgroups/fs2 github.com/opencontainers/runc/libcontainer/cgroups/fscommon github.com/opencontainers/runc/libcontainer/cgroups/systemd github.com/opencontainers/runc/libcontainer/configs github.com/opencontainers/runc/libcontainer/configs/validate github.com/opencontainers/runc/libcontainer/devices github.com/opencontainers/runc/libcontainer/integration github.com/opencontainers/runc/libcontainer/intelrdt github.com/opencontainers/runc/libcontainer/keys github.com/opencontainers/runc/libcontainer/logs github.com/opencontainers/runc/libcontainer/mount github.com/opencontainers/runc/libcontainer/nsenter github.com/opencontainers/runc/libcontainer/seccomp github.com/opencontainers/runc/libcontainer/specconv github.com/opencontainers/runc/libcontainer/stacktrace github.com/opencontainers/runc/libcontainer/system github.com/opencontainers/runc/libcontainer/user github.com/opencontainers/runc/libcontainer/utils github.com/opencontainers/runc/types
+unicode/utf16
+container/list
+crypto/internal/subtle
+crypto/subtle
+encoding/base64
+crypto
+crypto/cipher
+github.com/containerd/console
+math/rand
+encoding/json
+crypto/internal/randutil
+crypto/sha512
+math/big
+crypto/aes
+crypto/des
+crypto/ed25519/internal/edwards25519
+crypto/hmac
+crypto/md5
+crypto/rc4
+crypto/sha1
+crypto/sha256
+encoding/hex
+encoding/pem
+vendor/golang.org/x/crypto/cryptobyte/asn1
+io/ioutil
+context
+vendor/golang.org/x/net/dns/dnsmessage
+internal/nettrace
+internal/singleflight
+runtime/cgo
+net/url
+crypto/elliptic
+crypto/rand
+encoding/asn1
+crypto/dsa
+vendor/golang.org/x/crypto/internal/subtle
+crypto/ed25519
+crypto/rsa
+vendor/golang.org/x/crypto/internal/chacha20
+vendor/golang.org/x/crypto/poly1305
+vendor/golang.org/x/sys/cpu
+crypto/ecdsa
+crypto/x509/pkix
+vendor/golang.org/x/crypto/cryptobyte
+vendor/golang.org/x/crypto/chacha20poly1305
+vendor/golang.org/x/crypto/curve25519
+vendor/golang.org/x/crypto/hkdf
+regexp/syntax
+log
+github.com/cyphar/filepath-securejoin
+github.com/golang/protobuf/proto
+github.com/mrunalp/fileutils
+github.com/opencontainers/runc/libcontainer/utils
+github.com/opencontainers/runc/libcontainer/apparmor
+github.com/opencontainers/runtime-spec/specs-go
+regexp
+github.com/sirupsen/logrus
+github.com/docker/go-units
+os/exec
+github.com/opencontainers/runc/libcontainer/cgroups/fscommon
+github.com/opencontainers/runc/libcontainer/cgroups/ebpf
+github.com/opencontainers/selinux/go-selinux
+github.com/opencontainers/runc/libcontainer/configs
+github.com/opencontainers/runc/libcontainer/keys
+github.com/opencontainers/runc/libcontainer/cgroups
+github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter
+github.com/opencontainers/runc/libcontainer/intelrdt
+github.com/opencontainers/runc/libcontainer/cgroups/fs2
+github.com/opencontainers/runc/libcontainer/configs/validate
+github.com/opencontainers/runc/libcontainer/logs
+github.com/checkpoint-restore/go-criu/rpc
+github.com/opencontainers/runc/libcontainer/mount
+github.com/opencontainers/runc/libcontainer/stacktrace
+github.com/opencontainers/runc/types
+github.com/syndtr/gocapability/capability
+github.com/vishvananda/netns
+runtime/debug
+text/template/parse
+flag
+net
+os/user
+github.com/seccomp/libseccomp-golang
+text/template
+github.com/opencontainers/runc/libcontainer/nsenter
+github.com/russross/blackfriday
+html
+github.com/cpuguy83/go-md2man/md2man
+text/tabwriter
+github.com/urfave/cli
+github.com/opencontainers/runc/libcontainer/user
+github.com/opencontainers/runc/libcontainer/system
+github.com/opencontainers/selinux/go-selinux/label
+os/signal
+github.com/opencontainers/runc/libcontainer/devices
+github.com/opencontainers/runc/libcontainer/integration
+github.com/opencontainers/runc/libcontainer/seccomp
+github.com/opencontainers/runc/libcontainer/specconv
+github.com/opencontainers/runc/libcontainer/cgroups/fs
+github.com/vishvananda/netlink/nl
+crypto/x509
+github.com/opencontainers/runc/contrib/cmd/recvtty
+github.com/godbus/dbus
+github.com/vishvananda/netlink
+crypto/tls
+github.com/coreos/go-systemd/dbus
+github.com/opencontainers/runc/libcontainer/cgroups/systemd
+github.com/coreos/go-systemd/activation
+github.com/opencontainers/runc/libcontainer
+github.com/opencontainers/runc
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+DH_GOLANG_EXCLUDES="libcontainer/integration" \
+        dh_auto_test -- -tags "apparmor seccomp selinux ambient"
+	cd _build && go test -vet=off -v -p 4 -tags "apparmor seccomp selinux ambient" github.com/opencontainers/runc github.com/opencontainers/runc/contrib/cmd/recvtty github.com/opencontainers/runc/libcontainer github.com/opencontainers/runc/libcontainer/apparmor github.com/opencontainers/runc/libcontainer/cgroups github.com/opencontainers/runc/libcontainer/cgroups/ebpf github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter github.com/opencontainers/runc/libcontainer/cgroups/fs github.com/opencontainers/runc/libcontainer/cgroups/fs2 github.com/opencontainers/runc/libcontainer/cgroups/fscommon github.com/opencontainers/runc/libcontainer/cgroups/systemd github.com/opencontainers/runc/libcontainer/configs github.com/opencontainers/runc/libcontainer/configs/validate github.com/opencontainers/runc/libcontainer/devices github.com/opencontainers/runc/libcontainer/intelrdt github.com/opencontainers/runc/libcontainer/keys github.com/opencontainers/runc/libcontainer/logs github.com/opencontainers/runc/libcontainer/mount github.com/opencontainers/runc/libcontainer/nsenter github.com/opencontainers/runc/libcontainer/seccomp github.com/opencontainers/runc/libcontainer/specconv github.com/opencontainers/runc/libcontainer/stacktrace github.com/opencontainers/runc/libcontainer/system github.com/opencontainers/runc/libcontainer/user github.com/opencontainers/runc/libcontainer/utils github.com/opencontainers/runc/types
+?   	github.com/opencontainers/runc	[no test files]
+?   	github.com/opencontainers/runc/contrib/cmd/recvtty	[no test files]
+=== RUN   TestGetContainerPids
+--- PASS: TestGetContainerPids (0.00s)
+=== RUN   TestGetContainerStats
+--- PASS: TestGetContainerStats (0.00s)
+=== RUN   TestGetContainerState
+--- PASS: TestGetContainerState (0.00s)
+=== RUN   TestGetContainerStateAfterUpdate
+--- PASS: TestGetContainerStateAfterUpdate (0.00s)
+=== RUN   TestErrorCode
+--- PASS: TestErrorCode (0.00s)
+=== RUN   TestFactoryNew
+--- PASS: TestFactoryNew (0.00s)
+=== RUN   TestFactoryNewIntelRdt
+--- PASS: TestFactoryNewIntelRdt (0.00s)
+=== RUN   TestFactoryNewTmpfs
+--- SKIP: TestFactoryNewTmpfs (0.00s)
+    factory_linux_test.go:81: DM - skipping privileged test
+=== RUN   TestFactoryLoadNotExists
+--- PASS: TestFactoryLoadNotExists (0.00s)
+=== RUN   TestFactoryLoadContainer
+time="2020-02-25T02:47:42Z" level=warning msg="cannot serialize hook of type libcontainer.unserializableHook, skipping"
+--- PASS: TestFactoryLoadContainer (0.00s)
+=== RUN   TestErrorDetail
+--- PASS: TestErrorDetail (0.00s)
+=== RUN   TestErrorWithCode
+--- PASS: TestErrorWithCode (0.00s)
+=== RUN   TestErrorWithError
+--- PASS: TestErrorWithError (0.00s)
+=== RUN   TestNotifyOnOOM
+--- PASS: TestNotifyOnOOM (0.01s)
+=== RUN   TestNotifyMemoryPressure
+--- PASS: TestNotifyMemoryPressure (0.00s)
+=== RUN   TestCheckMountDestOnProc
+--- PASS: TestCheckMountDestOnProc (0.00s)
+=== RUN   TestCheckMountDestOnProcChroot
+--- PASS: TestCheckMountDestOnProcChroot (0.00s)
+=== RUN   TestCheckMountDestInSys
+--- PASS: TestCheckMountDestInSys (0.00s)
+=== RUN   TestCheckMountDestFalsePositive
+--- PASS: TestCheckMountDestFalsePositive (0.00s)
+=== RUN   TestNeedsSetupDev
+--- PASS: TestNeedsSetupDev (0.00s)
+=== RUN   TestNeedsSetupDevStrangeSource
+--- PASS: TestNeedsSetupDevStrangeSource (0.00s)
+=== RUN   TestNeedsSetupDevStrangeDest
+--- PASS: TestNeedsSetupDevStrangeDest (0.00s)
+=== RUN   TestNeedsSetupDevStrangeSourceDest
+--- PASS: TestNeedsSetupDevStrangeSourceDest (0.00s)
+=== RUN   TestStateStatus
+--- PASS: TestStateStatus (0.00s)
+=== RUN   TestStoppedStateTransition
+=== RUN   TestStoppedStateTransition/stopped
+=== RUN   TestStoppedStateTransition/running
+=== RUN   TestStoppedStateTransition/running#01
+=== RUN   TestStoppedStateTransition/paused
+=== RUN   TestStoppedStateTransition/running#02
+=== RUN   TestStoppedStateTransition/created
+--- PASS: TestStoppedStateTransition (0.00s)
+    --- PASS: TestStoppedStateTransition/stopped (0.00s)
+    --- PASS: TestStoppedStateTransition/running (0.00s)
+    --- PASS: TestStoppedStateTransition/running#01 (0.00s)
+    --- PASS: TestStoppedStateTransition/paused (0.00s)
+    --- PASS: TestStoppedStateTransition/running#02 (0.00s)
+    --- PASS: TestStoppedStateTransition/created (0.00s)
+=== RUN   TestPausedStateTransition
+=== RUN   TestPausedStateTransition/paused
+=== RUN   TestPausedStateTransition/running
+=== RUN   TestPausedStateTransition/stopped
+=== RUN   TestPausedStateTransition/created
+=== RUN   TestPausedStateTransition/running#01
+=== RUN   TestPausedStateTransition/running#02
+--- PASS: TestPausedStateTransition (0.00s)
+    --- PASS: TestPausedStateTransition/paused (0.00s)
+    --- PASS: TestPausedStateTransition/running (0.00s)
+    --- PASS: TestPausedStateTransition/stopped (0.00s)
+    --- PASS: TestPausedStateTransition/created (0.00s)
+    --- PASS: TestPausedStateTransition/running#01 (0.00s)
+    --- PASS: TestPausedStateTransition/running#02 (0.00s)
+=== RUN   TestRestoredStateTransition
+=== RUN   TestRestoredStateTransition/stopped
+=== RUN   TestRestoredStateTransition/running
+=== RUN   TestRestoredStateTransition/paused
+=== RUN   TestRestoredStateTransition/running#01
+=== RUN   TestRestoredStateTransition/created
+=== RUN   TestRestoredStateTransition/running#02
+--- PASS: TestRestoredStateTransition (0.00s)
+    --- PASS: TestRestoredStateTransition/stopped (0.00s)
+    --- PASS: TestRestoredStateTransition/running (0.00s)
+    --- PASS: TestRestoredStateTransition/paused (0.00s)
+    --- PASS: TestRestoredStateTransition/running#01 (0.00s)
+    --- PASS: TestRestoredStateTransition/created (0.00s)
+    --- PASS: TestRestoredStateTransition/running#02 (0.00s)
+=== RUN   TestRunningStateTransition
+=== RUN   TestRunningStateTransition/stopped
+=== RUN   TestRunningStateTransition/paused
+=== RUN   TestRunningStateTransition/running
+=== RUN   TestRunningStateTransition/running#01
+=== RUN   TestRunningStateTransition/running#02
+=== RUN   TestRunningStateTransition/created
+--- PASS: TestRunningStateTransition (0.00s)
+    --- PASS: TestRunningStateTransition/stopped (0.00s)
+    --- PASS: TestRunningStateTransition/paused (0.00s)
+    --- PASS: TestRunningStateTransition/running (0.00s)
+    --- PASS: TestRunningStateTransition/running#01 (0.00s)
+    --- PASS: TestRunningStateTransition/running#02 (0.00s)
+    --- PASS: TestRunningStateTransition/created (0.00s)
+=== RUN   TestCreatedStateTransition
+=== RUN   TestCreatedStateTransition/stopped
+=== RUN   TestCreatedStateTransition/paused
+=== RUN   TestCreatedStateTransition/running
+=== RUN   TestCreatedStateTransition/created
+=== RUN   TestCreatedStateTransition/running#01
+=== RUN   TestCreatedStateTransition/running#02
+--- PASS: TestCreatedStateTransition (0.00s)
+    --- PASS: TestCreatedStateTransition/stopped (0.00s)
+    --- PASS: TestCreatedStateTransition/paused (0.00s)
+    --- PASS: TestCreatedStateTransition/running (0.00s)
+    --- PASS: TestCreatedStateTransition/created (0.00s)
+    --- PASS: TestCreatedStateTransition/running#01 (0.00s)
+    --- PASS: TestCreatedStateTransition/running#02 (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer	0.023s
+?   	github.com/opencontainers/runc/libcontainer/apparmor	[no test files]
+=== RUN   TestParseCgroups
+--- PASS: TestParseCgroups (0.00s)
+=== RUN   TestGetCgroupMounts
+--- PASS: TestGetCgroupMounts (0.00s)
+=== RUN   TestParseCgroupString
+--- PASS: TestParseCgroupString (0.00s)
+=== RUN   TestIgnoreCgroup2Mount
+--- PASS: TestIgnoreCgroup2Mount (0.00s)
+=== RUN   TestGetClosestMountpointAncestor
+--- PASS: TestGetClosestMountpointAncestor (0.00s)
+=== RUN   TestFindCgroupMountpointAndRoot
+--- PASS: TestFindCgroupMountpointAndRoot (0.00s)
+=== RUN   TestGetHugePageSizeImpl
+--- PASS: TestGetHugePageSizeImpl (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/cgroups	0.023s
+?   	github.com/opencontainers/runc/libcontainer/cgroups/ebpf	[no test files]
+=== RUN   TestDeviceFilter_Nil
+--- PASS: TestDeviceFilter_Nil (0.00s)
+    devicefilter_test.go:29: TestDeviceFilter_Nil: devices: []
+        	0: LdXMemH dst: r2 src: r1 off: 0 imm: 0
+        	1: LdXMemW dst: r3 src: r1 off: 0 imm: 0
+        	2: RSh32Imm dst: r3 imm: 16
+        	3: LdXMemW dst: r4 src: r1 off: 4 imm: 0
+        	4: LdXMemW dst: r5 src: r1 off: 8 imm: 0
+        block-0:
+        	5: Mov32Imm dst: r0 imm: 0
+        	6: Exit
+=== RUN   TestDeviceFilter_BuiltInAllowList
+--- PASS: TestDeviceFilter_BuiltInAllowList (0.00s)
+    devicefilter_test.go:29: TestDeviceFilter_BuiltInAllowList: devices: [0x6642a0 0x664300 0x664360 0x6643c0 0x664420 0x664480 0x6644e0 0x664540 0x6645a0 0x664600 0x664660 0x6646c0]
+        	 0: LdXMemH dst: r2 src: r1 off: 0 imm: 0
+        	 1: LdXMemW dst: r3 src: r1 off: 0 imm: 0
+        	 2: RSh32Imm dst: r3 imm: 16
+        	 3: LdXMemW dst: r4 src: r1 off: 4 imm: 0
+        	 4: LdXMemW dst: r5 src: r1 off: 8 imm: 0
+        block-0:
+        	 5: JNEImm dst: r2 off: -1 imm: 2 <block-1>
+        	 6: JNEImm dst: r4 off: -1 imm: 10 <block-1>
+        	 7: JNEImm dst: r5 off: -1 imm: 200 <block-1>
+        	 8: Mov32Imm dst: r0 imm: 1
+        	 9: Exit
+        block-1:
+        	10: JNEImm dst: r2 off: -1 imm: 2 <block-2>
+        	11: JNEImm dst: r4 off: -1 imm: 5 <block-2>
+        	12: JNEImm dst: r5 off: -1 imm: 2 <block-2>
+        	13: Mov32Imm dst: r0 imm: 1
+        	14: Exit
+        block-2:
+        	15: JNEImm dst: r2 off: -1 imm: 2 <block-3>
+        	16: JNEImm dst: r4 off: -1 imm: 136 <block-3>
+        	17: Mov32Imm dst: r0 imm: 1
+        	18: Exit
+        block-3:
+        	19: JNEImm dst: r2 off: -1 imm: 2 <block-4>
+        	20: JNEImm dst: r4 off: -1 imm: 5 <block-4>
+        	21: JNEImm dst: r5 off: -1 imm: 1 <block-4>
+        	22: Mov32Imm dst: r0 imm: 1
+        	23: Exit
+        block-4:
+        	24: JNEImm dst: r2 off: -1 imm: 2 <block-5>
+        	25: JNEImm dst: r4 off: -1 imm: 1 <block-5>
+        	26: JNEImm dst: r5 off: -1 imm: 9 <block-5>
+        	27: Mov32Imm dst: r0 imm: 1
+        	28: Exit
+        block-5:
+        	29: JNEImm dst: r2 off: -1 imm: 2 <block-6>
+        	30: JNEImm dst: r4 off: -1 imm: 1 <block-6>
+        	31: JNEImm dst: r5 off: -1 imm: 5 <block-6>
+        	32: Mov32Imm dst: r0 imm: 1
+        	33: Exit
+        block-6:
+        	34: JNEImm dst: r2 off: -1 imm: 2 <block-7>
+        	35: JNEImm dst: r4 off: -1 imm: 5 <block-7>
+        	36: JNEImm dst: r5 off: -1 imm: 0 <block-7>
+        	37: Mov32Imm dst: r0 imm: 1
+        	38: Exit
+        block-7:
+        	39: JNEImm dst: r2 off: -1 imm: 2 <block-8>
+        	40: JNEImm dst: r4 off: -1 imm: 1 <block-8>
+        	41: JNEImm dst: r5 off: -1 imm: 7 <block-8>
+        	42: Mov32Imm dst: r0 imm: 1
+        	43: Exit
+        block-8:
+        	44: JNEImm dst: r2 off: -1 imm: 2 <block-9>
+        	45: JNEImm dst: r4 off: -1 imm: 1 <block-9>
+        	46: JNEImm dst: r5 off: -1 imm: 8 <block-9>
+        	47: Mov32Imm dst: r0 imm: 1
+        	48: Exit
+        block-9:
+        	49: JNEImm dst: r2 off: -1 imm: 2 <block-10>
+        	50: JNEImm dst: r4 off: -1 imm: 1 <block-10>
+        	51: JNEImm dst: r5 off: -1 imm: 3 <block-10>
+        	52: Mov32Imm dst: r0 imm: 1
+        	53: Exit
+        block-10:
+        	54: JNEImm dst: r2 off: -1 imm: 1 <block-11>
+        	55: Mov32Reg dst: r1 src: r3
+        	56: And32Imm dst: r1 imm: 1
+        	57: JEqImm dst: r1 off: -1 imm: 0 <block-11>
+        	58: Mov32Imm dst: r0 imm: 1
+        	59: Exit
+        block-11:
+        	60: JNEImm dst: r2 off: -1 imm: 2 <block-12>
+        	61: Mov32Reg dst: r1 src: r3
+        	62: And32Imm dst: r1 imm: 1
+        	63: JEqImm dst: r1 off: -1 imm: 0 <block-12>
+        	64: Mov32Imm dst: r0 imm: 1
+        	65: Exit
+        block-12:
+        	66: Mov32Imm dst: r0 imm: 0
+        	67: Exit
+=== RUN   TestDeviceFilter_Privileged
+--- PASS: TestDeviceFilter_Privileged (0.00s)
+    devicefilter_test.go:29: TestDeviceFilter_Privileged: devices: [0xc0000aa2d0]
+        	0: LdXMemH dst: r2 src: r1 off: 0 imm: 0
+        	1: LdXMemW dst: r3 src: r1 off: 0 imm: 0
+        	2: RSh32Imm dst: r3 imm: 16
+        	3: LdXMemW dst: r4 src: r1 off: 4 imm: 0
+        	4: LdXMemW dst: r5 src: r1 off: 8 imm: 0
+        block-0:
+        	5: Mov32Imm dst: r0 imm: 1
+        	6: Exit
+=== RUN   TestDeviceFilter_PrivilegedExceptSingleDevice
+--- PASS: TestDeviceFilter_PrivilegedExceptSingleDevice (0.00s)
+    devicefilter_test.go:29: TestDeviceFilter_PrivilegedExceptSingleDevice: devices: [0xc0000aa320 0xc0000aa370]
+        	 0: LdXMemH dst: r2 src: r1 off: 0 imm: 0
+        	 1: LdXMemW dst: r3 src: r1 off: 0 imm: 0
+        	 2: RSh32Imm dst: r3 imm: 16
+        	 3: LdXMemW dst: r4 src: r1 off: 4 imm: 0
+        	 4: LdXMemW dst: r5 src: r1 off: 8 imm: 0
+        block-0:
+        	 5: JNEImm dst: r2 off: -1 imm: 1 <block-1>
+        	 6: JNEImm dst: r4 off: -1 imm: 8 <block-1>
+        	 7: JNEImm dst: r5 off: -1 imm: 0 <block-1>
+        	 8: Mov32Imm dst: r0 imm: 0
+        	 9: Exit
+        block-1:
+        	10: Mov32Imm dst: r0 imm: 1
+        	11: Exit
+=== RUN   TestDeviceFilter_Weird
+--- PASS: TestDeviceFilter_Weird (0.00s)
+    devicefilter_test.go:29: TestDeviceFilter_Weird: devices: [0xc0000aa3c0 0xc0000aa410 0xc0000aa460]
+        	 0: LdXMemH dst: r2 src: r1 off: 0 imm: 0
+        	 1: LdXMemW dst: r3 src: r1 off: 0 imm: 0
+        	 2: RSh32Imm dst: r3 imm: 16
+        	 3: LdXMemW dst: r4 src: r1 off: 4 imm: 0
+        	 4: LdXMemW dst: r5 src: r1 off: 8 imm: 0
+        block-0:
+        	 5: JNEImm dst: r2 off: -1 imm: 1 <block-1>
+        	 6: JNEImm dst: r4 off: -1 imm: 8 <block-1>
+        	 7: JNEImm dst: r5 off: -1 imm: 2 <block-1>
+        	 8: Mov32Imm dst: r0 imm: 0
+        	 9: Exit
+        block-1:
+        	10: Mov32Imm dst: r0 imm: 1
+        	11: Exit
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter	0.017s
+=== RUN   TestBlkioSetWeight
+--- PASS: TestBlkioSetWeight (0.05s)
+=== RUN   TestBlkioSetWeightDevice
+--- PASS: TestBlkioSetWeightDevice (0.00s)
+=== RUN   TestBlkioSetMultipleWeightDevice
+--- PASS: TestBlkioSetMultipleWeightDevice (0.01s)
+=== RUN   TestBlkioStats
+--- PASS: TestBlkioStats (0.00s)
+=== RUN   TestBlkioStatsNoSectorsFile
+--- PASS: TestBlkioStatsNoSectorsFile (0.00s)
+=== RUN   TestBlkioStatsNoServiceBytesFile
+--- PASS: TestBlkioStatsNoServiceBytesFile (0.00s)
+=== RUN   TestBlkioStatsNoServicedFile
+--- PASS: TestBlkioStatsNoServicedFile (0.00s)
+=== RUN   TestBlkioStatsNoQueuedFile
+--- PASS: TestBlkioStatsNoQueuedFile (0.00s)
+=== RUN   TestBlkioStatsNoServiceTimeFile
+--- PASS: TestBlkioStatsNoServiceTimeFile (0.00s)
+=== RUN   TestBlkioStatsNoWaitTimeFile
+--- PASS: TestBlkioStatsNoWaitTimeFile (0.00s)
+=== RUN   TestBlkioStatsNoMergedFile
+--- PASS: TestBlkioStatsNoMergedFile (0.00s)
+=== RUN   TestBlkioStatsNoTimeFile
+--- PASS: TestBlkioStatsNoTimeFile (0.00s)
+=== RUN   TestBlkioStatsUnexpectedNumberOfFields
+--- PASS: TestBlkioStatsUnexpectedNumberOfFields (0.00s)
+=== RUN   TestBlkioStatsUnexpectedFieldType
+--- PASS: TestBlkioStatsUnexpectedFieldType (0.00s)
+=== RUN   TestNonCFQBlkioStats
+--- PASS: TestNonCFQBlkioStats (0.00s)
+=== RUN   TestBlkioSetThrottleReadBpsDevice
+--- PASS: TestBlkioSetThrottleReadBpsDevice (0.02s)
+=== RUN   TestBlkioSetThrottleWriteBpsDevice
+--- PASS: TestBlkioSetThrottleWriteBpsDevice (0.01s)
+=== RUN   TestBlkioSetThrottleReadIOpsDevice
+--- PASS: TestBlkioSetThrottleReadIOpsDevice (0.02s)
+=== RUN   TestBlkioSetThrottleWriteIOpsDevice
+--- PASS: TestBlkioSetThrottleWriteIOpsDevice (0.03s)
+=== RUN   TestCpuSetShares
+--- PASS: TestCpuSetShares (0.00s)
+=== RUN   TestCpuSetBandWidth
+--- PASS: TestCpuSetBandWidth (0.00s)
+=== RUN   TestCpuStats
+--- PASS: TestCpuStats (0.00s)
+=== RUN   TestNoCpuStatFile
+--- PASS: TestNoCpuStatFile (0.00s)
+=== RUN   TestInvalidCpuStat
+--- PASS: TestInvalidCpuStat (0.00s)
+=== RUN   TestCpuSetRtSchedAtApply
+--- PASS: TestCpuSetRtSchedAtApply (0.03s)
+=== RUN   TestCpusetSetCpus
+--- PASS: TestCpusetSetCpus (0.02s)
+=== RUN   TestCpusetSetMems
+--- PASS: TestCpusetSetMems (0.02s)
+=== RUN   TestDevicesSetAllow
+--- PASS: TestDevicesSetAllow (0.02s)
+=== RUN   TestDevicesSetDeny
+--- PASS: TestDevicesSetDeny (0.01s)
+=== RUN   TestFreezerSetState
+--- PASS: TestFreezerSetState (0.02s)
+=== RUN   TestFreezerSetInvalidState
+--- PASS: TestFreezerSetInvalidState (0.00s)
+=== RUN   TestHugetlbSetHugetlb
+--- PASS: TestHugetlbSetHugetlb (0.02s)
+=== RUN   TestHugetlbStats
+--- PASS: TestHugetlbStats (0.00s)
+=== RUN   TestHugetlbStatsNoUsageFile
+--- SKIP: TestHugetlbStatsNoUsageFile (0.00s)
+    hugetlb_test.go:92: Disabled unreliable test
+=== RUN   TestHugetlbStatsNoMaxUsageFile
+--- SKIP: TestHugetlbStatsNoMaxUsageFile (0.00s)
+    hugetlb_test.go:108: Disabled unreliable test
+=== RUN   TestHugetlbStatsBadUsageFile
+--- SKIP: TestHugetlbStatsBadUsageFile (0.00s)
+    hugetlb_test.go:126: Disabled unreliable test
+=== RUN   TestHugetlbStatsBadMaxUsageFile
+--- SKIP: TestHugetlbStatsBadMaxUsageFile (0.00s)
+    hugetlb_test.go:145: Disabled unreliable test
+=== RUN   TestMemorySetMemory
+--- PASS: TestMemorySetMemory (0.03s)
+=== RUN   TestMemorySetMemoryswap
+--- PASS: TestMemorySetMemoryswap (0.03s)
+=== RUN   TestMemorySetMemoryLargerThanSwap
+--- PASS: TestMemorySetMemoryLargerThanSwap (0.03s)
+=== RUN   TestMemorySetSwapSmallerThanMemory
+--- PASS: TestMemorySetSwapSmallerThanMemory (0.00s)
+=== RUN   TestMemorySetKernelMemory
+--- PASS: TestMemorySetKernelMemory (0.02s)
+=== RUN   TestMemorySetKernelMemoryTCP
+--- PASS: TestMemorySetKernelMemoryTCP (0.02s)
+=== RUN   TestMemorySetMemorySwappinessDefault
+--- PASS: TestMemorySetMemorySwappinessDefault (0.03s)
+=== RUN   TestMemoryStats
+--- PASS: TestMemoryStats (0.00s)
+=== RUN   TestMemoryStatsNoStatFile
+--- PASS: TestMemoryStatsNoStatFile (0.00s)
+=== RUN   TestMemoryStatsNoUsageFile
+--- PASS: TestMemoryStatsNoUsageFile (0.00s)
+=== RUN   TestMemoryStatsNoMaxUsageFile
+--- PASS: TestMemoryStatsNoMaxUsageFile (0.00s)
+=== RUN   TestMemoryStatsNoLimitInBytesFile
+--- PASS: TestMemoryStatsNoLimitInBytesFile (0.00s)
+=== RUN   TestMemoryStatsBadStatFile
+--- PASS: TestMemoryStatsBadStatFile (0.00s)
+=== RUN   TestMemoryStatsBadUsageFile
+--- PASS: TestMemoryStatsBadUsageFile (0.00s)
+=== RUN   TestMemoryStatsBadMaxUsageFile
+--- PASS: TestMemoryStatsBadMaxUsageFile (0.00s)
+=== RUN   TestMemoryStatsBadLimitInBytesFile
+--- PASS: TestMemoryStatsBadLimitInBytesFile (0.00s)
+=== RUN   TestMemorySetOomControl
+--- PASS: TestMemorySetOomControl (0.00s)
+=== RUN   TestNetClsSetClassid
+--- PASS: TestNetClsSetClassid (0.02s)
+=== RUN   TestNetPrioSetIfPrio
+--- PASS: TestNetPrioSetIfPrio (0.00s)
+=== RUN   TestPidsSetMax
+--- PASS: TestPidsSetMax (0.01s)
+=== RUN   TestPidsSetUnlimited
+--- PASS: TestPidsSetUnlimited (0.02s)
+=== RUN   TestPidsStats
+--- PASS: TestPidsStats (0.00s)
+=== RUN   TestPidsStatsUnlimited
+--- PASS: TestPidsStatsUnlimited (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/cgroups/fs	0.530s
+=== RUN   TestParseCgroupFromReader
+--- PASS: TestParseCgroupFromReader (0.00s)
+=== RUN   TestDefaultDirPath
+--- PASS: TestDefaultDirPath (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/cgroups/fs2	0.025s
+=== RUN   TestGetCgroupParamsInt
+--- PASS: TestGetCgroupParamsInt (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/cgroups/fscommon	0.042s
+?   	github.com/opencontainers/runc/libcontainer/cgroups/systemd	[no test files]
+=== RUN   TestRemoveNamespace
+--- PASS: TestRemoveNamespace (0.00s)
+=== RUN   TestHostRootUIDNoUSERNS
+--- PASS: TestHostRootUIDNoUSERNS (0.00s)
+=== RUN   TestHostRootUIDWithUSERNS
+--- PASS: TestHostRootUIDWithUSERNS (0.00s)
+=== RUN   TestHostRootGIDNoUSERNS
+--- PASS: TestHostRootGIDNoUSERNS (0.00s)
+=== RUN   TestHostRootGIDWithUSERNS
+--- PASS: TestHostRootGIDWithUSERNS (0.00s)
+=== RUN   TestUnmarshalHooks
+--- PASS: TestUnmarshalHooks (0.00s)
+=== RUN   TestUnmarshalHooksWithInvalidData
+--- PASS: TestUnmarshalHooksWithInvalidData (0.00s)
+=== RUN   TestMarshalHooks
+--- PASS: TestMarshalHooks (0.00s)
+=== RUN   TestMarshalUnmarshalHooks
+--- PASS: TestMarshalUnmarshalHooks (0.00s)
+=== RUN   TestMarshalHooksWithUnexpectedType
+time="2020-02-25T02:47:34Z" level=warning msg="cannot serialize hook of type configs.FuncHook, skipping"
+--- PASS: TestMarshalHooksWithUnexpectedType (0.00s)
+=== RUN   TestFuncHookRun
+--- PASS: TestFuncHookRun (0.00s)
+=== RUN   TestCommandHookRun
+--- PASS: TestCommandHookRun (0.01s)
+=== RUN   TestCommandHookRunTimeout
+--- PASS: TestCommandHookRunTimeout (0.02s)
+=== RUN   TestHelperProcess
+Helper Process
+ok  	github.com/opencontainers/runc/libcontainer/configs	0.054s
+=== RUN   TestValidateRootlessEUID
+--- PASS: TestValidateRootlessEUID (0.00s)
+=== RUN   TestValidateRootlessEUIDUserns
+--- PASS: TestValidateRootlessEUIDUserns (0.00s)
+=== RUN   TestValidateRootlessEUIDMappingUid
+--- PASS: TestValidateRootlessEUIDMappingUid (0.00s)
+=== RUN   TestValidateNonZeroEUIDMappingGid
+--- PASS: TestValidateNonZeroEUIDMappingGid (0.00s)
+=== RUN   TestValidateRootlessEUIDMountUid
+--- PASS: TestValidateRootlessEUIDMountUid (0.00s)
+=== RUN   TestValidateRootlessEUIDMountGid
+--- PASS: TestValidateRootlessEUIDMountGid (0.00s)
+=== RUN   TestValidate
+--- PASS: TestValidate (0.00s)
+=== RUN   TestValidateWithInvalidRootfs
+--- PASS: TestValidateWithInvalidRootfs (0.00s)
+=== RUN   TestValidateNetworkWithoutNETNamespace
+--- PASS: TestValidateNetworkWithoutNETNamespace (0.00s)
+=== RUN   TestValidateNetworkRoutesWithoutNETNamespace
+--- PASS: TestValidateNetworkRoutesWithoutNETNamespace (0.00s)
+=== RUN   TestValidateHostname
+--- PASS: TestValidateHostname (0.00s)
+=== RUN   TestValidateHostnameWithoutUTSNamespace
+--- PASS: TestValidateHostnameWithoutUTSNamespace (0.00s)
+=== RUN   TestValidateSecurityWithMaskPaths
+--- PASS: TestValidateSecurityWithMaskPaths (0.00s)
+=== RUN   TestValidateSecurityWithROPaths
+--- PASS: TestValidateSecurityWithROPaths (0.00s)
+=== RUN   TestValidateSecurityWithoutNEWNS
+--- PASS: TestValidateSecurityWithoutNEWNS (0.00s)
+=== RUN   TestValidateUsernamespace
+--- PASS: TestValidateUsernamespace (0.00s)
+=== RUN   TestValidateUsernamespaceWithoutUserNS
+--- PASS: TestValidateUsernamespaceWithoutUserNS (0.00s)
+=== RUN   TestValidateSysctl
+--- PASS: TestValidateSysctl (0.00s)
+=== RUN   TestValidateValidSysctl
+--- PASS: TestValidateValidSysctl (0.00s)
+=== RUN   TestValidateSysctlWithSameNs
+--- PASS: TestValidateSysctlWithSameNs (0.00s)
+=== RUN   TestValidateSysctlWithoutNETNamespace
+--- PASS: TestValidateSysctlWithoutNETNamespace (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/configs/validate	0.017s
+=== RUN   TestDeviceFromPathLstatFailure
+--- PASS: TestDeviceFromPathLstatFailure (0.00s)
+=== RUN   TestHostDevicesIoutilReadDirFailure
+--- PASS: TestHostDevicesIoutilReadDirFailure (0.00s)
+=== RUN   TestHostDevicesIoutilReadDirDeepFailure
+--- PASS: TestHostDevicesIoutilReadDirDeepFailure (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/devices	0.034s
+=== RUN   TestIntelRdtSetL3CacheSchema
+--- PASS: TestIntelRdtSetL3CacheSchema (0.00s)
+=== RUN   TestIntelRdtSetMemBwSchema
+--- PASS: TestIntelRdtSetMemBwSchema (0.00s)
+=== RUN   TestIntelRdtSetMemBwScSchema
+--- PASS: TestIntelRdtSetMemBwScSchema (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/intelrdt	0.012s
+?   	github.com/opencontainers/runc/libcontainer/keys	[no test files]
+=== RUN   TestLoggingToFile
+--- PASS: TestLoggingToFile (0.00s)
+=== RUN   TestLogForwardingDoesNotStopOnJsonDecodeErr
+--- PASS: TestLogForwardingDoesNotStopOnJsonDecodeErr (0.04s)
+=== RUN   TestLogForwardingDoesNotStopOnLogLevelParsingErr
+--- PASS: TestLogForwardingDoesNotStopOnLogLevelParsingErr (0.08s)
+=== RUN   TestLogForwardingStopsAfterClosingTheWriter
+--- PASS: TestLogForwardingStopsAfterClosingTheWriter (0.04s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/logs	0.189s
+?   	github.com/opencontainers/runc/libcontainer/mount	[no test files]
+?   	github.com/opencontainers/runc/libcontainer/nsenter	[no test files]
+=== RUN   TestParseStatusFile
+--- PASS: TestParseStatusFile (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/seccomp	0.021s
+=== RUN   TestCreateCommandHookTimeout
+--- PASS: TestCreateCommandHookTimeout (0.00s)
+=== RUN   TestCreateHooks
+--- PASS: TestCreateHooks (0.00s)
+=== RUN   TestSetupSeccomp
+--- PASS: TestSetupSeccomp (0.00s)
+=== RUN   TestLinuxCgroupWithMemoryResource
+--- PASS: TestLinuxCgroupWithMemoryResource (0.00s)
+=== RUN   TestLinuxCgroupSystemd
+--- PASS: TestLinuxCgroupSystemd (0.00s)
+=== RUN   TestLinuxCgroupSystemdWithEmptyPath
+--- PASS: TestLinuxCgroupSystemdWithEmptyPath (0.00s)
+=== RUN   TestLinuxCgroupSystemdWithInvalidPath
+--- PASS: TestLinuxCgroupSystemdWithInvalidPath (0.00s)
+=== RUN   TestLinuxCgroupsPathSpecified
+--- PASS: TestLinuxCgroupsPathSpecified (0.00s)
+=== RUN   TestLinuxCgroupsPathNotSpecified
+--- PASS: TestLinuxCgroupsPathNotSpecified (0.00s)
+=== RUN   TestSpecconvExampleValidate
+--- PASS: TestSpecconvExampleValidate (0.00s)
+=== RUN   TestDupNamespaces
+--- PASS: TestDupNamespaces (0.00s)
+=== RUN   TestNonZeroEUIDCompatibleSpecconvValidate
+--- PASS: TestNonZeroEUIDCompatibleSpecconvValidate (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/specconv	0.027s
+=== RUN   TestCaptureTestFunc
+--- PASS: TestCaptureTestFunc (0.00s)
+=== RUN   TestParsePackageName
+--- PASS: TestParsePackageName (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/stacktrace	0.002s
+=== RUN   TestUIDMapInUserNS
+--- PASS: TestUIDMapInUserNS (0.00s)
+=== RUN   TestParseStartTime
+--- PASS: TestParseStartTime (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/system	0.003s
+=== RUN   TestUserParseLine
+--- PASS: TestUserParseLine (0.00s)
+=== RUN   TestUserParsePasswd
+--- PASS: TestUserParsePasswd (0.00s)
+=== RUN   TestUserParseGroup
+--- PASS: TestUserParseGroup (0.00s)
+=== RUN   TestValidGetExecUser
+--- PASS: TestValidGetExecUser (0.00s)
+=== RUN   TestInvalidGetExecUser
+--- PASS: TestInvalidGetExecUser (0.00s)
+=== RUN   TestGetExecUserNilSources
+--- PASS: TestGetExecUserNilSources (0.00s)
+=== RUN   TestGetAdditionalGroups
+--- PASS: TestGetAdditionalGroups (0.00s)
+=== RUN   TestGetAdditionalGroupsNumeric
+--- PASS: TestGetAdditionalGroupsNumeric (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/user	0.007s
+=== RUN   TestSearchLabels
+--- PASS: TestSearchLabels (0.00s)
+=== RUN   TestResolveRootfs
+--- PASS: TestResolveRootfs (0.00s)
+=== RUN   TestResolveRootfsWithSymlink
+--- PASS: TestResolveRootfsWithSymlink (0.00s)
+=== RUN   TestResolveRootfsWithNonExistingDir
+--- PASS: TestResolveRootfsWithNonExistingDir (0.00s)
+=== RUN   TestExitStatus
+--- PASS: TestExitStatus (0.00s)
+=== RUN   TestExitStatusSignaled
+--- PASS: TestExitStatusSignaled (0.00s)
+=== RUN   TestWriteJSON
+--- PASS: TestWriteJSON (0.00s)
+=== RUN   TestCleanPath
+--- PASS: TestCleanPath (0.00s)
+PASS
+ok  	github.com/opencontainers/runc/libcontainer/utils	0.029s
+?   	github.com/opencontainers/runc/types	[no test files]
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary --buildsystem=golang --with=golang --builddirectory=_build
+   dh_testroot -O--buildsystem=golang -O--builddirectory=_build
+   dh_prep -O--buildsystem=golang -O--builddirectory=_build
+   dh_auto_install -O--buildsystem=golang -O--builddirectory=_build
+	cd _build && mkdir -p /<<BUILDDIR>>/runc-1.0.0\~rc10\+dfsg1/debian/tmp/usr
+	cd _build && cp -r bin /<<BUILDDIR>>/runc-1.0.0\~rc10\+dfsg1/debian/tmp/usr
+   dh_install -O--buildsystem=golang -O--builddirectory=_build
+   dh_installdocs -O--buildsystem=golang -O--builddirectory=_build
+   dh_installchangelogs -O--buildsystem=golang -O--builddirectory=_build
+   dh_installman -O--buildsystem=golang -O--builddirectory=_build
+   dh_installinit -O--buildsystem=golang -O--builddirectory=_build
+   dh_installsystemduser -O--buildsystem=golang -O--builddirectory=_build
+   dh_lintian -O--buildsystem=golang -O--builddirectory=_build
+   dh_perl -O--buildsystem=golang -O--builddirectory=_build
+   dh_link -O--buildsystem=golang -O--builddirectory=_build
+   dh_strip_nondeterminism -O--buildsystem=golang -O--builddirectory=_build
+   dh_compress -O--buildsystem=golang -O--builddirectory=_build
+   dh_fixperms -O--buildsystem=golang -O--builddirectory=_build
+   dh_missing -O--buildsystem=golang -O--builddirectory=_build
+   dh_dwz -O--buildsystem=golang -O--builddirectory=_build
+dwz: debian/runc/usr/sbin/recvtty: .debug_info section not present
+dwz: debian/runc/usr/sbin/runc: .debug_info section not present
+dwz: Too few files for multifile optimization
+dh_dwz: warning: No dwz multifile created, but not explicitly requested either so ignoring it.
+dh_dwz: warning: Common issues include no debug information at all (missing -g) and
+dh_dwz: warning: compressed debug information (#931891).
+   dh_strip -O--buildsystem=golang -O--builddirectory=_build
+dh_strip: warning: Could not find the BuildID in debian/runc/usr/sbin/recvtty
+   dh_makeshlibs -O--buildsystem=golang -O--builddirectory=_build
+   dh_shlibdeps -O--buildsystem=golang -O--builddirectory=_build
+   dh_installdeb -O--buildsystem=golang -O--builddirectory=_build
+   dh_golang -O--buildsystem=golang -O--builddirectory=_build
+   dh_gencontrol -O--buildsystem=golang -O--builddirectory=_build
+dpkg-gencontrol: warning: Recommends field of package runc: substitution variable ${misc:Recommends} used, but is not defined
+dpkg-gencontrol: warning: Recommends field of package runc: substitution variable ${misc:Recommends} used, but is not defined
+   dh_md5sums -O--buildsystem=golang -O--builddirectory=_build
+   dh_builddeb -O--buildsystem=golang -O--builddirectory=_build
+dpkg-deb: building package 'runc' in '../runc_1.0.0~rc10+dfsg1-1_amd64.deb'.
+dpkg-deb: building package 'golang-github-opencontainers-runc-dev' in '../golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb'.
+dpkg-deb: building package 'runc-dbgsym' in '../runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../runc_1.0.0~rc10+dfsg1-1_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2020-02-25T02:47:55Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+runc_1.0.0~rc10+dfsg1-1_amd64.changes:
+--------------------------------------
+
+Format: 1.8
+Date: Sun, 26 Jan 2020 20:24:01 +1100
+Source: runc
+Binary: golang-github-opencontainers-runc-dev runc runc-dbgsym
+Architecture: all amd64
+Version: 1.0.0~rc10+dfsg1-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Changed-By: Dmitry Smirnov <onlyjob@debian.org>
+Description:
+ golang-github-opencontainers-runc-dev - Open Container Project - development files
+ runc       - Open Container Project - runtime
+Changes:
+ runc (1.0.0~rc10+dfsg1-1) unstable; urgency=medium
+ .
+   * New upstream release.
+     + fixed CVE-2019-19921.
+   * Un-vendored "golang-github-checkpoint-restore-go-criu-dev".
+   * Build-Depends += "golang-golang-x-tools".
+   * Standards-Version: 4.5.0.
+Checksums-Sha1:
+ 3def2e9f12a665b4f22a28cbd2f45b3abe039332 202580 golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 35ec0449b1c1233c29101d6af8c03fbea32b0584 2374188 runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ af406191ae13bda8f9d07faf44e821cd785d534e 8335 runc_1.0.0~rc10+dfsg1-1_amd64.buildinfo
+ 626e0031b3aa77882521453b2ddea13052804c98 3119432 runc_1.0.0~rc10+dfsg1-1_amd64.deb
+Checksums-Sha256:
+ b237a5bd1e6489723a4a7809b2647a303e508bb07640b19a9d341f67de0edfd5 202580 golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 2c55ab00b81a7985d8902225b5ac5142557957003fda6a3123d16055d9cf862f 2374188 runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ bf5cb8c67d7e64ec1757894a1653b58048113f975ae52068986a08ab032f5740 8335 runc_1.0.0~rc10+dfsg1-1_amd64.buildinfo
+ 10d64b2ee5e859c9aec488ac94494f5a41a1ad83fcdbbbac63dd29135234ab0f 3119432 runc_1.0.0~rc10+dfsg1-1_amd64.deb
+Files:
+ 57ec7cc27fd4bb4d46a99a4ea6a85fad 202580 devel optional golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 0aab2a8646d116f42080572e074369b8 2374188 debug optional runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ 4ca01e695bc3da065cf389aa6d192a7d 8335 devel optional runc_1.0.0~rc10+dfsg1-1_amd64.buildinfo
+ e59c791853bca5beebef5189b989a679 3119432 devel optional runc_1.0.0~rc10+dfsg1-1_amd64.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: runc
+Binary: runc golang-github-opencontainers-runc-dev
+Architecture: all amd64
+Version: 1.0.0~rc10+dfsg1-1
+Checksums-Md5:
+ 57ec7cc27fd4bb4d46a99a4ea6a85fad 202580 golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 0aab2a8646d116f42080572e074369b8 2374188 runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ e59c791853bca5beebef5189b989a679 3119432 runc_1.0.0~rc10+dfsg1-1_amd64.deb
+Checksums-Sha1:
+ 3def2e9f12a665b4f22a28cbd2f45b3abe039332 202580 golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 35ec0449b1c1233c29101d6af8c03fbea32b0584 2374188 runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ 626e0031b3aa77882521453b2ddea13052804c98 3119432 runc_1.0.0~rc10+dfsg1-1_amd64.deb
+Checksums-Sha256:
+ b237a5bd1e6489723a4a7809b2647a303e508bb07640b19a9d341f67de0edfd5 202580 golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+ 2c55ab00b81a7985d8902225b5ac5142557957003fda6a3123d16055d9cf862f 2374188 runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+ 10d64b2ee5e859c9aec488ac94494f5a41a1ad83fcdbbbac63dd29135234ab0f 3119432 runc_1.0.0~rc10+dfsg1-1_amd64.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 25 Feb 2020 02:47:54 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11.1),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-10),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.47),
+ bash (= 5.0-5),
+ binutils (= 2.34-3),
+ binutils-common (= 2.34-3),
+ binutils-x86-64-linux-gnu (= 2.34-3),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.8),
+ bzip2 (= 1.0.8-2),
+ clang-9 (= 1:9.0.1-8),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3.1),
+ cpp-9 (= 9.2.1-29),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.9),
+ debianutils (= 4.9.1),
+ dh-autoreconf (= 19),
+ dh-golang (= 1.46),
+ dh-strip-nondeterminism (= 1.6.3-2),
+ diffutils (= 1:3.7-3),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-5),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.38-4),
+ findutils (= 4.7.0-1),
+ g++ (= 4:9.2.1-3.1),
+ g++-9 (= 9.2.1-29),
+ gcc (= 4:9.2.1-3.1),
+ gcc-10-base (= 10-20200222-1),
+ gcc-8-base (= 8.3.0-29),
+ gcc-9 (= 9.2.1-29),
+ gcc-9-base (= 9.2.1-29),
+ gettext (= 0.19.8.1-10),
+ gettext-base (= 0.19.8.1-10),
+ go-md2man (= 1.0.10+ds-1),
+ golang-1.13-go (= 1.13.8-1),
+ golang-1.13-src (= 1.13.8-1),
+ golang-any (= 2:1.13~1),
+ golang-dbus-dev (= 5.0.3-1),
+ golang-github-checkpoint-restore-go-criu-dev (= 3.11-2),
+ golang-github-containerd-console-dev (= 0.0~git20170925.84eeaae-1),
+ golang-github-coreos-go-systemd-dev (= 22.0.0-1),
+ golang-github-coreos-pkg-dev (= 4-2),
+ golang-github-cpuguy83-go-md2man-dev (= 1.0.10+ds-1),
+ golang-github-cyphar-filepath-securejoin-dev (= 0.2.2-1),
+ golang-github-davecgh-go-spew-dev (= 1.1.1-2),
+ golang-github-docker-go-units-dev (= 0.4.0-3),
+ golang-github-kr-pretty-dev (= 0.1.0-1),
+ golang-github-kr-pty-dev (= 1.1.6-1),
+ golang-github-kr-text-dev (= 0.1.0-1),
+ golang-github-mrunalp-fileutils-dev (= 0.0~git20160930.0.4ee1cc9-1),
+ golang-github-opencontainers-selinux-dev (= 1.3.1-1),
+ golang-github-opencontainers-specs-dev (= 1.0.1+git20190408.a1b50f6-1),
+ golang-github-pkg-errors-dev (= 0.8.1-1),
+ golang-github-pmezard-go-difflib-dev (= 1.0.0-2),
+ golang-github-russross-blackfriday-dev (= 1.5.2+git20190616.a925a15-1),
+ golang-github-seccomp-libseccomp-golang-dev (= 0.9.1-1),
+ golang-github-shurcool-sanitized-anchor-name-dev (= 1.0.0-1),
+ golang-github-sirupsen-logrus-dev (= 1.4.2-1),
+ golang-github-stretchr-objx-dev (= 0.1.1+git20180825.ef50b0d-1),
+ golang-github-stretchr-testify-dev (= 1.4.0+ds-1),
+ golang-github-urfave-cli-dev (= 1.22.2-4),
+ golang-github-vishvananda-netlink-dev (= 1.1.0-1),
+ golang-github-vishvananda-netns-dev (= 0.0~git20170707.0.86bef33-1),
+ golang-github-xeipuuv-gojsonpointer-dev (= 0.0~git20151027.0.e0fe6f6-2),
+ golang-github-xeipuuv-gojsonreference-dev (= 0.0~git20150808.0.e02fc20-2),
+ golang-github-xeipuuv-gojsonschema-dev (= 0.0~git20170210.0.6b67b3f-2),
+ golang-go (= 2:1.13~1),
+ golang-gocapability-dev (= 0.0+git20180916.d983527-1),
+ golang-golang-x-crypto-dev (= 1:0.0~git20190701.4def268-2),
+ golang-golang-x-net-dev (= 1:0.0+git20200219.4628272+dfsg-1),
+ golang-golang-x-sys-dev (= 0.0~git20200219.cb0a6d8-1),
+ golang-golang-x-text-dev (= 0.3.2-3),
+ golang-golang-x-tools (= 1:0.0~git20191118.07fc4c7+ds-1),
+ golang-gopkg-check.v1-dev (= 0.0+git20180628.788fd78-1),
+ golang-gopkg-yaml.v2-dev (= 2.2.8-1),
+ golang-goprotobuf-dev (= 1.3.2-2),
+ golang-src (= 2:1.13~1),
+ golang-yaml.v2-dev (= 2.2.2-1),
+ grep (= 3.4-1),
+ groff-base (= 1.22.4-4),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.23),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ lib32gcc-s1 (= 10-20200222-1),
+ lib32gcc1 (= 1:10-20200222-1),
+ lib32stdc++6 (= 10-20200222-1),
+ libacl1 (= 2.2.53-5),
+ libapparmor-dev (= 2.13.3-7),
+ libapparmor1 (= 2.13.3-7),
+ libarchive-zip-perl (= 1.67-1),
+ libasan5 (= 9.2.1-29),
+ libatomic1 (= 10-20200222-1),
+ libattr1 (= 1:2.4.48-5),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2+b1),
+ libbinutils (= 2.34-3),
+ libblkid1 (= 2.34-0.1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.8-2),
+ libc-bin (= 2.29-10),
+ libc-dev-bin (= 2.29-10),
+ libc6 (= 2.29-10),
+ libc6-dev (= 2.29-10),
+ libc6-i386 (= 2.29-10),
+ libcap-ng0 (= 0.7.9-2.1+b1),
+ libcc1-0 (= 10-20200222-1),
+ libclang-common-9-dev (= 1:9.0.1-8),
+ libclang-cpp9 (= 1:9.0.1-8),
+ libcroco3 (= 0.6.13-1),
+ libcrypt-dev (= 1:4.4.10-10),
+ libcrypt1 (= 1:4.4.10-10),
+ libctf-nobfd0 (= 2.34-3),
+ libctf0 (= 2.34-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.251),
+ libdebhelper-perl (= 12.9),
+ libdpkg-perl (= 1.19.7),
+ libedit2 (= 3.1-20191231-1),
+ libelf1 (= 0.176-1.1),
+ libfdisk1 (= 2.34-0.1),
+ libffi7 (= 3.3-3),
+ libfile-stripnondeterminism-perl (= 1.6.3-2),
+ libgc1c2 (= 1:7.6.4-0.4),
+ libgcc-8-dev (= 8.3.0-29),
+ libgcc-9-dev (= 9.2.1-29),
+ libgcc-s1 (= 10-20200222-1),
+ libgcc1 (= 1:10-20200222-1),
+ libgcrypt20 (= 1.8.5-5),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.62.4-2),
+ libgmp10 (= 2:6.2.0+dfsg-4),
+ libgomp1 (= 10-20200222-1),
+ libgpg-error0 (= 1.37-1),
+ libicu63 (= 63.2-2),
+ libisl22 (= 0.22.1-1),
+ libitm1 (= 10-20200222-1),
+ libjs-jquery (= 3.3.1~dfsg-3),
+ libjs-jquery-ui (= 1.12.1+dfsg-5),
+ libllvm9 (= 1:9.0.1-8),
+ liblsan0 (= 10-20200222-1),
+ liblz4-1 (= 1.9.2-2),
+ liblzma5 (= 5.2.4-1+b1),
+ libmagic-mgc (= 1:5.38-4),
+ libmagic1 (= 1:5.38-4),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-29),
+ libncursesw6 (= 6.1+20191019-1),
+ libobjc-8-dev (= 8.3.0-29),
+ libobjc4 (= 10-20200222-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre2-8-0 (= 10.34-7),
+ libpcre3 (= 2:8.39-12+b1),
+ libperl5.30 (= 5.30.0-9),
+ libpipeline1 (= 1.5.2-2),
+ libprotobuf-dev (= 3.6.1.3-2+b2),
+ libprotobuf-lite17 (= 3.6.1.3-2+b2),
+ libprotobuf17 (= 3.6.1.3-2+b2),
+ libprotoc17 (= 3.6.1.3-2+b2),
+ libquadmath0 (= 10-20200222-1),
+ libseccomp-dev (= 2.4.2-2),
+ libseccomp2 (= 2.4.2-2),
+ libselinux1 (= 3.0-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.34-0.1),
+ libstdc++-8-dev (= 8.3.0-29),
+ libstdc++-9-dev (= 9.2.1-29),
+ libstdc++6 (= 10-20200222-1),
+ libsub-override-perl (= 0.09-2),
+ libsystemd-dev (= 244.3-1),
+ libsystemd0 (= 244.3-1),
+ libtinfo6 (= 6.1+20191019-1),
+ libtool (= 2.4.6-13),
+ libtsan0 (= 10-20200222-1),
+ libubsan1 (= 10-20200222-1),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 244.3-1),
+ libunistring2 (= 0.9.10-2),
+ libuuid1 (= 2.34-0.1),
+ libxml2 (= 2.9.10+dfsg-3),
+ libz3-4 (= 4.8.7-4),
+ linux-libc-dev (= 5.4.19-1),
+ login (= 1:4.8.1-1),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-4),
+ make (= 4.2.1-1.2),
+ man-db (= 2.9.0-2),
+ mawk (= 1.3.4.20200120-2),
+ ncurses-base (= 6.1+20191019-1),
+ ncurses-bin (= 6.1+20191019-1),
+ patch (= 2.7.6-6),
+ perl (= 5.30.0-9),
+ perl-base (= 5.30.0-9),
+ perl-modules-5.30 (= 5.30.0-9),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ protobuf-compiler (= 3.6.1.3-2+b2),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12+nmu1),
+ sysvinit-utils (= 2.96-2.1),
+ tar (= 1.30+dfsg-6+b1),
+ util-linux (= 2.34-0.1),
+ xz-utils (= 5.2.4-1+b1),
+ zlib1g (= 1:1.2.11.dfsg-1.2),
+ zlib1g-dev (= 1:1.2.11.dfsg-1.2)
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="C.UTF-8"
+ LC_ALL="C.UTF-8"
+ SOURCE_DATE_EPOCH="1580030641"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+golang-github-opencontainers-runc-dev_1.0.0~rc10+dfsg1-1_all.deb
+----------------------------------------------------------------
+
+ new Debian package, version 2.0.
+ size 202580 bytes: control archive=6872 bytes.
+    1199 bytes,    17 lines      control              
+   27748 bytes,   231 lines      md5sums              
+ Package: golang-github-opencontainers-runc-dev
+ Source: runc
+ Version: 1.0.0~rc10+dfsg1-1
+ Architecture: all
+ Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+ Installed-Size: 1161
+ Depends: golang-dbus-dev, golang-github-checkpoint-restore-go-criu-dev, golang-github-coreos-go-systemd-dev (>= 20~), golang-github-cyphar-filepath-securejoin-dev, golang-github-docker-go-units-dev (>= 0.4.0~), golang-github-opencontainers-selinux-dev (>= 1.3.0~), golang-github-opencontainers-specs-dev (>= 1.0.1-5~), golang-github-seccomp-libseccomp-golang-dev (>= 0.9.1~), golang-github-sirupsen-logrus-dev (>= 1.0.2~), golang-github-urfave-cli-dev, golang-github-vishvananda-netlink-dev, golang-gocapability-dev (>= 0.0+git20180916~), golang-goprotobuf-dev
+ Section: devel
+ Priority: optional
+ Homepage: https://github.com/opencontainers/runc
+ Description: Open Container Project - development files
+  "runc" is a command line client for running applications packaged according
+  to the Open Container Format (OCF) and is a compliant implementation of
+  the Open Container Project specification.
+  .
+  This package provides development files formerly known as
+  "github.com/docker/libcontainer".
+
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/doc/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/doc/golang-github-opencontainers-runc-dev/
+-rw-r--r-- root/root      3165 2020-01-26 09:24 ./usr/share/doc/golang-github-opencontainers-runc-dev/changelog.Debian.gz
+-rw-r--r-- root/root      3869 2020-01-26 09:21 ./usr/share/doc/golang-github-opencontainers-runc-dev/copyright
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/
+-rw-r--r-- root/root      4805 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/checkpoint.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/contrib/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/contrib/cmd/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/contrib/cmd/recvtty/
+-rw-r--r-- root/root      5434 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/contrib/cmd/recvtty/recvtty.go
+-rw-r--r-- root/root      2335 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/create.go
+-rw-r--r-- root/root      2338 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/delete.go
+-rw-r--r-- root/root      6096 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/events.go
+-rw-r--r-- root/root      6286 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/exec.go
+-rw-r--r-- root/root      1360 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/init.go
+-rw-r--r-- root/root      1552 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/kill.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/apparmor/
+-rw-r--r-- root/root      1444 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/apparmor/apparmor.go
+-rw-r--r-- root/root       309 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/apparmor/apparmor_disabled.go
+-rw-r--r-- root/root      3101 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/capabilities_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/
+-rw-r--r-- root/root      1799 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/cgroups.go
+-rw-r--r-- root/root       276 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/cgroups_test.go
+-rw-r--r-- root/root        34 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/cgroups_unsupported.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter/
+-rw-r--r-- root/root      4873 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter/devicefilter.go
+-rw-r--r-- root/root      7437 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/devicefilter/devicefilter_test.go
+-rw-r--r-- root/root      1489 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/ebpf/ebpf.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/
+-rw-r--r-- root/root     10066 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/apply_raw.go
+-rw-r--r-- root/root      6079 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/blkio.go
+-rw-r--r-- root/root     22091 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/blkio_test.go
+-rw-r--r-- root/root      3114 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpu.go
+-rw-r--r-- root/root      5731 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpu_test.go
+-rw-r--r-- root/root      3253 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuacct.go
+-rw-r--r-- root/root      4506 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuset.go
+-rw-r--r-- root/root      1442 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/cpuset_test.go
+-rw-r--r-- root/root      1854 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/devices.go
+-rw-r--r-- root/root      2536 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/devices_test.go
+-rw-r--r-- root/root      1606 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/freezer.go
+-rw-r--r-- root/root      1223 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/freezer_test.go
+-rw-r--r-- root/root        29 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/fs_unsupported.go
+-rw-r--r-- root/root      1895 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/hugetlb.go
+-rw-r--r-- root/root      4120 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/hugetlb_test.go
+-rw-r--r-- root/root      2181 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/kmem.go
+-rw-r--r-- root/root       272 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/kmem_disabled.go
+-rw-r--r-- root/root      8067 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/memory.go
+-rw-r--r-- root/root     14302 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/memory_test.go
+-rw-r--r-- root/root       712 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/name.go
+-rw-r--r-- root/root       936 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_cls.go
+-rw-r--r-- root/root      1018 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_cls_test.go
+-rw-r--r-- root/root       915 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_prio.go
+-rw-r--r-- root/root       855 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/net_prio_test.go
+-rw-r--r-- root/root       759 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/perf_event.go
+-rw-r--r-- root/root      1719 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/pids.go
+-rw-r--r-- root/root      2694 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/pids_test.go
+-rw-r--r-- root/root      4000 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/stats_util_test.go
+-rw-r--r-- root/root      1559 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs/util_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/
+-rw-r--r-- root/root      1223 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/cpu.go
+-rw-r--r-- root/root       556 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/cpuset.go
+-rw-r--r-- root/root      2811 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/defaultpath.go
+-rw-r--r-- root/root      2049 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/defaultpath_test.go
+-rw-r--r-- root/root      1906 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/devices.go
+-rw-r--r-- root/root      1342 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/freezer.go
+-rw-r--r-- root/root      5484 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/fs2.go
+-rw-r--r-- root/root      2929 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/io.go
+-rw-r--r-- root/root      2699 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/memory.go
+-rw-r--r-- root/root      2245 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fs2/pids.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/
+-rw-r--r-- root/root       782 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/fscommon.go
+-rw-r--r-- root/root      2187 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/utils.go
+-rw-r--r-- root/root      2089 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/fscommon/utils_test.go
+-rw-r--r-- root/root      3897 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/stats.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/
+-rw-r--r-- root/root      1527 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/apply_nosystemd.go
+-rw-r--r-- root/root     14055 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/apply_systemd.go
+-rw-r--r-- root/root      8167 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/systemd/unified_hierarchy.go
+-rw-r--r-- root/root     14795 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/utils.go
+-rw-r--r-- root/root     31024 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/cgroups/utils_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/
+-rw-r--r-- root/root      2155 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/blkio_device.go
+-rw-r--r-- root/root      4275 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/cgroup_linux.go
+-rw-r--r-- root/root       176 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/cgroup_unsupported.go
+-rw-r--r-- root/root     11242 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/config.go
+-rw-r--r-- root/root      1942 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/config_linux.go
+-rw-r--r-- root/root      2454 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/config_linux_test.go
+-rw-r--r-- root/root      4414 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/config_test.go
+-rw-r--r-- root/root        74 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/config_windows_test.go
+-rw-r--r-- root/root      1193 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/device.go
+-rw-r--r-- root/root      2010 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/device_defaults.go
+-rw-r--r-- root/root       180 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/hugepage_limit.go
+-rw-r--r-- root/root       518 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/intelrdt.go
+-rw-r--r-- root/root       236 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/interface_priority_map.go
+-rw-r--r-- root/root      1003 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/mount.go
+-rw-r--r-- root/root        72 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/namespaces.go
+-rw-r--r-- root/root      2494 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/namespaces_linux.go
+-rw-r--r-- root/root       734 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/namespaces_syscall.go
+-rw-r--r-- root/root       363 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/namespaces_syscall_unsupported.go
+-rw-r--r-- root/root       188 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/namespaces_unsupported.go
+-rw-r--r-- root/root      2892 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/network.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/validate/
+-rw-r--r-- root/root      2641 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/validate/rootless.go
+-rw-r--r-- root/root      3954 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/validate/rootless_test.go
+-rw-r--r-- root/root      7360 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/validate/validator.go
+-rw-r--r-- root/root      5707 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/configs/validate/validator_test.go
+-rw-r--r-- root/root       921 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/console_linux.go
+-rw-r--r-- root/root      5356 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/container.go
+-rw-r--r-- root/root     59080 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/container_linux.go
+-rw-r--r-- root/root      8831 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/container_linux_test.go
+-rw-r--r-- root/root      2133 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/criu_opts_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/devices/
+-rw-r--r-- root/root      2521 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/devices/devices.go
+-rw-r--r-- root/root      1352 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/devices/devices_test.go
+-rw-r--r-- root/root      1428 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/error.go
+-rw-r--r-- root/root       795 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/error_test.go
+-rw-r--r-- root/root      1439 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/factory.go
+-rw-r--r-- root/root     12632 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/factory_linux.go
+-rw-r--r-- root/root      5882 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/factory_linux_test.go
+-rw-r--r-- root/root      2018 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/generic_error.go
+-rw-r--r-- root/root       975 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/generic_error_test.go
+-rw-r--r-- root/root     16009 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/init_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/
+-rw-r--r-- root/root      5155 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/checkpoint_test.go
+-rw-r--r-- root/root        83 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/doc.go
+-rw-r--r-- root/root     44633 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/exec_test.go
+-rw-r--r-- root/root     13600 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/execin_test.go
+-rw-r--r-- root/root       944 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/init_test.go
+-rw-r--r-- root/root      8800 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/seccomp_test.go
+-rw-r--r-- root/root      4214 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/template_test.go
+-rw-r--r-- root/root      4235 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/integration/utils_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/intelrdt/
+-rw-r--r-- root/root     22416 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/intelrdt/intelrdt.go
+-rw-r--r-- root/root      2760 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/intelrdt/intelrdt_test.go
+-rw-r--r-- root/root      1161 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/intelrdt/stats.go
+-rw-r--r-- root/root      1612 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/intelrdt/util_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/keys/
+-rw-r--r-- root/root      1058 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/keys/keyctl.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/logs/
+-rw-r--r-- root/root      2226 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/logs/logs.go
+-rw-r--r-- root/root      4010 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/logs/logs_linux_test.go
+-rw-r--r-- root/root      2072 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/message_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/mount/
+-rw-r--r-- root/root       530 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/mount/mount.go
+-rw-r--r-- root/root      2281 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/mount/mount_linux.go
+-rw-r--r-- root/root      1065 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/mount/mountinfo.go
+-rw-r--r-- root/root      2940 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/network_linux.go
+-rw-r--r-- root/root      2129 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/notify_linux.go
+-rw-r--r-- root/root      3136 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/notify_linux_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/
+-rw-r--r-- root/root     12362 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/cloned_binary.c
+-rw-r--r-- root/root       841 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/namespace.h
+-rw-r--r-- root/root       159 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/nsenter.go
+-rw-r--r-- root/root       502 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/nsenter_gccgo.go
+-rw-r--r-- root/root        39 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/nsenter_unsupported.go
+-rw-r--r-- root/root     29560 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/nsenter/nsexec.c
+-rw-r--r-- root/root      3262 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/process.go
+-rw-r--r-- root/root     17326 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/process_linux.go
+-rw-r--r-- root/root      2774 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/restored_process.go
+-rw-r--r-- root/root     29838 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/rootfs_linux.go
+-rw-r--r-- root/root      2103 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/rootfs_linux_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/
+-rw-r--r-- root/root      2559 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/config.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/fixtures/
+-rw-r--r-- root/root      1007 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/fixtures/proc_self_status
+-rw-r--r-- root/root      7012 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/seccomp_linux.go
+-rw-r--r-- root/root       300 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/seccomp_linux_test.go
+-rw-r--r-- root/root       497 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/seccomp/seccomp_unsupported.go
+-rw-r--r-- root/root      2802 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/setns_init_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/specconv/
+-rw-r--r-- root/root      4986 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/specconv/example.go
+-rw-r--r-- root/root     21935 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/specconv/spec_linux.go
+-rw-r--r-- root/root     10718 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/specconv/spec_linux_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/
+-rw-r--r-- root/root       612 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/capture.go
+-rw-r--r-- root/root       764 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/capture_test.go
+-rw-r--r-- root/root       732 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/frame.go
+-rw-r--r-- root/root       563 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/frame_test.go
+-rw-r--r-- root/root        63 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stacktrace/stacktrace.go
+-rw-r--r-- root/root      7512 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/standard_init_linux.go
+-rw-r--r-- root/root      5273 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/state_linux.go
+-rw-r--r-- root/root      2327 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/state_linux_test.go
+-rw-r--r-- root/root       309 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/stats_linux.go
+-rw-r--r-- root/root      2632 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/sync.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/
+-rw-r--r-- root/root      3916 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/linux.go
+-rw-r--r-- root/root       897 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/linux_test.go
+-rw-r--r-- root/root      2870 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/proc.go
+-rw-r--r-- root/root      1780 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/proc_test.go
+-rw-r--r-- root/root       505 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/syscall_linux_32.go
+-rw-r--r-- root/root       565 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/syscall_linux_64.go
+-rw-r--r-- root/root       142 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/sysconfig.go
+-rw-r--r-- root/root       469 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/sysconfig_notcgo.go
+-rw-r--r-- root/root       529 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/unsupported.go
+-rw-r--r-- root/root       890 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/system/xattrs_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/
+-rw-r--r-- root/root      1439 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/lookup.go
+-rw-r--r-- root/root      3230 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/lookup_unix.go
+-rw-r--r-- root/root       687 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/lookup_windows.go
+-rw-r--r-- root/root     14198 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/user.go
+-rw-r--r-- root/root     10461 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/user/user_test.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/utils/
+-rw-r--r-- root/root      2882 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/utils/cmsg.go
+-rw-r--r-- root/root      3120 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/utils/utils.go
+-rw-r--r-- root/root      3099 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/utils/utils_test.go
+-rw-r--r-- root/root      1766 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/libcontainer/utils/utils_unix.go
+-rw-r--r-- root/root      4558 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/list.go
+-rw-r--r-- root/root      4674 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/main.go
+-rw-r--r-- root/root      2480 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/notify_socket.go
+-rw-r--r-- root/root      1765 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/pause.go
+-rw-r--r-- root/root      2266 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/ps.go
+-rw-r--r-- root/root      4066 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/restore.go
+-rw-r--r-- root/root      1651 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/rlimit_linux.go
+-rw-r--r-- root/root      1330 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/rootless_linux.go
+-rw-r--r-- root/root      2599 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/run.go
+-rw-r--r-- root/root      1010 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/signalmap.go
+-rw-r--r-- root/root       987 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/signalmap_mipsx.go
+-rw-r--r-- root/root      3602 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/signals.go
+-rw-r--r-- root/root      4389 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/spec.go
+-rw-r--r-- root/root      1158 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/start.go
+-rw-r--r-- root/root      1471 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/state.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tests/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tests/integration/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tests/integration/testdata/
+-rw-r--r-- root/root     12800 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tests/integration/testdata/hello-world-aarch64.tar
+-rw-r--r-- root/root      9216 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tests/integration/testdata/hello-world.tar
+-rw-r--r-- root/root      3663 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/tty.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/types/
+-rw-r--r-- root/root      4132 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/types/events.go
+-rw-r--r-- root/root      7890 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/update.go
+-rw-r--r-- root/root      2143 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/utils.go
+-rw-r--r-- root/root     12322 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/utils_linux.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/
+-rw-r--r-- root/root      4125 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/abi.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/
+-rw-r--r-- root/root      3238 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/alu.go
+-rw-r--r-- root/root      2375 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/alu_string.go
+-rw-r--r-- root/root        62 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/doc.go
+-rw-r--r-- root/root      2592 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/func.go
+-rw-r--r-- root/root      5800 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/func_string.go
+-rw-r--r-- root/root      9170 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/instruction.go
+-rw-r--r-- root/root      2741 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/jump.go
+-rw-r--r-- root/root      1214 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/jump_string.go
+-rw-r--r-- root/root      4496 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/load_store.go
+-rw-r--r-- root/root      1635 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/load_store_string.go
+-rw-r--r-- root/root      5421 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/opcode.go
+-rw-r--r-- root/root       842 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/opcode_string.go
+-rw-r--r-- root/root       580 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/asm/register.go
+-rw-r--r-- root/root      3625 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/collection.go
+-rw-r--r-- root/root       876 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/doc.go
+-rw-r--r-- root/root     11085 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/elf_reader.go
+-rw-r--r-- root/root       217 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/feature.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/
+-rw-r--r-- root/root      1307 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/cpu.go
+-rw-r--r-- root/root       454 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/endian.go
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix/
+-rw-r--r-- root/root      3207 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix/types_linux.go
+-rw-r--r-- root/root      3994 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/internal/unix/types_other.go
+-rw-r--r-- root/root      1434 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/linker.go
+-rw-r--r-- root/root     14349 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/map.go
+-rw-r--r-- root/root      4755 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/marshalers.go
+-rw-r--r-- root/root     13004 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/prog.go
+-rw-r--r-- root/root       214 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/ptr_32_be.go
+-rw-r--r-- root/root       229 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/ptr_32_le.go
+-rw-r--r-- root/root       256 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/ptr_64.go
+-rw-r--r-- root/root      9021 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/syscalls.go
+-rw-r--r-- root/root      5433 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/types.go
+-rw-r--r-- root/root      2487 2020-01-26 09:24 ./usr/share/gocode/src/github.com/opencontainers/runc/vendor/github.com/cilium/ebpf/types_string.go
+
+
+runc-dbgsym_1.0.0~rc10+dfsg1-1_amd64.deb
+----------------------------------------
+
+ new Debian package, version 2.0.
+ size 2374188 bytes: control archive=540 bytes.
+     378 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: runc-dbgsym
+ Source: runc
+ Version: 1.0.0~rc10+dfsg1-1
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+ Installed-Size: 3124
+ Depends: runc (= 1.0.0~rc10+dfsg1-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for runc
+ Build-Ids: 2687617d0929434f18267eadfbabc4ba803bdfab
+
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/lib/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/lib/debug/.build-id/26/
+-rw-r--r-- root/root   3188640 2020-01-26 09:24 ./usr/lib/debug/.build-id/26/87617d0929434f18267eadfbabc4ba803bdfab.debug
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2020-01-26 09:24 ./usr/share/doc/runc-dbgsym -> runc
+
+
+runc_1.0.0~rc10+dfsg1-1_amd64.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 3119432 bytes: control archive=1652 bytes.
+    1528 bytes,    16 lines      control              
+    1598 bytes,    24 lines      md5sums              
+ Package: runc
+ Version: 1.0.0~rc10+dfsg1-1
+ Architecture: amd64
+ Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+ Installed-Size: 12808
+ Depends: libc6 (>= 2.14), libseccomp2 (>= 2.4.1)
+ Recommends: criu
+ Breaks: docker.io (<= 1.13.1~ds1-2)
+ Built-Using: go-md2man (= 1.0.10+ds-1), golang-1.13 (= 1.13.8-1), golang-blackfriday (= 1.5.2+git20190616.a925a15-1), golang-dbus (= 5.0.3-1), golang-github-checkpoint-restore-go-criu (= 3.11-2), golang-github-containerd-console (= 0.0~git20170925.84eeaae-1), golang-github-coreos-go-systemd (= 22.0.0-1), golang-github-cyphar-filepath-securejoin (= 0.2.2-1), golang-github-docker-go-units (= 0.4.0-3), golang-github-mrunalp-fileutils (= 0.0~git20160930.0.4ee1cc9-1), golang-github-opencontainers-selinux (= 1.3.1-1), golang-github-opencontainers-specs (= 1.0.1+git20190408.a1b50f6-1), golang-github-pkg-errors (= 0.8.1-1), golang-github-urfave-cli (= 1.22.2-4), golang-github-vishvananda-netlink (= 1.1.0-1), golang-github-vishvananda-netns (= 0.0~git20170707.0.86bef33-1), golang-gocapability-dev (= 0.0+git20180916.d983527-1), golang-golang-x-sys (= 0.0~git20200219.cb0a6d8-1), golang-goprotobuf (= 1.3.2-2), golang-logrus (= 1.4.2-1)
+ Section: devel
+ Priority: optional
+ Homepage: https://github.com/opencontainers/runc
+ Description: Open Container Project - runtime
+  "runc" is a command line client for running applications packaged according
+  to the Open Container Format (OCF) and is a compliant implementation of
+  the Open Container Project specification.
+
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/sbin/
+-rwxr-xr-x root/root   4121560 2020-01-26 09:24 ./usr/sbin/recvtty
+-rwxr-xr-x root/root   8948480 2020-01-26 09:24 ./usr/sbin/runc
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/doc/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/doc/runc/
+-rw-r--r-- root/root       518 2020-01-22 16:19 ./usr/share/doc/runc/NOTICE
+-rw-r--r-- root/root      3491 2020-01-22 16:19 ./usr/share/doc/runc/README.md.gz
+-rw-r--r-- root/root      3165 2020-01-26 09:24 ./usr/share/doc/runc/changelog.Debian.gz
+-rw-r--r-- root/root      3869 2020-01-26 09:21 ./usr/share/doc/runc/copyright
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root        31 2018-06-15 11:50 ./usr/share/lintian/overrides/runc
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/man/
+drwxr-xr-x root/root         0 2020-01-26 09:24 ./usr/share/man/man8/
+-rw-r--r-- root/root       696 2020-01-26 09:24 ./usr/share/man/man8/runc-checkpoint.8.gz
+-rw-r--r-- root/root       791 2020-01-26 09:24 ./usr/share/man/man8/runc-create.8.gz
+-rw-r--r-- root/root       395 2020-01-26 09:24 ./usr/share/man/man8/runc-delete.8.gz
+-rw-r--r-- root/root       359 2020-01-26 09:24 ./usr/share/man/man8/runc-events.8.gz
+-rw-r--r-- root/root       790 2020-01-26 09:24 ./usr/share/man/man8/runc-exec.8.gz
+-rw-r--r-- root/root       371 2020-01-26 09:24 ./usr/share/man/man8/runc-kill.8.gz
+-rw-r--r-- root/root       341 2020-01-26 09:24 ./usr/share/man/man8/runc-list.8.gz
+-rw-r--r-- root/root       251 2020-01-26 09:24 ./usr/share/man/man8/runc-pause.8.gz
+-rw-r--r-- root/root       287 2020-01-26 09:24 ./usr/share/man/man8/runc-ps.8.gz
+-rw-r--r-- root/root       660 2020-01-26 09:24 ./usr/share/man/man8/runc-restore.8.gz
+-rw-r--r-- root/root       261 2020-01-26 09:24 ./usr/share/man/man8/runc-resume.8.gz
+-rw-r--r-- root/root       851 2020-01-26 09:24 ./usr/share/man/man8/runc-run.8.gz
+-rw-r--r-- root/root      1138 2020-01-26 09:24 ./usr/share/man/man8/runc-spec.8.gz
+-rw-r--r-- root/root       262 2020-01-26 09:24 ./usr/share/man/man8/runc-start.8.gz
+-rw-r--r-- root/root       210 2020-01-26 09:24 ./usr/share/man/man8/runc-state.8.gz
+-rw-r--r-- root/root       890 2020-01-26 09:24 ./usr/share/man/man8/runc-update.8.gz
+-rw-r--r-- root/root      1474 2020-01-26 09:24 ./usr/share/man/man8/runc.8.gz
+
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Not cleaning session: cloned chroot in use
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 144944
+Build-Time: 48
+Distribution: unstable
+Host Architecture: amd64
+Install-Time: 28
+Job: runc_1.0.0~rc10+dfsg1-1
+Machine Architecture: amd64
+Package: runc
+Package-Time: 93
+Source-Version: 1.0.0~rc10+dfsg1-1
+Space: 144944
+Status: successful
+Version: 1.0.0~rc10+dfsg1-1
+--------------------------------------------------------------------------------
+Finished at 2020-02-25T02:47:55Z
+Build needed 00:01:33, 144944k disk space
+DC-Status: OK 98.037688407s
