@@ -1,0 +1,2047 @@
+DC-Build-Header: tin 1:2.4.4-1 / 2020-02-25 05:10:38 +0000
+DC-Task: type:rebuild-binarch-only source:tin version:1:2.4.4-1 chroot:unstable esttime:70 logfile:/tmp/tin_2.4.4-1_unstable_clang8.log modes:clang8:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang8 tin_1:2.4.4-1'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-13-196.eu-central-1.compute.internal
+
++==============================================================================+
+| tin 1:2.4.4-1 (amd64)                        Tue, 25 Feb 2020 05:10:38 +0000 |
++==============================================================================+
+
+Package: tin
+Version: 1:2.4.4-1
+Source Version: 1:2.4.4-1
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-6ca1c683-1392-4728-8b9b-4872c9f24e49' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang8
+-----------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=8
++ echo 'Install of clang-8'
+Install of clang-8
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [142 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-0823.32.pdiff [11.0 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-1420.34.pdiff [30.2 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-0823.32.pdiff [15.5 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-1420.34.pdiff [27.5 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main Translation-en [6193 kB]
+Fetched 6572 kB in 3s (2266 kB/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-8 libomp-8-dev libobjc-9-dev
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-8-dev libclang1-8 libedit2 libgc1c2 libgcc-8-dev libllvm8
+  libmpx2 libobjc-8-dev libobjc4 libomp5-8 libstdc++-8-dev
+Suggested packages:
+  clang-8-doc libomp-8-doc libstdc++-8-doc
+Recommended packages:
+  llvm-8-dev python3
+The following NEW packages will be installed:
+  clang-8 gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-8-dev libclang1-8 libedit2 libgc1c2 libgcc-8-dev libllvm8
+  libmpx2 libobjc-8-dev libobjc-9-dev libobjc4 libomp-8-dev libomp5-8
+  libstdc++-8-dev
+0 upgraded, 20 newly installed, 0 to remove and 2 not upgraded.
+Need to get 39.9 MB of archives.
+After this operation, 223 MB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libbsd0 amd64 0.10.0-1 [107 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 libedit2 amd64 3.1-20191231-1 [95.4 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libllvm8 amd64 1:8.0.1-7 [13.8 MB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 gcc-8-base amd64 8.3.0-29 [194 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libmpx2 amd64 8.3.0-29 [11.4 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 libgcc-8-dev amd64 8.3.0-29 [2297 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 libstdc++-8-dev amd64 8.3.0-29 [1543 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libgc1c2 amd64 1:7.6.4-0.4 [224 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libobjc4 amd64 10-20200222-1 [41.6 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libobjc-8-dev amd64 8.3.0-29 [227 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 libc6-i386 amd64 2.29-10 [2918 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc-s1 amd64 10-20200222-1 [49.4 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc1 amd64 1:10-20200222-1 [1104 B]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 lib32stdc++6 amd64 10-20200222-1 [510 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 libclang-common-8-dev amd64 1:8.0.1-7 [2989 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 libclang1-8 amd64 1:8.0.1-7 [6244 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 clang-8 amd64 1:8.0.1-7 [8010 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 libobjc-9-dev amd64 9.2.1-29 [219 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 libomp5-8 amd64 1:8.0.1-7 [331 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libomp-8-dev amd64 1:8.0.1-7 [62.3 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 39.9 MB in 2s (19.6 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12119 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../01-libedit2_3.1-20191231-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191231-1) ...
+Selecting previously unselected package libllvm8:amd64.
+Preparing to unpack .../02-libllvm8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libllvm8:amd64 (1:8.0.1-7) ...
+Selecting previously unselected package gcc-8-base:amd64.
+Preparing to unpack .../03-gcc-8-base_8.3.0-29_amd64.deb ...
+Unpacking gcc-8-base:amd64 (8.3.0-29) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../04-libmpx2_8.3.0-29_amd64.deb ...
+Unpacking libmpx2:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgcc-8-dev:amd64.
+Preparing to unpack .../05-libgcc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libgcc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libstdc++-8-dev:amd64.
+Preparing to unpack .../06-libstdc++-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libstdc++-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../07-libgc1c2_1%3a7.6.4-0.4_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../08-libobjc4_10-20200222-1_amd64.deb ...
+Unpacking libobjc4:amd64 (10-20200222-1) ...
+Selecting previously unselected package libobjc-8-dev:amd64.
+Preparing to unpack .../09-libobjc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libobjc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../10-libc6-i386_2.29-10_amd64.deb ...
+Unpacking libc6-i386 (2.29-10) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../11-lib32gcc-s1_10-20200222-1_amd64.deb ...
+Unpacking lib32gcc-s1 (10-20200222-1) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../12-lib32gcc1_1%3a10-20200222-1_amd64.deb ...
+Unpacking lib32gcc1 (1:10-20200222-1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../13-lib32stdc++6_10-20200222-1_amd64.deb ...
+Unpacking lib32stdc++6 (10-20200222-1) ...
+Selecting previously unselected package libclang-common-8-dev.
+Preparing to unpack .../14-libclang-common-8-dev_1%3a8.0.1-7_amd64.deb ...
+Unpacking libclang-common-8-dev (1:8.0.1-7) ...
+Selecting previously unselected package libclang1-8.
+Preparing to unpack .../15-libclang1-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libclang1-8 (1:8.0.1-7) ...
+Selecting previously unselected package clang-8.
+Preparing to unpack .../16-clang-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking clang-8 (1:8.0.1-7) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../17-libobjc-9-dev_9.2.1-29_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.2.1-29) ...
+Selecting previously unselected package libomp5-8:amd64.
+Preparing to unpack .../18-libomp5-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libomp5-8:amd64 (1:8.0.1-7) ...
+Selecting previously unselected package libomp-8-dev.
+Preparing to unpack .../19-libomp-8-dev_1%3a8.0.1-7_amd64.deb ...
+Unpacking libomp-8-dev (1:8.0.1-7) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4) ...
+Setting up libobjc4:amd64 (10-20200222-1) ...
+Setting up gcc-8-base:amd64 (8.3.0-29) ...
+Setting up libobjc-9-dev:amd64 (9.2.1-29) ...
+Setting up libmpx2:amd64 (8.3.0-29) ...
+Setting up libc6-i386 (2.29-10) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up libomp5-8:amd64 (1:8.0.1-7) ...
+Setting up libomp-8-dev (1:8.0.1-7) ...
+Setting up libedit2:amd64 (3.1-20191231-1) ...
+Setting up lib32gcc-s1 (10-20200222-1) ...
+Setting up libgcc-8-dev:amd64 (8.3.0-29) ...
+Setting up libstdc++-8-dev:amd64 (8.3.0-29) ...
+Setting up libllvm8:amd64 (1:8.0.1-7) ...
+Setting up libclang1-8 (1:8.0.1-7) ...
+Setting up lib32gcc1 (1:10-20200222-1) ...
+Setting up libobjc-8-dev:amd64 (8.3.0-29) ...
+Setting up lib32stdc++6 (10-20200222-1) ...
+Setting up libclang-common-8-dev (1:8.0.1-7) ...
+Setting up clang-8 (1:8.0.1-7) ...
+Processing triggers for libc-bin (2.29-10) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-8 g++-4.6
++ ln -s clang-8 gcc-4.6
++ ln -s clang-8 cpp-4.6
++ ln -s clang-8 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-8 g++-4.7
++ ln -s clang-8 gcc-4.7
++ ln -s clang-8 cpp-4.7
++ ln -s clang-8 gcc
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-8 g++-4.8
++ ln -s clang-8 gcc-4.8
++ ln -s clang-8 cpp-4.8
++ ln -s clang-8 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-8 g++-4.9
++ ln -s clang-8 gcc-4.9
++ ln -s clang-8 cpp-4.9
++ ln -s clang-8 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-4.9 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-8 g++-5
++ ln -s clang-8 gcc-5
++ ln -s clang-8 cpp-5
++ ln -s clang-8 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-8 g++-6
++ ln -s clang-8 gcc-6
++ ln -s clang-8 cpp-6
++ ln -s clang-8 gcc
++ echo 'gcc-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-8 g++-7
++ ln -s clang-8 gcc-7
++ ln -s clang-8 cpp-7
++ ln -s clang-8 gcc
++ echo 'gcc-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-8 g++-8
++ ln -s clang-8 gcc-8
++ ln -s clang-8 cpp-8
++ ln -s clang-8 gcc
++ echo 'gcc-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-8 g++-9
++ ln -s clang-8 gcc-9
++ ln -s clang-8 cpp-9
++ ln -s clang-8 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-8 g++-10
++ ln -s clang-8 gcc-10
++ ln -s clang-8 cpp-10
++ ln -s clang-8 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/tin-IqU3IJ
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/clang8'.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+I: NOTICE: Log filtering will replace 'build/tin-IqU3IJ/resolver-bV3RiB' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://127.0.0.1:12990/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libgmp10 zlib1g
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 343 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libgmp10 amd64 2:6.2.0+dfsg-4 [253 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 zlib1g amd64 1:1.2.11.dfsg-2 [90.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 343 kB in 0s (3892 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../libgmp10_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp10:amd64 (2:6.2.0+dfsg-4) over (2:6.2.0+dfsg-3) ...
+Setting up libgmp10:amd64 (2:6.2.0+dfsg-4) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2_amd64.deb ...
+Unpacking zlib1g:amd64 (1:1.2.11.dfsg-2) over (1:1.2.11.dfsg-1.2) ...
+Setting up zlib1g:amd64 (1:1.2.11.dfsg-2) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Check APT
+---------
+
+Checking available source versions...
+
+Download source files with APT
+------------------------------
+
+Reading package lists...
+NOTICE: 'tin' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/md/tin.git
+Please use:
+git clone https://salsa.debian.org/md/tin.git
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 1562 kB of source archives.
+Get:1 http://127.0.0.1:12990/debian sid/main tin 1:2.4.4-1 (dsc) [2066 B]
+Get:2 http://127.0.0.1:12990/debian sid/main tin 1:2.4.4-1 (tar) [1545 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main tin 1:2.4.4-1 (asc) [286 B]
+Get:4 http://127.0.0.1:12990/debian sid/main tin 1:2.4.4-1 (diff) [14.9 kB]
+Fetched 1562 kB in 0s (5507 kB/s)
+Download complete and in download only mode
+I: NOTICE: Log filtering will replace 'build/tin-IqU3IJ/tin-2.4.4' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/tin-IqU3IJ' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), pkg-config, bison, libpcre3-dev, libncurses-dev, libicu-dev, libcanlock-dev, libuu-dev, build-essential, fakeroot
+Filtered Build-Depends: debhelper-compat (= 12), pkg-config, bison, libpcre3-dev, libncurses-dev, libicu-dev, libcanlock-dev, libuu-dev, build-essential, fakeroot
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [412 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [492 B]
+Fetched 1861 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file gettext gettext-base
+  groff-base icu-devtools intltool-debian libarchive-zip-perl libcanlock-dev
+  libcanlock3 libcroco3 libdebhelper-perl libelf1
+  libfile-stripnondeterminism-perl libglib2.0-0 libicu-dev libicu63
+  libmagic-mgc libmagic1 libncurses-dev libncurses6 libpcre16-3 libpcre3-dev
+  libpcre32-3 libpcrecpp0v5 libpipeline1 libsigsegv2 libsub-override-perl
+  libtool libuchardet0 libuu-dev libuu0 libxml2 m4 man-db pkg-config
+  po-debconf sensible-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc bison-doc wamerican | wordlist
+  whois vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  icu-doc ncurses-doc libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc
+  apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file gettext gettext-base
+  groff-base icu-devtools intltool-debian libarchive-zip-perl libcanlock-dev
+  libcanlock3 libcroco3 libdebhelper-perl libelf1
+  libfile-stripnondeterminism-perl libglib2.0-0 libicu-dev libicu63
+  libmagic-mgc libmagic1 libncurses-dev libncurses6 libpcre16-3 libpcre3-dev
+  libpcre32-3 libpcrecpp0v5 libpipeline1 libsigsegv2 libsub-override-perl
+  libtool libuchardet0 libuu-dev libuu0 libxml2 m4 man-db pkg-config
+  po-debconf sbuild-build-depends-main-dummy sensible-utils
+0 upgraded, 48 newly installed, 0 to remove and 0 not upgraded.
+Need to get 31.5 MB of archives.
+After this operation, 124 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [920 B]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libuchardet0 amd64 0.0.6-3 [64.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 groff-base amd64 1.22.4-4 [919 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libpipeline1 amd64 1.5.2-2 [33.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 man-db amd64 2.9.0-2 [1307 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 sensible-utils all 0.0.12+nmu1 [16.0 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libmagic-mgc amd64 1:5.38-4 [262 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libmagic1 amd64 1:5.38-4 [120 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 file amd64 1:5.38-4 [67.9 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 gettext-base amd64 0.19.8.1-10 [123 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 m4 amd64 1.4.18-4 [203 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 autoconf all 2.69-11.1 [341 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 automake all 1:1.16.1-4 [771 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 autopoint all 0.19.8.1-10 [435 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 bison amd64 2:3.5.1+dfsg-1 [963 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 libtool all 2.4.6-13 [513 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 dh-autoreconf all 19 [16.9 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 libdebhelper-perl all 12.9 [183 kB]
+Get:22 http://127.0.0.1:12990/debian sid/main amd64 libarchive-zip-perl all 1.67-1 [104 kB]
+Get:23 http://127.0.0.1:12990/debian sid/main amd64 libsub-override-perl all 0.09-2 [10.2 kB]
+Get:24 http://127.0.0.1:12990/debian sid/main amd64 libfile-stripnondeterminism-perl all 1.6.3-2 [23.7 kB]
+Get:25 http://127.0.0.1:12990/debian sid/main amd64 dh-strip-nondeterminism all 1.6.3-2 [14.7 kB]
+Get:26 http://127.0.0.1:12990/debian sid/main amd64 libelf1 amd64 0.176-1.1 [161 kB]
+Get:27 http://127.0.0.1:12990/debian sid/main amd64 dwz amd64 0.13-5 [151 kB]
+Get:28 http://127.0.0.1:12990/debian sid/main amd64 libglib2.0-0 amd64 2.62.4-2 [1319 kB]
+Get:29 http://127.0.0.1:12990/debian sid/main amd64 libicu63 amd64 63.2-2 [8301 kB]
+Get:30 http://127.0.0.1:12990/debian sid/main amd64 libxml2 amd64 2.9.10+dfsg-3 [709 kB]
+Get:31 http://127.0.0.1:12990/debian sid/main amd64 libcroco3 amd64 0.6.13-1 [146 kB]
+Get:32 http://127.0.0.1:12990/debian sid/main amd64 gettext amd64 0.19.8.1-10 [1303 kB]
+Get:33 http://127.0.0.1:12990/debian sid/main amd64 intltool-debian all 0.35.0+20060710.5 [26.8 kB]
+Get:34 http://127.0.0.1:12990/debian sid/main amd64 po-debconf all 1.0.21 [248 kB]
+Get:35 http://127.0.0.1:12990/debian sid/main amd64 debhelper all 12.9 [994 kB]
+Get:36 http://127.0.0.1:12990/debian sid/main amd64 icu-devtools amd64 63.2-2 [189 kB]
+Get:37 http://127.0.0.1:12990/debian sid/main amd64 libcanlock3 amd64 3.1.0-1 [15.7 kB]
+Get:38 http://127.0.0.1:12990/debian sid/main amd64 libcanlock-dev amd64 3.1.0-1 [28.0 kB]
+Get:39 http://127.0.0.1:12990/debian sid/main amd64 libicu-dev amd64 63.2-2 [9190 kB]
+Get:40 http://127.0.0.1:12990/debian sid/main amd64 libncurses6 amd64 6.1+20191019-1 [102 kB]
+Get:41 http://127.0.0.1:12990/debian sid/main amd64 libncurses-dev amd64 6.1+20191019-1 [337 kB]
+Get:42 http://127.0.0.1:12990/debian sid/main amd64 libpcre16-3 amd64 2:8.39-12+b1 [259 kB]
+Get:43 http://127.0.0.1:12990/debian sid/main amd64 libpcre32-3 amd64 2:8.39-12+b1 [250 kB]
+Get:44 http://127.0.0.1:12990/debian sid/main amd64 libpcrecpp0v5 amd64 2:8.39-12+b1 [152 kB]
+Get:45 http://127.0.0.1:12990/debian sid/main amd64 libpcre3-dev amd64 2:8.39-12+b1 [653 kB]
+Get:46 http://127.0.0.1:12990/debian sid/main amd64 libuu0 amd64 0.5.20-11 [71.1 kB]
+Get:47 http://127.0.0.1:12990/debian sid/main amd64 libuu-dev amd64 0.5.20-11 [58.7 kB]
+Get:48 http://127.0.0.1:12990/debian sid/main amd64 pkg-config amd64 0.29-6 [63.5 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 31.5 MB in 3s (12.1 MB/s)
+Selecting previously unselected package bsdmainutils.
+(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../00-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../01-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../02-groff-base_1.22.4-4_amd64.deb ...
+Unpacking groff-base (1.22.4-4) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../03-libpipeline1_1.5.2-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.2-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../04-man-db_2.9.0-2_amd64.deb ...
+Unpacking man-db (2.9.0-2) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../05-sensible-utils_0.0.12+nmu1_all.deb ...
+Unpacking sensible-utils (0.0.12+nmu1) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../06-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../07-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../08-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../09-gettext-base_0.19.8.1-10_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-10) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../10-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../11-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../12-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../13-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../14-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../15-autopoint_0.19.8.1-10_all.deb ...
+Unpacking autopoint (0.19.8.1-10) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../16-bison_2%3a3.5.1+dfsg-1_amd64.deb ...
+Unpacking bison (2:3.5.1+dfsg-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../17-libtool_2.4.6-13_all.deb ...
+Unpacking libtool (2.4.6-13) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../18-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libdebhelper-perl.
+Preparing to unpack .../19-libdebhelper-perl_12.9_all.deb ...
+Unpacking libdebhelper-perl (12.9) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../20-libarchive-zip-perl_1.67-1_all.deb ...
+Unpacking libarchive-zip-perl (1.67-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../21-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../22-libfile-stripnondeterminism-perl_1.6.3-2_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.6.3-2) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../23-dh-strip-nondeterminism_1.6.3-2_all.deb ...
+Unpacking dh-strip-nondeterminism (1.6.3-2) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../24-libelf1_0.176-1.1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../25-dwz_0.13-5_amd64.deb ...
+Unpacking dwz (0.13-5) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../26-libglib2.0-0_2.62.4-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.62.4-2) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../27-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../28-libxml2_2.9.10+dfsg-3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-3) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../29-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../30-gettext_0.19.8.1-10_amd64.deb ...
+Unpacking gettext (0.19.8.1-10) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../31-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../32-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../33-debhelper_12.9_all.deb ...
+Unpacking debhelper (12.9) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../34-icu-devtools_63.2-2_amd64.deb ...
+Unpacking icu-devtools (63.2-2) ...
+Selecting previously unselected package libcanlock3:amd64.
+Preparing to unpack .../35-libcanlock3_3.1.0-1_amd64.deb ...
+Unpacking libcanlock3:amd64 (3.1.0-1) ...
+Selecting previously unselected package libcanlock-dev:amd64.
+Preparing to unpack .../36-libcanlock-dev_3.1.0-1_amd64.deb ...
+Unpacking libcanlock-dev:amd64 (3.1.0-1) ...
+Selecting previously unselected package libicu-dev:amd64.
+Preparing to unpack .../37-libicu-dev_63.2-2_amd64.deb ...
+Unpacking libicu-dev:amd64 (63.2-2) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../38-libncurses6_6.1+20191019-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20191019-1) ...
+Selecting previously unselected package libncurses-dev:amd64.
+Preparing to unpack .../39-libncurses-dev_6.1+20191019-1_amd64.deb ...
+Unpacking libncurses-dev:amd64 (6.1+20191019-1) ...
+Selecting previously unselected package libpcre16-3:amd64.
+Preparing to unpack .../40-libpcre16-3_2%3a8.39-12+b1_amd64.deb ...
+Unpacking libpcre16-3:amd64 (2:8.39-12+b1) ...
+Selecting previously unselected package libpcre32-3:amd64.
+Preparing to unpack .../41-libpcre32-3_2%3a8.39-12+b1_amd64.deb ...
+Unpacking libpcre32-3:amd64 (2:8.39-12+b1) ...
+Selecting previously unselected package libpcrecpp0v5:amd64.
+Preparing to unpack .../42-libpcrecpp0v5_2%3a8.39-12+b1_amd64.deb ...
+Unpacking libpcrecpp0v5:amd64 (2:8.39-12+b1) ...
+Selecting previously unselected package libpcre3-dev:amd64.
+Preparing to unpack .../43-libpcre3-dev_2%3a8.39-12+b1_amd64.deb ...
+Unpacking libpcre3-dev:amd64 (2:8.39-12+b1) ...
+Selecting previously unselected package libuu0.
+Preparing to unpack .../44-libuu0_0.5.20-11_amd64.deb ...
+Unpacking libuu0 (0.5.20-11) ...
+Selecting previously unselected package libuu-dev.
+Preparing to unpack .../45-libuu-dev_0.5.20-11_amd64.deb ...
+Unpacking libuu-dev (0.5.20-11) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../46-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy.
+Preparing to unpack .../47-sbuild-build-depends-main-dummy_0.invalid.0_amd64.deb ...
+Unpacking sbuild-build-depends-main-dummy (0.invalid.0) ...
+Setting up libpcrecpp0v5:amd64 (2:8.39-12+b1) ...
+Setting up libpipeline1:amd64 (1.5.2-2) ...
+Setting up libpcre16-3:amd64 (2:8.39-12+b1) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up libarchive-zip-perl (1.67-1) ...
+Setting up libglib2.0-0:amd64 (2.62.4-2) ...
+No schema files found: doing nothing.
+Setting up libuu0 (0.5.20-11) ...
+Setting up libdebhelper-perl (12.9) ...
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up gettext-base (0.19.8.1-10) ...
+Setting up file (1:5.38-4) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20191019-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libpcre32-3:amd64 (2:8.39-12+b1) ...
+Setting up autopoint (0.19.8.1-10) ...
+Setting up icu-devtools (63.2-2) ...
+Setting up pkg-config (0.29-6) ...
+Setting up sensible-utils (0.0.12+nmu1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libelf1:amd64 (0.176-1.1) ...
+Setting up libicu-dev:amd64 (63.2-2) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-3) ...
+Setting up libcanlock3:amd64 (3.1.0-1) ...
+Setting up libfile-stripnondeterminism-perl (1.6.3-2) ...
+Setting up libcanlock-dev:amd64 (3.1.0-1) ...
+Setting up libncurses-dev:amd64 (6.1+20191019-1) ...
+Setting up libtool (2.4.6-13) ...
+Setting up libpcre3-dev:amd64 (2:8.39-12+b1) ...
+Setting up libuu-dev (0.5.20-11) ...
+Setting up m4 (1.4.18-4) ...
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up dh-strip-nondeterminism (1.6.3-2) ...
+Setting up dwz (0.13-5) ...
+Setting up groff-base (1.22.4-4) ...
+Setting up bison (2:3.5.1+dfsg-1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up gettext (0.19.8.1-10) ...
+Setting up man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up po-debconf (1.0.21) ...
+Setting up dh-autoreconf (19) ...
+Setting up debhelper (12.9) ...
+Setting up sbuild-build-depends-main-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (amd64 included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 4.19.0-6-cloud-amd64 #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11) amd64 (x86_64)
+Toolchain package versions: binutils_2.34-3 dpkg-dev_1.19.7 g++-9_9.2.1-29 gcc-9_9.2.1-29 libc6-dev_2.29-10 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 linux-libc-dev_5.4.19-1
+Package versions: adduser_3.118 apt_1.8.4 autoconf_2.69-11.1 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.34-3 binutils-common_2.34-3 binutils-x86-64-linux-gnu_2.34-3 bison_2:3.5.1+dfsg-1 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 clang-8_1:8.0.1-7 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-29 dash_0.5.10.2-6 debconf_1.5.73 debhelper_12.9 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-strip-nondeterminism_1.6.3-2 diffutils_1:3.7-3 dpkg_1.19.7 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.5-2 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.38-4 findutils_4.7.0-1 g++_4:9.2.1-3.1 g++-9_9.2.1-29 gcc_4:9.2.1-3.1 gcc-10-base_10-20200222-1 gcc-8-base_8.3.0-29 gcc-9_9.2.1-29 gcc-9-base_9.2.1-29 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gpgv_2.2.19-1 grep_3.4-1 groff-base_1.22.4-4 gzip_1.9-3+b1 hostname_3.23 icu-devtools_63.2-2 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 lib32gcc-s1_10-20200222-1 lib32gcc1_1:10-20200222-1 lib32stdc++6_10-20200222-1 libacl1_2.2.53-5 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libasan5_9.2.1-29 libatomic1_10-20200222-1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libbinutils_2.34-3 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-10 libc-dev-bin_2.29-10 libc6_2.29-10 libc6-dev_2.29-10 libc6-i386_2.29-10 libcanlock-dev_3.1.0-1 libcanlock3_3.1.0-1 libcap-ng0_0.7.9-2.1+b1 libcc1-0_10-20200222-1 libclang-common-8-dev_1:8.0.1-7 libclang1-8_1:8.0.1-7 libcom-err2_1.45.5-2 libcroco3_0.6.13-1 libcrypt-dev_1:4.4.10-10 libcrypt1_1:4.4.10-10 libctf-nobfd0_2.34-3 libctf0_2.34-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.251 libdebhelper-perl_12.9 libdpkg-perl_1.19.7 libedit2_3.1-20191231-1 libelf1_0.176-1.1 libext2fs2_1.45.5-2 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi7_3.3-3 libfile-stripnondeterminism-perl_1.6.3-2 libgc1c2_1:7.6.4-0.4 libgcc-8-dev_8.3.0-29 libgcc-9-dev_9.2.1-29 libgcc-s1_10-20200222-1 libgcc1_1:10-20200222-1 libgcrypt20_1.8.5-5 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.62.4-2 libgmp10_2:6.2.0+dfsg-4 libgnutls30_3.6.12-2 libgomp1_10-20200222-1 libgpg-error0_1.37-1 libhogweed5_3.5.1+really3.5.1-2 libicu-dev_63.2-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libisl22_0.22.1-1 libitm1_10-20200222-1 libllvm8_1:8.0.1-7 liblsan0_10-20200222-1 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 libmagic-mgc_1:5.38-4 libmagic1_1:5.38-4 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-29 libncurses-dev_6.1+20191019-1 libncurses6_6.1+20191019-1 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libobjc-8-dev_8.3.0-29 libobjc-9-dev_9.2.1-29 libobjc4_10-20200222-1 libomp-8-dev_1:8.0.1-7 libomp5-8_1:8.0.1-7 libp11-kit0_0.23.20-1 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-12+b1 libpcre2-8-0_10.34-7 libpcre3_2:8.39-12+b1 libpcre3-dev_2:8.39-12+b1 libpcre32-3_2:8.39-12+b1 libpcrecpp0v5_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.2-2 libquadmath0_10-20200222-1 libseccomp2_2.4.2-2 libselinux1_3.0-1+b1 libsemanage-common_3.0-1 libsemanage1_3.0-1+b1 libsepol1_3.0-1 libsigsegv2_2.12-2 libsmartcols1_2.34-0.1 libss2_1.45.5-2 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 libsub-override-perl_0.09-2 libsystemd0_244.3-1 libtasn1-6_4.16.0-2 libtinfo6_6.1+20191019-1 libtool_2.4.6-13 libtsan0_10-20200222-1 libubsan1_10-20200222-1 libuchardet0_0.0.6-3 libudev1_244.3-1 libunistring2_0.9.10-2 libuu-dev_0.5.20-11 libuu0_0.5.20-11 libuuid1_2.34-0.1 libxml2_2.9.10+dfsg-3 libzstd1_1.4.4+dfsg-3 linux-libc-dev_5.4.19-1 login_1:4.8.1-1 logsave_1.45.5-2 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.4.20200120-2 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 passwd_1:4.8.1-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 pkg-config_0.29-6 po-debconf_1.0.21 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 sysvinit-utils_2.96-2.1 tar_1.30+dfsg-6+b1 tzdata_2019c-3 util-linux_2.34-0.1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-2
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: tin
+Binary: tin
+Architecture: any
+Version: 1:2.4.4-1
+Maintainer: Marco d'Itri <md@linux.it>
+Homepage: http://www.tin.org/
+Standards-Version: 4.4.1.2
+Vcs-Browser: https://salsa.debian.org/md/tin
+Vcs-Git: https://salsa.debian.org/md/tin.git
+Build-Depends: debhelper-compat (= 12), pkg-config, bison, libpcre3-dev, libncurses-dev, libicu-dev, libcanlock-dev, libuu-dev
+Package-List:
+ tin deb news optional arch=any
+Checksums-Sha1:
+ 7f4c1869cdcac4ac49bb70c6448538691fc19b4a 1545016 tin_2.4.4.orig.tar.xz
+ 206647d8dec9229494f48617b00e10e20c888570 286 tin_2.4.4.orig.tar.xz.asc
+ aa63c488d9c5196673a8ad15d5d787b9238c15c6 14880 tin_2.4.4-1.debian.tar.xz
+Checksums-Sha256:
+ 9ff12cecf6005be4d150a26403cb736668bcedbc97fe7d6e6846559ea490ff02 1545016 tin_2.4.4.orig.tar.xz
+ 635aea8b0aae86fd3b5a2c1ca9ec5649d0dd4a4bd4cd037aacc9dafc0adf300d 286 tin_2.4.4.orig.tar.xz.asc
+ 65d02af2ba98ddb3ab6d425b41904757b68fdbed35054e80c17a4062fc034c99 14880 tin_2.4.4-1.debian.tar.xz
+Files:
+ ae5d69fc98d35461e0ce4901c0f3dab7 1545016 tin_2.4.4.orig.tar.xz
+ 24c495484e42a1523287432849ace37b 286 tin_2.4.4.orig.tar.xz.asc
+ fae7f8dafc91ddc07a827dcf56c93b02 14880 tin_2.4.4-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEZ5FAO2iuJpBRfELq5v/x443JaLAFAl4TroMACgkQ5v/x443J
+aLBKWxAAkq5SSb4shh8gU3UgSn6c+HykqBrjq3i1TZch8qlNVRqnUlzgPZrkpjqD
+3WVGhcScpbzBXQXQClLssCdAFj/qliFtuB3IBk8DZ7XhU39eQWutyu+IWPUSUPlG
+fdInV0Ys1I4tvItHjN27tZV6VSWoA5mqEytEhWFl2cCEnHpIEFsli025Y204hjGx
+qy5lf4oCKiv1lp/ChKusnQCR7BeWxVKTds9mCObo4srdyi8RMQLXatmLwT9PMMSP
+Z35hXQ1gyOvjbsG+B4zLmqzLUAutynCSufxoLBhBZFSZcbdkUYDgmAwbVu/3hmFR
+TZS20PbvAtTXy8CU/OXYGfyn7keyZF9zNT/shfKN6XWivvFfSVNKamTDAP1zmcDP
+eNjPKQdyGlR6bibsz2Hs9Um/rUiw3jggYlgPTyhnVND3zL8v08hUJzoOFtJWp1cY
+t396GRp3UJ6DvrvY1svNN3QFoIkr6Cys9Cg8h62K2x5cAfqSp4yhxEqRtRrBswIH
+8wfemi84hiUGShpEB5U5eU2WmQpdIZrs+MBoVR1kVbWs+Qihb5kw4nFoOAXOsBym
+KhKSL49wGS/VRceJgpCAFWHb9+9TcelSIKq2s1byg8Zg7kbavKVhqbMn9sloRKaT
+raEVnHjLzWJoSRX/CZ8VSboSQ9J7yDO8G5obrutD4urP9+iT/js=
+=sMFy
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Mon Jan  6 22:02:43 2020 UTC
+gpgv:                using RSA key 6791403B68AE2690517C42EAE6FFF1E38DC968B0
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./tin_2.4.4-1.dsc
+dpkg-source: info: extracting tin in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking tin_2.4.4.orig.tar.xz
+dpkg-source: info: unpacking tin_2.4.4-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying use_system_libcanlock
+dpkg-source: info: applying fix_path_names
+dpkg-source: info: applying update_paths_doc
+dpkg-source: info: applying misc_autoconf.h
+dpkg-source: info: applying po_no_rebuild
+dpkg-source: info: applying use_default_pgp_key
+dpkg-source: info: applying allow_minor_forgeries
+dpkg-source: info: applying better_built_in_defaults
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+HOME=/sbuild-nonexistent
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+LOGNAME=user42
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable
+SCHROOT_CHROOT_NAME=sid-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1001
+SCHROOT_GROUP=user42
+SCHROOT_SESSION_ID=sid-amd64-sbuild-6ca1c683-1392-4728-8b9b-4872c9f24e49
+SCHROOT_UID=1001
+SCHROOT_USER=user42
+SHELL=/bin/sh
+USER=user42
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -us -uc -b -rfakeroot
+dpkg-buildpackage: info: source package tin
+dpkg-buildpackage: info: source version 1:2.4.4-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Marco d'Itri <md@linux.it>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+dpkg-source: info: using options from tin-2.4.4/debian/source/options: --compression=xz
+ debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j4 distclean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_clean doc/CHANGES.tmp po/*.gmo
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- \
+	--with-pcre=/usr --with-domain-name=/etc/mailname \
+	--with-mailbox=/var/mail \
+	--with-editor=/usr/bin/editor --with-ispell=ispell \
+	--without-pgp --without-pgpk --with-gpg=gpg \
+	--without-metamail --with-slrnface=slrnface \
+	--with-sum=sum --with-shell=bash \
+	--with-spool-dir=/var/spool/news \
+	--with-nov-dir=/var/spool/news/over.view \
+	--with-libdir=/var/lib/news --with-inews-dir=/usr/bin \
+	--with-nntp-default-server=localhost \
+	--with-screen=ncursesw --enable-nntp --enable-ipv6 \
+	--enable-included-msgs --enable-nls \
+	--enable-mh-mail-handling --enable-cancel-locks \
+	--enable-heapsort --enable-debug --with-pkg-config \
+	--with-mime-default-charset=ISO-8859-15
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --with-pcre=/usr --with-domain-name=/etc/mailname --with-mailbox=/var/mail --with-editor=/usr/bin/editor --with-ispell=ispell --without-pgp --without-pgpk --with-gpg=gpg --without-metamail --with-slrnface=slrnface --with-sum=sum --with-shell=bash --with-spool-dir=/var/spool/news --with-nov-dir=/var/spool/news/over.view --with-libdir=/var/lib/news --with-inews-dir=/usr/bin --with-nntp-default-server=localhost --with-screen=ncursesw --enable-nntp --enable-ipv6 --enable-included-msgs --enable-nls --enable-mh-mail-handling --enable-cancel-locks --enable-heapsort --enable-debug --with-pkg-config --with-mime-default-charset=ISO-8859-15
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+Configuring for linux-gnu
+checking for PATH separator... :
+checking for gcc... gcc
+checking for C compiler default output... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for executable suffix... 
+checking for object suffix... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking version of gcc... 8.0.1
+checking for gcc option to accept ANSI C... none needed
+checking $CFLAGS variable... broken
+configure: WARNING: your environment uses the CFLAGS variable to hold CPPFLAGS options
+checking $CC variable... ok
+checking how to run the C preprocessor... gcc -E
+checking whether gcc needs -traditional... no
+checking whether make sets ${MAKE}... yes
+checking for a BSD compatible install... /usr/bin/install -c
+checking for bison -y... yes
+checking for lint... no
+checking for alint... no
+checking for lclint... no
+checking for tdlint... no
+checking for splint... no
+checking if the POSIX test-macros are already defined... no
+checking if this is the GNU C library... yes
+checking if _DEFAULT_SOURCE can be used as a basis... yes
+checking if _XOPEN_SOURCE=500 works with _DEFAULT_SOURCE... yes
+checking if _XOPEN_SOURCE really is set... yes
+checking if SIGWINCH is defined... yes
+checking whether ln -s works... yes
+checking for ranlib... ranlib
+checking for ld... ld
+checking for ar... ar
+checking for options to update archives... -curvU
+checking if you would like to use heapsort... yes
+checking for heapsort... no
+checking for ispell... ispell
+checking for sum... sum
+checking if sum takes -r... yes
+checking for default editor... /usr/bin/editor
+checking for sendmail... no
+checking for mailx... no
+checking for mail... no
+checking for default mailer... none
+checking for incoming-mail directory... /var/mail
+checking if you want PGP/GPG-Support... yes
+checking for gpg... gpg
+checking for slrnface... slrnface
+checking for the default shell program... /bin/bash
+checking if NNTP-support will be used... yes
+checking whether to be NNTP_ONLY... no
+checking if you want to compile-in debug support... yes
+checking if you want to see long compiling messages... yes
+checking if you want to compile with fallback prototypes... no
+checking if you want to turn on gcc warnings... no
+checking for news-library path... /var/lib/news
+checking for news spool-directory path... /var/spool/news
+checking for news overview-directory path... /var/spool/news/over.view
+checking for overview filename... .overview
+checking for directory containing "inews"... /usr/bin
+checking for inews... --internal
+checking if you want socks library... no
+checking if you want socks5 library... no
+checking for network libraries... working...
+checking for gethostname... yes
+checking for main in -linet... no
+checking for socket... yes
+checking for gethostbyname... yes
+checking for inet_ntoa... yes
+checking for gethostbyname... (cached) yes
+checking for strcasecmp... yes
+checking for unistd.h... yes
+checking for fcntl.h... yes
+checking for sys/file.h... yes
+checking for fcntl... yes
+checking for lockf... yes
+checking for flock... yes
+checking for file-locking functions...  fcntl lockf flock
+checking which locking method will be used... fcntl
+checking for screen type... ncursesw
+checking for specific curses-directory... no
+checking for stdlib.h... yes
+checking for wchar.h... yes
+checking for wctype.h... yes
+checking for wide char and multibyte support... yes
+Looking for ncursesw-config
+checking for ncursesw-config... no
+checking for ncursesw6-config... ncursesw6-config
+checking if we have identified curses headers... ncurses.h
+checking for ncurses.h... yes
+checking definition to turn on extended curses functions... none
+checking if you want to use installed version of pcre... /usr
+checking if you want to use dbmalloc for testing... no
+checking if you want to use dmalloc for testing... no
+checking for domain-name... /etc/mailname
+checking for NNTP default-server... localhost
+checking whether to use MH style mail handling for mailgroups... yes
+checking whether to use Cancel-Locks... yes
+checking for gsasl.h... no
+checking whether to enable 8-bit keycodes... yes
+checking whether to enable ANSI-color... yes
+checking whether to enable posting-etiquette... yes
+checking whether to strictly observe RFC2047 and break long lines... yes
+checking whether to force MM_CHARSET obeyance when decoding mime... yes
+checking for MIME character-set... ISO-8859-15
+checking for default ISO/ASCII table... -1
+checking whether to enable locale support... yes
+checking whether to enable posting... yes
+checking whether to enable shell escape... yes
+checking whether to have fascist newsadmin... no
+checking whether to enable inverse video and highlighting... yes
+checking whether to enable piping support... yes
+checking whether to enable printer support... yes
+checking whether to unique tmp-files by appending .pid... yes
+checking whether to fallback to XHDR XREF if XOVER isn't supported... yes
+checking whether to send a GROUP command before a LISTGROUP... no
+checking whether to ignore system()s return value... no
+checking for directory containing tin.defaults file... /etc/tin
+checking whether to enable IPv6... yes
+checking ipv6 stack type... linux-glibc
+checking for IPv6 library if required... none
+checking working getaddrinfo... yes
+checking for getaddrinfo... yes
+checking for getnameinfo... yes
+checking whether to enable long article numbers... no
+checking whether to make a coffee while compiling... no
+checking for makeflags variable... -${MAKEFLAGS}
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for ansi token expansion/substitution... yes
+checking for ansi token concatenation... yes
+checking if nested parameters work... yes
+checking for ANSI C header files... yes
+checking for dirent.h that defines DIR... yes
+checking for opendir in -ldir... no
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for argz.h... yes
+checking for arpa/inet.h... yes
+checking for curses.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for getopt.h... yes
+checking for ioctl.h... no
+checking for inttypes.h... yes
+checking for langinfo.h... yes
+checking for libc.h... no
+checking for locale.h... yes
+checking for malloc.h... yes
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for netlib.h... no
+checking for nl_types.h... yes
+checking for nomacros.h... no
+checking for paths.h... yes
+checking for poll.h... yes
+checking for prototypes.h... no
+checking for pwd.h... yes
+checking for sgtty.h... yes
+checking for socket.h... no
+checking for stdarg.h... yes
+checking for stdbool.h... yes
+checking for stddef.h... yes
+checking for stdint.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for strings.h... yes
+checking for stropts.h... yes
+checking for sys/bsdtypes.h... no
+checking for sys/errno.h... yes
+checking for sys/file.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/param.h... yes
+checking for sys/poll.h... yes
+checking for sys/ptem.h... no
+checking for sys/pty.h... no
+checking for sys/select.h... yes
+checking for sys/stat.h... yes
+checking for sys/stream.h... no
+checking for sys/socket.h... yes
+checking for sys/time.h... yes
+checking for sys/timeb.h... yes
+checking for sys/times.h... yes
+checking for sys/types.h... yes
+checking for sys/utsname.h... yes
+checking for term.h... yes
+checking for termio.h... yes
+checking for time.h... yes
+checking for unistd.h... yes
+checking for varargs.h... no
+checking for wchar.h... yes
+checking for wctype.h... yes
+checking for termio.h... yes
+checking for termios.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/ioctl.h... yes
+checking for sys/termio.h... no
+checking whether termios.h needs _POSIX_SOURCE... no
+checking declaration of size-change... yes
+checking if sys/time.h conflicts with sys/select.h... no
+checking for va_copy... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for gid_t... yes
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for time_t... yes
+checking for uid_t in sys/types.h... yes
+checking for quad_t... yes
+checking for long long... yes
+checking for int_least64_t... yes
+checking for INT64_C... yes
+checking for nl_item... yes
+checking for UUInitialize in -luu... yes
+checking for uudeview.h... yes
+checking for unicode/unorm.h... yes
+checking for unicode/ustring.h... yes
+checking for unorm_normalize in libicuuc... yes
+checking for unicode/uidna.h... yes
+checking for uidna_nameToUnicode in libicuuc... yes
+checking for unicode/ubidi.h... yes
+checking for unicode/unorm2.h... yes
+checking for idn_decodename in -lidnkit... no
+checking if external errno is declared... yes
+checking if external errno exists... no
+checking for strerror... yes
+checking for alarm... yes
+checking for atoi... yes
+checking for atol... yes
+checking for atoll... yes
+checking for atoq... no
+checking for bcopy... yes
+checking for chmod... yes
+checking for execlp... yes
+checking for explicit_bzero... yes
+checking for explicit_memset... no
+checking for fcntl... (cached) yes
+checking for fdopen... yes
+checking for fork... yes
+checking for ftime... yes
+checking for ftruncate... yes
+checking for fsync... yes
+checking for getcwd... yes
+checking for gettimeofday... yes
+checking for getwd... yes
+checking for inet_aton... yes
+checking for is_xterm... no
+checking for isascii... yes
+checking for lockf... (cached) yes
+checking for memcmp... yes
+checking for memcpy... yes
+checking for memmove... yes
+checking for memset... yes
+checking for mkdir... yes
+checking for mkfifo... yes
+checking for mktemp... yes
+checking for mkstemp... yes
+checking for nl_langinfo... yes
+checking for poll... yes
+checking for putenv... yes
+checking for rewinddir... yes
+checking for resizeterm... yes
+checking for select... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for settz... no
+checking for setvbuf... yes
+checking for sigaction... yes
+checking for snprintf... yes
+checking for stpcpy... yes
+checking for strchr... yes
+checking for strcasecmp... (cached) yes
+checking for strcasestr... yes
+checking for strdup... yes
+checking for strftime... yes
+checking for strpbrk... yes
+checking for strrchr... yes
+checking for strrstr... no
+checking for strsep... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for strtoll... yes
+checking for tmpfile... yes
+checking for tzset... yes
+checking for uname... yes
+checking for unlink... yes
+checking for use_default_colors... yes
+checking for usleep... yes
+checking for vsnprintf... yes
+checking for waitpid... yes
+checking for flock... (cached) yes
+checking for clock_gettime... yes
+checking for memset_s... no
+checking for wide char and multibyte support... (cached) yes
+checking if gettimeofday takes two arguments... yes
+checking return type of signal handlers... void
+checking declaration of signal arguments... int sig
+checking whether sigaction needs _POSIX_SOURCE... no
+checking if we have sigaction/related functions... yes
+checking for fork... yes
+checking for memmove... (cached) yes
+checking if select expects int * arguments... no
+checking whether closedir returns void... no
+checking whether setvbuf arguments are reversed... no
+checking for gai_strerror... yes
+checking for getaddrinfo... (cached) yes
+checking for gethostname... (cached) yes
+checking for gethostbyname... (cached) yes
+checking for getservbyname... yes
+checking for inet_addr... yes
+checking for inet_ntoa... (cached) yes
+checking for strncasecmp... yes
+checking for type sigaction_t... no
+checking for nonconflicting termios.h... yes
+checking for passwd.pw_gecos... yes
+checking for tm.tm_gmtoff... yes
+checking for long file names... yes
+checking for sys/wait.h... (cached) yes
+checking for union wait... no
+checking if the system function returns usable child-status... yes
+checking for obsolete/broken version of ncurses... no
+checking if curses supports color attributes... yes
+checking for redefinable signal constants... yes
+checking for ANSI qsort... yes
+checking if application can dump core... no
+checking for missing "errno" extern... yes
+checking for missing "getenv" extern... no
+checking for missing "getlogin" extern... no
+checking for missing "getpwnam" extern... no
+checking for missing "popen" extern... no
+checking for missing "strchr" extern... no
+checking for missing "strcasestr" extern... yes
+checking for missing "strsep" extern... no
+checking for missing "tmpfile" extern... no
+checking for missing "gethostbyname" extern... no
+checking for missing "getservbyname" extern... no
+checking for missing "inet_aton" extern... no
+checking for missing "inet_ntoa" extern... no
+checking for missing "socket" extern... no
+checking for working TIOCGWINSZ... yes
+checking for ranlib... (cached) ranlib
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking for argz.h... yes
+checking for limits.h... yes
+checking for locale.h... yes
+checking for nl_types.h... yes
+checking for malloc.h... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for feof_unlocked... yes
+checking for fgets_unlocked... yes
+checking for getcwd... (cached) yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... (cached) yes
+checking for setenv... (cached) yes
+checking for setlocale... (cached) yes
+checking for stpcpy... (cached) yes
+checking for strchr... (cached) yes
+checking for strcasecmp... (cached) yes
+checking for strdup... (cached) yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for iconv... yes
+checking if the declaration of iconv() needs const.... no
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for libintl.h and gettext()... yes
+checking for dcgettext... yes
+checking for catalogs to be installed...  da de en_GB es et fr ru sv tr zh_CN zh_TW
+checking if we should use included message-library... yes
+checking for libintl.h... yes
+checking for working alloca.h... (cached) yes
+checking for alloca... (cached) yes
+checking for h_addr_list in struct hostent... yes
+checking for X11/Xpoll.h... no
+checking for declaration of fd_set... sys/types.h
+checking for fd_set macros... yes
+checking for working tolower()... yes
+checking for working toupper()... yes
+checking for iconv.h... yes
+checking for iconv_open() //TRANSLIT extension... yes
+checking for link... yes
+checking for vw_printw... yes
+configure: creating ./config.status
+config.status: creating po/Makefile.in
+config.status: creating libcanlock/Makefile
+config.status: creating src/Makefile
+config.status: creating include/autoconf.h
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_build --sourcedir=src
+	cd src && make -j4 "INSTALL=install --strip-program=true"
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+gcc -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -DHAVE_CONFIG_H -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -I/usr/include  -g -Wl,-z,relro -o makecfg ./makecfg.c
+./makecfg ./tincfg.tbl tincfg.h
+./makecfg ./tincfg.tbl tincfg.h
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./heapsort.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./xface.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./active.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./art.c
+./xface.c:191:8: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                                                        write(slrnface_fd, "start\n", strlen("start\n"));
+                                                        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./xface.c:263:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                write(slrnface_fd, buf, strlen(buf));
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./xface.c:258:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                write(slrnface_fd, "clear\n", strlen("clear\n"));
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./xface.c:275:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        write(slrnface_fd, "clear\n", strlen("clear\n"));
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./xface.c:286:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        write(slrnface_fd, "suppress\n", strlen("suppress\n"));
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./xface.c:297:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        write(slrnface_fd, "show\n", strlen("show\n"));
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./attrib.c
+./art.c:828:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                chdir(dir);
+                ^~~~~ ~~~
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./auth.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./charset.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./color.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./config.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./cook.c
+1 warning generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./curses.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./debug.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./envarg.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./feed.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./filter.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./getline.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./global.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./group.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./hashstr.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./header.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./help.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./inews.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./init.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./joinpath.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./keymap.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./lang.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./langinfo.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./list.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./lock.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./mail.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./main.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./memory.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./mimetypes.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./misc.c
+./misc.c:2051:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        getcwd(buf, PATH_LEN);
+        ^~~~~~ ~~~~~~~~~~~~~
+./misc.c:3878:47: warning: expansion of date or time macro is not reproducible [-Wdate-time]
+                PRODUCT, VERSION, RELEASEDATE, RELEASENAME, __DATE__, __TIME__);
+                                                            ^
+./misc.c:3878:57: warning: expansion of date or time macro is not reproducible [-Wdate-time]
+                PRODUCT, VERSION, RELEASEDATE, RELEASENAME, __DATE__, __TIME__);
+                                                                      ^
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./my_tmpfile.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./newsrc.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./nntplib.c
+./nntplib.c:875:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                        s_gets(last_put, NNTP_STRLEN, nntp_rd_fp);
+                        ^~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/tnntp.h:47:16: note: expanded from macro 's_gets'
+#define s_gets  fgets
+                ^~~~~
+./nntplib.c:1867:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                        s_gets(last_put, NNTP_STRLEN, nntp_rd_fp);
+                        ^~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/tnntp.h:47:16: note: expanded from macro 's_gets'
+#define s_gets  fgets
+                ^~~~~
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./nrctbl.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./options_menu.c
+2 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./page.c
+expect 6 shift/reduce conflicts ...
+bison -y ./parsdate.y
+./parsdate.y:128.25-32: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  128 | %type	<Number>	tDAYZONE tMONTH tMONTH_UNIT tSEC_UNIT
+      |                         ^~~~~~~~
+./parsdate.y:128.34-39: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  128 | %type	<Number>	tDAYZONE tMONTH tMONTH_UNIT tSEC_UNIT
+      |                                  ^~~~~~
+./parsdate.y:128.41-51: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  128 | %type	<Number>	tDAYZONE tMONTH tMONTH_UNIT tSEC_UNIT
+      |                                         ^~~~~~~~~~~
+./parsdate.y:128.53-61: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  128 | %type	<Number>	tDAYZONE tMONTH tMONTH_UNIT tSEC_UNIT
+      |                                                     ^~~~~~~~~
+./parsdate.y:129.25-32: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  129 | %type	<Number>	tSNUMBER tUNUMBER tZONE numzone zone
+      |                         ^~~~~~~~
+./parsdate.y:129.34-41: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  129 | %type	<Number>	tSNUMBER tUNUMBER tZONE numzone zone
+      |                                  ^~~~~~~~
+./parsdate.y:129.43-47: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  129 | %type	<Number>	tSNUMBER tUNUMBER tZONE numzone zone
+      |                                           ^~~~~
+./parsdate.y:130.25-33: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+  130 | %type	<Meridian>	tMERIDIAN o_merid
+      |                         ^~~~~~~~~
+./parsdate.y: warning: 6 shift/reduce conflicts [-Wconflicts-sr]
+3 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./pgp.c
+mv -f y.tab.c ./parsdate.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./parsdate.c
+./pgp.c:225:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                fgets(buf, LEN, art);
+                ^~~~~ ~~~~~~~~~~~~~
+./pgp.c:222:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        fgets(buf, LEN, art);                   /* Copy the hdr up to and including the \n */
+        ^~~~~ ~~~~~~~~~~~~~
+./pgp.c:470:3: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                fgets(buf, LEN, artinfo->raw);
+                ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~
+./pgp.c:463:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        fgets(buf, LEN, artinfo->raw);          /* Copy the body whilst looking for SIG/KEY tags */
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~
+4 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./plp_snprintf.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./post.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./prompt.c
+./post.c:2392:2: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        fgets(line, (int) sizeof(line), in);
+        ^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./post.c:4493:16: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
+                if (!*suffix && strlen(SYSTEM_NAME))
+                             ^  ~~~~~~~~~~~~~~~~~~~
+./post.c:4493:16: note: use '&' for a bitwise operation
+                if (!*suffix && strlen(SYSTEM_NAME))
+                             ^~
+                             &
+./post.c:4493:16: note: remove constant to silence this warning
+                if (!*suffix && strlen(SYSTEM_NAME))
+                            ~^~~~~~~~~~~~~~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./read.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./refs.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./regex.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./rfc1524.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./rfc2045.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./rfc2046.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./rfc2047.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./save.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./screen.c
+2 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./search.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./select.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./sigfile.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./signal.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./strftime.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./string.c
+./sigfile.c:170:4: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                        chdir(cwd);
+                        ^~~~~ ~~~
+./sigfile.c:304:8: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                                                        chdir(cwd);
+                                                        ^~~~~ ~~~
+2 warnings generated.
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./tags.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./tcurses.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./tmpfile.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./thread.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./version.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./wildmat.c
+gcc -DHAVE_CONFIG_H -I. -I../include -I/usr/include  -DLOCALEDIR=\"/usr/share/locale\" -I../include -DDEBUG   -Wdate-time -D_FORTIFY_SOURCE=2   -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -c ./xref.c
+Linking tin v2.4.4 ...
+gcc -g -Wl,-z,relro -o ./tin ./heapsort.o ./xface.o ./active.o ./art.o ./attrib.o ./auth.o ./charset.o ./color.o ./config.o ./cook.o ./curses.o ./debug.o ./envarg.o ./feed.o ./filter.o ./getline.o ./global.o ./group.o ./hashstr.o ./header.o ./help.o ./inews.o ./init.o ./joinpath.o ./keymap.o ./lang.o ./langinfo.o ./list.o ./lock.o ./mail.o ./main.o ./memory.o ./mimetypes.o ./misc.o ./my_tmpfile.o ./newsrc.o ./nntplib.o ./nrctbl.o ./options_menu.o ./page.o ./parsdate.o ./pgp.o ./plp_snprintf.o ./post.o ./prompt.o ./read.o ./refs.o ./regex.o ./rfc1524.o ./rfc2045.o ./rfc2046.o ./rfc2047.o ./save.o ./screen.o ./search.o ./select.o ./sigfile.o ./signal.o ./strftime.o ./string.o ./tags.o ./tcurses.o ./tmpfile.o ./thread.o ./version.o ./wildmat.o ./xref.o -L/usr/lib -lpcre  -L../libcanlock -lcanlock -lncursesw -ltinfo -luu -licuuc  
+-rwxr-xr-x 1 user42 user42 2160440 Feb 25 05:13 ./tin
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -C src install_nls prefix=/<<PKGBUILDDIR>>/debian/tin/usr
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+Installing NLS-files
+make[3]: Entering directory '/<<PKGBUILDDIR>>/po'
+file=./`echo da | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file da.po
+1485 translated messages, 16 fuzzy translations, 41 untranslated messages.
+file=./`echo de | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file de.po
+1542 translated messages.
+file=./`echo en_GB | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file en_GB.po
+69 translated messages, 1473 untranslated messages.
+file=./`echo es | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file es.po
+28 translated messages, 689 fuzzy translations, 825 untranslated messages.
+file=./`echo et | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file et.po
+1537 translated messages, 4 fuzzy translations, 1 untranslated message.
+file=./`echo fr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file fr.po
+1533 translated messages, 6 fuzzy translations, 3 untranslated messages.
+file=./`echo ru | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file ru.po
+1072 translated messages, 204 fuzzy translations, 266 untranslated messages.
+file=./`echo sv | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file sv.po
+353 translated messages, 97 fuzzy translations, 1092 untranslated messages.
+file=./`echo tr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file tr.po
+1520 translated messages, 17 fuzzy translations, 5 untranslated messages.
+file=./`echo zh_CN | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file zh_CN.po
+1492 translated messages, 39 fuzzy translations, 11 untranslated messages.
+file=./`echo zh_TW | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt --statistics -o $file zh_TW.po
+1492 translated messages, 40 fuzzy translations, 10 untranslated messages.
+mkdir -p /<<PKGBUILDDIR>>/debian/tin/usr/share
+installing da.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/da/LC_MESSAGES/tin.mo
+installing de.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/de/LC_MESSAGES/tin.mo
+installing en_GB.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/en_GB/LC_MESSAGES/tin.mo
+installing es.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/es/LC_MESSAGES/tin.mo
+installing et.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/et/LC_MESSAGES/tin.mo
+installing fr.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/fr/LC_MESSAGES/tin.mo
+installing ru.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/ru/LC_MESSAGES/tin.mo
+installing sv.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/sv/LC_MESSAGES/tin.mo
+installing tr.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/tr/LC_MESSAGES/tin.mo
+installing zh_CN.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/zh_CN/LC_MESSAGES/tin.mo
+installing zh_TW.gmo as /<<PKGBUILDDIR>>/debian/tin/usr/share/locale/zh_TW/LC_MESSAGES/tin.mo
+if test "tin" = "gettext"; then \
+  mkdir -p /<<PKGBUILDDIR>>/debian/tin/usr/share/gettext/po; \
+  /usr/bin/install -c -m 644 ./Makefile.in.in \
+		  /<<PKGBUILDDIR>>/debian/tin/usr/share/gettext/po/Makefile.in.in; \
+else \
+  : ; \
+fi
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/po'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install
+   dh_installdocs
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+cat doc/CHANGES doc/CHANGES.old > doc/CHANGES.tmp
+dh_installchangelogs doc/CHANGES.tmp
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installexamples
+   dh_installman
+   dh_installdebconf
+   dh_installmenu
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+	Normalized debian/tin/usr/share/locale/fr/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/sv/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/et/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/da/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/en_GB/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/es/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/de/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/zh_CN/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/ru/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/zh_TW/LC_MESSAGES/tin.mo
+	Normalized debian/tin/usr/share/locale/tr/LC_MESSAGES/tin.mo
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_dwz
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'tin-dbgsym' in '../tin-dbgsym_2.4.4-1_amd64.deb'.
+dpkg-deb: building package 'tin' in '../tin_2.4.4-1_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../tin_2.4.4-1_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-source: info: using options from tin-2.4.4/debian/source/options: --compression=xz
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2020-02-25T05:13:25Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+tin_2.4.4-1_amd64.changes:
+--------------------------
+
+Format: 1.8
+Date: Mon, 06 Jan 2020 18:42:57 +0100
+Source: tin
+Binary: tin tin-dbgsym
+Architecture: amd64
+Version: 1:2.4.4-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Marco d'Itri <md@linux.it>
+Changed-By: Marco d'Itri <md@linux.it>
+Description:
+ tin        - Full-screen easy to use Usenet newsreader
+Changes:
+ tin (1:2.4.4-1) unstable; urgency=medium
+ .
+   * New upstream release.
+Checksums-Sha1:
+ 798ba091e7f726201a7e648866c4e7b4a9b70a3d 384644 tin-dbgsym_2.4.4-1_amd64.deb
+ 2b030a8c74f06a1ccec14ac6081d896b1c8f2bc7 5484 tin_2.4.4-1_amd64.buildinfo
+ 4f2d6b50d7179707900515685b97758d2231606a 739636 tin_2.4.4-1_amd64.deb
+Checksums-Sha256:
+ 9cbad944eb4a3cfbc57ab8faba64182674abb96210bf9bda8d4cb453e6cce6cf 384644 tin-dbgsym_2.4.4-1_amd64.deb
+ 95ab0bf3ae478c12a82ff1e34b5023eb9fbf44849c8125c427daff4873b3885c 5484 tin_2.4.4-1_amd64.buildinfo
+ 3c57bff6caf24f62c0e7269d405128d78091b4898334a3128c5ebe427d21b016 739636 tin_2.4.4-1_amd64.deb
+Files:
+ 1196d81c83f372009fe2bd9760278822 384644 debug optional tin-dbgsym_2.4.4-1_amd64.deb
+ 3634eb839b63a0f008c5d167a10ea63b 5484 news optional tin_2.4.4-1_amd64.buildinfo
+ d7ba7cfc11160569c1cbf4718145d5c7 739636 news optional tin_2.4.4-1_amd64.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: tin
+Binary: tin
+Architecture: amd64
+Version: 1:2.4.4-1
+Checksums-Md5:
+ 1196d81c83f372009fe2bd9760278822 384644 tin-dbgsym_2.4.4-1_amd64.deb
+ d7ba7cfc11160569c1cbf4718145d5c7 739636 tin_2.4.4-1_amd64.deb
+Checksums-Sha1:
+ 798ba091e7f726201a7e648866c4e7b4a9b70a3d 384644 tin-dbgsym_2.4.4-1_amd64.deb
+ 4f2d6b50d7179707900515685b97758d2231606a 739636 tin_2.4.4-1_amd64.deb
+Checksums-Sha256:
+ 9cbad944eb4a3cfbc57ab8faba64182674abb96210bf9bda8d4cb453e6cce6cf 384644 tin-dbgsym_2.4.4-1_amd64.deb
+ 3c57bff6caf24f62c0e7269d405128d78091b4898334a3128c5ebe427d21b016 739636 tin_2.4.4-1_amd64.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 25 Feb 2020 05:13:24 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11.1),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-10),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.47),
+ bash (= 5.0-5),
+ binutils (= 2.34-3),
+ binutils-common (= 2.34-3),
+ binutils-x86-64-linux-gnu (= 2.34-3),
+ bison (= 2:3.5.1+dfsg-1),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.8),
+ bzip2 (= 1.0.8-2),
+ clang-8 (= 1:8.0.1-7),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3.1),
+ cpp-9 (= 9.2.1-29),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.9),
+ debianutils (= 4.9.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.6.3-2),
+ diffutils (= 1:3.7-3),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-5),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.38-4),
+ findutils (= 4.7.0-1),
+ g++ (= 4:9.2.1-3.1),
+ g++-9 (= 9.2.1-29),
+ gcc (= 4:9.2.1-3.1),
+ gcc-10-base (= 10-20200222-1),
+ gcc-8-base (= 8.3.0-29),
+ gcc-9 (= 9.2.1-29),
+ gcc-9-base (= 9.2.1-29),
+ gettext (= 0.19.8.1-10),
+ gettext-base (= 0.19.8.1-10),
+ grep (= 3.4-1),
+ groff-base (= 1.22.4-4),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.23),
+ icu-devtools (= 63.2-2),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ lib32gcc-s1 (= 10-20200222-1),
+ lib32gcc1 (= 1:10-20200222-1),
+ lib32stdc++6 (= 10-20200222-1),
+ libacl1 (= 2.2.53-5),
+ libarchive-zip-perl (= 1.67-1),
+ libasan5 (= 9.2.1-29),
+ libatomic1 (= 10-20200222-1),
+ libattr1 (= 1:2.4.48-5),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2+b1),
+ libbinutils (= 2.34-3),
+ libblkid1 (= 2.34-0.1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.8-2),
+ libc-bin (= 2.29-10),
+ libc-dev-bin (= 2.29-10),
+ libc6 (= 2.29-10),
+ libc6-dev (= 2.29-10),
+ libc6-i386 (= 2.29-10),
+ libcanlock-dev (= 3.1.0-1),
+ libcanlock3 (= 3.1.0-1),
+ libcap-ng0 (= 0.7.9-2.1+b1),
+ libcc1-0 (= 10-20200222-1),
+ libclang-common-8-dev (= 1:8.0.1-7),
+ libclang1-8 (= 1:8.0.1-7),
+ libcroco3 (= 0.6.13-1),
+ libcrypt-dev (= 1:4.4.10-10),
+ libcrypt1 (= 1:4.4.10-10),
+ libctf-nobfd0 (= 2.34-3),
+ libctf0 (= 2.34-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.251),
+ libdebhelper-perl (= 12.9),
+ libdpkg-perl (= 1.19.7),
+ libedit2 (= 3.1-20191231-1),
+ libelf1 (= 0.176-1.1),
+ libfdisk1 (= 2.34-0.1),
+ libffi7 (= 3.3-3),
+ libfile-stripnondeterminism-perl (= 1.6.3-2),
+ libgc1c2 (= 1:7.6.4-0.4),
+ libgcc-8-dev (= 8.3.0-29),
+ libgcc-9-dev (= 9.2.1-29),
+ libgcc-s1 (= 10-20200222-1),
+ libgcc1 (= 1:10-20200222-1),
+ libgcrypt20 (= 1.8.5-5),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.62.4-2),
+ libgmp10 (= 2:6.2.0+dfsg-4),
+ libgomp1 (= 10-20200222-1),
+ libgpg-error0 (= 1.37-1),
+ libicu-dev (= 63.2-2),
+ libicu63 (= 63.2-2),
+ libisl22 (= 0.22.1-1),
+ libitm1 (= 10-20200222-1),
+ libllvm8 (= 1:8.0.1-7),
+ liblsan0 (= 10-20200222-1),
+ liblz4-1 (= 1.9.2-2),
+ liblzma5 (= 5.2.4-1+b1),
+ libmagic-mgc (= 1:5.38-4),
+ libmagic1 (= 1:5.38-4),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-29),
+ libncurses-dev (= 6.1+20191019-1),
+ libncurses6 (= 6.1+20191019-1),
+ libncursesw6 (= 6.1+20191019-1),
+ libobjc-8-dev (= 8.3.0-29),
+ libobjc4 (= 10-20200222-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-12+b1),
+ libpcre2-8-0 (= 10.34-7),
+ libpcre3 (= 2:8.39-12+b1),
+ libpcre3-dev (= 2:8.39-12+b1),
+ libpcre32-3 (= 2:8.39-12+b1),
+ libpcrecpp0v5 (= 2:8.39-12+b1),
+ libperl5.30 (= 5.30.0-9),
+ libpipeline1 (= 1.5.2-2),
+ libquadmath0 (= 10-20200222-1),
+ libseccomp2 (= 2.4.2-2),
+ libselinux1 (= 3.0-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.34-0.1),
+ libstdc++-8-dev (= 8.3.0-29),
+ libstdc++-9-dev (= 9.2.1-29),
+ libstdc++6 (= 10-20200222-1),
+ libsub-override-perl (= 0.09-2),
+ libsystemd0 (= 244.3-1),
+ libtinfo6 (= 6.1+20191019-1),
+ libtool (= 2.4.6-13),
+ libtsan0 (= 10-20200222-1),
+ libubsan1 (= 10-20200222-1),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 244.3-1),
+ libunistring2 (= 0.9.10-2),
+ libuu-dev (= 0.5.20-11),
+ libuu0 (= 0.5.20-11),
+ libuuid1 (= 2.34-0.1),
+ libxml2 (= 2.9.10+dfsg-3),
+ linux-libc-dev (= 5.4.19-1),
+ login (= 1:4.8.1-1),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-4),
+ make (= 4.2.1-1.2),
+ man-db (= 2.9.0-2),
+ mawk (= 1.3.4.20200120-2),
+ ncurses-base (= 6.1+20191019-1),
+ ncurses-bin (= 6.1+20191019-1),
+ patch (= 2.7.6-6),
+ perl (= 5.30.0-9),
+ perl-base (= 5.30.0-9),
+ perl-modules-5.30 (= 5.30.0-9),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12+nmu1),
+ sysvinit-utils (= 2.96-2.1),
+ tar (= 1.30+dfsg-6+b1),
+ util-linux (= 2.34-0.1),
+ xz-utils (= 5.2.4-1+b1),
+ zlib1g (= 1:1.2.11.dfsg-2)
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="C.UTF-8"
+ LC_ALL="C.UTF-8"
+ SOURCE_DATE_EPOCH="1578332577"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+tin-dbgsym_2.4.4-1_amd64.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 384644 bytes: control archive=508 bytes.
+     312 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: tin-dbgsym
+ Source: tin
+ Version: 1:2.4.4-1
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Marco d'Itri <md@linux.it>
+ Installed-Size: 464
+ Depends: tin (= 1:2.4.4-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for tin
+ Build-Ids: 6186c8077085e28cc249fba6099a0af28aa500d2
+
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/lib/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/lib/debug/.build-id/61/
+-rw-r--r-- root/root    464520 2020-01-06 17:42 ./usr/lib/debug/.build-id/61/86c8077085e28cc249fba6099a0af28aa500d2.debug
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2020-01-06 17:42 ./usr/share/doc/tin-dbgsym -> tin
+
+
+tin_2.4.4-1_amd64.deb
+---------------------
+
+ new Debian package, version 2.0.
+ size 739636 bytes: control archive=3920 bytes.
+      22 bytes,     1 lines      conffiles            
+     847 bytes,    31 lines   *  config               #!/bin/sh
+     630 bytes,    15 lines      control              
+    2809 bytes,    41 lines      md5sums              
+    1056 bytes,    37 lines   *  postinst             #!/bin/sh
+     359 bytes,    11 lines   *  postrm               #!/bin/sh
+    2680 bytes,    31 lines      templates            
+ Package: tin
+ Version: 1:2.4.4-1
+ Architecture: amd64
+ Maintainer: Marco d'Itri <md@linux.it>
+ Installed-Size: 2661
+ Depends: libc6 (>= 2.17), libcanlock3 (>= 3.0.0), libicu63 (>= 63.1-1~), libncursesw6 (>= 6), libpcre3, libtinfo6 (>= 6), libuu0, debconf (>= 0.5) | debconf-2.0
+ Recommends: default-mta | mail-transport-agent
+ Suggests: gnupg, ispell
+ Provides: news-reader
+ Section: news
+ Priority: optional
+ Homepage: http://www.tin.org/
+ Description: Full-screen easy to use Usenet newsreader
+  tin can read news locally (i.e. from /var/spool/news) or remotely (rtin or
+  tin -r option) via an NNTP (Network News Transport Protocol) server.
+
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./etc/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./etc/tin/
+-rw-r--r-- root/root      5048 2020-01-06 17:42 ./etc/tin/tin.defaults
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/bin/
+lrwxrwxrwx root/root         0 2020-01-06 17:42 ./usr/bin/rtin -> tin
+-rwxr-xr-x root/root    930112 2020-01-06 17:42 ./usr/bin/tin
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/doc/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/doc/tin/
+-rw-r--r-- root/root     17940 2019-07-04 10:39 ./usr/share/doc/tin/TODO.gz
+-rw-r--r-- root/root      1528 2019-06-12 21:36 ./usr/share/doc/tin/WHATSNEW
+-rw-r--r-- root/root      1904 2019-07-15 13:27 ./usr/share/doc/tin/auth.txt.gz
+-rw-r--r-- root/root      3436 2020-01-06 17:42 ./usr/share/doc/tin/changelog.Debian.gz
+-rw-r--r-- root/root     83910 2020-01-06 17:42 ./usr/share/doc/tin/changelog.gz
+-rw-r--r-- root/root      1854 2019-07-21 23:15 ./usr/share/doc/tin/copyright
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/doc/tin/examples/
+-rwxr-xr-x root/root       344 2017-05-03 17:47 ./usr/share/doc/tin/examples/expiretover
+-rwxr-xr-x root/root      3816 2018-10-21 21:54 ./usr/share/doc/tin/examples/metamutt
+-rwxr-xr-x root/root      2791 2019-03-19 10:19 ./usr/share/doc/tin/examples/opt-case.pl
+-rwxr-xr-x root/root     42935 2019-11-20 13:42 ./usr/share/doc/tin/examples/tinews.pl
+-rwxr-xr-x root/root      1413 2017-05-03 17:47 ./usr/share/doc/tin/examples/tinlock
+-rwxr-xr-x root/root      3348 2018-06-04 08:46 ./usr/share/doc/tin/examples/w2r.pl
+-rw-r--r-- root/root      5071 2019-11-06 08:44 ./usr/share/doc/tin/filtering.gz
+-rw-r--r-- root/root      3888 2017-05-03 17:47 ./usr/share/doc/tin/keymap.sample
+-rw-r--r-- root/root      1525 2017-05-03 17:47 ./usr/share/doc/tin/reading-mail.txt
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/doc/tin/tools/
+-rw-r--r-- root/root      1661 2017-05-03 17:47 ./usr/share/doc/tin/tools/expand_aliases.tgz
+-rw-r--r-- root/root       344 2017-05-03 17:47 ./usr/share/doc/tin/tools/expiretover
+-rw-r--r-- root/root      3816 2018-10-21 21:54 ./usr/share/doc/tin/tools/metamutt
+-rw-r--r-- root/root      2791 2019-03-19 10:19 ./usr/share/doc/tin/tools/opt-case.pl
+-rw-r--r-- root/root     12571 2019-11-20 13:42 ./usr/share/doc/tin/tools/tinews.pl.gz
+-rw-r--r-- root/root      1413 2017-05-03 17:47 ./usr/share/doc/tin/tools/tinlock
+-rw-r--r-- root/root      3792 2017-12-07 23:50 ./usr/share/doc/tin/tools/url_handler.pl
+-rw-r--r-- root/root      1657 2017-05-03 17:47 ./usr/share/doc/tin/tools/url_handler.sh
+-rw-r--r-- root/root      3348 2018-06-04 08:46 ./usr/share/doc/tin/tools/w2r.pl
+-rw-r--r-- root/root      2290 2017-05-03 17:47 ./usr/share/doc/tin/umlaute.txt.gz
+-rw-r--r-- root/root      1886 2017-05-03 17:47 ./usr/share/doc/tin/umlauts.txt.gz
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/da/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/da/LC_MESSAGES/
+-rw-r--r-- root/root    169034 2020-01-06 17:42 ./usr/share/locale/da/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root    200335 2020-01-06 17:42 ./usr/share/locale/de/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/en_GB/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/en_GB/LC_MESSAGES/
+-rw-r--r-- root/root      8575 2020-01-06 17:42 ./usr/share/locale/en_GB/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/es/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/es/LC_MESSAGES/
+-rw-r--r-- root/root      1553 2020-01-06 17:42 ./usr/share/locale/es/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/et/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/et/LC_MESSAGES/
+-rw-r--r-- root/root    188873 2020-01-06 17:42 ./usr/share/locale/et/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root    193692 2020-01-06 17:42 ./usr/share/locale/fr/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/ru/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/ru/LC_MESSAGES/
+-rw-r--r-- root/root    118060 2020-01-06 17:42 ./usr/share/locale/ru/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/sv/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/sv/LC_MESSAGES/
+-rw-r--r-- root/root     22428 2020-01-06 17:42 ./usr/share/locale/sv/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/tr/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/tr/LC_MESSAGES/
+-rw-r--r-- root/root    191494 2020-01-06 17:42 ./usr/share/locale/tr/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/zh_CN/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/zh_CN/LC_MESSAGES/
+-rw-r--r-- root/root    174876 2020-01-06 17:42 ./usr/share/locale/zh_CN/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/zh_TW/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/locale/zh_TW/LC_MESSAGES/
+-rw-r--r-- root/root    175001 2020-01-06 17:42 ./usr/share/locale/zh_TW/LC_MESSAGES/tin.mo
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/man/
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2020-01-06 17:42 ./usr/share/man/man1/rtin.1.gz -> tin.1.gz
+-rw-r--r-- root/root     40051 2020-01-06 17:42 ./usr/share/man/man1/tin.1.gz
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/man/man5/
+-rw-r--r-- root/root     24646 2020-01-06 17:42 ./usr/share/man/man5/tin.5.gz
+drwxr-xr-x root/root         0 2020-01-06 17:42 ./usr/share/menu/
+-rw-r--r-- root/root       179 2019-07-21 23:15 ./usr/share/menu/tin
+
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Not cleaning session: cloned chroot in use
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 26256
+Build-Time: 43
+Distribution: unstable
+Host Architecture: amd64
+Install-Time: 58
+Job: tin_1:2.4.4-1
+Machine Architecture: amd64
+Package: tin
+Package-Time: 167
+Source-Version: 1:2.4.4-1
+Space: 26256
+Status: successful
+Version: 1:2.4.4-1
+--------------------------------------------------------------------------------
+Finished at 2020-02-25T05:13:25Z
+Build needed 00:02:47, 26256k disk space
+DC-Status: OK 168.966222366s
+DC-Time-Estimation: 168.966222366 versus expected 70 (r/m: 1.413803176657143 ; m: 70.0)

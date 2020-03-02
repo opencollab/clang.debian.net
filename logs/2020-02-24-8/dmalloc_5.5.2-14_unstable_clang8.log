@@ -1,0 +1,2437 @@
+DC-Build-Header: dmalloc 5.5.2-14 / 2020-02-25 04:15:51 +0000
+DC-Task: type:rebuild-binarch-only source:dmalloc version:5.5.2-14 chroot:unstable esttime:83 logfile:/tmp/dmalloc_5.5.2-14_unstable_clang8.log modes:clang8:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang8 dmalloc_5.5.2-14'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-4-204.eu-central-1.compute.internal
+
++==============================================================================+
+| dmalloc 5.5.2-14 (amd64)                     Tue, 25 Feb 2020 04:15:51 +0000 |
++==============================================================================+
+
+Package: dmalloc
+Version: 5.5.2-14
+Source Version: 5.5.2-14
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-9b19f76f-c295-4e84-a3f4-88b7c103eef8' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang8
+-----------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=8
++ echo 'Install of clang-8'
+Install of clang-8
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [142 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-0823.32.pdiff [11.0 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-1420.34.pdiff [30.2 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-0823.32.pdiff [15.5 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-1420.34.pdiff [27.5 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main Translation-en [6193 kB]
+Fetched 6572 kB in 2s (2799 kB/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-8 libomp-8-dev libobjc-9-dev
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-8-dev libclang1-8 libedit2 libgc1c2 libgcc-8-dev libllvm8
+  libmpx2 libobjc-8-dev libobjc4 libomp5-8 libstdc++-8-dev
+Suggested packages:
+  clang-8-doc libomp-8-doc libstdc++-8-doc
+Recommended packages:
+  llvm-8-dev python3
+The following NEW packages will be installed:
+  clang-8 gcc-8-base lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-8-dev libclang1-8 libedit2 libgc1c2 libgcc-8-dev libllvm8
+  libmpx2 libobjc-8-dev libobjc-9-dev libobjc4 libomp-8-dev libomp5-8
+  libstdc++-8-dev
+0 upgraded, 20 newly installed, 0 to remove and 2 not upgraded.
+Need to get 39.9 MB of archives.
+After this operation, 223 MB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libbsd0 amd64 0.10.0-1 [107 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 libedit2 amd64 3.1-20191231-1 [95.4 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libllvm8 amd64 1:8.0.1-7 [13.8 MB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 gcc-8-base amd64 8.3.0-29 [194 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libmpx2 amd64 8.3.0-29 [11.4 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 libgcc-8-dev amd64 8.3.0-29 [2297 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 libstdc++-8-dev amd64 8.3.0-29 [1543 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libgc1c2 amd64 1:7.6.4-0.4 [224 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libobjc4 amd64 10-20200222-1 [41.6 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libobjc-8-dev amd64 8.3.0-29 [227 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 libc6-i386 amd64 2.29-10 [2918 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc-s1 amd64 10-20200222-1 [49.4 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc1 amd64 1:10-20200222-1 [1104 B]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 lib32stdc++6 amd64 10-20200222-1 [510 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 libclang-common-8-dev amd64 1:8.0.1-7 [2989 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 libclang1-8 amd64 1:8.0.1-7 [6244 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 clang-8 amd64 1:8.0.1-7 [8010 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 libobjc-9-dev amd64 9.2.1-29 [219 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 libomp5-8 amd64 1:8.0.1-7 [331 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libomp-8-dev amd64 1:8.0.1-7 [62.3 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 39.9 MB in 2s (19.4 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12119 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../01-libedit2_3.1-20191231-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191231-1) ...
+Selecting previously unselected package libllvm8:amd64.
+Preparing to unpack .../02-libllvm8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libllvm8:amd64 (1:8.0.1-7) ...
+Selecting previously unselected package gcc-8-base:amd64.
+Preparing to unpack .../03-gcc-8-base_8.3.0-29_amd64.deb ...
+Unpacking gcc-8-base:amd64 (8.3.0-29) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../04-libmpx2_8.3.0-29_amd64.deb ...
+Unpacking libmpx2:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgcc-8-dev:amd64.
+Preparing to unpack .../05-libgcc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libgcc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libstdc++-8-dev:amd64.
+Preparing to unpack .../06-libstdc++-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libstdc++-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../07-libgc1c2_1%3a7.6.4-0.4_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../08-libobjc4_10-20200222-1_amd64.deb ...
+Unpacking libobjc4:amd64 (10-20200222-1) ...
+Selecting previously unselected package libobjc-8-dev:amd64.
+Preparing to unpack .../09-libobjc-8-dev_8.3.0-29_amd64.deb ...
+Unpacking libobjc-8-dev:amd64 (8.3.0-29) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../10-libc6-i386_2.29-10_amd64.deb ...
+Unpacking libc6-i386 (2.29-10) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../11-lib32gcc-s1_10-20200222-1_amd64.deb ...
+Unpacking lib32gcc-s1 (10-20200222-1) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../12-lib32gcc1_1%3a10-20200222-1_amd64.deb ...
+Unpacking lib32gcc1 (1:10-20200222-1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../13-lib32stdc++6_10-20200222-1_amd64.deb ...
+Unpacking lib32stdc++6 (10-20200222-1) ...
+Selecting previously unselected package libclang-common-8-dev.
+Preparing to unpack .../14-libclang-common-8-dev_1%3a8.0.1-7_amd64.deb ...
+Unpacking libclang-common-8-dev (1:8.0.1-7) ...
+Selecting previously unselected package libclang1-8.
+Preparing to unpack .../15-libclang1-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libclang1-8 (1:8.0.1-7) ...
+Selecting previously unselected package clang-8.
+Preparing to unpack .../16-clang-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking clang-8 (1:8.0.1-7) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../17-libobjc-9-dev_9.2.1-29_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.2.1-29) ...
+Selecting previously unselected package libomp5-8:amd64.
+Preparing to unpack .../18-libomp5-8_1%3a8.0.1-7_amd64.deb ...
+Unpacking libomp5-8:amd64 (1:8.0.1-7) ...
+Selecting previously unselected package libomp-8-dev.
+Preparing to unpack .../19-libomp-8-dev_1%3a8.0.1-7_amd64.deb ...
+Unpacking libomp-8-dev (1:8.0.1-7) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4) ...
+Setting up libobjc4:amd64 (10-20200222-1) ...
+Setting up gcc-8-base:amd64 (8.3.0-29) ...
+Setting up libobjc-9-dev:amd64 (9.2.1-29) ...
+Setting up libmpx2:amd64 (8.3.0-29) ...
+Setting up libc6-i386 (2.29-10) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up libomp5-8:amd64 (1:8.0.1-7) ...
+Setting up libomp-8-dev (1:8.0.1-7) ...
+Setting up libedit2:amd64 (3.1-20191231-1) ...
+Setting up lib32gcc-s1 (10-20200222-1) ...
+Setting up libgcc-8-dev:amd64 (8.3.0-29) ...
+Setting up libstdc++-8-dev:amd64 (8.3.0-29) ...
+Setting up libllvm8:amd64 (1:8.0.1-7) ...
+Setting up libclang1-8 (1:8.0.1-7) ...
+Setting up lib32gcc1 (1:10-20200222-1) ...
+Setting up libobjc-8-dev:amd64 (8.3.0-29) ...
+Setting up lib32stdc++6 (10-20200222-1) ...
+Setting up libclang-common-8-dev (1:8.0.1-7) ...
+Setting up clang-8 (1:8.0.1-7) ...
+Processing triggers for libc-bin (2.29-10) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-8 g++-4.6
++ ln -s clang-8 gcc-4.6
++ ln -s clang-8 cpp-4.6
++ ln -s clang-8 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-8 g++-4.7
++ ln -s clang-8 gcc-4.7
++ ln -s clang-8 cpp-4.7
++ ln -s clang-8 gcc
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-8 g++-4.8
++ ln -s clang-8 gcc-4.8
++ ln -s clang-8 cpp-4.8
++ ln -s clang-8 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-8 g++-4.9
++ ln -s clang-8 gcc-4.9
++ ln -s clang-8 cpp-4.9
++ ln -s clang-8 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-8 g++-5
++ ln -s clang-8 gcc-5
++ ln -s clang-8 cpp-5
++ ln -s clang-8 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-8 g++-6
++ ln -s clang-8 gcc-6
++ ln -s clang-8 cpp-6
++ ln -s clang-8 gcc
++ dpkg --set-selections
++ echo 'gcc-6 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-8 g++-7
++ ln -s clang-8 gcc-7
++ ln -s clang-8 cpp-7
++ ln -s clang-8 gcc
++ dpkg --set-selections
++ echo 'gcc-7 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-8 g++-8
++ ln -s clang-8 gcc-8
++ ln -s clang-8 cpp-8
++ ln -s clang-8 gcc
++ dpkg --set-selections
++ echo 'gcc-8 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-8 g++-9
++ ln -s clang-8 gcc-9
++ ln -s clang-8 cpp-9
++ ln -s clang-8 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-8 g++-10
++ ln -s clang-8 gcc-10
++ ln -s clang-8 cpp-10
++ ln -s clang-8 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/dmalloc-N9ijj5
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
+
+I: Finished running '/tmp/clang8'.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+I: NOTICE: Log filtering will replace 'build/dmalloc-N9ijj5/resolver-60ZuxI' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://127.0.0.1:12990/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libgmp10 zlib1g
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 343 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libgmp10 amd64 2:6.2.0+dfsg-4 [253 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 zlib1g amd64 1:1.2.11.dfsg-2 [90.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 343 kB in 0s (3432 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../libgmp10_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp10:amd64 (2:6.2.0+dfsg-4) over (2:6.2.0+dfsg-3) ...
+Setting up libgmp10:amd64 (2:6.2.0+dfsg-4) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2_amd64.deb ...
+Unpacking zlib1g:amd64 (1:1.2.11.dfsg-2) over (1:1.2.11.dfsg-1.2) ...
+Setting up zlib1g:amd64 (1:1.2.11.dfsg-2) ...
+Processing triggers for libc-bin (2.29-10) ...
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Check APT
+---------
+
+Checking available source versions...
+
+Download source files with APT
+------------------------------
+
+Reading package lists...
+NOTICE: 'dmalloc' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/debian/dmalloc.git
+Please use:
+git clone https://salsa.debian.org/debian/dmalloc.git
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 716 kB of source archives.
+Get:1 http://127.0.0.1:12990/debian sid/main dmalloc 5.5.2-14 (dsc) [1961 B]
+Get:2 http://127.0.0.1:12990/debian sid/main dmalloc 5.5.2-14 (tar) [667 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main dmalloc 5.5.2-14 (diff) [47.7 kB]
+Fetched 716 kB in 0s (3398 kB/s)
+Download complete and in download only mode
+I: NOTICE: Log filtering will replace 'build/dmalloc-N9ijj5/dmalloc-5.5.2' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/dmalloc-N9ijj5' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 12), texinfo, texlive-latex-base, build-essential, fakeroot
+Filtered Build-Depends: debhelper (>= 12), texinfo, texlive-latex-base, build-essential, fakeroot
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [384 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [467 B]
+Fetched 1808 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file fontconfig-config
+  fonts-dejavu-core fonts-lmodern gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libcairo2 libcroco3 libdebhelper-perl
+  libelf1 libexpat1 libfile-stripnondeterminism-perl libfontconfig1
+  libfreetype6 libglib2.0-0 libgraphite2-3 libharfbuzz-icu0 libharfbuzz0b
+  libice6 libicu63 libkpathsea6 libmagic-mgc libmagic1 libpaper-utils
+  libpaper1 libpipeline1 libpixman-1-0 libpng16-16 libptexenc1 libsigsegv2
+  libsm6 libsub-override-perl libsynctex2 libteckit0 libtexlua53 libtexluajit2
+  libtext-unidecode-perl libtool libuchardet0 libx11-6 libx11-data libxau6
+  libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6 libxext6 libxi6
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml2 libxmu6 libxpm4 libxrender1 libxt6 libzzip-0-13 m4
+  man-db po-debconf sensible-utils t1utils tex-common texinfo texlive-base
+  texlive-binaries texlive-latex-base ucf x11-common xdg-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl texlive-plain-generic texlive-fonts-recommended
+  ghostscript gv | postscript-viewer perl-tk xpdf | pdf-viewer xzdec
+  texlive-latex-base-doc
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libltdl-dev libwww-perl libxml-sax-expat-perl
+  libmail-sendmail-perl lmodern dvisvgm libfile-mimeinfo-perl libnet-dbus-perl
+  libx11-protocol-perl x11-utils x11-xserver-utils
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz file fontconfig-config
+  fonts-dejavu-core fonts-lmodern gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libcairo2 libcroco3 libdebhelper-perl
+  libelf1 libexpat1 libfile-stripnondeterminism-perl libfontconfig1
+  libfreetype6 libglib2.0-0 libgraphite2-3 libharfbuzz-icu0 libharfbuzz0b
+  libice6 libicu63 libkpathsea6 libmagic-mgc libmagic1 libpaper-utils
+  libpaper1 libpipeline1 libpixman-1-0 libpng16-16 libptexenc1 libsigsegv2
+  libsm6 libsub-override-perl libsynctex2 libteckit0 libtexlua53 libtexluajit2
+  libtext-unidecode-perl libtool libuchardet0 libx11-6 libx11-data libxau6
+  libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6 libxext6 libxi6
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml2 libxmu6 libxpm4 libxrender1 libxt6 libzzip-0-13 m4
+  man-db po-debconf sbuild-build-depends-main-dummy sensible-utils t1utils
+  tex-common texinfo texlive-base texlive-binaries texlive-latex-base ucf
+  x11-common xdg-utils
+0 upgraded, 85 newly installed, 0 to remove and 0 not upgraded.
+Need to get 66.0 MB of archives.
+After this operation, 239 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [892 B]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libuchardet0 amd64 0.0.6-3 [64.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 groff-base amd64 1.22.4-4 [919 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libpipeline1 amd64 1.5.2-2 [33.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 man-db amd64 2.9.0-2 [1307 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 sensible-utils all 0.0.12+nmu1 [16.0 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 ucf all 3.0038+nmu1 [69.0 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 tex-common all 6.13 [53.2 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libmagic-mgc amd64 1:5.38-4 [262 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 libmagic1 amd64 1:5.38-4 [120 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 file amd64 1:5.38-4 [67.9 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 gettext-base amd64 0.19.8.1-10 [123 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 m4 amd64 1.4.18-4 [203 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 autoconf all 2.69-11.1 [341 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 automake all 1:1.16.1-4 [771 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 autopoint all 0.19.8.1-10 [435 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 libtool all 2.4.6-13 [513 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 dh-autoreconf all 19 [16.9 kB]
+Get:22 http://127.0.0.1:12990/debian sid/main amd64 libdebhelper-perl all 12.9 [183 kB]
+Get:23 http://127.0.0.1:12990/debian sid/main amd64 libarchive-zip-perl all 1.67-1 [104 kB]
+Get:24 http://127.0.0.1:12990/debian sid/main amd64 libsub-override-perl all 0.09-2 [10.2 kB]
+Get:25 http://127.0.0.1:12990/debian sid/main amd64 libfile-stripnondeterminism-perl all 1.6.3-2 [23.7 kB]
+Get:26 http://127.0.0.1:12990/debian sid/main amd64 dh-strip-nondeterminism all 1.6.3-2 [14.7 kB]
+Get:27 http://127.0.0.1:12990/debian sid/main amd64 libelf1 amd64 0.176-1.1 [161 kB]
+Get:28 http://127.0.0.1:12990/debian sid/main amd64 dwz amd64 0.13-5 [151 kB]
+Get:29 http://127.0.0.1:12990/debian sid/main amd64 libglib2.0-0 amd64 2.62.4-2 [1319 kB]
+Get:30 http://127.0.0.1:12990/debian sid/main amd64 libicu63 amd64 63.2-2 [8301 kB]
+Get:31 http://127.0.0.1:12990/debian sid/main amd64 libxml2 amd64 2.9.10+dfsg-3 [709 kB]
+Get:32 http://127.0.0.1:12990/debian sid/main amd64 libcroco3 amd64 0.6.13-1 [146 kB]
+Get:33 http://127.0.0.1:12990/debian sid/main amd64 gettext amd64 0.19.8.1-10 [1303 kB]
+Get:34 http://127.0.0.1:12990/debian sid/main amd64 intltool-debian all 0.35.0+20060710.5 [26.8 kB]
+Get:35 http://127.0.0.1:12990/debian sid/main amd64 po-debconf all 1.0.21 [248 kB]
+Get:36 http://127.0.0.1:12990/debian sid/main amd64 debhelper all 12.9 [994 kB]
+Get:37 http://127.0.0.1:12990/debian sid/main amd64 fonts-dejavu-core all 2.37-1 [1068 kB]
+Get:38 http://127.0.0.1:12990/debian sid/main amd64 fontconfig-config all 2.13.1-2 [280 kB]
+Get:39 http://127.0.0.1:12990/debian sid/main amd64 fonts-lmodern all 2.004.5-6 [4539 kB]
+Get:40 http://127.0.0.1:12990/debian sid/main amd64 libexpat1 amd64 2.2.9-1 [94.3 kB]
+Get:41 http://127.0.0.1:12990/debian sid/main amd64 libpng16-16 amd64 1.6.37-2 [292 kB]
+Get:42 http://127.0.0.1:12990/debian sid/main amd64 libfreetype6 amd64 2.10.1-2 [392 kB]
+Get:43 http://127.0.0.1:12990/debian sid/main amd64 libfontconfig1 amd64 2.13.1-2+b1 [347 kB]
+Get:44 http://127.0.0.1:12990/debian sid/main amd64 libpixman-1-0 amd64 0.36.0-1 [537 kB]
+Get:45 http://127.0.0.1:12990/debian sid/main amd64 libxau6 amd64 1:1.0.8-1+b2 [19.9 kB]
+Get:46 http://127.0.0.1:12990/debian sid/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+Get:47 http://127.0.0.1:12990/debian sid/main amd64 libxcb1 amd64 1.13.1-5 [137 kB]
+Get:48 http://127.0.0.1:12990/debian sid/main amd64 libx11-data all 2:1.6.8-1 [298 kB]
+Get:49 http://127.0.0.1:12990/debian sid/main amd64 libx11-6 amd64 2:1.6.8-1 [756 kB]
+Get:50 http://127.0.0.1:12990/debian sid/main amd64 libxcb-render0 amd64 1.13.1-5 [109 kB]
+Get:51 http://127.0.0.1:12990/debian sid/main amd64 libxcb-shm0 amd64 1.13.1-5 [99.3 kB]
+Get:52 http://127.0.0.1:12990/debian sid/main amd64 libxext6 amd64 2:1.3.3-1+b2 [52.5 kB]
+Get:53 http://127.0.0.1:12990/debian sid/main amd64 libxrender1 amd64 1:0.9.10-1 [33.0 kB]
+Get:54 http://127.0.0.1:12990/debian sid/main amd64 libcairo2 amd64 1.16.0-4 [689 kB]
+Get:55 http://127.0.0.1:12990/debian sid/main amd64 libgraphite2-3 amd64 1.3.13-11 [80.9 kB]
+Get:56 http://127.0.0.1:12990/debian sid/main amd64 libharfbuzz0b amd64 2.6.4-1 [1360 kB]
+Get:57 http://127.0.0.1:12990/debian sid/main amd64 libharfbuzz-icu0 amd64 2.6.4-1 [976 kB]
+Get:58 http://127.0.0.1:12990/debian sid/main amd64 x11-common all 1:7.7+20 [252 kB]
+Get:59 http://127.0.0.1:12990/debian sid/main amd64 libice6 amd64 2:1.0.9-2 [58.7 kB]
+Get:60 http://127.0.0.1:12990/debian sid/main amd64 libkpathsea6 amd64 2019.20190605.51237-3 [169 kB]
+Get:61 http://127.0.0.1:12990/debian sid/main amd64 libpaper1 amd64 1.1.28+b1 [21.6 kB]
+Get:62 http://127.0.0.1:12990/debian sid/main amd64 libpaper-utils amd64 1.1.28+b1 [18.3 kB]
+Get:63 http://127.0.0.1:12990/debian sid/main amd64 libptexenc1 amd64 2019.20190605.51237-3 [62.8 kB]
+Get:64 http://127.0.0.1:12990/debian sid/main amd64 libsm6 amd64 2:1.2.3-1 [35.1 kB]
+Get:65 http://127.0.0.1:12990/debian sid/main amd64 libsynctex2 amd64 2019.20190605.51237-3 [81.8 kB]
+Get:66 http://127.0.0.1:12990/debian sid/main amd64 libteckit0 amd64 2.5.8+ds2-5 [318 kB]
+Get:67 http://127.0.0.1:12990/debian sid/main amd64 libtexlua53 amd64 2019.20190605.51237-3 [128 kB]
+Get:68 http://127.0.0.1:12990/debian sid/main amd64 libtexluajit2 amd64 2019.20190605.51237-3 [258 kB]
+Get:69 http://127.0.0.1:12990/debian sid/main amd64 libtext-unidecode-perl all 1.30-1 [103 kB]
+Get:70 http://127.0.0.1:12990/debian sid/main amd64 libxt6 amd64 1:1.1.5-1+b3 [190 kB]
+Get:71 http://127.0.0.1:12990/debian sid/main amd64 libxmu6 amd64 2:1.1.2-2+b3 [60.8 kB]
+Get:72 http://127.0.0.1:12990/debian sid/main amd64 libxpm4 amd64 1:3.5.12-1 [49.1 kB]
+Get:73 http://127.0.0.1:12990/debian sid/main amd64 libxaw7 amd64 2:1.0.13-1+b2 [201 kB]
+Get:74 http://127.0.0.1:12990/debian sid/main amd64 libxi6 amd64 2:1.7.9-1 [82.6 kB]
+Get:75 http://127.0.0.1:12990/debian sid/main amd64 libxml-namespacesupport-perl all 1.12-1 [14.8 kB]
+Get:76 http://127.0.0.1:12990/debian sid/main amd64 libxml-sax-base-perl all 1.09-1 [20.4 kB]
+Get:77 http://127.0.0.1:12990/debian sid/main amd64 libxml-sax-perl all 1.02+dfsg-1 [59.0 kB]
+Get:78 http://127.0.0.1:12990/debian sid/main amd64 libxml-libxml-perl amd64 2.0134+dfsg-1+b1 [344 kB]
+Get:79 http://127.0.0.1:12990/debian sid/main amd64 libzzip-0-13 amd64 0.13.62-3.2 [55.4 kB]
+Get:80 http://127.0.0.1:12990/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:81 http://127.0.0.1:12990/debian sid/main amd64 texinfo amd64 6.7.0.dfsg.2-5 [1761 kB]
+Get:82 http://127.0.0.1:12990/debian sid/main amd64 texlive-binaries amd64 2019.20190605.51237-3 [8054 kB]
+Get:83 http://127.0.0.1:12990/debian sid/main amd64 xdg-utils all 1.1.3-1 [73.3 kB]
+Get:84 http://127.0.0.1:12990/debian sid/main amd64 texlive-base all 2019.20200218-1 [20.9 MB]
+Get:85 http://127.0.0.1:12990/debian sid/main amd64 texlive-latex-base all 2019.20200218-1 [1019 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 66.0 MB in 6s (11.2 MB/s)
+Selecting previously unselected package bsdmainutils.
+(Reading database ... 13887 files and directories currently installed.)
+Preparing to unpack .../00-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../01-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../02-groff-base_1.22.4-4_amd64.deb ...
+Unpacking groff-base (1.22.4-4) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../03-libpipeline1_1.5.2-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.2-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../04-man-db_2.9.0-2_amd64.deb ...
+Unpacking man-db (2.9.0-2) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../05-sensible-utils_0.0.12+nmu1_all.deb ...
+Unpacking sensible-utils (0.0.12+nmu1) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../06-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package tex-common.
+Preparing to unpack .../07-tex-common_6.13_all.deb ...
+Unpacking tex-common (6.13) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../08-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../09-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../10-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../11-gettext-base_0.19.8.1-10_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-10) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../12-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../13-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../14-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../15-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../16-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../17-autopoint_0.19.8.1-10_all.deb ...
+Unpacking autopoint (0.19.8.1-10) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../18-libtool_2.4.6-13_all.deb ...
+Unpacking libtool (2.4.6-13) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../19-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libdebhelper-perl.
+Preparing to unpack .../20-libdebhelper-perl_12.9_all.deb ...
+Unpacking libdebhelper-perl (12.9) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../21-libarchive-zip-perl_1.67-1_all.deb ...
+Unpacking libarchive-zip-perl (1.67-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../22-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../23-libfile-stripnondeterminism-perl_1.6.3-2_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.6.3-2) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../24-dh-strip-nondeterminism_1.6.3-2_all.deb ...
+Unpacking dh-strip-nondeterminism (1.6.3-2) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../25-libelf1_0.176-1.1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../26-dwz_0.13-5_amd64.deb ...
+Unpacking dwz (0.13-5) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../27-libglib2.0-0_2.62.4-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.62.4-2) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../28-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../29-libxml2_2.9.10+dfsg-3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-3) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../30-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../31-gettext_0.19.8.1-10_amd64.deb ...
+Unpacking gettext (0.19.8.1-10) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../32-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../33-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../34-debhelper_12.9_all.deb ...
+Unpacking debhelper (12.9) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../35-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../36-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package fonts-lmodern.
+Preparing to unpack .../37-fonts-lmodern_2.004.5-6_all.deb ...
+Unpacking fonts-lmodern (2.004.5-6) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../38-libexpat1_2.2.9-1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.9-1) ...
+Selecting previously unselected package libpng16-16:amd64.
+Preparing to unpack .../39-libpng16-16_1.6.37-2_amd64.deb ...
+Unpacking libpng16-16:amd64 (1.6.37-2) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../40-libfreetype6_2.10.1-2_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.10.1-2) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../41-libfontconfig1_2.13.1-2+b1_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-2+b1) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Preparing to unpack .../42-libpixman-1-0_0.36.0-1_amd64.deb ...
+Unpacking libpixman-1-0:amd64 (0.36.0-1) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../43-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../44-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../45-libxcb1_1.13.1-5_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-5) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../46-libx11-data_2%3a1.6.8-1_all.deb ...
+Unpacking libx11-data (2:1.6.8-1) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../47-libx11-6_2%3a1.6.8-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.8-1) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Preparing to unpack .../48-libxcb-render0_1.13.1-5_amd64.deb ...
+Unpacking libxcb-render0:amd64 (1.13.1-5) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Preparing to unpack .../49-libxcb-shm0_1.13.1-5_amd64.deb ...
+Unpacking libxcb-shm0:amd64 (1.13.1-5) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../50-libxext6_2%3a1.3.3-1+b2_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../51-libxrender1_1%3a0.9.10-1_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+Selecting previously unselected package libcairo2:amd64.
+Preparing to unpack .../52-libcairo2_1.16.0-4_amd64.deb ...
+Unpacking libcairo2:amd64 (1.16.0-4) ...
+Selecting previously unselected package libgraphite2-3:amd64.
+Preparing to unpack .../53-libgraphite2-3_1.3.13-11_amd64.deb ...
+Unpacking libgraphite2-3:amd64 (1.3.13-11) ...
+Selecting previously unselected package libharfbuzz0b:amd64.
+Preparing to unpack .../54-libharfbuzz0b_2.6.4-1_amd64.deb ...
+Unpacking libharfbuzz0b:amd64 (2.6.4-1) ...
+Selecting previously unselected package libharfbuzz-icu0:amd64.
+Preparing to unpack .../55-libharfbuzz-icu0_2.6.4-1_amd64.deb ...
+Unpacking libharfbuzz-icu0:amd64 (2.6.4-1) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../56-x11-common_1%3a7.7+20_all.deb ...
+Unpacking x11-common (1:7.7+20) ...
+Selecting previously unselected package libice6:amd64.
+Preparing to unpack .../57-libice6_2%3a1.0.9-2_amd64.deb ...
+Unpacking libice6:amd64 (2:1.0.9-2) ...
+Selecting previously unselected package libkpathsea6:amd64.
+Preparing to unpack .../58-libkpathsea6_2019.20190605.51237-3_amd64.deb ...
+Unpacking libkpathsea6:amd64 (2019.20190605.51237-3) ...
+Selecting previously unselected package libpaper1:amd64.
+Preparing to unpack .../59-libpaper1_1.1.28+b1_amd64.deb ...
+Unpacking libpaper1:amd64 (1.1.28+b1) ...
+Selecting previously unselected package libpaper-utils.
+Preparing to unpack .../60-libpaper-utils_1.1.28+b1_amd64.deb ...
+Unpacking libpaper-utils (1.1.28+b1) ...
+Selecting previously unselected package libptexenc1:amd64.
+Preparing to unpack .../61-libptexenc1_2019.20190605.51237-3_amd64.deb ...
+Unpacking libptexenc1:amd64 (2019.20190605.51237-3) ...
+Selecting previously unselected package libsm6:amd64.
+Preparing to unpack .../62-libsm6_2%3a1.2.3-1_amd64.deb ...
+Unpacking libsm6:amd64 (2:1.2.3-1) ...
+Selecting previously unselected package libsynctex2:amd64.
+Preparing to unpack .../63-libsynctex2_2019.20190605.51237-3_amd64.deb ...
+Unpacking libsynctex2:amd64 (2019.20190605.51237-3) ...
+Selecting previously unselected package libteckit0:amd64.
+Preparing to unpack .../64-libteckit0_2.5.8+ds2-5_amd64.deb ...
+Unpacking libteckit0:amd64 (2.5.8+ds2-5) ...
+Selecting previously unselected package libtexlua53:amd64.
+Preparing to unpack .../65-libtexlua53_2019.20190605.51237-3_amd64.deb ...
+Unpacking libtexlua53:amd64 (2019.20190605.51237-3) ...
+Selecting previously unselected package libtexluajit2:amd64.
+Preparing to unpack .../66-libtexluajit2_2019.20190605.51237-3_amd64.deb ...
+Unpacking libtexluajit2:amd64 (2019.20190605.51237-3) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../67-libtext-unidecode-perl_1.30-1_all.deb ...
+Unpacking libtext-unidecode-perl (1.30-1) ...
+Selecting previously unselected package libxt6:amd64.
+Preparing to unpack .../68-libxt6_1%3a1.1.5-1+b3_amd64.deb ...
+Unpacking libxt6:amd64 (1:1.1.5-1+b3) ...
+Selecting previously unselected package libxmu6:amd64.
+Preparing to unpack .../69-libxmu6_2%3a1.1.2-2+b3_amd64.deb ...
+Unpacking libxmu6:amd64 (2:1.1.2-2+b3) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../70-libxpm4_1%3a3.5.12-1_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7:amd64.
+Preparing to unpack .../71-libxaw7_2%3a1.0.13-1+b2_amd64.deb ...
+Unpacking libxaw7:amd64 (2:1.0.13-1+b2) ...
+Selecting previously unselected package libxi6:amd64.
+Preparing to unpack .../72-libxi6_2%3a1.7.9-1_amd64.deb ...
+Unpacking libxi6:amd64 (2:1.7.9-1) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../73-libxml-namespacesupport-perl_1.12-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.12-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../74-libxml-sax-base-perl_1.09-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.09-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../75-libxml-sax-perl_1.02+dfsg-1_all.deb ...
+Unpacking libxml-sax-perl (1.02+dfsg-1) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../76-libxml-libxml-perl_2.0134+dfsg-1+b1_amd64.deb ...
+Unpacking libxml-libxml-perl (2.0134+dfsg-1+b1) ...
+Selecting previously unselected package libzzip-0-13:amd64.
+Preparing to unpack .../77-libzzip-0-13_0.13.62-3.2_amd64.deb ...
+Unpacking libzzip-0-13:amd64 (0.13.62-3.2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../78-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../79-texinfo_6.7.0.dfsg.2-5_amd64.deb ...
+Unpacking texinfo (6.7.0.dfsg.2-5) ...
+Selecting previously unselected package texlive-binaries.
+Preparing to unpack .../80-texlive-binaries_2019.20190605.51237-3_amd64.deb ...
+Unpacking texlive-binaries (2019.20190605.51237-3) ...
+Selecting previously unselected package xdg-utils.
+Preparing to unpack .../81-xdg-utils_1.1.3-1_all.deb ...
+Unpacking xdg-utils (1.1.3-1) ...
+Selecting previously unselected package texlive-base.
+Preparing to unpack .../82-texlive-base_2019.20200218-1_all.deb ...
+Unpacking texlive-base (2019.20200218-1) ...
+Selecting previously unselected package texlive-latex-base.
+Preparing to unpack .../83-texlive-latex-base_2019.20200218-1_all.deb ...
+Unpacking texlive-latex-base (2019.20200218-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy.
+Preparing to unpack .../84-sbuild-build-depends-main-dummy_0.invalid.0_amd64.deb ...
+Unpacking sbuild-build-depends-main-dummy (0.invalid.0) ...
+Setting up libexpat1:amd64 (2.2.9-1) ...
+Setting up libpipeline1:amd64 (1.5.2-2) ...
+Setting up libgraphite2-3:amd64 (1.3.13-11) ...
+Setting up libpixman-1-0:amd64 (0.36.0-1) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-5) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up libtexlua53:amd64 (2019.20190605.51237-3) ...
+Setting up libxcb-render0:amd64 (1.13.1-5) ...
+Setting up libarchive-zip-perl (1.67-1) ...
+Setting up libglib2.0-0:amd64 (2.62.4-2) ...
+No schema files found: doing nothing.
+Setting up libtexluajit2:amd64 (2019.20190605.51237-3) ...
+Setting up libdebhelper-perl (12.9) ...
+Setting up x11-common (1:7.7+20) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up libxml-namespacesupport-perl (1.12-1) ...
+Setting up gettext-base (0.19.8.1-10) ...
+Setting up libxcb-shm0:amd64 (1.13.1-5) ...
+Setting up libzzip-0-13:amd64 (0.13.62-3.2) ...
+Setting up file (1:5.38-4) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up libxml-sax-base-perl (1.09-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.8-1) ...
+Setting up libteckit0:amd64 (2.5.8+ds2-5) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up t1utils (1.41-3) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libpng16-16:amd64 (1.6.37-2) ...
+Setting up autopoint (0.19.8.1-10) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libkpathsea6:amd64 (2019.20190605.51237-3) ...
+Setting up sensible-utils (0.0.12+nmu1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up fonts-lmodern (2.004.5-6) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libx11-6:amd64 (2:1.6.8-1) ...
+Setting up libtext-unidecode-perl (1.30-1) ...
+Setting up libelf1:amd64 (0.176-1.1) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-3) ...
+Setting up xdg-utils (1.1.3-1) ...
+Setting up libsynctex2:amd64 (2019.20190605.51237-3) ...
+Setting up libfile-stripnondeterminism-perl (1.6.3-2) ...
+Setting up libice6:amd64 (2:1.0.9-2) ...
+Setting up libxpm4:amd64 (1:3.5.12-1) ...
+Setting up libxrender1:amd64 (1:0.9.10-1) ...
+Setting up libtool (2.4.6-13) ...
+Setting up libxext6:amd64 (2:1.3.3-1+b2) ...
+Setting up m4 (1.4.18-4) ...
+Setting up libptexenc1:amd64 (2019.20190605.51237-3) ...
+Setting up libfreetype6:amd64 (2.10.1-2) ...
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up dh-strip-nondeterminism (1.6.3-2) ...
+Setting up dwz (0.13-5) ...
+Setting up groff-base (1.22.4-4) ...
+Setting up libharfbuzz0b:amd64 (2.6.4-1) ...
+Setting up libsm6:amd64 (2:1.2.3-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libpaper1:amd64 (1.1.28+b1) ...
+
+Creating config file /etc/papersize with new version
+Setting up gettext (0.19.8.1-10) ...
+Setting up libharfbuzz-icu0:amd64 (2.6.4-1) ...
+Setting up libxi6:amd64 (2:1.7.9-1) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up libpaper-utils (1.1.28+b1) ...
+Setting up man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxml-sax-perl (1.02+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up tex-common (6.13) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up libxt6:amd64 (1:1.1.5-1+b3) ...
+Setting up libxml-libxml-perl (2.0134+dfsg-1+b1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libfontconfig1:amd64 (2.13.1-2+b1) ...
+Setting up libxmu6:amd64 (2:1.1.2-2+b3) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libxaw7:amd64 (2:1.0.13-1+b2) ...
+Setting up libcairo2:amd64 (1.16.0-4) ...
+Setting up texinfo (6.7.0.dfsg.2-5) ...
+Running mktexlsr. This may take some time. ... done.
+Setting up texlive-binaries (2019.20190605.51237-3) ...
+update-alternatives: using /usr/bin/xdvi-xaw to provide /usr/bin/xdvi.bin (xdvi.bin) in auto mode
+update-alternatives: using /usr/bin/bibtex.original to provide /usr/bin/bibtex (bibtex) in auto mode
+Setting up texlive-base (2019.20200218-1) ...
+tl-paper: setting paper size for dvips to a4: /var/lib/texmf/dvips/config/config-paper.ps
+tl-paper: setting paper size for dvipdfmx to a4: /var/lib/texmf/dvipdfmx/dvipdfmx-paper.cfg
+tl-paper: setting paper size for xdvi to a4: /var/lib/texmf/xdvi/XDvi-paper
+tl-paper: setting paper size for pdftex to a4: /var/lib/texmf/tex/generic/config/pdftexconfig.tex
+Setting up texlive-latex-base (2019.20200218-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up debhelper (12.9) ...
+Setting up sbuild-build-depends-main-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.29-10) ...
+Processing triggers for tex-common (6.13) ...
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Building format(s) --all.
+	This may take some time... done.
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (amd64 included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 4.19.0-6-cloud-amd64 #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11) amd64 (x86_64)
+Toolchain package versions: binutils_2.34-3 dpkg-dev_1.19.7 g++-9_9.2.1-29 gcc-9_9.2.1-29 libc6-dev_2.29-10 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 linux-libc-dev_5.4.19-1
+Package versions: adduser_3.118 apt_1.8.4 autoconf_2.69-11.1 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.34-3 binutils-common_2.34-3 binutils-x86-64-linux-gnu_2.34-3 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 clang-8_1:8.0.1-7 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-29 dash_0.5.10.2-6 debconf_1.5.73 debhelper_12.9 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-strip-nondeterminism_1.6.3-2 diffutils_1:3.7-3 dpkg_1.19.7 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.5-2 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.38-4 findutils_4.7.0-1 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 fonts-lmodern_2.004.5-6 g++_4:9.2.1-3.1 g++-9_9.2.1-29 gcc_4:9.2.1-3.1 gcc-10-base_10-20200222-1 gcc-8-base_8.3.0-29 gcc-9_9.2.1-29 gcc-9-base_9.2.1-29 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gpgv_2.2.19-1 grep_3.4-1 groff-base_1.22.4-4 gzip_1.9-3+b1 hostname_3.23 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 lib32gcc-s1_10-20200222-1 lib32gcc1_1:10-20200222-1 lib32stdc++6_10-20200222-1 libacl1_2.2.53-5 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libasan5_9.2.1-29 libatomic1_10-20200222-1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libbinutils_2.34-3 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-10 libc-dev-bin_2.29-10 libc6_2.29-10 libc6-dev_2.29-10 libc6-i386_2.29-10 libcairo2_1.16.0-4 libcap-ng0_0.7.9-2.1+b1 libcc1-0_10-20200222-1 libclang-common-8-dev_1:8.0.1-7 libclang1-8_1:8.0.1-7 libcom-err2_1.45.5-2 libcroco3_0.6.13-1 libcrypt-dev_1:4.4.10-10 libcrypt1_1:4.4.10-10 libctf-nobfd0_2.34-3 libctf0_2.34-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.251 libdebhelper-perl_12.9 libdpkg-perl_1.19.7 libedit2_3.1-20191231-1 libelf1_0.176-1.1 libexpat1_2.2.9-1 libext2fs2_1.45.5-2 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi7_3.3-3 libfile-stripnondeterminism-perl_1.6.3-2 libfontconfig1_2.13.1-2+b1 libfreetype6_2.10.1-2 libgc1c2_1:7.6.4-0.4 libgcc-8-dev_8.3.0-29 libgcc-9-dev_9.2.1-29 libgcc-s1_10-20200222-1 libgcc1_1:10-20200222-1 libgcrypt20_1.8.5-5 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.62.4-2 libgmp10_2:6.2.0+dfsg-4 libgnutls30_3.6.12-2 libgomp1_10-20200222-1 libgpg-error0_1.37-1 libgraphite2-3_1.3.13-11 libharfbuzz-icu0_2.6.4-1 libharfbuzz0b_2.6.4-1 libhogweed5_3.5.1+really3.5.1-2 libice6_2:1.0.9-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libisl22_0.22.1-1 libitm1_10-20200222-1 libkpathsea6_2019.20190605.51237-3 libllvm8_1:8.0.1-7 liblsan0_10-20200222-1 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 libmagic-mgc_1:5.38-4 libmagic1_1:5.38-4 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-29 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libobjc-8-dev_8.3.0-29 libobjc-9-dev_9.2.1-29 libobjc4_10-20200222-1 libomp-8-dev_1:8.0.1-7 libomp5-8_1:8.0.1-7 libp11-kit0_0.23.20-1 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpaper-utils_1.1.28+b1 libpaper1_1.1.28+b1 libpcre2-8-0_10.34-7 libpcre3_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.2-2 libpixman-1-0_0.36.0-1 libpng16-16_1.6.37-2 libptexenc1_2019.20190605.51237-3 libquadmath0_10-20200222-1 libseccomp2_2.4.2-2 libselinux1_3.0-1+b1 libsemanage-common_3.0-1 libsemanage1_3.0-1+b1 libsepol1_3.0-1 libsigsegv2_2.12-2 libsm6_2:1.2.3-1 libsmartcols1_2.34-0.1 libss2_1.45.5-2 libstdc++-8-dev_8.3.0-29 libstdc++-9-dev_9.2.1-29 libstdc++6_10-20200222-1 libsub-override-perl_0.09-2 libsynctex2_2019.20190605.51237-3 libsystemd0_244.3-1 libtasn1-6_4.16.0-2 libteckit0_2.5.8+ds2-5 libtexlua53_2019.20190605.51237-3 libtexluajit2_2019.20190605.51237-3 libtext-unidecode-perl_1.30-1 libtinfo6_6.1+20191019-1 libtool_2.4.6-13 libtsan0_10-20200222-1 libubsan1_10-20200222-1 libuchardet0_0.0.6-3 libudev1_244.3-1 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libx11-6_2:1.6.8-1 libx11-data_2:1.6.8-1 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxcb-render0_1.13.1-5 libxcb-shm0_1.13.1-5 libxcb1_1.13.1-5 libxdmcp6_1:1.1.2-3 libxext6_2:1.3.3-1+b2 libxi6_2:1.7.9-1 libxml-libxml-perl_2.0134+dfsg-1+b1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.02+dfsg-1 libxml2_2.9.10+dfsg-3 libxmu6_2:1.1.2-2+b3 libxpm4_1:3.5.12-1 libxrender1_1:0.9.10-1 libxt6_1:1.1.5-1+b3 libzstd1_1.4.4+dfsg-3 libzzip-0-13_0.13.62-3.2 linux-libc-dev_5.4.19-1 login_1:4.8.1-1 logsave_1.45.5-2 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.4.20200120-2 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 passwd_1:4.8.1-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 po-debconf_1.0.21 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 sysvinit-utils_2.96-2.1 t1utils_1.41-3 tar_1.30+dfsg-6+b1 tex-common_6.13 texinfo_6.7.0.dfsg.2-5 texlive-base_2019.20200218-1 texlive-binaries_2019.20190605.51237-3 texlive-latex-base_2019.20200218-1 tzdata_2019c-3 ucf_3.0038+nmu1 util-linux_2.34-0.1 x11-common_1:7.7+20 xdg-utils_1.1.3-1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-2
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: dmalloc
+Binary: libdmalloc5, libdmalloc-dev
+Architecture: any
+Version: 5.5.2-14
+Maintainer: Carlos Maddela <e7appew@gmail.com>
+Homepage: http://dmalloc.com/
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/debian/dmalloc
+Vcs-Git: https://salsa.debian.org/debian/dmalloc.git
+Testsuite: autopkgtest
+Testsuite-Triggers: dpkg-dev, pdftk-java
+Build-Depends: debhelper (>= 12), texinfo, texlive-latex-base
+Package-List:
+ libdmalloc-dev deb libdevel optional arch=any
+ libdmalloc5 deb libs optional arch=any
+Checksums-Sha1:
+ 20719de78decbd724bc3ab9d6dce2ea5e5922335 666608 dmalloc_5.5.2.orig.tar.gz
+ a41892a9ceb2e2cf884cf9c2a552a1d76e83da26 47708 dmalloc_5.5.2-14.debian.tar.xz
+Checksums-Sha256:
+ d3be5c6eec24950cb3bd67dbfbcdf036f1278fae5fd78655ef8cdf9e911e428a 666608 dmalloc_5.5.2.orig.tar.gz
+ 391f58a397ab12ffecb39c0182c6c97feae5bc9ed8fa52d705fd4d565534d04e 47708 dmalloc_5.5.2-14.debian.tar.xz
+Files:
+ f92e5606c23a8092f3d5694e8d1c932e 666608 dmalloc_5.5.2.orig.tar.gz
+ 40f0b421ed9ae5f0769dbc0b3314f55a 47708 dmalloc_5.5.2-14.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEkjZVexcMh/iCHArDweDZLphvfH4FAlxQTscACgkQweDZLphv
+fH7Qbg//Z62J53VedUV9oj8jb3gzWo2qRfOJhw9VdeV5ZCfGoWroJS+xCabjrk9k
+ZIwkFtqe8Q4E0KzY2FNo0Ez6I5iovRf+bH1ESvEt/B4Y5UnOSX9+9UR+GPcWLMAt
+B0EFQo4jSJ3AIloXol4FvFqVWkxzBGxScW5Qu2T2BZRD22dba3z2460VQdNbVWNJ
+ZVcnA5fyAfQhFyin0zA2DTosRZP3vhDd/dLP0mwylJ8Nr1zg8mCdirxSTvCGAXUe
+HEr1nonNlCcQFHulsh7WIaL/I6L9KfaVkiosfXShUi1/zBqpc2eWOolKjanyOiK/
+BM1wKR2GmBAtWys3SGsM1TEVvGDM53RpTfTqTtCDFFAl2AL72LYGyx0X16HbwjK9
+k82Dov+H9xAeaSeDJqtD35eT3OWNYuhdc1QcaewUB52t0nxBgVuFP0DFWBcRMobz
+ld22TP47RyZWxLZpcVumV0tygXsWqljbs9Gi1esVmYBPIpvvWSKzVTd8TyT/FAFw
+Dh7zTH9AJrBKiG4G+h0Trv9vla985qmBDkadiNAEykZ8yzFV0YM4/jumUAadhNJe
+fHfGJ+2iOKRo/47JJrL5aDMwQk9wN4vwPwBewOGILjZU0PHQI2WG1Br7h4uwg+Ot
+VBfAQ1uT2JsX9HifmFZFiMdk2yCJ62F8lAzBO7j7Xzn/XfzVpbI=
+=a1M6
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Jan 29 13:01:59 2019 UTC
+gpgv:                using RSA key 9236557B170C87F8821C0AC3C1E0D92E986F7C7E
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./dmalloc_5.5.2-14.dsc
+dpkg-source: info: extracting dmalloc in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking dmalloc_5.5.2.orig.tar.gz
+dpkg-source: info: unpacking dmalloc_5.5.2-14.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 01-configure.ac.patch
+dpkg-source: info: applying 02-Makefile.in.patch
+dpkg-source: info: applying 03-threads.patch
+dpkg-source: info: applying 04-fix-strndup-macro.patch
+dpkg-source: info: applying 05-posix-memalign.patch
+dpkg-source: info: applying 06-dmalloc-tag.patch
+dpkg-source: info: applying 07-doc-update.patch
+dpkg-source: info: applying 08-align2.patch
+dpkg-source: info: applying 09-strdup-macro-fix.patch
+dpkg-source: info: applying 10-recursion-fix.patch
+dpkg-source: info: applying 11-pnt-info-fix.patch
+dpkg-source: info: applying 12-clang-ftbfs.diff
+dpkg-source: info: applying 13-fix-ldflags-in-makefile.patch
+dpkg-source: info: applying 14-fix-perl-shebang.patch
+dpkg-source: info: applying 15-use-AC_LANG_SOURCE-macro.patch
+dpkg-source: info: applying 16-fix-compilation-warnings.patch
+dpkg-source: info: applying 17-autoreconf-2.69.patch
+dpkg-source: info: applying 18-fix-typos-in-doco.patch
+dpkg-source: info: applying 19-reproducible-pdfs.patch
+dpkg-source: info: applying 20-allow-free-null-in-dmalloc-test.patch
+dpkg-source: info: applying 21-fix-parallel-builds.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+HOME=/sbuild-nonexistent
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+LOGNAME=user42
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable
+SCHROOT_CHROOT_NAME=sid-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1001
+SCHROOT_GROUP=user42
+SCHROOT_SESSION_ID=sid-amd64-sbuild-9b19f76f-c295-4e84-a3f4-88b7c103eef8
+SCHROOT_UID=1001
+SCHROOT_USER=user42
+SHELL=/bin/sh
+USER=user42
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -us -uc -b -rfakeroot
+dpkg-buildpackage: info: source package dmalloc
+dpkg-buildpackage: info: source version 5.5.2-14
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Carlos Maddela <e7appew@gmail.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean
+   debian/rules override_dh_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_clean debian/libdmalloc-dev.prerm debian/libdmalloc-dev.postinst
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/libdmalloc5.substvars debian/libdmalloc-dev.substvars debian/libdmalloc-dev.prerm debian/libdmalloc-dev.postinst debian/files
+	rm -fr -- debian/libdmalloc5/ debian/tmp/ debian/libdmalloc-dev/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+test ! -f debian/backup.tar || \
+	tar xpf debian/backup.tar && rm -f debian/backup.tar
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ debian/rules binary
+dh binary
+   debian/rules override_dh_update_autotools_config
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_update_autotools_config
+test -f debian/backup.tar || \
+	tar cpf debian/backup.tar -T debian/mutable
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_autoreconf
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.before
+	grep -q ^XDT_ configure.ac
+	autoreconf -f -i
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.after
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --enable-threads --enable-shlib
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --enable-threads --enable-shlib
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: configurations for the dmalloc library
+configure: build utilities
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ranlib... ranlib
+checking for an ANSI C-conforming const... yes
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking shared library link args... ld -shared --whole-archive -soname $@ -o $@.t
+checking shared library extension... so
+checking C++ support... enabled
+checking thread support... enabled
+checking shlib support... enabled
+checking for size_t... yes
+checking dmalloc size unsigned... yes
+checking strdup macro... no
+checking for mprotect... yes
+checking mprotect works... yes
+configure: important functionality
+checking for mmap... yes
+checking for sbrk... yes
+checking mmap usage... yes
+checking for getpagesize... yes
+checking basic-block size... 12
+checking size of long... 8
+checking data-alignment size... 8
+checking for abort... yes
+checking abort safe... yes
+checking return type of signal handlers... void
+checking signal works... checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+yes
+checking for getenv... yes
+checking getenv safe... yes
+checking sys/cygwin.h usability... no
+checking sys/cygwin.h presence... no
+checking for sys/cygwin.h... no
+checking w32api/windef.h usability... no
+checking w32api/windef.h presence... no
+checking for w32api/windef.h... no
+checking for w32api/winbase.h... no
+checking for GetEnvironmentVariableA... no
+checking constructor attribute... yes
+checking destructor attribute... yes
+checking return.h macros work... yes
+checking if ident works... yes
+configure: pthread particulars
+checking for library containing pthread_mutex_init... none required
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking pthreads.h usability... no
+checking pthreads.h presence... no
+checking for pthreads.h... no
+checking for pthread_mutex_init... yes
+checking for pthread_mutex_lock... yes
+checking for pthread_mutex_unlock... yes
+checking pthread mutex type... pthread_mutex_t
+checking pthread attribute initialization... 0
+configure: functions
+checking for atexit... yes
+checking for on_exit... yes
+checking for fork... yes
+checking for gethostname... yes
+checking for getpid... yes
+checking for getuid... yes
+checking for time... yes
+checking for ctime... yes
+checking for vprintf... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking for recalloc... no
+checking for memalign... yes
+checking for valloc... yes
+checking for memcmp... yes
+checking for memcpy... yes
+checking for memmove... yes
+checking for memset... yes
+checking for strchr... yes
+checking for strrchr... yes
+checking for strlen... yes
+checking for strcmp... yes
+checking for strcpy... yes
+checking for strsep... yes
+configure: various functions for argv files
+checking for atoi... yes
+checking for atol... yes
+checking for getenv... (cached) yes
+checking for strchr... (cached) yes
+checking for strcmp... (cached) yes
+checking for strcpy... (cached) yes
+checking for strlen... (cached) yes
+checking for strncmp... yes
+checking for strncpy... yes
+checking for strsep... (cached) yes
+configure: various functions for argument checking
+checking for atoi... (cached) yes
+checking for atol... (cached) yes
+checking for bcmp... yes
+checking for bcopy... yes
+checking for bzero... yes
+checking for index... yes
+checking for memccpy... yes
+checking for memchr... yes
+checking for memcmp... (cached) yes
+checking for memcpy... (cached) yes
+checking for memmove... (cached) yes
+checking for memset... (cached) yes
+checking for rindex... yes
+checking for strcasecmp... yes
+checking for strcat... yes
+checking for strchr... (cached) yes
+checking for strcmp... (cached) yes
+checking for strcpy... (cached) yes
+checking for strcspn... yes
+checking for strlen... (cached) yes
+checking for strncasecmp... yes
+checking for strncat... yes
+checking for strncmp... (cached) yes
+checking for strncpy... (cached) yes
+checking for strpbrk... yes
+checking for strrchr... (cached) yes
+checking for strspn... yes
+checking for strstr... yes
+checking for strtok... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating conf.h
+config.status: executing dmalloc.h.2 commands
+config.status: executing settings.h commands
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: 
+configure: Please check-out Makefile and conf.h to make sure that
+configure: sane configuration values were a result.
+configure: 
+configure: You may want to change values in settings.h before
+configure: running 'make'.
+configure: 
+configure: To run the basic library tests, you can execute:
+configure:   make light
+configure: or
+configure:   make heavy
+configure: 
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_build
+	make -j4
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f dmalloc.h dmalloc.h.t
+rm -f dmalloc_rand.o
+cat ./dmalloc.h.1 dmalloc.h.2 ./dmalloc.h.3 > dmalloc.h.t
+rm -f dmalloc_argv.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_rand.c -o ./dmalloc_rand.o
+rm -f dmalloc_rand_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_argv.c -o ./dmalloc_argv.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_rand.c -o ./dmalloc_rand_sl.o
+mv dmalloc.h.t dmalloc.h
+rm -f arg_check.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c arg_check.c -o ./arg_check.o
+rm -f compat.o
+rm -f dmalloc_tab.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c compat.c -o ./compat.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_tab.c -o ./dmalloc_tab.o
+rm -f env.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c env.c -o ./env.o
+rm -f heap.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c heap.c -o ./heap.o
+rm -f chunk.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c chunk.c -o ./chunk.o
+rm -f error.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c error.c -o ./error.o
+rm -f malloc.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c malloc.c -o ./malloc.o
+rm -f dmalloc.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc.c -o ./dmalloc.o
+rm -f chunk_th.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -DLOCK_THREADS=1 \
+	-c ./chunk.c -o ./chunk_th.o
+rm -f error_th.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -DLOCK_THREADS=1 \
+	-c ./error.c -o ./error_th.o
+rm -f malloc_th.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -DLOCK_THREADS=1 \
+	-c ./malloc.c -o ./malloc_th.o
+rm -f arg_check_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c arg_check.c -o ./arg_check_sl.o
+rm -f compat_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c compat.c -o ./compat_sl.o
+rm -f dmalloc_tab_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_tab.c -o ./dmalloc_tab_sl.o
+rm -f env_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c env.c -o ./env_sl.o
+rm -f heap_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c heap.c -o ./heap_sl.o
+rm -f chunk_th_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c chunk.c -o ./chunk_th_sl.o
+rm -f error_th_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c error.c -o ./error_th_sl.o
+rm -f malloc_th_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c malloc.c -o ./malloc_th_sl.o
+rm -f dmallocc.o
+g++ -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c ./dmallocc.cc \
+	-o ./dmallocc.o
+rm -f dmallocc_sl.o
+g++ -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmallocc.cc -o ./dmallocc_sl.o
+./dmallocc.cc:73:1: warning: function previously declared with an explicit exception specification redeclared with an implicit exception specification [-Wimplicit-exception-spec-mismatch]
+operator delete(void *pnt)
+^
+./dmallocc.cc:84:1: warning: function previously declared with an explicit exception specification redeclared with an implicit exception specification [-Wimplicit-exception-spec-mismatch]
+operator delete[](void *pnt)
+^
+dmallocc.cc:73:1: warning: function previously declared with an explicit exception specification redeclared with an implicit exception specification [-Wimplicit-exception-spec-mismatch]
+operator delete(void *pnt)
+^
+dmallocc.cc:84:1: warning: function previously declared with an explicit exception specification redeclared with an implicit exception specification [-Wimplicit-exception-spec-mismatch]
+operator delete[](void *pnt)
+^
+2 warnings generated.
+rm -f chunk_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c chunk.c -o ./chunk_sl.o
+2 warnings generated.
+rm -f error_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c error.c -o ./error_sl.o
+rm -f malloc_sl.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -fPIC -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c malloc.c -o ./malloc_sl.o
+ar cr libdmalloc.a arg_check.o compat.o dmalloc_rand.o dmalloc_tab.o env.o heap.o chunk.o error.o malloc.o
+ranlib libdmalloc.a
+rm -f dmalloc
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -o aout dmalloc.o dmalloc_argv.o compat.o env.o \
+	-L. 
+mv aout dmalloc
+ar cr libdmallocth.a arg_check.o compat.o dmalloc_rand.o dmalloc_tab.o env.o heap.o chunk_th.o error_th.o malloc_th.o
+ar cr libdmallocthcxx.a arg_check.o compat.o dmalloc_rand.o dmalloc_tab.o env.o heap.o chunk_th.o error_th.o malloc_th.o dmallocc.o
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -shared -Wl,-soname,libdmallocthcxx.so.5 -o libdmallocthcxx.so.5.5.2 arg_check_sl.o compat_sl.o dmalloc_rand_sl.o dmalloc_tab_sl.o env_sl.o heap_sl.o chunk_th_sl.o error_th_sl.o malloc_th_sl.o dmallocc_sl.o
+ranlib libdmallocthcxx.a
+ranlib libdmallocth.a
+clang: warning: argument unused during compilation: '-pie' [-Wunused-command-line-argument]
+ar cr libdmalloccxx.a arg_check.o compat.o dmalloc_rand.o dmalloc_tab.o env.o heap.o chunk.o error.o malloc.o dmallocc.o
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -shared -Wl,-soname,libdmallocth.so.5 -o libdmallocth.so.5.5.2 arg_check_sl.o compat_sl.o dmalloc_rand_sl.o dmalloc_tab_sl.o env_sl.o heap_sl.o chunk_th_sl.o error_th_sl.o malloc_th_sl.o
+clang: warning: argument unused during compilation: '-pie' [-Wunused-command-line-argument]
+ranlib libdmalloccxx.a
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -shared -Wl,-soname,libdmalloccxx.so.5 -o libdmalloccxx.so.5.5.2 arg_check_sl.o compat_sl.o dmalloc_rand_sl.o dmalloc_tab_sl.o env_sl.o heap_sl.o chunk_sl.o error_sl.o malloc_sl.o dmallocc_sl.o
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -shared -Wl,-soname,libdmalloc.so.5 -o libdmalloc.so.5.5.2 arg_check_sl.o compat_sl.o dmalloc_rand_sl.o dmalloc_tab_sl.o env_sl.o heap_sl.o chunk_sl.o error_sl.o malloc_sl.o
+clang: warning: argument unused during compilation: '-pie' [-Wunused-command-line-argument]
+clang: warning: argument unused during compilation: '-pie' [-Wunused-command-line-argument]
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+cd docs && /usr/bin/make dmalloc.info \
+		&& makeinfo --html --no-split dmalloc.texi \
+		&& texi2pdf dmalloc.texi
+make[2]: Entering directory '/<<PKGBUILDDIR>>/docs'
+makeinfo  dmalloc.texi -o dmalloc.info
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/docs'
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfetex)
+ restricted \write18 enabled.
+entering extended mode
+
+(./dmalloc.texi (/usr/share/texmf/tex/texinfo/texinfo.tex
+Loading texinfo [version 2019-09-20.22]: pdf, fonts, markup, glyphs,
+page headings, tables, conditionals, indexing, sectioning, toc, environments,
+defuns, macros, cross references, insertions, localization, formatting,
+and turning on texinfo input format.) [1{/var/lib/texmf/fonts/map/pdftex/updmap
+/pdftex.map}] [2] (Debug Malloc Library)
+Writing index file dmalloc.cp
+Cross reference values unknown; you must run TeX again. Chapter 1 Chapter 2
+[1] [2] [3] [4] [5] [6]
+Writing index file dmalloc.fn
+[7] [8] [9] [10] Chapter 3 [11] [12] [13] [14]
+Writing index file dmalloc.vr
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[30] [31]
+Overfull \hbox (89.6747pt too wide) in paragraph at lines 2684--2684
+ []@texttt dmalloc -d 0 -l dmalloc.log -p log-stats -p log-non-free -p check-fe
+nce -p check-funcs[] |
+Chapter 4 [32] [33] [34] [35] [36] [37] [38] [39]
+Underfull \hbox (badness 10000) in paragraph at lines 3288--3290
+ []@textrm Log non-freed mem-ory point-ers when dmal-loc[]shutdown or dmal-
+[40] [41] [42] Chapter 5 [43] [44] [45] Chapter 6 [46]
+Underfull \hbox (badness 10000) in paragraph at lines 3758--3765
+ @texttt chunk.c,v 1.152 1999/08/25 12:37:01 gray Exp $[]@textrm '[] with dif-f
+er-ent
+[47] (Index of Concepts) [48]
+No file dmalloc.cps.
+[49] [50] (/<<PKGBUILDDIR>>/docs/dmalloc.toc [-1]) [-2]
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc)
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl
+tt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on dmalloc.pdf (54 pages, 290067 bytes).
+Transcript written on dmalloc.log.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfetex)
+ restricted \write18 enabled.
+entering extended mode
+
+(./dmalloc.texi (/usr/share/texmf/tex/texinfo/texinfo.tex
+Loading texinfo [version 2019-09-20.22]: pdf, fonts, markup, glyphs,
+page headings, tables, conditionals, indexing, sectioning, toc, environments,
+defuns, macros, cross references, insertions, localization, formatting,
+and turning on texinfo input format.) [1{/var/lib/texmf/fonts/map/pdftex/updmap
+/pdftex.map}] [2] (Debug Malloc Library)
+(/<<PKGBUILDDIR>>/docs/dmalloc.aux)
+Writing index file dmalloc.cp
+Chapter 1 Chapter 2 [1] [2] [3] [4] [5] [6]
+Writing index file dmalloc.fn
+[7] [8] [9] [10] Chapter 3 [11] [12] [13] [14]
+Writing index file dmalloc.vr
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[30] [31]
+Overfull \hbox (89.6747pt too wide) in paragraph at lines 2684--2684
+ []@texttt dmalloc -d 0 -l dmalloc.log -p log-stats -p log-non-free -p check-fe
+nce -p check-funcs[] |
+Chapter 4 [32] [33] [34] [35] [36] [37] [38] [39]
+Underfull \hbox (badness 10000) in paragraph at lines 3288--3290
+ []@textrm Log non-freed mem-ory point-ers when dmal-loc[]shutdown or dmal-
+[40] [41] [42] Chapter 5 [43] [44] [45] Chapter 6 [46]
+Underfull \hbox (badness 10000) in paragraph at lines 3758--3765
+ @texttt chunk.c,v 1.152 1999/08/25 12:37:01 gray Exp $[]@textrm '[] with dif-f
+er-ent
+[47] (Index of Concepts) [48]
+(/<<PKGBUILDDIR>>/docs/dmalloc.cps [49] [50] [51] [52]
+[53]) [54] (/<<PKGBUILDDIR>>/docs/dmalloc.toc [-1]) [-2]
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc)
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on dmalloc.pdf (58 pages, 356868 bytes).
+Transcript written on dmalloc.log.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfetex)
+ restricted \write18 enabled.
+entering extended mode
+
+(./dmalloc.texi (/usr/share/texmf/tex/texinfo/texinfo.tex
+Loading texinfo [version 2019-09-20.22]: pdf, fonts, markup, glyphs,
+page headings, tables, conditionals, indexing, sectioning, toc, environments,
+defuns, macros, cross references, insertions, localization, formatting,
+and turning on texinfo input format.) [1{/var/lib/texmf/fonts/map/pdftex/updmap
+/pdftex.map}] [2] (Debug Malloc Library)
+(/<<PKGBUILDDIR>>/docs/dmalloc.aux)
+Writing index file dmalloc.cp
+Chapter 1 Chapter 2 [1] [2] [3] [4] [5] [6]
+Writing index file dmalloc.fn
+[7] [8] [9] [10] Chapter 3 [11] [12] [13] [14]
+Writing index file dmalloc.vr
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[30] [31]
+Overfull \hbox (89.6747pt too wide) in paragraph at lines 2684--2684
+ []@texttt dmalloc -d 0 -l dmalloc.log -p log-stats -p log-non-free -p check-fe
+nce -p check-funcs[] |
+Chapter 4 [32] [33] [34] [35] [36] [37] [38] [39]
+Underfull \hbox (badness 10000) in paragraph at lines 3288--3290
+ []@textrm Log non-freed mem-ory point-ers when dmal-loc[]shutdown or dmal-
+[40] [41] [42] Chapter 5 [43] [44] [45] Chapter 6 [46]
+Underfull \hbox (badness 10000) in paragraph at lines 3758--3765
+ @texttt chunk.c,v 1.152 1999/08/25 12:37:01 gray Exp $[]@textrm '[] with dif-f
+er-ent
+[47] (Index of Concepts) [48]
+(/<<PKGBUILDDIR>>/docs/dmalloc.cps [49] [50] [51] [52]
+[53]) [54] (/<<PKGBUILDDIR>>/docs/dmalloc.toc [-1]) [-2]
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc)
+(/<<PKGBUILDDIR>>/docs/dmalloc.toc) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on dmalloc.pdf (58 pages, 356863 bytes).
+Transcript written on dmalloc.log.
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make heavy
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f dmalloc_t.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_t.c -o ./dmalloc_t.o
+rm -f dmalloc_t
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -o aout dmalloc_t.o dmalloc_argv.o libdmalloc.a
+mv aout dmalloc_t
+rm -f dmalloc_fc_t.o
+gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -fPIE -D__NO_STRING_INLINES -Wdate-time -D_FORTIFY_SOURCE=2 -DHAVE_STDARG_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERRNO_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_W32API_WINBASE_H=0 -DHAVE_W32API_WINDEF_H=0 -DHAVE_SYS_CYGWIN_H=0 -DHAVE_SIGNAL_H=1  -I. -I.  -c dmalloc_fc_t.c -o ./dmalloc_fc_t.o
+rm -f dmalloc_fc_t
+gcc -Wl,-z,relro -Wl,-z,now -fPIE -pie -o aout dmalloc_fc_t.o dmalloc_argv.o libdmalloc.a
+mv aout dmalloc_fc_t
+./dmalloc_fc_t -s
+./dmalloc_t -s -t 10000
+./dmalloc_t -s -t 10000
+./dmalloc_t -s -t 10000
+./dmalloc_t -s -t 10000
+./dmalloc_t -s -t 10000
+tests have passed
+./dmalloc_t -s -t 100000
+./dmalloc_t -s -t 100000
+./dmalloc_t -s -t 100000
+heavy tests have passed
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+	rm -f -- debian/libdmalloc5.substvars debian/libdmalloc-dev.substvars
+	rm -fr -- debian/.debhelper/generated/libdmalloc5/ debian/libdmalloc5/ debian/tmp/ debian/.debhelper/generated/libdmalloc-dev/ debian/libdmalloc-dev/
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make install prefix=/<<PKGBUILDDIR>>/debian/tmp/usr \
+	exec_prefix=\${prefix}/lib/x86_64-linux-gnu/dmalloc
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/include
+mkdir /<<PKGBUILDDIR>>/debian/tmp
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr/include
+/usr/bin/install -c -m 644 dmalloc.h /<<PKGBUILDDIR>>/debian/tmp/usr/include
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr/lib
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmallocth.so.5.5.2 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmallocthcxx.so.5.5.2 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmallocthcxx.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmallocth.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmalloccxx.so.5.5.2 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmalloccxx.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmalloc.so.5.5.2 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -c libdmalloc.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu
+ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/libdmalloc.a
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/dmalloc/bin
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/dmalloc
+mkdir /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/dmalloc/bin
+/usr/bin/install -c dmalloc /<<PKGBUILDDIR>>/debian/tmp/usr/lib/x86_64-linux-gnu/dmalloc/bin
+Enter 'make installdocs' to install dmalloc.html dmalloc.texi dmalloc.pdf in /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/dmalloc
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+sed -e 's/@DEB_HOST_ARCH@/amd64/g' -e 's/@DEB_HOST_MULTIARCH@/x86_64-linux-gnu/g' debian/libdmalloc-dev.prerm.in > debian/libdmalloc-dev.prerm
+sed -e 's/@DEB_HOST_ARCH@/amd64/g' -e 's/@DEB_HOST_MULTIARCH@/x86_64-linux-gnu/g' debian/libdmalloc-dev.postinst.in > debian/libdmalloc-dev.postinst
+dh_install
+	install -d debian/libdmalloc5//usr/lib/x86_64-linux-gnu
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 debian/tmp/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 debian/tmp/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 debian/tmp/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 debian/libdmalloc5//usr/lib/x86_64-linux-gnu/
+	install -d debian/.debhelper/generated/libdmalloc5
+	install -d debian/libdmalloc-dev//usr/include
+	cp --reflink=auto -a debian/tmp/usr/include/dmalloc.h debian/libdmalloc-dev//usr/include/
+	install -d debian/libdmalloc-dev//usr/lib/x86_64-linux-gnu
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libdmalloc.a debian/tmp/usr/lib/x86_64-linux-gnu/libdmalloccxx.a debian/tmp/usr/lib/x86_64-linux-gnu/libdmallocth.a debian/tmp/usr/lib/x86_64-linux-gnu/libdmallocthcxx.a debian/libdmalloc-dev//usr/lib/x86_64-linux-gnu/
+	install -d debian/libdmalloc-dev//usr/lib/x86_64-linux-gnu/dmalloc
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/dmalloc/bin debian/libdmalloc-dev//usr/lib/x86_64-linux-gnu/dmalloc/
+	install -d debian/.debhelper/generated/libdmalloc-dev
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs
+	install -d debian/libdmalloc5/usr/share/doc/libdmalloc5
+	cp --reflink=auto -a ./NEWS debian/libdmalloc5/usr/share/doc/libdmalloc5
+	chmod -R u\+rw,go=rX debian/libdmalloc5/usr/share/doc
+	install -p -m0644 debian/copyright debian/libdmalloc5/usr/share/doc/libdmalloc5/copyright
+	install -d debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./NEWS debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./README debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./RELEASE.html debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./docs/NOTES debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./docs/TODO debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./docs/dmalloc.html debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./docs/dmalloc.pdf debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	cp --reflink=auto -a ./docs/dmalloc.texi debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev
+	chmod -R u\+rw,go=rX debian/libdmalloc-dev/usr/share/doc
+	install -p -m0644 debian/libdmalloc-dev.README.Debian debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/README.Debian
+	install -p -m0644 debian/copyright debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/copyright
+	install -d debian/libdmalloc-dev/usr/share/doc-base/
+	install -p -m0644 debian/libdmalloc-dev.doc-base debian/libdmalloc-dev/usr/share/doc-base/dmalloc
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs ChangeLog.1
+	install -p -m0644 debian/changelog debian/libdmalloc5/usr/share/doc/libdmalloc5/changelog.Debian
+	install -p -m0644 ChangeLog.1 debian/libdmalloc5/usr/share/doc/libdmalloc5/changelog
+	install -p -m0644 debian/changelog debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/changelog.Debian
+	install -p -m0644 ChangeLog.1 debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/changelog
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installexamples
+	install -d debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/examples
+	cp --reflink=auto -a ./contrib debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/examples
+	cp --reflink=auto -a ./dmallocc.cc debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/examples
+	cp --reflink=auto -a ./dmallocrc debian/libdmalloc-dev/usr/share/doc/libdmalloc-dev/examples
+   dh_installman
+	install -d debian/libdmalloc-dev/usr/share/man/man1/
+	install -p -m0644 ./debian/manpage/dmalloc.1 debian/libdmalloc-dev/usr/share/man/man1/dmalloc.1
+	man-recode --to-code UTF-8 --suffix .dh-new debian/libdmalloc-dev/usr/share/man/man1/dmalloc.1
+	mv debian/libdmalloc-dev/usr/share/man/man1/dmalloc.1.dh-new debian/libdmalloc-dev/usr/share/man/man1/dmalloc.1
+	chmod 0644 -- debian/libdmalloc-dev/usr/share/man/man1/dmalloc.1
+   dh_installinfo
+	install -d debian/libdmalloc-dev/usr/share/info
+	cp --reflink=auto ./docs/dmalloc.info debian/libdmalloc-dev/usr/share/info
+	chmod -R u\+rw,go=rX debian/libdmalloc-dev/usr/share/info/
+   dh_perl
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_link
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_link -plibdmalloc5 \
+	usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmalloc.so.5 \
+	usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmallocth.so.5 \
+	usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5 \
+	usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5
+	rm -f debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5
+	ln -s libdmallocthcxx.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5
+	rm -f debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5
+	ln -s libdmalloccxx.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5
+	rm -f debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5
+	ln -s libdmallocth.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5
+	rm -f debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5
+	ln -s libdmalloc.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5
+dh_link -plibdmalloc-dev \
+	usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmalloc.so \
+	usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmallocth.so \
+	usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmalloccxx.so \
+	usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 usr/lib/x86_64-linux-gnu/libdmallocthcxx.so
+	rm -f debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so
+	ln -s libdmallocthcxx.so.5.5.2 debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so
+	rm -f debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloccxx.so
+	ln -s libdmalloccxx.so.5.5.2 debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloccxx.so
+	rm -f debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocth.so
+	ln -s libdmallocth.so.5.5.2 debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocth.so
+	rm -f debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloc.so
+	ln -s libdmalloc.so.5.5.2 debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloc.so
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_strip_nondeterminism
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_compress
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_compress -Xusr/share/doc/libdmalloc-dev/examples
+	cd debian/libdmalloc5
+	cd debian/libdmalloc-dev
+	chmod a-x usr/share/doc/libdmalloc5/NEWS usr/share/doc/libdmalloc5/changelog usr/share/doc/libdmalloc5/changelog.Debian
+	gzip -9nf usr/share/doc/libdmalloc5/NEWS usr/share/doc/libdmalloc5/changelog usr/share/doc/libdmalloc5/changelog.Debian
+	chmod a-x usr/share/doc/libdmalloc-dev/NEWS usr/share/doc/libdmalloc-dev/TODO usr/share/doc/libdmalloc-dev/changelog usr/share/doc/libdmalloc-dev/changelog.Debian usr/share/doc/libdmalloc-dev/dmalloc.pdf usr/share/doc/libdmalloc-dev/dmalloc.texi usr/share/info/dmalloc.info usr/share/man/man1/dmalloc.1
+	gzip -9nf usr/share/doc/libdmalloc-dev/NEWS usr/share/doc/libdmalloc-dev/TODO usr/share/doc/libdmalloc-dev/changelog usr/share/doc/libdmalloc-dev/changelog.Debian usr/share/doc/libdmalloc-dev/dmalloc.pdf usr/share/doc/libdmalloc-dev/dmalloc.texi usr/share/info/dmalloc.info usr/share/man/man1/dmalloc.1
+	cd '/<<PKGBUILDDIR>>'
+	cd '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_fixperms
+	find debian/libdmalloc5 ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libdmalloc-dev ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libdmalloc5/usr/share/doc -type f -a -true -a ! -regex 'debian/libdmalloc5/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libdmalloc-dev/usr/share/doc -type f -a -true -a ! -regex 'debian/libdmalloc-dev/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libdmalloc5/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libdmalloc-dev/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libdmalloc5 -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libdmalloc-dev/usr/share/man debian/libdmalloc-dev/usr/include -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libdmalloc5/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+	find debian/libdmalloc-dev -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libdmalloc-dev/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+   dh_missing
+   dh_dwz
+	install -d debian/libdmalloc5/usr/lib/debug/.dwz/x86_64-linux-gnu
+	dwz -mdebian/libdmalloc5/usr/lib/debug/.dwz/x86_64-linux-gnu/libdmalloc5.debug -M/usr/lib/debug/.dwz/x86_64-linux-gnu/libdmalloc5.debug -- debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2
+	objcopy --compress-debug-sections debian/libdmalloc5/usr/lib/debug/.dwz/x86_64-linux-gnu/libdmalloc5.debug
+	dwz -- debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc
+   dh_strip
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/c4
+	objcopy --only-keep-debug --compress-debug-sections debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/c4/962bd930307ac46f7a11b9b5c084a81f6e560e.debug
+	install -d debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/lib/debug/.build-id/4d
+	objcopy --only-keep-debug --compress-debug-sections debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/lib/debug/.build-id/4d/a5cff6ed337ea234016e0d2a6806beb1bf3d2f.debug
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/c4/962bd930307ac46f7a11b9b5c084a81f6e560e.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2
+	chmod 0644 -- debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/lib/debug/.build-id/4d/a5cff6ed337ea234016e0d2a6806beb1bf3d2f.debug
+	strip --remove-section=.comment --remove-section=.note debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc
+	objcopy --add-gnu-debuglink debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/c4/962bd930307ac46f7a11b9b5c084a81f6e560e.debug debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2
+	objcopy --add-gnu-debuglink debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/lib/debug/.build-id/4d/a5cff6ed337ea234016e0d2a6806beb1bf3d2f.debug debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocthcxx.a
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/7d
+	objcopy --only-keep-debug --compress-debug-sections debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/7d/6695d476e0c78cb4e8ff839a02980b1a06cc2f.debug
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/7d/6695d476e0c78cb4e8ff839a02980b1a06cc2f.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmallocth.a
+	objcopy --add-gnu-debuglink debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/7d/6695d476e0c78cb4e8ff839a02980b1a06cc2f.debug debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloccxx.a
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/6c
+	objcopy --only-keep-debug --compress-debug-sections debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/6c/80841c72381561fbdbcfad223eb3552dfbb3dc.debug
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/6c/80841c72381561fbdbcfad223eb3552dfbb3dc.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/libdmalloc.a
+	objcopy --add-gnu-debuglink debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/6c/80841c72381561fbdbcfad223eb3552dfbb3dc.debug debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2
+	install -d debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/share/doc
+	ln -s libdmalloc-dev debian/.debhelper/libdmalloc-dev/dbgsym-root/usr/share/doc/libdmalloc-dev-dbgsym
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/bd
+	objcopy --only-keep-debug --compress-debug-sections debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/bd/4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2.debug
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/bd/4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2
+	objcopy --add-gnu-debuglink debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.build-id/bd/4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2.debug debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.dwz
+	cp --reflink=auto -a debian/libdmalloc5/usr/lib/debug/.dwz/x86_64-linux-gnu debian/.debhelper/libdmalloc5/dbgsym-root/usr/lib/debug/.dwz
+	rm -fr debian/libdmalloc5/usr/lib/debug/.dwz
+	rmdir -p --ignore-fail-on-non-empty debian/libdmalloc5/usr/lib/debug
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/usr/share/doc
+	ln -s libdmalloc5 debian/.debhelper/libdmalloc5/dbgsym-root/usr/share/doc/libdmalloc5-dbgsym
+	rm -f debian/libdmalloc-dev.debhelper.log debian/libdmalloc5.debhelper.log
+   debian/rules override_dh_makeshlibs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+ln -sf libdmalloc5.symbols.cxx.64bit \
+	debian/libdmalloc5.symbols.cxx
+dh_makeshlibs
+	rm -f debian/libdmalloc5/DEBIAN/shlibs
+	install -d debian/libdmalloc5/DEBIAN
+	install -p -m0644 debian/libdmalloc5.shlibs debian/libdmalloc5/DEBIAN/shlibs
+	chmod 0644 -- debian/libdmalloc5/DEBIAN/shlibs
+	dpkg-gensymbols -plibdmalloc5 -Idebian/libdmalloc5.symbols -Pdebian/libdmalloc5 -edebian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2 -edebian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 -edebian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 -edebian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2
+	mv debian/.debhelper/generated/libdmalloc5/triggers.new debian/.debhelper/generated/libdmalloc5/triggers
+	rm -f debian/libdmalloc-dev/DEBIAN/shlibs
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_shlibdeps
+	install -d debian/libdmalloc-dev/DEBIAN
+	dpkg-shlibdeps -Tdebian/libdmalloc-dev.substvars debian/libdmalloc-dev/usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc
+	dpkg-shlibdeps -Tdebian/libdmalloc5.substvars debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2
+dpkg-shlibdeps: warning: symbol _ZSt9terminatev used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 found in none of the libraries
+dpkg-shlibdeps: warning: symbol __cxa_begin_catch used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 found in none of the libraries
+dpkg-shlibdeps: warning: symbol __gxx_personality_v0 used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2 found in none of the libraries
+dpkg-shlibdeps: warning: symbol __gxx_personality_v0 used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZSt9terminatev used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 found in none of the libraries
+dpkg-shlibdeps: warning: symbol __cxa_begin_catch used by debian/libdmalloc5/usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2 found in none of the libraries
+   dh_installdeb
+	install -p -m0644 debian/.debhelper/generated/libdmalloc5/triggers debian/libdmalloc5/DEBIAN/triggers
+	cp -f debian/libdmalloc-dev.postinst debian/libdmalloc-dev/DEBIAN/postinst
+	[META] Replace #TOKEN#s in "debian/libdmalloc-dev/DEBIAN/postinst"
+	chmod 0755 -- debian/libdmalloc-dev/DEBIAN/postinst
+	cp -f debian/libdmalloc-dev.prerm debian/libdmalloc-dev/DEBIAN/prerm
+	[META] Replace #TOKEN#s in "debian/libdmalloc-dev/DEBIAN/prerm"
+	chmod 0755 -- debian/libdmalloc-dev/DEBIAN/prerm
+   dh_gencontrol
+	echo misc:Depends= >> debian/libdmalloc5.substvars
+	echo misc:Pre-Depends= >> debian/libdmalloc5.substvars
+	install -d debian/.debhelper/libdmalloc5/dbgsym-root/DEBIAN
+	dpkg-gencontrol -plibdmalloc5 -ldebian/changelog -Tdebian/libdmalloc5.substvars -Pdebian/.debhelper/libdmalloc5/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -UBuilt-Using -DAuto-Built-Package=debug-symbols -DPackage=libdmalloc5-dbgsym "-DDepends=libdmalloc5 (= \${binary:Version})" "-DDescription=debug symbols for libdmalloc5" "-DBuild-Ids=6c80841c72381561fbdbcfad223eb3552dfbb3dc 7d6695d476e0c78cb4e8ff839a02980b1a06cc2f bd4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2 c4962bd930307ac46f7a11b9b5c084a81f6e560e" -DSection=debug -UReplaces -UBreaks
+	echo misc:Depends= >> debian/libdmalloc-dev.substvars
+	echo misc:Pre-Depends= >> debian/libdmalloc-dev.substvars
+	install -d debian/.debhelper/libdmalloc-dev/dbgsym-root/DEBIAN
+	dpkg-gencontrol -plibdmalloc-dev -ldebian/changelog -Tdebian/libdmalloc-dev.substvars -Pdebian/.debhelper/libdmalloc-dev/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -UBuilt-Using -DAuto-Built-Package=debug-symbols -DPackage=libdmalloc-dev-dbgsym "-DDepends=libdmalloc-dev (= \${binary:Version})" "-DDescription=debug symbols for libdmalloc-dev" -DBuild-Ids=4da5cff6ed337ea234016e0d2a6806beb1bf3d2f -DSection=debug -UReplaces -UBreaks
+	chmod 0644 -- debian/.debhelper/libdmalloc-dev/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -plibdmalloc-dev -ldebian/changelog -Tdebian/libdmalloc-dev.substvars -Pdebian/libdmalloc-dev
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -plibdmalloc5 -ldebian/changelog -Tdebian/libdmalloc5.substvars -Pdebian/libdmalloc5
+	chmod 0644 -- debian/libdmalloc-dev/DEBIAN/control
+	chmod 0644 -- debian/libdmalloc5/DEBIAN/control
+   dh_md5sums
+	cd debian/libdmalloc5 >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/libdmalloc-dev >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/libdmalloc5/DEBIAN/md5sums
+	cd debian/.debhelper/libdmalloc5/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/libdmalloc-dev/DEBIAN/md5sums
+	cd debian/.debhelper/libdmalloc-dev/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/libdmalloc5/dbgsym-root/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/libdmalloc-dev/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --root-owner-group --build debian/libdmalloc5 ..
+	dpkg-deb --root-owner-group --build debian/.debhelper/libdmalloc5/dbgsym-root ..
+	dpkg-deb --root-owner-group --build debian/libdmalloc-dev ..
+	dpkg-deb --root-owner-group --build debian/.debhelper/libdmalloc-dev/dbgsym-root ..
+dpkg-deb: building package 'libdmalloc5-dbgsym' in '../libdmalloc5-dbgsym_5.5.2-14_amd64.deb'.
+dpkg-deb: building package 'libdmalloc5' in '../libdmalloc5_5.5.2-14_amd64.deb'.
+dpkg-deb: building package 'libdmalloc-dev' in '../libdmalloc-dev_5.5.2-14_amd64.deb'.
+dpkg-deb: building package 'libdmalloc-dev-dbgsym' in '../libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../dmalloc_5.5.2-14_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2020-02-25T04:19:47Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+dmalloc_5.5.2-14_amd64.changes:
+-------------------------------
+
+Format: 1.8
+Date: Tue, 29 Jan 2019 10:31:10 +1100
+Source: dmalloc
+Binary: libdmalloc-dev libdmalloc-dev-dbgsym libdmalloc5 libdmalloc5-dbgsym
+Architecture: amd64
+Version: 5.5.2-14
+Distribution: unstable
+Urgency: medium
+Maintainer: Carlos Maddela <e7appew@gmail.com>
+Changed-By: Carlos Maddela <e7appew@gmail.com>
+Description:
+ libdmalloc-dev - debug memory allocation library (development files and doc)
+ libdmalloc5 - debug memory allocation library
+Changes:
+ dmalloc (5.5.2-14) unstable; urgency=medium
+ .
+   * Update debian/gbp.conf to conform with DEP14 conventions.
+   * Update upstream metadata details.
+   * Build with Debhelper compat level 12.
+   * Perform wrap-and-sort on all debian source.
+   * Indicate compliance with Debian Policy 4.3.0.
+   * Update 18-fix-typos-in-doco.patch to fix more typos detected.
+Checksums-Sha1:
+ d177b14f25686879269d87b1fea44b8f66e444c4 7255 dmalloc_5.5.2-14_amd64.buildinfo
+ 16442f21c661189af9c44f9ba3bc738407b4b301 25756 libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ 4feea0e63c4dbfdd42bf4ba1b9a8f077ed4ed8fa 603268 libdmalloc-dev_5.5.2-14_amd64.deb
+ feaf73285dc13497b95147f04d1c63030ac0c83d 78280 libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ 44bae80d6e6e594d8552570f79eb56a7e0db7bfe 79576 libdmalloc5_5.5.2-14_amd64.deb
+Checksums-Sha256:
+ 59c97b4c6940a83c27eafb171058200baab7bd95ce25de2448e3470dff6f4b6d 7255 dmalloc_5.5.2-14_amd64.buildinfo
+ 612ca419ba4015a1d8a15ef34e096e5e6d2c5898c81cd19f04fc97e48199128f 25756 libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ cc50313da8b762afdf1b9b9fb2f7213be2659b11ba1a9d4e2eb53f0fe3e02625 603268 libdmalloc-dev_5.5.2-14_amd64.deb
+ 6e4a9feaf67bd7ba035e06cdc5e82573715a0c78f838d50e9222b1cea69b3c58 78280 libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ a731ff96dfe950f1e9594ad69d5b0926d9c832ca5d333e46dbd95b7554960aa9 79576 libdmalloc5_5.5.2-14_amd64.deb
+Files:
+ 798b41a396dfa9c43a33b451be0fef79 7255 devel optional dmalloc_5.5.2-14_amd64.buildinfo
+ bed3b9327d8059e8d1c69ddf85d84074 25756 debug optional libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ a83147c35aed7987338da187467feb14 603268 libdevel optional libdmalloc-dev_5.5.2-14_amd64.deb
+ 1d918d793e8dee2d9267caf420e6c150 78280 debug optional libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ 8e0121b16a597c4b8812e837eb20e820 79576 libs optional libdmalloc5_5.5.2-14_amd64.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: dmalloc
+Binary: libdmalloc5 libdmalloc-dev
+Architecture: amd64
+Version: 5.5.2-14
+Checksums-Md5:
+ bed3b9327d8059e8d1c69ddf85d84074 25756 libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ a83147c35aed7987338da187467feb14 603268 libdmalloc-dev_5.5.2-14_amd64.deb
+ 1d918d793e8dee2d9267caf420e6c150 78280 libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ 8e0121b16a597c4b8812e837eb20e820 79576 libdmalloc5_5.5.2-14_amd64.deb
+Checksums-Sha1:
+ 16442f21c661189af9c44f9ba3bc738407b4b301 25756 libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ 4feea0e63c4dbfdd42bf4ba1b9a8f077ed4ed8fa 603268 libdmalloc-dev_5.5.2-14_amd64.deb
+ feaf73285dc13497b95147f04d1c63030ac0c83d 78280 libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ 44bae80d6e6e594d8552570f79eb56a7e0db7bfe 79576 libdmalloc5_5.5.2-14_amd64.deb
+Checksums-Sha256:
+ 612ca419ba4015a1d8a15ef34e096e5e6d2c5898c81cd19f04fc97e48199128f 25756 libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+ cc50313da8b762afdf1b9b9fb2f7213be2659b11ba1a9d4e2eb53f0fe3e02625 603268 libdmalloc-dev_5.5.2-14_amd64.deb
+ 6e4a9feaf67bd7ba035e06cdc5e82573715a0c78f838d50e9222b1cea69b3c58 78280 libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+ a731ff96dfe950f1e9594ad69d5b0926d9c832ca5d333e46dbd95b7554960aa9 79576 libdmalloc5_5.5.2-14_amd64.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 25 Feb 2020 04:19:46 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11.1),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-10),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.47),
+ bash (= 5.0-5),
+ binutils (= 2.34-3),
+ binutils-common (= 2.34-3),
+ binutils-x86-64-linux-gnu (= 2.34-3),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.8),
+ bzip2 (= 1.0.8-2),
+ clang-8 (= 1:8.0.1-7),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3.1),
+ cpp-9 (= 9.2.1-29),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.9),
+ debianutils (= 4.9.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.6.3-2),
+ diffutils (= 1:3.7-3),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-5),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.38-4),
+ findutils (= 4.7.0-1),
+ fontconfig-config (= 2.13.1-2),
+ fonts-dejavu-core (= 2.37-1),
+ fonts-lmodern (= 2.004.5-6),
+ g++ (= 4:9.2.1-3.1),
+ g++-9 (= 9.2.1-29),
+ gcc (= 4:9.2.1-3.1),
+ gcc-10-base (= 10-20200222-1),
+ gcc-8-base (= 8.3.0-29),
+ gcc-9 (= 9.2.1-29),
+ gcc-9-base (= 9.2.1-29),
+ gettext (= 0.19.8.1-10),
+ gettext-base (= 0.19.8.1-10),
+ grep (= 3.4-1),
+ groff-base (= 1.22.4-4),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.23),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ lib32gcc-s1 (= 10-20200222-1),
+ lib32gcc1 (= 1:10-20200222-1),
+ lib32stdc++6 (= 10-20200222-1),
+ libacl1 (= 2.2.53-5),
+ libarchive-zip-perl (= 1.67-1),
+ libasan5 (= 9.2.1-29),
+ libatomic1 (= 10-20200222-1),
+ libattr1 (= 1:2.4.48-5),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2+b1),
+ libbinutils (= 2.34-3),
+ libblkid1 (= 2.34-0.1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.8-2),
+ libc-bin (= 2.29-10),
+ libc-dev-bin (= 2.29-10),
+ libc6 (= 2.29-10),
+ libc6-dev (= 2.29-10),
+ libc6-i386 (= 2.29-10),
+ libcairo2 (= 1.16.0-4),
+ libcap-ng0 (= 0.7.9-2.1+b1),
+ libcc1-0 (= 10-20200222-1),
+ libclang-common-8-dev (= 1:8.0.1-7),
+ libclang1-8 (= 1:8.0.1-7),
+ libcroco3 (= 0.6.13-1),
+ libcrypt-dev (= 1:4.4.10-10),
+ libcrypt1 (= 1:4.4.10-10),
+ libctf-nobfd0 (= 2.34-3),
+ libctf0 (= 2.34-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.251),
+ libdebhelper-perl (= 12.9),
+ libdpkg-perl (= 1.19.7),
+ libedit2 (= 3.1-20191231-1),
+ libelf1 (= 0.176-1.1),
+ libexpat1 (= 2.2.9-1),
+ libfdisk1 (= 2.34-0.1),
+ libffi7 (= 3.3-3),
+ libfile-stripnondeterminism-perl (= 1.6.3-2),
+ libfontconfig1 (= 2.13.1-2+b1),
+ libfreetype6 (= 2.10.1-2),
+ libgc1c2 (= 1:7.6.4-0.4),
+ libgcc-8-dev (= 8.3.0-29),
+ libgcc-9-dev (= 9.2.1-29),
+ libgcc-s1 (= 10-20200222-1),
+ libgcc1 (= 1:10-20200222-1),
+ libgcrypt20 (= 1.8.5-5),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.62.4-2),
+ libgmp10 (= 2:6.2.0+dfsg-4),
+ libgomp1 (= 10-20200222-1),
+ libgpg-error0 (= 1.37-1),
+ libgraphite2-3 (= 1.3.13-11),
+ libharfbuzz-icu0 (= 2.6.4-1),
+ libharfbuzz0b (= 2.6.4-1),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.2-2),
+ libisl22 (= 0.22.1-1),
+ libitm1 (= 10-20200222-1),
+ libkpathsea6 (= 2019.20190605.51237-3),
+ libllvm8 (= 1:8.0.1-7),
+ liblsan0 (= 10-20200222-1),
+ liblz4-1 (= 1.9.2-2),
+ liblzma5 (= 5.2.4-1+b1),
+ libmagic-mgc (= 1:5.38-4),
+ libmagic1 (= 1:5.38-4),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-29),
+ libncursesw6 (= 6.1+20191019-1),
+ libobjc-8-dev (= 8.3.0-29),
+ libobjc4 (= 10-20200222-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpaper-utils (= 1.1.28+b1),
+ libpaper1 (= 1.1.28+b1),
+ libpcre2-8-0 (= 10.34-7),
+ libpcre3 (= 2:8.39-12+b1),
+ libperl5.30 (= 5.30.0-9),
+ libpipeline1 (= 1.5.2-2),
+ libpixman-1-0 (= 0.36.0-1),
+ libpng16-16 (= 1.6.37-2),
+ libptexenc1 (= 2019.20190605.51237-3),
+ libquadmath0 (= 10-20200222-1),
+ libseccomp2 (= 2.4.2-2),
+ libselinux1 (= 3.0-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.34-0.1),
+ libstdc++-8-dev (= 8.3.0-29),
+ libstdc++-9-dev (= 9.2.1-29),
+ libstdc++6 (= 10-20200222-1),
+ libsub-override-perl (= 0.09-2),
+ libsynctex2 (= 2019.20190605.51237-3),
+ libsystemd0 (= 244.3-1),
+ libteckit0 (= 2.5.8+ds2-5),
+ libtexlua53 (= 2019.20190605.51237-3),
+ libtexluajit2 (= 2019.20190605.51237-3),
+ libtext-unidecode-perl (= 1.30-1),
+ libtinfo6 (= 6.1+20191019-1),
+ libtool (= 2.4.6-13),
+ libtsan0 (= 10-20200222-1),
+ libubsan1 (= 10-20200222-1),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 244.3-1),
+ libunistring2 (= 0.9.10-2),
+ libuuid1 (= 2.34-0.1),
+ libx11-6 (= 2:1.6.8-1),
+ libx11-data (= 2:1.6.8-1),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxaw7 (= 2:1.0.13-1+b2),
+ libxcb-render0 (= 1.13.1-5),
+ libxcb-shm0 (= 1.13.1-5),
+ libxcb1 (= 1.13.1-5),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxi6 (= 2:1.7.9-1),
+ libxml-libxml-perl (= 2.0134+dfsg-1+b1),
+ libxml-namespacesupport-perl (= 1.12-1),
+ libxml-sax-base-perl (= 1.09-1),
+ libxml-sax-perl (= 1.02+dfsg-1),
+ libxml2 (= 2.9.10+dfsg-3),
+ libxmu6 (= 2:1.1.2-2+b3),
+ libxpm4 (= 1:3.5.12-1),
+ libxrender1 (= 1:0.9.10-1),
+ libxt6 (= 1:1.1.5-1+b3),
+ libzzip-0-13 (= 0.13.62-3.2),
+ linux-libc-dev (= 5.4.19-1),
+ login (= 1:4.8.1-1),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-4),
+ make (= 4.2.1-1.2),
+ man-db (= 2.9.0-2),
+ mawk (= 1.3.4.20200120-2),
+ ncurses-base (= 6.1+20191019-1),
+ ncurses-bin (= 6.1+20191019-1),
+ patch (= 2.7.6-6),
+ perl (= 5.30.0-9),
+ perl-base (= 5.30.0-9),
+ perl-modules-5.30 (= 5.30.0-9),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12+nmu1),
+ sysvinit-utils (= 2.96-2.1),
+ t1utils (= 1.41-3),
+ tar (= 1.30+dfsg-6+b1),
+ tex-common (= 6.13),
+ texinfo (= 6.7.0.dfsg.2-5),
+ texlive-base (= 2019.20200218-1),
+ texlive-binaries (= 2019.20190605.51237-3),
+ texlive-latex-base (= 2019.20200218-1),
+ ucf (= 3.0038+nmu1),
+ util-linux (= 2.34-0.1),
+ x11-common (= 1:7.7+20),
+ xdg-utils (= 1.1.3-1),
+ xz-utils (= 5.2.4-1+b1),
+ zlib1g (= 1:1.2.11.dfsg-2)
+Environment:
+ DEB_BUILD_OPTIONS="parallel=4"
+ LANG="C.UTF-8"
+ LC_ALL="C.UTF-8"
+ SOURCE_DATE_EPOCH="1548718270"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libdmalloc-dev-dbgsym_5.5.2-14_amd64.deb
+----------------------------------------
+
+ new Debian package, version 2.0.
+ size 25756 bytes: control archive=536 bytes.
+     371 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libdmalloc-dev-dbgsym
+ Source: dmalloc
+ Version: 5.5.2-14
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Carlos Maddela <e7appew@gmail.com>
+ Installed-Size: 42
+ Depends: libdmalloc-dev (= 5.5.2-14)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libdmalloc-dev
+ Build-Ids: 4da5cff6ed337ea234016e0d2a6806beb1bf3d2f
+
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/4d/
+-rw-r--r-- root/root     32408 2019-01-28 23:31 ./usr/lib/debug/.build-id/4d/a5cff6ed337ea234016e0d2a6806beb1bf3d2f.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev-dbgsym -> libdmalloc-dev
+
+
+libdmalloc-dev_5.5.2-14_amd64.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 603268 bytes: control archive=2400 bytes.
+     763 bytes,    20 lines      control              
+    2970 bytes,    37 lines      md5sums              
+    1215 bytes,    46 lines   *  postinst             #!/bin/sh
+     985 bytes,    43 lines   *  prerm                #!/bin/sh
+ Package: libdmalloc-dev
+ Source: dmalloc
+ Version: 5.5.2-14
+ Architecture: amd64
+ Maintainer: Carlos Maddela <e7appew@gmail.com>
+ Installed-Size: 1480
+ Depends: libdmalloc5 (= 5.5.2-14), libc6 (>= 2.7)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://dmalloc.com/
+ Description: debug memory allocation library (development files and doc)
+  Drop in replacement for the system's `malloc', `realloc', `calloc', `free' and
+  other memory management routines while providing powerful debugging facilities
+  configurable at runtime.
+  .
+  These facilities include such things as memory-leak tracking, fence-post write
+  detection, file/line number reporting, and general logging of statistics.
+  .
+  This package contains the static libraries and documentation.
+
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/include/
+-rw-r--r-- root/root     37674 2019-01-28 23:31 ./usr/include/dmalloc.h
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/dmalloc/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/dmalloc/bin/
+-rwxr-xr-x root/root     61624 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/dmalloc/bin/dmalloc
+-rw-r--r-- root/root    128314 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloc.a
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloc.so -> libdmalloc.so.5.5.2
+-rw-r--r-- root/root    131370 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloccxx.a
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloccxx.so -> libdmalloccxx.so.5.5.2
+-rw-r--r-- root/root    128314 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocth.a
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocth.so -> libdmallocth.so.5.5.2
+-rw-r--r-- root/root    131370 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocthcxx.a
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocthcxx.so -> libdmallocthcxx.so.5.5.2
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc-base/
+-rw-r--r-- root/root       425 2019-01-28 20:53 ./usr/share/doc-base/dmalloc
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/
+-rw-r--r-- root/root      8819 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/NEWS.gz
+-rw-r--r-- root/root       793 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/NOTES
+-rw-r--r-- root/root      3778 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/README
+-rw-r--r-- root/root       257 2019-01-28 20:53 ./usr/share/doc/libdmalloc-dev/README.Debian
+-rw-r--r-- root/root      3410 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/RELEASE.html
+-rw-r--r-- root/root      3863 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/TODO.gz
+-rw-r--r-- root/root      5590 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/changelog.Debian.gz
+-rw-r--r-- root/root     21606 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/changelog.gz
+-rw-r--r-- root/root     24303 2019-01-28 20:53 ./usr/share/doc/libdmalloc-dev/copyright
+-rw-r--r-- root/root    300586 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/dmalloc.html
+-rw-r--r-- root/root    349331 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/dmalloc.pdf.gz
+-rw-r--r-- root/root     41294 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/dmalloc.texi.gz
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/examples/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/examples/contrib/
+-rw-r--r-- root/root       685 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/README
+-rw-r--r-- root/root      1527 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/Xmalloc.c
+-rw-r--r-- root/root      8983 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/aix_5l_notes
+-rw-r--r-- root/root      1349 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/aix_notes
+-rw-r--r-- root/root      2464 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/atexit.c
+-rw-r--r-- root/root      2320 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/dec_notes
+-rw-r--r-- root/root      2181 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/dgux_notes
+-rw-r--r-- root/root      1149 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/dmalloc.gdb
+-rwxr-xr-x root/root      4918 2019-01-28 23:31 ./usr/share/doc/libdmalloc-dev/examples/contrib/dmalloc_summarize.pl
+-rw-r--r-- root/root       629 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/next_notes
+-rwxr-xr-x root/root      2358 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/ra_info.pl
+-rw-r--r-- root/root       668 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/stratus_ftx_notes
+-rwxr-xr-x root/root      1107 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/tsecs
+-rw-r--r-- root/root      2686 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/contrib/z_os_notes
+-rw-r--r-- root/root      2231 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/dmallocc.cc
+-rw-r--r-- root/root      4237 2007-05-14 17:26 ./usr/share/doc/libdmalloc-dev/examples/dmallocrc
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/info/
+-rw-r--r-- root/root     44789 2019-01-28 23:31 ./usr/share/info/dmalloc.info.gz
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/man/man1/
+-rw-r--r-- root/root      2411 2019-01-28 23:31 ./usr/share/man/man1/dmalloc.1.gz
+
+
+libdmalloc5-dbgsym_5.5.2-14_amd64.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 78280 bytes: control archive=740 bytes.
+     486 bytes,    13 lines      control              
+     512 bytes,     5 lines      md5sums              
+ Package: libdmalloc5-dbgsym
+ Source: dmalloc
+ Version: 5.5.2-14
+ Auto-Built-Package: debug-symbols
+ Architecture: amd64
+ Maintainer: Carlos Maddela <e7appew@gmail.com>
+ Installed-Size: 213
+ Depends: libdmalloc5 (= 5.5.2-14)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libdmalloc5
+ Build-Ids: 6c80841c72381561fbdbcfad223eb3552dfbb3dc 7d6695d476e0c78cb4e8ff839a02980b1a06cc2f bd4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2 c4962bd930307ac46f7a11b9b5c084a81f6e560e
+
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/6c/
+-rw-r--r-- root/root     48552 2019-01-28 23:31 ./usr/lib/debug/.build-id/6c/80841c72381561fbdbcfad223eb3552dfbb3dc.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/7d/
+-rw-r--r-- root/root     48552 2019-01-28 23:31 ./usr/lib/debug/.build-id/7d/6695d476e0c78cb4e8ff839a02980b1a06cc2f.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/bd/
+-rw-r--r-- root/root     47624 2019-01-28 23:31 ./usr/lib/debug/.build-id/bd/4c1ec2f2d76ae4cc4fc83bffe8a2b1136ef8c2.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.build-id/c4/
+-rw-r--r-- root/root     47624 2019-01-28 23:31 ./usr/lib/debug/.build-id/c4/962bd930307ac46f7a11b9b5c084a81f6e560e.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.dwz/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/debug/.dwz/x86_64-linux-gnu/
+-rw-r--r-- root/root      7304 2019-01-28 23:31 ./usr/lib/debug/.dwz/x86_64-linux-gnu/libdmalloc5.debug
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc5-dbgsym -> libdmalloc5
+
+
+libdmalloc5_5.5.2-14_amd64.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 79576 bytes: control archive=2320 bytes.
+     828 bytes,    24 lines      control              
+     617 bytes,     8 lines      md5sums              
+     154 bytes,     4 lines      shlibs               
+   13990 bytes,   476 lines      symbols              
+      65 bytes,     2 lines      triggers             
+ Package: libdmalloc5
+ Source: dmalloc
+ Version: 5.5.2-14
+ Architecture: amd64
+ Maintainer: Carlos Maddela <e7appew@gmail.com>
+ Installed-Size: 405
+ Depends: libc6 (>= 2.14)
+ Suggests: gcc, gdb
+ Conflicts: libdmalloc4
+ Replaces: libdmalloc4
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://dmalloc.com/
+ Description: debug memory allocation library
+  Drop in replacement for the system's `malloc', `realloc', `calloc', `free' and
+  other memory management routines while providing powerful debugging facilities
+  configurable at runtime.
+  .
+  These facilities include such things as memory-leak tracking, fence-post write
+  detection, file/line number reporting, and general logging of statistics.
+  .
+  This package contains only the shared libraries, the development files and
+  documentation is in the libdmalloc-dev package.
+
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloc.so.5 -> libdmalloc.so.5.5.2
+-rw-r--r-- root/root     80032 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloc.so.5.5.2
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5 -> libdmalloccxx.so.5.5.2
+-rw-r--r-- root/root     80120 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmalloccxx.so.5.5.2
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocth.so.5 -> libdmallocth.so.5.5.2
+-rw-r--r-- root/root     80032 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocth.so.5.5.2
+lrwxrwxrwx root/root         0 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5 -> libdmallocthcxx.so.5.5.2
+-rw-r--r-- root/root     80120 2019-01-28 23:31 ./usr/lib/x86_64-linux-gnu/libdmallocthcxx.so.5.5.2
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-28 23:31 ./usr/share/doc/libdmalloc5/
+-rw-r--r-- root/root      8819 2019-01-28 23:31 ./usr/share/doc/libdmalloc5/NEWS.gz
+-rw-r--r-- root/root      5590 2019-01-28 23:31 ./usr/share/doc/libdmalloc5/changelog.Debian.gz
+-rw-r--r-- root/root     21606 2019-01-28 23:31 ./usr/share/doc/libdmalloc5/changelog.gz
+-rw-r--r-- root/root     24303 2019-01-28 20:53 ./usr/share/doc/libdmalloc5/copyright
+
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Not cleaning session: cloned chroot in use
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 17376
+Build-Time: 23
+Distribution: unstable
+Host Architecture: amd64
+Install-Time: 152
+Job: dmalloc_5.5.2-14
+Machine Architecture: amd64
+Package: dmalloc
+Package-Time: 236
+Source-Version: 5.5.2-14
+Space: 17376
+Status: successful
+Version: 5.5.2-14
+--------------------------------------------------------------------------------
+Finished at 2020-02-25T04:19:47Z
+Build needed 00:03:56, 17376k disk space
+DC-Status: OK 237.092228458s
+DC-Time-Estimation: 237.092228458 versus expected 83 (r/m: 1.8565328729879518 ; m: 83.0)

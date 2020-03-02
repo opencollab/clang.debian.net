@@ -1,0 +1,271 @@
+DC-Build-Header: mozjs52 52.9.1-1 / 2020-02-25 12:15:59 +0000
+DC-Task: type:rebuild-binarch-only source:mozjs52 version:52.9.1-1 chroot:unstable esttime:1580 logfile:/tmp/mozjs52_52.9.1-1_unstable_clang8.log modes:clang8:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang8 mozjs52_52.9.1-1'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-13-89.eu-central-1.compute.internal
+
++==============================================================================+
+| mozjs52 52.9.1-1 (amd64)                     Tue, 25 Feb 2020 12:15:59 +0000 |
++==============================================================================+
+
+Package: mozjs52
+Version: 52.9.1-1
+Source Version: 52.9.1-1
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-ace99e89-39ad-4b32-9905-5fc6fe74148c' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang8
+-----------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=8
++ echo 'Install of clang-8'
+Install of clang-8
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [142 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-0823.32.pdiff [11.0 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-1420.34.pdiff [30.2 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-02-24-2014.03.pdiff [16.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0213.11.pdiff [23.2 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0815.22.pdiff [9222 B]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-0823.32.pdiff [15.5 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-1420.34.pdiff [27.5 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-24-2014.03.pdiff [21.6 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0213.11.pdiff [35.0 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0815.22.pdiff [20.1 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main Sources 2020-02-25-0815.22.pdiff [9222 B]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-02-25-0815.22.pdiff [20.1 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main Translation-en [6195 kB]
+Fetched 6604 kB in 23s (283 kB/s)
+Reading package lists.../tmp/clang8: line 7:  8488 Killed                  apt-get update
++ apt-get install --yes --no-install-recommends --force-yes clang-8 libomp-8-dev libobjc-9-dev
+Reading package lists.../tmp/clang8: line 8:  8595 Killed                  apt-get install --yes --no-install-recommends --force-yes clang-$CLANG_VERSION libomp-$CLANG_VERSION-dev libobjc-9-dev
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-8 g++-4.6
++ ln -s clang-8 gcc-4.6
++ ln -s clang-8 cpp-4.6
++ ln -s clang-8 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-4.6 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-8 g++-4.7
++ ln -s clang-8 gcc-4.7
++ ln -s clang-8 cpp-4.7
++ ln -s clang-8 gcc
++ dpkg --set-selections
++ echo 'gcc-4.7 hold'
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ dpkg --set-selections
++ echo 'g++-4.7 hold'
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-8 g++-4.8
++ ln -s clang-8 gcc-4.8
++ ln -s clang-8 cpp-4.8
++ ln -s clang-8 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-8 g++-4.9
++ ln -s clang-8 gcc-4.9
++ ln -s clang-8 cpp-4.9
++ ln -s clang-8 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-8 g++-5
++ ln -s clang-8 gcc-5
++ ln -s clang-8 cpp-5
++ ln -s clang-8 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-8 g++-6
++ ln -s clang-8 gcc-6
++ ln -s clang-8 cpp-6
++ ln -s clang-8 gcc
++ echo 'gcc-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-8 g++-7
++ ln -s clang-8 gcc-7
++ ln -s clang-8 cpp-7
++ ln -s clang-8 gcc
++ echo 'gcc-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-8 g++-8
++ ln -s clang-8 gcc-8
++ ln -s clang-8 cpp-8
++ ln -s clang-8 gcc
++ echo 'gcc-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-8 g++-9
++ ln -s clang-8 gcc-9
++ ln -s clang-8 cpp-9
++ ln -s clang-8 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-8 g++-10
++ ln -s clang-8 gcc-10
++ ln -s clang-8 cpp-10
++ ln -s clang-8 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/mozjs52-C4pC2b
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
+/tmp/clang8: line 25: gcc: command not found
++ grep clang
++ exit 1
+
+E: Command '/tmp/clang8' failed to run.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+E: Failed to execute chroot-setup-commands
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 0
+Build-Time: 0
+Distribution: unstable
+Fail-Stage: run-chroot-setup-commands
+Host Architecture: amd64
+Install-Time: 0
+Job: mozjs52_52.9.1-1
+Machine Architecture: amd64
+Package: mozjs52
+Package-Time: 0
+Source-Version: 52.9.1-1
+Space: 0
+Status: failed
+Version: 52.9.1-1
+--------------------------------------------------------------------------------
+Finished at 2020-02-25T12:15:59Z
+Build needed 00:00:00, 0k disk space
+E: Failed to execute chroot-setup-commands
+DC-Status: Failed 156.373380914s
+DC-Time-Estimation: 156.373380914 versus expected 1580 (r/m: 9.10402148220448 ; m: 156.373380914)
