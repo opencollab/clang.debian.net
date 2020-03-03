@@ -1,12 +1,12 @@
 <?
 include("config.inc.php");
 include("listErrors.php");
-$keyGET=mysql_real_escape_string($_GET['key']);
+$keyGET=mysql_real_escape_string(htmlspecialchars($_GET['key']));
 if (strpos($keyGET, "..") && $keyGET!="" ) {
    header("Location: /");
 }
 
-$versionGET=mysql_real_escape_string($_GET['version']);
+$versionGET=mysql_real_escape_string(htmlspecialchars($_GET['version']));
 
 // TODO improve that
 if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
@@ -130,7 +130,7 @@ if ($keyGET == "NO_CAT") {
 if ($keyGET!="all") {
   $req.=" AND key_code='{$keyGET}'";
 }
-if (isset($_GET['sort'])) {
+if (isset(htmlspecialchars($_GET['sort']))) {
   $req.=" order by SOUNDEX(reverse(detected_error))"; //package";
 } else {
   $req.="		 order by errors.package";

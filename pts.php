@@ -1,8 +1,8 @@
 <?php
 include_once("config.inc.php");
 
-$package = mysql_real_escape_string(isset($_GET['p']) ? $_GET['p'] : NULL);
-$html_format = isset($_GET['format']) ? $_GET['format'] == "html" : false;
+$package = mysql_real_escape_string(isset($_GET['p']) ? htmlspecialchars($_GET['p']) : NULL);
+$html_format = isset($_GET['format']) ? htmlspecialchars($_GET['format']) == "html" : false;
 
 $req="SELECT * FROM errors WHERE clang_version='$currentVersion'";
 if ($package) {
