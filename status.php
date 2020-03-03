@@ -130,7 +130,7 @@ if ($keyGET == "NO_CAT") {
 if ($keyGET!="all") {
   $req.=" AND key_code='{$keyGET}'";
 }
-if (isset(htmlspecialchars($_GET['sort']))) {
+if (isset($_GET['sort'])) {
   $req.=" order by SOUNDEX(reverse(detected_error))"; //package";
 } else {
   $req.="		 order by errors.package";
