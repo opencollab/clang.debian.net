@@ -12,7 +12,7 @@ $known_errors= Array(
         Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors"), "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
         Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
-        Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => "undefined reference to", "nb" => 0),
+        Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => Array("undefined reference to", "ome symbols or patterns disappeared in the symbols file"), "nb" => 0),
 
         Array("key" => "NO_REF_VALUE", "dsc" => "XXX does not refer to a value", "msg" => "does not refer to a value", "nb" => 0),
         Array("key" => "UNKNOWN_TYPE_NAME", "dsc" => "Unknown Type Name", "msg" => "unknown type name", "nb" => 0),
@@ -218,6 +218,7 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 	Array("key" => "ILLEGAL_STORAGE", "dsc" => "illegal storage class on function", "msg" => Array("illegal storage class on function"), "nb" => 0),
 	Array("key" => "INCORRECT_COMP_DETECTION", "dsc" => "Incorrect compiler detection", "msg" => Array("could not configure a C compiler", "clang: not found", "clang++: not found"), "nb" => 0),
 	Array("key" => "TESTSUITE_FAILED", "dsc" => "Testsuite is failing with clang", "msg" => Array("dh_auto_test: "), "nb" => 0),
+        Array("key" => "APPLE_BLOCKS", "dsc" => "Source think that it is Mac Os X because of clang", "msg" => Array("blocks support disabled - compile with -fblocks or pick a deployment target "), "nb" => 0),
 
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
