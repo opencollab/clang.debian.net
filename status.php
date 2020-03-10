@@ -37,6 +37,9 @@ if ($keyGET) {
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
 <title><?=($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -100,7 +103,31 @@ else
         include("errors/".$keyGET.".inc");
     }
 ?><br />
+<div class="ct-chart"></div>
 
+<script>
+new Chartist.Line('.ct-chart', {
+
+  labels: [
+<?
+foreach ($clangVersions as $version => $pkg) {
+?>
+'<?=$version?>',
+<? } ?>
+],
+  series: [
+[
+<?
+foreach ($clangVersions as $version => $pkg) {
+?>
+    <?=get_number_errors_per_version($version, $keyGET)?>,
+<? } ?>
+]
+]
+}, {
+  height: 200
+});
+</script>
 <?
 displayVersion($versionGET, $keyGET);
 ?>
