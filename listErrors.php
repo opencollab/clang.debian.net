@@ -227,6 +227,20 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 
         );
 
+function get_number_errors_per_version($version, $keyGET)
+{
+// TODO moved to json
+	$req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$version}' ";
+	if ($keyGET == "NO_CAT") {
+	   $keyGET="";
+	}
+	if ($keyGET!="all") {
+	  $req.=" AND key_code='{$keyGET}'";
+	}
+	$result=mysql_query($req);
+	return mysql_num_rows($result);
+}
+
 function parse_error($version)
 {
     global $known_errors, $nbTotal, $totalFailed, $totalNbNotCat;
