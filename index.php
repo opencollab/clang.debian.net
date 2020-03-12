@@ -35,7 +35,7 @@ This rebuild has several goals. The first one is to prove (or not) that clang is
 <br />
 <h1>Rebuild results</h1>
 
-The detailed list of errors:<br />
+The detailed list of errors with clang <?=$currentVersion?>:<br />
 <?
 
     resultClangDisplay($currentVersion, false);
