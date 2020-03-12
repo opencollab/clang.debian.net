@@ -14,6 +14,8 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
 <link type="text/css" rel="stylesheet" href="revamp.css" />
 <link rel="StyleSheet" type="text/css" href="pkg.css" />
 <link rel="StyleSheet" type="text/css" href="status.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </head>
 <body>
 <img src="irill.png" align="right" />
@@ -57,6 +59,41 @@ They will be tagged as wishlist.<br />
 
 <br />
 <h1>Detailed results</h1>
+
+Evolution over time:
+<div class="ct-chart"></div>
+
+<script>
+new Chartist.Line('.ct-chart', {
+
+  labels: [
+<?
+foreach ($clangVersions as $version => $pkg) {
+?>
+'<?=$version?>',
+<? } ?>
+],
+  series: [
+[
+<?
+foreach ($clangVersions as $version => $pkg) {
+    $totalDebian = $clangVersions[$version];
+    $totalFailed = get_number_errors_per_version($version);
+    $percent = round($totalFailed*100/$totalDebian,1);
+?>
+<?=$percent?>,
+<? } ?>
+]
+]
+}, {
+  height: 200,
+        axisY: {
+            labelInterpolationFnc: function(value) {
+              return value + '%';
+            }}}
+);
+</script>
+
 The full list of all the results with logs are available at the following URL:<br />
 <ul>
 <li>
