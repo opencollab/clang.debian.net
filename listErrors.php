@@ -300,6 +300,8 @@ function get_key_clang(&$known_errors, $detected_error) {
 
 }
 
+
+
 function displayVersion($versionGET, $keyGET="") {
 	 global $clangVersions;
 	 
@@ -339,6 +341,9 @@ function resultClangDisplay($version, $display=true) {
 <br />
 Most of the errors are explained with test cases.
 <?
+showGraphAllVersions($version);
+?>
+<?
 if ($display) {
    displayVersion($version,"");
 }
@@ -377,5 +382,45 @@ foreach($errors as  $key => $err) {
 </table>
 <?php
 }
+}
+?>
+
+<?php
+function showGraphAllVersions() {
+global $clangVersions;
+?>
+<div class="ct-chart"></div>
+
+<script>
+new Chartist.Line('.ct-chart', {
+  labels: [
+<?php
+foreach ($clangVersions as $version => $pkg) {
+?>
+'<?=$version?>',
+<?php } ?>
+],
+  series: [
+[
+<?php
+foreach ($clangVersions as $version => $pkg) {
+    $totalDebian = $clangVersions[$version];
+    $totalFailed = get_number_errors_per_version($version);
+    $percent = round($totalFailed*100/$totalDebian,1);
+?>
+<?=$percent?>,
+<?php } ?>
+]
+]
+}, {
+  height: 200,
+        axisY: {
+            labelInterpolationFnc: function(value) {
+              return value + '%';
+            }}}
+);
+</script>
+
+<?
 }
 ?>
