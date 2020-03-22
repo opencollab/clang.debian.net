@@ -219,6 +219,8 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
 	Array("key" => "INCORRECT_COMP_DETECTION", "dsc" => "Incorrect compiler detection", "msg" => Array("could not configure a C compiler", "clang: not found", "clang++: not found"), "nb" => 0),
 	Array("key" => "TESTSUITE_FAILED", "dsc" => "Testsuite is failing with clang", "msg" => Array("dh_auto_test: "), "nb" => 0),
         Array("key" => "APPLE_BLOCKS", "dsc" => "Source think that it is Mac Os X because of clang", "msg" => Array("blocks support disabled - compile with -fblocks or pick a deployment target "), "nb" => 0),
+        Array("key" => "PREPROCESSOR", "dsc" => "Preprocessor differences", "msg" => Array("invalid token at start of a preprocessor expression", "function-like macro invocation"), "nb" => 0),
+        Array("key" => "RELOCATION_ERROR", "dsc" => "Relocation error", "msg" => Array("collect2: error: ld returned 1 exit status"), "nb" => 0),
 
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
@@ -421,6 +423,6 @@ foreach ($clangVersions as $version => $pkg) {
 );
 </script>
 
-<?
+<?php
 }
 ?>
