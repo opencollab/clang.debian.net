@@ -9,10 +9,10 @@ $known_errors= Array(
         Array("key" => "LINK_ERROR", "dsc" => "Linker error", "msg" => "linker command failed with exit code", "nb" => 0),
         Array("key" => "OBJC", "dsc" => "Could not find objective C headers", "msg" => "'objc/objc.h' file not found", "nb" => 0),
         Array("key" => "WRONG_OPTIM_VAL", "dsc" => "Invalid value for -O", "msg" => Array("invalid value '6' in '-O6'", "invalid value '9' in '-O9'","invalid value '20' in '-O20'", "invalid integral value") , "nb" => 0),
-        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors"), "nb" => 0),
+        Array("key" => "CHANGE_SYM_LIB", "dsc" => "Change symbol in libs", "msg" => Array("dh_makeshlibs: dpkg-gensymbols","dh_makeshlibs: failing due to earlier errors", "some new symbols appeared in the symbols file", "some symbols or patterns disappeared in the"), "nb" => 0),
         Array("key" => "MULTIPLE_DEF", "dsc" => "Multiple definition", "msg" => "multiple definition of", "nb" => 0),
         Array("key" => "MISSING_OPTION_U", "dsc" => "Option -u not existing in clang", "msg" => "undefined reference to `base_GHCziTopHandler_flushStdHandles_closure'", "nb" => 0),
-        Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => Array("undefined reference to", "ome symbols or patterns disappeared in the symbols file"), "nb" => 0),
+        Array("key" => "UNDEF_REF", "dsc" => "Missing symbols at link time", "msg" => Array("undefined reference to"), "nb" => 0),
 
         Array("key" => "NO_REF_VALUE", "dsc" => "XXX does not refer to a value", "msg" => "does not refer to a value", "nb" => 0),
         Array("key" => "UNKNOWN_TYPE_NAME", "dsc" => "Unknown Type Name", "msg" => "unknown type name", "nb" => 0),
@@ -221,6 +221,9 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "APPLE_BLOCKS", "dsc" => "Source think that it is Mac Os X because of clang", "msg" => Array("blocks support disabled - compile with -fblocks or pick a deployment target "), "nb" => 0),
         Array("key" => "PREPROCESSOR", "dsc" => "Preprocessor differences", "msg" => Array("invalid token at start of a preprocessor expression", "function-like macro invocation"), "nb" => 0),
         Array("key" => "RELOCATION_ERROR", "dsc" => "Relocation error", "msg" => Array("collect2: error: ld returned 1 exit status"), "nb" => 0),
+        Array("key" => "PARENS_WARNING", "dsc" => "Parentheses warnings", "msg" => Array("-Wparentheses","-Wredundant-parens"), "nb" => 0),
+        Array("key" => "SHADOW_VAR", "dsc" => "Shadows a variable  warnings", "msg" => Array(",-Wshadow"), "nb" => 0, "new" => "8.0.1"),
+
 
 // General
         Array("key" => "NO_CAT", "dsc" => "Not categorized", "msg" => "", "nb" => 0),
