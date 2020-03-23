@@ -41,6 +41,8 @@ The detailed list of errors with clang <?=$currentVersion?>:<br />
     resultClangDisplay($currentVersion, false);
 ?>
 <br />
+A <a href="/maintainers.php">maintainer view</a> is also available. This shows per developers which packages should be fixed.<br />
+<br />
 Errors can be caused by several reasons:<br />
 <ul>
 <li>Rejected declarations. See <a href="/status.php?version=<?=$currentVersion?>&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
