@@ -16,3 +16,8 @@ foo.o: foo.c
 1 error generated.
 </pre>
 Note all these problems are caused by <i>-MM</i>.
+
+<pre class="failure">
+Imake.tmpl:2243:10: fatal error: ' X11 .rules' file not found
+</pre>
+has been reported on the <a href="https://gitlab.freedesktop.org/xorg/util/imake/issues/1">xorg bug tracker</a>.
