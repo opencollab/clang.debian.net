@@ -5,6 +5,7 @@ VERSION=$1
 DATE=$2
 dd-list $(awk '{print $1}' scanlog-$VERSION-$DATE) > maintainers.txt
 sed -i -e "s| (U)$||g" maintainers.txt
+sed -i -e "s| <.*>$||g" maintainers.txt
 LIST=$(grep "   " maintainers.txt)
 for PKG in $LIST; do
     V=$(grep "^$PKG " scanlog-$VERSION-$DATE|awk '{print $2}')
