@@ -239,7 +239,7 @@ function get_number_errors_per_version($version, $keyGET)
 	if ($keyGET == "NO_CAT") {
 	   $keyGET="";
 	}
-	if ($keyGET!="all") {
+	if ($keyGET != "all") {
 	  $req.=" AND key_code='{$keyGET}'";
 	}
 	$result=mysql_query($req);
@@ -410,7 +410,7 @@ foreach ($clangVersions as $version => $pkg) {
 <?php
 foreach ($clangVersions as $version => $pkg) {
     $totalDebian = $clangVersions[$version];
-    $totalFailed = get_number_errors_per_version($version);
+    $totalFailed = get_number_errors_per_version($version, "all");
     $percent = round($totalFailed*100/$totalDebian,1);
 ?>
 <?=$percent?>,
