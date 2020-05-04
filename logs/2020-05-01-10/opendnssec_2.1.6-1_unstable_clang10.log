@@ -1,0 +1,2438 @@
+DC-Build-Header: opendnssec 1:2.1.6-1 / 2020-05-03 02:13:12 +0000
+DC-Task: type:rebuild-binarch-only source:opendnssec version:1:2.1.6-1 chroot:unstable esttime: logfile:/tmp/opendnssec_2.1.6-1_unstable_clang10.log modes:clang10:binarch-only
+DC-Sbuild-call: su user42 -c 'sbuild -n --arch-any --apt-update -d unstable -v --no-run-lintian --chroot-setup-commands=/tmp/clang10 opendnssec_1:2.1.6-1'
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on ip-172-31-4-54.eu-central-1.compute.internal
+
++==============================================================================+
+| opendnssec 1:2.1.6-1 (amd64)                 Sun, 03 May 2020 02:13:12 +0000 |
++==============================================================================+
+
+Package: opendnssec
+Version: 1:2.1.6-1
+Source Version: 1:2.1.6-1
+Distribution: unstable
+Machine Architecture: amd64
+Host Architecture: amd64
+Build Architecture: amd64
+Build Type: binary
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/sid-amd64-sbuild-3661526c-a7fb-42a2-b6ca-516e0014b0ec' with '<<CHROOT>>'
+
++------------------------------------------------------------------------------+
+| Chroot Setup Commands                                                        |
++------------------------------------------------------------------------------+
+
+
+/tmp/clang10
+------------
+
++ echo 'Entering customization script...'
+Entering customization script...
++ CLANG_VERSION=10
++ echo 'Install of clang-10'
+Install of clang-10
++ apt-get update
+Get:1 http://127.0.0.1:12990/debian sid InRelease [146 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main Sources.diff/Index [27.9 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 Packages.diff/Index [27.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main Sources 2020-05-02-0208.16.pdiff [3982 B]
+Get:5 http://127.0.0.1:12990/debian sid/main Sources 2020-05-02-0807.49.pdiff [10.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main Sources 2020-05-02-1412.30.pdiff [12.9 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-05-02-2007.10.pdiff [13.4 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main Sources 2020-05-02-2007.10.pdiff [13.4 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-05-02-0208.16.pdiff [2772 B]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-05-02-0807.49.pdiff [3238 B]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-05-02-1412.30.pdiff [7641 B]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-05-02-2007.10.pdiff [10.5 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 Packages 2020-05-02-2007.10.pdiff [10.5 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main Translation-en [6192 kB]
+Fetched 6459 kB in 2s (3862 kB/s)
+Reading package lists...
++ apt-get install --yes --no-install-recommends --force-yes clang-10 libomp-10-dev libobjc-9-dev
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386 libclang-common-10-dev
+  libclang-cpp10 libclang1-10 libedit2 libgc1c2 libllvm10 libobjc4 libomp5-10
+  libz3-4
+Suggested packages:
+  clang-10-doc libomp-10-doc
+Recommended packages:
+  llvm-10-dev python3
+The following NEW packages will be installed:
+  clang-10 lib32gcc-s1 lib32gcc1 lib32stdc++6 libbsd0 libc6-i386
+  libclang-common-10-dev libclang-cpp10 libclang1-10 libedit2 libgc1c2
+  libllvm10 libobjc-9-dev libobjc4 libomp-10-dev libomp5-10 libz3-4
+0 upgraded, 17 newly installed, 0 to remove and 0 not upgraded.
+Need to get 49.8 MB of archives.
+After this operation, 259 MB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 libbsd0 amd64 0.10.0-1 [107 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 libedit2 amd64 3.1-20191231-1 [95.4 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libz3-4 amd64 4.8.7-4 [6790 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 libllvm10 amd64 1:10.0.0-4 [15.5 MB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libclang-cpp10 amd64 1:10.0.0-4 [10.1 MB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 libgc1c2 amd64 1:7.6.4-0.4 [224 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 libobjc4 amd64 10-20200418-1 [41.7 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libobjc-9-dev amd64 9.3.0-11 [218 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libc6-i386 amd64 2.30-4 [2926 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc-s1 amd64 10-20200418-1 [49.4 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 lib32gcc1 amd64 1:10-20200418-1 [1100 B]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 lib32stdc++6 amd64 10-20200418-1 [510 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 libclang-common-10-dev amd64 1:10.0.0-4 [5062 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 libclang1-10 amd64 1:10.0.0-4 [7609 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 clang-10 amd64 1:10.0.0-4 [105 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 libomp5-10 amd64 1:10.0.0-4 [338 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 libomp-10-dev amd64 1:10.0.0-4 [85.0 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 49.8 MB in 0s (142 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12123 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../01-libedit2_3.1-20191231-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191231-1) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../02-libz3-4_4.8.7-4_amd64.deb ...
+Unpacking libz3-4:amd64 (4.8.7-4) ...
+Selecting previously unselected package libllvm10:amd64.
+Preparing to unpack .../03-libllvm10_1%3a10.0.0-4_amd64.deb ...
+Unpacking libllvm10:amd64 (1:10.0.0-4) ...
+Selecting previously unselected package libclang-cpp10.
+Preparing to unpack .../04-libclang-cpp10_1%3a10.0.0-4_amd64.deb ...
+Unpacking libclang-cpp10 (1:10.0.0-4) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../05-libgc1c2_1%3a7.6.4-0.4_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../06-libobjc4_10-20200418-1_amd64.deb ...
+Unpacking libobjc4:amd64 (10-20200418-1) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../07-libobjc-9-dev_9.3.0-11_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.3.0-11) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../08-libc6-i386_2.30-4_amd64.deb ...
+Unpacking libc6-i386 (2.30-4) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../09-lib32gcc-s1_10-20200418-1_amd64.deb ...
+Unpacking lib32gcc-s1 (10-20200418-1) ...
+Selecting previously unselected package lib32gcc1.
+Preparing to unpack .../10-lib32gcc1_1%3a10-20200418-1_amd64.deb ...
+Unpacking lib32gcc1 (1:10-20200418-1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../11-lib32stdc++6_10-20200418-1_amd64.deb ...
+Unpacking lib32stdc++6 (10-20200418-1) ...
+Selecting previously unselected package libclang-common-10-dev.
+Preparing to unpack .../12-libclang-common-10-dev_1%3a10.0.0-4_amd64.deb ...
+Unpacking libclang-common-10-dev (1:10.0.0-4) ...
+Selecting previously unselected package libclang1-10.
+Preparing to unpack .../13-libclang1-10_1%3a10.0.0-4_amd64.deb ...
+Unpacking libclang1-10 (1:10.0.0-4) ...
+Selecting previously unselected package clang-10.
+Preparing to unpack .../14-clang-10_1%3a10.0.0-4_amd64.deb ...
+Unpacking clang-10 (1:10.0.0-4) ...
+Selecting previously unselected package libomp5-10:amd64.
+Preparing to unpack .../15-libomp5-10_1%3a10.0.0-4_amd64.deb ...
+Unpacking libomp5-10:amd64 (1:10.0.0-4) ...
+Selecting previously unselected package libomp-10-dev.
+Preparing to unpack .../16-libomp-10-dev_1%3a10.0.0-4_amd64.deb ...
+Unpacking libomp-10-dev (1:10.0.0-4) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4) ...
+Setting up libobjc4:amd64 (10-20200418-1) ...
+Setting up libz3-4:amd64 (4.8.7-4) ...
+Setting up libobjc-9-dev:amd64 (9.3.0-11) ...
+Setting up libomp5-10:amd64 (1:10.0.0-4) ...
+Setting up libc6-i386 (2.30-4) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up libomp-10-dev (1:10.0.0-4) ...
+Setting up libedit2:amd64 (3.1-20191231-1) ...
+Setting up libllvm10:amd64 (1:10.0.0-4) ...
+Setting up lib32gcc-s1 (10-20200418-1) ...
+Setting up libclang1-10 (1:10.0.0-4) ...
+Setting up lib32gcc1 (1:10-20200418-1) ...
+Setting up libclang-cpp10 (1:10.0.0-4) ...
+Setting up lib32stdc++6 (10-20200418-1) ...
+Setting up libclang-common-10-dev (1:10.0.0-4) ...
+Setting up clang-10 (1:10.0.0-4) ...
+Processing triggers for libc-bin (2.30-4) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ echo 'Replace gcc, g++ & cpp by clang'
+Replace gcc, g++ & cpp by clang
++ VERSIONS='4.6 4.7 4.8 4.9 5 6 7 8 9 10'
++ cd /usr/bin
++ for VERSION in $VERSIONS
++ rm -f g++-4.6 gcc-4.6 cpp-4.6 gcc
++ ln -s clang++-10 g++-4.6
++ ln -s clang-10 gcc-4.6
++ ln -s clang-10 cpp-4.6
++ ln -s clang-10 gcc
++ echo 'gcc-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.7 gcc-4.7 cpp-4.7 gcc
++ ln -s clang++-10 g++-4.7
++ ln -s clang-10 gcc-4.7
++ ln -s clang-10 cpp-4.7
++ ln -s clang-10 gcc
++ echo 'gcc-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.8 gcc-4.8 cpp-4.8 gcc
++ ln -s clang++-10 g++-4.8
++ ln -s clang-10 gcc-4.8
++ ln -s clang-10 cpp-4.8
++ ln -s clang-10 gcc
++ echo 'gcc-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-4.9 gcc-4.9 cpp-4.9 gcc
++ ln -s clang++-10 g++-4.9
++ ln -s clang-10 gcc-4.9
++ ln -s clang-10 cpp-4.9
++ ln -s clang-10 gcc
++ echo 'gcc-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-4.9 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-4.9
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-5 gcc-5 cpp-5 gcc
++ ln -s clang++-10 g++-5
++ ln -s clang-10 gcc-5
++ ln -s clang-10 cpp-5
++ ln -s clang-10 gcc
++ echo 'gcc-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-5 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-5
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-6 gcc-6 cpp-6 gcc
++ ln -s clang++-10 g++-6
++ ln -s clang-10 gcc-6
++ ln -s clang-10 cpp-6
++ ln -s clang-10 gcc
++ echo 'gcc-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-6 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-6
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-7 gcc-7 cpp-7 gcc
++ ln -s clang++-10 g++-7
++ ln -s clang-10 gcc-7
++ ln -s clang-10 cpp-7
++ ln -s clang-10 gcc
++ echo 'gcc-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-7 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-7
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-8 gcc-8 cpp-8 gcc
++ ln -s clang++-10 g++-8
++ ln -s clang-10 gcc-8
++ ln -s clang-10 cpp-8
++ ln -s clang-10 gcc
++ echo 'gcc-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-8 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-8
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ for VERSION in $VERSIONS
++ rm -f g++-9 gcc-9 cpp-9 gcc
++ ln -s clang++-10 g++-9
++ ln -s clang-10 gcc-9
++ ln -s clang-10 cpp-9
++ ln -s clang-10 gcc
++ echo 'gcc-9 hold'
++ dpkg --set-selections
++ echo 'g++-9 hold'
++ dpkg --set-selections
++ for VERSION in $VERSIONS
++ rm -f g++-10 gcc-10 cpp-10 gcc
++ ln -s clang++-10 g++-10
++ ln -s clang-10 gcc-10
++ ln -s clang-10 cpp-10
++ ln -s clang-10 gcc
++ echo 'gcc-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: gcc-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ echo 'g++-10 hold'
++ dpkg --set-selections
+dpkg: warning: package not in status nor available database at line 1: g++-10
+dpkg: warning: found unknown packages; this might mean the available database
+is outdated, and needs to be updated through a frontend method;
+please see the FAQ <https://wiki.debian.org/Teams/Dpkg/FAQ>
++ cd -
+/build/opendnssec-9aDQAk
++ echo 'Check if gcc, g++ & cpp are actually clang'
+Check if gcc, g++ & cpp are actually clang
++ gcc --version
++ grep clang
++ cpp --version
++ grep clang
++ g++ --version
++ grep clang
++ cd /usr/bin/
++ rm -f clang++ clang
++ ln -s clang-10 clang++
++ ln -s clang-10 clang
++ clang++ --version
+clang version 10.0.0-4 
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
++ clang --version
+clang version 10.0.0-4 
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
++ cd -
+/build/opendnssec-9aDQAk
++ apt install --yes --no-install-recommends --force-yes qt5-qmake
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  qt5-qmake-bin qtchooser
+The following NEW packages will be installed:
+  qt5-qmake qt5-qmake-bin qtchooser
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1270 kB of archives.
+After this operation, 4788 kB of additional disk space will be used.
+Get:1 http://127.0.0.1:12990/debian sid/main amd64 qt5-qmake-bin amd64 5.12.5+dfsg-10 [1015 kB]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 qtchooser amd64 66-2 [26.3 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 qt5-qmake amd64 5.12.5+dfsg-10 [229 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1270 kB in 0s (19.5 MB/s)
+Selecting previously unselected package qt5-qmake-bin.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12968 files and directories currently installed.)
+Preparing to unpack .../qt5-qmake-bin_5.12.5+dfsg-10_amd64.deb ...
+Unpacking qt5-qmake-bin (5.12.5+dfsg-10) ...
+Selecting previously unselected package qtchooser.
+Preparing to unpack .../qtchooser_66-2_amd64.deb ...
+Unpacking qtchooser (66-2) ...
+Selecting previously unselected package qt5-qmake:amd64.
+Preparing to unpack .../qt5-qmake_5.12.5+dfsg-10_amd64.deb ...
+Unpacking qt5-qmake:amd64 (5.12.5+dfsg-10) ...
+Setting up qt5-qmake-bin (5.12.5+dfsg-10) ...
+Setting up qtchooser (66-2) ...
+Setting up qt5-qmake:amd64 (5.12.5+dfsg-10) ...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
++ cp /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qplatformdefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/
++ ls -al /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/
+total 16
+drwxr-xr-x  2 root root 4096 May  3 02:13 .
+drwxr-xr-x 75 root root 4096 May  3 02:13 ..
+-rw-r--r--  1 root root  276 May  3 02:13 qmake.conf
+-rw-r--r--  1 root root 3218 May  3 02:13 qplatformdefs.h
++ cat /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf
+#
+# qmake configuration for linux-clang
+#
+
+MAKEFILE_GENERATOR = UNIX
+CONFIG += incremental
+
+QMAKE_INCREMENTAL_STYLE = sublib
+
+include(../common/linux.conf)
+include(../common/gcc-base-unix.conf)
+include(../common/clang.conf)
+
+QMAKE_LFLAGS += -ccc-gcc-name g++
+
+load(qt_config)
++ export QMAKESPEC=/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/
++ QMAKESPEC=/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/
++ sed -i -e 's|compare_problem(2,|compare_problem(0,|g' /usr/bin/dpkg-gensymbols
++ sed -i -e 's|compare_problem(1,|compare_problem(0,|g' /usr/bin/dpkg-gensymbols
++ grep 'compare_problem(' /usr/bin/dpkg-gensymbols
+        compare_problem(4, g_('new libraries appeared in the symbols file: %s'), "@libs");
+        compare_problem(3, g_('some libraries disappeared in the symbols file: %s'), "@libs");
+        compare_problem(0, g_('some new symbols appeared in the symbols file: %s'),
+        compare_problem(0, g_('some symbols or patterns disappeared in the symbols file: %s'),
+
+I: Finished running '/tmp/clang10'.
+
+Finished processing commands.
+--------------------------------------------------------------------------------
+I: NOTICE: Log filtering will replace 'build/opendnssec-9aDQAk/resolver-p2NYnK' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://127.0.0.1:12990/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Check APT
+---------
+
+Checking available source versions...
+
+Download source files with APT
+------------------------------
+
+Reading package lists...
+NOTICE: 'opendnssec' packaging is maintained in the 'Git' version control system at:
+https://salsa.debian.org/debian/opendnssec.git
+Please use:
+git clone https://salsa.debian.org/debian/opendnssec.git
+to retrieve the latest (possibly unreleased) updates to the package.
+Need to get 1158 kB of source archives.
+Get:1 http://127.0.0.1:12990/debian sid/main opendnssec 1:2.1.6-1 (dsc) [2877 B]
+Get:2 http://127.0.0.1:12990/debian sid/main opendnssec 1:2.1.6-1 (tar) [1122 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main opendnssec 1:2.1.6-1 (asc) [801 B]
+Get:4 http://127.0.0.1:12990/debian sid/main opendnssec 1:2.1.6-1 (diff) [32.2 kB]
+Fetched 1158 kB in 0s (12.4 MB/s)
+Download complete and in download only mode
+I: NOTICE: Log filtering will replace 'build/opendnssec-9aDQAk/opendnssec-2.1.6' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/opendnssec-9aDQAk' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), default-libmysqlclient-dev, default-mysql-client, dh-runit, doxygen, graphviz, libcunit1-dev, libldns-dev (>= 1.6.14~), libreadline-dev, libsqlite3-dev, libssl-dev, libxml2-dev, libxml2-utils, opensc, pkg-config, po-debconf, procps, sqlite3, xsltproc, build-essential, fakeroot
+Filtered Build-Depends: debhelper-compat (= 12), default-libmysqlclient-dev, default-mysql-client, dh-runit, doxygen, graphviz, libcunit1-dev, libldns-dev (>= 1.6.14~), libreadline-dev, libsqlite3-dev, libssl-dev, libxml2-dev, libxml2-utils, opensc, pkg-config, po-debconf, procps, sqlite3, xsltproc, build-essential, fakeroot
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [499 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [583 B]
+Fetched 2039 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  default-libmysqlclient-dev default-mysql-client dh-autoreconf dh-runit
+  dh-strip-nondeterminism doxygen dwz file fontconfig fontconfig-config
+  fonts-dejavu-core gettext gettext-base graphviz groff-base icu-devtools
+  intltool-debian libaio1 libann0 libarchive-zip-perl libcairo2 libcdt5
+  libcgraph6 libclang1-9 libclone-perl libconfig-inifiles-perl libcroco3
+  libcunit1 libcunit1-dev libdatrie1 libdebhelper-perl libelf1 libevent-2.1-7
+  libexpat1 libfile-copy-recursive-perl libfile-slurp-perl
+  libfile-stripnondeterminism-perl libfontconfig1 libfreetype6 libfribidi0
+  libgd3 libglib2.0-0 libgmp-dev libgmpxx4ldbl libgnutls-dane0
+  libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgraphite2-3
+  libgts-0.7-5 libgvc6 libgvpr2 libharfbuzz0b libice6 libicu-dev libicu63
+  libidn2-dev libjbig0 libjpeg62-turbo liblab-gamut1 libldns-dev libldns2
+  libllvm9 libltdl7 libmagic-mgc libmagic1 libmariadb-dev
+  libmariadb-dev-compat libmariadb3 libncurses-dev libncurses6 libp11-kit-dev
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpathplan4
+  libpipeline1 libpixman-1-0 libpng16-16 libprocps8 libreadline-dev
+  libreadline5 libreadline8 libsigsegv2 libsm6 libsnappy1v5 libsqlite3-0
+  libsqlite3-dev libssl-dev libssl1.1 libsub-override-perl libtasn1-6-dev
+  libtext-hogan-perl libtext-trim-perl libthai-data libthai0 libtiff5 libtool
+  libuchardet0 libunbound8 libwebp6 libx11-6 libx11-data libxapian30 libxau6
+  libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6 libxext6 libxml2
+  libxml2-dev libxml2-utils libxmu6 libxpm4 libxrender1 libxslt1.1 libxt6 m4
+  man-db mariadb-client-10.3 mariadb-client-core-10.3 mariadb-common
+  mysql-common nettle-dev opensc opensc-pkcs11 pkg-config po-debconf procps
+  readline-common sensible-utils sqlite3 ucf x11-common xsltproc zlib1g-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make doxygen-latex doxygen-doc doxygen-gui gettext-doc
+  libasprintf-dev libgettextpo-dev gsfonts graphviz-doc groff libcunit1-doc
+  libgd-tools gmp-doc libgmp10-doc libmpfr-dev dns-root-data gnutls-bin
+  gnutls-doc icu-doc ncurses-doc readline-doc sqlite3-doc libssl-doc
+  libtool-doc gfortran | fortran95-compiler gcj-jdk xapian-tools m4-doc
+  apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx fonts-liberation libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgts-bin libgpm2 libtasn1-doc libltdl-dev
+  libdbd-mysql-perl libdbi-perl libterm-readkey-perl pcscd
+  libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  default-libmysqlclient-dev default-mysql-client dh-autoreconf dh-runit
+  dh-strip-nondeterminism doxygen dwz file fontconfig fontconfig-config
+  fonts-dejavu-core gettext gettext-base graphviz groff-base icu-devtools
+  intltool-debian libaio1 libann0 libarchive-zip-perl libcairo2 libcdt5
+  libcgraph6 libclang1-9 libclone-perl libconfig-inifiles-perl libcroco3
+  libcunit1 libcunit1-dev libdatrie1 libdebhelper-perl libelf1 libevent-2.1-7
+  libexpat1 libfile-copy-recursive-perl libfile-slurp-perl
+  libfile-stripnondeterminism-perl libfontconfig1 libfreetype6 libfribidi0
+  libgd3 libglib2.0-0 libgmp-dev libgmpxx4ldbl libgnutls-dane0
+  libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgraphite2-3
+  libgts-0.7-5 libgvc6 libgvpr2 libharfbuzz0b libice6 libicu-dev libicu63
+  libidn2-dev libjbig0 libjpeg62-turbo liblab-gamut1 libldns-dev libldns2
+  libllvm9 libltdl7 libmagic-mgc libmagic1 libmariadb-dev
+  libmariadb-dev-compat libmariadb3 libncurses-dev libncurses6 libp11-kit-dev
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpathplan4
+  libpipeline1 libpixman-1-0 libpng16-16 libprocps8 libreadline-dev
+  libreadline5 libreadline8 libsigsegv2 libsm6 libsnappy1v5 libsqlite3-0
+  libsqlite3-dev libssl-dev libssl1.1 libsub-override-perl libtasn1-6-dev
+  libtext-hogan-perl libtext-trim-perl libthai-data libthai0 libtiff5 libtool
+  libuchardet0 libunbound8 libwebp6 libx11-6 libx11-data libxapian30 libxau6
+  libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6 libxext6 libxml2
+  libxml2-dev libxml2-utils libxmu6 libxpm4 libxrender1 libxslt1.1 libxt6 m4
+  man-db mariadb-client-10.3 mariadb-client-core-10.3 mariadb-common
+  mysql-common nettle-dev opensc opensc-pkcs11 pkg-config po-debconf procps
+  readline-common sbuild-build-depends-main-dummy sensible-utils sqlite3 ucf
+  x11-common xsltproc zlib1g-dev
+0 upgraded, 145 newly installed, 0 to remove and 0 not upgraded.
+Need to get 97.3 MB of archives.
+After this operation, 415 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [1012 B]
+Get:2 http://127.0.0.1:12990/debian sid/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:3 http://127.0.0.1:12990/debian sid/main amd64 libuchardet0 amd64 0.0.6-3 [64.9 kB]
+Get:4 http://127.0.0.1:12990/debian sid/main amd64 groff-base amd64 1.22.4-4 [919 kB]
+Get:5 http://127.0.0.1:12990/debian sid/main amd64 libpipeline1 amd64 1.5.2-2 [33.9 kB]
+Get:6 http://127.0.0.1:12990/debian sid/main amd64 man-db amd64 2.9.1-1 [1308 kB]
+Get:7 http://127.0.0.1:12990/debian sid/main amd64 readline-common all 8.0-4 [72.5 kB]
+Get:8 http://127.0.0.1:12990/debian sid/main amd64 libreadline8 amd64 8.0-4 [160 kB]
+Get:9 http://127.0.0.1:12990/debian sid/main amd64 libncurses6 amd64 6.2-1 [102 kB]
+Get:10 http://127.0.0.1:12990/debian sid/main amd64 libprocps8 amd64 2:3.3.16-4 [62.7 kB]
+Get:11 http://127.0.0.1:12990/debian sid/main amd64 procps amd64 2:3.3.16-4 [262 kB]
+Get:12 http://127.0.0.1:12990/debian sid/main amd64 sensible-utils all 0.0.12+nmu1 [16.0 kB]
+Get:13 http://127.0.0.1:12990/debian sid/main amd64 libmagic-mgc amd64 1:5.38-4 [262 kB]
+Get:14 http://127.0.0.1:12990/debian sid/main amd64 libmagic1 amd64 1:5.38-4 [120 kB]
+Get:15 http://127.0.0.1:12990/debian sid/main amd64 file amd64 1:5.38-4 [67.9 kB]
+Get:16 http://127.0.0.1:12990/debian sid/main amd64 gettext-base amd64 0.19.8.1-10 [123 kB]
+Get:17 http://127.0.0.1:12990/debian sid/main amd64 ucf all 3.0038+nmu1 [69.0 kB]
+Get:18 http://127.0.0.1:12990/debian sid/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:19 http://127.0.0.1:12990/debian sid/main amd64 m4 amd64 1.4.18-4 [203 kB]
+Get:20 http://127.0.0.1:12990/debian sid/main amd64 autoconf all 2.69-11.1 [341 kB]
+Get:21 http://127.0.0.1:12990/debian sid/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:22 http://127.0.0.1:12990/debian sid/main amd64 automake all 1:1.16.2-1 [775 kB]
+Get:23 http://127.0.0.1:12990/debian sid/main amd64 autopoint all 0.19.8.1-10 [435 kB]
+Get:24 http://127.0.0.1:12990/debian sid/main amd64 libtool all 2.4.6-14 [513 kB]
+Get:25 http://127.0.0.1:12990/debian sid/main amd64 dh-autoreconf all 19 [16.9 kB]
+Get:26 http://127.0.0.1:12990/debian sid/main amd64 libdebhelper-perl all 13 [184 kB]
+Get:27 http://127.0.0.1:12990/debian sid/main amd64 libarchive-zip-perl all 1.68-1 [104 kB]
+Get:28 http://127.0.0.1:12990/debian sid/main amd64 libsub-override-perl all 0.09-2 [10.2 kB]
+Get:29 http://127.0.0.1:12990/debian sid/main amd64 libfile-stripnondeterminism-perl all 1.8.0-1 [24.2 kB]
+Get:30 http://127.0.0.1:12990/debian sid/main amd64 dh-strip-nondeterminism all 1.8.0-1 [14.8 kB]
+Get:31 http://127.0.0.1:12990/debian sid/main amd64 libelf1 amd64 0.176-1.1 [161 kB]
+Get:32 http://127.0.0.1:12990/debian sid/main amd64 dwz amd64 0.13-5 [151 kB]
+Get:33 http://127.0.0.1:12990/debian sid/main amd64 libglib2.0-0 amd64 2.64.2-1 [1343 kB]
+Get:34 http://127.0.0.1:12990/debian sid/main amd64 libicu63 amd64 63.2-3 [8296 kB]
+Get:35 http://127.0.0.1:12990/debian sid/main amd64 libxml2 amd64 2.9.10+dfsg-5 [709 kB]
+Get:36 http://127.0.0.1:12990/debian sid/main amd64 libcroco3 amd64 0.6.13-1 [146 kB]
+Get:37 http://127.0.0.1:12990/debian sid/main amd64 gettext amd64 0.19.8.1-10 [1303 kB]
+Get:38 http://127.0.0.1:12990/debian sid/main amd64 intltool-debian all 0.35.0+20060710.5 [26.8 kB]
+Get:39 http://127.0.0.1:12990/debian sid/main amd64 po-debconf all 1.0.21 [248 kB]
+Get:40 http://127.0.0.1:12990/debian sid/main amd64 debhelper all 13 [1002 kB]
+Get:41 http://127.0.0.1:12990/debian sid/main amd64 mysql-common all 5.8+1.0.5 [7324 B]
+Get:42 http://127.0.0.1:12990/debian sid/main amd64 mariadb-common all 1:10.3.22-1 [32.3 kB]
+Get:43 http://127.0.0.1:12990/debian sid/main amd64 libmariadb3 amd64 1:10.3.22-1 [171 kB]
+Get:44 http://127.0.0.1:12990/debian sid/main amd64 libevent-2.1-7 amd64 2.1.11-stable-1 [186 kB]
+Get:45 http://127.0.0.1:12990/debian sid/main amd64 libunbound8 amd64 1.10.0-1 [485 kB]
+Get:46 http://127.0.0.1:12990/debian sid/main amd64 libgnutls-dane0 amd64 3.6.13-2 [361 kB]
+Get:47 http://127.0.0.1:12990/debian sid/main amd64 libgnutls-openssl27 amd64 3.6.13-2 [362 kB]
+Get:48 http://127.0.0.1:12990/debian sid/main amd64 libgnutlsxx28 amd64 3.6.13-2 [14.6 kB]
+Get:49 http://127.0.0.1:12990/debian sid/main amd64 libidn2-dev amd64 2.3.0-1 [87.0 kB]
+Get:50 http://127.0.0.1:12990/debian sid/main amd64 libp11-kit-dev amd64 0.23.20-1 [205 kB]
+Get:51 http://127.0.0.1:12990/debian sid/main amd64 libtasn1-6-dev amd64 4.16.0-2 [104 kB]
+Get:52 http://127.0.0.1:12990/debian sid/main amd64 libgmpxx4ldbl amd64 2:6.2.0+dfsg-4 [23.0 kB]
+Get:53 http://127.0.0.1:12990/debian sid/main amd64 libgmp-dev amd64 2:6.2.0+dfsg-4 [643 kB]
+Get:54 http://127.0.0.1:12990/debian sid/main amd64 nettle-dev amd64 3.5.1+really3.5.1-2 [1115 kB]
+Get:55 http://127.0.0.1:12990/debian sid/main amd64 libgnutls28-dev amd64 3.6.13-2 [1204 kB]
+Get:56 http://127.0.0.1:12990/debian sid/main amd64 zlib1g-dev amd64 1:1.2.11.dfsg-2 [190 kB]
+Get:57 http://127.0.0.1:12990/debian sid/main amd64 libmariadb-dev amd64 1:10.3.22-1 [1012 kB]
+Get:58 http://127.0.0.1:12990/debian sid/main amd64 libmariadb-dev-compat amd64 1:10.3.22-1 [31.5 kB]
+Get:59 http://127.0.0.1:12990/debian sid/main amd64 default-libmysqlclient-dev amd64 1.0.5 [3764 B]
+Get:60 http://127.0.0.1:12990/debian sid/main amd64 libconfig-inifiles-perl all 3.000002-1 [52.0 kB]
+Get:61 http://127.0.0.1:12990/debian sid/main amd64 libaio1 amd64 0.3.112-8 [12.5 kB]
+Get:62 http://127.0.0.1:12990/debian sid/main amd64 libreadline5 amd64 5.2+dfsg-3+b13 [120 kB]
+Get:63 http://127.0.0.1:12990/debian sid/main amd64 libsnappy1v5 amd64 1.1.8-1 [17.9 kB]
+Get:64 http://127.0.0.1:12990/debian sid/main amd64 mariadb-client-core-10.3 amd64 1:10.3.22-1 [5802 kB]
+Get:65 http://127.0.0.1:12990/debian sid/main amd64 mariadb-client-10.3 amd64 1:10.3.22-1 [1140 kB]
+Get:66 http://127.0.0.1:12990/debian sid/main amd64 default-mysql-client all 1.0.5 [3532 B]
+Get:67 http://127.0.0.1:12990/debian sid/main amd64 libclone-perl amd64 0.45-1 [15.1 kB]
+Get:68 http://127.0.0.1:12990/debian sid/main amd64 libtext-trim-perl all 1.03-1 [8352 B]
+Get:69 http://127.0.0.1:12990/debian sid/main amd64 libtext-hogan-perl all 2.01-1 [18.9 kB]
+Get:70 http://127.0.0.1:12990/debian sid/main amd64 libfile-slurp-perl all 9999.30-1 [27.4 kB]
+Get:71 http://127.0.0.1:12990/debian sid/main amd64 libfile-copy-recursive-perl all 0.45-1 [21.2 kB]
+Get:72 http://127.0.0.1:12990/debian sid/main amd64 dh-runit all 2.8.15 [13.5 kB]
+Get:73 http://127.0.0.1:12990/debian sid/main amd64 libllvm9 amd64 1:9.0.1-12 [15.0 MB]
+Get:74 http://127.0.0.1:12990/debian sid/main amd64 libclang1-9 amd64 1:9.0.1-12 [6713 kB]
+Get:75 http://127.0.0.1:12990/debian sid/main amd64 libxapian30 amd64 1.4.15-1 [1085 kB]
+Get:76 http://127.0.0.1:12990/debian sid/main amd64 doxygen amd64 1.8.17-1 [9482 kB]
+Get:77 http://127.0.0.1:12990/debian sid/main amd64 libexpat1 amd64 2.2.9-1 [94.3 kB]
+Get:78 http://127.0.0.1:12990/debian sid/main amd64 libpng16-16 amd64 1.6.37-2 [292 kB]
+Get:79 http://127.0.0.1:12990/debian sid/main amd64 libfreetype6 amd64 2.10.1-2 [392 kB]
+Get:80 http://127.0.0.1:12990/debian sid/main amd64 fonts-dejavu-core all 2.37-1 [1068 kB]
+Get:81 http://127.0.0.1:12990/debian sid/main amd64 fontconfig-config all 2.13.1-4 [281 kB]
+Get:82 http://127.0.0.1:12990/debian sid/main amd64 libfontconfig1 amd64 2.13.1-4 [347 kB]
+Get:83 http://127.0.0.1:12990/debian sid/main amd64 fontconfig amd64 2.13.1-4 [416 kB]
+Get:84 http://127.0.0.1:12990/debian sid/main amd64 libann0 amd64 1.1.2+doc-7 [25.3 kB]
+Get:85 http://127.0.0.1:12990/debian sid/main amd64 libcdt5 amd64 2.42.2-4 [60.7 kB]
+Get:86 http://127.0.0.1:12990/debian sid/main amd64 libcgraph6 amd64 2.42.2-4 [85.0 kB]
+Get:87 http://127.0.0.1:12990/debian sid/main amd64 libjpeg62-turbo amd64 1:1.5.2-2+b1 [134 kB]
+Get:88 http://127.0.0.1:12990/debian sid/main amd64 libjbig0 amd64 2.1-3.1+b2 [31.0 kB]
+Get:89 http://127.0.0.1:12990/debian sid/main amd64 libwebp6 amd64 0.6.1-2+b1 [261 kB]
+Get:90 http://127.0.0.1:12990/debian sid/main amd64 libtiff5 amd64 4.1.0+git191117-2 [271 kB]
+Get:91 http://127.0.0.1:12990/debian sid/main amd64 libxau6 amd64 1:1.0.8-1+b2 [19.9 kB]
+Get:92 http://127.0.0.1:12990/debian sid/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+Get:93 http://127.0.0.1:12990/debian sid/main amd64 libxcb1 amd64 1.14-2 [139 kB]
+Get:94 http://127.0.0.1:12990/debian sid/main amd64 libx11-data all 2:1.6.9-2 [298 kB]
+Get:95 http://127.0.0.1:12990/debian sid/main amd64 libx11-6 amd64 2:1.6.9-2 [759 kB]
+Get:96 http://127.0.0.1:12990/debian sid/main amd64 libxpm4 amd64 1:3.5.12-1 [49.1 kB]
+Get:97 http://127.0.0.1:12990/debian sid/main amd64 libgd3 amd64 2.3.0-1 [137 kB]
+Get:98 http://127.0.0.1:12990/debian sid/main amd64 libgts-0.7-5 amd64 0.7.6+darcs121130-4+b1 [158 kB]
+Get:99 http://127.0.0.1:12990/debian sid/main amd64 libpixman-1-0 amd64 0.36.0-1 [537 kB]
+Get:100 http://127.0.0.1:12990/debian sid/main amd64 libxcb-render0 amd64 1.14-2 [111 kB]
+Get:101 http://127.0.0.1:12990/debian sid/main amd64 libxcb-shm0 amd64 1.14-2 [101 kB]
+Get:102 http://127.0.0.1:12990/debian sid/main amd64 libxext6 amd64 2:1.3.3-1+b2 [52.5 kB]
+Get:103 http://127.0.0.1:12990/debian sid/main amd64 libxrender1 amd64 1:0.9.10-1 [33.0 kB]
+Get:104 http://127.0.0.1:12990/debian sid/main amd64 libcairo2 amd64 1.16.0-4 [689 kB]
+Get:105 http://127.0.0.1:12990/debian sid/main amd64 libltdl7 amd64 2.4.6-14 [390 kB]
+Get:106 http://127.0.0.1:12990/debian sid/main amd64 libfribidi0 amd64 1.0.8-2 [64.8 kB]
+Get:107 http://127.0.0.1:12990/debian sid/main amd64 libgraphite2-3 amd64 1.3.14-1 [81.2 kB]
+Get:108 http://127.0.0.1:12990/debian sid/main amd64 libharfbuzz0b amd64 2.6.4-1 [1360 kB]
+Get:109 http://127.0.0.1:12990/debian sid/main amd64 libthai-data all 0.1.28-3 [170 kB]
+Get:110 http://127.0.0.1:12990/debian sid/main amd64 libdatrie1 amd64 0.2.12-3 [39.5 kB]
+Get:111 http://127.0.0.1:12990/debian sid/main amd64 libthai0 amd64 0.1.28-3 [54.2 kB]
+Get:112 http://127.0.0.1:12990/debian sid/main amd64 libpango-1.0-0 amd64 1.44.7-4 [183 kB]
+Get:113 http://127.0.0.1:12990/debian sid/main amd64 libpangoft2-1.0-0 amd64 1.44.7-4 [59.0 kB]
+Get:114 http://127.0.0.1:12990/debian sid/main amd64 libpangocairo-1.0-0 amd64 1.44.7-4 [48.9 kB]
+Get:115 http://127.0.0.1:12990/debian sid/main amd64 libpathplan4 amd64 2.42.2-4 [63.9 kB]
+Get:116 http://127.0.0.1:12990/debian sid/main amd64 libgvc6 amd64 2.42.2-4 [691 kB]
+Get:117 http://127.0.0.1:12990/debian sid/main amd64 libgvpr2 amd64 2.42.2-4 [211 kB]
+Get:118 http://127.0.0.1:12990/debian sid/main amd64 liblab-gamut1 amd64 2.42.2-4 [221 kB]
+Get:119 http://127.0.0.1:12990/debian sid/main amd64 x11-common all 1:7.7+20 [252 kB]
+Get:120 http://127.0.0.1:12990/debian sid/main amd64 libice6 amd64 2:1.0.9-2 [58.7 kB]
+Get:121 http://127.0.0.1:12990/debian sid/main amd64 libsm6 amd64 2:1.2.3-1 [35.1 kB]
+Get:122 http://127.0.0.1:12990/debian sid/main amd64 libxt6 amd64 1:1.1.5-1+b3 [190 kB]
+Get:123 http://127.0.0.1:12990/debian sid/main amd64 libxmu6 amd64 2:1.1.2-2+b3 [60.8 kB]
+Get:124 http://127.0.0.1:12990/debian sid/main amd64 libxaw7 amd64 2:1.0.13-1+b2 [201 kB]
+Get:125 http://127.0.0.1:12990/debian sid/main amd64 graphviz amd64 2.42.2-4 [630 kB]
+Get:126 http://127.0.0.1:12990/debian sid/main amd64 icu-devtools amd64 63.2-3 [189 kB]
+Get:127 http://127.0.0.1:12990/debian sid/main amd64 libcunit1 amd64 2.1-3-dfsg-2+b12 [33.0 kB]
+Get:128 http://127.0.0.1:12990/debian sid/main amd64 libcunit1-dev amd64 2.1-3-dfsg-2+b12 [63.0 kB]
+Get:129 http://127.0.0.1:12990/debian sid/main amd64 libicu-dev amd64 63.2-3 [9184 kB]
+Get:130 http://127.0.0.1:12990/debian sid/main amd64 libssl1.1 amd64 1.1.1g-1 [1543 kB]
+Get:131 http://127.0.0.1:12990/debian sid/main amd64 libldns2 amd64 1.7.0-4.1 [162 kB]
+Get:132 http://127.0.0.1:12990/debian sid/main amd64 libssl-dev amd64 1.1.1g-1 [1802 kB]
+Get:133 http://127.0.0.1:12990/debian sid/main amd64 libldns-dev amd64 1.7.0-4.1 [1212 kB]
+Get:134 http://127.0.0.1:12990/debian sid/main amd64 libncurses-dev amd64 6.2-1 [337 kB]
+Get:135 http://127.0.0.1:12990/debian sid/main amd64 libreadline-dev amd64 8.0-4 [141 kB]
+Get:136 http://127.0.0.1:12990/debian sid/main amd64 libsqlite3-0 amd64 3.31.1-5 [661 kB]
+Get:137 http://127.0.0.1:12990/debian sid/main amd64 libsqlite3-dev amd64 3.31.1-5 [810 kB]
+Get:138 http://127.0.0.1:12990/debian sid/main amd64 libxml2-dev amd64 2.9.10+dfsg-5 [806 kB]
+Get:139 http://127.0.0.1:12990/debian sid/main amd64 libxml2-utils amd64 2.9.10+dfsg-5 [108 kB]
+Get:140 http://127.0.0.1:12990/debian sid/main amd64 libxslt1.1 amd64 1.1.34-4 [239 kB]
+Get:141 http://127.0.0.1:12990/debian sid/main amd64 opensc-pkcs11 amd64 0.20.0-3 [858 kB]
+Get:142 http://127.0.0.1:12990/debian sid/main amd64 opensc amd64 0.20.0-3 [348 kB]
+Get:143 http://127.0.0.1:12990/debian sid/main amd64 pkg-config amd64 0.29.2-1 [65.1 kB]
+Get:144 http://127.0.0.1:12990/debian sid/main amd64 sqlite3 amd64 3.31.1-5 [974 kB]
+Get:145 http://127.0.0.1:12990/debian sid/main amd64 xsltproc amd64 1.1.34-4 [124 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 97.3 MB in 1s (140 MB/s)
+Selecting previously unselected package bsdmainutils.
+(Reading database ... 13685 files and directories currently installed.)
+Preparing to unpack .../000-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../001-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../002-groff-base_1.22.4-4_amd64.deb ...
+Unpacking groff-base (1.22.4-4) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../003-libpipeline1_1.5.2-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.2-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../004-man-db_2.9.1-1_amd64.deb ...
+Unpacking man-db (2.9.1-1) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../005-readline-common_8.0-4_all.deb ...
+Unpacking readline-common (8.0-4) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../006-libreadline8_8.0-4_amd64.deb ...
+Unpacking libreadline8:amd64 (8.0-4) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../007-libncurses6_6.2-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.2-1) ...
+Selecting previously unselected package libprocps8:amd64.
+Preparing to unpack .../008-libprocps8_2%3a3.3.16-4_amd64.deb ...
+Unpacking libprocps8:amd64 (2:3.3.16-4) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../009-procps_2%3a3.3.16-4_amd64.deb ...
+Unpacking procps (2:3.3.16-4) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../010-sensible-utils_0.0.12+nmu1_all.deb ...
+Unpacking sensible-utils (0.0.12+nmu1) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../011-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../012-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../013-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../014-gettext-base_0.19.8.1-10_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-10) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../015-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../016-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../017-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../018-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../019-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../020-automake_1%3a1.16.2-1_all.deb ...
+Unpacking automake (1:1.16.2-1) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../021-autopoint_0.19.8.1-10_all.deb ...
+Unpacking autopoint (0.19.8.1-10) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../022-libtool_2.4.6-14_all.deb ...
+Unpacking libtool (2.4.6-14) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../023-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libdebhelper-perl.
+Preparing to unpack .../024-libdebhelper-perl_13_all.deb ...
+Unpacking libdebhelper-perl (13) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../025-libarchive-zip-perl_1.68-1_all.deb ...
+Unpacking libarchive-zip-perl (1.68-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../026-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../027-libfile-stripnondeterminism-perl_1.8.0-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.8.0-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../028-dh-strip-nondeterminism_1.8.0-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.8.0-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../029-libelf1_0.176-1.1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../030-dwz_0.13-5_amd64.deb ...
+Unpacking dwz (0.13-5) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../031-libglib2.0-0_2.64.2-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.64.2-1) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../032-libicu63_63.2-3_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-3) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../033-libxml2_2.9.10+dfsg-5_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-5) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../034-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../035-gettext_0.19.8.1-10_amd64.deb ...
+Unpacking gettext (0.19.8.1-10) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../036-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../037-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../038-debhelper_13_all.deb ...
+Unpacking debhelper (13) ...
+Selecting previously unselected package mysql-common.
+Preparing to unpack .../039-mysql-common_5.8+1.0.5_all.deb ...
+Unpacking mysql-common (5.8+1.0.5) ...
+Selecting previously unselected package mariadb-common.
+Preparing to unpack .../040-mariadb-common_1%3a10.3.22-1_all.deb ...
+Unpacking mariadb-common (1:10.3.22-1) ...
+Selecting previously unselected package libmariadb3:amd64.
+Preparing to unpack .../041-libmariadb3_1%3a10.3.22-1_amd64.deb ...
+Unpacking libmariadb3:amd64 (1:10.3.22-1) ...
+Selecting previously unselected package libevent-2.1-7:amd64.
+Preparing to unpack .../042-libevent-2.1-7_2.1.11-stable-1_amd64.deb ...
+Unpacking libevent-2.1-7:amd64 (2.1.11-stable-1) ...
+Selecting previously unselected package libunbound8:amd64.
+Preparing to unpack .../043-libunbound8_1.10.0-1_amd64.deb ...
+Unpacking libunbound8:amd64 (1.10.0-1) ...
+Selecting previously unselected package libgnutls-dane0:amd64.
+Preparing to unpack .../044-libgnutls-dane0_3.6.13-2_amd64.deb ...
+Unpacking libgnutls-dane0:amd64 (3.6.13-2) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Preparing to unpack .../045-libgnutls-openssl27_3.6.13-2_amd64.deb ...
+Unpacking libgnutls-openssl27:amd64 (3.6.13-2) ...
+Selecting previously unselected package libgnutlsxx28:amd64.
+Preparing to unpack .../046-libgnutlsxx28_3.6.13-2_amd64.deb ...
+Unpacking libgnutlsxx28:amd64 (3.6.13-2) ...
+Selecting previously unselected package libidn2-dev:amd64.
+Preparing to unpack .../047-libidn2-dev_2.3.0-1_amd64.deb ...
+Unpacking libidn2-dev:amd64 (2.3.0-1) ...
+Selecting previously unselected package libp11-kit-dev:amd64.
+Preparing to unpack .../048-libp11-kit-dev_0.23.20-1_amd64.deb ...
+Unpacking libp11-kit-dev:amd64 (0.23.20-1) ...
+Selecting previously unselected package libtasn1-6-dev:amd64.
+Preparing to unpack .../049-libtasn1-6-dev_4.16.0-2_amd64.deb ...
+Unpacking libtasn1-6-dev:amd64 (4.16.0-2) ...
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+Preparing to unpack .../050-libgmpxx4ldbl_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmpxx4ldbl:amd64 (2:6.2.0+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Preparing to unpack .../051-libgmp-dev_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp-dev:amd64 (2:6.2.0+dfsg-4) ...
+Selecting previously unselected package nettle-dev:amd64.
+Preparing to unpack .../052-nettle-dev_3.5.1+really3.5.1-2_amd64.deb ...
+Unpacking nettle-dev:amd64 (3.5.1+really3.5.1-2) ...
+Selecting previously unselected package libgnutls28-dev:amd64.
+Preparing to unpack .../053-libgnutls28-dev_3.6.13-2_amd64.deb ...
+Unpacking libgnutls28-dev:amd64 (3.6.13-2) ...
+Selecting previously unselected package zlib1g-dev:amd64.
+Preparing to unpack .../054-zlib1g-dev_1%3a1.2.11.dfsg-2_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-2) ...
+Selecting previously unselected package libmariadb-dev.
+Preparing to unpack .../055-libmariadb-dev_1%3a10.3.22-1_amd64.deb ...
+Unpacking libmariadb-dev (1:10.3.22-1) ...
+Selecting previously unselected package libmariadb-dev-compat:amd64.
+Preparing to unpack .../056-libmariadb-dev-compat_1%3a10.3.22-1_amd64.deb ...
+Unpacking libmariadb-dev-compat:amd64 (1:10.3.22-1) ...
+Selecting previously unselected package default-libmysqlclient-dev:amd64.
+Preparing to unpack .../057-default-libmysqlclient-dev_1.0.5_amd64.deb ...
+Unpacking default-libmysqlclient-dev:amd64 (1.0.5) ...
+Selecting previously unselected package libconfig-inifiles-perl.
+Preparing to unpack .../058-libconfig-inifiles-perl_3.000002-1_all.deb ...
+Unpacking libconfig-inifiles-perl (3.000002-1) ...
+Selecting previously unselected package libaio1:amd64.
+Preparing to unpack .../059-libaio1_0.3.112-8_amd64.deb ...
+Unpacking libaio1:amd64 (0.3.112-8) ...
+Selecting previously unselected package libreadline5:amd64.
+Preparing to unpack .../060-libreadline5_5.2+dfsg-3+b13_amd64.deb ...
+Unpacking libreadline5:amd64 (5.2+dfsg-3+b13) ...
+Selecting previously unselected package libsnappy1v5:amd64.
+Preparing to unpack .../061-libsnappy1v5_1.1.8-1_amd64.deb ...
+Unpacking libsnappy1v5:amd64 (1.1.8-1) ...
+Selecting previously unselected package mariadb-client-core-10.3.
+Preparing to unpack .../062-mariadb-client-core-10.3_1%3a10.3.22-1_amd64.deb ...
+Unpacking mariadb-client-core-10.3 (1:10.3.22-1) ...
+Selecting previously unselected package mariadb-client-10.3.
+Preparing to unpack .../063-mariadb-client-10.3_1%3a10.3.22-1_amd64.deb ...
+Unpacking mariadb-client-10.3 (1:10.3.22-1) ...
+Selecting previously unselected package default-mysql-client.
+Preparing to unpack .../064-default-mysql-client_1.0.5_all.deb ...
+Unpacking default-mysql-client (1.0.5) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../065-libclone-perl_0.45-1_amd64.deb ...
+Unpacking libclone-perl (0.45-1) ...
+Selecting previously unselected package libtext-trim-perl.
+Preparing to unpack .../066-libtext-trim-perl_1.03-1_all.deb ...
+Unpacking libtext-trim-perl (1.03-1) ...
+Selecting previously unselected package libtext-hogan-perl.
+Preparing to unpack .../067-libtext-hogan-perl_2.01-1_all.deb ...
+Unpacking libtext-hogan-perl (2.01-1) ...
+Selecting previously unselected package libfile-slurp-perl.
+Preparing to unpack .../068-libfile-slurp-perl_9999.30-1_all.deb ...
+Unpacking libfile-slurp-perl (9999.30-1) ...
+Selecting previously unselected package libfile-copy-recursive-perl.
+Preparing to unpack .../069-libfile-copy-recursive-perl_0.45-1_all.deb ...
+Unpacking libfile-copy-recursive-perl (0.45-1) ...
+Selecting previously unselected package dh-runit.
+Preparing to unpack .../070-dh-runit_2.8.15_all.deb ...
+Unpacking dh-runit (2.8.15) ...
+Selecting previously unselected package libllvm9:amd64.
+Preparing to unpack .../071-libllvm9_1%3a9.0.1-12_amd64.deb ...
+Unpacking libllvm9:amd64 (1:9.0.1-12) ...
+Selecting previously unselected package libclang1-9.
+Preparing to unpack .../072-libclang1-9_1%3a9.0.1-12_amd64.deb ...
+Unpacking libclang1-9 (1:9.0.1-12) ...
+Selecting previously unselected package libxapian30:amd64.
+Preparing to unpack .../073-libxapian30_1.4.15-1_amd64.deb ...
+Unpacking libxapian30:amd64 (1.4.15-1) ...
+Selecting previously unselected package doxygen.
+Preparing to unpack .../074-doxygen_1.8.17-1_amd64.deb ...
+Unpacking doxygen (1.8.17-1) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../075-libexpat1_2.2.9-1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.9-1) ...
+Selecting previously unselected package libpng16-16:amd64.
+Preparing to unpack .../076-libpng16-16_1.6.37-2_amd64.deb ...
+Unpacking libpng16-16:amd64 (1.6.37-2) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../077-libfreetype6_2.10.1-2_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.10.1-2) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../078-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../079-fontconfig-config_2.13.1-4_all.deb ...
+Unpacking fontconfig-config (2.13.1-4) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../080-libfontconfig1_2.13.1-4_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-4) ...
+Selecting previously unselected package fontconfig.
+Preparing to unpack .../081-fontconfig_2.13.1-4_amd64.deb ...
+Unpacking fontconfig (2.13.1-4) ...
+Selecting previously unselected package libann0.
+Preparing to unpack .../082-libann0_1.1.2+doc-7_amd64.deb ...
+Unpacking libann0 (1.1.2+doc-7) ...
+Selecting previously unselected package libcdt5:amd64.
+Preparing to unpack .../083-libcdt5_2.42.2-4_amd64.deb ...
+Unpacking libcdt5:amd64 (2.42.2-4) ...
+Selecting previously unselected package libcgraph6:amd64.
+Preparing to unpack .../084-libcgraph6_2.42.2-4_amd64.deb ...
+Unpacking libcgraph6:amd64 (2.42.2-4) ...
+Selecting previously unselected package libjpeg62-turbo:amd64.
+Preparing to unpack .../085-libjpeg62-turbo_1%3a1.5.2-2+b1_amd64.deb ...
+Unpacking libjpeg62-turbo:amd64 (1:1.5.2-2+b1) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../086-libjbig0_2.1-3.1+b2_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1+b2) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../087-libwebp6_0.6.1-2+b1_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2+b1) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../088-libtiff5_4.1.0+git191117-2_amd64.deb ...
+Unpacking libtiff5:amd64 (4.1.0+git191117-2) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../089-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../090-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../091-libxcb1_1.14-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.14-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../092-libx11-data_2%3a1.6.9-2_all.deb ...
+Unpacking libx11-data (2:1.6.9-2) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../093-libx11-6_2%3a1.6.9-2_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.9-2) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../094-libxpm4_1%3a3.5.12-1_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1) ...
+Selecting previously unselected package libgd3:amd64.
+Preparing to unpack .../095-libgd3_2.3.0-1_amd64.deb ...
+Unpacking libgd3:amd64 (2.3.0-1) ...
+Selecting previously unselected package libgts-0.7-5:amd64.
+Preparing to unpack .../096-libgts-0.7-5_0.7.6+darcs121130-4+b1_amd64.deb ...
+Unpacking libgts-0.7-5:amd64 (0.7.6+darcs121130-4+b1) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Preparing to unpack .../097-libpixman-1-0_0.36.0-1_amd64.deb ...
+Unpacking libpixman-1-0:amd64 (0.36.0-1) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Preparing to unpack .../098-libxcb-render0_1.14-2_amd64.deb ...
+Unpacking libxcb-render0:amd64 (1.14-2) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Preparing to unpack .../099-libxcb-shm0_1.14-2_amd64.deb ...
+Unpacking libxcb-shm0:amd64 (1.14-2) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../100-libxext6_2%3a1.3.3-1+b2_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../101-libxrender1_1%3a0.9.10-1_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+Selecting previously unselected package libcairo2:amd64.
+Preparing to unpack .../102-libcairo2_1.16.0-4_amd64.deb ...
+Unpacking libcairo2:amd64 (1.16.0-4) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../103-libltdl7_2.4.6-14_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-14) ...
+Selecting previously unselected package libfribidi0:amd64.
+Preparing to unpack .../104-libfribidi0_1.0.8-2_amd64.deb ...
+Unpacking libfribidi0:amd64 (1.0.8-2) ...
+Selecting previously unselected package libgraphite2-3:amd64.
+Preparing to unpack .../105-libgraphite2-3_1.3.14-1_amd64.deb ...
+Unpacking libgraphite2-3:amd64 (1.3.14-1) ...
+Selecting previously unselected package libharfbuzz0b:amd64.
+Preparing to unpack .../106-libharfbuzz0b_2.6.4-1_amd64.deb ...
+Unpacking libharfbuzz0b:amd64 (2.6.4-1) ...
+Selecting previously unselected package libthai-data.
+Preparing to unpack .../107-libthai-data_0.1.28-3_all.deb ...
+Unpacking libthai-data (0.1.28-3) ...
+Selecting previously unselected package libdatrie1:amd64.
+Preparing to unpack .../108-libdatrie1_0.2.12-3_amd64.deb ...
+Unpacking libdatrie1:amd64 (0.2.12-3) ...
+Selecting previously unselected package libthai0:amd64.
+Preparing to unpack .../109-libthai0_0.1.28-3_amd64.deb ...
+Unpacking libthai0:amd64 (0.1.28-3) ...
+Selecting previously unselected package libpango-1.0-0:amd64.
+Preparing to unpack .../110-libpango-1.0-0_1.44.7-4_amd64.deb ...
+Unpacking libpango-1.0-0:amd64 (1.44.7-4) ...
+Selecting previously unselected package libpangoft2-1.0-0:amd64.
+Preparing to unpack .../111-libpangoft2-1.0-0_1.44.7-4_amd64.deb ...
+Unpacking libpangoft2-1.0-0:amd64 (1.44.7-4) ...
+Selecting previously unselected package libpangocairo-1.0-0:amd64.
+Preparing to unpack .../112-libpangocairo-1.0-0_1.44.7-4_amd64.deb ...
+Unpacking libpangocairo-1.0-0:amd64 (1.44.7-4) ...
+Selecting previously unselected package libpathplan4:amd64.
+Preparing to unpack .../113-libpathplan4_2.42.2-4_amd64.deb ...
+Unpacking libpathplan4:amd64 (2.42.2-4) ...
+Selecting previously unselected package libgvc6.
+Preparing to unpack .../114-libgvc6_2.42.2-4_amd64.deb ...
+Unpacking libgvc6 (2.42.2-4) ...
+Selecting previously unselected package libgvpr2:amd64.
+Preparing to unpack .../115-libgvpr2_2.42.2-4_amd64.deb ...
+Unpacking libgvpr2:amd64 (2.42.2-4) ...
+Selecting previously unselected package liblab-gamut1:amd64.
+Preparing to unpack .../116-liblab-gamut1_2.42.2-4_amd64.deb ...
+Unpacking liblab-gamut1:amd64 (2.42.2-4) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../117-x11-common_1%3a7.7+20_all.deb ...
+Unpacking x11-common (1:7.7+20) ...
+Selecting previously unselected package libice6:amd64.
+Preparing to unpack .../118-libice6_2%3a1.0.9-2_amd64.deb ...
+Unpacking libice6:amd64 (2:1.0.9-2) ...
+Selecting previously unselected package libsm6:amd64.
+Preparing to unpack .../119-libsm6_2%3a1.2.3-1_amd64.deb ...
+Unpacking libsm6:amd64 (2:1.2.3-1) ...
+Selecting previously unselected package libxt6:amd64.
+Preparing to unpack .../120-libxt6_1%3a1.1.5-1+b3_amd64.deb ...
+Unpacking libxt6:amd64 (1:1.1.5-1+b3) ...
+Selecting previously unselected package libxmu6:amd64.
+Preparing to unpack .../121-libxmu6_2%3a1.1.2-2+b3_amd64.deb ...
+Unpacking libxmu6:amd64 (2:1.1.2-2+b3) ...
+Selecting previously unselected package libxaw7:amd64.
+Preparing to unpack .../122-libxaw7_2%3a1.0.13-1+b2_amd64.deb ...
+Unpacking libxaw7:amd64 (2:1.0.13-1+b2) ...
+Selecting previously unselected package graphviz.
+Preparing to unpack .../123-graphviz_2.42.2-4_amd64.deb ...
+Unpacking graphviz (2.42.2-4) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../124-icu-devtools_63.2-3_amd64.deb ...
+Unpacking icu-devtools (63.2-3) ...
+Selecting previously unselected package libcunit1:amd64.
+Preparing to unpack .../125-libcunit1_2.1-3-dfsg-2+b12_amd64.deb ...
+Unpacking libcunit1:amd64 (2.1-3-dfsg-2+b12) ...
+Selecting previously unselected package libcunit1-dev.
+Preparing to unpack .../126-libcunit1-dev_2.1-3-dfsg-2+b12_amd64.deb ...
+Unpacking libcunit1-dev (2.1-3-dfsg-2+b12) ...
+Selecting previously unselected package libicu-dev:amd64.
+Preparing to unpack .../127-libicu-dev_63.2-3_amd64.deb ...
+Unpacking libicu-dev:amd64 (63.2-3) ...
+Selecting previously unselected package libssl1.1:amd64.
+Preparing to unpack .../128-libssl1.1_1.1.1g-1_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1g-1) ...
+Selecting previously unselected package libldns2:amd64.
+Preparing to unpack .../129-libldns2_1.7.0-4.1_amd64.deb ...
+Unpacking libldns2:amd64 (1.7.0-4.1) ...
+Selecting previously unselected package libssl-dev:amd64.
+Preparing to unpack .../130-libssl-dev_1.1.1g-1_amd64.deb ...
+Unpacking libssl-dev:amd64 (1.1.1g-1) ...
+Selecting previously unselected package libldns-dev:amd64.
+Preparing to unpack .../131-libldns-dev_1.7.0-4.1_amd64.deb ...
+Unpacking libldns-dev:amd64 (1.7.0-4.1) ...
+Selecting previously unselected package libncurses-dev:amd64.
+Preparing to unpack .../132-libncurses-dev_6.2-1_amd64.deb ...
+Unpacking libncurses-dev:amd64 (6.2-1) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Preparing to unpack .../133-libreadline-dev_8.0-4_amd64.deb ...
+Unpacking libreadline-dev:amd64 (8.0-4) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../134-libsqlite3-0_3.31.1-5_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.31.1-5) ...
+Selecting previously unselected package libsqlite3-dev:amd64.
+Preparing to unpack .../135-libsqlite3-dev_3.31.1-5_amd64.deb ...
+Unpacking libsqlite3-dev:amd64 (3.31.1-5) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Preparing to unpack .../136-libxml2-dev_2.9.10+dfsg-5_amd64.deb ...
+Unpacking libxml2-dev:amd64 (2.9.10+dfsg-5) ...
+Selecting previously unselected package libxml2-utils.
+Preparing to unpack .../137-libxml2-utils_2.9.10+dfsg-5_amd64.deb ...
+Unpacking libxml2-utils (2.9.10+dfsg-5) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Preparing to unpack .../138-libxslt1.1_1.1.34-4_amd64.deb ...
+Unpacking libxslt1.1:amd64 (1.1.34-4) ...
+Selecting previously unselected package opensc-pkcs11:amd64.
+Preparing to unpack .../139-opensc-pkcs11_0.20.0-3_amd64.deb ...
+Unpacking opensc-pkcs11:amd64 (0.20.0-3) ...
+Selecting previously unselected package opensc.
+Preparing to unpack .../140-opensc_0.20.0-3_amd64.deb ...
+Unpacking opensc (0.20.0-3) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../141-pkg-config_0.29.2-1_amd64.deb ...
+Unpacking pkg-config (0.29.2-1) ...
+Selecting previously unselected package sqlite3.
+Preparing to unpack .../142-sqlite3_3.31.1-5_amd64.deb ...
+Unpacking sqlite3 (3.31.1-5) ...
+Selecting previously unselected package xsltproc.
+Preparing to unpack .../143-xsltproc_1.1.34-4_amd64.deb ...
+Unpacking xsltproc (1.1.34-4) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy.
+Preparing to unpack .../144-sbuild-build-depends-main-dummy_0.invalid.0_amd64.deb ...
+Unpacking sbuild-build-depends-main-dummy (0.invalid.0) ...
+Setting up libconfig-inifiles-perl (3.000002-1) ...
+Setting up libexpat1:amd64 (2.2.9-1) ...
+Setting up libpipeline1:amd64 (1.5.2-2) ...
+Setting up libgraphite2-3:amd64 (1.3.14-1) ...
+Setting up libpixman-1-0:amd64 (0.36.0-1) ...
+Setting up libxapian30:amd64 (1.4.15-1) ...
+Setting up mysql-common (5.8+1.0.5) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libfile-slurp-perl (9999.30-1) ...
+Setting up libxcb1:amd64 (1.14-2) ...
+Setting up libgnutls-openssl27:amd64 (3.6.13-2) ...
+Setting up libdatrie1:amd64 (0.2.12-3) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up libxcb-render0:amd64 (1.14-2) ...
+Setting up libclone-perl (0.45-1) ...
+Setting up libarchive-zip-perl (1.68-1) ...
+Setting up libglib2.0-0:amd64 (2.64.2-1) ...
+No schema files found: doing nothing.
+Setting up libssl1.1:amd64 (1.1.1g-1) ...
+Setting up libdebhelper-perl (13) ...
+Setting up libsqlite3-0:amd64 (3.31.1-5) ...
+Setting up liblab-gamut1:amd64 (2.42.2-4) ...
+Setting up x11-common (1:7.7+20) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up gettext-base (0.19.8.1-10) ...
+Setting up libxcb-shm0:amd64 (1.14-2) ...
+Setting up file (1:5.38-4) ...
+Setting up libjbig0:amd64 (2.1-3.1+b2) ...
+Setting up libicu63:amd64 (63.2-3) ...
+Setting up libsnappy1v5:amd64 (1.1.8-1) ...
+Setting up libfile-copy-recursive-perl (0.45-1) ...
+Setting up libgts-0.7-5:amd64 (0.7.6+darcs121130-4+b1) ...
+Setting up mariadb-common (1:10.3.22-1) ...
+update-alternatives: using /etc/mysql/mariadb.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up opensc-pkcs11:amd64 (0.20.0-3) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libgmpxx4ldbl:amd64 (2:6.2.0+dfsg-4) ...
+Setting up libjpeg62-turbo:amd64 (1:1.5.2-2+b1) ...
+Setting up libsqlite3-dev:amd64 (3.31.1-5) ...
+Setting up libx11-data (2:1.6.9-2) ...
+Setting up libpathplan4:amd64 (2.42.2-4) ...
+Setting up libann0 (1.1.2+doc-7) ...
+Setting up libncurses6:amd64 (6.2-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libfribidi0:amd64 (1.0.8-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libssl-dev:amd64 (1.1.1g-1) ...
+Setting up libpng16-16:amd64 (1.6.37-2) ...
+Setting up libevent-2.1-7:amd64 (2.1.11-stable-1) ...
+Setting up autopoint (0.19.8.1-10) ...
+Setting up libwebp6:amd64 (0.6.1-2+b1) ...
+Setting up icu-devtools (63.2-3) ...
+Setting up pkg-config (0.29.2-1) ...
+Setting up libmariadb3:amd64 (1:10.3.22-1) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libgnutlsxx28:amd64 (3.6.13-2) ...
+Setting up libltdl7:amd64 (2.4.6-14) ...
+Setting up libidn2-dev:amd64 (2.3.0-1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-2) ...
+Setting up sensible-utils (0.0.12+nmu1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libx11-6:amd64 (2:1.6.9-2) ...
+Setting up libcunit1:amd64 (2.1-3-dfsg-2+b12) ...
+Setting up libthai-data (0.1.28-3) ...
+Setting up libcdt5:amd64 (2.42.2-4) ...
+Setting up libcgraph6:amd64 (2.42.2-4) ...
+Setting up libtiff5:amd64 (4.1.0+git191117-2) ...
+Setting up libtext-trim-perl (1.03-1) ...
+Setting up libaio1:amd64 (0.3.112-8) ...
+Setting up libtasn1-6-dev:amd64 (4.16.0-2) ...
+Setting up libelf1:amd64 (0.176-1.1) ...
+Setting up readline-common (8.0-4) ...
+Setting up libicu-dev:amd64 (63.2-3) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-5) ...
+Setting up libllvm9:amd64 (1:9.0.1-12) ...
+Setting up libprocps8:amd64 (2:3.3.16-4) ...
+Setting up libp11-kit-dev:amd64 (0.23.20-1) ...
+Setting up libfile-stripnondeterminism-perl (1.8.0-1) ...
+Setting up libldns2:amd64 (1.7.0-4.1) ...
+Setting up libice6:amd64 (2:1.0.9-2) ...
+Setting up libncurses-dev:amd64 (6.2-1) ...
+Setting up libreadline5:amd64 (5.2+dfsg-3+b13) ...
+Setting up libgmp-dev:amd64 (2:6.2.0+dfsg-4) ...
+Setting up libxpm4:amd64 (1:3.5.12-1) ...
+Setting up nettle-dev:amd64 (3.5.1+really3.5.1-2) ...
+Setting up libxrender1:amd64 (1:0.9.10-1) ...
+Setting up libtool (2.4.6-14) ...
+Setting up libclang1-9 (1:9.0.1-12) ...
+Setting up libreadline8:amd64 (8.0-4) ...
+Setting up opensc (0.20.0-3) ...
+Setting up libxext6:amd64 (2:1.3.3-1+b2) ...
+Setting up m4 (1.4.18-4) ...
+Setting up libreadline-dev:amd64 (8.0-4) ...
+Setting up libldns-dev:amd64 (1.7.0-4.1) ...
+Setting up libthai0:amd64 (0.1.28-3) ...
+Setting up libxml2-dev:amd64 (2.9.10+dfsg-5) ...
+Setting up doxygen (1.8.17-1) ...
+Setting up libunbound8:amd64 (1.10.0-1) ...
+Setting up libfreetype6:amd64 (2.10.1-2) ...
+Setting up libcunit1-dev (2.1-3-dfsg-2+b12) ...
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up dh-strip-nondeterminism (1.8.0-1) ...
+Setting up libgvpr2:amd64 (2.42.2-4) ...
+Setting up dwz (0.13-5) ...
+Setting up libtext-hogan-perl (2.01-1) ...
+Setting up groff-base (1.22.4-4) ...
+Setting up mariadb-client-core-10.3 (1:10.3.22-1) ...
+Setting up procps (2:3.3.16-4) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libxslt1.1:amd64 (1.1.34-4) ...
+Setting up libharfbuzz0b:amd64 (2.6.4-1) ...
+Setting up libxml2-utils (2.9.10+dfsg-5) ...
+Setting up libsm6:amd64 (2:1.2.3-1) ...
+Setting up sqlite3 (3.31.1-5) ...
+Setting up automake (1:1.16.2-1) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libgnutls-dane0:amd64 (3.6.13-2) ...
+Setting up gettext (0.19.8.1-10) ...
+Setting up fontconfig-config (2.13.1-4) ...
+Setting up xsltproc (1.1.34-4) ...
+Setting up man-db (2.9.1-1) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up mariadb-client-10.3 (1:10.3.22-1) ...
+Setting up libxt6:amd64 (1:1.1.5-1+b3) ...
+Setting up libfontconfig1:amd64 (2.13.1-4) ...
+Setting up default-mysql-client (1.0.5) ...
+Setting up libgnutls28-dev:amd64 (3.6.13-2) ...
+Setting up fontconfig (2.13.1-4) ...
+Regenerating fonts cache... done.
+Setting up libxmu6:amd64 (2:1.1.2-2+b3) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libpango-1.0-0:amd64 (1.44.7-4) ...
+Setting up libxaw7:amd64 (2:1.0.13-1+b2) ...
+Setting up libcairo2:amd64 (1.16.0-4) ...
+Setting up libgd3:amd64 (2.3.0-1) ...
+Setting up libmariadb-dev (1:10.3.22-1) ...
+Setting up libpangoft2-1.0-0:amd64 (1.44.7-4) ...
+Setting up libpangocairo-1.0-0:amd64 (1.44.7-4) ...
+Setting up libmariadb-dev-compat:amd64 (1:10.3.22-1) ...
+Setting up libgvc6 (2.42.2-4) ...
+Setting up default-libmysqlclient-dev:amd64 (1.0.5) ...
+Setting up graphviz (2.42.2-4) ...
+Setting up debhelper (13) ...
+Setting up dh-autoreconf (19) ...
+Setting up dh-runit (2.8.15) ...
+Setting up sbuild-build-depends-main-dummy (0.invalid.0) ...
+Processing triggers for libc-bin (2.30-4) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (amd64 included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 4.19.0-6-cloud-amd64 #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11) amd64 (x86_64)
+Toolchain package versions: binutils_2.34-6 dpkg-dev_1.19.7 g++-9_9.3.0-11 gcc-9_9.3.0-11 libc6-dev_2.30-4 libstdc++-9-dev_9.3.0-11 libstdc++6_10-20200418-1 linux-libc-dev_5.6.7-1
+Package versions: adduser_3.118 apt_2.0.2 autoconf_2.69-11.1 automake_1:1.16.2-1 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-6 binutils_2.34-6 binutils-common_2.34-6 binutils-x86-64-linux-gnu_2.34-6 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 clang-10_1:10.0.0-4 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.3.0-11 dash_0.5.10.2-7 debconf_1.5.74 debhelper_13 debian-archive-keyring_2019.1 debianutils_4.9.1 default-libmysqlclient-dev_1.0.5 default-mysql-client_1.0.5 dh-autoreconf_19 dh-runit_2.8.15 dh-strip-nondeterminism_1.8.0-1 diffutils_1:3.7-3 doxygen_1.8.17-1 dpkg_1.19.7 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.6-1 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.38-4 findutils_4.7.0-1 fontconfig_2.13.1-4 fontconfig-config_2.13.1-4 fonts-dejavu-core_2.37-1 g++_4:9.2.1-3.1 g++-9_9.3.0-11 gcc_4:9.2.1-3.1 gcc-10-base_10-20200418-1 gcc-9_9.3.0-11 gcc-9-base_9.3.0-11 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gpgv_2.2.20-1 graphviz_2.42.2-4 grep_3.4-1 groff-base_1.22.4-4 gzip_1.10-2 hostname_3.23 icu-devtools_63.2-3 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 lib32gcc-s1_10-20200418-1 lib32gcc1_1:10-20200418-1 lib32stdc++6_10-20200418-1 libacl1_2.2.53-8 libaio1_0.3.112-8 libann0_1.1.2+doc-7 libapt-pkg6.0_2.0.2 libarchive-zip-perl_1.68-1 libasan5_9.3.0-11 libatomic1_10-20200418-1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-3 libaudit1_1:2.8.5-3+b1 libbinutils_2.34-6 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.30-4 libc-dev-bin_2.30-4 libc6_2.30-4 libc6-dev_2.30-4 libc6-i386_2.30-4 libcairo2_1.16.0-4 libcap-ng0_0.7.9-2.1+b2 libcc1-0_10-20200418-1 libcdt5_2.42.2-4 libcgraph6_2.42.2-4 libclang-common-10-dev_1:10.0.0-4 libclang-cpp10_1:10.0.0-4 libclang1-10_1:10.0.0-4 libclang1-9_1:9.0.1-12 libclone-perl_0.45-1 libcom-err2_1.45.6-1 libconfig-inifiles-perl_3.000002-1 libcroco3_0.6.13-1 libcrypt-dev_1:4.4.16-1 libcrypt1_1:4.4.16-1 libctf-nobfd0_2.34-6 libctf0_2.34-6 libcunit1_2.1-3-dfsg-2+b12 libcunit1-dev_2.1-3-dfsg-2+b12 libdatrie1_0.2.12-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.251 libdebhelper-perl_13 libdpkg-perl_1.19.7 libedit2_3.1-20191231-1 libelf1_0.176-1.1 libevent-2.1-7_2.1.11-stable-1 libexpat1_2.2.9-1 libext2fs2_1.45.6-1 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi7_3.3-4 libfile-copy-recursive-perl_0.45-1 libfile-slurp-perl_9999.30-1 libfile-stripnondeterminism-perl_1.8.0-1 libfontconfig1_2.13.1-4 libfreetype6_2.10.1-2 libfribidi0_1.0.8-2 libgc1c2_1:7.6.4-0.4 libgcc-9-dev_9.3.0-11 libgcc-s1_10-20200418-1 libgcrypt20_1.8.5-5 libgd3_2.3.0-1 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.64.2-1 libgmp-dev_2:6.2.0+dfsg-4 libgmp10_2:6.2.0+dfsg-4 libgmpxx4ldbl_2:6.2.0+dfsg-4 libgnutls-dane0_3.6.13-2 libgnutls-openssl27_3.6.13-2 libgnutls28-dev_3.6.13-2 libgnutls30_3.6.13-2 libgnutlsxx28_3.6.13-2 libgomp1_10-20200418-1 libgpg-error0_1.37-1 libgraphite2-3_1.3.14-1 libgts-0.7-5_0.7.6+darcs121130-4+b1 libgvc6_2.42.2-4 libgvpr2_2.42.2-4 libharfbuzz0b_2.6.4-1 libhogweed5_3.5.1+really3.5.1-2 libice6_2:1.0.9-2 libicu-dev_63.2-3 libicu63_63.2-3 libidn2-0_2.3.0-1 libidn2-dev_2.3.0-1 libisl22_0.22.1-1 libitm1_10-20200418-1 libjbig0_2.1-3.1+b2 libjpeg62-turbo_1:1.5.2-2+b1 liblab-gamut1_2.42.2-4 libldns-dev_1.7.0-4.1 libldns2_1.7.0-4.1 libllvm10_1:10.0.0-4 libllvm9_1:9.0.1-12 liblsan0_10-20200418-1 libltdl7_2.4.6-14 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 libmagic-mgc_1:5.38-4 libmagic1_1:5.38-4 libmariadb-dev_1:10.3.22-1 libmariadb-dev-compat_1:10.3.22-1 libmariadb3_1:10.3.22-1 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libncurses-dev_6.2-1 libncurses6_6.2-1 libncursesw6_6.2-1 libnettle7_3.5.1+really3.5.1-2 libobjc-9-dev_9.3.0-11 libobjc4_10-20200418-1 libomp-10-dev_1:10.0.0-4 libomp5-10_1:10.0.0-4 libp11-kit-dev_0.23.20-1 libp11-kit0_0.23.20-1 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpango-1.0-0_1.44.7-4 libpangocairo-1.0-0_1.44.7-4 libpangoft2-1.0-0_1.44.7-4 libpathplan4_2.42.2-4 libpcre2-8-0_10.34-7 libpcre3_2:8.39-12+b1 libperl5.30_5.30.0-10 libpipeline1_1.5.2-2 libpixman-1-0_0.36.0-1 libpng16-16_1.6.37-2 libprocps8_2:3.3.16-4 libquadmath0_10-20200418-1 libreadline-dev_8.0-4 libreadline5_5.2+dfsg-3+b13 libreadline8_8.0-4 libseccomp2_2.4.3-1+b1 libselinux1_3.0-1+b3 libsemanage-common_3.0-1 libsemanage1_3.0-1+b3 libsepol1_3.0-1 libsigsegv2_2.12-2 libsm6_2:1.2.3-1 libsmartcols1_2.34-0.1 libsnappy1v5_1.1.8-1 libsqlite3-0_3.31.1-5 libsqlite3-dev_3.31.1-5 libss2_1.45.6-1 libssl-dev_1.1.1g-1 libssl1.1_1.1.1g-1 libstdc++-9-dev_9.3.0-11 libstdc++6_10-20200418-1 libsub-override-perl_0.09-2 libsystemd0_245.5-2 libtasn1-6_4.16.0-2 libtasn1-6-dev_4.16.0-2 libtext-hogan-perl_2.01-1 libtext-trim-perl_1.03-1 libthai-data_0.1.28-3 libthai0_0.1.28-3 libtiff5_4.1.0+git191117-2 libtinfo6_6.2-1 libtool_2.4.6-14 libtsan0_10-20200418-1 libubsan1_10-20200418-1 libuchardet0_0.0.6-3 libudev1_245.5-2 libunbound8_1.10.0-1 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libwebp6_0.6.1-2+b1 libx11-6_2:1.6.9-2 libx11-data_2:1.6.9-2 libxapian30_1.4.15-1 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxcb-render0_1.14-2 libxcb-shm0_1.14-2 libxcb1_1.14-2 libxdmcp6_1:1.1.2-3 libxext6_2:1.3.3-1+b2 libxml2_2.9.10+dfsg-5 libxml2-dev_2.9.10+dfsg-5 libxml2-utils_2.9.10+dfsg-5 libxmu6_2:1.1.2-2+b3 libxpm4_1:3.5.12-1 libxrender1_1:0.9.10-1 libxslt1.1_1.1.34-4 libxt6_1:1.1.5-1+b3 libz3-4_4.8.7-4 libzstd1_1.4.4+dfsg-3 linux-libc-dev_5.6.7-1 login_1:4.8.1-1 logsave_1.45.6-1 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.3 man-db_2.9.1-1 mariadb-client-10.3_1:10.3.22-1 mariadb-client-core-10.3_1:10.3.22-1 mariadb-common_1:10.3.22-1 mawk_1.3.4.20200120-2 mount_2.34-0.1 mysql-common_5.8+1.0.5 ncurses-base_6.2-1 ncurses-bin_6.2-1 nettle-dev_3.5.1+really3.5.1-2 opensc_0.20.0-3 opensc-pkcs11_0.20.0-3 passwd_1:4.8.1-1 patch_2.7.6-6 perl_5.30.0-10 perl-base_5.30.0-10 perl-modules-5.30_5.30.0-10 pkg-config_0.29.2-1 po-debconf_1.0.21 procps_2:3.3.16-4 qt5-qmake_5.12.5+dfsg-10 qt5-qmake-bin_5.12.5+dfsg-10 qtchooser_66-2 readline-common_8.0-4 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 sqlite3_3.31.1-5 sysvinit-utils_2.96-3 tar_1.30+dfsg-7 tzdata_2020a-1 ucf_3.0038+nmu1 util-linux_2.34-0.1 x11-common_1:7.7+20 xsltproc_1.1.34-4 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-2 zlib1g-dev_1:1.2.11.dfsg-2
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: opendnssec
+Binary: opendnssec-common, opendnssec, opendnssec-doc, opendnssec-enforcer, opendnssec-enforcer-mysql, opendnssec-enforcer-sqlite3, opendnssec-signer, libhsm-bin
+Architecture: any all
+Version: 1:2.1.6-1
+Maintainer: Mathieu Mirmont <mat@parad0x.org>
+Uploaders: Timo Aaltonen <tjaalton@debian.org>
+Homepage: http://www.opendnssec.org/
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/debian/opendnssec
+Vcs-Git: https://salsa.debian.org/debian/opendnssec.git
+Build-Depends: debhelper-compat (= 12), default-libmysqlclient-dev, default-mysql-client, dh-runit, doxygen, graphviz, libcunit1-dev, libldns-dev (>= 1.6.14~), libreadline-dev, libsqlite3-dev, libssl-dev, libxml2-dev, libxml2-utils, opensc, pkg-config, po-debconf, procps, sqlite3, xsltproc
+Package-List:
+ libhsm-bin deb misc optional arch=any
+ opendnssec deb misc optional arch=all
+ opendnssec-common deb misc optional arch=all
+ opendnssec-doc deb doc optional arch=all
+ opendnssec-enforcer deb admin optional arch=all
+ opendnssec-enforcer-mysql deb admin optional arch=any
+ opendnssec-enforcer-sqlite3 deb admin optional arch=any
+ opendnssec-signer deb admin optional arch=any
+Checksums-Sha1:
+ 3aca59010c2067578ede0dbc216f15d70f9447e9 1122405 opendnssec_2.1.6.orig.tar.gz
+ 916bdcf30fe7f7b513b8f1cdb6396fca8cb23445 801 opendnssec_2.1.6.orig.tar.gz.asc
+ 610dd73ba79e0bc205eccf6eced3a9f394304a3d 32236 opendnssec_2.1.6-1.debian.tar.xz
+Checksums-Sha256:
+ b2c0caa673b8cfef73585dedf276997f5ca69bb3d523ce4e080f70dfcb23c56c 1122405 opendnssec_2.1.6.orig.tar.gz
+ 443af8b094fbcd7eec72bdc9edc1aed576b4b8bf41fa119de2b440e59adcb570 801 opendnssec_2.1.6.orig.tar.gz.asc
+ ff4300abd83d58675de897b328437f60064fff686ac90440f8442413fb6e054e 32236 opendnssec_2.1.6-1.debian.tar.xz
+Files:
+ fa7572cc3e04dc139fb4314e6255dc50 1122405 opendnssec_2.1.6.orig.tar.gz
+ 39032146c2b9dc588ee40454420458d8 801 opendnssec_2.1.6.orig.tar.gz.asc
+ 988bed1941596eae03b5dd3ee3815551 32236 opendnssec_2.1.6-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEdS3ifE3rFwGbS2Yjy3AxZaiJhNwFAl5WbOUACgkQy3AxZaiJ
+hNxguw//dVg4+zVlG8G2MMXlLEOOw2nOdFEnmzDpk8ifUEK6AT7HtlRs1Nphdwz+
+631r8Y37WspjdQp+oyeZwojblW8zTD5N2eqvGiLnaB1MznhNTOp4Qe/80YLQzYh2
+LFf9P/KN46LUbq4D2DW5o9G3Rsym1SsKf5TA5gS4Na7e3A+Sv3mvDQsB+MaISTJr
+puvUCln1ORoG5LgZSjyOfnLfoiqXwKB5ZzHcjLTfYQF4EN8hlyknv4vp2qhc878C
+ftqHQIfWq/T7M932LQnOtZEVJJRqngBZuRZQep1RbvOOR+6ukyYSTZc4QOyoqpSE
+v91adJKHtYx7Sv3kIE9E7wcEHQIH94/3Amicn0S9EdvkZBtd4s1ss5HsD0KQL78U
+QrzzaT8T0CCzbmeuvyeuxXW4wYbFs9hhyHGLarVPDnySKhzm8WzYO6QQnT3FikTz
+sy3BKsc7pXC2yy93R/1HbDHWOPN4dKnoWzpUb2hYSHCoAJIwhPmhRZetYPu28eUN
+GqmQJelRWa89VtRHP3wwl7XcQYU847mvmWrjRruupcC15WUuCQbQFRRDSdCsGG8R
+DfRSo5ijklZGne/Qg7u8c77ILyK6y9Iqz0jhjmVT9gpE1ClZFw3xofl/TK4tm1lw
+HvKYVRQ7pKnLjVm2WW9M6/6JahKw8po7t70+SjylaEVuY02z7CU=
+=OVAR
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Feb 26 13:04:37 2020 UTC
+gpgv:                using RSA key 752DE27C4DEB17019B4B6623CB703165A88984DC
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./opendnssec_2.1.6-1.dsc
+dpkg-source: info: extracting opendnssec in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking opendnssec_2.1.6.orig.tar.gz
+dpkg-source: info: unpacking opendnssec_2.1.6-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 0001-fix-localstate-dir.patch
+dpkg-source: info: applying 0003-rename-regress-for-autotest.patch
+dpkg-source: info: applying 0004-ods-control.in-fixes.patch
+dpkg-source: info: applying 0007-Use-SQLITE3_SONAME-macro-to-dlopen-libsqlite3.so.patch
+dpkg-source: info: applying 0008-Fix-var-opendnssec-var-lib-opendnssec-paths.patch
+dpkg-source: info: applying 0009-Fix-schema.sqlite-and-schema.mysql-paths-to-usr-shar.patch
+dpkg-source: info: applying 0013-Fix-build-warnings-and-possible-bugs.patch
+dpkg-source: info: applying 0015-remove-strptime-build-warning.patch
+dpkg-source: info: applying 0016-m4-acx_libxml2.m4-use-pkg-config-instead-of-xml2-con.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+HOME=/sbuild-nonexistent
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+LOGNAME=user42
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SCHROOT_ALIAS_NAME=unstable
+SCHROOT_CHROOT_NAME=sid-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1001
+SCHROOT_GROUP=user42
+SCHROOT_SESSION_ID=sid-amd64-sbuild-3661526c-a7fb-42a2-b6ca-516e0014b0ec
+SCHROOT_UID=1001
+SCHROOT_USER=user42
+SHELL=/bin/sh
+USER=user42
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -us -uc -b -rfakeroot
+dpkg-buildpackage: info: source package opendnssec
+dpkg-buildpackage: info: source version 1:2.1.6-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Mathieu Mirmont <mat@parad0x.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean --with runit
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_clean -Bbuild-sqlite3
+dh_auto_clean -Denforcer -Bbuild-mysql/enforcer
+debconf-updatepo
+rm -rf build-mysql build-sqlite3
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules binary
+dh binary --with runit
+   dh_update_autotools_config
+   dh_autoreconf
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:14: installing './compile'
+configure.ac:7: installing './missing'
+common/Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -Bbuild-sqlite3 -- --disable-rpath --with-ldns=/usr --with-cunit=/usr --libexecdir=/usr/lib/opendnssec/ --with-pkcs11-opensc=/usr/lib/pkcs11/opensc-pkcs11.so --with-pkcs11-softhsm=/usr/lib/softhsm/libsofthsm2.so --with-readline --with-enforcer-database=sqlite3
+	cd build-sqlite3 && ../configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --disable-rpath --with-ldns=/usr --with-cunit=/usr --libexecdir=/usr/lib/opendnssec/ --with-pkcs11-opensc=/usr/lib/pkcs11/opensc-pkcs11.so --with-pkcs11-softhsm=/usr/lib/softhsm/libsofthsm2.so --with-readline --with-enforcer-database=sqlite3
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+configure: Detecting common OpenDNSSEC settings
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... none
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) none
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... no
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... none
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for xmllint... /usr/bin/xmllint
+checking for xsltproc... /usr/bin/xsltproc
+checking for java... no
+checking for cp... /bin/cp
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking whether C compiler accepts -Werror=unknown-warning-option... yes
+checking whether C compiler accepts -fno-strict-aliasing... yes
+checking whether C compiler accepts -Wall... yes
+checking whether C compiler accepts -Wextra... yes
+checking whether C compiler accepts -Wwrite-strings... yes
+checking whether C compiler accepts -Wpointer-arith... yes
+checking whether C compiler accepts -Wno-unused-parameter... yes
+checking whether C compiler accepts -Wno-missing-field-initializers... yes
+checking whether C compiler accepts -Wformat=2... yes
+checking whether C compiler accepts -Wcast-align... yes
+checking whether C compiler accepts -Wformat-security... yes
+checking whether C compiler accepts -Wstrict-aliasing... yes
+checking whether C compiler accepts -Wpacked... yes
+checking whether C compiler accepts -Winit-self... yes
+checking whether C compiler accepts -Wmissing-include-dirs... yes
+checking whether C compiler accepts -Warray-bounds... yes
+checking whether C compiler accepts -Wreturn-type... yes
+checking whether C compiler accepts -Wno-format-nonliteral... yes
+checking whether C compiler accepts -Wno-format-y2k... yes
+checking whether C compiler accepts -Wno-unused-function... yes
+checking whether C compiler accepts -Wno-unused-variable... yes
+checking whether C compiler accepts -Wno-sign-compare... yes
+checking whether C compiler accepts -Wno-error=unused-parameter... yes
+checking whether C compiler accepts -Wno-error=missing-field-initializers... yes
+checking whether C compiler accepts -Wno-error=format-nonliteral... yes
+checking whether C compiler accepts -Wno-error=format-y2k... yes
+checking whether C compiler accepts -Wno-error=unused-function... yes
+checking whether C compiler accepts -Wno-error=unused-variable... yes
+checking whether C compiler accepts -Wno-error=sign-compare... yes
+checking for __attribute__... yes
+Fixing libtool for -rpath problems.
+../configure: line 13861: libtool: No such file or directory
+mv: cannot stat 'libtool-2': No such file or directory
+chmod: cannot access 'libtool': No such file or directory
+checking CFLAGS for maximum warnings... -Wall
+checking for ANSI C header files... (cached) yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for inttypes.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for unistd.h... (cached) yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for getopt.h... (cached) yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdint.h... (cached) yes
+checking for strings.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking libxml/parser.h usability... no
+checking libxml/parser.h presence... no
+checking for libxml/parser.h... no
+checking libxml/relaxng.h usability... no
+checking libxml/relaxng.h presence... no
+checking for libxml/relaxng.h... no
+checking libxml/xmlreader.h usability... no
+checking libxml/xmlreader.h presence... no
+checking for libxml/xmlreader.h... no
+checking libxml/xpath.h usability... no
+checking libxml/xpath.h presence... no
+checking for libxml/xpath.h... no
+checking for an ANSI C-conforming const... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for uid_t in sys/types.h... yes
+checking for uint16_t... yes
+checking for union semun... no
+checking if compiler needs -Werror to reject unknown flags... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for arc4random... no
+checking for arc4random_uniform... no
+checking for dup2... yes
+checking for endpwent... yes
+checking for select... yes
+checking for strerror... yes
+checking for strtol... yes
+checking for getpass... yes
+checking for getpassphrase... no
+checking for memset... yes
+checking for localtime_r... yes
+checking for memset... (cached) yes
+checking for strdup... yes
+checking for strerror... (cached) yes
+checking for strstr... yes
+checking for strtol... (cached) yes
+checking for strtoul... yes
+checking for setregid... yes
+checking for setreuid... yes
+checking for chown... yes
+checking for stat... yes
+checking for exit... yes
+checking for time... yes
+checking for atoi... yes
+checking for getpid... yes
+checking for waitpid... yes
+checking for sigfillset... yes
+checking for malloc... yes
+checking for calloc... yes
+checking for realloc... yes
+checking for free... yes
+checking for strlen... yes
+checking for strncmp... yes
+checking for strncat... yes
+checking for strncpy... yes
+checking for strerror... (cached) yes
+checking for strncasecmp... yes
+checking for strdup... (cached) yes
+checking for fgetc... yes
+checking for fopen... yes
+checking for fclose... yes
+checking for ferror... yes
+checking for fprintf... yes
+checking for vsnprintf... yes
+checking for snprintf... yes
+checking for fflush... yes
+checking for openlog... yes
+checking for closelog... yes
+checking for syslog... yes
+checking for openlog_r... no
+checking for closelog_r... no
+checking for syslog_r... no
+checking for vsyslog_r... no
+checking for chroot... yes
+checking for getgroups... yes
+checking for setgroups... yes
+checking for initgroups... yes
+checking for close... yes
+checking for unlink... yes
+checking for fcntl... yes
+checking for socket... yes
+checking for listen... yes
+checking for bzero... yes
+checking for va_start... no
+checking for va_end... no
+checking for xmlInitParser... no
+checking for xmlCleanupParser... no
+checking for xmlCleanupThreads... no
+checking for pthread_mutex_init... yes
+checking for pthread_mutex_destroy... yes
+checking for pthread_mutex_lock... yes
+checking for pthread_mutex_unlock... yes
+checking for pthread_cond_init... yes
+checking for pthread_cond_signal... yes
+checking for pthread_cond_destroy... yes
+checking for pthread_cond_wait... yes
+checking for pthread_cond_timedwait... yes
+checking for pthread_create... yes
+checking for pthread_detach... yes
+checking for pthread_self... yes
+checking for pthread_join... yes
+checking for pthread_sigmask... yes
+checking for pthread_barrier_wait... yes
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for working memcmp... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for sys/select.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking for vprintf... yes
+checking for _doprnt... no
+checking for strlcat... no
+checking for strlcpy... no
+checking for b64_pton... no
+checking for b64_ntop... no
+checking for setresuid... yes
+checking if setresuid seems to work... yes
+checking for setresgid... yes
+checking if setresgid seems to work... yes
+checking whether strptime needs defines... yes
+checking for struct sockaddr_un.sun_len... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libxml-2.0... yes
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns_rr_new in -lldns... yes
+checking for ldns version... >= 1.6.17
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns version not 1.6.14... ok
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns version not 1.6.15... ok
+checking for clock_gettime in -lrt... yes
+checking for sys/time.h... (cached) yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for SSL... found in /usr
+checking for HMAC_CTX_reset in -lcrypto... yes
+checking for EVP_sha1... yes
+checking for EVP_sha256... yes
+checking what are the cunit includes... -I/usr/include
+checking what are the cunit libs... -L/usr/lib -lcunit
+checking for CU_run_test in -lcunit... yes
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking for database backend... SQLite3
+checking for SQLite3 library >= 3.0.0... yes
+checking for readline in -lreadline... yes
+checking for doxygen... /usr/bin/doxygen
+checking for perl... /usr/bin/perl
+checking for backtrace... yes
+checking for backtrace_full in -lbacktrace... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating Doxyfile
+config.status: creating common/Makefile
+config.status: creating conf/Makefile
+config.status: creating conf/addns.xml
+config.status: creating conf/conf.xml
+config.status: creating conf/enforcerstate.xml
+config.status: creating conf/kasp.xml
+config.status: creating conf/signconf.xml
+config.status: creating conf/zonelist.xml
+config.status: creating enforcer/Makefile
+config.status: creating enforcer/src/Makefile
+config.status: creating enforcer/man/Makefile
+config.status: creating enforcer/src/db/test/Makefile
+config.status: creating enforcer/man/ods-enforcer.8
+config.status: creating enforcer/man/ods-enforcer-db-setup.8
+config.status: creating enforcer/man/ods-enforcerd.8
+config.status: creating enforcer/src/utils/Makefile
+config.status: creating enforcer/src/utils/ods-kaspcheck.1
+config.status: creating libhsm/Makefile
+config.status: creating libhsm/src/Makefile
+config.status: creating libhsm/src/bin/Makefile
+config.status: creating libhsm/src/bin/ods-hsmspeed.1
+config.status: creating libhsm/src/bin/ods-hsmutil.1
+config.status: creating libhsm/src/lib/Makefile
+config.status: creating libhsm/checks/Makefile
+config.status: creating libhsm/checks/conf-softhsm.xml
+config.status: creating libhsm/checks/conf-sca6000.xml
+config.status: creating libhsm/checks/conf-etoken.xml
+config.status: creating libhsm/checks/conf-multi.xml
+config.status: creating libhsm/checks/conf-opensc.xml
+config.status: creating libhsm/checks/conf-ncipher.xml
+config.status: creating libhsm/checks/conf-aepkeyper.xml
+config.status: creating signer/Makefile
+config.status: creating signer/man/Makefile
+config.status: creating signer/man/ods-signer.8
+config.status: creating signer/man/ods-signerd.8
+config.status: creating signer/src/Makefile
+config.status: creating tools/Makefile
+config.status: creating tools/ods-control
+config.status: creating tools/solaris/Makefile
+config.status: creating tools/solaris/ods-enforcerd.init
+config.status: creating tools/solaris/ods-signerd.init
+config.status: creating tools/ods-timing.5
+config.status: creating tools/ods-kasp.5
+config.status: creating tools/opendnssec.7
+config.status: creating tools/ods-control.8
+config.status: creating tools/ods-kasp2html
+config.status: creating common/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+mkdir build-mysql
+ln -s ../build-sqlite3/libhsm build-mysql/libhsm
+dh_auto_configure -Bbuild-mysql/enforcer -- --disable-rpath --with-ldns=/usr --with-cunit=/usr --libexecdir=/usr/lib/opendnssec/ --with-pkcs11-opensc=/usr/lib/pkcs11/opensc-pkcs11.so --with-pkcs11-softhsm=/usr/lib/softhsm/libsofthsm2.so --with-readline --with-enforcer-database=mysql --disable-signer --disable-doxygen-doc
+	cd build-mysql/enforcer && ../../configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --disable-rpath --with-ldns=/usr --with-cunit=/usr --libexecdir=/usr/lib/opendnssec/ --with-pkcs11-opensc=/usr/lib/pkcs11/opensc-pkcs11.so --with-pkcs11-softhsm=/usr/lib/softhsm/libsofthsm2.so --with-readline --with-enforcer-database=mysql --disable-signer --disable-doxygen-doc
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+configure: Detecting common OpenDNSSEC settings
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... none
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) none
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... no
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... none
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for xmllint... /usr/bin/xmllint
+checking for xsltproc... /usr/bin/xsltproc
+checking for java... no
+checking for cp... /bin/cp
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking whether C compiler accepts -Werror=unknown-warning-option... yes
+checking whether C compiler accepts -fno-strict-aliasing... yes
+checking whether C compiler accepts -Wall... yes
+checking whether C compiler accepts -Wextra... yes
+checking whether C compiler accepts -Wwrite-strings... yes
+checking whether C compiler accepts -Wpointer-arith... yes
+checking whether C compiler accepts -Wno-unused-parameter... yes
+checking whether C compiler accepts -Wno-missing-field-initializers... yes
+checking whether C compiler accepts -Wformat=2... yes
+checking whether C compiler accepts -Wcast-align... yes
+checking whether C compiler accepts -Wformat-security... yes
+checking whether C compiler accepts -Wstrict-aliasing... yes
+checking whether C compiler accepts -Wpacked... yes
+checking whether C compiler accepts -Winit-self... yes
+checking whether C compiler accepts -Wmissing-include-dirs... yes
+checking whether C compiler accepts -Warray-bounds... yes
+checking whether C compiler accepts -Wreturn-type... yes
+checking whether C compiler accepts -Wno-format-nonliteral... yes
+checking whether C compiler accepts -Wno-format-y2k... yes
+checking whether C compiler accepts -Wno-unused-function... yes
+checking whether C compiler accepts -Wno-unused-variable... yes
+checking whether C compiler accepts -Wno-sign-compare... yes
+checking whether C compiler accepts -Wno-error=unused-parameter... yes
+checking whether C compiler accepts -Wno-error=missing-field-initializers... yes
+checking whether C compiler accepts -Wno-error=format-nonliteral... yes
+checking whether C compiler accepts -Wno-error=format-y2k... yes
+checking whether C compiler accepts -Wno-error=unused-function... yes
+checking whether C compiler accepts -Wno-error=unused-variable... yes
+checking whether C compiler accepts -Wno-error=sign-compare... yes
+checking for __attribute__... yes
+Fixing libtool for -rpath problems.
+../../configure: line 13861: libtool: No such file or directory
+mv: cannot stat 'libtool-2': No such file or directory
+chmod: cannot access 'libtool': No such file or directory
+checking CFLAGS for maximum warnings... -Wall
+checking for ANSI C header files... (cached) yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for inttypes.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for unistd.h... (cached) yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for getopt.h... (cached) yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdint.h... (cached) yes
+checking for strings.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking libxml/parser.h usability... no
+checking libxml/parser.h presence... no
+checking for libxml/parser.h... no
+checking libxml/relaxng.h usability... no
+checking libxml/relaxng.h presence... no
+checking for libxml/relaxng.h... no
+checking libxml/xmlreader.h usability... no
+checking libxml/xmlreader.h presence... no
+checking for libxml/xmlreader.h... no
+checking libxml/xpath.h usability... no
+checking libxml/xpath.h presence... no
+checking for libxml/xpath.h... no
+checking for an ANSI C-conforming const... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for uid_t in sys/types.h... yes
+checking for uint16_t... yes
+checking for union semun... no
+checking if compiler needs -Werror to reject unknown flags... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for arc4random... no
+checking for arc4random_uniform... no
+checking for dup2... yes
+checking for endpwent... yes
+checking for select... yes
+checking for strerror... yes
+checking for strtol... yes
+checking for getpass... yes
+checking for getpassphrase... no
+checking for memset... yes
+checking for localtime_r... yes
+checking for memset... (cached) yes
+checking for strdup... yes
+checking for strerror... (cached) yes
+checking for strstr... yes
+checking for strtol... (cached) yes
+checking for strtoul... yes
+checking for setregid... yes
+checking for setreuid... yes
+checking for chown... yes
+checking for stat... yes
+checking for exit... yes
+checking for time... yes
+checking for atoi... yes
+checking for getpid... yes
+checking for waitpid... yes
+checking for sigfillset... yes
+checking for malloc... yes
+checking for calloc... yes
+checking for realloc... yes
+checking for free... yes
+checking for strlen... yes
+checking for strncmp... yes
+checking for strncat... yes
+checking for strncpy... yes
+checking for strerror... (cached) yes
+checking for strncasecmp... yes
+checking for strdup... (cached) yes
+checking for fgetc... yes
+checking for fopen... yes
+checking for fclose... yes
+checking for ferror... yes
+checking for fprintf... yes
+checking for vsnprintf... yes
+checking for snprintf... yes
+checking for fflush... yes
+checking for openlog... yes
+checking for closelog... yes
+checking for syslog... yes
+checking for openlog_r... no
+checking for closelog_r... no
+checking for syslog_r... no
+checking for vsyslog_r... no
+checking for chroot... yes
+checking for getgroups... yes
+checking for setgroups... yes
+checking for initgroups... yes
+checking for close... yes
+checking for unlink... yes
+checking for fcntl... yes
+checking for socket... yes
+checking for listen... yes
+checking for bzero... yes
+checking for va_start... no
+checking for va_end... no
+checking for xmlInitParser... no
+checking for xmlCleanupParser... no
+checking for xmlCleanupThreads... no
+checking for pthread_mutex_init... yes
+checking for pthread_mutex_destroy... yes
+checking for pthread_mutex_lock... yes
+checking for pthread_mutex_unlock... yes
+checking for pthread_cond_init... yes
+checking for pthread_cond_signal... yes
+checking for pthread_cond_destroy... yes
+checking for pthread_cond_wait... yes
+checking for pthread_cond_timedwait... yes
+checking for pthread_create... yes
+checking for pthread_detach... yes
+checking for pthread_self... yes
+checking for pthread_join... yes
+checking for pthread_sigmask... yes
+checking for pthread_barrier_wait... yes
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for working memcmp... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for sys/select.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking for vprintf... yes
+checking for _doprnt... no
+checking for strlcat... no
+checking for strlcpy... no
+checking for b64_pton... no
+checking for b64_ntop... no
+checking for setresuid... yes
+checking if setresuid seems to work... yes
+checking for setresgid... yes
+checking if setresgid seems to work... yes
+checking whether strptime needs defines... yes
+checking for struct sockaddr_un.sun_len... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libxml-2.0... yes
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns_rr_new in -lldns... yes
+checking for ldns version... >= 1.6.17
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns version not 1.6.14... ok
+checking for ldns-config... no
+checking what are the ldns includes... -I/usr/include
+checking what are the ldns libs... -L/usr/lib -lldns
+checking for ldns version not 1.6.15... ok
+checking for clock_gettime in -lrt... yes
+checking for sys/time.h... (cached) yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for SSL... found in /usr
+checking for HMAC_CTX_reset in -lcrypto... yes
+checking for EVP_sha1... yes
+checking for EVP_sha256... yes
+checking what are the cunit includes... -I/usr/include
+checking what are the cunit libs... -L/usr/lib -lcunit
+checking for CU_run_test in -lcunit... yes
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking for database backend... MySQL
+checking for mysql_config... /usr/bin/mysql_config
+checking if MySQL version is >= 5.0.0... yes
+checking for readline in -lreadline... yes
+checking for backtrace... yes
+checking for backtrace_full in -lbacktrace... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating Doxyfile
+config.status: creating common/Makefile
+config.status: creating conf/Makefile
+config.status: creating conf/addns.xml
+config.status: creating conf/conf.xml
+config.status: creating conf/enforcerstate.xml
+config.status: creating conf/kasp.xml
+config.status: creating conf/signconf.xml
+config.status: creating conf/zonelist.xml
+config.status: creating enforcer/Makefile
+config.status: creating enforcer/src/Makefile
+config.status: creating enforcer/man/Makefile
+config.status: creating enforcer/src/db/test/Makefile
+config.status: creating enforcer/man/ods-enforcer.8
+config.status: creating enforcer/man/ods-enforcer-db-setup.8
+config.status: creating enforcer/man/ods-enforcerd.8
+config.status: creating enforcer/src/utils/Makefile
+config.status: creating enforcer/src/utils/ods-kaspcheck.1
+config.status: creating libhsm/Makefile
+config.status: creating libhsm/src/Makefile
+config.status: creating libhsm/src/bin/Makefile
+config.status: creating libhsm/src/bin/ods-hsmspeed.1
+config.status: creating libhsm/src/bin/ods-hsmutil.1
+config.status: creating libhsm/src/lib/Makefile
+config.status: creating libhsm/checks/Makefile
+config.status: creating libhsm/checks/conf-softhsm.xml
+config.status: creating libhsm/checks/conf-sca6000.xml
+config.status: creating libhsm/checks/conf-etoken.xml
+config.status: creating libhsm/checks/conf-multi.xml
+config.status: creating libhsm/checks/conf-opensc.xml
+config.status: creating libhsm/checks/conf-ncipher.xml
+config.status: creating libhsm/checks/conf-aepkeyper.xml
+config.status: creating signer/Makefile
+config.status: creating signer/man/Makefile
+config.status: creating signer/man/ods-signer.8
+config.status: creating signer/man/ods-signerd.8
+config.status: creating signer/src/Makefile
+config.status: creating tools/Makefile
+config.status: creating tools/ods-control
+config.status: creating tools/solaris/Makefile
+config.status: creating tools/solaris/ods-enforcerd.init
+config.status: creating tools/solaris/ods-signerd.init
+config.status: creating tools/ods-timing.5
+config.status: creating tools/ods-kasp.5
+config.status: creating tools/opendnssec.7
+config.status: creating tools/ods-control.8
+config.status: creating tools/ods-kasp2html
+config.status: creating common/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+touch conf/kasp.rng conf/addns.rng conf/zonelist.rng conf/conf.rng conf/enforcerstate.rng conf/signconf.rng
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build-arch
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_build -Bbuild-sqlite3
+	cd build-sqlite3 && make -j4
+make[2]: Entering directory '/<<PKGBUILDDIR>>/build-sqlite3'
+Making all in common
+make[3]: Entering directory '/<<PKGBUILDDIR>>/build-sqlite3/common'
+make  all-am
+make[4]: Entering directory '/<<PKGBUILDDIR>>/build-sqlite3/common'
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o b64_ntop.o ../../common/b64_ntop.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o b64_pton.o ../../common/b64_pton.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o clientpipe.o ../../common/clientpipe.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o duration.o ../../common/duration.c
+../../common/clientpipe.c:55:10: warning: cast from 'char *' to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+        *(uint16_t *)(buf+1) = htons(datalen);
+         ^~~~~~~~~~~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o file.o ../../common/file.c
+1 warning generated.
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o locks.o ../../common/locks.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o log.o ../../common/log.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o privdrop.o ../../common/privdrop.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o pselect.o ../../common/pselect.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o status.o ../../common/status.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o str.o ../../common/str.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o strlcat.o ../../common/strlcat.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o strlcpy.o ../../common/strlcpy.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o util.o ../../common/util.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o datastructure.o ../../common/datastructure.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o cmdhandler.o ../../common/cmdhandler.c
+gcc -DHAVE_CONFIG_H -I. -I../../common  -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -DSQLITE3_SONAME=\"libsqlite3.so.0\" -pedantic -pthread -fno-strict-aliasing -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wno-unused-parameter -Wno-missing-field-initializers -Wformat=2 -Wcast-align -Wformat-security -Wstrict-aliasing -Wpacked -Winit-self -Wmissing-include-dirs -Warray-bounds -Wreturn-type -Wno-format-nonliteral -Wno-format-y2k -Wno-unused-function -Wno-unused-variable -Wno-sign-compare -Wno-error=unused-parameter -Wno-error=missing-field-initializers -Wno-error=format-nonliteral -Wno-error=format-y2k -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=sign-compare -c -o janitor.o ../../common/janitor.c
+../../common/janitor.c:49:10: fatal error: 'backtrace.h' file not found
+#include <backtrace.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+make[4]: *** [Makefile:585: janitor.o] Error 1
+make[4]: *** Waiting for unfinished jobs....
+../../common/cmdhandler.c:183:26: warning: cast from 'char *' to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+        datalen = ntohs(*(uint16_t *)(buf+1));
+                         ^~~~~~~~~~~~~~~~~~~
+/usr/include/netinet/in.h:403:33: note: expanded from macro 'ntohs'
+#   define ntohs(x)     __bswap_16 (x)
+                                    ^
+../../common/cmdhandler.c:200:14: warning: cast from 'char *' to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+            *(uint16_t *)(buf+1) = htons(datalen);
+             ^~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/build-sqlite3/common'
+make[3]: *** [Makefile:473: all] Error 2
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/build-sqlite3/common'
+make[2]: *** [Makefile:525: all-recursive] Error 1
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/build-sqlite3'
+dh_auto_build: error: cd build-sqlite3 && make -j4 returned exit code 2
+make[1]: *** [debian/rules:46: override_dh_auto_build-arch] Error 25
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:24: binary] Error 2
+dpkg-buildpackage: error: debian/rules binary subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2020-05-03T02:14:42Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Not cleaning session: cloned chroot in use
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Type: binary
+Build-Space: 14268
+Build-Time: 44
+Distribution: unstable
+Fail-Stage: build
+Host Architecture: amd64
+Install-Time: 31
+Job: opendnssec_1:2.1.6-1
+Machine Architecture: amd64
+Package: opendnssec
+Package-Time: 90
+Source-Version: 1:2.1.6-1
+Space: 14268
+Status: attempted
+Version: 1:2.1.6-1
+--------------------------------------------------------------------------------
+Finished at 2020-05-03T02:14:42Z
+Build needed 00:01:30, 14268k disk space
+E: Build failure (dpkg-buildpackage died)
+DC-Status: Failed 90.659781499s
+DC-Time-Estimation: 90.659781499 versus expected 1 (r/m: 89.659781499 ; m: 1.0)
