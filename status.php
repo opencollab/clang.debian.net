@@ -140,10 +140,11 @@ if ($versionGET=="3.1" || $versionGET=="3.3") {
    	$suffix="unstable_clang";
    	$ext="log";
 }
-if ($versionGET=="3.9.1" || $versionGET=="4.0.1" || $versionGET=="7.0.1" || $versionGET=="8svn" || $versionGET == "8.0.1"|| $versionGET == "9.0.1"|| $versionGET == "10rc2") {
+if ($versionGET=="3.9.1" || $versionGET=="4.0.1" || $versionGET=="7.0.1" || $versionGET=="8svn" || $versionGET == "8.0.1"|| $versionGET == "9.0.1" || $versionGET == "10") {
+// if the patch contains the version or not
     $sameDateJuly2017=true;
 }
-if ($versionGET == "8.0.1"|| $versionGET == "9.0.1") {
+if ($versionGET == "8.0.1"|| $versionGET == "9.0.1" || $verisonGET = "10") {
    $suffix="unstable_clang" . $versionGET;
 }
 if ($versionGET == "10rc2") {
