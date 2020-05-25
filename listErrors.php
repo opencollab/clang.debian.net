@@ -35,7 +35,7 @@ $known_errors= Array(
         Array("key" => "SYMBOL_ERROR", "dsc" => "Symbol errors", "msg" => Array("could not read symbols: Bad value","could not read symbols: Invalid operation"), "nb" => 0),
         Array("key" => "SEG_FAULT", "dsc" => "Segmentation fault", "msg" => "Segmentation fault", "nb" => 0),
         Array("key" => "OLD_GNU_FIELD_DESIGNATOR", "dsc" => "Use of old GNU field designator", "msg" => "use of GNU old-style field designator extension", "nb" => 0),
-        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => Array("-Wtautological-compare"), "nb" => 0),
+        Array("key" => "TAUTOLOGICAL-COMPARE", "dsc" => "Tautological comparison", "msg" => Array("-Wtautological-compare", "-Wtautological-overlap-compare"), "nb" => 0),
         Array("key" => "RESTRICT_REQ_POINTER", "dsc" => "restrict requires a pointer or reference", "msg" => "error: expected identifier or '('", "nb" => 0),
         Array("key" => "EXPECTED_DECLARATION", "dsc" => "Expected declaration (#define missing?)", "msg" => "error: expected", "nb" => 0),
         Array("key" => "XLIB_BUILD_FAIL", "dsc" => "xutils-dev build tool is failing", "msg" => Array("Imake.rules:2486:25: error:","Imake.rules:1674:27: error: empty character constant"), "nb" => 0),
@@ -115,6 +115,8 @@ $known_errors= Array(
         Array("key" => "MISSING_PROTOTYPE", "dsc" => "Missing prototypes", "msg" => Array("-Wmissing-prototypes"), "nb" => 0),
 
         Array("key" => "DEPRECATED_DECLARATION", "dsc" => "Deprecated declaration", "msg" => Array("-Wdeprecated-declarations"), "nb" => 0),
+
+        Array("key" => "DEPRECATED_COPY", "dsc" => "Deprecated copy", "msg" => Array("-Wdeprecated-copy"), "nb" => 0, "new" => "10.0"),
 
         Array("key" => "STRING_PLUS_INT", "dsc" => "String + int", "msg" => Array("-Wstring-plus-int"), "nb" => 0),
 
@@ -223,6 +225,8 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "RELOCATION_ERROR", "dsc" => "Relocation error", "msg" => Array("collect2: error: ld returned 1 exit status"), "nb" => 0),
         Array("key" => "PARENS_WARNING", "dsc" => "Parentheses warnings", "msg" => Array("-Wparentheses","-Wredundant-parens"), "nb" => 0),
         Array("key" => "SHADOW_VAR", "dsc" => "Shadows a variable  warnings", "msg" => Array(",-Wshadow"), "nb" => 0, "new" => "8.0.1"),
+        Array("key" => "IMPL_INT_FLOAT", "dsc" => " implicit conversion from 'int' to 'float'", "msg" => Array("Wimplicit-int-float-conversion"), "nb" => 0, "new" => "10.0"),
+        Array("key" => "RANGE_LOOP", "dsc" => "Incorrect range loop construct", "msg" => Array("Wrange-loop-construct"), "nb" => 0),
 
 
 // General
