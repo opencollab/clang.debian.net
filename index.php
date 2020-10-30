@@ -107,7 +107,10 @@ The full list of all the results with logs are available at the following URL:<b
 <li>
 <a href="/status.php?version=9.0.1">clang 9.0.1</a> (Feb 2020) - <a href="http://sylvestre.ledru.info/blog/2020/03/22/some-clang-rebuild-results">Blog post</a></li>
 <li>
-<a href="/status.php?version=10rc2">clang 10rc2</a> (Feb 2020)<!-- - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a>--></li>
+<a href="/status.php?version=10.0.0">clang 10.0.0</a> (May 2020)<!-- - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a>--></li>
+<li>
+<a href="/status.php?version=11.0.0">clang 11.0.0</a> (May 2020)<!-- - <a href="http://sylvestre.ledru.info/blog/2017/08/16/rebuild-of-debian-using-clang-2">Blog post</a>--></li>
+
 
 </ul>
 
