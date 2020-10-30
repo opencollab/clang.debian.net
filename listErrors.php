@@ -247,7 +247,7 @@ function get_number_errors_per_version($version, $keyGET)
 	  $req.=" AND key_code='{$keyGET}'";
 	}
 	$result=mysql_query($req);
-	return mysql_num_rows($result);
+	return mysqli_num_rows($result);
 }
 
 function parse_error($version)
@@ -260,7 +260,7 @@ function parse_error($version)
     $req="SELECT * FROM errors WHERE clang_version='$version'";
 
     $result=mysql_query($req);
-    $nbTotal=mysql_num_rows($result);
+    $nbTotal=mysqli_num_rows($result);
 
     while ($row = mysql_fetch_object($result)) {
         $set=false;
@@ -323,11 +323,13 @@ foreach ($clangVersions as $version => $pkg) {
         $i++;
         if ($version==$versionGET) {
            echo "$version";
-        }else{
-	if ($keyGET) {
-	   $urlEXT="&key={$keyGET}";
-	}
-                echo "<a href=\"/status.php?version={$version}{$urlEXT}\">$version</a> ";
+        } else {
+    	  if ($keyGET) {
+  	     $urlEXT="&key={$keyGET}";
+	  } else {
+	    $urlEXT = "";
+	  }
+          echo "<a href=\"/status.php?version={$version}{$urlEXT}\">$version</a> ";
         }
         if ($i < $nb) echo " - ";
 }
@@ -341,7 +343,7 @@ function resultClangDisplay($version, $display=true) {
 
     $totalDebian=$clangVersions[$version];
 
-    if (!$keyGET) {
+    if (!isset($keyGET)) {
         $errors=parse_error($version);
 ?>
 

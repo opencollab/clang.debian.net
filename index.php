@@ -1,8 +1,16 @@
 <?php
 include("config.inc.php");
 include("listErrors.php");
-$keyGET=mysql_real_escape_string(htmlspecialchars($_GET['key']));
-$versionGET=mysql_real_escape_string(htmlspecialchars($_GET['version']));
+if (isset($_GET['key'])) {
+   $keyGET=mysqli_real_escape_string(htmlspecialchars($_GET['key']));
+} else {
+  $keyGET="";
+}
+if (isset($_GET['version'])) {
+   $versionGET=mysqli_real_escape_string(htmlspecialchars($_GET['version']));
+} else {
+  $versionGET="";
+}
 if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3.1" && $versionGET!="3.2")) {
         $versionGET="3.5";
 }

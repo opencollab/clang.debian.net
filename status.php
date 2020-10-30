@@ -1,12 +1,12 @@
 <?
 include("config.inc.php");
 include("listErrors.php");
-$keyGET=mysql_real_escape_string(htmlspecialchars($_GET['key']));
+$keyGET=mysqli_real_escape_string($conn_db, htmlspecialchars($_GET['key']));
 if (strpos($keyGET, "..") && $keyGET!="" ) {
    header("Location: /");
 }
 
-$versionGET=mysql_real_escape_string(htmlspecialchars($_GET['version']));
+$versionGET=mysqli_real_escape_string($conn_db, htmlspecialchars($_GET['version']));
 
 // TODO improve that
 if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
@@ -40,7 +40,7 @@ if ($keyGET) {
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
-<title><?=($keyDSC)?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
+<title><?=(isset($keyDSC))?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="revamp.css" />
@@ -166,7 +166,7 @@ if (isset($_GET['sort'])) {
 
 
 $result=mysql_query($req);
-$nb=mysql_num_rows($result);
+$nb=mysqli_num_rows($result);
 if ($nb > 0) {
 ?>
 <table class="data">
@@ -187,7 +187,7 @@ while ($row = mysql_fetch_object($result)) {
          $version_ = explode(":", $version);
 	 $version = $version_[1];
      }
-     if ($sameDateJuly2017) {
+     if (isset($sameDateJuly2017)) {
 	$dateLog[0] = $dateLog[0] . "-" . $versionGET;
      }
 ?>
