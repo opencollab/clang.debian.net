@@ -5,8 +5,7 @@ $pathGCCToLog="rebuild.lsid64-amd64.2011-09-11";
 $suffix="lsid64b";
 $ext="buildlog";
 
-$currentVersion="9.0.1";
-$currentVersion="10";
+$currentVersion="10.0.0";
 
 $clangVersions=Array(
     "2.9" => 16398,
@@ -23,7 +22,6 @@ $clangVersions=Array(
     "4.0.1" => 27828,
     "5.0" => 28203,
     "6.0" => 32304,
-//    "7.0.1" => 32757, Disabled as data don't make much sense
     "8.0.1" => 31169,
     "9.0.1" => 31169,
     "10.0.0" => 31014,
