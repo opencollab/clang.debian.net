@@ -1,8 +1,8 @@
 <?
 include("config.inc.php");
 include("listErrors.php");
-$keyGET=mysql_real_escape_string(htmlspecialchars($_GET['key']));
-$versionGET=mysql_real_escape_string(htmlspecialchars($_GET['version']));
+$keyGET=mysqli_real_escape_string(htmlspecialchars($_GET['key']));
+$versionGET=mysqli_real_escape_string(htmlspecialchars($_GET['version']));
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
