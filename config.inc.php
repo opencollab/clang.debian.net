@@ -26,8 +26,8 @@ $clangVersions=Array(
 //    "7.0.1" => 32757, Disabled as data don't make much sense
     "8.0.1" => 31169,
     "9.0.1" => 31169,
-//    "10rc2" => 31169,
-    "10" => 31014
+    "10.0.0" => 31014,
+    "11.0.0" => 32432,
 );
 
 $locally_configured = false;
