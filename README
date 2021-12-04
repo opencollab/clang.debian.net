@@ -67,3 +67,18 @@ Notes:
 * Add &sort=true in the URL to get a SOUNDEX() sort
 Example:
 http://clang.debian.net/status.php?version=3.5.0&key=NO_CAT&sort=true
+
+
+
+To compute:
+grep -v " OK " scanlog-12.0.1-2021-10-25 > scanlog-12.0.1-2021-10-25.res
+
+
+if you have only the .diff, you can try
+LIST=$(grep "OK Failed DIFFRES"  diff.clang13.txt|awk '{print $1}')
+for f in $LIST; do
+    F=$(ls "$f"_*log)
+    echo "Copy of $F"
+    cp "$F" results/
+done
+
