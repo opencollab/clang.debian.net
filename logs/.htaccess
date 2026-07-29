@@ -1,0 +1,27 @@
+# Logs are stored gzip-compressed on disk (foo.log.gz) but linked as foo.log
+# by status.php / pts.php. Serve the .gz transparently with Content-Encoding.
+#
+# Requires mod_rewrite, mod_mime and mod_headers, plus "AllowOverride FileInfo
+# Options" (or move this block into the vhost).
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /logs/
+
+    # If the plain file is gone but the gzipped one exists, serve the .gz
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}\.gz -f
+    RewriteRule ^(.*)$ $1.gz [L]
+</IfModule>
+
+<FilesMatch "\.gz$">
+    # Tell the browser this is a gzip-encoded text file, not a download
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+    ForceType text/plain
+</FilesMatch>
+
+# Don't let mod_deflate compress an already compressed body
+<IfModule mod_deflate.c>
+    SetEnvIfNoCase Request_URI \.gz$ no-gzip dont-vary
+</IfModule>
