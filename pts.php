@@ -1,5 +1,6 @@
 <?php
 include_once("config.inc.php");
+include_once("listErrors.php"); // for build_log_url()
 
 $package = mysqli_real_escape_string($conn_db, isset($_GET['p']) ? htmlspecialchars($_GET['p']) : NULL);
 $html_format = isset($_GET['format']) ? htmlspecialchars($_GET['format']) == "html" : false;
@@ -15,8 +16,6 @@ if (!$result) {
 	echo mysql_error();
 }
 
-$suffix="unstable_clang";
-$ext="log";
 
 if ($html_format) {
 ?>
@@ -39,14 +38,16 @@ if ($html_format) {
 }
 while ($row = mysql_fetch_object($result)) {
 $dateLog=explode(" ",$row->date_build);
+$logURL=build_log_url($dateLog[0], $row->package, $row->version, $currentVersion);
 
 	if ($html_format) {
 		echo "<tr><td>{$row->package}</td><td>{$row->version}</td>"
-			."<td><a href=\"/logs/{$dateLog[0]}/{$row->package}_{$row->version}_{$suffix}.{$ext}\">Log</a></td>"
+			."<td>".($logURL ? "<a href=\"{$logURL}\">Log</a>" : "n/a")."</td>"
 			."<td>".trim($row->detected_error)."</td></tr>";
 	} else {
 		echo "{$row->package} {$row->version} "
-			."http://{$_SERVER['HTTP_HOST']}/logs/{$dateLog[0]}/{$row->package}_{$row->version}_{$suffix}.{$ext} ".trim($row->detected_error)."\n";
+			.($logURL ? "https://{$_SERVER['HTTP_HOST']}{$logURL} " : "")
+			.trim($row->detected_error)."\n";
 	}
 }
 if ($html_format) {

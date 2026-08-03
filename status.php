@@ -13,11 +13,6 @@ if (!$versionGET || (!(array_key_exists($versionGET, $clangVersions)))) {
 	$versionGET=$currentVersion;
 }
 
-if ($versionGET != "2.9" && $versionGET != "3.0" && $versionGET != "3.1") {
-   $suffix="unstable_clang";
-   $ext="log";
-}
-
 if ($keyGET) {
 
    foreach ($known_errors as $key => $err) {
@@ -133,24 +128,8 @@ displayVersion($versionGET, $keyGET);
 ?>
 
 <?
-if ($versionGET=="2.9") {
-	$suffix="lsid64c";
-}
-if ($versionGET=="3.1" || $versionGET=="3.3") {
-   	$suffix="unstable_clang";
-   	$ext="log";
-}
-if ($versionGET=="3.9.1" || $versionGET=="4.0.1" || $versionGET=="7.0.1" || $versionGET=="8svn" || $versionGET == "8.0.1"|| $versionGET == "9.0.1" || $versionGET == "10.0.0" || $versionGET == "11.0.0" || $versionGET == "12.0.1" || $versionGET == "13.0.0" ) {
-// if the patch contains the version or not
-
-    $sameDateJuly2017=true;
-}
-if ($versionGET == "8.0.1"|| $versionGET == "9.0.1" || $verisonGET = "10"  || $versionGET == "11.0.0" || $versionGET == "12.0.1" || $versionGET == "13.0.0") {
-   $suffix="unstable_clang" . $versionGET;
-}
-if ($versionGET == "10rc2") {
-   $suffix="unstable_clang10";
-}
+// The log file layout (directory, suffix and extension) varies from one
+// rebuild to the other: build_log_url() resolves it against the files on disk.
 
 $req="SELECT *, errors.package as package FROM errors LEFT JOIN bug_reports ON bug_reports.package=errors.package WHERE clang_version='{$versionGET}' ";
 if ($keyGET == "NO_CAT") {
@@ -188,12 +167,10 @@ while ($row = mysql_fetch_object($result)) {
          $version_ = explode(":", $version);
 	 $version = $version_[1];
      }
-     if (isset($sameDateJuly2017)) {
-	$dateLog[0] = $dateLog[0] . "-" . $versionGET;
-     }
+     $logURL=build_log_url($dateLog[0], $row->package, $version, $versionGET);
 ?>
 
-<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><a href="/logs/<?=$dateLog[0]?>/<?=$row->package?>_<?=$version?>_<?=$suffix?>.<?=$ext?>">Log</a></td>
+<tr><td> <?=$row->package?> </td><td><?=$row->version?></td><td><?=$row->detected_error?></td><td><?if ($logURL) {?><a href="<?=$logURL?>">Log</a><?} else {?><span class="tiny">n/a</span><?}?></td>
 <td><?=($secureMode==true)?"<a href='/bugs.php?pkg={$row->package}'>Report</a>":""?>
 <?
 if ($row->bug_number) {

@@ -312,6 +312,56 @@ function get_key_clang(&$known_errors, $detected_error) {
 
 
 
+/*
+ * Return the URL of the build log of $package/$version for clang $clangVersion,
+ * or NULL when no log file can be found.
+ *
+ * The naming of the logs changed several times over the years (per rebuild
+ * directory, per suffix and per extension - they are now all gzip compressed),
+ * so rather than hardcoding a mapping per clang version, look for the first
+ * candidate that actually exists on disk. The resolved combination is cached so
+ * that a page listing thousands of packages only probes the filesystem once.
+ */
+function build_log_url($date, $package, $version, $clangVersion) {
+    static $cache = array();
+
+    $dirs = array("{$date}-{$clangVersion}", $date);
+    // "10rc2" logs are named after the major version only ("unstable_clang10").
+    $major = preg_replace('/[^0-9].*$/', '', $clangVersion);
+    $suffixes = array("unstable_clang{$clangVersion}", "unstable_clang{$major}",
+                      "unstable_clang", "lsid64c", "lsid64b", "lsid64");
+    $exts = array("log.gz", "buildlog.gz", "log", "buildlog");
+
+    $path = function ($d, $s, $e) use ($package, $version) {
+        return "logs/{$d}/{$package}_{$version}_{$s}.{$e}";
+    };
+
+    // Fast path: reuse the layout resolved for a previous package.
+    $cacheKey = "{$date}/{$clangVersion}";
+    if (isset($cache[$cacheKey])) {
+        list($d, $s, $e) = $cache[$cacheKey];
+        if (is_file($path($d, $s, $e))) {
+            return "/" . $path($d, $s, $e);
+        }
+    }
+
+    foreach ($dirs as $d) {
+        if (!is_dir("logs/{$d}")) {
+            continue;
+        }
+        foreach ($suffixes as $s) {
+            foreach ($exts as $e) {
+                if (is_file($path($d, $s, $e))) {
+                    $cache[$cacheKey] = array($d, $s, $e);
+                    return "/" . $path($d, $s, $e);
+                }
+            }
+        }
+    }
+
+    return NULL;
+}
+
 function displayVersion($versionGET, $keyGET="") {
 	 global $clangVersions;
 	 

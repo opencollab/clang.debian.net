@@ -1,0 +1,16 @@
+# The build logs under logs/ are stored gzip compressed. Serve them as plain
+# text with a gzip Content-Encoding so that browsers display them inline
+# instead of downloading an opaque .gz file.
+#
+# Without mod_headers we must not force the type, otherwise the browser would
+# be handed compressed bytes labelled as text.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(log|buildlog|txt)\.gz$">
+        ForceType text/plain
+        Header set Content-Encoding gzip
+        # Do not let mod_deflate compress an already compressed body.
+        <IfModule mod_deflate.c>
+            SetEnv no-gzip 1
+        </IfModule>
+    </FilesMatch>
+</IfModule>
