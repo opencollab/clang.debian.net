@@ -224,9 +224,10 @@ Array("key" => "INVALID_CXX11_USAGE", "dsc" => "Usage of C++11 feature without t
         Array("key" => "PREPROCESSOR", "dsc" => "Preprocessor differences", "msg" => Array("invalid token at start of a preprocessor expression", "function-like macro invocation"), "nb" => 0),
         Array("key" => "RELOCATION_ERROR", "dsc" => "Relocation error", "msg" => Array("collect2: error: ld returned 1 exit status"), "nb" => 0),
         Array("key" => "PARENS_WARNING", "dsc" => "Parentheses warnings", "msg" => Array("-Wparentheses","-Wredundant-parens"), "nb" => 0),
-        Array("key" => "SHADOW_VAR", "dsc" => "Shadows a variable  warnings", "msg" => Array(",-Wshadow"), "nb" => 0, "new" => "8.0.1"),
-        Array("key" => "IMPL_INT_FLOAT", "dsc" => " implicit conversion from 'int' to 'float'", "msg" => Array("Wimplicit-int-float-conversion"), "nb" => 0, "new" => "10.0"),
+        Array("key" => "SHADOW_VAR", "dsc" => "Shadows a variable warnings", "msg" => Array(",-Wshadow"), "nb" => 0, "new" => "8.0.1"),
+        Array("key" => "IMPL_INT_FLOAT", "dsc" => " implicit conversions", "msg" => Array("Wimplicit-int-float-conversion","Wimplicit-int-conversion", "Wimplicit-const-int-float-conversion"), "nb" => 0),
         Array("key" => "RANGE_LOOP", "dsc" => "Incorrect range loop construct", "msg" => Array("Wrange-loop-construct"), "nb" => 0),
+        Array("key" => "UNUSED_VAR", "dsc" => "Variable set but not used", "msg" => Array("Wunused-but-set-variable"), "nb" => 0, "new" => "13.0.0"),
 
 
 // General
