@@ -15,3 +15,9 @@
     RewriteCond %{REQUEST_FILENAME}\.gz -f
     RewriteRule ^(.*)$ $1.gz [L]
 </IfModule>
+
+# The rewrite above only covers the .gz suffix. Links published before the
+# rebuild directories and the file names gained a clang version also have the
+# wrong directory or the wrong suffix, so hand those to resolve-log.php, which
+# looks the package up among the rebuilds actually on disk.
+ErrorDocument 404 /resolve-log.php
