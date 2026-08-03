@@ -31,12 +31,17 @@ LIST=$(awk '{print $1}' ../../res.clang${CLANG_VERSION}.failed)
 rm -rf results/
 mkdir results/
 for f in $LIST; do
-    F=$(ls "$f"_*log)
+    # *log or *log.gz: a directory processed a second time is already compressed
+    F=$(ls "$f"_*log "$f"_*log.gz 2>/dev/null | head -1)
     echo "Copy of $F"
     cp "$F" results/
 done
 cd results
+# The logs are served gzip compressed (see the .htaccess files); cqa-scanlogs
+# needs them as plain text, so compress only once it is done.
+cqa-scanlogs > $BASEDIR/$REF_REBUILD
+find . -type f ! -name '*.gz' -print0 | xargs -0 -r -P "$(nproc)" -n 50 gzip -9
+
 echo "if you are happy, run:"
 echo "rm $(pwd)/../*"
 echo "mv $(pwd)/* $(pwd)/../"
-cqa-scanlogs > $BASEDIR/$REF_REBUILD

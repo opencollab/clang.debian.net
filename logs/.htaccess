@@ -1,8 +1,10 @@
-# Logs are stored gzip-compressed on disk (foo.log.gz) but linked as foo.log
-# by status.php / pts.php. Serve the .gz transparently with Content-Encoding.
+# The pages link the logs by their real .gz name (build_log_url() in
+# listErrors.php), and the root .htaccess takes care of serving them as inline
+# plain text. This file only keeps the *old* uncompressed URLs alive: they were
+# published for years in the PTS and in bug reports, e.g.
+#   /logs/2021-10-25-13.0.0/foo_1.0-1_unstable_clang13.0.0.log
 #
-# Requires mod_rewrite, mod_mime and mod_headers, plus "AllowOverride FileInfo
-# Options" (or move this block into the vhost).
+# Requires mod_rewrite and "AllowOverride FileInfo Options" on this directory.
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -12,16 +14,4 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}\.gz -f
     RewriteRule ^(.*)$ $1.gz [L]
-</IfModule>
-
-<FilesMatch "\.gz$">
-    # Tell the browser this is a gzip-encoded text file, not a download
-    Header set Content-Encoding gzip
-    Header append Vary Accept-Encoding
-    ForceType text/plain
-</FilesMatch>
-
-# Don't let mod_deflate compress an already compressed body
-<IfModule mod_deflate.c>
-    SetEnvIfNoCase Request_URI \.gz$ no-gzip dont-vary
 </IfModule>
