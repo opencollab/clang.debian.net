@@ -366,26 +366,22 @@ function displayVersion($versionGET, $keyGET="") {
 	 global $clangVersions;
 	 
 ?>
-<div align="right">Versions:
+<nav class="versions"><span>Versions:</span>
 <?php
-$nb=count($clangVersions);
-$i=0;
 foreach ($clangVersions as $version => $pkg) {
-        $i++;
         if ($version==$versionGET) {
-           echo "$version";
+           echo "<span class=\"current\">$version</span>";
         } else {
     	  if ($keyGET) {
   	     $urlEXT="&key={$keyGET}";
 	  } else {
 	    $urlEXT = "";
 	  }
-          echo "<a href=\"/status.php?version={$version}{$urlEXT}\">$version</a> ";
+          echo "<a href=\"/status.php?version={$version}{$urlEXT}\">$version</a>";
         }
-        if ($i < $nb) echo " - ";
 }
 ?>
-</div>
+</nav>
 <?php
 }
 
@@ -399,9 +395,9 @@ function resultClangDisplay($version, $display=true) {
 ?>
 
 
-<?=$totalDebian?> packages have been rebuild. Among them, <?=$totalFailed?> (<?=round($totalFailed*100/$totalDebian,1)?> %) failed.
+<p class="summary"><strong><?=$totalDebian?></strong> packages have been rebuild. Among them, <strong><?=$totalFailed?></strong> (<?=round($totalFailed*100/$totalDebian,1)?>&nbsp;%) failed.
 <br />
-Most of the errors are explained with test cases.
+Most of the errors are explained with test cases.</p>
 <?
 showGraphAllVersions($version);
 ?>
@@ -411,8 +407,12 @@ if ($display) {
 }
 ?>
 
+<div class="table-wrap">
 <table class="data">
+<thead>
 <tr><th>Type of error</th><th>Occurrence</th><th>clang % / Debian %</th><th></th></tr>
+</thead>
+<tbody>
 <?
 foreach($errors as  $key => $err) {
                 if ($err['nb']>0) {
@@ -441,7 +441,9 @@ foreach($errors as  $key => $err) {
 <td><?=round(100*$err_NO_CAT['nb']/$totalFailed,2)?>% / <?=round(100*$err_NO_CAT['nb']/$totalDebian,2)?>%</td>
 <td><a href="status.php?version=<?=$version?>&key=NO_CAT">List of errors</a></td>
 </tr>
+</tbody>
 </table>
+</div>
 <?php
 }
 }
@@ -454,6 +456,7 @@ global $clangVersions;
 <div class="ct-chart"></div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 new Chartist.Line('.ct-chart', {
   labels: [
 <?php
@@ -481,6 +484,7 @@ foreach ($clangVersions as $version => $pkg) {
               return value + '%';
             }}}
 );
+});
 </script>
 
 <?php

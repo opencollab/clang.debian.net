@@ -19,21 +19,17 @@ if (!$result) {
 
 if ($html_format) {
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="revamp.css" />
-<link rel="StyleSheet" type="text/css" href="pkg.css" />
-<link rel="StyleSheet" type="text/css" href="status.css" />
-</head>
-<body>
-<h1 id="title">Debian Package rebuild</h1>
-<h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
+<?php
+include("header.php");
+?>
 <div id="body">
+<div class="table-wrap">
 <table class="data">
+<thead>
 <tr><th>Package</th><th>Version</th><th>Full log</th><th>Supposed error message</th>
 </tr>
+</thead>
+<tbody>
 <?php
 }
 while ($row = mysql_fetch_object($result)) {
@@ -52,8 +48,13 @@ $logURL=build_log_url($dateLog[0], $row->package, $row->version, $currentVersion
 }
 if ($html_format) {
 ?>
+</tbody>
 </table>
 </div>
+</div>
+<?php
+include("footer.php");
+?>
 </body>
 </html>
 <?php

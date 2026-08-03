@@ -15,43 +15,30 @@ if (!$versionGET || ($versionGET!="2.9" && $versionGET!="3.0" && $versionGET!="3
         $versionGET="3.5";
 }
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Build of the Debian archive with clang</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="revamp.css" />
-<link rel="StyleSheet" type="text/css" href="pkg.css" />
-<link rel="StyleSheet" type="text/css" href="status.css" />
-<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-</head>
-<body>
-<img src="irill.png" align="right" />
-<h1 id="title"><a href="/">Debian Package rebuild</a></h1>
-<h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
+<?
+$pageTitle="Build of the Debian archive with clang";
+$pageHighlight=true;
+include("header.php");
+?>
 <div id="body">
 
-    By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="http://www.debian.org/">Debian</a>, <a href="http://www.irill.org/">IRILL</a>). <br />
+<p>By <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a> (<a href="https://www.debian.org/">Debian</a>, <a href="https://www.irill.org/">IRILL</a>).</p>
 
 
 <h1>Presentation</h1>
-This document presents the result of the rebuild of the Debian archive (the distribution) with clang, a C/C++ compiler.<br />
-<br />
-clang is now ready to build software for production (either for C, C++ or Objective-C). This compiler is providing many more warnings and interesting errors than the gcc suite while not carrying the same legacy as gcc.<br />
-This rebuild has several goals. The first one is to prove (or not) that clang is a viable alternative. Second, building a software with different compilers improves the overall quality of code by providing different checks and alerts.
+<p>This document presents the result of the rebuild of the Debian archive (the distribution) with clang, a C/C++ compiler.</p>
+<p>clang is now ready to build software for production (either for C, C++ or Objective-C). This compiler is providing many more warnings and interesting errors than the gcc suite while not carrying the same legacy as gcc.
+This rebuild has several goals. The first one is to prove (or not) that clang is a viable alternative. Second, building a software with different compilers improves the overall quality of code by providing different checks and alerts.</p>
 
-<br />
 <h1>Rebuild results</h1>
 
-The detailed list of errors with clang <?=$currentVersion?>:<br />
+<p>The detailed list of errors with clang <?=$currentVersion?>:</p>
 <?
 
     resultClangDisplay($currentVersion, false);
 ?>
-<br />
-A <a href="/maintainers.php">maintainer view</a> is also available. This shows per developers which packages should be fixed.<br />
-<br />
-Errors can be caused by several reasons:<br />
+<p>A <a href="/maintainers.php">maintainer view</a> is also available. This shows per developers which packages should be fixed.</p>
+<p>Errors can be caused by several reasons:</p>
 <ul>
 <li>Rejected declarations. See <a href="/status.php?version=<?=$currentVersion?>&key=FUNCTION_RETURNS_VALUE">example 1</a>, <a href="/status.php?version=<?=$currentVersion?>&key=MAIN_RETURNS_INT">example 2</a>, etc. </li>
 <li>Different warnings options list in <i>-Wall</i> or <i>-Wextra</i> (which will fail with -Werror). See <a href="/status.php?version=<?=$currentVersion?>&key=TAUTOLOGICAL-COMPARE">example 1</a>, <a href="status.php?version=<?=$currentVersion?>&key=LINE_POSITIVE">example 2</a>, etc.</li>
@@ -63,15 +50,13 @@ Errors can be caused by several reasons:<br />
 
 <li>...</li>
 </ul>
-Of course, a bug can hide other bugs.<br />
+<p>Of course, a bug can hide other bugs.
 Bugs (with patches) will be reported in the Debian bug tracker.
-They will be tagged as wishlist.<br />
+They will be tagged as wishlist.</p>
 
-<br />
 <h1>Detailed results</h1>
 
-
-The full list of all the results with logs are available at the following URL:<br />
+<p>The full list of all the results with logs are available at the following URL:</p>
 <ul>
 <li>
 <a href="/status.php?version=2.9">clang 2.9</a> (September 2011)</li>
@@ -116,26 +101,22 @@ The full list of all the results with logs are available at the following URL:<b
 </ul>
 
 <h1>Status</h1>
-    The Debian archive is regularly rebuilt against the latest version of clang. This to achieve three goals:<br />
-1) See which packages get fixed<br />
-2) See the impact of new clang releases<br />
-3) Find bugs or gcc-compatibility issues in gcc itself<br />
-<br />
-<br />
+<p>The Debian archive is regularly rebuilt against the latest version of clang. This to achieve three goals:</p>
+<ol>
+<li>See which packages get fixed</li>
+<li>See the impact of new clang releases</li>
+<li>Find bugs or gcc-compatibility issues in gcc itself</li>
+</ol>
 
-<br />
 <h1>Annexes</h1>
 <h2>Rebuild</h2>
-    The 2.9 and 3.0 rebuild itself have been done on a cluster called Grid 5000.<br />
-    3.1, 3.2 and later rebuilds have been done on AWS, the Amazon cloud, sponsoring Debian.<br />
-<br />
-Each packages in the Debian archive has been rebuild with the chroot described further. <br />
-     For each packages failing to build from the source with clang, the package has been rebuild with a "normal" Debian sid chroot. If working, we considered that it was due to a clang bug. Otherwise, the package is not listed in this list.<br />
-<br />
+<p>The 2.9 and 3.0 rebuild itself have been done on a cluster called Grid 5000.
+3.1, 3.2 and later rebuilds have been done on AWS, the Amazon cloud, sponsoring Debian.</p>
+<p>Each packages in the Debian archive has been rebuild with the chroot described further.
+For each packages failing to build from the source with clang, the package has been rebuild with a "normal" Debian sid chroot. If working, we considered that it was due to a clang bug. Otherwise, the package is not listed in this list.</p>
 
-<a name="configuration_chroot"></a>
-<h2>Configuration of the chroot</h2>
-The procedure for 2.9 & 3.0 was the following:<br />
+<h2 id="configuration_chroot">Configuration of the chroot</h2>
+<p>The procedure for 2.9 &amp; 3.0 was the following:</p>
 <ul>
 <li>a chroot has been created with a minimal build environment</li>
 <li>gcc and g++ have been put on hold to make sure then are not changed during the installation of the dependencies<br />
@@ -154,12 +135,10 @@ ln -s clang gcc-$VERSION
 ln -s clang cpp-$VERSION
 cd -
 </pre>
-<br />
-All packages of the archive (15658 sources packages) have been rebuild this chroot (even the one without any C or C++ code). Build dependencies used are the same as Debian. For example, that means that the libxml2 used to build a package will be the one from Debian, not the one built with clang. <br />
- <br />
+<p>All packages of the archive (15658 sources packages) have been rebuild this chroot (even the one without any C or C++ code). Build dependencies used are the same as Debian. For example, that means that the libxml2 used to build a package will be the one from Debian, not the one built with clang.</p>
 
-From clang 3.1, with the EC2 Amazon cloud, an <i>chroot-setup-commands</i> is used for each sbuild to setup the environnement.<br />
-The init code is the following:
+<p>From clang 3.1, with the EC2 Amazon cloud, an <i>chroot-setup-commands</i> is used for each sbuild to setup the environnement.
+The init code is the following:</p>
 <pre class="failure">
 apt-get update
 
@@ -190,13 +169,12 @@ echo "Check if gcc, g++ & cpp are actually clang"
 gcc --version|grep clang > /dev/null || exit 1
 
 </pre>
-The same procedure has been used for the 3.2 rebuild except that the clang packages have been rebuild for unstable (instead of the experimental packages).
-
+<p>The same procedure has been used for the 3.2 rebuild except that the clang packages have been rebuild for unstable (instead of the experimental packages).</p>
 
 <h2>Acknowledgments</h2>
-Many thanks to <a href="http://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience.<br />
+<p>Many thanks to <a href="https://www.lucas-nussbaum.net/">Lucas Nussbaum</a> for his time and patience.
 <a href="http://upsilon.cc/~zack/">Stefano Zacchiroli</a> for the review (among other things).
-<br />Thanks also to <a href="https://www.grid5000.fr/">Grid 5000</a> for their infrastructure and Amazon for their credit to use AWS.<br />
+Thanks also to <a href="https://www.grid5000.fr/">Grid 5000</a> for their infrastructure and Amazon for their credit to use AWS.</p>
 
 </div>
 <?

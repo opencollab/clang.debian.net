@@ -1,0 +1,509 @@
+/*
+ * clang.debian.net stylesheet.
+ * Replaces the historical revamp.css / pkg.css / status.css trio.
+ * Keeps the Debian visual identity (crimson #d70751) and every class name
+ * emitted by the PHP pages.
+ */
+
+:root {
+    color-scheme: light dark;
+
+    --debian-red: #d70751;
+    --debian-blue: #0755d7;
+
+    --bg: #ffffff;
+    --bg-soft: #f6f7f9;
+    --bg-code: #f6f8fa;
+    --fg: #1b1f23;
+    --fg-muted: #5c6570;
+    --border: #dcdfe4;
+    --border-strong: #c3c8cf;
+    --link: #0755d7;
+    --link-hover: #032a6b;
+
+    --ok: #1a7f37;
+    --warn: #9a6700;
+    --crit: #b42318;
+    --ok-bg: #e6f4ea;
+    --warn-bg: #fff4d6;
+    --crit-bg: #fde7e7;
+
+    --radius: 8px;
+    --shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 12px rgb(0 0 0 / 4%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14171a;
+        --bg-soft: #1c2024;
+        --bg-code: #1c2024;
+        --fg: #e6e8ea;
+        --fg-muted: #a0a8b0;
+        --border: #2c3239;
+        --border-strong: #3b434c;
+        --link: #6ea8fe;
+        --link-hover: #a5c8ff;
+
+        --ok: #57d364;
+        --warn: #e3b341;
+        --crit: #ff7b72;
+        --ok-bg: #10281a;
+        --warn-bg: #2e2410;
+        --crit-bg: #2d1517;
+
+        --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, -apple-system, "Segoe UI", "DejaVu Sans", "Noto Sans",
+        sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+a img {
+    border: none;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt {
+    font-family: ui-monospace, "SFMono-Regular", "DejaVu Sans Mono", "Cascadia Mono",
+        monospace;
+    font-size: 0.9em;
+}
+
+/* --- Header --- */
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+}
+
+.site-header .logo {
+    height: 52px;
+    width: auto;
+}
+
+/* Both logos are artwork drawn for a white background: keep one under them
+   rather than letting them float as bright rectangles on the dark theme. */
+@media (prefers-color-scheme: dark) {
+    .site-header .logo {
+        background: #fff;
+        border-radius: 6px;
+        padding: 4px 6px;
+    }
+}
+
+.site-header .titles {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
+
+h1#title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h1#title a {
+    color: inherit;
+}
+
+h1#title a:hover {
+    color: var(--debian-red);
+    text-decoration: none;
+}
+
+h2#subtitle {
+    margin: 0.15rem 0 0;
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--fg-muted);
+}
+
+/* --- Content pane --- */
+
+div#body {
+    clear: both;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-top: 3px solid var(--debian-red);
+}
+
+div#body h1 {
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+div#body h1:first-of-type {
+    margin-top: 0.5rem;
+}
+
+div#body h2 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin-top: 0.2em;
+}
+
+/* --- Code / log excerpts --- */
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+pre.failure,
+pre code.hljs,
+pre.hljs {
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+/* --- Tables --- */
+
+.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.data th {
+    background: var(--bg-soft);
+    color: var(--fg);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--border-strong);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table.data th.title {
+    background: var(--debian-red);
+    color: #fff;
+    font-size: 1.05rem;
+    white-space: nowrap;
+}
+
+.data td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.data tr:last-child td {
+    border-bottom: 0;
+}
+
+.data tbody tr:hover,
+.data tr:hover {
+    background: var(--bg-soft);
+}
+
+.data tr.odd {
+    background: var(--bg-soft);
+}
+
+.data tr.even {
+    background: var(--bg);
+}
+
+.data td.crit {
+    background: var(--crit-bg);
+    color: var(--crit);
+}
+
+.data td.warn {
+    background: var(--warn-bg);
+    color: var(--warn);
+}
+
+.data td.good {
+    background: var(--ok-bg);
+    color: var(--ok);
+}
+
+/* Horizontal scroll instead of a broken layout on narrow screens: below the
+   min-width the columns would be squeezed one word per line. */
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap .data {
+    min-width: 40rem;
+}
+
+.logs td.empty {
+    border-top: 0;
+}
+
+.logs td {
+    border-bottom: 0;
+}
+
+ul.logs {
+    list-style-type: disc;
+    padding-left: 1em;
+}
+
+/* --- Version switcher --- */
+
+.versions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+}
+
+.versions a,
+.versions .current {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    line-height: 1.5;
+}
+
+.versions .current {
+    background: var(--debian-red);
+    border-color: var(--debian-red);
+    color: #fff;
+    font-weight: 600;
+}
+
+.versions a:hover {
+    background: var(--bg-soft);
+    text-decoration: none;
+}
+
+/* --- Chart --- */
+
+.ct-chart {
+    margin: 1rem 0 1.5rem;
+}
+
+.ct-label {
+    fill: var(--fg-muted);
+    color: var(--fg-muted);
+}
+
+.ct-grid {
+    stroke: var(--border);
+}
+
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+    stroke: var(--debian-red);
+}
+
+/* --- Build status badges --- */
+
+.status a:link {
+    color: inherit;
+}
+
+.status-installed,
+.status-uploaded,
+.status-maybesuccessful,
+.status-built {
+    color: var(--ok);
+}
+
+.status-building,
+.status-notforus,
+.status-depwait,
+.status-needsbuild,
+.status-givenback,
+.status-skipped,
+.status-bduninstallable {
+    color: var(--warn);
+}
+
+.status-failed,
+.status-buildattempted,
+.status-maybefailed {
+    color: var(--crit);
+}
+
+span.red {
+    color: var(--crit);
+}
+
+span.green {
+    color: var(--ok);
+}
+
+span.orange {
+    color: var(--warn);
+}
+
+div.alert {
+    color: var(--crit);
+}
+
+.tiny {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+}
+
+.compact {
+    text-align: center;
+}
+
+/* Page intro, right under the banner. */
+.lead {
+    margin: 0 0 1rem;
+    font-size: 1.05rem;
+    text-align: center;
+    color: var(--fg-muted);
+}
+
+.summary {
+    margin: 0.5rem 0 1rem;
+}
+
+.tally {
+    margin: 0.5rem 0;
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+}
+
+.back-link {
+    margin: 0.5rem 0 1rem;
+    text-align: right;
+}
+
+.buttons {
+    vertical-align: middle;
+}
+
+/* --- Forms --- */
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+    color: inherit;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 0.35rem 0.6rem;
+    max-width: 100%;
+}
+
+button,
+input[type="submit"] {
+    background: var(--debian-red);
+    border-color: var(--debian-red);
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    filter: brightness(1.1);
+}
+
+/* --- Footer --- */
+
+#footer,
+.footer {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1rem 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+}
+
+div#body > hr {
+    display: none;
+}
+
+/* --- Narrow screens --- */
+
+@media (max-width: 640px) {
+    body {
+        font-size: 15px;
+    }
+
+    .site-header {
+        padding: 1rem;
+    }
+
+    div#body {
+        padding: 1rem;
+    }
+
+    .versions {
+        justify-content: flex-start;
+    }
+}

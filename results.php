@@ -4,17 +4,9 @@ include("listErrors.php");
 $keyGET=mysqli_real_escape_string(htmlspecialchars($_GET['key']));
 $versionGET=mysqli_real_escape_string(htmlspecialchars($_GET['version']));
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="revamp.css" />
-<link rel="StyleSheet" type="text/css" href="pkg.css" />
-<link rel="StyleSheet" type="text/css" href="status.css" />
-</head>
-<body>
-<h1 id="title">Debian Package rebuild</h1>
-<h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
+<?
+include("header.php");
+?>
 <div id="body">
 
 
@@ -46,7 +38,7 @@ Other errors can be caused by several reasons:<br />
 <li>mangling issues</li>
 <li>implicit declarations</li>
 <li>different warnings options list in <i>-Wall</i> or <i>-Wextra</i> (which will fail with -Werror)</li>
-<li>define qui serait existent mais pas trouvé (donc il met le symbol en implicit et remplace pas le define => verifier)</li>
+<li>define qui serait existent mais pas trouvï¿½ (donc il met le symbol en implicit et remplace pas le define => verifier)</li>
 </ul>
 <br />
 <br />
@@ -112,5 +104,8 @@ There are still some works to do in the LLVM/Clang world. libc++ should be packa
 <br />
 Many thanks to Lucas Nussbaum for his time and patience. Thanks also to grid 5000 for their infrastructure.<br />
 </div>
+<?
+include("footer.php");
+?>
 </body>
 </html>

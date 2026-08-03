@@ -30,77 +30,40 @@ if ($keyGET) {
 
 
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-
-<title><?=(isset($keyDSC))?$keyDSC. " - ":""?>Rebuild of the Debian archive with clang</title>
-
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="revamp.css" />
-<link rel="StyleSheet" type="text/css" href="pkg.css" />
-<link rel="StyleSheet" type="text/css" href="status.css" />
-<script type="text/javascript" src="jquery.js"></script>
-<link rel="stylesheet" href="/styles/github.css">
-<script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-  $('pre').each(function(i, e) {hljs.highlightBlock(e)});
-});
-
-$(document).ready(function () {
-  $("#pkg_field").focus();
-
-  $(".status").each(function (){
-    var id = $(this).attr('id');
-    if (id && id.substr(0,7) == 'status-') {
-      otherid = id.replace('status-','problem-');
-      problem = $('#'+otherid);
-      title = $(this).attr('title');
-      if (title) { title += ':\n';}
-      title += $(problem).text();
-      $(this).attr('title',title);
-    }
-  });
-});
-</script>
-
-</head>
-<body>
-<img src="irill.png" align="right" />
-<h1 id="title"><a href="/">Debian Package rebuild</a></h1>
-<h2 id="subtitle">Rebuild of the Debian archive with clang</h2>
+<?
+$pageTitle=(isset($keyDSC) ? $keyDSC . " - " : "") . "Rebuild of the Debian archive with clang";
+$pageHighlight=true;
+include("header.php");
+?>
 <div id="body">
 
-<? 
+<?
     $totalDebian=$clangVersions[$versionGET];
     if (!isset($keyGET) || $keyGET == "") {
 ?>
-<div align="center">clang <?=$versionGET?></div><br />
+<p class="lead">clang <?=$versionGET?></p>
 
 <?
     resultClangDisplay($versionGET);
- } 
-else 
+ }
+else
 {
 
 
 ?>
-<div align="center">
-    <i>"<?=$keyDSC?>"</i> build failure(s)<br />clang <?=$versionGET?>
-</div>
-<div align="right">    <a href="status.php">Return to the list</a></div>
+<p class="lead">
+    <i>"<?=$keyDSC?>"</i> build failure(s) &mdash; clang <?=$versionGET?>
+</p>
+<p class="back-link"><a href="status.php">&larr; Return to the list</a></p>
 <?
     if (is_file("errors/".$keyGET.".inc")) {
         include("errors/".$keyGET.".inc");
     }
-?><br />
+?>
 <div class="ct-chart"></div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 new Chartist.Line('.ct-chart', {
 
   labels: [
@@ -121,6 +84,7 @@ foreach ($clangVersions as $version => $pkg) {
 ]
 }, {
   height: 200
+});
 });
 </script>
 <?
@@ -149,14 +113,18 @@ $result=mysql_query($req);
 $nb=mysqli_num_rows($result);
 if ($nb > 0) {
 ?>
+<div class="table-wrap">
 <table class="data">
+<thead>
 <tr><th>Package</th><th>Version</th><th>Supposed error message</th><th>Full log</th>
 <th>Bug report</th>
 </tr>
+</thead>
+<tbody>
 <?
 } else {
 ?>
-<b>No error detect for version <?=$versionGET?></b><br />
+<p><strong>No error detected for version <?=$versionGET?></strong></p>
 <?
 }
 while ($row = mysql_fetch_object($result)) {
@@ -176,7 +144,7 @@ while ($row = mysql_fetch_object($result)) {
 if ($row->bug_number) {
 if ($row->bug_type == "debian") {
 ?>
-<a href="http://bugs.debian.org/<?=$row->bug_number?>"><?if ($row->status == "resolved") {?><del><?=$row->bug_number?></del><?}else{?><?=$row->bug_number?><? } ?></a>
+<a href="https://bugs.debian.org/<?=$row->bug_number?>"><?if ($row->status == "resolved") {?><del><?=$row->bug_number?></del><?}else{?><?=$row->bug_number?><? } ?></a>
 <? } else { ?>
 <a href="<?=$row->bug_number?>">Bug report</a>
 <? } } ?>
@@ -186,9 +154,13 @@ if ($row->bug_type == "debian") {
 </tr>
      <? // metaphone($row->detected_error)  ?>
         <? } ?>
+<? if ($nb > 0) { ?>
+</tbody>
 </table>
-<?=$nb?> errors
-<div align="right"><a href="status.php">Return to the list</a></div>
+</div>
+<p class="tally"><?=$nb?> errors</p>
+<? } ?>
+<p class="back-link"><a href="status.php">&larr; Return to the list</a></p>
 <? } ?>
 </div>
 <?
